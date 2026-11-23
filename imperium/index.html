@@ -2514,5 +2514,15 @@ document.querySelectorAll('.ftabs button').forEach(b=>b.onclick=()=>show(+b.data
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" style="color:inherit;font-weight:600">☕ Cet outil vous a plu ? Offrez-moi un café</a>
 <span style="width:100%;font-size:12px;opacity:.8">Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</span>
 </footer>
+<a href="../" class="site-home" aria-label="Retour à l'accueil des aides de jeu" style="position:fixed;left:14px;bottom:14px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px 8px 11px;border-radius:999px;background:rgba(14,16,24,.88);color:#efe8d8;border:1px solid rgba(221,185,106,.55);font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)"><span aria-hidden="true" style="font-size:15px">⌂</span><span class="sh-t">Accueil</span></a>
+<style>
+.site-home{transition:transform .25s ease,opacity .25s ease}
+.site-home.away{transform:translateY(140%);opacity:0;pointer-events:none}
+@media (max-width:640px){.site-home{padding:10px!important;bottom:12px!important;left:12px!important}.site-home .sh-t{display:none}}
+</style>
+<script>
+(function(){var a=document.querySelector(".site-home");if(!a)return;var y=window.scrollY;
+window.addEventListener("scroll",function(){var n=window.scrollY;if(n>y+8&&n>120)a.classList.add("away");else if(n<y-8||n<120)a.classList.remove("away");y=n;},{passive:true});})();
+</script>
 </body>
 </html>

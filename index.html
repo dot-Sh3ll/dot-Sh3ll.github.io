@@ -88,6 +88,23 @@ h2{font-family:var(--display);font-weight:400;font-size:1.7rem;margin:0 0 6px}
 .dl:focus-visible{outline:2px solid var(--accent,var(--gold));outline-offset:3px}
 @media (max-width:640px){ .pdf{grid-template-columns:auto 1fr} .pdf .dl{grid-column:1/-1;justify-content:center} }
 
+.filters{position:sticky;top:0;z-index:5;margin:0 0 36px;padding:12px 0;background:rgba(13,15,22,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.filters-in{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+.search{flex:1 1 240px;position:relative}
+.search input{width:100%;font:500 1rem var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.7rem 1rem .7rem 2.5rem}
+.search input::placeholder{color:#737a8c}
+.search input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(221,185,106,.2)}
+.search svg{position:absolute;left:.95rem;top:50%;transform:translateY(-50%);width:17px;height:17px;color:#7d8496;pointer-events:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:600 .85rem var(--body);color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.5rem .95rem;cursor:pointer}
+.chip:hover{color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+.chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.empty{color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:18px 20px;margin:0 0 64px}
+.grid .empty{grid-column:1/-1;margin:0}
+[hidden]{display:none!important}
+@media (max-width:640px){.chips{flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:none}}
+
 .support{
   display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
   background:linear-gradient(135deg,#1f1a12,#15131c);border:1px solid #4a3d22;border-radius:18px;padding:28px 30px;margin-bottom:56px;
@@ -136,12 +153,27 @@ footer p{margin:0 0 8px}
   </div>
 </header>
 
+<div class="filters" role="search">
+  <div class="wrap filters-in">
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" autocomplete="off" placeholder="Rechercher un jeu, une fiche…" aria-label="Rechercher">
+    </label>
+    <div class="chips" role="group" aria-label="Filtrer par jeu">
+      <button type="button" class="chip" data-g="all" aria-pressed="true"><span class="fr">Tous</span><span class="en">All</span></button>
+      <button type="button" class="chip" data-g="mk" aria-pressed="false">Mage Knight</button>
+      <button type="button" class="chip" data-g="imp" aria-pressed="false">Imperium</button>
+      <button type="button" class="chip" data-g="ae" aria-pressed="false">Aeon's End</button>
+    </div>
+  </div>
+</div>
+
 <main class="wrap">
   <h2><span class="fr">Les applis</span><span class="en">The apps</span></h2>
   <p class="section-sub"><span class="fr">Votre progression est enregistrée dans votre navigateur.</span><span class="en">Your progress is saved in your browser.</span></p>
 
   <div class="grid">
-    <a class="card mk" href="mage-knight/">
+    <a class="card mk" data-game="mk" href="mage-knight/">
       <div class="banner"><span class="glyph" aria-hidden="true">🗺️</span><h3>Mage Knight</h3></div>
       <div class="body">
         <p class="fr">Apprenez le jeu pas à pas avec des quiz et des cas pratiques, puis jouez avec le compagnon : outils de combat, Fantôme en solo, scénarios, score et carnet de campagne.</p>
@@ -151,7 +183,7 @@ footer p{margin:0 0 8px}
       </div>
     </a>
 
-    <a class="card imp" href="imperium/">
+    <a class="card imp" data-game="imp" href="imperium/">
       <div class="banner"><span class="glyph" aria-hidden="true">🏛️</span><h3>Imperium Antique</h3></div>
       <div class="body">
         <p class="fr">Un tutoriel en quelques étapes avec un tour guidé, puis le mode solo : l'appli gère entièrement la C.I.V. et raconte chacun de ses tours. Avec aide-mémoire, campagne et historique.</p>
@@ -161,7 +193,7 @@ footer p{margin:0 0 8px}
       </div>
     </a>
 
-    <a class="card ae" href="aeons-end/">
+    <a class="card ae" data-game="ae" href="aeons-end/">
       <div class="banner"><span class="glyph" aria-hidden="true">🔮</span><h3>Aeon's End</h3></div>
       <div class="body">
         <p class="fr">Générez un marché pour chaque combat (optimisé, original ou aléatoire) selon vos boîtes, notez victoires et défaites, et suivez vos expéditions.</p>
@@ -170,6 +202,7 @@ footer p{margin:0 0 8px}
         <span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span>
       </div>
     </a>
+    <p class="empty" data-empty hidden><span class="fr">Aucune appli ne correspond à votre recherche.</span><span class="en">No app matches your search.</span></p>
   </div>
 
   <h2 id="fiches"><span class="fr">Fiches à télécharger</span><span class="en">Printable sheets</span></h2>
@@ -177,7 +210,7 @@ footer p{margin:0 0 8px}
 
   <div class="pdfs">
     <!-- Pour ajouter une fiche : déposer le PDF dans le dossier « fiches », puis copier ce bloc <article> et l'adapter. -->
-    <article class="pdf mk">
+    <article class="pdf mk" data-game="mk">
       <span class="ico" aria-hidden="true">🗺️</span>
       <div>
         <h3><span class="fr">Mage Knight · Aide de jeu et module de quêtes</span><span class="en">Mage Knight · Game aid and quest module</span></h3>
@@ -187,6 +220,7 @@ footer p{margin:0 0 8px}
       </div>
       <a class="dl" href="fiches/mage-knight-aide-de-jeu.pdf" download>⬇ <span class="fr">Télécharger</span><span class="en">Download</span></a>
     </article>
+    <p class="empty" data-empty hidden style="margin:0"><span class="fr">Pas encore de fiche pour cette recherche.</span><span class="en">No sheet matches your search yet.</span></p>
   </div>
 
   <section class="support" aria-labelledby="support-title">
@@ -226,6 +260,36 @@ footer p{margin:0 0 8px}
   var saved=null; try{ saved=localStorage.getItem("site-lang"); }catch(e){}
   set(saved || ((navigator.language||"fr").toLowerCase().indexOf("fr")===0 ? "fr" : "en"));
   btns.forEach(function(x){ x.onclick=function(){ set(x.dataset.set); }; });
+})();
+</script>
+<script>
+(function(){
+  var q=document.getElementById("q"), chips=document.querySelectorAll(".chip"), game="all";
+  var norm=function(t){return (t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");};
+  var items=[].slice.call(document.querySelectorAll("[data-game]")).map(function(el){
+    var names={mk:"mage knight",imp:"imperium antique classiques",ae:"aeon's end aeons end"}[el.dataset.game]||"";
+    return {el:el, text:norm(el.textContent+" "+names)};
+  });
+  function apply(){
+    var terms=norm(q.value).split(/\s+/).filter(Boolean);
+    items.forEach(function(it){
+      var ok=(game==="all"||it.el.dataset.game===game)&&terms.every(function(t){return it.text.indexOf(t)>-1;});
+      it.el.hidden=!ok;
+    });
+    document.querySelectorAll("[data-empty]").forEach(function(m){
+      var box=m.parentNode, any=[].some.call(box.querySelectorAll("[data-game]"),function(e){return !e.hidden;});
+      m.hidden=any;
+    });
+    try{ var u=new URL(location.href); game==="all"?u.searchParams.delete("jeu"):u.searchParams.set("jeu",game); history.replaceState(null,"",u); }catch(e){}
+  }
+  function setGame(g){ game=g; chips.forEach(function(c){c.setAttribute("aria-pressed",String(c.dataset.g===g));}); apply(); }
+  chips.forEach(function(c){ c.onclick=function(){ setGame(c.dataset.g); }; });
+  q.addEventListener("input",apply);
+  var start="all"; try{ var j=new URL(location.href).searchParams.get("jeu"); if(["mk","imp","ae"].indexOf(j)>-1) start=j; }catch(e){}
+  setGame(start);
+  var ph={fr:"Rechercher un jeu, une fiche…",en:"Search a game or a sheet…"};
+  new MutationObserver(function(){ q.placeholder=ph[document.body.getAttribute("data-lang")]||ph.fr; }).observe(document.body,{attributes:true,attributeFilter:["data-lang"]});
+  q.placeholder=ph[document.body.getAttribute("data-lang")]||ph.fr;
 })();
 </script>
 </body>

@@ -513,7 +513,7 @@ const CARDS = RAW.map(r=>({id:r[0],type:r[1],box:r[2],cost:r[3],fr:r[4],en:r[5],
 
 const BOXES = [
   ["WE","Guerre Éternelle"],["NA","Une Ère Nouvelle"],["BS","Secrets enfouis"],
-  ["OD","Ténèbres d'ailleurs"],["TA","De Vieux Souvenirs"],["RTG","Retour à Gravehold"],["PR","Cartes promo"],["BASE","Boîte de base (chez ton amie)"]
+  ["OD","Ténèbres d'ailleurs"],["TA","De Vieux Souvenirs"],["RTG","Retour à Gravehold"],["PR","Cartes promo"],["BASE","Le commencement"]
 ];
 const BOXNAME = Object.fromEntries(BOXES);
 const TYPES = [["Gem","Gemmes"],["Relic","Reliques"],["Spell","Sorts"]];
@@ -549,10 +549,10 @@ const THEMES = {
    Profil : want = familles de cartes utiles, big = gros sorts, avoid = cartes à écarter.
    Pas de profil = némésis que je ne connais pas assez pour orienter le tirage. */
 const NEM = [
-  ["Rage Incarnée","Boîte de base",{want:["surv"]},"elle frappe les mages de plein fouet : soins et protections"],
-  ["Reine Carapace","Boîte de base",{want:["min"]},"sa nuée de carapaces tombe sous les petits dégâts répétés"],
-  ["Prince des Gloutons","Boîte de base",{avoid:["UnrefinedBlaststone","FracturedQuartz","NetherConduit"]},"il dévore la réserve : j'écarte les cartes qui vident vos propres piles"],
-  ["Masque Tordu","Boîte de base",{want:["thin"]},"ses corruptions encombrent les decks : cartes de destruction"],
+  ["Rage Incarnée","Le commencement",{want:["surv"]},"elle frappe les mages de plein fouet : soins et protections"],
+  ["Reine Carapace","Le commencement",{want:["min"]},"sa nuée de carapaces tombe sous les petits dégâts répétés"],
+  ["Prince des Gloutons","Le commencement",{avoid:["UnrefinedBlaststone","FracturedQuartz","NetherConduit"]},"il dévore la réserve : j'écarte les cartes qui vident vos propres piles"],
+  ["Masque Tordu","Le commencement",{want:["thin"]},"ses corruptions encombrent les decks : cartes de destruction"],
   ["Titan de l'Ombre","Guerre Éternelle",{want:["surv"]},"il use Gravehold et les mages : soins"],
   ["Couronne Creuse","Guerre Éternelle",{want:["min"]},"seuls ses acolytes comptent : cartes contre les serviteurs"],
   ["Démon des Voiles","Guerre Éternelle",{big:true,avoid:["DoubleTap","NerveJab","DrainingTouch","BurningCurrent","ReverberatingShock","BouncingBoom"]},"ses voiles amortissent chaque coup : gros sorts plutôt que petits impacts"],
@@ -592,14 +592,14 @@ const MAGES = [
   ["Qu","De Vieux Souvenirs",["amp","br"],"elle relance des sorts préparés"],
   ["Ohat et Ulgimor","Retour à Gravehold",[],""],
   ["Cairna","Retour à Gravehold",["ch","sup"],"capacité à 3 charges qui gagne des sorts"],
-  ["Adelheim","Boîte de base",["ch"],"sa capacité annule une carte némésis"],
-  ["Brama","Boîte de base",["ch"],"sa capacité soigne 4 vies"],
-  ["Jian","Boîte de base",["amp"],"elle lance deux fois le même sort"],
-  ["Kadir","Boîte de base",["br","amp"],"elle prépare deux sorts par brèche"],
-  ["Lash","Boîte de base",["turn"],"il manipule l'ordre du tour"],
-  ["Mist (boîte de base)","Boîte de base",["coop"],"elle fait piocher un allié"],
-  ["Phaedraxa","Boîte de base",["ch"],"sa capacité annule les dégâts d'un tour"],
-  ["Xaxos","Boîte de base",["ch","turn"],"il distribue des charges et lit l'ordre du tour"],
+  ["Adelheim","Le commencement",["ch"],"sa capacité annule une carte némésis"],
+  ["Brama","Le commencement",["ch"],"sa capacité soigne 4 vies"],
+  ["Jian","Le commencement",["amp"],"elle lance deux fois le même sort"],
+  ["Kadir","Le commencement",["br","amp"],"elle prépare deux sorts par brèche"],
+  ["Lash","Le commencement",["turn"],"il manipule l'ordre du tour"],
+  ["Mist (boîte de base)","Le commencement",["coop"],"elle fait piocher un allié"],
+  ["Phaedraxa","Le commencement",["ch"],"sa capacité annule les dégâts d'un tour"],
+  ["Xaxos","Le commencement",["ch","turn"],"il distribue des charges et lit l'ordre du tour"],
   ["Brama (Le Commencement)","Le Commencement",[],""],["Janti","Le Commencement",[],""],["Leisan","Le Commencement",[],""],
   ["Mazahaedron (Le Commencement)","Le Commencement",[],""],["Raven","Le Commencement",[],""],["Thraxir","Le Commencement",[],""]
 ];
@@ -966,7 +966,7 @@ $("logform").onsubmit=e=>{
   },()=>{ clearTimeout(xslow); xstate="off"; renderExp(); });
 })();
 /* ---------- expédition (règles d'Une Ère Nouvelle) ---------- */
-const BOXKEY={"Boîte de base":"BASE","Guerre Éternelle":"WE","Une Ère Nouvelle":"NA","Retour à Gravehold":"RTG","Ténèbres d'ailleurs":"OD","De Vieux Souvenirs":"TA","Secrets enfouis":"BS"};
+const BOXKEY={"Le commencement":"BASE","Guerre Éternelle":"WE","Une Ère Nouvelle":"NA","Retour à Gravehold":"RTG","Ténèbres d'ailleurs":"OD","De Vieux Souvenirs":"TA","Secrets enfouis":"BS"};
 const NEMLVL={"Rage Incarnée":1,"Reine Carapace":1,"Titan de l'Ombre":1,"Maggoth":1,"Masque Tordu":2,"Prince des Gloutons":2,"Arachnos":2,"Forteresse":2,"Prophète aux trois Trépas":2,
   "Couronne Creuse":3,"Démon des Voiles":3,"Marcheur éternel":3,"Le Vagabond":3,"Sorcière du Portail":4,"Fenrix":4,"Fouisseur":4,"Maître des Spectres":4};
 const DECK={2:[["3A","5A","7A"],["1V + 2A","3V + 2A","3V + 4A"],["2V + 1A","4V + 1A","5V + 2A"],["3V","5V","7V"]],
@@ -1267,5 +1267,15 @@ fillSelects(); renderBoxes(); renderDist(); renderJournal(); renderExp(); showVi
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" style="color:inherit;font-weight:600">☕ Cet outil vous a plu ? Offrez-moi un café</a>
 <span style="width:100%;font-size:12px;opacity:.8">Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</span>
 </footer>
+<a href="../" class="site-home" aria-label="Retour à l'accueil des aides de jeu" style="position:fixed;left:14px;bottom:14px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px 8px 11px;border-radius:999px;background:rgba(14,16,24,.88);color:#efe8d8;border:1px solid rgba(221,185,106,.55);font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)"><span aria-hidden="true" style="font-size:15px">⌂</span><span class="sh-t">Accueil</span></a>
+<style>
+.site-home{transition:transform .25s ease,opacity .25s ease}
+.site-home.away{transform:translateY(140%);opacity:0;pointer-events:none}
+@media (max-width:640px){.site-home{padding:10px!important;bottom:12px!important;left:12px!important}.site-home .sh-t{display:none}}
+</style>
+<script>
+(function(){var a=document.querySelector(".site-home");if(!a)return;var y=window.scrollY;
+window.addEventListener("scroll",function(){var n=window.scrollY;if(n>y+8&&n>120)a.classList.add("away");else if(n<y-8||n<120)a.classList.remove("away");y=n;},{passive:true});})();
+</script>
 </body>
 </html>
