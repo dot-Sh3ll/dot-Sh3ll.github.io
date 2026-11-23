@@ -16,3 +16,8 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 1. Créer un dossier (ex. `nouveau-jeu/`) et y déposer le fichier de l'appli renommé en `index.html`.
 2. Dans `index.html` à la racine, copier un bloc `<a class="card ...">` et l'adapter (titre, description, lien `nouveau-jeu/`).
+
+## Ajouter une fiche PDF
+
+1. Déposer le PDF dans le dossier `fiches/` (nom sans espaces ni accents, ex. `imperium-aide-memoire.pdf`).
+2. Dans `index.html`, section « Fiches à télécharger », copier un bloc `<article class="pdf ...">` et l'adapter (titre, description, lien `fiches/nom-du-fichier.pdf`). Classe de couleur : `mk` (Mage Knight), `imp` (Imperium), `ae` (Aeon's End).

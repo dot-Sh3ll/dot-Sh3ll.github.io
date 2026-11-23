@@ -69,6 +69,25 @@ h2{font-family:var(--display);font-weight:400;font-size:1.7rem;margin:0 0 6px}
 .imp{--accent:#d9b25c;--c1:#7a2f2a;--c2:#2b1a3a}
 .ae{--accent:#c495f5;--c1:#4b2e7a;--c2:#171329}
 
+.pdfs{display:flex;flex-direction:column;gap:12px;margin-bottom:64px}
+.pdf{
+  display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent,var(--gold));
+  border-radius:14px;padding:16px 20px;
+}
+.pdf .ico{font-size:1.9rem;line-height:1}
+.pdf h3{font-family:var(--display);font-weight:400;font-size:1.2rem;margin:0 0 2px}
+.pdf p{margin:0;color:var(--muted);font-size:.92rem}
+.pdf .meta{font-size:.78rem;color:#7d8496;margin-top:4px}
+.dl{
+  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;font-weight:700;font-size:.92rem;
+  color:var(--accent,var(--gold));border:1px solid currentColor;border-radius:999px;padding:.55rem 1.1rem;
+  transition:background .15s ease,color .15s ease;
+}
+.dl:hover{background:var(--accent,var(--gold));color:var(--bg)}
+.dl:focus-visible{outline:2px solid var(--accent,var(--gold));outline-offset:3px}
+@media (max-width:640px){ .pdf{grid-template-columns:auto 1fr} .pdf .dl{grid-column:1/-1;justify-content:center} }
+
 .support{
   display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
   background:linear-gradient(135deg,#1f1a12,#15131c);border:1px solid #4a3d22;border-radius:18px;padding:28px 30px;margin-bottom:56px;
@@ -151,6 +170,23 @@ footer p{margin:0 0 8px}
         <span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span>
       </div>
     </a>
+  </div>
+
+  <h2 id="fiches"><span class="fr">Fiches à télécharger</span><span class="en">Printable sheets</span></h2>
+  <p class="section-sub"><span class="fr">Des aides de jeu en PDF, à imprimer et à garder à côté du plateau.</span><span class="en">PDF game aids to print and keep next to the board.</span></p>
+
+  <div class="pdfs">
+    <!-- Pour ajouter une fiche : déposer le PDF dans le dossier « fiches », puis copier ce bloc <article> et l'adapter. -->
+    <article class="pdf mk">
+      <span class="ico" aria-hidden="true">🗺️</span>
+      <div>
+        <h3><span class="fr">Mage Knight · Aide de jeu et module de quêtes</span><span class="en">Mage Knight · Game aid and quest module</span></h3>
+        <p class="fr">Récapitulatifs du tour, du déplacement, du combat, des sites et des capacités, avec le module de quêtes maison.</p>
+        <p class="en">Summaries of the turn, movement, combat, sites and abilities, plus a homemade quest module.</p>
+        <p class="meta"><span class="fr">PDF · format A5 · en français</span><span class="en">PDF · A5 · in French</span></p>
+      </div>
+      <a class="dl" href="fiches/mage-knight-aide-de-jeu.pdf" download>⬇ <span class="fr">Télécharger</span><span class="en">Download</span></a>
+    </article>
   </div>
 
   <section class="support" aria-labelledby="support-title">
