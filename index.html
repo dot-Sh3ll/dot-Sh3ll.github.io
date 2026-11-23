@@ -193,7 +193,7 @@ footer p{margin:0 0 6px}
 <main class="wrap">
   <div class="sec-head">
     <h2><span class="fr">Applis à la une</span><span class="en">Featured apps</span></h2>
-    <p class="sec-sub"><span class="fr">Les 3 dernières parues</span><span class="en">The 3 latest releases</span></p>
+    <p class="sec-sub"><span class="fr">Les 3 plus récemment mises à jour</span><span class="en">The 3 most recently updated</span></p>
   </div>
 
   <!-- Pour ajouter une appli : copier un bloc <a class="card ...">, l'adapter, et mettre à jour data-created / data-updated (AAAA-MM-JJ). -->
@@ -365,7 +365,9 @@ footer p{margin:0 0 6px}
   }
   document.querySelectorAll("[data-sort]").forEach(function(box){
     var items=[].slice.call(box.querySelectorAll("[data-created]")), empty=box.querySelector("[data-empty]");
-    items.sort(function(a,b){ return b.dataset.created.localeCompare(a.dataset.created)||(b.dataset.updated||"").localeCompare(a.dataset.updated||"") });
+    /* applis : dernière mise à jour d'abord ; fiches : date de parution */
+    var byUpd=!box.classList.contains("pdfs"), key=function(e){ return byUpd?(e.dataset.updated||e.dataset.created):e.dataset.created };
+    items.sort(function(a,b){ return key(b).localeCompare(key(a))||b.dataset.created.localeCompare(a.dataset.created) });
     /* bouton « Tout afficher » : seules les 3 dernières parutions sont visibles par défaut */
     if(items.length>3){ var m=document.createElement("div"); m.className="more"; m.innerHTML='<button type="button" aria-expanded="false"></button>'; box.parentNode.insertBefore(m,box.nextSibling); box._more=m; box._n=items.length }
     items.forEach(function(it){ box.insertBefore(it, empty) });
