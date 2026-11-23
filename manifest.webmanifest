@@ -1,0 +1,21 @@
+{
+  "name": "Aides de jeu de Paul",
+  "short_name": "Aides de jeu",
+  "description": "Tutoriels interactifs, compagnons solo et fiches pour Mage Knight, Imperium et Aeon's End.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d0f16",
+  "theme_color": "#0d0f16",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Mage Knight", "url": "mage-knight/", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "Imperium Antique", "url": "imperium/", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "Aeon's End", "url": "aeons-end/", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
+  ]
+}

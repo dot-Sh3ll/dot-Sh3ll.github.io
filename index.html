@@ -7,7 +7,7 @@
 <meta name="description" content="Aides de jeu gratuites, en français et en anglais, pour jeux de société experts : tutoriels interactifs, compagnons solo et fiches à imprimer pour Mage Knight, Imperium et Aeon's End.">
 <meta property="og:title" content="Aides de jeu de Paul · Free board game aids">
 <meta property="og:description" content="Tutoriels interactifs, compagnons solo et fiches à imprimer. Interactive tutorials, solo companions and printable sheets.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+text y='.9em' font-size='90'>🎲</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0}
+html{scroll-padding-top:130px}
 body{font-family:var(--body);color:var(--ink);line-height:1.55;min-height:100vh;
   background:radial-gradient(ellipse 80% 300px at 50% -80px,rgba(221,185,106,.13),transparent 75%) no-repeat,var(--bg)}
 a{color:inherit}
@@ -103,6 +104,21 @@ h2{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0}
 .empty{color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:16px 20px;margin:0}
 .grid .empty{grid-column:1/-1}
 
+.feedback{margin-bottom:52px}
+.fb{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+.fb-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fb label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.9rem}
+.fb label small{font-weight:400;color:var(--faint)}
+.fb select,.fb textarea,.fb input{font:500 .96rem var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.65rem .8rem;width:100%}
+.fb textarea{resize:vertical;min-height:110px}
+.fb select:focus,.fb textarea:focus,.fb input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(221,185,106,.2)}
+.fb [aria-invalid="true"]{border-color:#e07a6a}
+.fb-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.fb-send{font:700 .95rem var(--body);background:var(--gold);color:var(--gold-ink);border:0;border-radius:999px;height:42px;padding:0 22px;cursor:pointer}
+.fb-send:disabled{opacity:.6;cursor:default}
+.fb-msg{margin:0;color:var(--muted);font-size:.92rem}
+.fb-msg.ok{color:var(--new)}.fb-msg.err{color:#e07a6a}
+@media (max-width:640px){.fb-row{grid-template-columns:1fr}.fb{padding:16px}}
 .about{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:44px}
 .about div{border-top:1px solid var(--line);padding-top:14px}
 .about h3{font-family:var(--display);font-weight:400;font-size:1.12rem;margin:0 0 6px}
@@ -120,6 +136,18 @@ footer p{margin:0 0 6px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+<!--pwa-->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon-32.png" type="image/png">
+<meta name="theme-color" content="#0d0f16">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Aides de jeu">
+<script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}</script>
+<script data-goatcounter="https://paulmoussard.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<!--/pwa-->
 </head>
 <body data-lang="fr">
 
@@ -224,9 +252,40 @@ footer p{margin:0 0 6px}
     </div>
     <div>
       <h3><span class="fr">Une erreur, une idée ?</span><span class="en">Found a bug? Got an idea?</span></h3>
-      <p class="fr">Les retours sont les bienvenus : écrivez-moi via ma page <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Ko-fi</a>.</p>
-      <p class="en">Feedback is very welcome: reach me through my <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Ko-fi</a> page.</p>
+      <p class="fr">Une règle mal expliquée, un bouton qui ne marche pas, une envie d'appli pour un autre jeu : <a href="#avis">écrivez-moi juste en dessous</a>.</p>
+      <p class="en">A rule explained wrong, a button that doesn't work, a wish for another game: <a href="#avis">write to me just below</a>.</p>
     </div>
+  </section>
+  <section class="feedback" id="avis" aria-labelledby="avis-t">
+    <div class="sec-head"><h2 id="avis-t"><span class="fr">Votre avis</span><span class="en">Your feedback</span></h2>
+      <p class="sec-sub"><span class="fr">Je lis chaque message</span><span class="en">I read every message</span></p></div>
+    <form id="fb" class="fb" novalidate>
+      <div class="fb-row">
+        <label><span class="fr">Appli concernée</span><span class="en">Which app</span>
+          <select name="app" required>
+            <option value="Mage Knight">Mage Knight</option>
+            <option value="Imperium">Imperium</option>
+            <option value="Aeon's End">Aeon's End</option>
+            <option value="Site" data-fr="Le site en général" data-en="The site in general">Le site en général</option>
+            <option value="Autre jeu" data-fr="Une idée pour un autre jeu" data-en="An idea for another game">Une idée pour un autre jeu</option>
+          </select></label>
+        <label><span class="fr">Type de retour</span><span class="en">Type of feedback</span>
+          <select name="type" required>
+            <option value="Bug" data-fr="Bug : quelque chose ne marche pas" data-en="Bug: something doesn't work">Bug : quelque chose ne marche pas</option>
+            <option value="Règle" data-fr="Erreur de règle ou de traduction" data-en="Rules or translation error">Erreur de règle ou de traduction</option>
+            <option value="Idée" data-fr="Idée d'amélioration" data-en="Improvement idea">Idée d'amélioration</option>
+            <option value="Merci" data-fr="Juste un merci" data-en="Just a thank you">Juste un merci</option>
+          </select></label>
+      </div>
+      <label><span class="fr">Votre message</span><span class="en">Your message</span>
+        <textarea name="message" rows="5" required maxlength="3000" data-ph-fr="Ce que vous faisiez, ce qui s'est passé, sur quel appareil…" data-ph-en="What you were doing, what happened, on which device…"></textarea></label>
+      <label><span class="fr">Votre e-mail <small>(facultatif, pour que je puisse répondre)</small></span><span class="en">Your email <small>(optional, so I can reply)</small></span>
+        <input type="email" name="email" autocomplete="email" maxlength="200"></label>
+      <div class="fb-foot">
+        <button type="submit" class="fb-send"><span class="fr">Envoyer</span><span class="en">Send</span></button>
+        <p class="fb-msg" role="status" aria-live="polite"></p>
+      </div>
+    </form>
   </section>
 </main>
 
@@ -294,6 +353,37 @@ footer p{margin:0 0 6px}
 
   var start="all"; try{ var j=new URL(location.href).searchParams.get("jeu"); if(NAMES[j]) start=j }catch(e){}
   setGame(start);
+})();
+
+/* --- formulaire de retour (envoyé vers un Google Form) --- */
+(function(){
+  /* À remplir une fois le Google Form créé : identifiant du formulaire et numéros des questions (entry.XXXX). */
+  var GFORM={id:"", app:"", type:"", message:"", email:"", page:""};
+  var f=document.getElementById("fb"); if(!f) return;
+  var msg=f.querySelector(".fb-msg"), btn=f.querySelector(".fb-send");
+  var L=function(){return document.body.getAttribute("data-lang")||"fr"};
+  var T={fr:{need:"Écrivez un message avant d'envoyer.",send:"Envoi…",ok:"Merci ! Votre message est bien arrivé.",err:"L'envoi a échoué. Réessayez dans un instant.",off:"Le formulaire n'est pas encore branché : écrivez-moi en attendant via Ko-fi."},
+         en:{need:"Write a message before sending.",send:"Sending…",ok:"Thank you! Your message has arrived.",err:"Sending failed. Please try again in a moment.",off:"The form isn't connected yet: reach me on Ko-fi in the meantime."}};
+  function relabel(){var l=L();f.querySelectorAll("option[data-fr]").forEach(function(o){o.textContent=o.getAttribute("data-"+l)});
+    var ta=f.querySelector("textarea");ta.placeholder=ta.getAttribute("data-ph-"+l)}
+  relabel(); new MutationObserver(relabel).observe(document.body,{attributes:true,attributeFilter:["data-lang"]});
+  try{var a=new URL(location.href).searchParams.get("app");if(a){f.app.value=a;if(location.hash!=="#avis")location.hash="avis"}}catch(e){}
+  f.addEventListener("submit",function(e){
+    e.preventDefault(); var t=T[L()]; msg.className="fb-msg";
+    if(!f.message.value.trim()){f.message.setAttribute("aria-invalid","true");f.message.focus();msg.textContent=t.need;msg.classList.add("err");return}
+    f.message.removeAttribute("aria-invalid");
+    if(!GFORM.id){msg.textContent=t.off;msg.classList.add("err");return}
+    var d=new FormData();
+    d.append("entry."+GFORM.app,f.app.value); d.append("entry."+GFORM.type,f.type.value);
+    d.append("entry."+GFORM.message,f.message.value.trim());
+    if(GFORM.email) d.append("entry."+GFORM.email,f.email.value.trim());
+    if(GFORM.page) d.append("entry."+GFORM.page,L().toUpperCase()+" · "+navigator.userAgent.slice(0,180));
+    btn.disabled=true; msg.textContent=t.send;
+    fetch("https://docs.google.com/forms/d/e/"+GFORM.id+"/formResponse",{method:"POST",mode:"no-cors",body:d})
+      .then(function(){f.reset();relabel();msg.textContent=t.ok;msg.classList.add("ok")})
+      .catch(function(){msg.textContent=t.err;msg.classList.add("err")})
+      .then(function(){btn.disabled=false});
+  });
 })();
 </script>
 </body>

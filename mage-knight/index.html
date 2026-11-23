@@ -414,6 +414,18 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 <style id="sitehead-css-mk">
 .app-tuto #side-nav{top:calc(8px + var(--sitehead-h))!important;max-height:calc(92vh - var(--sitehead-h))!important}
 </style>
+<!--pwa-->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/favicon-32.png" type="image/png">
+<meta name="theme-color" content="#0d0f16">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Aides de jeu">
+<script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
+<script data-goatcounter="https://paulmoussard.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<!--/pwa-->
 </head>
 <body>
 <header class="sitehead">
@@ -2425,6 +2437,7 @@ S=load()||blank();render();
 </script>
 <footer style="max-width:1100px;margin:48px auto 0;padding:20px 16px 32px;border-top:1px solid rgba(128,128,128,.3);font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.85;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between">
 <a href="../" style="color:inherit;font-weight:600">← Toutes les aides de jeu</a>
+<a href="../?app=Mage%20Knight#avis" style="color:inherit;font-weight:600">✉ Signaler un problème</a>
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" style="color:inherit;font-weight:600">☕ Cet outil vous a plu ? Offrez-moi un café</a>
 <span style="width:100%;font-size:12px;opacity:.8">Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</span>
 </footer>
