@@ -1115,11 +1115,12 @@ function bonus(p,id){const o=p.own,x=p.x[id]||0;switch(id){
 const XIN={res:'Cases Parcelle remplies',frt:'Ouvriers et bourgeois sur le domaine',cat:'Séries de 3 tuiles identiques'};
 function total(p){let t=(+p.chips||0),d=[`${+p.chips||0} en jetons`];const bv=p.own.reduce((s,k)=>s+BI[k].vp,0);t+=bv;d.push(`${bv} de bâtiments`);
  let lb=0;p.own.filter(k=>BI[k].kind==='large'&&p.occ[k]).forEach(k=>lb+=bonus(p,k));if(lb){t+=lb;d.push(`${lb} de bonus`)}if(SC.e2&&p.cit){t+=+p.cit;d.push(`${p.cit} de bourgeois`)}return {t,d}}
-function score(){const sets=['base'].concat(SC.e1?['e1']:[],SC.e2?['e2']:[]);
+const GRPOPEN={};
+function score(){const y=window.scrollY;const sets=['base'].concat(SC.e1?['e1']:[],SC.e2?['e2']:[]);
  $('#score').innerHTML=`<div class="eyebrow">Décompte</div><h1>Calculer les scores</h1><p class="lead">Coche les bâtiments de chacun ; pour les grands bâtiments occupés, l'appli calcule le bonus. Tout reste enregistré dans ce navigateur.</p>
  <div class="toolbar">Joueurs ${seg('sc-n',[2,3,4,5],SC.n)}<label class="chk"><input type="checkbox" id="sc-e1" ${SC.e1?'checked':''}> Extension I</label><label class="chk"><input type="checkbox" id="sc-e2" ${SC.e2?'checked':''}> Extension II (bourgeois)</label><button type="button" id="sc-reset">Tout effacer</button></div>
  <div class="pcards">${Array.from({length:SC.n},(_,i)=>{const p=scP(i);p.own=p.own.filter(k=>sets.includes(BI[k].set));
-  const grp=(kind,lab)=>`<details class="grp" ${kind!=='small'?'open':''}><summary>${lab}</summary><div class="bchips">${B.filter(b=>b.kind===kind&&sets.includes(b.set)).map(b=>`<button type="button" data-p="${i}" data-b="${b.id}" class="${p.own.includes(b.id)?'sel':''}">${b.fr} · ${b.vp}</button>`).join('')}</div></details>`;
+  const grp=(kind,lab)=>{const gk=i+kind,op=gk in GRPOPEN?GRPOPEN[gk]:kind!=='small';return `<details class="grp" data-gk="${gk}" ${op?'open':''}><summary>${lab}</summary><div class="bchips">${B.filter(b=>b.kind===kind&&sets.includes(b.set)).map(b=>`<button type="button" data-p="${i}" data-b="${b.id}" class="${p.own.includes(b.id)?'sel':''}">${b.fr} · ${b.vp}</button>`).join('')}</div></details>`};
   const larges=p.own.filter(k=>BI[k].kind==='large'&&k!=='mon');
   return `<div class="pcard"><div class="row" style="justify-content:space-between"><input type="text" value="${esc(p.name)}" data-p="${i}" data-f="name" aria-label="Nom du joueur ${i+1}" style="font-weight:700;width:150px"><span class="tot" id="sc-t${i}"></span></div>
   <div class="row" style="margin:8px 0"><label class="f">PV en jetons<input type="number" min="0" value="${p.chips||0}" data-p="${i}" data-f="chips"></label>${SC.e2?`<label class="f">Bourgeois<input type="number" min="0" value="${p.cit||0}" data-p="${i}" data-f="cit"></label>`:''}<label class="f">Pesos + barils<input type="number" min="0" value="${p.tie||0}" data-p="${i}" data-f="tie"></label></div>
@@ -1136,7 +1137,8 @@ function score(){const sets=['base'].concat(SC.e1?['e1']:[],SC.e2?['e2']:[]);
  $$('#score [data-occ]').forEach(c=>c.onchange=()=>{scP(+c.dataset.p).occ[c.dataset.occ]=c.checked;score()});
  $$('#score [data-x]').forEach(c=>c.oninput=()=>{scP(+c.dataset.p).x[c.dataset.x]=Math.max(0,+c.value||0);upd()});
  $$('#score [data-f]').forEach(c=>c.oninput=()=>{const p=scP(+c.dataset.p),f=c.dataset.f;p[f]=f==='name'?c.value:Math.max(0,+c.value||0);upd()});
- upd()}
+ $$('#score details.grp').forEach(d=>d.ontoggle=()=>{GRPOPEN[d.dataset.gk]=d.open});
+ upd();window.scrollTo(0,y)}
 
 /* ---------- onglets, thème, démarrage ---------- */
 function tab(t){$$('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));$$('.tab').forEach(x=>x.classList.toggle('on',x.id==='tab-'+t));LS.set('pr1897-tab',t);window.scrollTo(0,0)}
