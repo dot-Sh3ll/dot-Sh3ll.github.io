@@ -11,7 +11,7 @@ rules:[
 `Les PV viennent de trois sources : les <b>jetons PV</b> gagnés en expédiant des marchandises, les <b>PV imprimés sur tes bâtiments</b>, et les <b>bonus des grands bâtiments</b> occupés.`,
 `Ton <b>plateau Domaine</b> a 12 cases <b>Parcelles</b> en haut (plantations et Carrières) et 12 cases <b>Ville</b> en bas (bâtiments). Le <b>Portrait</b> accueille tes Pesos, tes barils et les ouvriers qui n'ont pas de place.`,
 `Pesos et barils restent visibles de tous. Les jetons PV peuvent être posés face cachée.`,
-`Chaque tuile porte 1 à 3 <b>emplacements</b> (demi-cercles). Un emplacement accueille exactement 1 ouvrier. Une tuile avec au moins 1 ouvrier est <b>occupée</b>, et seules les tuiles occupées fonctionnent.`
+`Chaque tuile porte 1 à 3 <b>emplacements d'ouvrier</b>. Un emplacement accueille exactement 1 ouvrier. Une tuile avec au moins 1 ouvrier est <b>occupée</b>, et seules les tuiles occupées fonctionnent.`
 ],
 html:`<h2>Les cinq marchandises</h2>
 <div class="tw"><table><tr><th>Marchandise</th><th>Pour la produire</th><th class="c">Prix de vente</th></tr>
@@ -27,7 +27,7 @@ cas:[
 ],
 quiz:[
 {q:`Quand tu choisis un personnage, qui profite de son privilège ?`,o:[`Tous les joueurs`,`Toi seul`,`Le Gouverneur`],a:1,w:`Tout le monde fait l'action, seul celui qui a pris la carte reçoit le privilège.`},
-{q:`Combien d'ouvriers peut-on poser sur un emplacement (demi-cercle) ?`,o:[`1`,`2`,`Autant qu'on veut`],a:0,w:`Exactement 1 ouvrier par demi-cercle.`},
+{q:`Combien d'ouvriers peut-on poser sur un emplacement d'ouvrier ?`,o:[`1`,`2`,`Autant qu'on veut`],a:0,w:`Exactement 1 ouvrier par emplacement.`},
 {q:`Quelle marchandise se produit sans bâtiment ?`,o:[`Le Fruit`,`Le Maïs`,`Le Café`],a:1,w:`Chaque plantation de Maïs occupée donne directement 1 baril.`}
 ]},
 
