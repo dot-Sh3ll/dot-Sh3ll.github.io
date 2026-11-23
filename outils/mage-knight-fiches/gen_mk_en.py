@@ -197,13 +197,13 @@ P7 = page("Round, turn and mana", """
 <li>Level: even = Skill + Advanced Action; odd = Command token (+ Armor or hand).</li></ol></div>
 """)
 
-HEX = """<svg viewBox="0 0 230 92"><g fill="#fff" stroke="#26232f" stroke-width="1.6">
-<polygon points="20,32 40,20 60,32 60,56 40,68 20,56"/><polygon points="62,32 82,20 102,32 102,56 82,68 62,56"/><polygon points="104,32 124,20 144,32 144,56 124,68 104,56"/></g>
-<polygon points="41,50 61,38 81,50 81,74 61,86 41,74" fill="#f6dede" stroke="#9d2b2b" stroke-width="1.6"/>
-<text x="61" y="66" text-anchor="middle" font-size="9" font-weight="700" fill="#9d2b2b" font-family="Inter">Orcs</text>
-<circle cx="40" cy="44" r="5" fill="#2a275e"/><path d="M47 38 C70 10 105 12 118 36" fill="none" stroke="#2a275e" stroke-width="2" marker-end="url(#a)"/>
-<defs><marker id="a" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7z" fill="#2a275e"/></marker></defs>
-<text x="152" y="42" font-size="9" font-family="Inter" fill="#26232f">adjacent</text><text x="152" y="54" font-size="9" font-family="Inter" fill="#26232f">→ adjacent</text><text x="152" y="66" font-size="9" font-weight="700" font-family="Inter" fill="#9d2b2b">= provoked</text></svg>"""
+HEX = """<svg viewBox="0 0 220 76"><g fill="#fff" stroke="#26232f" stroke-width="1.6">
+<polygon points="6.0,32.0 17.0,12.9 39.0,12.9 50.0,32.0 39.0,51.1 17.0,51.1"/><polygon points="72.0,32.0 83.0,12.9 105.0,12.9 116.0,32.0 105.0,51.1 83.0,51.1"/></g>
+<polygon points="39.0,51.1 50.0,32.0 72.0,32.0 83.0,51.1 72.0,70.1 50.0,70.1" fill="#f6dede" stroke="#9d2b2b" stroke-width="1.8"/>
+<text x="61" y="54.6" text-anchor="middle" font-size="10" font-weight="700" fill="#9d2b2b" font-family="Inter">Orcs</text>
+<circle cx="25" cy="33" r="4.5" fill="#2a275e"/><path d="M30 28 C46 2 78 2 90 22" fill="none" stroke="#2a275e" stroke-width="2" marker-end="url(#a)"/>
+<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#2a275e"/></marker></defs>
+<text x="128" y="28" font-size="9" font-family="Inter" fill="#26232f">adjacent</text><text x="128" y="40" font-size="9" font-family="Inter" fill="#26232f">→ adjacent</text><text x="128" y="52" font-size="9" font-weight="700" font-family="Inter" fill="#9d2b2b">= provoked</text></svg>"""
 P8 = page("Movement and Influence", f"""
 <div class="g2"><div class="box"><h2>Terrain costs</h2><table><tr><th>Terrain</th><th class="c">Day</th><th class="c">Night</th></tr>
 <tr><td>Plains</td><td class="c">2</td><td class="c">2</td></tr><tr><td>Hills</td><td class="c">3</td><td class="c">3</td></tr><tr><td>Forest</td><td class="c">3</td><td class="c"><b>5</b></td></tr>
