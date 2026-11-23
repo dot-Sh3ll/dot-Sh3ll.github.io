@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<script>try{if(localStorage.getItem("site-lang")==="en"&&!/[?&]lang=fr/.test(location.search))location.replace("en.html"+location.hash)}catch(e){}</script>
+<script>try{var sl=localStorage.getItem("site-lang");if(sl&&sl!=="fr"&&!/[?&]lang=fr/.test(location.search))location.replace("en.html"+location.hash)}catch(e){}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marché d'Aeon's End</title>

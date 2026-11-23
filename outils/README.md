@@ -21,7 +21,9 @@ cd /home/claude/ae && npm install     # installe typescript (pour extract.js)
 |---|---|
 | `chrome.py fr\|en <page>` | Pose l'en-tête du site (dé, nom, FR/EN, Ko-fi) sur une appli et l'aligne sur la largeur commune (`--site-w` 1080 px, `--site-pad` 20 px, 16 px sur mobile). À relancer sur les 6 pages d'applis après toute modification de l'en-tête. |
 | `pwa.py <préfixe> <page>` | Ajoute le bloc PWA (manifeste, icônes, service worker) et GoatCounter. Préfixe `../` pour une appli. |
-| `lang.py fr\|en <page>` | Redirection de langue ; sur une page EN, sauvegardes séparées (préfixe `en:`). |
+| `accueil.py liste\|maj\|appli\|fiche` | Page d'accueil sans toucher au HTML : liste des cartes et de leurs dates, mise à jour de la date d'une appli ou d'une fiche (`maj puerto-rico`), ajout ou remplacement d'une carte d'appli ou d'une fiche à partir d'un petit JSON (modèles dans `accueil/exemples/`). Un nouveau jeu (couleurs, bouton de filtre, recherche, choix dans le formulaire) se déclare dans le même JSON avec `nouveau_jeu`. |
+| `home_lang.py` | Langues de la page d'accueil, à partir de `accueil/<code>.json`. Relancé automatiquement par `accueil.py`. `home_lang.py --todo de` liste les textes encore sans traduction. |
+| `lang.py fr\|en <page>` | Redirection de langue ; sur une page EN, sauvegardes séparées (préfixe `en:`). Toute langue du site autre que le français (en, de, es…) ouvre `en.html`. |
 | `i18n.py extract\|apply` | Extraction des textes d'une page et application d'une table de traduction. |
 | `pdf_footer.py <source.pdf> <sortie.pdf>` | Ajoute le pied de page « Less Rules, More Play · paulmoussard.com » à un PDF existant (à partir d’un PDF sans pied de page). |
 | `test_clics.py` | Test de clics au hasard (Playwright), serveur local `python3 -m http.server 8766` lancé depuis la racine du dépôt. |
@@ -49,3 +51,10 @@ Fiches A5 : `outils/puerto-rico/fiches/gen.py` (lit `b.json`, la liste des bâti
 ## `mage-knight-fiches/` : aide de jeu Mage Knight en anglais
 
 Les fiches françaises n'existent qu'en PDF (pages en image). `gen_mk_en.py` reconstruit la version anglaise en HTML puis en PDF ; les illustrations des sites et des capacités ennemies (`ico/`) ont été découpées dans les fiches françaises. Police des titres : `npm install @fontsource/marcellus` dans le dossier du script.
+
+## Langues du site
+
+- Page d'accueil : français et anglais sont écrits dans `index.html` ; les autres langues (allemand, espagnol…) viennent de `outils/site/accueil/<code>.json`, où chaque clé est un texte anglais de la page et chaque valeur sa traduction. Les blocs `_words` (interface), `_form` (formulaire), `_soon` (bandeau sous le titre) et `_k` (bouton « Télécharger (EN) ») complètent le fichier.
+- Ajouter une langue : copier `de.json` en `it.json`, changer `_name` et `_locale`, traduire les valeurs, puis `python3 outils/site/home_lang.py`. Les textes oubliés restent en anglais et sont listés.
+- Tant qu'une langue a `"_apps": "en"`, ses visiteurs reçoivent les applis et les fiches en anglais (bouton « Herunterladen (EN) », redirection des applis vers `en.html`).
+- Pour traduire ensuite une appli dans une nouvelle langue : `i18n.py extract` sur la page anglaise, traduire le JSON obtenu, `i18n.py apply`, puis adapter `lang.py` et `chrome.py` (aujourd'hui prévus pour la paire FR/EN).

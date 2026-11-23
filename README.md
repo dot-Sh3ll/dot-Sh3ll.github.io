@@ -16,10 +16,14 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 ## Ajouter une nouvelle appli
 
 1. Créer un dossier (ex. `nouveau-jeu/`) et y déposer la version française renommée en `index.html` (et la version anglaise en `en.html` si elle existe).
-2. Dans `index.html` à la racine, copier un bloc `<a class="card ...">` et l'adapter (titre, description, lien `nouveau-jeu/`).
-3. Renseigner `data-created` et `data-updated` (AAAA-MM-JJ) : les éléments récents (moins de 30 jours) reçoivent automatiquement un badge « Nouveau » ou « Mis à jour » et remontent en tête.
+2. Décrire la carte dans un petit JSON (modèle : `outils/site/accueil/exemples/exemple-appli.json`), puis `python3 outils/site/accueil.py appli carte.json`. Un jeu pas encore présent sur le site se déclare dans le même fichier (`nouveau_jeu` : couleurs, bouton de filtre).
+3. Après une mise à jour d'appli : `python3 outils/site/accueil.py maj nouveau-jeu`. Les éléments récents (moins de 30 jours) reçoivent un badge « Nouveau » ou « Mis à jour » et remontent en tête.
 
 ## Ajouter une fiche PDF
 
-1. Déposer le PDF dans le dossier `fiches/` (nom sans espaces ni accents, ex. `imperium-aide-memoire.pdf`).
-2. Dans `index.html`, section « Fiches à télécharger », copier un bloc `<article class="pdf ...">` et l'adapter (titre, description, lien `fiches/nom-du-fichier.pdf`). Classe de couleur : `mk` (Mage Knight), `imp` (Imperium), `ae` (Aeon's End), `pr` (Puerto Rico).
+1. Déposer le PDF dans `fiches/` (nom sans espaces ni accents, ex. `imperium-aide-memoire.pdf`), et sa version anglaise s'il y en a une.
+2. Décrire la fiche dans un JSON (modèle : `outils/site/accueil/exemples/exemple-fiche.json`), puis `python3 outils/site/accueil.py fiche fiche.json`.
+
+## Langues
+
+Le site est en français, anglais, allemand et espagnol. En allemand et en espagnol, seule la page d'accueil est traduite pour l'instant : les applis et les fiches s'ouvrent en anglais. Voir « Langues du site » dans `outils/README.md`.

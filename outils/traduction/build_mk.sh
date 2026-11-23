@@ -5,7 +5,7 @@ cd /home/claude/site/mage-knight
 python3 - <<'P'
 import re
 p='en.html'; s=open(p,encoding='utf-8').read()
-s=re.sub(r'<script>try\{if\(localStorage.getItem\("site-lang"\)==="en".*?</script>\n?','',s,count=1,flags=re.S)
+s=re.sub(r'<script>try\{(?:var sl=)?(?:if\()?localStorage.getItem\("site-lang"\).*?</script>\n?','',s,count=1,flags=re.S)
 s=re.sub(r'<a href="en.html\?lang=en" class="site-lang".*?</script>\n','',s,count=1,flags=re.S)
 s=re.sub(r'(</b>|</strong>) :', r'\1:', s)
 for a,b in [("' defeated'+(r.t.length>1?'s':'')","' defeated'"),("Crystal${n>1?'s':''}","Crystal${n>1?'s':''}")]:

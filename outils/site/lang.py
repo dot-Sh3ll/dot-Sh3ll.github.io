@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Add the FR/EN switch to an app pair.
+Any site language other than fr (en, de, es…) opens en.html until the app has its own translation.
 usage: lang.py fr <file>      -> patch the French file in place (redirect + switch)
        lang.py en <file>      -> patch the English file in place (storage prefix + redirect + switch)
 """
@@ -8,7 +9,7 @@ import re, sys
 mode, path = sys.argv[1], sys.argv[2]
 s = open(path, encoding="utf-8").read()
 
-HEAD_FR = """<script>try{if(localStorage.getItem("site-lang")==="en"&&!/[?&]lang=fr/.test(location.search))location.replace("en.html"+location.hash)}catch(e){}</script>"""
+HEAD_FR = """<script>try{var sl=localStorage.getItem("site-lang");if(sl&&sl!=="fr"&&!/[?&]lang=fr/.test(location.search))location.replace("en.html"+location.hash)}catch(e){}</script>"""
 HEAD_EN = """<script>(function(){try{var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:"en:"+x};
 P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))};
 if(localStorage.getItem("site-lang")==="fr"&&!/[?&]lang=en/.test(location.search))location.replace("./"+location.hash)}catch(e){}})();</script>"""

@@ -1,0 +1,21 @@
+{
+ "_base": true,
+ "_name": "FR",
+ "_locale": "fr-FR",
+ "_apps": "fr",
+ "_words": {
+  "new": "Nouveau",
+  "upd": "Mis à jour",
+  "updOn": "Mis à jour le ",
+  "added": "Ajouté le ",
+  "ph": "Rechercher un jeu, une fiche…",
+  "search": "Rechercher"
+ },
+ "_form": {
+  "need": "Écrivez un message avant d'envoyer.",
+  "send": "Envoi…",
+  "ok": "Merci ! Votre message est bien arrivé.",
+  "err": "L'envoi a échoué. Réessayez dans un instant.",
+  "off": "Le formulaire n'est pas encore branché : écrivez-moi en attendant via Ko-fi."
+ }
+}

@@ -14,7 +14,7 @@ P
 python3 - <<'P'
 p='en.html'; s=open(p,encoding='utf-8').read()
 import re
-s=re.sub(r'<script>try\{if\(localStorage.getItem\("site-lang"\)==="en".*?</script>\n?','',s,count=1,flags=re.S)
+s=re.sub(r'<script>try\{(?:var sl=)?(?:if\()?localStorage.getItem\("site-lang"\).*?</script>\n?','',s,count=1,flags=re.S)
 s=re.sub(r'<a href="en.html\?lang=en" class="site-lang".*?</script>\n','',s,count=1,flags=re.S)
 open(p,'w',encoding='utf-8').write(s)
 P

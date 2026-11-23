@@ -28,8 +28,13 @@ a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 @media (max-width:640px){.wrap{padding:0 16px}}
 [hidden]{display:none!important}
-[data-lang="en"] .fr{display:none}
-[data-lang="fr"] .en{display:none}
+/*langs*/
+[data-lang="fr"] .en,[data-lang="fr"] .de,[data-lang="fr"] .es{display:none}
+[data-lang="en"] .fr,[data-lang="en"] .de,[data-lang="en"] .es{display:none}
+[data-lang="de"] .fr,[data-lang="de"] .en:not(.dl),[data-lang="de"] .es{display:none}
+[data-lang="es"] .fr,[data-lang="es"] .en:not(.dl),[data-lang="es"] .de{display:none}
+.soon{margin:14px 0 0;max-width:640px;font-size:.92rem;color:var(--muted);border:1px dashed var(--line);border-radius:12px;padding:10px 14px}
+/*/langs*/
 
 /* --- barre du haut --- */
 .topbar{position:sticky;top:0;z-index:9;background:#0d0f16;border-bottom:1px solid var(--line)}
@@ -156,18 +161,23 @@ footer p{margin:0 0 6px}
   <div class="wrap">
     <a class="brand" href="./" aria-label="Less Rules, More Play"><span class="brand-mark" aria-hidden="true">🎲</span><span class="brand-text">Less Rules, More Play</span></a>
     <div class="top-actions">
-      <div class="lang" role="group" aria-label="Langue / Language">
+      <div class="lang" role="group" aria-label="Language">
+<!--langs-->
         <button type="button" data-set="fr" aria-pressed="true">FR</button>
         <button type="button" data-set="en" aria-pressed="false">EN</button>
+        <button type="button" data-set="de" aria-pressed="false">DE</button>
+        <button type="button" data-set="es" aria-pressed="false">ES</button>
+        <!--/langs-->
       </div>
-      <a class="kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" aria-label="Ko-fi"><span aria-hidden="true">☕</span><span class="kofi-text"><span class="fr">Offrir un café</span><span class="en">Buy me a coffee</span></span></a>
+      <a class="kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" aria-label="Ko-fi"><span aria-hidden="true">☕</span><span class="kofi-text"><span class="fr">Offrir un café</span><span class="en">Buy me a coffee</span><span class="de" data-gen>Spendier mir einen Kaffee</span><span class="es" data-gen>Invítame a un café</span></span></a>
     </div>
   </div>
 </header>
 
 <section class="wrap hero">
-  <h1><span class="fr">Apprends le jeu en jouant.</span><span class="en">Learn the game by playing it.</span></h1>
-  <p><span class="fr">Tutoriels interactifs, compagnons solo et fiches à imprimer pour les jeux experts. Gratuit, en français et en anglais, directement dans le navigateur.</span><span class="en">Interactive tutorials, solo companions and printable sheets for heavy games. Free, in English and French, right in your browser.</span></p>
+  <h1><span class="fr">Apprends le jeu en jouant.</span><span class="en">Learn the game by playing it.</span><span class="de" data-gen>Lerne das Spiel, indem du es spielst.</span><span class="es" data-gen>Aprende el juego jugando.</span></h1>
+  <p><span class="fr">Tutoriels interactifs, compagnons solo et fiches à imprimer pour les jeux experts. Gratuit, en français et en anglais, directement dans le navigateur.</span><span class="en">Interactive tutorials, solo companions and printable sheets for heavy games. Free, in English and French, right in your browser.</span><span class="de" data-gen>Interaktive Tutorials, Solo-Begleiter und Spielhilfen zum Ausdrucken für Expertenspiele. Kostenlos, direkt im Browser.</span><span class="es" data-gen>Tutoriales interactivos, compañeros para jugar en solitario y hojas imprimibles para juegos expertos. Gratis, directamente en el navegador.</span></p>
+  <!--soon--><p class="soon de">🇬🇧 Die Tutorials und Spielhilfen gibt es vorerst auf Englisch. Die deutsche Übersetzung folgt.</p><p class="soon es">🇬🇧 De momento, los tutoriales y las hojas están en inglés. La traducción al español llegará pronto.</p><!--/soon-->
 </section>
 
 <div class="filters" role="search">
@@ -177,7 +187,7 @@ footer p{margin:0 0 6px}
       <input id="q" type="search" autocomplete="off" placeholder="Rechercher un jeu, une fiche…" aria-label="Rechercher">
     </label>
     <div class="chips" role="group" aria-label="Filtrer par jeu">
-      <button type="button" class="chip" data-g="all" aria-pressed="true"><span class="fr">Tous</span><span class="en">All</span></button>
+      <button type="button" class="chip" data-g="all" aria-pressed="true"><span class="fr">Tous</span><span class="en">All</span><span class="de" data-gen>Alle</span><span class="es" data-gen>Todos</span></button>
       <button type="button" class="chip" data-g="mk" aria-pressed="false">Mage Knight</button>
       <button type="button" class="chip" data-g="imp" aria-pressed="false">Imperium</button>
       <button type="button" class="chip" data-g="ae" aria-pressed="false">Aeon's End</button>
@@ -188,8 +198,8 @@ footer p{margin:0 0 6px}
 
 <main class="wrap">
   <div class="sec-head">
-    <h2><span class="fr">Applis à la une</span><span class="en">Featured apps</span></h2>
-    <p class="sec-sub"><span class="fr">Les 3 plus récemment mises à jour</span><span class="en">The 3 most recently updated</span></p>
+    <h2><span class="fr">Applis à la une</span><span class="en">Featured apps</span><span class="de" data-gen>Aktuelle Apps</span><span class="es" data-gen>Apps destacadas</span></h2>
+    <p class="sec-sub"><span class="fr">Les 3 plus récemment mises à jour</span><span class="en">The 3 most recently updated</span><span class="de" data-gen>Die 3 zuletzt aktualisierten</span><span class="es" data-gen>Las 3 actualizadas más recientemente</span></p>
   </div>
 
   <!-- Pour ajouter une appli : copier un bloc <a class="card ...">, l'adapter, et mettre à jour data-created / data-updated (AAAA-MM-JJ). -->
@@ -198,9 +208,9 @@ footer p{margin:0 0 6px}
       <div class="banner"><span class="glyph" aria-hidden="true">⛵</span><h3>Puerto Rico 1897</h3></div>
       <div class="body">
         <p class="fr">Apprenez chaque point de règle avec des ateliers interactifs (simulateur de chargement des navires, Maison de commerce, coûts de construction), des cas pratiques et des quiz. Avec aide-mémoire des bâtiments et calculateur de score.</p>
-        <p class="en">Learn every rule with interactive labs (ship-loading simulator, Trading House, building costs), hands-on cases and quizzes. Includes a building reference and a score calculator.</p>
-        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li><li class="fr">Décompte</li><li class="en">Scoring</li><li>FR · EN</li></ul>
-        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span><span class="date"></span></div>
+        <p class="en">Learn every rule with interactive labs (ship-loading simulator, Trading House, building costs), hands-on cases and quizzes. Includes a building reference and a score calculator.</p><p class="de" data-gen>Lerne jede Regel mit interaktiven Übungen (Simulator zum Beladen der Schiffe, Handelshaus, Baukosten), Praxisbeispielen und Quizfragen. Mit Gebäudeübersicht und Punkterechner.</p><p class="es" data-gen>Aprende cada regla con talleres interactivos (simulador de carga de barcos, Lonja, costes de construcción), casos prácticos y cuestionarios. Incluye una referencia de edificios y una calculadora de puntuación.</p>
+        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="de" data-gen>Tutorial</li><li class="es" data-gen>Tutorial</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li><li class="de" data-gen>Übersicht</li><li class="es" data-gen>Referencia</li><li class="fr">Décompte</li><li class="en">Scoring</li><li class="de" data-gen>Wertung</li><li class="es" data-gen>Puntuación</li><li>FR · EN</li></ul>
+        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span><span class="de" data-gen>Öffnen</span><span class="es" data-gen>Abrir</span></span><span class="date"></span></div>
       </div>
     </a>
 
@@ -208,19 +218,19 @@ footer p{margin:0 0 6px}
       <div class="banner"><span class="glyph" aria-hidden="true">🗺️</span><h3>Mage Knight</h3></div>
       <div class="body">
         <p class="fr">Apprenez le jeu pas à pas avec des quiz et des cas pratiques, puis jouez avec le compagnon : outils de combat, Fantôme en solo, scénarios, score et carnet de campagne.</p>
-        <p class="en">Learn the game step by step with quizzes and hands-on cases, then play with the companion: combat tools, solo Dummy player, scenarios, scoring and campaign log.</p>
-        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Compagnon solo</li><li class="en">Solo companion</li><li class="fr">Module de quêtes</li><li class="en">Quest module</li><li>FR · EN</li></ul>
-        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span><span class="date"></span></div>
+        <p class="en">Learn the game step by step with quizzes and hands-on cases, then play with the companion: combat tools, solo Dummy player, scenarios, scoring and campaign log.</p><p class="de" data-gen>Lerne das Spiel Schritt für Schritt mit Quizfragen und Praxisbeispielen, dann spiele mit dem Begleiter: Kampfhilfen, Dummy-Spieler für Solo, Szenarien, Wertung und Kampagnenbuch.</p><p class="es" data-gen>Aprende el juego paso a paso con cuestionarios y casos prácticos, y luego juega con el compañero: herramientas de combate, jugador fantasma en solitario, escenarios, puntuación y diario de campaña.</p>
+        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="de" data-gen>Tutorial</li><li class="es" data-gen>Tutorial</li><li class="fr">Compagnon solo</li><li class="en">Solo companion</li><li class="de" data-gen>Solo-Begleiter</li><li class="es" data-gen>Compañero en solitario</li><li class="fr">Module de quêtes</li><li class="en">Quest module</li><li class="de" data-gen>Questmodul</li><li class="es" data-gen>Módulo de misiones</li><li>FR · EN</li></ul>
+        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span><span class="de" data-gen>Öffnen</span><span class="es" data-gen>Abrir</span></span><span class="date"></span></div>
       </div>
     </a>
 
     <a class="card imp" data-game="imp" data-created="2026-11-16" data-updated="2026-11-23" href="imperium/">
-      <div class="banner"><span class="glyph" aria-hidden="true">🏛️</span><h3><span class="fr">Imperium Antique</span><span class="en">Imperium: Classics</span></h3></div>
+      <div class="banner"><span class="glyph" aria-hidden="true">🏛️</span><h3><span class="fr">Imperium Antique</span><span class="en">Imperium: Classics</span><span class="de" data-gen>Imperium: Classics</span><span class="es" data-gen>Imperium: Classics</span></h3></div>
       <div class="body">
         <p class="fr">Un tutoriel en six étapes avec un tour guidé, puis le mode solo : l'appli gère entièrement la C.I.V. et raconte chacun de ses tours. Avec aide-mémoire, campagne et historique.</p>
-        <p class="en">A six-step tutorial with a guided turn, then solo mode: the app fully runs the Bot and narrates each of its turns. Includes a rules reference, campaign mode and game history.</p>
-        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Automa solo</li><li class="en">Solo bot</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li><li>FR · EN</li></ul>
-        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span><span class="date"></span></div>
+        <p class="en">A six-step tutorial with a guided turn, then solo mode: the app fully runs the Bot and narrates each of its turns. Includes a rules reference, campaign mode and game history.</p><p class="de" data-gen>Ein Tutorial in sechs Schritten mit geführtem Zug, dann der Solomodus: Die App steuert den Bot vollständig und beschreibt jeden seiner Züge. Mit Regelübersicht, Kampagnenmodus und Spielverlauf.</p><p class="es" data-gen>Un tutorial en seis pasos con un turno guiado y luego el modo en solitario: la app gestiona por completo al Bot y narra cada uno de sus turnos. Incluye referencia de reglas, modo campaña e historial de partidas.</p>
+        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="de" data-gen>Tutorial</li><li class="es" data-gen>Tutorial</li><li class="fr">Automa solo</li><li class="en">Solo bot</li><li class="de" data-gen>Solo-Bot</li><li class="es" data-gen>Bot en solitario</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li><li class="de" data-gen>Übersicht</li><li class="es" data-gen>Referencia</li><li>FR · EN</li></ul>
+        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span><span class="de" data-gen>Öffnen</span><span class="es" data-gen>Abrir</span></span><span class="date"></span></div>
       </div>
     </a>
 
@@ -228,17 +238,17 @@ footer p{margin:0 0 6px}
       <div class="banner"><span class="glyph" aria-hidden="true">🔮</span><h3>Aeon's End</h3></div>
       <div class="body">
         <p class="fr">Générez un marché pour chaque combat (optimisé, original ou aléatoire) avec toute la gamme : 28 boîtes et 383 cartes. Notez victoires et défaites, et suivez vos expéditions.</p>
-        <p class="en">Generate a market for every fight (optimised, combo-seeking or random) across the whole range: 28 boxes and 383 cards. Log wins and losses, and track your expeditions.</p>
-        <ul class="tags"><li class="fr">Générateur de marché</li><li class="en">Market generator</li><li class="fr">Journal</li><li class="en">Game log</li><li class="fr">Expéditions</li><li class="en">Expeditions</li><li>FR · EN</li></ul>
-        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span><span class="date"></span></div>
+        <p class="en">Generate a market for every fight (optimised, combo-seeking or random) across the whole range: 28 boxes and 383 cards. Log wins and losses, and track your expeditions.</p><p class="de" data-gen>Erzeuge für jeden Kampf einen Markt (optimiert, auf Kombos ausgelegt oder zufällig) aus dem gesamten Sortiment: 28 Schachteln und 383 Karten. Halte Siege und Niederlagen fest und verfolge deine Expeditionen.</p><p class="es" data-gen>Genera un mercado para cada combate (optimizado, buscando combos o aleatorio) con toda la gama: 28 cajas y 383 cartas. Anota victorias y derrotas, y sigue tus expediciones.</p>
+        <ul class="tags"><li class="fr">Générateur de marché</li><li class="en">Market generator</li><li class="de" data-gen>Marktgenerator</li><li class="es" data-gen>Generador de mercado</li><li class="fr">Journal</li><li class="en">Game log</li><li class="de" data-gen>Spieltagebuch</li><li class="es" data-gen>Registro de partidas</li><li class="fr">Expéditions</li><li class="en">Expeditions</li><li class="de" data-gen>Expeditionen</li><li class="es" data-gen>Expediciones</li><li>FR · EN</li></ul>
+        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span><span class="de" data-gen>Öffnen</span><span class="es" data-gen>Abrir</span></span><span class="date"></span></div>
       </div>
     </a>
-    <p class="empty" data-empty hidden><span class="fr">Aucune appli ne correspond à votre recherche.</span><span class="en">No app matches your search.</span></p>
+    <p class="empty" data-empty hidden><span class="fr">Aucune appli ne correspond à votre recherche.</span><span class="en">No app matches your search.</span><span class="de" data-gen>Keine App passt zu deiner Suche.</span><span class="es" data-gen>Ninguna app coincide con tu búsqueda.</span></p>
   </div>
 
   <div class="sec-head" id="fiches">
-    <h2><span class="fr">Fiches à la une</span><span class="en">Featured printables</span></h2>
-    <p class="sec-sub"><span class="fr">Les 3 dernières parues, à imprimer et garder près du plateau</span><span class="en">The 3 latest, to print and keep by the board</span></p>
+    <h2><span class="fr">Fiches à la une</span><span class="en">Featured printables</span><span class="de" data-gen>Aktuelle Spielhilfen</span><span class="es" data-gen>Hojas destacadas</span></h2>
+    <p class="sec-sub"><span class="fr">Les 3 dernières parues, à imprimer et garder près du plateau</span><span class="en">The 3 latest, to print and keep by the board</span><span class="de" data-gen>Die 3 neuesten, zum Ausdrucken und für neben das Spielbrett</span><span class="es" data-gen>Las 3 más recientes, para imprimir y tener junto al tablero</span></p>
   </div>
 
   <!-- Pour ajouter une fiche : déposer le PDF dans le dossier « fiches », copier ce bloc <article> et l'adapter (dates comprises). -->
@@ -246,85 +256,85 @@ footer p{margin:0 0 6px}
     <article class="pdf pr" data-game="pr" data-created="2026-11-23" data-updated="2026-11-23">
       <span class="ico" aria-hidden="true">⛵</span>
       <div>
-        <h3><span class="fr">Puerto Rico 1897 · Aide de jeu</span><span class="en">Puerto Rico 1897 · Game aid</span></h3>
+        <h3><span class="fr">Puerto Rico 1897 · Aide de jeu</span><span class="en">Puerto Rico 1897 · Game aid</span><span class="de" data-gen>Puerto Rico 1897 · Spielhilfe</span><span class="es" data-gen>Puerto Rico 1897 · Ayuda de juego</span></h3>
         <p class="fr">Un tour de jeu, les Personnages, la mise en place de 2 à 5 joueurs, vendre ou expédier. 4 pages.</p>
-        <p class="en">A game round, the roles, setup for 2 to 5 players, selling vs shipping. 4 pages.</p>
-        <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span> · <span class="date"></span></p>
+        <p class="en">A game round, the roles, setup for 2 to 5 players, selling vs shipping. 4 pages.</p><p class="de" data-gen>Eine Spielrunde, die Rollen, der Aufbau für 2 bis 5 Personen, verkaufen oder verschiffen. 4 Seiten.</p><p class="es" data-gen>Una ronda de juego, los roles, la preparación para 2 a 5 jugadores, vender o embarcar. 4 páginas.</p>
+        <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span><span class="de" data-gen>PDF · A5 · auf Englisch</span><span class="es" data-gen>PDF · A5 · en inglés</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/puerto-rico-aide-de-jeu.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/puerto-rico-game-aid.pdf" download>⬇ Download</a>
+      <a class="dl fr" href="fiches/puerto-rico-aide-de-jeu.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/puerto-rico-game-aid.pdf" download>⬇ <span class="en" data-k="dl">Download</span><span class="de" data-gen>Herunterladen (EN)</span><span class="es" data-gen>Descargar (EN)</span></a>
     </article>
     <article class="pdf pr" data-game="pr" data-created="2026-11-23" data-updated="2026-11-23">
       <span class="ico" aria-hidden="true">🏛️</span>
       <div>
-        <h3><span class="fr">Puerto Rico 1897 · Bâtiments</span><span class="en">Puerto Rico 1897 · Buildings</span></h3>
+        <h3><span class="fr">Puerto Rico 1897 · Bâtiments</span><span class="en">Puerto Rico 1897 · Buildings</span><span class="de" data-gen>Puerto Rico 1897 · Gebäude</span><span class="es" data-gen>Puerto Rico 1897 · Edificios</span></h3>
         <p class="fr">Tous les bâtiments dans l'ordre du plateau, extension 2 comprise, puis ceux de l'extension 1 par coût. 3 pages.</p>
-        <p class="en">Every building in board order, including expansion 2, then expansion 1 by cost. 3 pages.</p>
-        <p class="meta"><span class="fr">PDF · format A5 paysage · français ou anglais</span><span class="en">PDF · A5 landscape · English or French</span> · <span class="date"></span></p>
+        <p class="en">Every building in board order, including expansion 2, then expansion 1 by cost. 3 pages.</p><p class="de" data-gen>Alle Gebäude in der Reihenfolge des Spielplans, mit Erweiterung 2, dann Erweiterung 1 nach Kosten. 3 Seiten.</p><p class="es" data-gen>Todos los edificios en el orden del tablero, con la expansión 2, y luego la expansión 1 por coste. 3 páginas.</p>
+        <p class="meta"><span class="fr">PDF · format A5 paysage · français ou anglais</span><span class="en">PDF · A5 landscape · English or French</span><span class="de" data-gen>PDF · A5 quer · auf Englisch</span><span class="es" data-gen>PDF · A5 apaisado · en inglés</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/puerto-rico-batiments.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/puerto-rico-buildings.pdf" download>⬇ Download</a>
+      <a class="dl fr" href="fiches/puerto-rico-batiments.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/puerto-rico-buildings.pdf" download>⬇ <span class="en" data-k="dl">Download</span><span class="de" data-gen>Herunterladen (EN)</span><span class="es" data-gen>Descargar (EN)</span></a>
     </article>
     <article class="pdf mk" data-game="mk" data-created="2026-11-23" data-updated="2026-11-23">
       <span class="ico" aria-hidden="true">🗺️</span>
       <div>
-        <h3><span class="fr">Mage Knight · Aide de jeu</span><span class="en">Mage Knight · Game aid</span></h3>
+        <h3><span class="fr">Mage Knight · Aide de jeu</span><span class="en">Mage Knight · Game aid</span><span class="de" data-gen>Mage Knight · Spielhilfe</span><span class="es" data-gen>Mage Knight · Ayuda de juego</span></h3>
         <p class="fr">Récapitulatifs du tour, du déplacement, du combat, des sites et des capacités des ennemis. 8 pages.</p>
-        <p class="en">Summaries of the turn, movement, combat, sites and enemy abilities. 8 pages.</p>
-        <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span> · <span class="date"></span></p>
+        <p class="en">Summaries of the turn, movement, combat, sites and enemy abilities. 8 pages.</p><p class="de" data-gen>Übersichten zu Spielzug, Bewegung, Kampf, Orten und Fähigkeiten der Gegner. 8 Seiten.</p><p class="es" data-gen>Resúmenes del turno, el movimiento, el combate, los lugares y las habilidades de los enemigos. 8 páginas.</p>
+        <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span><span class="de" data-gen>PDF · A5 · auf Englisch</span><span class="es" data-gen>PDF · A5 · en inglés</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/mage-knight-aide-de-jeu.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/mage-knight-game-aid.pdf" download>⬇ Download</a>
+      <a class="dl fr" href="fiches/mage-knight-aide-de-jeu.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/mage-knight-game-aid.pdf" download>⬇ <span class="en" data-k="dl">Download</span><span class="de" data-gen>Herunterladen (EN)</span><span class="es" data-gen>Descargar (EN)</span></a>
     </article>
     <article class="pdf mk" data-game="mk" data-created="2026-11-23" data-updated="2026-11-23">
       <span class="ico" aria-hidden="true">📜</span>
       <div>
-        <h3><span class="fr">Mage Knight · Module de quêtes maison</span><span class="en">Mage Knight · Homemade quest module</span></h3>
+        <h3><span class="fr">Mage Knight · Module de quêtes maison</span><span class="en">Mage Knight · Homemade quest module</span><span class="de" data-gen>Mage Knight · Selbstgemachtes Questmodul</span><span class="es" data-gen>Mage Knight · Módulo de misiones casero</span></h3>
         <p class="fr">Règles du module, barème des récompenses et quêtes de Jour et de Nuit sur trois paliers : villages, monastères, cités. 8 pages.</p>
-        <p class="en">Module rules, reward table, and Day and Night quests across three tiers: villages, monasteries, cities. 8 pages.</p>
-        <p class="meta"><span class="fr">PDF · format A5 · en français</span><span class="en">PDF · A5 · in French</span> · <span class="date"></span></p>
+        <p class="en">Module rules, reward table, and Day and Night quests across three tiers: villages, monasteries, cities. 8 pages.</p><p class="de" data-gen>Regeln des Moduls, Belohnungstabelle sowie Tag- und Nachtquests auf drei Stufen: Dörfer, Klöster, Städte. 8 Seiten.</p><p class="es" data-gen>Reglas del módulo, tabla de recompensas y misiones de Día y de Noche en tres niveles: aldeas, monasterios, ciudades. 8 páginas.</p>
+        <p class="meta"><span class="fr">PDF · format A5 · en français</span><span class="en">PDF · A5 · in French</span><span class="de" data-gen>PDF · A5 · auf Französisch</span><span class="es" data-gen>PDF · A5 · en francés</span> · <span class="date"></span></p>
       </div>
-      <a class="dl" href="fiches/mage-knight-module-quetes.pdf" download>⬇ <span class="fr">Télécharger</span><span class="en">Download</span></a>
+      <a class="dl" href="fiches/mage-knight-module-quetes.pdf" download>⬇ <span class="fr">Télécharger</span><span class="en">Download</span><span class="de" data-gen>Herunterladen</span><span class="es" data-gen>Descargar</span></a>
     </article>
-    <p class="empty" data-empty hidden><span class="fr">Pas encore de fiche pour cette recherche.</span><span class="en">No printable matches your search yet.</span></p>
+    <p class="empty" data-empty hidden><span class="fr">Pas encore de fiche pour cette recherche.</span><span class="en">No printable matches your search yet.</span><span class="de" data-gen>Noch keine Spielhilfe für diese Suche.</span><span class="es" data-gen>Todavía no hay ninguna hoja para esta búsqueda.</span></p>
   </div>
 
   <section class="about">
     <div>
-      <h3><span class="fr">Qui suis-je ?</span><span class="en">Who am I?</span></h3>
+      <h3><span class="fr">Qui suis-je ?</span><span class="en">Who am I?</span><span class="de" data-gen>Wer bin ich?</span><span class="es" data-gen>¿Quién soy?</span></h3>
       <p class="fr">Paul, président d'une association de jeux de société à Strasbourg. Je crée ces outils d'abord pour ma table de jeu, puis je les partage.</p>
-      <p class="en">Paul, president of a board game club in Strasbourg, France. I build these tools for my own table first, then share them.</p>
+      <p class="en">Paul, president of a board game club in Strasbourg, France. I build these tools for my own table first, then share them.</p><p class="de" data-gen>Paul, Vorsitzender eines Brettspielvereins in Straßburg. Ich baue diese Werkzeuge zuerst für meinen eigenen Spieltisch und teile sie dann.</p><p class="es" data-gen>Paul, presidente de una asociación de juegos de mesa en Estrasburgo (Francia). Creo estas herramientas primero para mi propia mesa y luego las comparto.</p>
     </div>
     <div>
-      <h3><span class="fr">Une erreur, une idée ?</span><span class="en">Found a bug? Got an idea?</span></h3>
+      <h3><span class="fr">Une erreur, une idée ?</span><span class="en">Found a bug? Got an idea?</span><span class="de" data-gen>Fehler gefunden? Eine Idee?</span><span class="es" data-gen>¿Un error? ¿Una idea?</span></h3>
       <p class="fr">Une règle mal expliquée, un bouton qui ne marche pas, une envie d'appli pour un autre jeu : <a href="#avis">écrivez-moi juste en dessous</a>.</p>
-      <p class="en">A rule explained wrong, a button that doesn't work, a wish for another game: <a href="#avis">write to me just below</a>.</p>
+      <p class="en">A rule explained wrong, a button that doesn't work, a wish for another game: <a href="#avis">write to me just below</a>.</p><p class="de" data-gen>Eine falsch erklärte Regel, ein Knopf, der nicht funktioniert, ein Wunsch für ein anderes Spiel: <a href="#avis">schreib mir gleich hier unten</a>.</p><p class="es" data-gen>Una regla mal explicada, un botón que no funciona, una app que te gustaría para otro juego: <a href="#avis">escríbeme justo aquí abajo</a>.</p>
     </div>
   </section>
   <section class="feedback" id="avis" aria-labelledby="avis-t">
-    <div class="sec-head"><h2 id="avis-t"><span class="fr">Votre avis</span><span class="en">Your feedback</span></h2>
-      <p class="sec-sub"><span class="fr">Je lis chaque message</span><span class="en">I read every message</span></p></div>
+    <div class="sec-head"><h2 id="avis-t"><span class="fr">Votre avis</span><span class="en">Your feedback</span><span class="de" data-gen>Deine Meinung</span><span class="es" data-gen>Tu opinión</span></h2>
+      <p class="sec-sub"><span class="fr">Je lis chaque message</span><span class="en">I read every message</span><span class="de" data-gen>Ich lese jede Nachricht</span><span class="es" data-gen>Leo todos los mensajes</span></p></div>
     <form id="fb" class="fb" novalidate>
       <div class="fb-row">
-        <label><span class="fr">Appli concernée</span><span class="en">Which app</span>
+        <label><span class="fr">Appli concernée</span><span class="en">Which app</span><span class="de" data-gen>Welche App</span><span class="es" data-gen>Qué app</span>
           <select name="app" required>
             <option value="Mage Knight">Mage Knight</option>
             <option value="Imperium">Imperium</option>
             <option value="Aeon's End">Aeon's End</option>
-            <option value="Site" data-fr="Le site en général" data-en="The site in general">Le site en général</option>
-            <option value="Autre jeu" data-fr="Une idée pour un autre jeu" data-en="An idea for another game">Une idée pour un autre jeu</option>
+            <option value="Site" data-fr="Le site en général" data-en="The site in general" data-de="Die Website allgemein" data-es="El sitio en general">Le site en général</option>
+            <option value="Autre jeu" data-fr="Une idée pour un autre jeu" data-en="An idea for another game" data-de="Eine Idee für ein anderes Spiel" data-es="Una idea para otro juego">Une idée pour un autre jeu</option>
           </select></label>
-        <label><span class="fr">Type de retour</span><span class="en">Type of feedback</span>
+        <label><span class="fr">Type de retour</span><span class="en">Type of feedback</span><span class="de" data-gen>Art der Rückmeldung</span><span class="es" data-gen>Tipo de comentario</span>
           <select name="type" required>
-            <option value="Bug" data-fr="Bug : quelque chose ne marche pas" data-en="Bug: something doesn't work">Bug : quelque chose ne marche pas</option>
-            <option value="Règle" data-fr="Erreur de règle ou de traduction" data-en="Rules or translation error">Erreur de règle ou de traduction</option>
-            <option value="Idée" data-fr="Idée d'amélioration" data-en="Improvement idea">Idée d'amélioration</option>
-            <option value="Merci" data-fr="Juste un merci" data-en="Just a thank you">Juste un merci</option>
+            <option value="Bug" data-fr="Bug : quelque chose ne marche pas" data-en="Bug: something doesn't work" data-de="Fehler: etwas funktioniert nicht" data-es="Error: algo no funciona">Bug : quelque chose ne marche pas</option>
+            <option value="Règle" data-fr="Erreur de règle ou de traduction" data-en="Rules or translation error" data-de="Regel- oder Übersetzungsfehler" data-es="Error de reglas o de traducción">Erreur de règle ou de traduction</option>
+            <option value="Idée" data-fr="Idée d'amélioration" data-en="Improvement idea" data-de="Verbesserungsidee" data-es="Idea de mejora">Idée d'amélioration</option>
+            <option value="Merci" data-fr="Juste un merci" data-en="Just a thank you" data-de="Einfach danke" data-es="Solo un gracias">Juste un merci</option>
           </select></label>
       </div>
-      <label><span class="fr">Votre message</span><span class="en">Your message</span>
-        <textarea name="message" rows="5" required maxlength="3000" data-ph-fr="Ce que vous faisiez, ce qui s'est passé, sur quel appareil…" data-ph-en="What you were doing, what happened, on which device…"></textarea></label>
-      <label><span class="fr">Votre e-mail <small>(facultatif, pour que je puisse répondre)</small></span><span class="en">Your email <small>(optional, so I can reply)</small></span>
+      <label><span class="fr">Votre message</span><span class="en">Your message</span><span class="de" data-gen>Deine Nachricht</span><span class="es" data-gen>Tu mensaje</span>
+        <textarea name="message" rows="5" required maxlength="3000" data-ph-fr="Ce que vous faisiez, ce qui s'est passé, sur quel appareil…" data-ph-en="What you were doing, what happened, on which device…" data-ph-de="Was du gemacht hast, was passiert ist, auf welchem Gerät…" data-ph-es="Qué estabas haciendo, qué pasó, en qué dispositivo…"></textarea></label>
+      <label><span class="fr">Votre e-mail <small>(facultatif, pour que je puisse répondre)</small></span><span class="en">Your email <small>(optional, so I can reply)</small></span><span class="de" data-gen>Deine E-Mail <small>(optional, damit ich antworten kann)</small></span><span class="es" data-gen>Tu correo <small>(opcional, para que pueda responderte)</small></span>
         <input type="email" name="email" autocomplete="email" maxlength="200"></label>
       <div class="fb-foot">
-        <button type="submit" class="fb-send"><span class="fr">Envoyer</span><span class="en">Send</span></button>
+        <button type="submit" class="fb-send"><span class="fr">Envoyer</span><span class="en">Send</span><span class="de" data-gen>Senden</span><span class="es" data-gen>Enviar</span></button>
         <p class="fb-msg" role="status" aria-live="polite"></p>
       </div>
     </form>
@@ -333,9 +343,9 @@ footer p{margin:0 0 6px}
 
 <footer class="wrap">
   <p class="fr">Tout est et restera gratuit. ☕ Un outil vous a plu ? <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Offrez-moi un café</a>.</p>
-  <p class="en">Everything is and will stay free. ☕ Enjoyed a tool? <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
+  <p class="en">Everything is and will stay free. ☕ Enjoyed a tool? <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Buy me a coffee</a>.</p><p class="de" data-gen>Alles ist und bleibt kostenlos. ☕ Hat dir ein Werkzeug gefallen? <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Spendier mir einen Kaffee</a>.</p><p class="es" data-gen>Todo es y seguirá siendo gratis. ☕ ¿Te ha gustado alguna herramienta? <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Invítame a un café</a>.</p>
   <p class="fr">Créations de fan non officielles, gratuites et sans lien avec les éditeurs des jeux concernés. Mage Knight est une marque de WizKids ; Imperium, Aeon's End et Puerto Rico 1897 appartiennent à leurs éditeurs respectifs.</p>
-  <p class="en">Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium, Aeon's End and Puerto Rico 1897 belong to their respective publishers.</p>
+  <p class="en">Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium, Aeon's End and Puerto Rico 1897 belong to their respective publishers.</p><p class="de" data-gen>Inoffizielle, kostenlose Fan-Inhalte, ohne Verbindung zu den Verlagen der Spiele. Mage Knight ist eine Marke von WizKids; Imperium, Aeon's End und Puerto Rico 1897 gehören ihren jeweiligen Verlagen.</p><p class="es" data-gen>Contenido no oficial y gratuito hecho por un fan, sin relación con las editoriales de los juegos. Mage Knight es una marca de WizKids; Imperium, Aeon's End y Puerto Rico 1897 pertenecen a sus respectivas editoriales.</p>
 </footer>
 
 <script>
@@ -343,8 +353,11 @@ footer p{margin:0 0 6px}
   var body=document.body, langBtns=document.querySelectorAll(".lang button"), q=document.getElementById("q"),
       chips=document.querySelectorAll(".chip"), game="all", lang="fr", DAY=864e5, NOW=Date.now(), FRESH=30;
 
+  /* textes de l'interface par langue : générés par outils/site/home_lang.py */
+  var WORDS=/*WORDS*/{"fr":{"new":"Nouveau","upd":"Mis à jour","updOn":"Mis à jour le ","added":"Ajouté le ","ph":"Rechercher un jeu, une fiche…","search":"Rechercher","locale":"fr-FR"},"en":{"new":"New","upd":"Updated","updOn":"Updated ","added":"Added ","ph":"Search a game or a printable…","search":"Search","locale":"en-GB"},"de":{"new":"Neu","upd":"Aktualisiert","updOn":"Aktualisiert am ","added":"Hinzugefügt am ","ph":"Spiel oder Spielhilfe suchen…","search":"Suchen","locale":"de-DE"},"es":{"new":"Nuevo","upd":"Actualizado","updOn":"Actualizado el ","added":"Añadido el ","ph":"Buscar un juego o una hoja…","search":"Buscar","locale":"es-ES"}}/*/WORDS*/;
+  function W(k){ return (WORDS[lang]||WORDS.en)[k] }
   /* --- dates, badges et tri « à la une » --- */
-  function fmt(d){ try{ return new Date(d+"T12:00:00").toLocaleDateString(lang==="fr"?"fr-FR":"en-GB",{day:"numeric",month:"short",year:"numeric"}) }catch(e){ return d } }
+  function fmt(d){ try{ return new Date(d+"T12:00:00").toLocaleDateString(W("locale"),{day:"numeric",month:"short",year:"numeric"}) }catch(e){ return d } }
   function decorate(){
     document.querySelectorAll("[data-created]").forEach(function(el){
       var c=el.dataset.created, u=el.dataset.updated||c, isNew=(NOW-new Date(c+"T12:00:00"))/DAY<=FRESH,
@@ -352,11 +365,11 @@ footer p{margin:0 0 6px}
       var old=el.querySelector(".badge"); if(old) old.remove();
       if(isNew||isUpd){
         var b=document.createElement("span"); b.className="badge "+(isNew?"new":"upd");
-        b.textContent=isNew?(lang==="fr"?"Nouveau":"New"):(lang==="fr"?"Mis à jour":"Updated");
+        b.textContent=isNew?W("new"):W("upd");
         var spot=el.querySelector(".banner")||el.querySelector("h3"); spot.appendChild(b);
       }
       var dt=el.querySelector(".date");
-      if(dt) dt.textContent=(u!==c?(lang==="fr"?"Mis à jour le ":"Updated "):(lang==="fr"?"Ajouté le ":"Added "))+fmt(u);
+      if(dt) dt.textContent=(u!==c?W("updOn"):W("added"))+fmt(u);
     });
   }
   document.querySelectorAll("[data-sort]").forEach(function(box){
@@ -390,14 +403,15 @@ footer p{margin:0 0 6px}
   function setLang(l){
     lang=l; body.setAttribute("data-lang",l); document.documentElement.lang=l;
     langBtns.forEach(function(x){ x.setAttribute("aria-pressed",String(x.dataset.set===l)) });
-    q.placeholder=l==="fr"?"Rechercher un jeu, une fiche…":"Search a game or a printable…";
-    q.setAttribute("aria-label",l==="fr"?"Rechercher":"Search");
+    q.placeholder=W("ph");
+    q.setAttribute("aria-label",W("search"));
     try{ localStorage.setItem("site-lang",l) }catch(e){}
     decorate();
   }
   var saved=null; try{ saved=localStorage.getItem("site-lang") }catch(e){}
   var urlLang=null; try{ urlLang=new URL(location.href).searchParams.get("lang") }catch(e){}
-  setLang(urlLang==="en"||urlLang==="fr"?urlLang:(saved||((navigator.language||"fr").toLowerCase().indexOf("fr")===0?"fr":"en")));
+  var nav=(navigator.language||"fr").toLowerCase().slice(0,2);
+  setLang(WORDS[urlLang]?urlLang:(WORDS[saved]?saved:(WORDS[nav]?nav:"en")));
   langBtns.forEach(function(x){ x.onclick=function(){ setLang(x.dataset.set) } });
 
   var start="all"; try{ var j=new URL(location.href).searchParams.get("jeu"); if(NAMES[j]) start=j }catch(e){}
@@ -411,14 +425,13 @@ footer p{margin:0 0 6px}
   var f=document.getElementById("fb"); if(!f) return;
   var msg=f.querySelector(".fb-msg"), btn=f.querySelector(".fb-send");
   var L=function(){return document.body.getAttribute("data-lang")||"fr"};
-  var T={fr:{need:"Écrivez un message avant d'envoyer.",send:"Envoi…",ok:"Merci ! Votre message est bien arrivé.",err:"L'envoi a échoué. Réessayez dans un instant.",off:"Le formulaire n'est pas encore branché : écrivez-moi en attendant via Ko-fi."},
-         en:{need:"Write a message before sending.",send:"Sending…",ok:"Thank you! Your message has arrived.",err:"Sending failed. Please try again in a moment.",off:"The form isn't connected yet: reach me on Ko-fi in the meantime."}};
-  function relabel(){var l=L();f.querySelectorAll("option[data-fr]").forEach(function(o){o.textContent=o.getAttribute("data-"+l)});
-    var ta=f.querySelector("textarea");ta.placeholder=ta.getAttribute("data-ph-"+l)}
+  var T=/*FORM*/{"fr":{"need":"Écrivez un message avant d'envoyer.","send":"Envoi…","ok":"Merci ! Votre message est bien arrivé.","err":"L'envoi a échoué. Réessayez dans un instant.","off":"Le formulaire n'est pas encore branché : écrivez-moi en attendant via Ko-fi."},"en":{"need":"Write a message before sending.","send":"Sending…","ok":"Thank you! Your message has arrived.","err":"Sending failed. Please try again in a moment.","off":"The form isn't connected yet: reach me on Ko-fi in the meantime."},"de":{"need":"Schreib eine Nachricht, bevor du sendest.","send":"Wird gesendet…","ok":"Danke! Deine Nachricht ist angekommen.","err":"Senden fehlgeschlagen. Versuch es gleich noch einmal.","off":"Das Formular ist noch nicht verbunden: Schreib mir in der Zwischenzeit über Ko-fi."},"es":{"need":"Escribe un mensaje antes de enviar.","send":"Enviando…","ok":"¡Gracias! Tu mensaje ha llegado.","err":"El envío ha fallado. Vuelve a intentarlo en un momento.","off":"El formulario aún no está conectado: escríbeme mientras tanto por Ko-fi."}}/*/FORM*/;
+  function relabel(){var l=L();f.querySelectorAll("option[data-fr]").forEach(function(o){o.textContent=o.getAttribute("data-"+l)||o.getAttribute("data-en")});
+    var ta=f.querySelector("textarea");ta.placeholder=ta.getAttribute("data-ph-"+l)||ta.getAttribute("data-ph-en")}
   relabel(); new MutationObserver(relabel).observe(document.body,{attributes:true,attributeFilter:["data-lang"]});
   try{var a=new URL(location.href).searchParams.get("app");if(a){f.app.value=a;if(location.hash!=="#avis")location.hash="avis"}}catch(e){}
   f.addEventListener("submit",function(e){
-    e.preventDefault(); var t=T[L()]; msg.className="fb-msg";
+    e.preventDefault(); var t=T[L()]||T.en; msg.className="fb-msg";
     if(!f.message.value.trim()){f.message.setAttribute("aria-invalid","true");f.message.focus();msg.textContent=t.need;msg.classList.add("err");return}
     f.message.removeAttribute("aria-invalid");
     if(!GFORM.id){msg.textContent=t.off;msg.classList.add("err");return}

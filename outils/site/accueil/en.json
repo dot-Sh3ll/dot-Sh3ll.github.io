@@ -1,0 +1,21 @@
+{
+ "_base": true,
+ "_name": "EN",
+ "_locale": "en-GB",
+ "_apps": "en",
+ "_words": {
+  "new": "New",
+  "upd": "Updated",
+  "updOn": "Updated ",
+  "added": "Added ",
+  "ph": "Search a game or a printable…",
+  "search": "Search"
+ },
+ "_form": {
+  "need": "Write a message before sending.",
+  "send": "Sending…",
+  "ok": "Thank you! Your message has arrived.",
+  "err": "Sending failed. Please try again in a moment.",
+  "off": "The form isn't connected yet: reach me on Ko-fi in the meantime."
+ }
+}

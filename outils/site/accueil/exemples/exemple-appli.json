@@ -1,0 +1,8 @@
+{"dossier": "puerto-rico", "jeu": "pr", "glyphe": "⛵", "cree": "2026-11-23",
+ "nom": {"fr": "Puerto Rico 1897"},
+ "texte": {"fr": "Apprenez chaque point de règle avec des ateliers interactifs (simulateur de chargement des navires, Maison de commerce, coûts de construction), des cas pratiques et des quiz. Avec aide-mémoire des bâtiments et calculateur de score.",
+           "en": "Learn every rule with interactive labs (ship-loading simulator, Trading House, building costs), hands-on cases and quizzes. Includes a building reference and a score calculator.",
+           "de": "Lerne jede Regel mit interaktiven Übungen (Simulator zum Beladen der Schiffe, Handelshaus, Baukosten), Praxisbeispielen und Quizfragen. Mit Gebäudeübersicht und Punkterechner.",
+           "es": "Aprende cada regla con talleres interactivos (simulador de carga de barcos, Lonja, costes de construcción), casos prácticos y cuestionarios. Incluye una referencia de edificios y una calculadora de puntuación."},
+ "tags": [{"fr": "Tutoriel", "en": "Tutorial", "de": "Tutorial", "es": "Tutorial"}, {"fr": "Aide-mémoire", "en": "Reference", "de": "Übersicht", "es": "Referencia"}, {"fr": "Décompte", "en": "Scoring", "de": "Wertung", "es": "Puntuación"}],
+ "langues": "FR · EN"}
