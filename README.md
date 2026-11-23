@@ -1,4 +1,4 @@
-# Aides de jeu de Paul
+# Less Rules, More Play
 
 Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, compagnons solo et outils.
 
