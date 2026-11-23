@@ -407,7 +407,9 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 @font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
 .sitehead{position:sticky;top:0;z-index:9;background:#0d0f16;border-bottom:1px solid #2a3144;color:#efe8d8;font:500 15px/1.2 "Figtree","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
 .sitehead *{box-sizing:border-box}
-.sitehead .sh-in{max-width:1080px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+:root{--site-w:1080px;--site-pad:20px}
+@media (max-width:640px){:root{--site-pad:16px}}
+.sitehead .sh-in{max-width:var(--site-w);margin:0 auto;padding:0 var(--site-pad);height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .sitehead a{color:inherit;text-decoration:none}
 .sitehead .sh-brand{display:flex;align-items:center;gap:10px;font-family:"Marcellus","SH Marcellus","Palatino Linotype",Georgia,serif;font-size:19px;font-weight:400;letter-spacing:.01em;white-space:nowrap}
 .sitehead .sh-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#1d2230;border:1px solid #2a3144;font-size:16px;line-height:1}
@@ -420,14 +422,15 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 .sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:#ddb96a;color:#17130a;font-weight:700;font-size:14.5px;white-space:nowrap}
 .sitehead .sh-kofi:hover{filter:brightness(1.08)}
 .sitehead a:focus-visible{outline:2px solid #ddb96a;outline-offset:2px}
-@media (max-width:640px){.sitehead .sh-in{padding:0 14px}.sitehead .sh-text,.sitehead .sh-kofi-t{display:none}.sitehead .sh-kofi{width:36px;padding:0;justify-content:center}}
+@media (max-width:640px){.sitehead .sh-text,.sitehead .sh-kofi-t{display:none}.sitehead .sh-kofi{width:36px;padding:0;justify-content:center}}
 @media print{.sitehead{display:none}}
 :root{--sitehead-h:57px}
 html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 </style>
 <style id="sitehead-css-mk">
 .app-tuto #side-nav{top:calc(8px + var(--sitehead-h))!important;max-height:calc(92vh - var(--sitehead-h))!important}
-.sitehead .sh-in{max-width:1320px;padding:0 16px}
+.topbar{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
+@media (max-width:480px){.topbar{justify-content:space-between!important;text-align:left!important}}
 </style>
 </head>
 <body>
@@ -440,6 +443,8 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 </div>
 </div>
 </header><!--/sitehead-->
+
+
 
 
 
