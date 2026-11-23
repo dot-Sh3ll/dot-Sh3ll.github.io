@@ -22,4 +22,4 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 ## Ajouter une fiche PDF
 
 1. Déposer le PDF dans le dossier `fiches/` (nom sans espaces ni accents, ex. `imperium-aide-memoire.pdf`).
-2. Dans `index.html`, section « Fiches à télécharger », copier un bloc `<article class="pdf ...">` et l'adapter (titre, description, lien `fiches/nom-du-fichier.pdf`). Classe de couleur : `mk` (Mage Knight), `imp` (Imperium), `ae` (Aeon's End).
+2. Dans `index.html`, section « Fiches à télécharger », copier un bloc `<article class="pdf ...">` et l'adapter (titre, description, lien `fiches/nom-du-fichier.pdf`). Classe de couleur : `mk` (Mage Knight), `imp` (Imperium), `ae` (Aeon's End), `pr` (Puerto Rico).

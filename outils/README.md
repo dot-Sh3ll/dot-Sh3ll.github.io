@@ -42,3 +42,5 @@ cd /home/claude/ae && npm install     # installe typescript (pour extract.js)
 ## `puerto-rico/` : appli Puerto Rico 1897
 
 La page est découpée en morceaux (`1-head.html` : styles et structure, `2-data.js` : bâtiments, `3-chapters.js` : contenu du tutoriel, `4-labs.js` et `5-ship.js` : ateliers, `6-app.js` : rendu, aide-mémoire, décompte). Modifier les morceaux puis lancer `sh outils/puerto-rico/build.sh` depuis la racine. Pas encore de version anglaise : `chrome.py` grise alors le bouton EN.
+
+Fiches A5 : `outils/puerto-rico/fiches/gen.py` (lit `b.json`, la liste des bâtiments extraite de `2-data.js`) produit `puerto-rico-aide-de-jeu.pdf` et `puerto-rico-batiments.pdf`, à copier dans `fiches/`.
