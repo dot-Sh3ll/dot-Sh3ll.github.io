@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){try{var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:"en:"+x};
+P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))};
+if(localStorage.getItem("site-lang")==="fr"&&!/[?&]lang=en/.test(location.search))location.replace("./"+location.hash)}catch(e){}})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puerto Rico 1897 · Learn the rules</title>
+<meta name="description" content="Learn Puerto Rico 1897 one rule at a time: interactive labs, hands-on cases, quizzes, a building reference and a score calculator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* Plan : barre d'onglets collante, sommaire à gauche avec progression, colonne de lecture à droite.
+   Couleurs : sable, mer des Caraïbes, terre cuite. Les cinq marchandises gardent les couleurs des tonneaux. */
+:root{
+  --bg:#f4efe4; --surface:#fffdf8; --sunk:#ebe3d3; --ink:#2a2118; --muted:#6f6252; --line:#dccfb8;
+  --accent:#0f6b6b; --accent-ink:#ffffff; --terra:#b4532a; --terra-soft:#f6e2d6;
+  --ok:#2c7a3f; --ok-soft:#e1f1e3; --bad:#b3372f; --bad-soft:#f8e1dd;
+  --corn:#e2b52a; --fruit:#3f9343; --sugar:#f3efe6; --tob:#8b5a2b; --cof:#2e231c;
+  --display:"Fraunces","Palatino Linotype",Georgia,serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --top:0px;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#141210; --surface:#1e1b17; --sunk:#171511; --ink:#efe6d6; --muted:#b0a28d; --line:#3a332a;
+  --accent:#4fc0b8; --accent-ink:#0b1a19; --terra:#e58a5f; --terra-soft:#3a241a;
+  --ok:#6fcf8a; --ok-soft:#16301d; --bad:#f08a80; --bad-soft:#3b1a17;
+  --sugar:#e9e4d8; --cof:#4a3a2e;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#141210; --surface:#1e1b17; --sunk:#171511; --ink:#efe6d6; --muted:#b0a28d; --line:#3a332a;
+    --accent:#4fc0b8; --accent-ink:#0b1a19; --terra:#e58a5f; --terra-soft:#3a241a;
+    --ok:#6fcf8a; --ok-soft:#16301d; --bad:#f08a80; --bad-soft:#3b1a17;
+    --sugar:#e9e4d8; --cof:#4a3a2e;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:7px}
+button:hover{border-color:var(--accent)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+button.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+button.ghost{background:transparent}
+button[disabled]{opacity:.45;cursor:not-allowed}
+button.sel{border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+input,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:6px 8px}
+input[type=number]{width:74px}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);vertical-align:-3px}
+
+/* ---------- en-tête de l'appli ---------- */
+.apphead{position:sticky;top:var(--sitehead-h,0px);z-index:8;background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.apphead .in{max-width:var(--site-w,1080px);margin:0 auto;padding:10px var(--site-pad,20px);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.apphead .title{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.1;margin:0;display:flex;align-items:baseline;gap:8px}
+.apphead .title small{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+.tabs{display:flex;gap:4px;background:var(--sunk);padding:4px;border-radius:999px;margin-left:auto}
+.tabs button{border:0;background:transparent;border-radius:999px;padding:6px 14px;font-weight:600;font-size:15px;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+.themebtn{border-radius:999px;width:36px;height:36px;padding:0;display:grid;place-items:center}
+@media (max-width:640px){.apphead .title{font-size:18px}.apphead .title small{display:none}.apphead .in{gap:8px;padding-top:8px;padding-bottom:8px}.themebtn{margin-left:auto;width:32px;height:32px}.tabs{order:3;margin-left:0;width:100%;justify-content:space-between}.tabs button{padding:6px 10px;font-size:14px}}
+
+.tab{display:none}.tab.on{display:block}
+
+/* ---------- tutoriel : sommaire + lecture ---------- */
+.learn{max-width:var(--site-w,1080px);margin:0 auto;padding:0 var(--site-pad,20px);display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(16px,3vw,40px)}
+nav.toc{position:sticky;top:calc(var(--sitehead-h,0px) + 64px);align-self:start;max-height:calc(100vh - var(--sitehead-h,0px) - 76px);overflow:auto;padding:22px 4px 20px 0}
+.toc .brand{font-family:var(--display);font-size:19px;font-weight:600;margin:0 6px 2px}
+.toc .brand small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+.bar{height:6px;background:var(--sunk);border-radius:3px;margin:12px 6px 4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--terra);width:0;transition:width .3s}
+.barlabel{font-size:13px;color:var(--muted);margin:0 6px 10px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+.toc a{display:flex;gap:9px;align-items:baseline;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:15px;line-height:1.3}
+.toc a:hover{background:var(--sunk)}
+.toc a.on{background:var(--accent);color:var(--accent-ink)}
+.toc a .n{font-variant-numeric:tabular-nums;font-size:12px;width:18px;color:var(--muted);flex:none}
+.toc a.on .n{color:inherit}
+.toc a .tick{margin-left:auto;font-size:12px;font-weight:700;color:var(--ok)}
+.toc a.on .tick{color:inherit}
+.toc .part{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--terra);font-weight:700;margin:14px 8px 3px}
+.tocbtn{display:none;width:100%;margin:10px 0 0}
+@media (max-width:860px){
+  .learn{grid-template-columns:1fr}
+  nav.toc{position:static;max-height:none;padding:16px 0 0}
+  .toc ol{display:none}.toc.open ol{display:flex}
+  .tocbtn{display:block}
+}
+main.read{padding:26px 0 90px;min-width:0}
+section.ch{display:none;max-width:760px}
+section.ch.on{display:block}
+.eyebrow{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);font-weight:700}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,38px);line-height:1.12;margin:4px 0 10px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:600;font-size:23px;margin:34px 0 10px;text-wrap:balance}
+h3{font-size:17px;margin:18px 0 4px}
+p{margin:0 0 12px}
+.lead{font-size:19px;color:var(--muted)}
+ul,ol{padding-left:22px;margin:0 0 12px}
+li{margin-bottom:5px}
+ol.rules{list-style:none;padding:0;counter-reset:r;display:flex;flex-direction:column;gap:8px}
+ol.rules>li{counter-increment:r;position:relative;padding:10px 14px 10px 50px;background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:0}
+ol.rules>li::before{content:counter(r);position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--sunk);color:var(--terra);font-weight:700;font-size:14px;display:grid;place-items:center}
+.note{border-left:4px solid var(--terra);background:var(--terra-soft);padding:10px 14px;border-radius:0 7px 7px 0;margin:14px 0}
+.note b:first-child{color:var(--terra)}
+.ex{border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 9%,var(--surface));padding:10px 14px;border-radius:0 7px 7px 0;margin:14px 0}
+.ex b:first-child{color:var(--accent)}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--sunk);font-weight:700}
+td.c,th.c{text-align:center}
+.en{display:none}
+
+/* atelier */
+.lab{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:9px;padding:16px 18px;margin:20px 0}
+.lab>h3:first-child{margin-top:0;font-family:var(--display);font-weight:600;font-size:20px}
+.lab .hint{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.f{display:flex;flex-direction:column;gap:3px;font-size:13.5px;color:var(--muted);font-weight:600}
+.f input,.f select{color:var(--ink);font-weight:400}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:15px;padding:4px 2px}
+.out{margin-top:12px;padding:10px 12px;background:var(--sunk);border-radius:7px;min-height:22px}
+.out.ok{background:var(--ok-soft)} .out.bad{background:var(--bad-soft)}
+.big{font-family:var(--display);font-size:26px;font-weight:600}
+.seg{display:inline-flex;background:var(--sunk);border-radius:999px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;border-radius:999px;padding:4px 12px;font-weight:600}
+.seg button.sel{background:var(--accent);color:var(--accent-ink);box-shadow:none}
+
+/* marchandises */
+.g{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font-weight:600}
+.g::before{content:"";width:13px;height:13px;border-radius:3px;border:1px solid rgba(0,0,0,.35);background:var(--gc);flex:none}
+.g-c{--gc:var(--corn)}.g-f{--gc:var(--fruit)}.g-s{--gc:var(--sugar)}.g-t{--gc:var(--tob)}.g-k{--gc:var(--cof)}
+.bl{display:inline-block;width:18px;height:22px;border-radius:5px;border:1px solid rgba(0,0,0,.4);background:var(--gc);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18),inset 0 3px 0 rgba(255,255,255,.18);vertical-align:middle}
+.coin{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#d8d2c4;border:1px solid #9b937f;color:#3b3427;font-size:12px;font-weight:700;vertical-align:middle}
+.coin.gold{background:#e6bf4a;border-color:#a7801c}
+.vp{display:inline-grid;place-items:center;min-width:24px;height:22px;padding:0 4px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);background:#6c8fb8;color:#fff;font-size:12px;font-weight:700;vertical-align:middle}
+
+/* cas pratiques et quiz */
+.qs{display:flex;flex-direction:column;gap:12px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.q .qt{font-weight:600;margin-bottom:8px}
+.q.case{border-left:4px solid var(--terra)}
+.q .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);margin-bottom:3px}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opts button{text-align:left;padding:8px 12px}
+.opts button.right{border-color:var(--ok);background:var(--ok-soft)}
+.opts button.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.why{margin-top:9px;font-size:15.5px;padding:8px 11px;border-radius:7px;background:var(--sunk)}
+.score{margin-top:12px;font-weight:600}
+.done-banner{margin-top:14px;padding:10px 14px;border-radius:8px;background:var(--ok-soft);color:var(--ok);font-weight:700}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:34px;padding-top:16px;border-top:1px solid var(--line);flex-wrap:wrap}
+
+/* simulateur de navires */
+.ships{display:flex;flex-direction:column;gap:9px;margin:10px 0}
+.ship{display:flex;align-items:center;gap:10px;padding:8px 10px;border:2px solid var(--line);border-radius:10px 40px 40px 10px;background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 14%,var(--surface)),var(--surface));cursor:pointer;text-align:left;width:100%}
+.ship:hover{border-color:var(--accent)}
+.ship .cap{font-weight:700;min-width:72px;font-size:14px}
+.ship .holds{display:flex;gap:4px;flex-wrap:wrap}
+.hold{width:18px;height:22px;border-radius:5px;border:1px dashed var(--muted);background:transparent}
+.ship.full{opacity:.75}
+.ship.charter{border-style:dashed}
+.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin:10px 0}
+.pl{border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:var(--surface)}
+.pl.cur{border-color:var(--terra);box-shadow:0 0 0 2px var(--terra)}
+.pl .nm{font-weight:700;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.pl .badge{font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--sunk);color:var(--muted)}
+.pl .badge.cap{background:var(--terra);color:#fff}
+.pl .goods{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.gbtn{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;font-weight:700}
+.gbtn.sel{box-shadow:inset 0 0 0 2px var(--terra);border-color:var(--terra)}
+.log{list-style:none;padding:0;margin:10px 0 0;max-height:220px;overflow:auto;font-size:14.5px;display:flex;flex-direction:column;gap:3px}
+.log li{padding:4px 8px;border-radius:5px;background:var(--sunk);margin:0}
+.log li.err{background:var(--bad-soft)}
+.log li.okk{background:var(--ok-soft)}
+
+/* maison de commerce */
+.house{display:grid;grid-template-columns:repeat(4,58px);gap:6px;margin:8px 0}
+.slot{height:58px;border:2px dashed var(--line);border-radius:8px;display:grid;place-items:center}
+.slot .bl{width:28px;height:34px}
+
+/* rôles (atelier manche) */
+.roles{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.role{width:118px;border:1px solid var(--line);border-radius:9px;padding:8px;background:var(--surface);text-align:left;display:flex;flex-direction:column;gap:3px}
+.role b{font-size:15px}
+.role small{font-size:12px;color:var(--muted);line-height:1.25}
+.role.taken{opacity:.45}
+.role .coins{min-height:22px}
+
+/* aide-mémoire et décompte */
+.page{max-width:var(--site-w,1080px);margin:0 auto;padding:22px var(--site-pad,20px) 90px}
+.page h1{margin-top:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.bcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;border-top:5px solid var(--bc,var(--line))}
+.bcard .hd{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.bcard .nm{font-weight:700;line-height:1.2}
+.bcard .meta{display:flex;gap:5px;align-items:center;flex:none}
+.bcard .fx{font-size:14.5px}
+.bcard .set{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.slots{font-size:12.5px;color:var(--muted)}
+.filters2{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 14px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.pcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px}
+.pcard .tot{font-family:var(--display);font-size:30px;font-weight:600;color:var(--accent)}
+.bchips{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+.bchips button{font-size:12.5px;padding:3px 8px;border-radius:999px}
+.bchips button.sel{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);box-shadow:none}
+details.grp{margin:6px 0}
+details.grp summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--muted)}
+.rank{list-style:none;padding:0;margin:10px 0;display:flex;flex-direction:column;gap:6px}
+.rank li{display:flex;gap:10px;align-items:center;padding:8px 12px;background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:0}
+.rank li:first-child{border-color:var(--terra);box-shadow:0 0 0 2px var(--terra)}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media print{.apphead,nav.toc,.pager,.lab button{display:none}}
+</style>
+<style id="sitehead-css">
+@font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
+.sitehead{position:sticky;top:0;z-index:9;background:#0d0f16;border-bottom:1px solid #2a3144;color:#efe8d8;font:500 15px/1.2 "Figtree","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.sitehead *{box-sizing:border-box}
+:root{--site-w:1080px;--site-pad:20px}
+@media (max-width:640px){:root{--site-pad:16px}}
+.sitehead .sh-in{max-width:var(--site-w);margin:0 auto;padding:0 var(--site-pad);height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sitehead a{color:inherit;text-decoration:none}
+.sitehead .sh-brand{display:flex;align-items:center;gap:10px;font-family:"Marcellus","SH Marcellus","Palatino Linotype",Georgia,serif;font-size:19px;font-weight:400;letter-spacing:.01em;white-space:nowrap}
+.sitehead .sh-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#1d2230;border:1px solid #2a3144;font-size:16px;line-height:1}
+.sitehead .sh-act{display:flex;align-items:center;gap:10px}
+.sitehead .sh-lang{display:inline-flex;padding:3px;background:#161a25;border:1px solid #2a3144;border-radius:999px}
+.sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;font-weight:700;font-size:12.5px;letter-spacing:.04em}
+.sitehead .sh-lang span{background:#ddb96a;color:#17130a}
+.sitehead .sh-lang a{color:#a3a9b8}
+.sitehead .sh-lang span.sh-off{background:none;color:#5d6475;cursor:not-allowed}
+.sitehead .sh-lang a:hover{color:#fff}
+.sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:#ddb96a;color:#17130a;font-weight:700;font-size:14.5px;white-space:nowrap}
+.sitehead .sh-kofi:hover{filter:brightness(1.08)}
+.sitehead a:focus-visible{outline:2px solid #ddb96a;outline-offset:2px}
+@media (max-width:640px){.sitehead .sh-text,.sitehead .sh-kofi-t{display:none}.sitehead .sh-kofi{width:36px;padding:0;justify-content:center}}
+@media print{.sitehead{display:none}}
+:root{--sitehead-h:57px}
+html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
+</style>
+<!--pwa-->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/favicon-32.png" type="image/png">
+<meta name="theme-color" content="#0d0f16">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Less Rules">
+<script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
+<script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<!--/pwa-->
+</head>
+<body>
+<header class="sitehead">
+<div class="sh-in">
+<a class="sh-brand" href="../" aria-label="Back to the game aids home page"><span class="sh-mark" aria-hidden="true">🎲</span><span class="sh-text">Less Rules, More Play</span></a>
+<div class="sh-act">
+<div class="sh-lang" role="group" aria-label="Langue / Language"><a href="./?lang=fr" hreflang="fr" lang="fr" aria-label="Passer en français" onclick="try{localStorage.setItem('site-lang','fr')}catch(e){}">FR</a><span aria-current="true">EN</span></div>
+<a class="sh-kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" aria-label="Ko-fi"><span aria-hidden="true">☕</span><span class="sh-kofi-t">Buy me a coffee</span></a>
+</div>
+</div>
+</header><!--/sitehead-->
+
+<header class="apphead"><div class="in">
+  <p class="title">Puerto Rico 1897</p>
+  <div class="tabs" role="tablist" aria-label="Sections">
+    <button type="button" role="tab" data-tab="learn" aria-selected="true">Learn</button>
+    <button type="button" role="tab" data-tab="aide" aria-selected="false">Reference</button>
+    <button type="button" role="tab" data-tab="score" aria-selected="false">Scoring</button>
+  </div>
+  <button type="button" class="themebtn ghost" id="theme" aria-label="Change theme (light / dark)">◐</button>
+</div></header>
+
+<div class="tab on" id="tab-learn"><div class="learn">
+  <nav class="toc" id="toc" aria-label="Tutorial contents">
+    <p class="brand">Learn the rules<small>After the English rulebook</small></p>
+    <div class="bar"><i id="bar"></i></div>
+    <p class="barlabel" id="barlabel"></p>
+    <button type="button" class="tocbtn" id="tocbtn" aria-expanded="false">Show contents</button>
+    <ol id="toclist"></ol>
+  </nav>
+  <main class="read" id="read"></main>
+</div></div>
+
+<div class="tab" id="tab-aide"><div class="page" id="aide"></div></div>
+<div class="tab" id="tab-score"><div class="page" id="score"></div></div>
+<script>
+(function(){
+"use strict";
+/* ---------- utilities ---------- */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ---------- goods ---------- */
+const GOODS=['c','f','s','t','k'];
+const GN={c:'Corn',f:'Fruit',s:'Sugar',t:'Tobacco',k:'Coffee'};
+const GN1={c:'corn',f:'fruit',s:'sugar',t:'tobacco',k:'coffee'};
+const PRICE={c:0,f:1,s:2,t:3,k:4};
+const G={};GOODS.forEach(k=>G[k]=`<span class="g g-${k}">${GN[k]}</span>`);
+const bl=k=>`<span class="bl g-${k}" title="${GN[k]}"></span>`;
+const coin=n=>`<span class="coin">${n}</span>`;
+const vp=n=>`<span class="vp">${n}</span>`;
+
+/* ---------- buildings ----------
+   row: board section (1 to 3 small, 4 large), which caps the Quarry discount.
+   kind: prod (production), small, large. set: base, e1, e2. The display name is in "fr" (shared field name with the French page). */
+const B=[
+ {id:'sfw',fr:'Small Fruit Warehouse',en:'',cost:1,vp:1,slots:1,row:1,kind:'prod',good:'f',sz:'s',set:'base',ph:'Craftsman',fx:'Produces up to 1 barrel of Fruit (1 worker space).'},
+ {id:'ssm',fr:'Small Sugar Mill',en:'',cost:2,vp:1,slots:1,row:1,kind:'prod',good:'s',sz:'s',set:'base',ph:'Craftsman',fx:'Produces up to 1 barrel of Sugar (1 worker space).'},
+ {id:'lfw',fr:'Large Fruit Warehouse',en:'',cost:3,vp:2,slots:3,row:2,kind:'prod',good:'f',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 3 barrels of Fruit (3 worker spaces).'},
+ {id:'lsm',fr:'Large Sugar Mill',en:'',cost:4,vp:2,slots:3,row:2,kind:'prod',good:'s',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 3 barrels of Sugar (3 worker spaces).'},
+ {id:'tob',fr:'Tobacco Storage',en:'',cost:5,vp:3,slots:3,row:3,kind:'prod',good:'t',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 3 barrels of Tobacco (3 worker spaces).'},
+ {id:'cof',fr:'Coffee Roaster',en:'',cost:6,vp:3,slots:2,row:3,kind:'prod',good:'k',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 2 barrels of Coffee (2 worker spaces).'},
+
+ {id:'smk',fr:'Small Market',en:'',cost:1,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Trader',fx:'When you sell to the Trading House: +1 coin.'},
+ {id:'byd',fr:'Builders Yard',en:'',cost:2,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Planter',fx:'Planting phase: you may take a Quarry instead of an Estate.'},
+ {id:'hac',fr:'Hacienda',en:'',cost:2,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Planter',fx:'Planting phase: before your normal action, also take the top Estate of a face-down stack and place it at once.'},
+ {id:'swh',fr:'Small Warehouse',en:'',cost:3,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Captain',fx:'End of the Shipment phase: keep all barrels of 1 type, on top of the barrel everyone keeps.'},
+ {id:'hos',fr:'Hospital',en:'',cost:4,vp:2,slots:1,row:2,kind:'small',set:'base',ph:'Planter',fx:'Planting phase: when you place an Estate or a Quarry, take 1 worker from the supply and place it on that tile.'},
+ {id:'off',fr:'Office',en:'',cost:5,vp:2,slots:1,row:2,kind:'small',set:'base',ph:'Trader',fx:'You may sell a type of Good already in the Trading House (still 1 barrel, and not if it is full).'},
+ {id:'lmk',fr:'Large Market',en:'',cost:5,vp:2,slots:1,row:2,kind:'small',set:'base',ph:'Trader',fx:'When you sell to the Trading House: +2 coins (+3 with an occupied Small Market).'},
+ {id:'lwh',fr:'Large Warehouse',en:'',cost:6,vp:2,slots:1,row:2,kind:'small',set:'base',ph:'Captain',fx:'End of the Shipment phase: keep all barrels of 2 types (3 types with an occupied Small Warehouse), plus the usual barrel.'},
+ {id:'fac',fr:'Factory',en:'',cost:7,vp:3,slots:1,row:3,kind:'small',set:'base',ph:'Craftsman',fx:'Production phase: coins by number of types produced: 2 types → 1, 3 → 2, 4 → 3, 5 → 5.'},
+ {id:'sch',fr:'School',en:'',cost:8,vp:3,slots:1,row:3,kind:'small',set:'base',ph:'Builder',fx:'Build phase: when you build, take 1 worker from the supply and place it on the new Building.'},
+ {id:'har',fr:'Harbor',en:'',cost:8,vp:3,slots:1,row:3,kind:'small',set:'base',ph:'Captain',fx:'Shipment phase: +1 VP each time you load Goods.'},
+ {id:'wha',fr:'Wharf',en:'',cost:9,vp:3,slots:1,row:3,kind:'small',set:'base',ph:'Captain',fx:'Once per Shipment phase: load all barrels of 1 type onto a Chartered Ship (no limit), 1 VP per barrel.'},
+
+ {id:'cth',fr:'City Hall',en:'',cost:10,vp:4,slots:1,row:4,kind:'large',set:'base',ph:'End of game',fx:'+1 VP per Commercial Building (small or large, occupied or not), City Hall included.'},
+ {id:'cus',fr:'Customs House',en:'',cost:10,vp:4,slots:1,row:4,kind:'large',set:'base',ph:'End of game',fx:'+1 VP for every 4 VP in chips earned during the game.'},
+ {id:'frt',fr:'Fortress',en:'',cost:10,vp:4,slots:1,row:4,kind:'large',set:'base',ph:'End of game',fx:'+1 VP for every 3 workers on your Island board (Portrait included).'},
+ {id:'fst',fr:'Fire Station',en:'',cost:10,vp:4,slots:1,row:4,kind:'large',set:'base',ph:'End of game',fx:'+1 VP per Small Production Building, +2 VP per Large one, occupied or not.'},
+ {id:'res',fr:'Residence',en:'',cost:10,vp:4,slots:1,row:4,kind:'large',set:'base',ph:'End of game',fx:'VP for filled Countryside spaces: 1 to 9 → 4 VP, 10 → 5, 11 → 6, 12 → 7.'},
+
+ {id:'can',fr:'Canal',en:'',cost:1,vp:1,slots:1,row:1,kind:'small',set:'e1',ph:'Craftsman',fx:'If you produce at least 1 Fruit with your Large Fruit Warehouse: +1 Fruit. Same for Sugar with the Large Sugar Mill.'},
+ {id:'bmk',fr:'Black Market',en:'',cost:2,vp:1,slots:1,row:1,kind:'small',set:'e1',ph:'Builder',fx:'If you are short of money: return 1 worker, 1 barrel and/or 1 VP, each worth 1 coin (3 at most). You must have no coins left.'},
+ {id:'lum',fr:'Lumberyard',en:'',cost:2,vp:1,slots:1,row:1,kind:'small',set:'e1',ph:'Planter · Builder',fx:'Place an Estate face down: it is a Forest. Build phase: −1 coin for every 2 Forests.'},
+ {id:'sto',fr:'Storehouse',en:'',cost:3,vp:1,slots:1,row:1,kind:'small',set:'e1',ph:'Captain',fx:'End of the Shipment phase: keep up to 3 additional barrels, of any types.'},
+ {id:'boh',fr:'Bohio',en:'',cost:4,vp:2,slots:2,row:2,kind:'small',set:'e1',ph:'Recruiter',fx:'Up to 2 "guest" workers, moved during any other phase to a tile whose function you use at once.'},
+ {id:'tpo',fr:'Trading Post',en:'',cost:5,vp:2,slots:1,row:2,kind:'small',set:'e1',ph:'Trader',fx:'You may sell to your own Trading Post, even a type already present or when the Trading House is full. No Market bonus, but the Trader advantage applies.'},
+ {id:'chu',fr:'Church',en:'',cost:5,vp:2,slots:1,row:2,kind:'small',set:'e1',ph:'Builder',fx:'When you build: +1 VP for a Building of the 2nd or 3rd section, +2 VP for a Large Building.'},
+ {id:'swf',fr:'Small Wharf',en:'',cost:6,vp:2,slots:1,row:2,kind:'small',set:'e1',ph:'Captain',fx:'Once per phase: load as many barrels as you like, of any types, onto a Chartered Ship. 1 VP per 2 barrels.'},
+ {id:'lig',fr:'Lighthouse',en:'',cost:7,vp:3,slots:1,row:3,kind:'small',set:'e1',ph:'Captain',fx:'+1 coin each time you load. If you are the Captain, +1 coin at the start of the phase.'},
+ {id:'pub',fr:'Publishing House',en:'',cost:8,vp:3,slots:1,row:3,kind:'small',set:'e1',ph:'All phases',fx:'The role you choose gives you its advantage twice.'},
+ {id:'dis',fr:'Distillery',en:'',cost:8,vp:3,slots:1,row:3,kind:'small',set:'e1',ph:'Craftsman',fx:'Coins = barrels of your most-produced type (except Corn) − 1.'},
+ {id:'asm',fr:'Assembly Hall',en:'',cost:9,vp:3,slots:1,row:3,kind:'small',set:'e1',ph:'Captain',fx:'At the start of the Shipment phase: 1 VP per pair of barrels of the same type.'},
+ {id:'cat',fr:'Cathedral',en:'',cost:10,vp:4,slots:1,row:4,kind:'large',set:'e1',ph:'End of game',fx:'Sets of 3 identical Countryside tiles: 1 set → 1 VP, 2 → 3, 3 → 6, 4 → 10.'},
+ {id:'mon',fr:'Monument',en:'',cost:10,vp:8,slots:0,row:4,kind:'large',set:'e1',ph:'End of game',fx:'Worth 8 VP. No function, no worker on it.'},
+
+ {id:'zon',fr:'Zoning Office',en:'',cost:2,vp:1,slots:1,row:1,kind:'small',set:'e2',ph:'Trader',fx:'Worker: pay 1 coin for a face-down Estate. Citizen: sell one of your Estates for 1 coin.'},
+ {id:'cha',fr:'Chapel',en:'',cost:3,vp:1,slots:1,row:1,kind:'small',set:'e2',ph:'Craftsman',fx:'At the start of the Production phase. Worker: +1 coin. Citizen: +1 VP.'},
+ {id:'par',fr:'Park Authority',en:'',cost:4,vp:2,slots:1,row:2,kind:'small',set:'e2',ph:'Planter',fx:'End of the Planting phase. Worker: discard 1 Estate or Forest. Citizen: +2 VP if you have more empty Countryside spaces than every other player.'},
+ {id:'not',fr:'Notary',en:'',cost:5,vp:2,slots:1,row:2,kind:'small',set:'e2',ph:'Builder',fx:'Worker: −1 coin on a Small Building. Citizen: −2 coins on a Large Building.'},
+ {id:'pen',fr:'Pension Office',en:'',cost:6,vp:2,slots:1,row:2,kind:'small',set:'e2',ph:'Captain',fx:'At the start of the Shipment phase: for each citizen on your Island, return 1 barrel (all different types) for 1 VP.'},
+ {id:'vil',fr:'Villa',en:'',cost:7,vp:3,slots:1,row:3,kind:'small',set:'e2',ph:'Recruiter',fx:'At the start of the Recruitment phase: take 1 citizen from the supply (otherwise 1 worker from the supply).'},
+ {id:'tai',fr:'Tailor Shop',en:'',cost:8,vp:3,slots:1,row:3,kind:'small',set:'e2',ph:'Craftsman',fx:'Production phase: +1 coin per citizen on your Island. Counts as a Large Production Building for the Fire Station.'},
+ {id:'tsq',fr:'Town Square',en:'',cost:10,vp:4,slots:1,row:4,kind:'large',set:'e2',ph:'End of game',fx:'+1 VP per citizen on your Island (each citizen is then worth 2 VP).'}
+];
+/* board order (section by section, line by line), then Expansion I by cost */
+const BOARDORD=['sfw','smk','hac','byd','ssm','swh','zon','cha','lfw','hos','off','lmk','lwh','lsm','par','not','pen','tob','fac','sch','har','cof','wha','vil','tai','fst','res','frt','cus','cth','tsq','can','bmk','lum','sto','boh','chu','tpo','swf','lig','dis','pub','asm','cat','mon'];
+const BI={};B.forEach(b=>BI[b.id]=b);
+const SETN={base:'Base game',e1:'Expansion I',e2:'Expansion II'};
+const ROWCAP=r=>r;
+const bn=id=>`<b>${BI[id].fr}</b>`;
+const KC={prod:'var(--fruit)',small:'var(--accent)',large:'var(--terra)'};
+
+/* ---------- chapter content (English, after the English rulebook) ----------
+   rules: one rule point per line. lab: interactive lab (see LABS). cas: hands-on cases. quiz: check. */
+const CH=[
+/* ======================= GETTING STARTED ======================= */
+{id:'but',part:'Getting started',t:'Object of the game',
+lead:`Puerto Rico 1897 puts you in charge of a farm. You plant, recruit, produce, sell and ship. Whoever has the most Victory Points (VP) at the end wins.`,
+rules:[
+`On your turn you <b>choose a role</b> (Planter, Builder, Recruiter, Craftsman, Trader, Captain or Adventurer). Everyone performs that role's action, but only you get its <b>advantage</b>.`,
+`A game lasts about 15 rounds ("years"). It ends at the end of a round, once one of the three end conditions is met.`,
+`VP come from three sources: <b>VP chips</b> earned by shipping Goods, the <b>VP printed on your Buildings</b>, and the <b>bonuses of occupied Large Buildings</b>.`,
+`Your <b>Island board</b> has 12 <b>Countryside</b> spaces at the top (Estates and Quarries) and 12 <b>City</b> spaces at the bottom (Buildings). The <b>Portrait</b> holds your coins, your barrels and the workers who have no room.`,
+`Coins and barrels stay visible to all. VP chips may be placed face down.`,
+`Each tile has 1 to 3 <b>worker spaces</b> (semicircles). A worker space holds exactly 1 worker. A tile with at least 1 worker is <b>occupied</b>, and only occupied tiles work.`
+],
+html:`<h2>The five Goods</h2>
+<div class="tw"><table><tr><th>Good</th><th>To produce it</th><th class="c">Sale price</th></tr>
+<tr><td>${G.c}</td><td>An occupied Corn Estate is enough, no Building needed.</td><td class="c">0</td></tr>
+<tr><td>${G.f}</td><td>Occupied Fruit Estate + occupied space in a Fruit Warehouse.</td><td class="c">1</td></tr>
+<tr><td>${G.s}</td><td>Occupied Sugar Estate + occupied space in a Sugar Mill.</td><td class="c">2</td></tr>
+<tr><td>${G.t}</td><td>Occupied Tobacco Estate + occupied space in the Tobacco Storage.</td><td class="c">3</td></tr>
+<tr><td>${G.k}</td><td>Occupied Coffee Estate + occupied space in the Coffee Roaster.</td><td class="c">4</td></tr></table></div>
+<div class="note"><b>Names.</b> This tutorial uses the terms of the English Puerto Rico 1897 rulebook. The 2002 Puerto Rico used other names (colonists, indigo, mayor…): the rules are the same.</div>`,
+cas:[
+{q:`Your Tobacco Storage is built but nobody works there. Your Tobacco Estate does have its worker. How much Tobacco do you produce?`,o:[`1 barrel: the Estate is occupied`,`None: the Storage is not occupied, so it doesn't work`,`1 barrel, but only if you are the Craftsman`],a:1,w:`A tile only works when occupied. For Tobacco you need both the occupied Estate and a worker in the Tobacco Storage.`},
+{q:`An opponent places their VP chips face down on their Portrait. Can they do the same with their coins?`,o:[`Yes, everything can be hidden`,`No: coins and barrels stay visible, only VP may be hidden`],a:1,w:`The rulebook says coins and Goods stay visible to all. Only VP chips may be turned face down.`}
+],
+quiz:[
+{q:`When you choose a role, who gets its advantage?`,o:[`All players`,`Only you`,`The Governor`],a:1,w:`Everyone performs the action; only the player who took the card gets the advantage.`},
+{q:`How many workers fit on one worker space?`,o:[`1`,`2`,`As many as you like`],a:0,w:`Exactly 1 worker per worker space.`},
+{q:`Which Good is produced without a Building?`,o:[`Fruit`,`Corn`,`Coffee`],a:1,w:`Each occupied Corn Estate yields 1 barrel directly.`}
+]},
+
+{id:'mep',part:'Getting started',t:'Setup',
+lead:`Almost everything depends on the number of players. The lab gives you the complete list for your table.`,
+rules:[
+`Central board in the middle: the 49 Buildings stacked on their spaces, the 51 coins form the <b>Bank</b>.`,
+`The starting player receives the <b>Governor</b> card.`,
+`Each player receives an Island board and coins: <b>one fewer than the number of players</b> (2 with 3 players, 3 with 4, 4 with 5), placed on the Portrait.`,
+`Starting Estate, from the Governor clockwise: with 3 players Fruit, Fruit, Corn; with 4 Fruit, Fruit, Corn, Corn; with 5 Fruit, Fruit, Fruit, Corn, Corn. It goes face up on a Countryside space, <b>without a worker</b>.`,
+`The 8 Quarries form a face-up stack. The other Estates are shuffled into face-down stacks, and <b>one more than the number of players</b> are flipped face up.`,
+`The Work Register receives <b>as many workers as there are players</b>. The worker supply, VP chips, roles and ships depend on the number of players (see the lab).`,
+`The 50 barrels are sorted by color, the Trading House is placed empty. Unused pieces go back in the box.`
+],
+lab:'setup',
+cas:[
+{q:`4-player game. You are the 3rd player from the Governor. Which Estate do you take?`,o:[`Fruit`,`Corn`,`Any face-up Estate you like`],a:1,w:`With 4 players, the 1st and 2nd take Fruit, the 3rd and 4th take Corn.`},
+{q:`3-player game. Someone takes out both Adventurers. What do you tell them?`,o:[`Keep them, more choice`,`With 3 players we use 6 roles, without any Adventurer`,`Keep just one`],a:1,w:`3 players: 6 roles; 4 players: 7 (1 Adventurer); 5 players: all 8.`}
+],
+quiz:[
+{q:`5-player game: how many coins does each player start with?`,o:[`3`,`4`,`5`],a:1,w:`One fewer than the number of players.`},
+{q:`4-player game: which ships are used?`,o:[`4, 5 and 6 holds`,`5, 6 and 7 holds`,`6, 7 and 8 holds`],a:1,w:`3 players: 4-5-6; 4 players: 5-6-7; 5 players: 6-7-8.`},
+{q:`How many Estates are flipped face up with 3 players?`,o:[`3`,`4`,`5`],a:1,w:`Always one more than the number of players.`}
+]},
+
+{id:'tour',part:'Getting started',t:'A round: roles and Governor',
+lead:`The heart of the game fits in one rule: choosing a role starts a phase for everyone. The lab lets you play a whole round.`,
+rules:[
+`The <b>Governor</b> chooses a role card, places it in front of them and performs the action <b>with the advantage</b>. Then each other player, clockwise, performs the same action <b>without the advantage</b>.`,
+`Next, the player to the Governor's left chooses one of the remaining roles, and so on. Each player chooses <b>one role per round</b> (three with two players).`,
+`Choosing a role is mandatory. Performing the action is optional, except for the Captain. A player who cannot or will not act is simply skipped.`,
+`The player who chose the role <b>always acts first</b>, before the others.`,
+`A chosen role stays in front of its player until the end of the round: nobody else can take it that round.`,
+`If a role card carries coins, the player who chooses it takes them.`,
+`End of the round: the Governor places <b>1 coin from the Bank on each role not chosen</b>, everyone returns their card, and the Governor card passes to the left.`
+],
+lab:'round',
+cas:[
+{q:`You are the 2nd player to choose. The Governor took the Craftsman, you take the Captain. Who loads first?`,o:[`The Governor, they started the round`,`You: whoever chooses the role always acts first`,`The player to your left`],a:1,w:`Each phase starts with the player who took the card, then goes clockwise.`},
+{q:`The Trader has carried 2 coins for two rounds. You have nothing to sell. Do you take it anyway?`,o:[`Impossible: you must be able to perform the action`,`Yes, that's allowed: you take the 2 coins and may sell nothing`],a:1,w:`The action is optional (except for the Captain). Taking a role "for the money" is a common move.`}
+],
+quiz:[
+{q:`With 4 players (7 roles), how many coins does the Governor place at the end of the round?`,o:[`1`,`3`,`4`],a:1,w:`7 roles, 4 chosen: 3 roles left, 1 coin on each.`},
+{q:`Who becomes Governor next round?`,o:[`The player with the fewest VP`,`The player to the left of the current Governor`,`Whoever took the Captain`],a:1,w:`The card simply passes to the left.`},
+{q:`Can you take a role another player already chose this round?`,o:[`Yes`,`No`],a:1,w:`The card stays in front of them until the end of the round.`}
+]},
+
+/* ======================= THE ROLES ======================= */
+{id:'paysan',part:'The roles',t:'The Planter',
+lead:`Develop the Countryside: a new Estate for everyone, and a Quarry for the Planter if they want one.`,
+rules:[
+`The Planter takes <b>a Quarry or one of the face-up Estates</b> and places it on an empty Countryside space (advantage: the Quarry).`,
+`Then each player, clockwise, takes one of the remaining face-up Estates. The other players cannot take a Quarry, unless they have an occupied <b>Builders Yard</b>.`,
+`The new tile arrives <b>without a worker</b> (unless you have an occupied Hospital). It will only produce once occupied, during a Recruitment phase.`,
+`When everyone has played, the Planter <b>discards the remaining face-up Estates</b> and flips new ones: one more than the number of players.`,
+`If the stacks run out, shuffle the discard pile into new stacks. If there is nothing left at all, the action becomes impossible.`,
+`A placed tile can be moved but never removed. Its position does not matter.`,
+`All 12 Countryside spaces filled: you can no longer take the Planter action. No Quarries left: the Planter loses the advantage and the Builders Yard stops working.`
+],
+html:`<div class="note"><b>Related Buildings.</b> ${bn('hac')} (an extra face-down Estate), ${bn('byd')} (a Quarry for anyone), ${bn('hos')} (a free worker on the placed tile). Details in the Small Buildings chapter.</div>`,
+lab:'plant',
+cas:[
+{q:`You are not the Planter and have no Builders Yard. A Quarry and two Corn Estates are face up. What can you take?`,o:[`The Quarry`,`A Corn Estate`,`Nothing, Quarries are reserved`],a:1,w:`Without an occupied Builders Yard, other players only take face-up Estates.`},
+{q:`All 12 of your Countryside spaces are filled. An opponent takes the Planter.`,o:[`You still take an Estate and discard one`,`You pass: a full Countryside forbids the action`,`You place the Estate on a City space`],a:1,w:`A tile is never removed, and there are only 12 Countryside spaces.`},
+{q:`You are the Planter and take a Coffee Estate. Will it produce in the next Production phase?`,o:[`Yes, automatically`,`Only if a worker is placed on it before then, in a Recruitment phase`],a:1,w:`Workers are only placed in the Recruitment phase (except with the Hospital or School).`}
+],
+quiz:[
+{q:`At the end of the Planting phase with 4 players, how many Estates are face up?`,o:[`4`,`5`,`The ones left, plus one`],a:1,w:`The leftovers are discarded and one more than the number of players are flipped.`},
+{q:`Who refreshes the face-up Estates?`,o:[`The Governor`,`The Planter`,`The last player to take one`],a:1,w:`The Planter does, once everyone has played.`}
+]},
+
+{id:'recruteur',part:'The roles',t:'The Recruiter',
+lead:`Recruit workers, then place or rearrange them. It is the only time workers move.`,
+rules:[
+`The Recruiter first takes <b>1 worker from the supply</b> (advantage; not from the Work Register).`,
+`Then, starting with the Recruiter and going clockwise, players take <b>1 worker from the Work Register in turn</b> until it is empty. Players may therefore receive different numbers of workers.`,
+`Everyone places their workers (new or old) on empty spaces of Estates, Quarries or Buildings. You may also <b>freely move</b> workers placed earlier.`,
+`A worker goes onto the Portrait <b>only if there is no empty worker space left</b> on your Island. It will wait for the next Recruitment phase.`,
+`Players place clockwise from the Recruiter, or simultaneously if everyone agrees.`,
+`End of the phase: the Recruiter refills the Work Register with as many workers as there are <b>empty worker spaces on Buildings</b> across all players (not on Estates or Quarries), with <b>at least the number of players</b>.`,
+`If the supply cannot refill the Work Register, the game will end at the end of the round. If the supply is empty, the Recruiter loses the advantage.`
+],
+html:`<div class="ex"><b>Rulebook example (4 players).</b> 6 workers on the Work Register. The Recruiter takes 1 worker from the supply, then the Register is shared out: Recruiter, 2nd, 3rd, 4th, Recruiter, 2nd. Result: 3 workers for the Recruiter (including the one from the supply), 2 for the 2nd player, 1 each for the 3rd and 4th.</div>`,
+lab:'recruit',
+cas:[
+{q:`You have 2 workers to place. One space is left on your Corn Estate and none elsewhere. Where does the second one go?`,o:[`Onto the Portrait`,`You must free a space by moving a worker`,`It goes back to the supply`],a:0,w:`The Portrait is for when every space is taken. You could also move other workers, but that creates no extra room.`},
+{q:`During a Production phase, you would like to move a worker from your Corn Estate to your Coffee Roaster.`,o:[`Allowed at any time`,`Not allowed: workers only move in the Recruitment phase`],a:1,w:`Exception: the Bohio from Expansion I.`},
+{q:`End of the phase, 4 players. There are only 2 empty worker spaces on all Buildings combined. How many workers go onto the Register?`,o:[`2`,`4`,`0`],a:1,w:`At least as many as there are players.`}
+],
+quiz:[
+{q:`Where does the Recruiter's advantage worker come from?`,o:[`The Work Register`,`The supply`],a:1,w:`It is taken from the supply, before the Register is shared out.`},
+{q:`What do you count to refill the Work Register?`,o:[`Empty worker spaces on Buildings`,`Empty worker spaces everywhere`,`Workers on Portraits`],a:0,w:`Buildings only, not Estates or Quarries.`}
+]},
+
+{id:'batisseur',part:'The roles',t:'The Builder',
+lead:`One Building per player, paid to the Bank. The Builder pays 1 coin less, and occupied Quarries lower the prices.`,
+rules:[
+`The Builder may buy <b>1 Building</b> and pays <b>1 coin less</b> than its cost. Then each player, clockwise, may buy 1 at full price.`,
+`The Building goes on an empty City space. A <b>Large Building</b> takes 2 adjacent spaces but counts as a single Building.`,
+`You can never own <b>the same Building twice</b>.`,
+`Each <b>occupied Quarry</b> lowers the price by 1 coin, capped by the board section: at most 1 Quarry in the top section, 2 in the second, 3 in the third, 4 for Large Buildings.`,
+`Discounts add up (advantage, Quarries…). A Building never costs less than 0.`,
+`The new Building arrives <b>without a worker</b> (unless you have an occupied School).`,
+`If the Builder builds nothing, they get nothing for the advantage. Full City: no more Builder action. A Large Building cannot be built if only 1 space is left.`,
+`Filling all 12 City spaces triggers the end of the game (at the end of the round).`
+],
+html:`<div class="ex"><b>Rulebook example.</b> With 3 occupied Quarries you pay: Builders Yard 1 (2 − 1), Office 3 (5 − 2), Harbor 5 (8 − 3), City Hall 7 (10 − 3). With the Builder's advantage, 1 less again.</div>`,
+lab:'build',
+cas:[
+{q:`You are the Builder with 2 occupied Quarries and want the Small Market (cost 1). How much do you pay?`,o:[`0`,`−2, the Bank pays you`,`1`],a:0,w:`1 − 1 (Quarry, capped at 1 in the top section) − 1 (advantage) = 0 at the floor.`},
+{q:`You already own a Small Market. Another one is left on the board. Can you buy it?`,o:[`Yes, the effects add up`,`No: never the same Building twice`],a:1,w:`Each Building may only be built once per player.`},
+{q:`You have a single empty City space left and 10 coins. What can you build?`,o:[`A Large Building`,`A Small or Production Building`,`Nothing`],a:1,w:`A Large Building needs 2 adjacent empty spaces.`}
+],
+quiz:[
+{q:`4 occupied Quarries, you buy the Large Warehouse (cost 6, second section) without being the Builder.`,o:[`2`,`4`,`5`],a:1,w:`Cap of 2 Quarries in the second section: 6 − 2 = 4.`},
+{q:`What does City Hall cost with 4 occupied Quarries and the Builder's advantage?`,o:[`5`,`6`,`7`],a:0,w:`10 − 4 − 1 = 5.`}
+]},
+
+{id:'producteur',part:'The roles',t:'The Craftsman',
+lead:`Everyone produces. It is the riskiest role: it often helps the others more than the player who takes it.`,
+rules:[
+`The Craftsman produces first, then each player clockwise. Barrels go onto the Portrait.`,
+`${G.c}: 1 barrel per <b>occupied</b> Corn Estate.`,
+`${G.f}, ${G.s}, ${G.t}, ${G.k}: 1 barrel per occupied Estate that has a <b>matching worker in a Production Building</b> of the same type. In practice: the smaller of the two numbers.`,
+`Each Production Building space handles 1 barrel: Small Fruit Warehouse and Small Sugar Mill 1, Large Fruit Warehouse and Large Sugar Mill 3, Tobacco Storage 3, Coffee Roaster 2.`,
+`Advantage: once everyone has produced, the Craftsman takes <b>1 more barrel</b> of a Good they produced this phase. Nothing produced, no advantage.`,
+`If the supply of a Good runs out, later players get none of it. Production order matters.`,
+`Related Building: ${bn('fac')}, which pays coins by the number of types produced.`
+],
+html:`<div class="ex"><b>Rulebook example.</b> 3 Corn Estates, 2 of them occupied: 2 Corn. Tobacco Storage with 1 of 2 spaces occupied for 2 occupied Tobacco Estates: 1 Tobacco. 4 Sugar Estates, 3 occupied, full Large Sugar Mill: 3 Sugar.</div>`,
+lab:'prod',
+cas:[
+{q:`You have 3 occupied Fruit Estates and an occupied Small Fruit Warehouse. How much Fruit?`,o:[`3`,`1`,`0`],a:1,w:`The Small Fruit Warehouse has a single space: 1 barrel at most.`},
+{q:`You would produce 1 Corn, your opponents 3 Coffee and 4 Sugar. Captain and Trader are still free. Do you take the Craftsman?`,o:[`Yes, production is always good`,`Rather not: you'd give the others far more than yourself`],a:1,w:`The rulebook warns: the Craftsman is the riskiest role.`},
+{q:`You are the Craftsman and produced 2 Corn and 1 Tobacco. Which bonus barrel do you take?`,o:[`A Coffee, the most valuable`,`A Corn or a Tobacco, your choice`,`None: you need 3 types`],a:1,w:`The bonus barrel must be a Good produced during the phase.`}
+],
+quiz:[
+{q:`2 occupied Sugar Estates, Large Sugar Mill with 3 workers. Sugar produced?`,o:[`2`,`3`,`5`],a:0,w:`The smaller of the two: 2 occupied Estates.`},
+{q:`When does the Craftsman take the bonus barrel?`,o:[`Before producing`,`After all players have produced`],a:1,w:`At the end of the phase.`}
+]},
+
+{id:'marchand',part:'The roles',t:'The Trader',
+lead:`Sell a barrel to the Trading House to bring in money. Four spaces, no duplicates.`,
+rules:[
+`The Trader may sell <b>1 barrel</b> from their Portrait to the Trading House and receives its price <b>+1 coin</b> (advantage). Then each player, clockwise, may sell 1 barrel at the normal price.`,
+`Prices: ${G.c} 0, ${G.f} 1, ${G.s} 2, ${G.t} 3, ${G.k} 4.`,
+`The Trading House cannot hold two barrels of the same type, except for a player with an occupied <b>Office</b>.`,
+`The Trading House has only <b>4 spaces</b>. Once full, nobody else can sell.`,
+`End of the phase: if the Trading House is full, the Trader <b>empties</b> it (barrels to the supply). Otherwise the barrels stay for the next Trade phase.`,
+`Selling Corn for 0 coins is allowed (useful with the advantage or a Market). If the Trader sells nothing, they don't get the advantage coin.`,
+`Related Buildings: ${bn('smk')} (+1), ${bn('lmk')} (+2, +3 with both), ${bn('off')}.`
+],
+lab:'trade',
+cas:[
+{q:`The Trading House holds Sugar and Tobacco. You have 2 Tobacco and 1 Corn, no Buildings. What do you sell?`,o:[`1 Tobacco for 3 coins`,`1 Corn for 0 coins, or nothing`,`2 Tobacco`],a:1,w:`Tobacco is already in the Trading House. Only Corn is left (0 coins), and only one barrel anyway.`},
+{q:`The Trading House is empty. You are the Trader with an occupied Small and Large Market. You sell 1 Coffee.`,o:[`5 coins`,`7 coins`,`8 coins`],a:2,w:`4 (Coffee) + 1 (advantage) + 3 (both Markets) = 8.`},
+{q:`End of the phase: the Trading House holds 3 barrels. What happens?`,o:[`It is emptied`,`They stay for next time`],a:1,w:`It is only emptied when full (4 barrels).`}
+],
+quiz:[
+{q:`How many barrels can each player sell per Trade phase?`,o:[`1`,`As many as there are spaces`,`1 per type`],a:0,w:`One barrel only, Office or not.`},
+{q:`You have an occupied Office. The Trading House holds 4 barrels including a Sugar. Can you sell a Sugar?`,o:[`Yes, thanks to the Office`,`No: the Trading House is full`],a:1,w:`The Office lifts the no-duplicate rule, not the 4-space limit.`}
+]},
+
+{id:'capitaine',part:'The roles',t:'The Captain: loading ships',
+lead:`The most tightly ruled phase of the game. Loading earns VP, and it is <b>mandatory</b> whenever possible. The lab lets you play whole phases: the simulator refuses illegal loads and tells you why.`,
+rules:[
+`The Captain loads first, then each player clockwise, and <b>it goes around several times</b> until nobody can load anymore.`,
+`On your turn, if you can load, <b>you must load</b>. You choose the type freely, but <b>only one type</b> per turn.`,
+`A ship carries <b>only one type</b> of Good, and <b>no two ships ever carry the same type</b>.`,
+`If you load a type that is on no ship and several ships are empty, you must choose the one that lets you <b>load the most barrels</b>.`,
+`You load <b>as many barrels as possible</b> of that type: no holding back while there is room.`,
+`A full ship accepts nothing more.`,
+`<b>1 VP per barrel loaded.</b> Advantage: the Captain earns <b>1 extra VP, once</b> per phase, if they loaded at least 1 barrel.`,
+`If the VP chips run out, keep track on paper; the game will end at the end of the round.`
+],
+lab:'ship',
+cas:[
+{q:`The 5- and 7-hold ships are empty, the 6-hold ship carries 3 Corn. You have 2 Corn and 6 Sugar. Where can your Sugar go?`,o:[`On the 5 or the 7, your choice`,`On the 7: it lets you load the most barrels`,`On the 6`],a:1,w:`Rulebook example: on the 7 Anna loads all 6 Sugar, on the 5 only 5. The bigger load is mandatory.`},
+{q:`The 5- and 7-hold ships are empty. You have 2 Coffee. Where do you load them?`,o:[`Only on the 7`,`On either: you load 2 barrels in both cases`],a:1,w:`The rule requires the ship that lets you load the most. Here both take 2: free choice. (The French rulebook says the largest ship instead: agree before playing if someone learnt that version.)`},
+{q:`The Tobacco ship is full. The 5-hold ship is empty. You only have Tobacco.`,o:[`You load it on the 5`,`You cannot load: Tobacco already has its ship`],a:1,w:`No two ships may carry the same type, even when the first one is full.`},
+{q:`You would rather keep your Coffee to sell it. The Coffee ship has 2 free holds.`,o:[`You may pass your turn`,`If it is your only loadable Good, you must load`],a:1,w:`Loading is mandatory. You may only choose another type if you have one that can also be loaded.`}
+],
+quiz:[
+{q:`The Captain loads three times during the phase. How many bonus VP do they get?`,o:[`1`,`3`,`0`],a:0,w:`The advantage counts once per phase.`},
+{q:`Can a player load two different types in the same turn?`,o:[`Yes, if there are two ships`,`No, one type per turn`],a:1,w:`One type per turn. They may load the other on their next turn around.`}
+]},
+
+{id:'stockage',part:'The roles',t:'The Captain: storing and emptying',
+lead:`At the end of the phase, everyone keeps almost nothing. Warehouses change everything.`,
+rules:[
+`When nobody can load anymore, each player <b>keeps only 1 barrel</b> of their choice on their Portrait. The rest go back to the supply.`,
+`${bn('swh')}: you also keep <b>all barrels of 1 type</b>. ${bn('lwh')}: of <b>2 types</b>. Both: <b>3 types</b>. Always on top of the usual barrel.`,
+`Storage is only checked at this moment: outside the end of the Shipment phase, you may hold as many barrels as you like.`,
+`A Warehouse never exempts you from loading: load first, store afterwards.`,
+`The Captain <b>empties the full ships</b> (barrels to the supply). Partly loaded ships <b>keep their cargo</b> for the next phase, with their type already set.`,
+`${bn('har')}: +1 VP each time you load. ${bn('wha')}: once per phase, all your barrels of 1 type go onto a Chartered Ship with no limit, for the same 1 VP per barrel (barrels to the supply). Using it is optional.`
+],
+html:`<div class="ex"><b>Rulebook example (Harbor + Wharf).</b> 5 Tobacco, but the Tobacco ship has only 3 holds left: 3 + 1 VP. Next turn, 2 Sugar on the Sugar ship: 2 + 1 VP. The turn after, the Wharf ships the 2 remaining Tobacco: 2 + 1 VP. The Harbor earned 3 VP during the phase.</div>`,
+lab:'store',
+cas:[
+{q:`You have 3 Corn, 2 Sugar, 1 Coffee left, no Warehouse. What do you keep?`,o:[`The 3 Corn`,`1 barrel, for example the Coffee`,`1 barrel of each type`],a:1,w:`A single barrel in total. Keeping the most valuable one (Coffee) is often the right reflex.`},
+{q:`Same situation with an occupied Small Warehouse.`,o:[`2 Sugar + 1 Coffee`,`3 Corn + 2 Sugar`,`3 Corn + 1 Sugar + 1 Coffee`],a:0,w:`One whole type (the 2 Sugar) + 1 barrel (the Coffee). 3 Corn + 1 Coffee also works; two whole types don't.`},
+{q:`The 6-hold ship carries 4 Coffee at the end of the phase. What happens to it?`,o:[`It is emptied`,`It keeps its 4 Coffee for the next phase`],a:1,w:`Only full ships are emptied.`}
+],
+quiz:[
+{q:`Occupied Large + Small Warehouse: how many whole types do you keep?`,o:[`2`,`3`,`3, plus 1 barrel`],a:2,w:`3 whole types, plus the barrel everyone keeps.`},
+{q:`Can the Wharf ship a type already on a Cargo Ship?`,o:[`Yes`,`No`],a:0,w:`The Chartered Ship accepts any type, but all barrels of that type.`}
+]},
+
+{id:'aventurier',part:'The roles',t:'The Adventurer',
+lead:`The simplest role: money, and nothing for the others.`,
+rules:[
+`The player who chooses the Adventurer takes <b>1 coin from the Bank</b> (plus any coins on the card).`,
+`There is no action: the other players do nothing.`,
+`There are none with 3 players, 1 with 4 players (and with 2), 2 with 5 players.`,
+`Its main use is to <b>deny a phase</b> to the others: taking the Adventurer also means not triggering a role that would help them.`
+],
+cas:[
+{q:`The Craftsman, the Captain and the Adventurer (2 coins on it) are left. The others have lots of Goods, you have none.`,o:[`The Craftsman`,`The Captain`,`The Adventurer`],a:2,w:`You take 3 coins and trigger neither production nor shipping for the others. (Another player may still choose one of them.)`}
+],
+quiz:[
+{q:`What do the other players do when the Adventurer is chosen?`,o:[`They each take 1 coin`,`Nothing`],a:1,w:`The Adventurer has no action.`}
+]},
+
+/* ======================= BUILDINGS ======================= */
+{id:'bat',part:'The Buildings',t:'Common rules and production',
+lead:`A few rules apply to all Buildings. Production Buildings turn crops into Goods.`,
+rules:[
+`Each Building may only be built <b>once per player</b>.`,
+`A Building is occupied as soon as a worker is on one of its spaces. Only occupied Buildings give their function.`,
+`The number at the top right gives the <b>end-game VP</b>, whether the Building is occupied or not.`,
+`The number in the first space is the <b>cost</b>. Once built, it no longer matters.`,
+`Commercial Building functions are <b>optional</b>. Their icon shows the phase in which they work.`,
+`You may rearrange your Buildings to make room for a Large one, but never remove one.`,
+`Production Buildings: you need the occupied Estate <b>and</b> an occupied space in the Building of the same type. Corn has no Building.`
+],
+html:`<h2>The six Production Buildings</h2><div class="tw"><table><tr><th>Building</th><th>Good</th><th class="c">Cost</th><th class="c">VP</th><th class="c">Worker spaces</th></tr>
+${['sfw','lfw','ssm','lsm','tob','cof'].map(i=>{const b=BI[i];return `<tr><td><b>${b.fr}</b></td><td>${G[b.good]}</td><td class="c">${b.cost}</td><td class="c">${b.vp}</td><td class="c">${b.slots}</td></tr>`}).join('')}
+</table></div>
+<div class="note"><b>Small + Large of the same type?</b> Allowed: they are two different Buildings. A fully occupied Small and Large Fruit Warehouse handle up to 4 Fruit.</div>`,
+cas:[
+{q:`End of the game: your Harbor (3 VP) has no worker. Does it count?`,o:[`Yes, 3 VP`,`No, it must be occupied`],a:0,w:`Printed VP always count. Only Large Building bonuses require occupation.`},
+{q:`You have 2 occupied Coffee Estates and a Coffee Roaster with 1 of 2 spaces occupied. What do you produce?`,o:[`2 Coffee`,`1 Coffee`],a:1,w:`One worker in the Coffee Roaster = 1 barrel handled.`}
+],
+quiz:[
+{q:`How many worker spaces does the Coffee Roaster have?`,o:[`1`,`2`,`3`],a:1,w:`2 spaces, whereas the Tobacco Storage has 3.`},
+{q:`Does an occupied Commercial Building force you to use its function?`,o:[`Yes`,`No`],a:1,w:`It is always optional, which matters most for the Wharf.`}
+]},
+
+{id:'petits',part:'The Buildings',t:'Small Commercial Buildings',
+lead:`Twelve Buildings that bend the rules in your favor. Click each one to read its function and edge cases.`,
+rules:[
+`${bn('smk')}: +1 coin when you sell to the Trading House (even a Corn: 1 coin).`,
+`${bn('byd')}: in the Planting phase, a Quarry instead of an Estate. It gives the Planter no second Quarry, nor a Quarry through the Hacienda.`,
+`${bn('hac')}: in the Planting phase, <b>before</b> your normal action, take the top Estate of a face-down stack and place it at once (no discarding). Then take your normal action.`,
+`${bn('swh')}: keep all barrels of 1 type at the end of the Shipment phase, on top of the usual barrel.`,
+`${bn('hos')}: when you place an Estate or a Quarry, 1 worker from the supply goes on it (from the Work Register if the supply is empty). With the Hacienda: on either of the two tiles, but only one worker.`,
+`${bn('off')}: sell a type already in the Trading House. Still 1 barrel, and nothing if it is full.`,
+`${bn('lmk')}: +2 coins per sale, +3 with an occupied Small Market.`,
+`${bn('lwh')}: keep 2 whole types (3 with the Small Warehouse), plus the usual barrel.`,
+`${bn('fac')}: in the Production phase, by number of types produced: 2 → 1 coin, 3 → 2, 4 → 3, 5 → 5. The number of barrels per type doesn't matter.`,
+`${bn('sch')}: when you build, 1 worker from the supply goes on the new Building (from the Register if the supply is empty). Just one, even if the Building has several spaces.`,
+`${bn('har')}: +1 VP each time you load (Wharf included).`,
+`${bn('wha')}: once per Shipment phase, at a moment you choose on your turn, all barrels of 1 type onto a Chartered Ship. Optional.`
+],
+lab:'cards',
+cas:[
+{q:`You have an occupied Hacienda and Builders Yard. What can you do in the Planting phase?`,o:[`Take 2 Quarries`,`Face-down Estate (Hacienda), then a Quarry as your normal action`,`A Quarry instead of the face-down Estate`],a:1,w:`The Hacienda always gives a face-down Estate. The Builders Yard only applies to the normal action.`},
+{q:`Occupied Factory. You produce 3 Corn, 1 Coffee, 2 Fruit. How many coins?`,o:[`2`,`3`,`6`],a:0,w:`3 different types: 2 coins (rulebook example).`},
+{q:`Occupied School, you build the Large Fruit Warehouse (3 spaces).`,o:[`1 free worker on it`,`3 free workers`,`1 worker, placed anywhere`],a:0,w:`A single worker, and only on the new Building.`},
+{q:`You have an occupied Small and Large Market and sell 1 Corn without being the Trader.`,o:[`0`,`3`,`4`],a:1,w:`0 + 3.`}
+],
+quiz:[
+{q:`The Hospital and School take their worker…`,o:[`from the Work Register`,`from the supply, and from the Register only if the supply is empty`],a:1,w:`Both work the same way.`},
+{q:`How many times can the Wharf be used per Shipment phase?`,o:[`Once`,`On each of the player's turns`],a:0,w:`Once per phase.`}
+]},
+
+{id:'grands',part:'The Buildings',t:'Large Buildings',
+lead:`Five 10-coin Buildings on 2 spaces. Each is worth 4 VP, plus a bonus if occupied at the end of the game.`,
+rules:[
+`A Large Building takes 2 adjacent City spaces and counts as <b>a single Building</b>. It is worth <b>4 VP</b>, occupied or not.`,
+`If it is <b>occupied at the end of the game</b>, it also scores the bonus below.`,
+`${bn('fst')}: +1 VP per Small Production Building (Small Fruit Warehouse, Small Sugar Mill), +2 VP per Large one (Large Fruit Warehouse, Large Sugar Mill, Tobacco Storage, Coffee Roaster), occupied or not.`,
+`${bn('res')}: filled Countryside spaces: 1 to 9 → 4 VP, 10 → 5, 11 → 6, 12 → 7.`,
+`${bn('frt')}: 1 VP for every 3 workers on your Island board (Portrait included).`,
+`${bn('cus')}: 1 VP for every 4 VP in chips earned during the game (not end-game VP).`,
+`${bn('cth')}: 1 VP per Commercial Building, small or large, occupied or not, City Hall included. Production Buildings don't count.`
+],
+html:`<div class="ex"><b>Rulebook examples.</b> Fire Station + Small Fruit Warehouse, Large Fruit Warehouse, Coffee Roaster, Large Sugar Mill: 1 + 2 + 2 + 2 = 7 VP. Residence with 10 filled Countryside spaces: 5 VP. Fortress with 22 workers: 7 VP. Customs House with 30 VP in chips: 7 VP. City Hall with Builders Yard, Hospital, Large Market, Factory, School, Customs House (and itself): 7 VP.</div>`,
+lab:'large',
+cas:[
+{q:`End of the game, your Fortress has no worker. It is worth…`,o:[`0 VP`,`4 VP`,`4 VP + 1 per 3 workers`],a:1,w:`The printed 4 VP always count; the bonus requires it to be occupied.`},
+{q:`Occupied City Hall; you also own a Small Market, a Harbor, a Large Sugar Mill and a Customs House. Bonus?`,o:[`3`,`4`,`5`],a:1,w:`Small Market, Harbor, Customs House and City Hall itself: 4. The Large Sugar Mill is a Production Building.`}
+],
+quiz:[
+{q:`Occupied Customs House, 23 VP in chips. Bonus?`,o:[`5`,`6`,`23`],a:0,w:`23 ÷ 4 = 5, rounded down.`},
+{q:`Occupied Residence, full Countryside (12). Bonus?`,o:[`4`,`6`,`7`],a:2,w:`12 filled spaces: 7 VP.`}
+]},
+
+/* ======================= END OF THE GAME ======================= */
+{id:'fin',part:'End of the game',t:'Game end and scoring',
+lead:`Three triggers, a round to finish, then scoring. The Scoring tab does the maths for you.`,
+rules:[
+`The game ends <b>at the end of the round</b> in which at least one condition is met: the current round is always finished.`,
+`Condition 1: at the end of the Recruitment phase, there are <b>not enough workers</b> in the supply to refill the Work Register.`,
+`Condition 2: a player has <b>filled all 12 City spaces</b> during the Build phase.`,
+`Condition 3: the <b>last VP chip</b> is taken during the Shipment phase. Further VP are kept on paper.`,
+`Score: VP chips (and those on paper) + printed VP of all your Buildings + bonuses of your occupied Large Buildings.`,
+`Tie: the player with the most coins and barrels (1 point each) wins.`
+],
+lab:'endsim',
+cas:[
+{q:`Build phase of round 13: a player places their 12th Building. Two roles are still to be played this round.`,o:[`The game ends at once`,`The remaining roles of the round are played, then scoring`],a:1,w:`The current round is always finished.`},
+{q:`Tie at 52 VP: Ana has 4 coins and 1 barrel, Luis 3 coins and 3 barrels.`,o:[`Ana wins`,`Luis wins`,`A perfect tie`],a:1,w:`Ana: 5, Luis: 6.`}
+],
+quiz:[
+{q:`The last VP chip goes during the Shipment phase. Does the game go on?`,o:[`No, it stops at once`,`The round is finished, keeping VP on paper`],a:1,w:`Further VP are kept on paper.`},
+{q:`Which VP does the Customs House count?`,o:[`All of them`,`Only the VP chips earned during the game`],a:1,w:`Not the Buildings' VP from final scoring.`}
+]},
+
+{id:'deux',part:'End of the game',t:'The two-player game',
+lead:`All rules stay the same, with a reduced setup and three roles per player each round.`,
+rules:[
+`On the board: <b>1</b> of each Commercial Building, <b>2</b> of each Production Building.`,
+`Each player: 1 Island board, <b>3 coins</b>, one Estate: Fruit for the Governor, Corn for the other player.`,
+`<b>65 VP</b> in chips. Remove 3 tiles of each Countryside type (Corn, Fruit, Sugar, Tobacco, Coffee, Quarry), then flip <b>3</b> Estates.`,
+`<b>7 roles</b> (a single Adventurer). Ships with <b>4 and 6</b> holds. Remove <b>2 barrels of each</b> Good.`,
+`Work Register: 2 workers; supply: 40 workers.`,
+`Each player chooses <b>3 roles per round</b>, alternating: Governor, other player, Governor, other player, and so on.`,
+`End of the round: 1 coin on the only remaining role, then the Governor card changes hands. The game ends the same way.`
+],
+cas:[
+{q:`Two players: the Governor took the Builder, the other player the Captain. Who chooses next?`,o:[`The Governor`,`The other player`],a:0,w:`Players alternate until each has 3 roles.`}
+],
+quiz:[
+{q:`With two players, how many coins does the Governor place at the end of the round?`,o:[`1`,`3`],a:0,w:`7 roles, 6 chosen: 1 role left.`},
+{q:`With two players, which ships?`,o:[`4 and 6`,`4, 5 and 6`,`5 and 6`],a:0,w:`Only the 4- and 6-hold ships.`}
+]},
+
+/* ======================= EXPANSIONS ======================= */
+{id:'ext1',part:'Expansions',t:'Expansion I: New Buildings',
+lead:`14 new Buildings (green text in the rulebook) and a drafted setup: every game has its own town.`,
+rules:[
+`Setup: all Production Buildings as usual. The 55 Commercial Buildings (original and new) are placed next to the board.`,
+`Starting with the first player, each player in turn picks a Commercial Building and places it on an empty space of the board, until the spaces are filled with these costs: top section 1, 2, 2, 3; second section 4, 5, 5, 6; third section 7, 8, 8, 9; bottom section 10, 10, 10, 10, 10. With more than 2 players, place 2 copies of each small Building chosen.`,
+`${bn('can')}: +1 Fruit if you produce some with the Large Fruit Warehouse, +1 Sugar if you produce some with the Large Sugar Mill (not with the small ones).`,
+`${bn('lum')}: in the Planting phase, place a face-up Estate <b>face down</b>: it is a Forest, permanent, with no worker needed. In the Build phase, <b>−1 coin for every 2 Forests</b>, no limit, combined with the advantage and Quarries. With a Hacienda: look at the tile before deciding; with a Hospital: the worker goes onto the Portrait.`,
+`${bn('bmk')}: only if you are short of money; return 1 worker, 1 barrel and/or 1 VP (1 coin each, 3 at most). You must have no coins left. The worker on the Black Market itself doesn't count.`,
+`${bn('sto')}: keep up to 3 additional barrels of any types.`,
+`${bn('boh')}: up to 2 "guest" workers placed in the Recruitment phase, moved at the start, middle or end of any other phase to a tile whose function you use at once. They stay there until the next Recruitment phase.`,
+`${bn('tpo')}: sell to your own Trading Post instead of the Trading House, even a type already present (the barrel goes back to the supply). No Market bonus, but the Trader advantage applies.`,
+`${bn('chu')}: +1 VP when you build in the second or third section, +2 VP for a Large Building. Nothing for the Church itself.`,
+`${bn('swf')}: once per Shipment phase, as many barrels as you like, of any types, onto a Chartered Ship: 1 VP per 2 barrels. Can be combined with the Wharf.`,
+`${bn('lig')}: +1 coin each time you load (Cargo or Chartered); as Captain, +1 coin at the start of the phase, even without loading.`,
+`${bn('dis')}: coins = barrels of your most-produced type (except Corn) − 1. 6 Sugar → 5 coins.`,
+`${bn('pub')}: doubled advantage. Planter: Estate or Quarry first, then an Estate (not a Quarry) from those left; Craftsman: 2 bonus barrels. With a Hospital, a worker on the 1st tile only; with a Builders Yard, a Quarry allowed as the 2nd tile.`,
+`${bn('asm')}: at the start of the Shipment phase, 1 VP per pair of identical barrels (3 Corn + 2 Fruit + 1 Coffee → 2 VP).`,
+`${bn('cat')} (large): sets of 3 identical Countryside tiles (Forests and Quarries included): 1, 3, 6 or 10 VP for 1 to 4 sets. ${bn('mon')} (large): 8 VP, no function, no worker.`
+],
+cas:[
+{q:`Occupied Lumberyard, 4 Forests, 2 occupied Quarries, you are the Builder and want the Large Warehouse (6).`,o:[`1`,`2`,`3`],a:0,w:`6 − 2 (Quarries, second-section cap) − 1 (advantage) − 2 (2 pairs of Forests) = 1. This is the rulebook example.`},
+{q:`Occupied Black Market. The Harbor costs 8, you have 6 coins. What do you do?`,o:[`Return 1 barrel and 1 worker, pay 6`,`Return 3 VP`,`Return 2 barrels`],a:0,w:`A worker, a barrel and/or a VP: one of each at most, and you must have no coins left.`}
+],
+quiz:[
+{q:`Lumberyard: does a Forest need to be occupied?`,o:[`Yes`,`No`],a:1,w:`Forests need no worker.`},
+{q:`Small Wharf: how many VP for 5 barrels?`,o:[`2`,`3`,`5`],a:0,w:`1 VP per 2 barrels, rounded down.`}
+]},
+
+{id:'ext2',part:'Expansions',t:'Expansion II: The Citizens',
+lead:`20 citizens join the workers. Each is worth 1 VP and changes the effect of some Buildings (red text in the rulebook).`,
+rules:[
+`Setup: with the basic Buildings only, place the 8 new Buildings on their spaces. With Expansion I, follow its setup and pick 1 extra Building of each cost (2 to 8) until all spaces are filled.`,
+`All 100 workers go into the supply, the 20 citizens next to it. Each time the Work Register is filled (start of the game and end of the Recruitment phase), <b>replace 1 worker with 1 citizen</b> while any remain.`,
+`A citizen is used like a worker, and every rule about workers applies to citizens. At the end of the game, <b>each citizen is worth 1 VP</b>.`,
+`Running out of workers is <b>no longer</b> an end condition: only a full City and the last VP chip remain.`,
+`${bn('zon')}: worker → pay 1 coin for a face-down Estate (Trade phase); citizen → sell one of your Estates for 1 coin.`,
+`${bn('cha')}: at the start of the Production phase, worker → 1 coin; citizen → 1 VP.`,
+`${bn('par')}: end of the Planting phase, worker → discard 1 Estate or Forest; citizen → 2 VP if you have more empty Countryside spaces than any other player.`,
+`${bn('not')}: worker → −1 coin on a Small Building; citizen → −2 coins on a Large one. Never the other way round.`,
+`These 4 Buildings work the same with a worker or a citizen: ${bn('pen')} (start of the Shipment phase, 1 barrel returned per citizen, all different types, for 1 VP each), ${bn('vil')} (start of the Recruitment phase, 1 citizen from the supply, otherwise 1 worker; never from the Register), ${bn('tai')} (Production phase: 1 coin per citizen; counts as a Large Production Building for the Fire Station), ${bn('tsq')} (large: +1 VP per citizen, wherever it is).`
+],
+cas:[
+{q:`Notary occupied by a worker, you buy City Hall.`,o:[`−1 coin`,`−2 coins`,`No discount`],a:2,w:`Worker: Small Buildings only. You would need a citizen for Large ones.`},
+{q:`Pension Office, 2 citizens on your Island, you have 3 Sugar and 1 Coffee.`,o:[`2 VP (1 Sugar + 1 Coffee)`,`2 VP (2 Sugar)`,`4 VP`],a:0,w:`1 barrel per citizen, all of different types.`}
+],
+quiz:[
+{q:`With the Citizens, does an empty worker supply end the game?`,o:[`Yes`,`No`],a:1,w:`This condition disappears with Expansion II.`},
+{q:`How much is a citizen worth at the end with an occupied Town Square?`,o:[`1 VP`,`2 VP`],a:1,w:`1 VP base + 1 VP from the Town Square.`}
+]},
+
+{id:'ext3',part:'Expansions',t:'Expansion III: The Smuggler',
+lead:`One more role card, which only benefits the player who takes it.`,
+rules:[
+`Add the Smuggler card to the usual roles. Whoever chooses it also takes the <b>Smuggler player tile</b>, then performs <b>one</b> of the 4 actions. The other players do nothing.`,
+`<b>Raid</b>: remove all Goods from one Cargo Ship; keep up to 3 of them, the rest go back to the supply.`,
+`<b>Plunder</b>: remove all Goods from the Trading House and earn 1 VP per barrel removed.`,
+`<b>Poach</b>: reduce the Work Register to the number of players; keep up to 3 of the removed workers and place them at once on empty worker spaces (not on the Portrait).`,
+`<b>Capture</b>: take an unused role in front of you, with its coins. If an opponent chooses it this round, take 3 coins from the Bank. If nobody does, play it at the end of the round with its advantage, and the others perform the action.`,
+`No coin is placed on the Smuggler if it isn't chosen. The holder of the player tile cannot choose the Smuggler again until someone else has played it.`
+],
+cas:[
+{q:`The Trading House holds 3 barrels. You take the Smuggler and Plunder.`,o:[`3 VP`,`3 coins`,`The 3 barrels`],a:0,w:`1 VP per barrel removed, and the barrels go back to the supply.`}
+],
+quiz:[
+{q:`Poach: where do the captured workers go?`,o:[`Onto the Portrait`,`At once onto empty worker spaces of your Island`],a:1,w:`They cannot be stored on the Portrait.`}
+]},
+
+{id:'ext4',part:'Expansions',t:'Expansion IV: The Festival',
+lead:`Three goals drawn at random, each reserved for the first player to reach it.`,
+rules:[
+`Estates: draw 1 Estate at random among Corn, Fruit, Sugar, Tobacco and Coffee and place it on the Festival board.`,
+`Goods: draw 3 barrels at random from 3 of each type (a type may come up more than once).`,
+`Building: draw a 3-VP Building at random (base game: Factory, School, Harbor, Wharf; with Expansions I or II, set up the Buildings first, then draw among those worth 3 VP).`,
+`<b>Estate goal</b>: the first player with 3 Estates of that type receives 3 workers from the supply, placed at once on their Island or Portrait.`,
+`<b>Production goal</b>: the first player to produce all the Goods on the Festival board in the same turn receives 3 coins.`,
+`<b>Building goal</b>: the first player to buy that Building receives 3 VP.`,
+`Each goal can only be achieved once, in any order.`
+],
+quiz:[
+{q:`The Estate goal rewards…`,o:[`3 VP`,`3 workers`,`3 coins`],a:1,w:`3 workers from the supply.`}
+]}
+];
+
+/* ---------- labs ---------- */
+const NAMES=['Ana','Bruno','Carla','Diego','Elena'];
+const ROLEDEF={pla:{n:'Planter',a:'One Estate each',p:'Quarry allowed'},bat:{n:'Builder',a:'One Building each',p:'−1 coin'},rec:{n:'Recruiter',a:'Workers from the Register',p:'+1 worker'},
+ art:{n:'Craftsman',a:'Production',p:'+1 barrel'},neg:{n:'Trader',a:'Sell 1 barrel',p:'+1 coin'},cap:{n:'Captain',a:'Mandatory loading',p:'+1 VP'},av1:{n:'Adventurer',a:'No action',p:'+1 coin'},av2:{n:'Adventurer',a:'No action',p:'+1 coin'}};
+const rolesFor=n=>['pla','bat','rec','art','neg','cap'].concat(n===3?[]:n===5?['av1','av2']:['av1']);
+const numIn=(id,v,min=0,max=99)=>`<input type="number" id="${id}" value="${v}" min="${min}" max="${max}">`;
+const seg=(id,vals,cur)=>`<div class="seg" id="${id}" role="group">${vals.map(v=>`<button type="button" data-v="${v}" class="${v==cur?'sel':''}">${v}</button>`).join('')}</div>`;
+function segVal(root,id){const b=$(`#${id} .sel`,root);return b?+b.dataset.v:0}
+function wireSeg(root,id,cb){$$(`#${id} button`,root).forEach(b=>b.onclick=()=>{$$(`#${id} button`,root).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');cb()})}
+const num=(root,id)=>Math.max(0,parseInt($('#'+id,root).value,10)||0);
+const rnd=n=>Math.floor(Math.random()*n);
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]]}return a};
+
+const LABS={};
+
+/* --- mise en place --- */
+LABS.setup={html:()=>`<div class="lab"><h3>Lab: setting up your table</h3><p class="hint">Choose the number of players.</p>${seg('su-n',[2,3,4,5],4)}<div class="tw" id="su-out" style="margin-top:12px"></div></div>`,
+init(r){const go=()=>{const n=segVal(r,'su-n');const D={
+ 2:{co:3,pl:'Governor: Fruit; other player: Corn',vp:65,qu:'5 (3 removed)',vis:3,ro:'7 (a single Adventurer)',sh:'4 and 6',reg:2,sup:40,ba:'1 of each Commercial Building, 2 of each Production Building',ex:'Remove 3 tiles of each Countryside type (Corn, Fruit, Sugar, Tobacco, Coffee, Quarry) and 2 barrels of each Good.'},
+ 3:{co:2,pl:'Fruit, Fruit, Corn',vp:75,qu:8,vis:4,ro:'6 (no Adventurer)',sh:'4, 5 and 6',reg:3,sup:55,ba:'All 49 Buildings'},
+ 4:{co:3,pl:'Fruit, Fruit, Corn, Corn',vp:100,qu:8,vis:5,ro:'7 (a single Adventurer)',sh:'5, 6 and 7',reg:4,sup:75,ba:'All 49 Buildings'},
+ 5:{co:4,pl:'Fruit, Fruit, Fruit, Corn, Corn',vp:126,qu:8,vis:6,ro:'8 (both Adventurers)',sh:'6, 7 and 8',reg:5,sup:95,ba:'All 49 Buildings'}}[n];
+ $('#su-out',r).innerHTML=`<table><tr><th>Item</th><th>${n} players</th></tr>
+ <tr><td>Coins per player</td><td>${D.co}</td></tr><tr><td>Starting Estates (from the Governor)</td><td>${D.pl}</td></tr>
+ <tr><td>VP chips</td><td>${D.vp}</td></tr><tr><td>Quarries</td><td>${D.qu}</td></tr><tr><td>Face-up Estates</td><td>${D.vis}</td></tr>
+ <tr><td>Role cards</td><td>${D.ro}</td></tr><tr><td>Cargo Ships</td><td>${D.sh} holds</td></tr><tr><td>Workers on the Work Register</td><td>${D.reg}</td></tr>
+ <tr><td>Workers in the supply</td><td>${D.sup}</td></tr><tr><td>Buildings</td><td>${D.ba}</td></tr>${D.ex?`<tr><td>Remove</td><td>${D.ex}</td></tr>`:''}</table>`};
+ wireSeg(r,'su-n',go);go()}};
+
+/* --- a round --- */
+LABS.round={html:()=>`<div class="lab"><h3>Lab: play a round</h3><p class="hint">Each player chooses a role in turn: click a card. Watch the order of play in each phase, then the coins placed at the end of the round.</p>
+<div class="row">${seg('ro-n',[2,3,4,5],4)}<button type="button" id="ro-reset">Start again</button></div>
+<p id="ro-who" style="margin:12px 0 4px;font-weight:600"></p><div class="roles" id="ro-cards"></div><ul class="log" id="ro-log"></ul><div class="row" style="margin-top:10px"><button type="button" class="pri" id="ro-next" hidden>Next round</button></div></div>`,
+init(r){let S;
+ const reset=()=>{const n=segVal(r,'ro-n');S={n,gov:0,round:1,coins:{},taken:{},picks:0,log:[]};rolesFor(n).forEach(k=>S.coins[k]=0);draw()};
+ const order=()=>{const o=[];if(S.n===2){for(let i=0;i<6;i++)o.push((S.gov+i)%2)}else for(let i=0;i<S.n;i++)o.push((S.gov+i)%S.n);return o};
+ const draw=()=>{const ord=order(),done=S.picks>=ord.length,who=done?null:ord[S.picks];
+  $('#ro-who',r).innerHTML=done?`Round ${S.round} is over.`:`Round ${S.round} · Governor: <b>${NAMES[S.gov]}</b> · <b>${NAMES[who]}</b> chooses a role.`;
+  $('#ro-cards',r).innerHTML=rolesFor(S.n).map(k=>{const d=ROLEDEF[k],t=S.taken[k]!==undefined;return `<button type="button" class="role${t?' taken':''}" data-k="${k}" ${t||done?'disabled':''}><b>${d.n}</b><small>${d.a}</small><small>Advantage: ${d.p}</small><span class="coins">${'<span class="coin">1</span>'.repeat(S.coins[k])}${t?`<small>taken by ${NAMES[S.taken[k]]}</small>`:''}</span></button>`}).join('');
+  $$('#ro-cards .role',r).forEach(b=>b.onclick=()=>pick(b.dataset.k,who));
+  $('#ro-log',r).innerHTML=S.log.map(l=>`<li class="${l.c||''}">${l.t}</li>`).join('');
+  $('#ro-next',r).hidden=!done};
+ const pick=(k,p)=>{const d=ROLEDEF[k];S.taken[k]=p;const c=S.coins[k];S.coins[k]=0;
+  let seq;if(k.startsWith('av'))seq=`only ${NAMES[p]} acts`;else{const o=[];for(let i=0;i<S.n;i++)o.push((p+i)%S.n);seq=o.map((x,i)=>NAMES[x]+(i===0?' (advantage)':'')).join(' → ')}
+  S.log.push({t:`<b>${NAMES[p]}</b> takes the <b>${d.n}</b>${c?` and pockets ${c} coin${c>1?'s':''}`:''}. Order of play: ${seq}.`});
+  S.picks++;
+  if(S.picks>=order().length){const left=rolesFor(S.n).filter(x=>S.taken[x]===undefined);left.forEach(x=>S.coins[x]++);
+   S.log.push({c:'okk',t:`End of the round: ${NAMES[S.gov]} places 1 coin on ${left.map(x=>ROLEDEF[x].n).join(', ')}. The Governor card passes to ${NAMES[(S.gov+1)%S.n]}.`})}
+  draw()};
+ $('#ro-next',r).onclick=()=>{S.gov=(S.gov+1)%S.n;S.round++;S.taken={};S.picks=0;S.log=[];draw()};
+ $('#ro-reset',r).onclick=reset;wireSeg(r,'ro-n',reset);reset()}};
+
+/* --- Planter --- */
+LABS.plant={html:()=>`<div class="lab"><h3>Lab: a Planting phase</h3><p class="hint">4 players. Ana is the Planter, Carla has an occupied Builders Yard. Play each player in turn: click a tile or pass. The simulator refuses illegal choices.</p>
+<div id="pl-tiles" class="row"></div><p id="pl-who" style="margin:10px 0 4px;font-weight:600"></p><div class="row"><button type="button" id="pl-pass">Pass</button><button type="button" id="pl-new">New situation</button></div><ul class="log" id="pl-log"></ul></div>`,
+init(r){let S;const PL=['Ana','Bruno','Carla','Diego'];
+ const stack=()=>shuffle([].concat(Array(12).fill('f'),Array(11).fill('s'),Array(10).fill('c'),Array(9).fill('t'),Array(8).fill('k')));
+ const reset=()=>{S={pile:stack(),vis:[],q:5,turn:0,log:[],done:false};S.vis=S.pile.splice(0,5);draw()};
+ const draw=()=>{$('#pl-tiles',r).innerHTML=S.vis.map((g,i)=>`<button type="button" data-i="${i}">${G[g]}</button>`).join('')+`<button type="button" data-q="1" ${S.q?'':'disabled'}>Quarry (${S.q})</button>`;
+  $('#pl-who',r).innerHTML=S.done?'Phase over.':`<b>${PL[S.turn]}</b>${S.turn===0?' (Planter)':S.turn===2?' (occupied Builders Yard)':''} chooses.`;
+  $$('#pl-tiles button',r).forEach(b=>b.onclick=()=>take(b));$('#pl-pass',r).disabled=S.done;
+  $('#pl-log',r).innerHTML=S.log.map(l=>`<li class="${l.c||''}">${l.t}</li>`).join('')};
+ const next=()=>{S.turn++;if(S.turn>=4){S.done=true;const d=S.vis.length;S.vis=S.pile.splice(0,5);S.log.push({c:'okk',t:`End of the phase: Ana (Planter) discards ${d} remaining Estate${d>1?'s':''} and flips 5 new ones (players + 1).`})}draw()};
+ const take=b=>{if(S.done)return;const p=PL[S.turn];
+  if(b.dataset.q){if(S.turn!==0&&S.turn!==2){S.log.push({c:'err',t:`${p} cannot take a Quarry: it is the Planter's advantage, or you need an occupied Builders Yard.`});return draw()}
+   S.q--;S.log.push({t:`${p} takes a Quarry${S.turn===0?' (Planter advantage)':' (thanks to the Builders Yard)'}.`});return next()}
+  const g=S.vis.splice(+b.dataset.i,1)[0];S.log.push({t:`${p} takes a ${GN1[g]} Estate and places it, without a worker, on an empty Countryside space.`});next()};
+ $('#pl-pass',r).onclick=()=>{if(S.done)return;S.log.push({t:`${PL[S.turn]} passes.`});next()};$('#pl-new',r).onclick=reset;reset()}};
+
+/* --- Recruiter --- */
+LABS.recruit={html:()=>`<div class="lab"><h3>Lab: sharing out and refilling the Register</h3><p class="hint">Set the number of players and workers on the Work Register. The Recruiter is first in the list.</p>
+<div class="row"><label class="f">Players${numIn('rc-n',4,2,5)}</label><label class="f">Workers on the Register${numIn('rc-w',6,0,30)}</label></div><div class="out" id="rc-out"></div>
+<h3>Refilling the Register at the end of the phase</h3><div class="row"><label class="f">Empty worker spaces on Buildings (all players)${numIn('rc-e',2,0,60)}</label><label class="f">Workers left in the supply${numIn('rc-s',20,0,95)}</label></div><div class="out" id="rc-out2"></div></div>`,
+init(r){const go=()=>{const n=Math.min(5,Math.max(2,num(r,'rc-n'))),w=num(r,'rc-w'),get=Array(n).fill(0);for(let i=0;i<w;i++)get[i%n]++;get[0]++;
+ $('#rc-out',r).innerHTML=`<table><tr><th>Player</th><th class="c">Workers received</th></tr>${get.map((g,i)=>`<tr><td>${NAMES[i]}${i===0?' (Recruiter: 1 from the supply + Register)':''}</td><td class="c">${g}</td></tr>`).join('')}</table>`;
+ const e=num(r,'rc-e'),s=num(r,'rc-s'),need=Math.max(n,e),o=$('#rc-out2',r);
+ o.className='out '+(s<need?'bad':'ok');
+ o.innerHTML=`The Recruiter must place <b>${need}</b> worker${need>1?'s':''} (${e} empty space${e>1?'s':''}, minimum ${n}).`+(s<need?` <b>The supply only has ${s}: the game will end at the end of this round.</b>`:` The supply is enough (${s}).`)};
+ $$('input',r).forEach(i=>i.oninput=go);go()}};
+
+/* --- Builder --- */
+LABS.build={html:()=>`<div class="lab"><h3>Lab: what does this Building cost?</h3><p class="hint">Choose a Building and your situation.</p>
+<div class="row"><label class="f">Building<select id="bd-b">${B.filter(b=>b.set==='base').map(b=>`<option value="${b.id}">${b.fr} (${b.cost})</option>`).join('')}</select></label>
+<label class="f">Occupied Quarries${numIn('bd-q',2,0,8)}</label><label class="f">Empty City spaces${numIn('bd-free',6,0,12)}</label></div>
+<div class="row" style="margin-top:6px"><label class="chk"><input type="checkbox" id="bd-pri" checked> I am the Builder</label><label class="chk"><input type="checkbox" id="bd-own"> I already own it</label></div><div class="out" id="bd-out"></div></div>`,
+init(r){const go=()=>{const b=BI[$('#bd-b',r).value],q=num(r,'bd-q'),pri=$('#bd-pri',r).checked,own=$('#bd-own',r).checked,free=num(r,'bd-free'),o=$('#bd-out',r);
+ if(own){o.className='out bad';o.innerHTML='Impossible: you never build the same Building twice.';return}
+ if(free===0){o.className='out bad';o.innerHTML='Impossible: your City is full, you can no longer take the Builder action.';return}
+ if(b.kind==='large'&&free<2){o.className='out bad';o.innerHTML='Impossible: a Large Building takes 2 adjacent spaces.';return}
+ const cap=b.row,qq=Math.min(q,cap),p=Math.max(0,b.cost-qq-(pri?1:0));
+ o.className='out ok';o.innerHTML=`<span class="big">${p} coin${p>1?'s':''}</span><br>Cost ${b.cost} − ${qq} Quarr${qq>1?'ies':'y'} (cap ${cap}: ${b.kind==='large'?'Large Building':`section ${b.row}`})${pri?' − 1 (advantage)':''}${b.cost-qq-(pri?1:0)<0?' → raised to 0':''}.${q>cap?` <span class="muted">Your other ${q-cap} Quarries don't help here.</span>`:''}${free-(b.kind==='large'?2:1)===0?' <b>This Building fills your City: the game will end at the end of the round.</b>':''}`};
+ $$('input,select',r).forEach(i=>{i.oninput=go;i.onchange=go});go()}};
+
+/* --- Craftsman --- */
+LABS.prod={html:()=>`<div class="lab"><h3>Lab: what do I produce?</h3><p class="hint">For each Good: occupied Estates, and workers in Production Buildings of that type.</p>
+<div class="tw"><table><tr><th>Good</th><th>Occupied Estates</th><th>Workers in Buildings</th><th class="c">Barrels</th></tr>
+${GOODS.map(g=>`<tr><td>${G[g]}</td><td>${numIn('pd-p'+g,g==='c'?2:g==='s'?3:g==='t'?2:0,0,12)}</td><td>${g==='c'?'<span class="muted">no Building</span>':numIn('pd-b'+g,g==='s'?3:g==='t'?1:0,0,4)}</td><td class="c" id="pd-o${g}"></td></tr>`).join('')}</table></div>
+<div class="row"><label class="chk"><input type="checkbox" id="pd-fac"> Occupied Factory</label><label class="chk"><input type="checkbox" id="pd-art" checked> I am the Craftsman</label></div><div class="out" id="pd-out"></div></div>`,
+init(r){const go=()=>{let types=0,tot=0;const made=[];GOODS.forEach(g=>{const p=num(r,'pd-p'+g),b=g==='c'?p:num(r,'pd-b'+g),n=Math.min(p,b);$('#pd-o'+g,r).innerHTML=n?`<b>${n}</b>`:'0';if(n){types++;tot+=n;made.push(g)}});
+ const fac=$('#pd-fac',r).checked,art=$('#pd-art',r).checked,fc=[0,0,1,2,3,5][types];
+ let t=`You produce <b>${tot}</b> barrel${tot>1?'s':''} of ${types} type${types>1?'s':''}.`;
+ if(art)t+=made.length?` Advantage: at the end of the phase, 1 more barrel among ${made.map(g=>GN1[g]).join(', ')}.`:` Nothing produced: no bonus barrel.`;
+ if(fac)t+=` Factory: <b>${fc}</b> coin${fc>1?'s':''}.`;
+ $('#pd-out',r).innerHTML=t};$$('input',r).forEach(i=>{i.oninput=go;i.onchange=go});go()}};
+
+/* --- Trader --- */
+LABS.trade={html:()=>`<div class="lab"><h3>Lab: the Trading House</h3><p class="hint">Choose your Buildings, then click a barrel to sell. Each click is a different player selling 1 barrel.</p>
+<div class="house" id="tr-h"></div>
+<div class="row"><label class="chk"><input type="checkbox" id="tr-pri"> Trader (advantage)</label><label class="chk"><input type="checkbox" id="tr-off"> Office</label><label class="chk"><input type="checkbox" id="tr-sm"> Small Market</label><label class="chk"><input type="checkbox" id="tr-lm"> Large Market</label></div>
+<div class="row" style="margin-top:8px">${GOODS.map(g=>`<button type="button" data-g="${g}">Sell ${G[g]}</button>`).join('')}</div>
+<div class="row" style="margin-top:8px"><button type="button" id="tr-end">End of the phase</button><button type="button" id="tr-new">New situation</button></div><ul class="log" id="tr-log"></ul></div>`,
+init(r){let H=[],L=[];
+ const draw=()=>{$('#tr-h',r).innerHTML=[0,1,2,3].map(i=>`<div class="slot">${H[i]?bl(H[i]):''}</div>`).join('');$('#tr-log',r).innerHTML=L.map(l=>`<li class="${l.c||''}">${l.t}</li>`).join('')};
+ const reset=()=>{H=shuffle(GOODS.slice()).slice(0,rnd(3));L=[];draw()};
+ $$('[data-g]',r).forEach(b=>b.onclick=()=>{const g=b.dataset.g,off=$('#tr-off',r).checked;
+  if(H.length>=4){L.unshift({c:'err',t:`Refused: the Trading House is full (4 barrels). Nobody else sells this phase.`});return draw()}
+  if(H.includes(g)&&!off){L.unshift({c:'err',t:`Refused: there is already ${GN1[g]} in the Trading House. You would need an occupied Office.`});return draw()}
+  const pri=$('#tr-pri',r).checked,sm=$('#tr-sm',r).checked,lm=$('#tr-lm',r).checked;let c=PRICE[g],d=[`${PRICE[g]} (price)`];
+  if(pri){c++;d.push('1 (advantage)')}if(sm){c++;d.push('1 (Small Market)')}if(lm){c+=2;d.push('2 (Large Market)')}
+  H.push(g);L.unshift({c:'okk',t:`Sale of ${GN1[g]}${H.includes(g)&&H.filter(x=>x===g).length>1?' (duplicate allowed by the Office)':''}: <b>${c} coin${c>1?'s':''}</b> = ${d.join(' + ')}.`});
+  if(pri){$('#tr-pri',r).checked=false;L[0].t+=' The advantage is used up: the next players sell without it.'}draw()});
+ $('#tr-end',r).onclick=()=>{if(H.length>=4){H=[];L.unshift({c:'okk',t:'End of the phase: the Trading House was full, the Trader empties it.'})}else L.unshift({t:`End of the phase: the Trading House is not full (${H.length}/4), its barrels stay for next time.`});draw()};
+ $('#tr-new',r).onclick=reset;reset()}};
+
+/* --- storage --- */
+LABS.store={html:()=>`<div class="lab"><h3>Lab: what may I keep?</h3><p class="hint">End of the Shipment phase. Enter how many barrels of each type you keep, then check.</p>
+<div class="row"><label class="chk"><input type="checkbox" id="st-sw"> Occupied Small Warehouse</label><label class="chk"><input type="checkbox" id="st-lw"> Occupied Large Warehouse</label><button type="button" id="st-new">New situation</button></div>
+<div class="tw" style="margin-top:8px"><table id="st-t"></table></div><div class="row"><button type="button" class="pri" id="st-ok">Check</button></div><div class="out" id="st-out"></div></div>`,
+init(r){let H;
+ const W=()=>($('#st-sw',r).checked?1:0)+($('#st-lw',r).checked?2:0);
+ const reset=()=>{H={};GOODS.forEach(g=>H[g]=0);let n=0;while(n<3){const g=GOODS[rnd(5)];if(!H[g]){H[g]=1+rnd(4);n++}}
+  $('#st-t',r).innerHTML=`<tr><th>Good</th><th class="c">You have</th><th class="c">You keep</th></tr>`+GOODS.filter(g=>H[g]).map(g=>`<tr><td>${G[g]}</td><td class="c">${H[g]}</td><td class="c">${numIn('st-k'+g,0,0,H[g])}</td></tr>`).join('');
+  $('#st-out',r).className='out';$('#st-out',r).textContent='';};
+ const best=w=>{const ks=GOODS.filter(g=>H[g]).sort((a,b)=>H[b]-H[a]||PRICE[b]-PRICE[a]);const full=ks.slice(0,w),rest=ks.slice(w).sort((a,b)=>PRICE[b]-PRICE[a]);return {full,one:rest[0]||null,n:full.reduce((s,g)=>s+H[g],0)+(rest[0]?1:0)}};
+ $('#st-ok',r).onclick=()=>{const w=W(),k={};let bad=null;GOODS.filter(g=>H[g]).forEach(g=>{k[g]=Math.min(H[g],num(r,'st-k'+g))});
+  const kept=GOODS.filter(g=>k[g]>0).sort((a,b)=>k[b]-k[a]);const rest=kept.slice(w).reduce((s,g)=>s+k[g],0);const o=$('#st-out',r);const b=best(w);
+  const tot=kept.reduce((s,g)=>s+k[g],0),lost=GOODS.reduce((s,g)=>s+H[g]-(k[g]||0),0);
+  if(rest>1){o.className='out bad';o.innerHTML=`Not allowed. ${w?`Your Warehouses cover ${w} whole type${w>1?'s':''}, and`:'Without a Warehouse,'} you only keep 1 more barrel. A legal example: ${b.full.map(g=>`all the ${GN1[g]} (${H[g]})`).concat(b.one?[`1 ${GN1[b.one]}`]:[]).join(' + ')}.`}
+  else{o.className='out ok';o.innerHTML=`Legal: you keep ${tot} barrel${tot>1?'s':''} and return ${lost} to the supply.${tot<b.n?` You could have kept up to ${b.n}.`:''}`}};
+ $('#st-new',r).onclick=reset;$$('#st-sw,#st-lw',r).forEach(i=>i.onchange=()=>{$('#st-out',r).textContent=''});reset()}};
+
+/* --- small building cards --- */
+const CARDNOTE={smk:'With an occupied Large Market: +3 in total. Even a sold Corn then earns coins.',byd:'A Planter with a Builders Yard does not take two Quarries. With the Hacienda, the face-down tile stays an Estate.',hac:'The drawn tile is placed at once and cannot be refused. Your normal action follows.',swh:'You must still load everything you can during the phase.',hos:'The worker can only go on the tile you just placed (with the Hacienda, either of the two).',off:'Another player with an Office may also add the same type, if there is room.',lmk:'Applies to every sale to the Trading House, advantage or not.',lwh:'With the Small Warehouse: 3 whole types + 1 barrel.',fac:'Only the number of different types counts, not the quantities.',sch:'A single worker, even for a Building with 3 spaces.',har:'Every load counts: several loading turns = several VP.',wha:'The Chartered Ship has no limit, accepts a type already on a Cargo Ship, and all barrels of that type must go.'};
+LABS.cards={html:()=>`<div class="lab"><h3>Lab: Small Building cards</h3><p class="hint">Click a Building.</p><div class="row" id="cd-l">${['smk','byd','hac','swh','hos','off','lmk','lwh','fac','sch','har','wha'].map(i=>`<button type="button" data-b="${i}">${BI[i].fr}</button>`).join('')}</div><div class="out" id="cd-o">Choose a Building.</div></div>`,
+init(r){$$('#cd-l button',r).forEach(b=>b.onclick=()=>{$$('#cd-l button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');const d=BI[b.dataset.b];
+ $('#cd-o',r).innerHTML=`<b>${d.fr}</b><br>Cost ${d.cost} · ${d.vp} VP · section ${d.row} · phase: ${d.ph}<br>${d.fx}<br><span class="muted">Good to know: ${CARDNOTE[d.id]}</span>`})}};
+
+/* --- large buildings --- */
+LABS.large={html:()=>`<div class="lab"><h3>Lab: a Large Building's bonus</h3><p class="hint">The Large Building is assumed to be occupied. It scores 4 VP + this bonus.</p>
+<div class="row"><label class="f">Building<select id="lg-b">${['fst','res','frt','cus','cth'].map(i=>`<option value="${i}">${BI[i].fr}</option>`).join('')}</select></label><span id="lg-in" class="row"></span></div><div class="out" id="lg-o"></div></div>`,
+init(r){const IN={fst:`<label class="f">Small Production Buildings${numIn('lg-a',1,0,4)}</label><label class="f">Large Production Buildings${numIn('lg-c',3,0,4)}</label>`,res:`<label class="f">Filled Countryside spaces${numIn('lg-a',10,0,12)}</label>`,frt:`<label class="f">Workers on your Island${numIn('lg-a',22,0,99)}</label>`,cus:`<label class="f">VP in chips${numIn('lg-a',30,0,200)}</label>`,cth:`<label class="f">Commercial Buildings (City Hall included)${numIn('lg-a',7,1,12)}</label>`};
+ const calc=()=>{const k=$('#lg-b',r).value,a=num(r,'lg-a');let v;
+  if(k==='fst')v=a+2*num(r,'lg-c');else if(k==='res')v=a===0?0:a<=9?4:a-6;else if(k==='frt')v=Math.floor(a/3);else if(k==='cus')v=Math.floor(a/4);else v=a;
+  $('#lg-o',r).innerHTML=`Bonus: <b>${v} VP</b>, that is <span class="big">${v+4} VP</span> in total for this Building.`};
+ const sw=()=>{$('#lg-in',r).innerHTML=IN[$('#lg-b',r).value];$$('#lg-in input',r).forEach(i=>i.oninput=calc);calc()};$('#lg-b',r).onchange=sw;sw()}};
+
+/* --- game end --- */
+LABS.endsim={html:()=>`<div class="lab"><h3>Lab: is the end triggered?</h3><div class="row">
+<label class="f">Players${numIn('en-n',4,2,5)}</label><label class="f">Workers in the supply (end of Recruitment)${numIn('en-s',6,0,95)}</label><label class="f">Workers to place on the Register${numIn('en-w',5,0,60)}</label>
+<label class="f">Filled City spaces (furthest player)${numIn('en-c',11,0,12)}</label><label class="f">VP chips left${numIn('en-v',3,0,126)}</label></div><div class="out" id="en-o"></div></div>`,
+init(r){const go=()=>{const n=num(r,'en-n'),s=num(r,'en-s'),w=Math.max(n,num(r,'en-w')),c=num(r,'en-c'),v=num(r,'en-v'),why=[];
+ if(s<w)why.push(`the supply (${s}) cannot refill the Register (${w})`);if(c>=12)why.push('a player has filled all 12 City spaces');if(v<=0)why.push('the last VP chip has been taken');
+ const o=$('#en-o',r);o.className='out '+(why.length?'bad':'ok');o.innerHTML=why.length?`<b>End triggered</b>: ${why.join('; ')}. Finish the current round, then score.`:'The game goes on.'};$$('input',r).forEach(i=>i.oninput=go);go()}};
+
+/* --- Shipment phase simulator --- */
+const SHIPSC=[
+ {id:'livret',t:'Rulebook example',d:'4 players. Anna is the Captain. The 6-hold ship already carries 3 Corn. Replay the example phase: on each turn, choose a Good, then a ship.',
+  ships:[[5,null,0],[6,'c',3],[7,null,0]],pl:[{n:'Anna',cap:1,g:{c:2,s:6}},{n:'Benno',g:{s:2,t:3}},{n:'Clara',g:{c:2,t:1}},{n:'Donni',g:{c:1,f:5}}]},
+ {id:'port',t:'Harbor and Wharf',d:'3 players. Rosa is the Captain and owns an occupied Harbor and Wharf. The Wharf is used once, whenever you choose during your turn.',
+  ships:[[4,'t',1],[5,'s',2],[6,null,0]],pl:[{n:'Rosa',cap:1,har:1,wha:1,g:{t:5,s:2,c:1}},{n:'Tomás',g:{c:4,k:2}},{n:'Inés',g:{s:1,f:3}}]},
+ {id:'bloque',t:'Crowded ships',d:'4 players. The Corn ship is full, the Coffee ship almost. Who can still load what?',
+  ships:[[5,'k',4],[6,null,0],[7,'c',7]],pl:[{n:'You',cap:1,g:{c:3,k:2,f:1}},{n:'Luis',g:{c:2,s:4}},{n:'Mara',g:{t:6}},{n:'Pedro',g:{k:1,f:2}}]},
+ {id:'hasard',t:'Random situation',d:'A new random situation each time you click "Start again".'}
+];
+function randomShip(){const n=3+rnd(2),caps=n===3?[4,5,6]:[5,6,7],types=shuffle(GOODS.slice()),ships=caps.map((c,i)=>{const r=Math.random();if(r<.45)return [c,null,0];const t=types[i];return [c,t,1+rnd(c-1)]});
+ const pl=[];for(let i=0;i<n;i++){const g={};let k=0;while(k<2+rnd(2)){const t=GOODS[rnd(5)];if(!g[t]){g[t]=1+rnd(5);k++}}pl.push({n:NAMES[i],cap:i===0?1:0,har:Math.random()<.25?1:0,wha:Math.random()<.2?1:0,g})}return {ships,pl}}
+
+LABS.ship={html:()=>`<div class="lab"><h3>Lab: loading simulator</h3>
+<div class="row" id="sh-sc">${SHIPSC.map((s,i)=>`<button type="button" data-i="${i}" class="${i?'':'sel'}">${s.t}</button>`).join('')}</div>
+<p class="hint" id="sh-d" style="margin-top:10px"></p>
+<div class="ships" id="sh-ships"></div><div class="players" id="sh-pl"></div>
+<p id="sh-who" style="font-weight:600;margin:6px 0"></p>
+<div class="row"><button type="button" id="sh-wharf" hidden>Chartered Ship (Wharf)</button><button type="button" id="sh-pass">Pass</button><button type="button" id="sh-reset">Start again</button></div>
+<ul class="log" id="sh-log"></ul></div>`,
+init(r){let S,sc=0;
+ const load=()=>{const D=SHIPSC[sc].id==='hasard'?randomShip():SHIPSC[sc];
+  S={ships:D.ships.map(([cap,type,n])=>({cap,type,n})),pl:D.pl.map(p=>({n:p.n,cap:!!p.cap,har:!!p.har,wha:!!p.wha,whaUsed:false,g:Object.assign({c:0,f:0,s:0,t:0,k:0},p.g),vp:0,capBonus:false})),cur:0,sel:null,idle:0,log:[],over:false};
+  $('#sh-d',r).textContent=SHIPSC[sc].d;advance(true)};
+ const full=s=>s.n>=s.cap;
+ /* legal loads of a type for a player: list of ships (English rulebook: the empty ship that takes the most barrels) */
+ const legal=(p,g)=>{if(!p.g[g])return [];const own=S.ships.find(s=>s.type===g);if(own)return full(own)?[]:[own];
+  const em=S.ships.filter(s=>!s.type);if(!em.length)return [];const best=Math.max(...em.map(s=>Math.min(p.g[g],s.cap)));return em.filter(s=>Math.min(p.g[g],s.cap)===best)};
+ const canCargo=p=>GOODS.some(g=>legal(p,g).length);
+ const canWharf=p=>p.wha&&!p.whaUsed&&GOODS.some(g=>p.g[g]);
+ const log=(t,c)=>S.log.unshift({t,c});
+ const advance=first=>{ // find the next player who can act
+  if(!first){S.cur=(S.cur+1)%S.pl.length}
+  for(let k=0;k<S.pl.length*2;k++){const p=S.pl[S.cur];
+   if(S.idle>=S.pl.length){return finish()}
+   if(canCargo(p)||canWharf(p)){S.sel=null;return draw()}
+   log(`${p.n} cannot load anything.`);S.idle++;S.cur=(S.cur+1)%S.pl.length}
+  finish()};
+ const score=(p,n,how)=>{let v=n,d=[`${n} VP`];if(p.har){v++;d.push('1 (Harbor)')}if(p.cap&&!p.capBonus){v++;p.capBonus=true;d.push('1 (Captain advantage)')}p.vp+=v;return `${how}: <b>+${v} VP</b>${d.length>1?` (${d.join(' + ')})`:''}.`};
+ const tryLoad=s=>{if(S.over)return;const p=S.pl[S.cur],g=S.sel;
+  if(!g){log('First choose a Good in the active player\'s box.','err');return draw()}
+  if(full(s)){log(`Refused: the ${s.cap}-hold ship is full.`,'err');return draw()}
+  if(s.type&&s.type!==g){log(`Refused: this ship already carries ${GN1[s.type]}. A ship takes only one type.`,'err');return draw()}
+  const own=S.ships.find(x=>x.type===g);
+  if(!s.type&&own){log(`Refused: ${GN1[g]} already sails on the ${own.cap}-hold ship. No two ships ever carry the same type${full(own)?', even when that one is full':''}.`,'err');return draw()}
+  const L=legal(p,g);if(!L.includes(s)){const b=L[0];log(`Refused: on the ${b.cap}-hold ship you would load ${Math.min(p.g[g],b.cap)} barrels, against ${Math.min(p.g[g],s.cap)} here. You must choose the empty ship that lets you load the most.`,'err');return draw()}
+  const n=Math.min(p.g[g],s.cap-s.n);s.type=g;s.n+=n;p.g[g]-=n;S.idle=0;
+  log(`${p.n} loads ${n} ${GN1[g]} onto the ${s.cap}-hold ship${p.g[g]?` (${p.g[g]} left over, the ship is full)`:''}. ${score(p,n,'Gain')}`,'okk');advance()};
+ const useWharf=()=>{const p=S.pl[S.cur],g=S.sel;if(!g||!p.g[g]){log('First choose the Good to put on the Chartered Ship.','err');return draw()}
+  const n=p.g[g];p.g[g]=0;p.whaUsed=true;S.idle=0;log(`${p.n} uses the Wharf: ${n} ${GN1[g]} leave on a Chartered Ship and go back to the supply. ${score(p,n,'Gain')}`,'okk');advance()};
+ const pass=()=>{const p=S.pl[S.cur];if(S.over)return;
+  if(canCargo(p)){const opts=GOODS.filter(g=>legal(p,g).length).map(g=>GN1[g]);log(`Refused: ${p.n} can load (${opts.join(', ')}). Loading is mandatory.`,'err');return draw()}
+  log(`${p.n} keeps the Wharf for later and passes.`);S.idle++;advance()};
+ const finish=()=>{S.over=true;const em=S.ships.filter(full);
+  log(`Nobody can load anymore: loading is over. ${em.length?`The Captain empties ${em.map(s=>`the ${s.cap}-hold ship`).join(' and ')} (full).`:'No ship is full.'} ${S.ships.filter(s=>s.n&&!full(s)).map(s=>`The ${s.cap}-hold ship keeps its ${s.n} ${GN1[s.type]}.`).join(' ')} Then everyone keeps only 1 barrel (except with Warehouses).`,'okk');
+  em.forEach(s=>{s.n=0;s.type=null});S.sel=null;draw()};
+ const draw=()=>{const cur=S.pl[S.cur];
+  $('#sh-ships',r).innerHTML=S.ships.map((s,i)=>`<button type="button" class="ship${full(s)?' full':''}" data-i="${i}"><span class="cap">${s.cap} holds${s.type?`<br>${G[s.type]}`:'<br><span class="muted">empty</span>'}</span><span class="holds">${Array.from({length:s.cap},(_,k)=>k<s.n?bl(s.type):'<span class="hold"></span>').join('')}</span></button>`).join('');
+  $('#sh-pl',r).innerHTML=S.pl.map((p,i)=>`<div class="pl${i===S.cur&&!S.over?' cur':''}"><div class="nm">${p.n}${p.cap?'<span class="badge cap">Captain</span>':''}${p.har?'<span class="badge">Harbor</span>':''}${p.wha?`<span class="badge">Wharf${p.whaUsed?' used':''}</span>`:''}<span style="margin-left:auto">${vp(p.vp)}</span></div><div class="goods">${GOODS.filter(g=>p.g[g]).map(g=>`<button type="button" class="gbtn${i===S.cur&&S.sel===g?' sel':''}" data-p="${i}" data-g="${g}" ${i!==S.cur||S.over?'disabled':''}>${bl(g)} ${p.g[g]}</button>`).join('')||'<span class="muted small">nothing left</span>'}</div></div>`).join('');
+  $('#sh-who',r).innerHTML=S.over?'Phase over. Choose another scenario or start again.':`<b>${cur.n}</b>'s turn: choose a Good, then a ship.`;
+  $('#sh-wharf',r).hidden=S.over||!canWharf(cur);$('#sh-pass',r).disabled=S.over;
+  $$('#sh-ships .ship',r).forEach(b=>b.onclick=()=>tryLoad(S.ships[+b.dataset.i]));
+  $$('#sh-pl .gbtn',r).forEach(b=>b.onclick=()=>{S.sel=b.dataset.g;draw()});
+  $('#sh-log',r).innerHTML=S.log.map(l=>`<li class="${l.c||''}">${l.t}</li>`).join('')};
+ $('#sh-wharf',r).onclick=useWharf;$('#sh-pass',r).onclick=pass;$('#sh-reset',r).onclick=load;
+ $$('#sh-sc button',r).forEach(b=>b.onclick=()=>{$$('#sh-sc button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sc=+b.dataset.i;load()});
+ load()}};
+
+/* ---------- tutorial ---------- */
+const ST=LS.get('pr1897-tuto',{done:{},cur:CH[0].id,q:{}});ST.done=ST.done||{};ST.q=ST.q||{};
+const saveST=()=>LS.set('pr1897-tuto',ST);
+function progress(){const d=CH.filter(c=>ST.done[c.id]).length;$('#bar').style.width=(100*d/CH.length)+'%';$('#barlabel').textContent=`${d} of ${CH.length} chapter${CH.length>1?'s':''} completed`}
+function toc(){let h='',part='';CH.forEach((c,i)=>{if(c.part!==part){part=c.part;h+=`<li class="part">${part}</li>`}h+=`<li><a href="#${c.id}" data-id="${c.id}" class="${ST.cur===c.id?'on':''}"><span class="n">${i+1}</span><span>${c.t}</span>${ST.done[c.id]?'<span class="tick" aria-label="completed">✓</span>':''}</a></li>`});$('#toclist').innerHTML=h;
+ $$('#toclist a').forEach(a=>a.onclick=e=>{e.preventDefault();show(a.dataset.id,true);$('#toc').classList.remove('open');$('#tocbtn').setAttribute('aria-expanded','false');$('#tocbtn').textContent='Show contents'})}
+function qBlock(list,kind,cid){return `<div class="qs">${list.map((x,i)=>{const key=`${cid}:${kind}${i}`,st=ST.q[key];return `<div class="q${kind==='c'?' case':''}" data-k="${key}" data-a="${x.a}">${kind==='c'?'<span class="tag">What do you do?</span>':''}<div class="qt">${x.q}</div><div class="opts">${x.o.map((o,j)=>`<button type="button" data-j="${j}" class="${st&&st.picked&&st.picked.includes(j)?(j===x.a?'right':'wrong'):''}">${o}</button>`).join('')}</div><div class="why" ${st&&st.ok?'':'hidden'}>${x.w}</div></div>`}).join('')}</div>`}
+function show(id,scroll){const c=CH.find(x=>x.id===id)||CH[0];ST.cur=c.id;saveST();const i=CH.indexOf(c),prev=CH[i-1],next=CH[i+1];
+ let h=`<section class="ch on" id="ch-${c.id}"><div class="eyebrow">${c.part} · step ${i+1} of ${CH.length}</div><h1>${c.t}</h1><p class="lead">${c.lead}</p>
+ <h2>The rules</h2><ol class="rules">${c.rules.map(x=>`<li>${x}</li>`).join('')}</ol>${c.html||''}${c.lab?`<div id="labhost">${LABS[c.lab].html()}</div>`:''}`;
+ if(c.cas&&c.cas.length)h+=`<h2>Hands-on cases</h2>${qBlock(c.cas,'c',c.id)}`;
+ if(c.quiz&&c.quiz.length)h+=`<h2>Check what you've learnt</h2>${qBlock(c.quiz,'q',c.id)}<div id="qscore" class="score"></div>`;
+ h+=`<div id="donebox"></div><div class="pager">${prev?`<button type="button" data-go="${prev.id}">← ${prev.t}</button>`:'<span></span>'}${next?`<button type="button" class="pri" data-go="${next.id}">${next.t} →</button>`:`<button type="button" class="pri" data-tab="aide">Open the reference →</button>`}</div></section>`;
+ const R=$('#read');R.innerHTML=h;if(c.lab)LABS[c.lab].init($('#labhost'));
+ $$('.q',R).forEach(q=>$$('.opts button',q).forEach(b=>b.onclick=()=>{const k=q.dataset.k,a=+q.dataset.a,j=+b.dataset.j,st=ST.q[k]||(ST.q[k]={picked:[]});if(st.picked.includes(j))return;st.picked.push(j);
+  b.classList.add(j===a?'right':'wrong');if(j===a){st.ok=true;if(st.picked.length===1)st.first=true}$('.why',q).hidden=false;
+  if(j!==a){$('.why',q).innerHTML=`<b>Not quite.</b> Try another answer.`;$('.why',q).hidden=false}else $('.why',q).innerHTML=(q.classList.contains('case')?c.cas:c.quiz)[+k.split(':')[1].slice(1)].w;
+  saveST();check(c)}));
+ $$('[data-go]',R).forEach(b=>b.onclick=()=>show(b.dataset.go,true));$$('[data-tab]',R).forEach(b=>b.onclick=()=>tab(b.dataset.tab));
+ check(c);toc();progress();if(location.hash!=='#'+c.id)history.replaceState(null,'','#'+c.id);if(scroll)window.scrollTo(0,0)}
+function check(c){const all=[...(c.quiz||[]).map((_,i)=>`${c.id}:q${i}`),...(c.cas||[]).map((_,i)=>`${c.id}:c${i}`)];const ok=all.filter(k=>ST.q[k]&&ST.q[k].ok).length,first=all.filter(k=>ST.q[k]&&ST.q[k].first).length;
+ const sc=$('#qscore');if(sc)sc.textContent=ok?`${ok} of ${all.length} question${all.length>1?'s':''} solved, ${first} at the first try.`:'';
+ if(ok===all.length&&all.length&&!ST.done[c.id]){ST.done[c.id]=1;saveST();toc();progress()}
+ $('#donebox').innerHTML=ST.done[c.id]?`<div class="done-banner">✓ Chapter completed.</div>`:''}
+$('#tocbtn').onclick=()=>{const o=$('#toc').classList.toggle('open');$('#tocbtn').setAttribute('aria-expanded',o);$('#tocbtn').textContent=o?'Hide contents':'Show contents'};
+window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(CH.some(c=>c.id===id)&&id!==ST.cur){tab('learn');show(id,true)}});
+
+/* ---------- reference ---------- */
+function aide(){const roles=[['Planter','Each player takes 1 face-up Estate.','A Quarry instead of an Estate.','End: discard and flip players + 1.'],
+ ['Recruiter','The Work Register is shared out 1 by 1 from the Recruiter; place and rearrange workers.','+1 worker from the supply.','End: Register = empty spaces on Buildings, min. the number of players.'],
+ ['Builder','Each player may buy 1 Building.','−1 coin.','Occupied Quarries: −1 each, capped at 1/2/3/4 by section.'],
+ ['Craftsman','Everyone produces.','+1 barrel of a Good produced.','Corn: Estate only. Others: Estate + Building.'],
+ ['Trader','Each player may sell 1 barrel.','+1 coin.','4 spaces, no duplicates (except Office); emptied when full.'],
+ ['Captain','Mandatory loading, in rotation, 1 type per turn.','+1 VP once per phase.','Then 1 barrel kept (+ Warehouses); full ships emptied.'],
+ ['Adventurer','None.','+1 coin.','0 with 3 players, 1 with 2 or 4 players, 2 with 5 players.']];
+ const SU=[['Coins per player',3,2,3,4],['VP chips',65,75,100,126],['Roles',7,6,7,8],['Cargo Ships (holds)','4 · 6','4 · 5 · 6','5 · 6 · 7','6 · 7 · 8'],['Face-up Estates',3,4,5,6],['Work Register / worker supply','2 / 40','3 / 55','4 / 75','5 / 95'],['Starting Estates','F, C','F, F, C','F, F, C, C','F, F, F, C, C']];
+ $('#aide').innerHTML=`<div class="eyebrow">Reference</div><h1>Puerto Rico 1897 on one page</h1>
+ <div class="toolbar"><a href="#am-tour">Round</a> · <a href="#am-roles">Roles</a> · <a href="#am-mep">Setup</a> · <a href="#am-prix">Prices</a> · <a href="#am-fin">End</a> · <a href="#am-bat">Buildings</a></div>
+ <h2 id="am-tour">A round</h2><ol><li>The Governor chooses a role, acts with the advantage, then everyone performs the action clockwise.</li><li>The next player chooses another role, and so on: one role each (three each with two players).</li><li>End of the round: 1 coin on each role not chosen, the roles come back, the Governor card passes to the left.</li></ol>
+ <h2 id="am-roles">The roles</h2><div class="tw"><table><tr><th>Role</th><th>Action for all</th><th>Advantage</th><th>Remember</th></tr>${roles.map(x=>`<tr><td><b>${x[0]}</b></td><td>${x[1]}</td><td>${x[2]}</td><td>${x[3]}</td></tr>`).join('')}</table></div>
+ <h2 id="am-mep">Setup</h2><div class="tw"><table><tr><th></th><th class="c">2 players</th><th class="c">3</th><th class="c">4</th><th class="c">5</th></tr>${SU.map(x=>`<tr><td>${x[0]}</td>${x.slice(1).map(v=>`<td class="c">${v}</td>`).join('')}</tr>`).join('')}</table></div>
+ <p class="small muted">F = Fruit, C = Corn, in order from the Governor. With two players: 1 of each Commercial Building and 2 of each Production Building; 3 tiles of each Countryside type and 2 barrels of each Good removed.</p>
+ <h2 id="am-prix">Prices and discounts</h2><div class="tw"><table><tr><th>Good</th>${GOODS.map(g=>`<td class="c">${G[g]}</td>`).join('')}</tr><tr><th>Sale price</th>${GOODS.map(g=>`<td class="c">${PRICE[g]}</td>`).join('')}</tr></table></div>
+ <p>Occupied Quarries: −1 coin each, at most <b>1</b> (top section), <b>2</b> (second), <b>3</b> (third), <b>4</b> (Large Buildings). Builder: −1. Never below 0.</p>
+ <h2 id="am-fin">Game end</h2><p>At the end of the round in which: the supply cannot refill the Work Register, <b>or</b> a player has filled all 12 City spaces, <b>or</b> the last VP chip is taken. Score = VP chips + Building VP + bonuses of occupied Large Buildings. Tie: coins + barrels.</p>
+ <h2 id="am-bat">Buildings</h2><p class="small muted">In board order, section by section; Expansion I at the end, by cost.</p><div class="filters2"><div class="seg" id="am-set"><button type="button" data-v="all" class="sel">All</button><button type="button" data-v="base">Base game</button><button type="button" data-v="e1">Expansion I</button><button type="button" data-v="e2">Expansion II</button></div><input type="search" id="am-q" placeholder="Search a Building…" aria-label="Search a Building"></div><div class="cards" id="am-cards"></div>`;
+ let set='all';const norm=t=>t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+ const draw=()=>{const q=norm($('#am-q').value||'');$('#am-cards').innerHTML=B.filter(b=>(set==='all'||b.set===set)&&(!q||norm(b.fr+' '+b.en+' '+b.fx).includes(q))).sort((a,b)=>BOARDORD.indexOf(a.id)-BOARDORD.indexOf(b.id)).map(b=>`<div class="bcard" style="--bc:${b.kind==='prod'?`var(--${{f:'fruit',s:'sugar',t:'tob',k:'cof'}[b.good]})`:KC[b.kind]}"><div class="hd"><div><div class="nm">${b.fr}</div><div class="en">${b.en}</div></div><div class="meta"><span class="coin gold" title="Cost">${b.cost}</span>${vp(b.vp)}</div></div><div class="set">${SETN[b.set]} · ${b.kind==='large'?'Large Building':`section ${b.row}`} · ${b.ph}</div><div class="fx">${b.fx}</div><div class="slots">${b.slots?`${b.slots} worker space${b.slots>1?'s':''}`:'no worker space'}</div></div>`).join('')||'<p class="muted">No Building found.</p>'};
+ $$('#am-set button').forEach(b=>b.onclick=()=>{$$('#am-set button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');set=b.dataset.v;draw()});$('#am-q').oninput=draw;draw();
+ $$('#aide .toolbar a').forEach(a=>a.onclick=e=>{e.preventDefault();const t=$(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})}
+
+/* ---------- scoring ---------- */
+const SC=LS.get('pr1897-score',null)||{n:4,e1:false,e2:false,p:[]};
+function scP(i){return SC.p[i]||(SC.p[i]={name:NAMES[i],chips:0,own:[],occ:{},x:{},cit:0,tie:0})}
+function bonus(p,id){const o=p.own,x=p.x[id]||0;switch(id){
+ case 'fst':return o.filter(k=>BI[k].kind==='prod'&&BI[k].sz==='s').length+2*o.filter(k=>(BI[k].kind==='prod'&&BI[k].sz==='l')||k==='tai').length;
+ case 'res':return x<=0?0:x<=9?4:x-6;case 'frt':return Math.floor(x/3);case 'cus':return Math.floor((p.chips||0)/4);
+ case 'cth':return o.filter(k=>BI[k].kind!=='prod').length;case 'cat':return [0,1,3,6,10][Math.min(4,x)];case 'tsq':return p.cit||0;default:return 0}}
+const XIN={res:'Filled Countryside spaces',frt:'Workers and citizens on the Island',cat:'Sets of 3 identical tiles'};
+function total(p){let t=(+p.chips||0),d=[`${+p.chips||0} in chips`];const bv=p.own.reduce((s,k)=>s+BI[k].vp,0);t+=bv;d.push(`${bv} from Buildings`);
+ let lb=0;p.own.filter(k=>BI[k].kind==='large'&&p.occ[k]).forEach(k=>lb+=bonus(p,k));if(lb){t+=lb;d.push(`${lb} bonus`)}if(SC.e2&&p.cit){t+=+p.cit;d.push(`${p.cit} from citizens`)}return {t,d}}
+const GRPOPEN={};
+function score(){const y=window.scrollY;const sets=['base'].concat(SC.e1?['e1']:[],SC.e2?['e2']:[]);
+ $('#score').innerHTML=`<div class="eyebrow">Scoring</div><h1>Score calculator</h1><p class="lead">Tick each player's Buildings; for occupied Large Buildings, the app works out the bonus. Everything is saved in this browser.</p>
+ <div class="toolbar">Players ${seg('sc-n',[2,3,4,5],SC.n)}<label class="chk"><input type="checkbox" id="sc-e1" ${SC.e1?'checked':''}> Expansion I</label><label class="chk"><input type="checkbox" id="sc-e2" ${SC.e2?'checked':''}> Expansion II (citizens)</label><button type="button" id="sc-reset">Clear all</button></div>
+ <div class="pcards">${Array.from({length:SC.n},(_,i)=>{const p=scP(i);p.own=p.own.filter(k=>sets.includes(BI[k].set));
+  const grp=(kind,lab)=>{const gk=i+kind,op=gk in GRPOPEN?GRPOPEN[gk]:kind!=='small';return `<details class="grp" data-gk="${gk}" ${op?'open':''}><summary>${lab}</summary><div class="bchips">${B.filter(b=>b.kind===kind&&sets.includes(b.set)).map(b=>`<button type="button" data-p="${i}" data-b="${b.id}" class="${p.own.includes(b.id)?'sel':''}">${b.fr} · ${b.vp}</button>`).join('')}</div></details>`};
+  const larges=p.own.filter(k=>BI[k].kind==='large'&&k!=='mon');
+  return `<div class="pcard"><div class="row" style="justify-content:space-between"><input type="text" value="${esc(p.name)}" data-p="${i}" data-f="name" aria-label="Player ${i+1} name" style="font-weight:700;width:150px"><span class="tot" id="sc-t${i}"></span></div>
+  <div class="row" style="margin:8px 0"><label class="f">VP in chips<input type="number" min="0" value="${p.chips||0}" data-p="${i}" data-f="chips"></label>${SC.e2?`<label class="f">Citizens<input type="number" min="0" value="${p.cit||0}" data-p="${i}" data-f="cit"></label>`:''}<label class="f">Coins + barrels<input type="number" min="0" value="${p.tie||0}" data-p="${i}" data-f="tie"></label></div>
+  ${grp('prod','Production Buildings')}${grp('small','Small Commercial Buildings')}${grp('large','Large Buildings')}
+  ${larges.map(k=>`<div class="row small" style="margin:4px 0"><label class="chk"><input type="checkbox" data-p="${i}" data-occ="${k}" ${p.occ[k]?'checked':''}> ${BI[k].fr} occupied</label>${XIN[k]&&p.occ[k]?`<label class="f">${XIN[k]}<input type="number" min="0" value="${p.x[k]||0}" data-p="${i}" data-x="${k}"></label>`:''}<span class="muted" id="sc-b${i}${k}"></span></div>`).join('')}
+  <p class="small muted" id="sc-d${i}"></p></div>`}).join('')}</div><h2>Ranking</h2><ol class="rank" id="sc-rank"></ol>`;
+ const upd=()=>{LS.set('pr1897-score',SC);const res=[];for(let i=0;i<SC.n;i++){const p=scP(i),r=total(p);$('#sc-t'+i).textContent=r.t+' VP';$('#sc-d'+i).textContent=r.d.join(' + ');
+   p.own.filter(k=>BI[k].kind==='large'&&k!=='mon').forEach(k=>{const e=$(`#sc-b${i}${k}`);if(e)e.textContent=p.occ[k]?`bonus +${bonus(p,k)}`:'not occupied: 4 VP only'});res.push({n:p.name,t:r.t,tie:+p.tie||0})}
+  res.sort((a,b)=>b.t-a.t||b.tie-a.tie);$('#sc-rank').innerHTML=res.map((r,i)=>`<li><b>${i+1}.</b> ${esc(r.n)} <span style="margin-left:auto"><b>${r.t} VP</b>${res.some((o,j)=>j!==i&&o.t===r.t)?` <span class="muted small">(tie-break: ${r.tie})</span>`:''}</span></li>`).join('')};
+ wireSeg($('#score'),'sc-n',()=>{SC.n=segVal($('#score'),'sc-n');score()});
+ $('#sc-e1').onchange=e=>{SC.e1=e.target.checked;score()};$('#sc-e2').onchange=e=>{SC.e2=e.target.checked;score()};
+ $('#sc-reset').onclick=()=>{if(SC.p.length&&!confirm('Clear all scores?'))return;SC.p=[];score()};
+ $$('#score [data-b]').forEach(b=>b.onclick=()=>{const p=scP(+b.dataset.p),k=b.dataset.b,i=p.own.indexOf(k);if(i>=0){p.own.splice(i,1);delete p.occ[k]}else{p.own.push(k);if(BI[k].kind==='large'&&k!=='mon')p.occ[k]=true}score()});
+ $$('#score [data-occ]').forEach(c=>c.onchange=()=>{scP(+c.dataset.p).occ[c.dataset.occ]=c.checked;score()});
+ $$('#score [data-x]').forEach(c=>c.oninput=()=>{scP(+c.dataset.p).x[c.dataset.x]=Math.max(0,+c.value||0);upd()});
+ $$('#score [data-f]').forEach(c=>c.oninput=()=>{const p=scP(+c.dataset.p),f=c.dataset.f;p[f]=f==='name'?c.value:Math.max(0,+c.value||0);upd()});
+ $$('#score details.grp').forEach(d=>d.ontoggle=()=>{GRPOPEN[d.dataset.gk]=d.open});
+ upd();window.scrollTo(0,y)}
+
+/* ---------- tabs, theme, start ---------- */
+function tab(t){$$('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));$$('.tab').forEach(x=>x.classList.toggle('on',x.id==='tab-'+t));LS.set('pr1897-tab',t);window.scrollTo(0,0)}
+$$('.tabs button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
+const TH=['auto','dark','light'];let th=LS.get('pr1897-theme','auto');
+const applyTh=()=>{if(th==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',th);$('#theme').title='Theme: '+{auto:'automatic',dark:'dark',light:'light'}[th]};
+$('#theme').onclick=()=>{th=TH[(TH.indexOf(th)+1)%3];LS.set('pr1897-theme',th);applyTh()};applyTh();
+aide();score();
+const h=location.hash.slice(1);show(CH.some(c=>c.id===h)?h:ST.cur,false);
+if(!CH.some(c=>c.id===h))tab(LS.get('pr1897-tab','learn'));
+})();
+</script>
+<footer class="page small muted" style="padding-top:0">Free, unofficial fan-made game aid, not affiliated with Ravensburger or alea. Puerto Rico 1897 © Andreas Seyfarth / Ravensburger. Rules summarised from the English rulebook.</footer>
+</body>
+</html>

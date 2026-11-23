@@ -46,7 +46,7 @@ const B=[
  {id:'fst',fr:'Caserne de Pompiers',en:'Fire Station',cost:10,vp:4,slots:1,row:4,kind:'large',set:'base',ph:'Fin de partie',fx:'+1 PV par petit bâtiment industriel, +2 PV par grand, occupés ou non.'},
  {id:'res',fr:'Résidence',en:'Residence',cost:10,vp:4,slots:1,row:4,kind:'large',set:'base',ph:'Fin de partie',fx:'PV selon les cases Parcelle remplies : 1 à 9 → 4 PV, 10 → 5, 11 → 6, 12 → 7.'},
 
- {id:'can',fr:'Canal',en:'Canal',cost:1,vp:1,slots:1,row:1,kind:'small',set:'e1',ph:'Producteur',fx:'Si tu produis au moins 1 Fruit avec ton Grande Exploitation de Fruits : +1 Fruit. Idem pour le Sucre avec la Grande Raffinerie de Sucre.'},
+ {id:'can',fr:'Canal',en:'Canal',cost:1,vp:1,slots:1,row:1,kind:'small',set:'e1',ph:'Producteur',fx:'Si tu produis au moins 1 Fruit avec ta Grande Exploitation de Fruits : +1 Fruit. Idem pour le Sucre avec la Grande Raffinerie de Sucre.'},
  {id:'bmk',fr:'Marché Noir',en:'Black Market',cost:2,vp:1,slots:1,row:1,kind:'small',set:'e1',ph:'Bâtisseur',fx:'S\'il te manque de l\'argent : rends 1 ouvrier, 1 baril et/ou 1 PV, chacun vaut 1 Peso (3 au plus). Il ne doit plus te rester de Peso.'},
  {id:'lum',fr:'Scierie',en:'Lumberyard',cost:2,vp:1,slots:1,row:1,kind:'small',set:'e1',ph:'Paysan · Bâtisseur',fx:'Pose une plantation face cachée : c\'est une Forêt. En phase du Bâtisseur, −1 Peso par paire de Forêts.'},
  {id:'sto',fr:'Hangar',en:'Storehouse',cost:3,vp:1,slots:1,row:1,kind:'small',set:'e1',ph:'Capitaine',fx:'Fin de la phase du Capitaine : garde jusqu\'à 3 barils supplémentaires, de n\'importe quels types.'},

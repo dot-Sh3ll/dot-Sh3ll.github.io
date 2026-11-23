@@ -36,7 +36,7 @@ init(r){let S;
  const reset=()=>{const n=segVal(r,'ro-n');S={n,gov:0,round:1,coins:{},taken:{},picks:0,log:[]};rolesFor(n).forEach(k=>S.coins[k]=0);draw()};
  const order=()=>{const o=[];if(S.n===2){for(let i=0;i<6;i++)o.push((S.gov+i)%2)}else for(let i=0;i<S.n;i++)o.push((S.gov+i)%S.n);return o};
  const draw=()=>{const ord=order(),done=S.picks>=ord.length,who=done?null:ord[S.picks];
-  $('#ro-who',r).innerHTML=done?`Tour ${S.round} terminée.`:`Tour ${S.round} · Gouverneur : <b>${NAMES[S.gov]}</b> · À <b>${NAMES[who]}</b> de choisir un personnage.`;
+  $('#ro-who',r).innerHTML=done?`Tour ${S.round} terminé.`:`Tour ${S.round} · Gouverneur : <b>${NAMES[S.gov]}</b> · À <b>${NAMES[who]}</b> de choisir un personnage.`;
   $('#ro-cards',r).innerHTML=rolesFor(S.n).map(k=>{const d=ROLEDEF[k],t=S.taken[k]!==undefined;return `<button type="button" class="role${t?' taken':''}" data-k="${k}" ${t||done?'disabled':''}><b>${d.n}</b><small>${d.a}</small><small>Privilège : ${d.p}</small><span class="coins">${'<span class="coin">1</span>'.repeat(S.coins[k])}${t?`<small>pris par ${NAMES[S.taken[k]]}</small>`:''}</span></button>`}).join('');
   $$('#ro-cards .role',r).forEach(b=>b.onclick=()=>pick(b.dataset.k,who));
   $('#ro-log',r).innerHTML=S.log.map(l=>`<li class="${l.c||''}">${l.t}</li>`).join('');
@@ -99,7 +99,7 @@ ${GOODS.map(g=>`<tr><td>${G[g]}</td><td>${numIn('pd-p'+g,g==='c'?2:g==='s'?3:g==
 <div class="row"><label class="chk"><input type="checkbox" id="pd-fac"> Usine occupée</label><label class="chk"><input type="checkbox" id="pd-art" checked> Je suis le Producteur</label></div><div class="out" id="pd-out"></div></div>`,
 init(r){const go=()=>{let types=0,tot=0;const made=[];GOODS.forEach(g=>{const p=num(r,'pd-p'+g),b=g==='c'?p:num(r,'pd-b'+g),n=Math.min(p,b);$('#pd-o'+g,r).innerHTML=n?`<b>${n}</b>`:'0';if(n){types++;tot+=n;made.push(g)}});
  const fac=$('#pd-fac',r).checked,art=$('#pd-art',r).checked,fc=[0,0,1,2,3,5][types];
- let t=`Tu produis <b>${tot}</b> baril${tot>1?'x':''} de ${types} type${types>1?'s':''}.`;
+ let t=`Tu produis <b>${tot}</b> baril${tot>1?'s':''} de ${types} type${types>1?'s':''}.`;
  if(art)t+=made.length?` Privilège : à la fin de la phase, 1 baril de plus parmi ${made.map(g=>GN1[g]).join(', ')}.`:` Rien produit : pas de baril bonus.`;
  if(fac)t+=` Usine : <b>${fc}</b> Peso${fc>1?'s':''}.`;
  $('#pd-out',r).innerHTML=t};$$('input',r).forEach(i=>{i.oninput=go;i.onchange=go});go()}};
@@ -137,7 +137,7 @@ init(r){let H;
   const kept=GOODS.filter(g=>k[g]>0).sort((a,b)=>k[b]-k[a]);const rest=kept.slice(w).reduce((s,g)=>s+k[g],0);const o=$('#st-out',r);const b=best(w);
   const tot=kept.reduce((s,g)=>s+k[g],0),lost=GOODS.reduce((s,g)=>s+H[g]-(k[g]||0),0);
   if(rest>1){o.className='out bad';o.innerHTML=`Interdit. ${w?`Tes entrepôts couvrent ${w} type${w>1?'s':''} complet${w>1?'s':''}, et`:'Sans entrepôt,'} tu ne gardes qu'1 baril en plus. Exemple légal : ${b.full.map(g=>`tous les ${GN1[g]} (${H[g]})`).concat(b.one?[`1 ${GN1[b.one]}`]:[]).join(' + ')}.`}
-  else{o.className='out ok';o.innerHTML=`Légal : tu gardes ${tot} baril${tot>1?'x':''} et en rends ${lost} à la réserve.${tot<b.n?` Tu aurais pu en garder jusqu'à ${b.n}.`:''}`}};
+  else{o.className='out ok';o.innerHTML=`Légal : tu gardes ${tot} baril${tot>1?'s':''} et en rends ${lost} à la réserve.${tot<b.n?` Tu aurais pu en garder jusqu'à ${b.n}.`:''}`}};
  $('#st-new',r).onclick=reset;$$('#st-sw,#st-lw',r).forEach(i=>i.onchange=()=>{$('#st-out',r).textContent=''});reset()}};
 
 /* --- fiches des petits bâtiments --- */
@@ -149,7 +149,7 @@ init(r){$$('#cd-l button',r).forEach(b=>b.onclick=()=>{$$('#cd-l button',r).forE
 /* --- grands bâtiments --- */
 LABS.large={html:()=>`<div class="lab"><h3>Atelier : bonus d'un grand bâtiment</h3><p class="hint">Le grand bâtiment est supposé occupé. Il rapporte 4 PV + ce bonus.</p>
 <div class="row"><label class="f">Bâtiment<select id="lg-b">${['fst','res','frt','cus','cth'].map(i=>`<option value="${i}">${BI[i].fr}</option>`).join('')}</select></label><span id="lg-in" class="row"></span></div><div class="out" id="lg-o"></div></div>`,
-init(r){const IN={fst:`<label class="f">Petits bâtiments industriels${numIn('lg-a',1,0,4)}</label><label class="f">Grands bâtiments industriels${numIn('lg-c',3,0,4)}</label>`,res:`<label class="f">Cases Parcelle remplies${numIn('lg-a',10,0,12)}</label>`,frt:`<label class="f">Ouvriers sur ton domaine${numIn('lg-a',22,0,99)}</label>`,cus:`<label class="f">PV en jetons${numIn('lg-a',30,0,200)}</label>`,cth:`<label class="f">Bâtiments commerciaux (Palais du Gouverneur compris)${numIn('lg-a',7,1,12)}</label>`};
+init(r){const IN={fst:`<label class="f">Petits bâtiments industriels${numIn('lg-a',1,0,4)}</label><label class="f">Grands bâtiments industriels${numIn('lg-c',3,0,4)}</label>`,res:`<label class="f">Cases Parcelle remplies${numIn('lg-a',10,0,12)}</label>`,frt:`<label class="f">Ouvriers sur ton domaine${numIn('lg-a',22,0,99)}</label>`,cus:`<label class="f">PV en jetons${numIn('lg-a',30,0,200)}</label>`,cth:`<label class="f">Bâtiments beiges (Palais du Gouverneur compris)${numIn('lg-a',7,1,12)}</label>`};
  const calc=()=>{const k=$('#lg-b',r).value,a=num(r,'lg-a');let v;
   if(k==='fst')v=a+2*num(r,'lg-c');else if(k==='res')v=a===0?0:a<=9?4:a-6;else if(k==='frt')v=Math.floor(a/3);else if(k==='cus')v=Math.floor(a/4);else v=a;
   $('#lg-o',r).innerHTML=`Bonus : <b>${v} PV</b>, soit <span class="big">${v+4} PV</span> au total pour ce bâtiment.`};

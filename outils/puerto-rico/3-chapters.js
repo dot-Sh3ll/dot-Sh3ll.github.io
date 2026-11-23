@@ -16,10 +16,10 @@ rules:[
 html:`<h2>Les cinq marchandises</h2>
 <div class="tw"><table><tr><th>Marchandise</th><th>Pour la produire</th><th class="c">Prix de vente</th></tr>
 <tr><td>${G.c}</td><td>Une plantation de Maïs occupée suffit, sans bâtiment.</td><td class="c">0</td></tr>
-<tr><td>${G.f}</td><td>Plantation de Fruits occupée + place occupée dans un Exploitation de Fruits.</td><td class="c">1</td></tr>
+<tr><td>${G.f}</td><td>Plantation de Fruits occupée + place occupée dans une Exploitation de Fruits.</td><td class="c">1</td></tr>
 <tr><td>${G.s}</td><td>Plantation de Sucre occupée + place occupée dans une Raffinerie de Sucre.</td><td class="c">2</td></tr>
 <tr><td>${G.t}</td><td>Plantation de Tabac occupée + place occupée dans le Séchoir à Tabac.</td><td class="c">3</td></tr>
-<tr><td>${G.k}</td><td>Plantation de Café occupée + place occupée dans le Brûlerie de Café.</td><td class="c">4</td></tr></table></div>
+<tr><td>${G.k}</td><td>Plantation de Café occupée + place occupée dans la Brûlerie de Café.</td><td class="c">4</td></tr></table></div>
 `,
 cas:[
 {q:`Ton Séchoir à Tabac est construit mais personne n'y travaille. Ta plantation de Tabac, elle, a son ouvrier. Que produis-tu en Tabac ?`,o:[`1 baril : la plantation est occupée`,`Rien : le Séchoir n'est pas occupé, il ne fonctionne pas`,`1 baril, mais seulement si tu es le Producteur`],a:1,w:`Une tuile ne fonctionne que si elle est occupée. Pour le Tabac, il faut à la fois la plantation occupée et un ouvrier dans le Séchoir.`},
@@ -54,7 +54,7 @@ quiz:[
 ]},
 
 {id:'tour',part:'Découvrir',t:'Un tour : personnages et Gouverneur',
-lead:`Le cœur du jeu tient en une règle : choisir un personnage, c'est déclencher une phase pour tout le monde. L'atelier te fait jouer un tour entière.`,
+lead:`Le cœur du jeu tient en une règle : choisir un personnage, c'est déclencher une phase pour tout le monde. L'atelier te fait jouer un tour entier.`,
 rules:[
 `Le <b>Gouverneur</b> choisit une carte Personnage, la pose devant lui, fait l'action <b>avec le privilège</b>. Puis chaque autre joueur, dans le sens horaire, fait la même action <b>sans le privilège</b>.`,
 `Ensuite le joueur à gauche du Gouverneur choisit un des personnages restants, et ainsi de suite. Chaque joueur choisit <b>un personnage par tour</b> (trois à deux joueurs).`,
@@ -91,7 +91,7 @@ html:`<div class="note"><b>Bâtiments liés.</b> ${bn('hac')} (une plantation fa
 lab:'plant',
 cas:[
 {q:`Tu n'es pas le Paysan, tu n'as pas de Dépôt de Matériaux. Il reste une Carrière et deux plantations de Maïs visibles. Que peux-tu prendre ?`,o:[`La Carrière`,`Une plantation de Maïs`,`Rien, les Carrières sont réservées`],a:1,w:`Sans Dépôt de Matériaux occupé, les autres joueurs ne prennent que des plantations face visible.`},
-{q:`Ta Parcelles compte 12 tuiles. Un adversaire prend le Paysan.`,o:[`Tu prends quand même une plantation et tu en défausses une`,`Tu passes : des Parcelles toutes occupées interdisent l'action`,`Tu poses la plantation sur une case Ville`],a:1,w:`On ne retire jamais une tuile, et les Parcelles n'a que 12 cases.`},
+{q:`Tes 12 cases Parcelle sont occupées. Un adversaire prend le Paysan.`,o:[`Tu prends quand même une plantation et tu en défausses une`,`Tu passes : des Parcelles toutes occupées interdisent l'action`,`Tu poses la plantation sur une case Ville`],a:1,w:`On ne retire jamais une tuile, et il n'y a que 12 cases Parcelle.`},
 {q:`Tu es le Paysan et tu prends une plantation de Café. Produira-t-elle à la prochaine phase du Producteur ?`,o:[`Oui, automatiquement`,`Seulement si un ouvrier y est posé d'ici là, en phase du Recruteur`],a:1,w:`Les ouvriers ne se posent qu'en phase du Recruteur (sauf Hôpital, École).`}
 ],
 quiz:[
@@ -114,7 +114,7 @@ html:`<div class="ex"><b>Exemple du livret (4 joueurs).</b> 6 ouvriers sur le Re
 lab:'recruit',
 cas:[
 {q:`Tu as 2 ouvriers à poser. Il te reste un emplacement libre sur ta plantation de Maïs et aucun autre. Où va le second ?`,o:[`Sur le Portrait`,`Tu dois libérer un emplacement en déplaçant un ouvrier`,`Il retourne à la réserve`],a:0,w:`Le Portrait sert quand toutes les places sont prises. Tu pourrais aussi déplacer d'autres ouvriers, mais ça ne crée pas de place en plus.`},
-{q:`En pleine phase du Producteur, tu voudrais déplacer un ouvrier de ta plantation de Maïs vers ton Brûlerie de Café.`,o:[`Permis à tout moment`,`Interdit : les ouvriers ne bougent qu'en phase du Recruteur`],a:1,w:`Exception : le Bohio de l'extension I.`},
+{q:`En pleine phase du Producteur, tu voudrais déplacer un ouvrier de ta plantation de Maïs vers ta Brûlerie de Café.`,o:[`Permis à tout moment`,`Interdit : les ouvriers ne bougent qu'en phase du Recruteur`],a:1,w:`Exception : le Bohio de l'extension I.`},
 {q:`Fin de la phase, 4 joueurs. Il n'y a que 2 emplacements vides sur tous les bâtiments réunis. Combien d'ouvriers vont sur le Registre ?`,o:[`2`,`4`,`0`],a:1,w:`Au minimum autant que de joueurs.`}
 ],
 quiz:[
@@ -143,7 +143,7 @@ cas:[
 ],
 quiz:[
 {q:`4 Carrières occupées, tu achètes le Grand Entrepôt (coût 6, 2e rangée), sans être Bâtisseur.`,o:[`2`,`4`,`5`],a:1,w:`Plafond de 2 Carrières en 2e rangée : 6 − 2 = 4.`},
-{q:`Que coûte l'Palais du Gouverneur avec 4 Carrières occupées et le privilège du Bâtisseur ?`,o:[`5`,`6`,`7`],a:0,w:`10 − 4 − 1 = 5.`}
+{q:`Que coûte le Palais du Gouverneur avec 4 Carrières occupées et le privilège du Bâtisseur ?`,o:[`5`,`6`,`7`],a:0,w:`10 − 4 − 1 = 5.`}
 ]},
 
 {id:'producteur',part:'Les personnages',t:'Le Producteur',
@@ -160,7 +160,7 @@ rules:[
 html:`<div class="ex"><b>Exemple du livret.</b> 3 plantations de Maïs dont 2 occupées : 2 Maïs. Séchoir avec 1 ouvrier sur 2 placés pour 2 plantations de Tabac occupées : 1 Tabac. 4 plantations de Sucre dont 3 occupées, Grande Raffinerie de Sucre pleine : 3 Sucre.</div>`,
 lab:'prod',
 cas:[
-{q:`Tu as 3 plantations de Fruits occupées et un Petite Exploitation de Fruits occupé. Combien de Fruits ?`,o:[`3`,`1`,`0`],a:1,w:`Le Petite Exploitation de Fruits n'a qu'un emplacement : 1 baril au plus.`},
+{q:`Tu as 3 plantations de Fruits occupées et une Petite Exploitation de Fruits occupée. Combien de Fruits ?`,o:[`3`,`1`,`0`],a:1,w:`La Petite Exploitation de Fruits n'a qu'un emplacement : 1 baril au plus.`},
 {q:`Tu produirais 1 Maïs, tes adversaires 3 Café et 4 Sucre. Le Capitaine et le Marchand sont encore libres. Prends-tu le Producteur ?`,o:[`Oui, la production c'est toujours bon`,`Plutôt non : tu donnerais beaucoup plus aux autres qu'à toi`],a:1,w:`Le livret le rappelle : le Producteur est le personnage le plus risqué.`},
 {q:`Tu es le Producteur et tu as produit 2 Maïs et 1 Tabac. Quel baril bonus prends-tu ?`,o:[`Un Café, le plus cher`,`Un Maïs ou un Tabac, au choix`,`Aucun : il faut avoir produit 3 types`],a:1,w:`Le baril bonus est d'une marchandise produite pendant la phase.`}
 ],
@@ -267,13 +267,13 @@ rules:[
 html:`<h2>Les six bâtiments industriels</h2><div class="tw"><table><tr><th>Bâtiment</th><th>Marchandise</th><th class="c">Coût</th><th class="c">PV</th><th class="c">Emplacements</th></tr>
 ${['sfw','lfw','ssm','lsm','tob','cof'].map(i=>{const b=BI[i];return `<tr><td><b>${b.fr}</b> <span class="en">${b.en}</span></td><td>${G[b.good]}</td><td class="c">${b.cost}</td><td class="c">${b.vp}</td><td class="c">${b.slots}</td></tr>`}).join('')}
 </table></div>
-<div class="note"><b>Petit + grand du même type ?</b> C'est permis : ce sont deux bâtiments différents. Un petit et un Grande Exploitation de Fruits à fruits occupés au complet traitent jusqu'à 4 Fruits.</div>`,
+<div class="note"><b>Petit + grand du même type ?</b> C'est permis : ce sont deux bâtiments différents. Une Petite et une Grande Exploitation de Fruits occupées au complet traitent jusqu'à 4 Fruits.</div>`,
 cas:[
 {q:`Fin de partie : ton Port (3 PV) n'a plus d'ouvrier. Compte-t-il ?`,o:[`Oui, 3 PV`,`Non, il faut qu'il soit occupé`],a:0,w:`Les PV imprimés comptent toujours. Seuls les bonus des grands bâtiments exigent l'occupation.`},
-{q:`Tu as 2 plantations de Café occupées et un Brûlerie de Café avec 1 ouvrier sur 2. Que produis-tu ?`,o:[`2 Café`,`1 Café`],a:1,w:`Un ouvrier dans le Brûlerie de Café = 1 baril traité.`}
+{q:`Tu as 2 plantations de Café occupées et une Brûlerie de Café avec 1 ouvrier sur 2. Que produis-tu ?`,o:[`2 Café`,`1 Café`],a:1,w:`Un ouvrier dans la Brûlerie de Café = 1 baril traité.`}
 ],
 quiz:[
-{q:`Combien d'emplacements a le Brûlerie de Café ?`,o:[`1`,`2`,`3`],a:1,w:`2 emplacements, alors que le Séchoir à Tabac en a 3.`},
+{q:`Combien d'emplacements a la Brûlerie de Café ?`,o:[`1`,`2`,`3`],a:1,w:`2 emplacements, alors que le Séchoir à Tabac en a 3.`},
 {q:`Un bâtiment beige occupé t'oblige-t-il à utiliser sa fonction ?`,o:[`Oui`,`Non`],a:1,w:`C'est toujours facultatif, ce qui compte surtout pour le Chantier Naval.`}
 ]},
 
@@ -297,7 +297,7 @@ lab:'cards',
 cas:[
 {q:`Tu as Hacienda et Dépôt de Matériaux occupés. En phase du Paysan, que peux-tu faire ?`,o:[`Prendre 2 Carrières`,`Plantation face cachée (Hacienda), puis une Carrière comme action normale`,`Une Carrière à la place de la plantation face cachée`],a:1,w:`L'Hacienda donne toujours une plantation face cachée. Le Dépôt de Matériaux ne s'applique qu'à l'action normale.`},
 {q:`Usine occupée. Tu produis 3 Maïs, 1 Café, 2 Fruits. Combien de Pesos ?`,o:[`2`,`3`,`6`],a:0,w:`3 types différents : 2 Pesos (exemple du livret).`},
-{q:`École occupée, tu construis le Grande Exploitation de Fruits (3 emplacements).`,o:[`1 ouvrier offert dessus`,`3 ouvriers offerts`,`1 ouvrier, à poser où tu veux`],a:0,w:`Un seul ouvrier, et seulement sur le bâtiment construit.`},
+{q:`École occupée, tu construis la Grande Exploitation de Fruits (3 emplacements).`,o:[`1 ouvrier offert dessus`,`3 ouvriers offerts`,`1 ouvrier, à poser où tu veux`],a:0,w:`Un seul ouvrier, et seulement sur le bâtiment construit.`},
 {q:`Tu as Petit et Grand Marché occupés, tu vends 1 Maïs sans être Marchand.`,o:[`0`,`3`,`4`],a:1,w:`0 + 3.`}
 ],
 quiz:[
@@ -320,7 +320,7 @@ html:`<div class="ex"><b>Exemples du livret.</b> Caserne + Petite et Grande Raff
 lab:'large',
 cas:[
 {q:`Fin de partie, ta Forteresse n'a pas d'ouvrier. Elle vaut…`,o:[`0 PV`,`4 PV`,`4 PV + 1 par 3 ouvriers`],a:1,w:`4 PV imprimés toujours ; le bonus exige qu'elle soit occupée.`},
-{q:`Palais du Gouverneur occupé ; tu as aussi Petit Marché, Port, Grande Raffinerie de Sucre et Douane. Bonus ?`,o:[`3`,`4`,`5`],a:1,w:`Petit Marché, Port, Douane et l'Palais du Gouverneur lui-même : 4. La Grande Raffinerie de Sucre est un bâtiment industriel.`}
+{q:`Palais du Gouverneur occupé ; tu as aussi Petit Marché, Port, Grande Raffinerie de Sucre et Douane. Bonus ?`,o:[`3`,`4`,`5`],a:1,w:`Petit Marché, Port, Douane et le Palais du Gouverneur lui-même : 4. La Grande Raffinerie de Sucre est un bâtiment industriel.`}
 ],
 quiz:[
 {q:`Douane occupée, 23 PV en jetons. Bonus ?`,o:[`5`,`6`,`23`],a:0,w:`23 ÷ 4 = 5, arrondi à l'inférieur.`},
@@ -373,7 +373,7 @@ lead:`14 nouveaux bâtiments (texte vert du livret) et une mise en place par dra
 rules:[
 `Mise en place : tous les bâtiments industriels comme d'habitude. Les 55 bâtiments beiges (anciens et nouveaux) sont posés à côté du plateau.`,
 `En partant du premier joueur, chacun choisit à tour de rôle un bâtiment beige et le pose sur une case libre du plateau, jusqu'à ce que les cases soient remplies avec ces coûts : 1re rangée 1, 2, 2, 3 ; 2e rangée 4, 5, 5, 6 ; 3e rangée 7, 8, 8, 9 ; rangée du bas 10, 10, 10, 10, 10. À plus de 2 joueurs, on pose 2 exemplaires de chaque petit bâtiment choisi.`,
-`${bn('can')} : +1 Fruit si tu en produis avec le Grande Exploitation de Fruits, +1 Sucre si tu en produis avec la Grande Raffinerie de Sucre (pas avec les petits).`,
+`${bn('can')} : +1 Fruit si tu en produis avec la Grande Exploitation de Fruits, +1 Sucre si tu en produis avec la Grande Raffinerie de Sucre (pas avec les petits).`,
 `${bn('lum')} : en phase du Paysan, pose une plantation visible <b>face cachée</b> : c'est une Forêt, définitive, sans ouvrier nécessaire. En phase du Bâtisseur, <b>−1 Peso par paire de Forêts</b>, sans limite, cumulable avec le privilège et les Carrières, que la Scierie soit occupée ou non. Avec Hacienda : regarde la tuile avant de choisir ; avec Hôpital : l'ouvrier va sur le Portrait.`,
 `${bn('bmk')} : seulement s'il te manque de l'argent ; rends 1 ouvrier, 1 baril et/ou 1 PV (1 Peso chacun, 3 au plus). Il ne doit te rester aucun Peso. L'ouvrier du Marché Noir lui-même ne compte pas.`,
 `${bn('sto')} : garde jusqu'à 3 barils supplémentaires de n'importe quels types.`,
@@ -410,7 +410,7 @@ rules:[
 `Ces 4 bâtiments marchent pareil avec un ouvrier ou un bourgeois : ${bn('pen')} (au début du Capitaine, 1 baril rendu par bourgeois, types différents, contre 1 PV chacun), ${bn('vil')} (au début du Recruteur, 1 bourgeois de la réserve, sinon 1 ouvrier ; jamais du Registre), ${bn('tai')} (Producteur : 1 Peso par bourgeois ; compte comme grand bâtiment industriel pour la Caserne), ${bn('tsq')} (grand : +1 PV par bourgeois, où qu'il soit).`
 ],
 cas:[
-{q:`Cabinet d\'Architecte occupé par un ouvrier, tu achètes l'Palais du Gouverneur.`,o:[`−1 Peso`,`−2 Pesos`,`Aucune réduction`],a:2,w:`Ouvrier : petits bâtiments seulement. Il faudrait un bourgeois pour les grands.`},
+{q:`Cabinet d\'Architecte occupé par un ouvrier, tu achètes le Palais du Gouverneur.`,o:[`−1 Peso`,`−2 Pesos`,`Aucune réduction`],a:2,w:`Ouvrier : petits bâtiments seulement. Il faudrait un bourgeois pour les grands.`},
 {q:`Office des Exportations, 2 bourgeois sur ton domaine, tu as 3 Sucre et 1 Café.`,o:[`2 PV (1 Sucre + 1 Café)`,`2 PV (2 Sucre)`,`4 PV`],a:0,w:`1 baril par bourgeois, tous de types différents.`}
 ],
 quiz:[

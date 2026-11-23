@@ -42,6 +42,10 @@ cd /home/claude/ae && npm install     # installe typescript (pour extract.js)
 
 ## `puerto-rico/` : appli Puerto Rico 1897
 
-La page est découpée en morceaux (`1-head.html` : styles et structure, `2-data.js` : bâtiments, `3-chapters.js` : contenu du tutoriel, `4-labs.js` et `5-ship.js` : ateliers, `6-app.js` : rendu, aide-mémoire, décompte). Modifier les morceaux puis lancer `sh outils/puerto-rico/build.sh` depuis la racine. Pas encore de version anglaise : `chrome.py` grise alors le bouton EN.
+La page est découpée en morceaux (`1-head.html` : styles et structure, `2-data.js` : bâtiments, `3-chapters.js` : contenu du tutoriel, `4-labs.js` et `5-ship.js` : ateliers, `6-app.js` : rendu, aide-mémoire, décompte). Modifier les morceaux puis lancer `sh outils/puerto-rico/build.sh` depuis la racine. Version anglaise : `en/2-data.js` et `en/3-chapters.js` sont rédigés en anglais (d'après le livret anglais, qui diffère du français sur le chargement des navires et l'Hôpital avec l'Hacienda) ; les autres morceaux sont traduits par les paires de `en/pairs_*.py` (`en/build_en.py` signale toute paire devenue introuvable après une modification de la page française). Fiches anglaises : `fiches/gen_en.py`.
 
 Fiches A5 : `outils/puerto-rico/fiches/gen.py` (lit `b.json`, la liste des bâtiments extraite de `2-data.js`) produit `puerto-rico-aide-de-jeu.pdf` et `puerto-rico-batiments.pdf`, à copier dans `fiches/`.
+
+## `mage-knight-fiches/` : aide de jeu Mage Knight en anglais
+
+Les fiches françaises n'existent qu'en PDF (pages en image). `gen_mk_en.py` reconstruit la version anglaise en HTML puis en PDF ; les illustrations des sites et des capacités ennemies (`ico/`) ont été découpées dans les fiches françaises. Police des titres : `npm install @fontsource/marcellus` dans le dossier du script.
