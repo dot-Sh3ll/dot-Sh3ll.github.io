@@ -412,6 +412,7 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 <div class="sb-lang" role="group" aria-label="Langue / Language"><a href="./?lang=fr" hreflang="fr" lang="fr" aria-label="Passer en français" onclick="try{localStorage.setItem('site-lang','fr')}catch(e){}">FR</a><span aria-current="true">EN</span></div>
 </div><!--/sitebar-->
 
+
 <header class="topbar">
   <p class="brand">Mage Knight<small>Interactive tutorial and game companion</small></p>
   <nav class="modes" aria-label="Sections"><a href="#apprendre" data-mode="apprendre">Learn</a><a href="#jouer" data-mode="jouer">Play</a></nav>
@@ -561,7 +562,7 @@ const C={
  traitlourd:{n:'Crushing Bolt',c:'g',adv:1,bt:'Gain a green crystal',st:'Siege Attack 3',base:[{k:'cry',col:'g'}],strong:[{k:'siege',n:3}]},
  marcherev:{n:'Refreshing Walk',c:'g',adv:1,bt:'Move 2 and Healing 1',st:'Move 4 and Healing 2',base:[{k:'move',n:2,plus:{k:'heal',n:1}}],strong:[{k:'move',n:4,plus:{k:'heal',n:2}}]}
 };
-const STARTER=['marche','marche','endurance','endurance','rapidite','rapidite','rage','rage','determination','promesse','menace','tranquillite','crystallize','attirance','concentration','improvisation'];
+const STARTER=['marche','marche','endurance','endurance','rapidite','rapidite','rage','rage','determination','promesse','menace','tranquillite','cristallisation','attirance','concentration','improvisation'];
 const ADV=['traitfeu','traitglace','traitvif','traitlourd','marcherev'];
 const mk=id=>({uid:UID++,id,def:C[id]});
 const wound=()=>({uid:UID++,w:true,def:{n:'Wound'}});
@@ -612,7 +613,7 @@ const LESSONS=[
   <p>A die <b>gold</b> replaces any colour, but only by day. The die used is rerolled at the end of your turn.</p>
   <p>The <b>crystals</b> are mana you keep from one turn to the next. The Crystallize card makes them.</p>`,
   goal:'Reach the gold-circled forest using at least one stronger effect.',hint:'The path costs 2 (portal plains) then 3 (forest). March\'s stronger effect with the green die gives 4, a sideways card does the rest.',
-  setup(s){s.hero='-1,1';s.hand=['marche','rage','promesse','determination','crystallize'];s.source=['g','r','gold'].map(c=>({c,used:false}));s.target='1,-1'},ok:s=>s.hero==='1,-1'&&s.usedStrong},
+  setup(s){s.hero='-1,1';s.hand=['marche','rage','promesse','determination','cristallisation'];s.source=['g','r','gold'].map(c=>({c,used:false}));s.target='1,-1'},ok:s=>s.hero==='1,-1'&&s.usedStrong},
  {t:'Explore',h:'Revealing new lands',
   txt:`<p>The board is uncovered little by little. From a space on the edge of an unknown area, spend <b>2 Move points</b> to reveal the neighbouring tile. In the introductory scenario, each revealed tile earns 1 Fame.</p>
   <p>You can keep moving after exploring, as long as you have points left. Unspent points are lost at the end of the turn.</p>
@@ -652,7 +653,7 @@ const LESSONS=[
  {t:'Night',h:'Crossing the forest at Night',
   txt:`<p>Night has fallen. Forest now costs <b>5</b> instead of 3, and the <b>gold</b> die from the Source can't be used.</p><p>Desert, on the other hand, would only cost 3.</p>`,
   goal:'Enter the gold-circled forest despite the Night.',hint:'March\'s stronger effect with the green die gives 4 points. A sideways card brings the fifth.',
-  setup(s){s.day=false;s.hand=['marche','endurance','rage','promesse','rapidite'].slice(0,1).concat(['rage','promesse','determination','crystallize']);s.source=['r','gold','g'].map(c=>({c,used:false}));s.target='1,-1'},ok:s=>s.hero==='1,-1'},
+  setup(s){s.day=false;s.hand=['marche','endurance','rage','promesse','rapidite'].slice(0,1).concat(['rage','promesse','determination','cristallisation']);s.source=['r','gold','g'].map(c=>({c,used:false}));s.target='1,-1'},ok:s=>s.hero==='1,-1'},
  {t:'Provocation',h:'Don\'t wake the Orcs',
   txt:`<p>Orc Marauders are camped on the hill. Moving <b>directly from a space adjacent to them to another space adjacent to them</b> provokes them: they attack and your Movement stops.</p><p>So the shortest path isn't always the right one.</p>`,
   goal:'Reach the gold-circled village without triggering a combat.',hint:'The direct path runs along the Orcs. Detour through the forest to the west (3 points), then enter the village (2 points): this forest doesn\'t touch their space.',
