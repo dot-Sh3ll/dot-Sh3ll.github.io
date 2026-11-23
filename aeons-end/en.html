@@ -1376,7 +1376,7 @@ function renderJournal(){
   const cards=byId();
   if(jstate!=="ok"){
     $("winsum").textContent = jstate==="loading" ? "Loading the log…" : jstate==="slow" ? "The log isn't responding yet. It will appear as soon as the connection is back." : "The log isn't available in this browser.";
-    if(!games.length){ $("stats").innerHTML=""; $("wins").innerHTML=""; $("hunt").innerHTML=""; $("nwins").textContent=""; return; }
+    if(!games.length){ $("stats").innerHTML=""; $("wins").innerHTML=""; renderHunt(new Set(),new Set()); $("nwins").textContent=""; return; }
   }
   const item=x=>{ const c=typeof x==="string"?cards[x]:null; return c?[c.fr,c.cost,c.fx.replace(/[|~]/g," ")]:[String(x&&x.n||x),+(x&&x.c)||0,""] };
   const col=(cls,label,list)=>'<div class="col '+cls+'"><h4>'+label+'</h4><ul>'+(list||[]).map(item).sort((a,b)=>a[1]-b[1]).map(([n,c,fx])=>
@@ -1401,7 +1401,7 @@ function renderJournal(){
   // statistiques
   const beaten=new Set(wins.map(g=>g.nem)), lostTo=new Set(losses.map(g=>g.nem));
   $("nwins").textContent=list.length||"";
-  if(jstate==="ok") $("winsum").textContent=list.length?wins.length+" win"+(wins.length>1?"s":"")+" and "+losses.length+(losses.length>1?" losses":" loss")+" logged. "+beaten.size+" of "+NEM.filter(n=>owned.has(n[1])).length+" nemeses already defeated.":"The log is empty for now.";
+  if(jstate==="ok") $("winsum").textContent=list.length?wins.length+" win"+(wins.length>1?"s":"")+" and "+losses.length+(losses.length>1?" losses":" loss")+" logged. "+beaten.size+" of "+NEM.filter(n=>shown(n[1])).length+" nemeses already defeated.":"The log is empty for now.";
   const count=(arr)=>{ const m=new Map(); arr.forEach(k=>m.set(k,(m.get(k)||0)+1)); return [...m.entries()].sort((a,b)=>b[1]-a[1]||String(a[0]).localeCompare(String(b[0]))) };
   const topCards=count(wins.flatMap(ids)).slice(0,8);
   const duos=count(wins.filter(g=>(g.mages||[]).length).map(g=>g.mages.slice().sort().join(" and "))).slice(0,5);
@@ -1416,7 +1416,10 @@ function renderJournal(){
     +'<div class="stat"><h4>Winning duos</h4><ul>'+(duos.map(x=>li(x[0],x[1]+" ×")).join("")||'<li><span>No data yet</span></li>')+'</ul></div>'
     +'<div class="stat"><h4>Never played</h4><div class="big">'+never.length+'</div><div class="sub">cards out of '+CARDS.filter(c=>owned.has(c.box)).length+' in the ticked boxes</div>'
     +'<details><summary>See the list</summary><p>'+never.map(c=>esc(c.fr)).join(", ")+'</p></details></div>';
-  const groups={}; NEM.forEach(n=>{ if((owned.has(n[1])&&shown(n[1]))||beaten.has(n[0])||lostTo.has(n[0])) (groups[n[1]]=groups[n[1]]||[]).push(n[0]) });
+  renderHunt(beaten,lostTo);
+}
+function renderHunt(beaten,lostTo){
+  const groups={}; NEM.forEach(n=>{ if(shown(n[1])||beaten.has(n[0])||lostTo.has(n[0])) (groups[n[1]]=groups[n[1]]||[]).push(n[0]) });
   $("hunt").innerHTML='<h3>Trophy board</h3>'+Object.entries(groups).map(([box,ns])=>'<div class="grp"><b>'+esc(BOXNAME[box])+'</b>'
     +ns.map(n=>'<span class="chip'+(beaten.has(n)?' done':lostTo.has(n)?' lost':'')+'"'+(lostTo.has(n)&&!beaten.has(n)?' title="Faced, not yet defeated"':'')+'>'+esc(n)+'</span>').join("")+'</div>').join("");
 }
