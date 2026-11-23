@@ -23,6 +23,7 @@ cd /home/claude/ae && npm install     # installe typescript (pour extract.js)
 | `pwa.py <préfixe> <page>` | Ajoute le bloc PWA (manifeste, icônes, service worker) et GoatCounter. Préfixe `../` pour une appli. |
 | `lang.py fr\|en <page>` | Redirection de langue ; sur une page EN, sauvegardes séparées (préfixe `en:`). |
 | `i18n.py extract\|apply` | Extraction des textes d'une page et application d'une table de traduction. |
+| `pdf_footer.py <source.pdf> <sortie.pdf> [x0,haut,x1,bas …]` | Ajoute « paulmoussard.com » en bas de chaque page d'un PDF existant (zones optionnelles masquées en blanc sur la 1re page). |
 | `test_clics.py` | Test de clics au hasard (Playwright), serveur local `python3 -m http.server 8766` lancé depuis la racine du dépôt. |
 
 ## `traduction/` : versions anglaises

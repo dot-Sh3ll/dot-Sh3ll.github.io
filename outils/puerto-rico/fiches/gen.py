@@ -13,29 +13,29 @@ CSS = """
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{font-family:"Fira Sans",sans-serif;color:#2b2016;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.pg{position:relative;overflow:hidden;background:#f4ecda;page-break-after:always;padding:7mm 7.5mm 6mm}
+.pg{position:relative;overflow:hidden;background:#fff;page-break-after:always;padding:7mm 7.5mm 6mm}
 .pg:last-child{page-break-after:auto}
-.pg::before{content:"";position:absolute;inset:3mm;border:.5mm solid #8a5a35;border-radius:2.5mm;pointer-events:none}
+.pg::before{content:"";position:absolute;inset:3mm;border:.3mm solid #b9a58a;border-radius:2.5mm;pointer-events:none}
 .p{width:148mm;height:210mm}.l{width:210mm;height:148mm}
 .top{display:flex;justify-content:space-between;align-items:flex-end;margin:0 0 2.5mm}
 .top .g{font-family:"Cardo",serif;font-size:9pt;letter-spacing:.12em;text-transform:uppercase;color:#a0471f;font-weight:700}
 .top .n{font-size:7pt;color:#8a7558}
-h1{font-family:"Cardo",serif;font-weight:700;font-size:15pt;margin:0 0 3mm;padding:1.3mm 3mm;background:#7a4a2a;color:#fbf3e2;letter-spacing:.04em;text-transform:uppercase}
+h1{font-family:"Cardo",serif;font-weight:700;font-size:15pt;margin:0 0 3mm;padding:0 0 1mm;color:#6b3d1f;border-bottom:.6mm solid #6b3d1f;letter-spacing:.04em;text-transform:uppercase}
 h2{font-family:"Cardo",serif;font-weight:700;font-size:10.5pt;color:#7a4a2a;margin:3mm 0 1.2mm;border-bottom:.3mm solid #c9ab82;padding-bottom:.5mm}
 p,li{font-size:8.6pt;line-height:1.32;margin:0 0 1.3mm}
 ol,ul{margin:0 0 1.5mm;padding-left:4.6mm}
 b{color:#5a2f15}
-.box{background:#fffaf0;border:.3mm solid #c9ab82;border-radius:1.6mm;padding:2mm 2.6mm;margin:2mm 0}
-.box.red{border-color:#b4532a;background:#fbeee5}
-table{width:100%;border-collapse:collapse;font-size:8pt;background:#fffaf0}
+.box{background:#fff;border:.3mm solid #c9ab82;border-radius:1.6mm;padding:2mm 2.6mm;margin:2mm 0}
+.box.red{border-color:#b4532a;border-width:.5mm;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:8pt;background:#fff}
 th,td{border:.25mm solid #c9ab82;padding:1mm 1.4mm;text-align:left;vertical-align:top}
-th{background:#e8d6b5;font-weight:600;color:#4a2a14}
+th{background:#fff;font-weight:700;color:#4a2a14}
 td.c,th.c{text-align:center}
 .bl{display:inline-block;width:3mm;height:3.6mm;border-radius:.7mm;border:.25mm solid rgba(0,0,0,.45);vertical-align:-.7mm;margin-right:1mm}
-.coin{display:inline-grid;place-items:center;width:4.6mm;height:4.6mm;border-radius:50%;background:#e6bf4a;border:.25mm solid #9b7419;font-size:7pt;font-weight:700;color:#3b2a08}
-.vp{display:inline-grid;place-items:center;min-width:4.8mm;height:4.4mm;padding:0 .6mm;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);background:#2b2b2b;color:#fff;font-size:7pt;font-weight:700}
+.coin{display:inline-grid;place-items:center;width:4.6mm;height:4.6mm;border-radius:50%;background:#fff;border:.35mm solid #9b7419;font-size:7pt;font-weight:700;color:#3b2a08}
+.vp{display:inline-grid;place-items:center;min-width:4.6mm;height:4.6mm;padding:0 .5mm;border:.35mm solid #222;border-radius:1mm;background:#fff;color:#222;font-size:7pt;font-weight:700}
 .roles{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
-.role{background:#fffaf0;border:.3mm solid #c9ab82;border-radius:1.6mm;padding:1.6mm 2.2mm}
+.role{background:#fff;border:.3mm solid #c9ab82;border-radius:1.6mm;padding:1.6mm 2.2mm}
 .role h3{font-family:"Cardo",serif;font-size:10.5pt;margin:0 0 .6mm;color:#7a4a2a;text-transform:uppercase;letter-spacing:.04em}
 .role p{font-size:7.8pt;margin:0 0 .7mm}
 .role .k{font-weight:600;color:#a0471f}
@@ -43,13 +43,13 @@ td.c,th.c{text-align:center}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
 /* bâtiments */
 .band{display:grid;grid-template-columns:15mm 1fr;gap:1.6mm;margin-bottom:2mm}
-.lab{background:#7a4a2a;color:#fbf3e2;border-radius:1.4mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:"Cardo",serif;font-size:8pt;font-weight:700;line-height:1.15;padding:1mm}
+.lab{background:#fff;color:#6b3d1f;border:.5mm solid #6b3d1f;border-radius:1.4mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:"Cardo",serif;font-size:8pt;font-weight:700;line-height:1.15;padding:1mm}
 .lab small{font-family:"Fira Sans";font-weight:400;font-size:6.3pt;opacity:.9;margin-top:.8mm}
 .lines{display:flex;flex-direction:column;gap:1.4mm}
 .line{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4mm}
 .line.six{grid-template-columns:repeat(6,1fr)}
-.bc{background:#fffaf0;border:.3mm solid #c9ab82;border-radius:1.4mm;padding:1mm 1.3mm 1.1mm;border-top:1.3mm solid var(--bc,#c9ab82);min-height:21mm;display:flex;flex-direction:column;gap:.5mm}
-.bc.e2{background:#fbeee5;border-color:#d79a7c}
+.bc{background:#fff;border:.3mm solid #c9ab82;border-radius:1.4mm;padding:1mm 1.3mm 1.1mm;border-top:1.3mm solid var(--bc,#c9ab82);min-height:21mm;display:flex;flex-direction:column;gap:.5mm}
+.bc.e2{background:#fff;border-color:#d79a7c}
 .bc .hd{display:flex;justify-content:space-between;gap:1mm;align-items:flex-start}
 .bc .nm{font-weight:700;font-size:7.4pt;line-height:1.12;color:#3a2412}
 .bc.e2 .nm{color:#b3261e}
@@ -128,7 +128,7 @@ roles = [
 ]
 rc = "".join(f'<div class="role"><h3>{n}</h3><p><span class="k">Action :</span> {a}</p><p><span class="k">Privilège :</span> {p}</p><p><span class="k">Fin de phase :</span> {f}</p>{f"<p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : {bt}</i></p>" if bt else ""}</div>' for n, a, p, f, bt in roles)
 P2 = f"""<section class="pg p">{top("Les Personnages","2 / 4")}<div class="roles">{rc}
-<div class="role" style="background:#7a4a2a;color:#fbf3e2;border-color:#7a4a2a"><h3 style="color:#fbf3e2">À retenir</h3><p>Un Personnage non choisi gagne 1 Peso par tour : il devient de plus en plus intéressant.</p><p>Prendre un Personnage, c'est aussi offrir sa phase aux autres : regarde ce qu'ils y gagnent.</p></div></div>
+<div class="role" style="border:.5mm solid #b4532a"><h3>À retenir</h3><p>Un Personnage non choisi gagne 1 Peso par tour : il devient de plus en plus intéressant.</p><p>Prendre un Personnage, c'est aussi offrir sa phase aux autres : regarde ce qu'ils y gagnent.</p></div></div>
 {foot("Aide de jeu non officielle")}</section>"""
 
 setup_rows = [
@@ -231,7 +231,7 @@ def band(name, q, lines):
         out += f'<div class="line{" six" if six else ""}">{cells}</div>'
     return out + "</div></div>"
 
-LEG = '<p class="legend"><span class="coin">2</span> coût en Pesos · <span class="vp">1</span> PV en fin de partie · ● demi-cercles · <b style="color:#b3261e">noms en rouge</b> : extension 2 (Les Bourgeois). Réduction des Carrières occupées : 1 / 2 / 3 / 4 selon la rangée.</p>'
+LEG = '<p class="legend"><span class="coin">2</span> coût en Pesos · <span class="vp">1</span> PV en fin de partie · ● nombre maximal d\'ouvriers · <b style="color:#b3261e">noms en rouge</b> : extension 2 (Les Bourgeois). Réduction des Carrières occupées : 1 / 2 / 3 / 4 selon la rangée.</p>'
 Q1 = f'<section class="pg l">{top("Les bâtiments · ordre du plateau","1 / 3")}{band(*BOARD[0])}{band(*BOARD[1])}{LEG}{foot("Seuls les bâtiments occupés ont un effet")}</section>'
 Q2 = f'<section class="pg l">{top("Les bâtiments · ordre du plateau","2 / 3")}{band(*BOARD[2])}{band(*BOARD[3])}<div class="box" style="margin-top:1mm"><p style="margin:0;font-size:7.6pt">Les 5 grands bâtiments valent <b>4 PV</b> même inoccupés ; leur bonus ne compte que s\'ils sont <b>occupés</b> en fin de partie. Ils occupent 2 cases de la ville mais comptent comme <b>un seul</b> bâtiment. Bâtiments industriels : 1 marchandise par demi-cercle occupé, s\'il y a autant de Plantations occupées.</p></div>{LEG}{foot("Seuls les bâtiments occupés ont un effet")}</section>'
 e1 = sorted([b for b in B.values() if b["set"] == "e1"], key=lambda b: (b["cost"], b["fr"]))
