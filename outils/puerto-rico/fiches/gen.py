@@ -94,7 +94,7 @@ P1 = f"""<section class="pg p">{top("Un tour de jeu","1 / 4")}
 <li>phase du Capitaine : le dernier jeton PV est pris (noter la suite par écrit).</li></ul>
 <p><b>Score</b> = jetons PV + PV de tous ses bâtiments (occupés ou non) + bonus des grands bâtiments <b>occupés</b>.<br><b>Égalité</b> : le plus de Pesos et de marchandises.</p></div>
 <div class="box"><p style="margin:0"><b>À deux joueurs</b> : chaque joueur choisit <b>3 Personnages</b> par tour, en alternance (Gouverneur, autre, Gouverneur…). Le Gouverneur pose 1 Peso sur le seul Personnage restant.</p></div>
-{foot("Aide de jeu non officielle")}</section>"""
+{foot("")}</section>"""
 
 roles = [
  ("Paysan", "Chacun prend <b>1 Plantation</b> face visible et la pose sur une case Parcelle libre (ou passe).",
@@ -129,7 +129,7 @@ roles = [
 rc = "".join(f'<div class="role"><h3>{n}</h3><p><span class="k">Action :</span> {a}</p><p><span class="k">Privilège :</span> {p}</p><p><span class="k">Fin de phase :</span> {f}</p>{f"<p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : {bt}</i></p>" if bt else ""}</div>' for n, a, p, f, bt in roles)
 P2 = f"""<section class="pg p">{top("Les Personnages","2 / 4")}<div class="roles">{rc}
 <div class="role" style="border:.5mm solid #b4532a"><h3>À retenir</h3><p>Un Personnage non choisi gagne 1 Peso par tour : il devient de plus en plus intéressant.</p><p>Prendre un Personnage, c'est aussi offrir sa phase aux autres : regarde ce qu'ils y gagnent.</p></div></div>
-{foot("Aide de jeu non officielle")}</section>"""
+{foot("")}</section>"""
 
 setup_rows = [
  ("Pesos par joueur", "3", "2", "3", "4"),
@@ -158,7 +158,7 @@ P3 = f"""<section class="pg p">{top("Mise en place","3 / 4")}
 <li>Sur le plateau : <b>1</b> bâtiment beige de chaque type (grands compris), <b>2</b> bâtiments industriels de chaque type.</li>
 <li>Retirer <b>3 tuiles Terrain de chaque type</b> (Maïs, Fruits, Sucre, Tabac, Café, Carrière).</li>
 <li>Retirer <b>2 marchandises de chaque type</b>.</li></ul></div>
-{foot("Aide de jeu non officielle")}</section>"""
+{foot("")}</section>"""
 
 gr = "".join(f'<tr><td>{bl(k)}<b>{GN[k]}</b></td><td class="c"><b>{PRICE[k]}</b> Peso{"s" if PRICE[k]>1 else ""}</td><td class="c"><b>1 PV</b> par baril</td><td>{["Aucun bâtiment","Exploitation de Fruits","Raffinerie de Sucre","Séchoir à Tabac","Brûlerie de Café"][i]}</td></tr>' for i, k in enumerate("cfstk"))
 P4 = f"""<section class="pg p">{top("Vendre ou expédier ?","4 / 4")}
@@ -182,7 +182,7 @@ P4 = f"""<section class="pg p">{top("Vendre ou expédier ?","4 / 4")}
 <div class="box red"><h2 style="margin-top:0">Fin de la phase du Capitaine</h2>
 <p>Chacun ne garde qu'<b>un seul baril</b> sur son portrait, plus : Petit Entrepôt = tous les barils de <b>1 type</b>, Grand Entrepôt = <b>2 types</b>, les deux = <b>3 types</b>. Le reste retourne à la réserve.</p>
 <p style="margin:0">Les navires <b>pleins</b> sont vidés ; les autres gardent leur cargaison.</p></div>
-{foot("Aide de jeu non officielle")}</section>"""
+{foot("")}</section>"""
 
 # ---------------- fiche 2 : bâtiments dans l'ordre du plateau ----------------
 SHORT = {
