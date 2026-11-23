@@ -210,26 +210,41 @@ footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padd
 @media (max-width:720px){.modes{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.mode{transition:none}.mode:hover{transform:none}}
 </style>
-<style id="sitebar-css">
-.sitebar{position:relative;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;height:40px;padding:0 14px;background:#0b0d14;color:#e9e3d5;border-bottom:1px solid rgba(221,185,106,.28);font:500 13.5px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;box-sizing:border-box}
-.sitebar a{color:inherit;text-decoration:none}
-.sitebar .sb-back{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 10px 0 6px;margin-left:-6px;border-radius:8px;font-weight:600}
-.sitebar .sb-back svg{width:16px;height:16px;flex:none}
-.sitebar .sb-back:hover{background:rgba(255,255,255,.08)}
-.sitebar .sb-lang{display:inline-flex;padding:2px;border:1px solid rgba(255,255,255,.16);border-radius:999px}
-.sitebar .sb-lang span,.sitebar .sb-lang a{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.04em}
-.sitebar .sb-lang span{background:#ddb96a;color:#17130a}
-.sitebar .sb-lang a{color:#a3a9b8}
-.sitebar .sb-lang a:hover{color:#fff}
-.sitebar a:focus-visible{outline:2px solid #ddb96a;outline-offset:2px}
-@media print{.sitebar{display:none}}
+<style id="sitehead-css">
+@font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
+.sitehead{position:sticky;top:0;z-index:9;background:#0d0f16;border-bottom:1px solid #2a3144;color:#efe8d8;font:500 15px/1.2 "Figtree","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.sitehead *{box-sizing:border-box}
+.sitehead .sh-in{max-width:1080px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sitehead a{color:inherit;text-decoration:none}
+.sitehead .sh-brand{display:flex;align-items:center;gap:10px;font-family:"Marcellus","SH Marcellus","Palatino Linotype",Georgia,serif;font-size:19px;font-weight:400;letter-spacing:.01em;white-space:nowrap}
+.sitehead .sh-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#1d2230;border:1px solid #2a3144;font-size:16px;line-height:1}
+.sitehead .sh-act{display:flex;align-items:center;gap:10px}
+.sitehead .sh-lang{display:inline-flex;padding:3px;background:#161a25;border:1px solid #2a3144;border-radius:999px}
+.sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;font-weight:700;font-size:12.5px;letter-spacing:.04em}
+.sitehead .sh-lang span{background:#ddb96a;color:#17130a}
+.sitehead .sh-lang a{color:#a3a9b8}
+.sitehead .sh-lang a:hover{color:#fff}
+.sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:#ddb96a;color:#17130a;font-weight:700;font-size:14.5px;white-space:nowrap}
+.sitehead .sh-kofi:hover{filter:brightness(1.08)}
+.sitehead a:focus-visible{outline:2px solid #ddb96a;outline-offset:2px}
+@media (max-width:640px){.sitehead .sh-in{padding:0 14px}.sitehead .sh-text,.sitehead .sh-kofi-t{display:none}.sitehead .sh-kofi{width:36px;padding:0;justify-content:center}}
+@media print{.sitehead{display:none}}
+:root{--sitehead-h:57px}
+html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 </style>
 </head>
 <body>
-<div class="sitebar" role="navigation" aria-label="Navigation du site">
-<a class="sb-back" href="../"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Aides de jeu</a>
-<div class="sb-lang" role="group" aria-label="Langue / Language"><span aria-current="true">FR</span><a href="en.html?lang=en" hreflang="en" lang="en" aria-label="Switch to English" onclick="try{localStorage.setItem('site-lang','en')}catch(e){}">EN</a></div>
-</div><!--/sitebar-->
+<header class="sitehead">
+<div class="sh-in">
+<a class="sh-brand" href="../" aria-label="Retour à l'accueil des aides de jeu"><span class="sh-mark" aria-hidden="true">🎲</span><span class="sh-text">Aides de jeu de Paul</span></a>
+<div class="sh-act">
+<div class="sh-lang" role="group" aria-label="Langue / Language"><span aria-current="true">FR</span><a href="en.html?lang=en" hreflang="en" lang="en" aria-label="Switch to English" onclick="try{localStorage.setItem('site-lang','en')}catch(e){}">EN</a></div>
+<a class="sh-kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" aria-label="Ko-fi"><span aria-hidden="true">☕</span><span class="sh-kofi-t">Offrir un café</span></a>
+</div>
+</div>
+</header><!--/sitehead-->
+
+
 
 <main>
 <header>
