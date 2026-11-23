@@ -1,0 +1,268 @@
+1505	Another Skill
+1506	Skills come at even Levels.
+1507	A Command token and a new visible Level token
+1508	You can command one more Unit, and the revealed token shows your new Armor and Hand Limit values.
+1510	From one Round to the next
+1511	Three players chose Tactics 5, 2 and 4. Who goes first?
+1512	The 5
+1513	The lowest number goes first.
+1514	The 2
+1515	Turn Order follows ascending numbers: 2, 4, then 5.
+1516	Later. At the start of your turn, your Deck is empty; you hold Rage and a Wound.
+1517	I must announce the end of the Round
+1518	Only if your hand is empty too.
+1519	I have a choice: announce, or play a turn
+1520	Empty deck with cards in hand: the decision is yours.
+1521	I reshuffle my discard pile
+1522	Never before the end of the Round.
+1523	You announce the end of the Round.
+1524	I still play my turn
+1525	The announcement replaces your turn.
+1526	Each other player plays one last turn, then the Round stops
+1527	You don't even benefit from the space you are on.
+1528	New Round. Your Peasants were Spent and Wounded. What state are they in?
+1529	Ready and healed
+1530	Wounds don't disappear on their own.
+1531	Ready, but still Wounded
+1532	They get their Command token back but can only act once healed.
+1533	And the Wound you had in hand?
+1534	It is reshuffled into your Deck
+1535	All your cards, Wounds included, form the Deck again.
+1536	Only Healing removes a Wound.
+1538	A Monastery, two ways
+1539	You are in a Monastery with 8 Influence and a Wound in hand. What can you buy?
+1540	The Advanced Action (6) and one Healing point (2)
+1541	Several purchases in one interaction, as long as the Influence is enough.
+1542	The Advanced Action and two Healing points
+1543	That would be 10 Influence.
+1544	A Spell for 7
+1545	Spells are bought at a Mage Tower or the Blue City.
+1546	Another day, you decide to burn this Monastery. What happens to your Reputation?
+1547	That is the cost of an assault or a plunder.
+1548	−3, right away
+1549	The loss is immediate, whatever the outcome of the combat.
+1550	You draw a purple enemy. Your two Units are Ready.
+1551	They fight normally
+1552	They refuse to take part in this act.
+1553	They don't take part: no activation, no Damage for them
+1554	You fight alone.
+1555	You win. Your reward?
+1556	An Artifact: at the end of the turn, I draw two and keep one
+1557	And the Monastery no longer exists for the rest of the game.
+1558	A Spell from the Offer
+1559	That is the reward of a Mage Tower.
+1561	The Monster Den and its reward
+1562	A Monster Den is on your path. You can…
+1563	only stop and fight
+1564	An adventure site can always be ignored.
+1565	cross it, stop there without fighting, or enter: that will be your action
+1566	Entering the Monster Den is the action for the turn.
+1567	You enter and fail against the brown monster. What happens to its token?
+1568	The next Hero who enters will face the same monster.
+1569	It is discarded
+1570	That is the case for the Dungeon, not the Monster Den.
+1571	Next turn, victory. At the end of the turn, you roll two dice for the reward:
+1573	. What do you gain?
+1574	+1 Fame
+1575	a Crystal of the colour of my choice
+1576	a Crystal
+1577	Basic colour: that Crystal. Gold: colour of your choice. Black: 1 Fame instead.
+1578	Two Crystals of my choice
+1579	The die decides the colour, except on a gold result.
+1580	Nothing: I had to win the first time
+1581	The reward goes to whoever conquers the site, however many attempts it took.
+1583	Taking a City
+1584	You attack a Red City. A defender with physical Attack 4 isn't blocked. How much Damage does it deal?
+1585	In the Red City, the defenders' physical attacks become Brutal.
+1586	Brutal doubles the Attack when dealing Damage.
+1587	You defeat 2 of the 3 defenders.
+1588	The City is mine
+1589	You must defeat all the defenders.
+1590	I place 2 Shield tokens on the City card and fall back
+1591	One Shield per defeated defender, and back to the space you came from.
+1592	Another player defeats the last defender. Who becomes Lord of the City?
+1593	Them: they struck the final blow
+1594	Only the number of Shield tokens counts.
+1595	Me: 2 Shields against 1
+1596	If tied, it would be the first to have placed a Shield.
+1597	You come back to interact in this conquered Red City.
+1598	+2 Influence, and Artifacts for 12 Influence
+1599	+1 Influence per Shield you placed there.
+1600	+1 Influence, and Spells for 7
+1601	Spells are bought in the Blue City, and the bonus is +1 per Shield.
+1603	A duel, blow by blow
+1604	You end your Movement on a rival's space. They decide to participate only partially. Can they take a die from the Source?
+1605	That is the privilege of full participation.
+1606	No, and their Skills can't be used
+1607	In exchange, they keep their next turn.
+1608	Ranged and Siege phase. Who attacks first?
+1609	Me, the attacker
+1610	The attacker opens the Melee phase.
+1611	Them, the defender
+1612	The roles then swap with each attack.
+1613	They make a physical Ranged Attack of 4 against you. You play Block 4. Your Armor is 2.
+1614	Everything is blocked
+1615	In this phase, you need 2 Block points per Attack point.
+1616	2 Damage gets through: they deal me a Wound
+1617	Block 4 stops 2. The 2 remaining Damage equal your Armor: one Wound.
+1618	4 Damage gets through
+1619	Against a player, Block can be partial.
+1620	Melee. You deal them 2 unblocked Damage. A free Plains space (cost 2) is adjacent. Their Armor is 3.
+1621	I deal them a Wound
+1622	It would take 3 Damage, as much as their Armor.
+1623	I force them to withdraw onto the Plains: the combat ends and I win
+1624	Damage converts into Movement, at the space's cost.
+1625	I steal an Artifact from them
+1626	That costs 5 Damage.
+1627	You are Level 3, they are Level 5. How much Fame do you gain?
+1628	Add 2 per Level of difference.
+1629	1 point, plus 2 for each of the two Levels between you.
+1630	You only gain nothing when you already had more Fame than the loser.
+1632	A cooperative assault
+1633	You and your partner are each on a space adjacent to a City defended by 4 enemies. On your turn, you propose that each of you face 2. They accept. What do they do?
+1634	They flip their Turn Order token: they will skip their next turn
+1635	Taking part in the assault costs them their next turn.
+1636	Nothing in particular
+1637	Their token is flipped to mark the turn they will skip.
+1638	How are the 4 defenders split?
+1639	Each chooses the two they prefer
+1640	Nobody knows in advance who they will face.
+1641	They are shuffled and 2 are dealt to each, unseen
+1642	You know how many, not which ones.
+1643	You defeat your 2 defenders. Your partner only defeats one.
+1644	The City is conquered
+1645	One defender remains.
+1646	The City holds: you both fall back, but your 3 Shields stay on the card
+1647	Each defeated defender already counts towards naming the future Lord.
+1648	End of the game: you have 60 Fame, your partner 41. What is the basis of the team score?
+1649	The player furthest behind is what counts.
+1650	Helping your partner progress pays off for the whole team.
+1651	Fame isn't added up.
+1653	Playing the Dummy
+1655	The Dummy owns 2 green Crystals and 1 blue Crystal. On its turn, it discards three cards:
+1656	. How many extra cards does it discard?
+1657	Only the last card counts: it is
+1658	, and it has
+1660	of that colour.
+1661	Look at the colour of the third card and count its Crystals of that colour.
+1662	Next turn:
+1663	. How many extra?
+1664	The third one is
+1665	extra.
+1666	Only the colour of the third card counts.
+1667	Later, at the start of its turn, its Deck is empty.
+1668	It reshuffles its discard pile
+1669	Like you, it only reshuffles at the new Round.
+1670	It announces the end of the Round: you play one last turn
+1671	It is the Dummy that sets the pace of the game.
+1672	New Round. The Advanced Action removed from the bottom of the Offer is red, the removed Spell is white.
+1673	Both cards go into its Deck
+1674	The Spell goes back under its deck.
+1675	The Advanced Action joins its Deck, and it gains a white Crystal
+1676	Its Deck grows and its Crystals pile up: the Rounds get shorter.
+1682	Across the Wall
+1683	You challenge these Orcs across a Wall: they are Fortified
+1684	A Wall separates you from these Skirmishers. Try your Ranged Attack in the first phase, then win without a Wound.
+1686	Wound(s). Block their Attack of 3 first.
+1687	In the first phase, the Ranged Attack doesn't hit a Fortified enemy. Block: Determination (2) and March sideways (1). In the Attack phase, everything counts: stronger Swiftness (3) and Rage (2).
+1689	Defend
+1690	Defend 2: alone, these Protectors protect themselves
+1691	These Protectors have the Defend 2 ability. Since they are alone, they apply it to their own Armor. Win without a Wound.
+1693	Block: Determination (2) and a sideways card (1). Attack: you need 6, stronger Rage with the red die (4) and the other Rage (2).
+1695	Entering a Maze
+1696	You are on a Maze with two Ready Units. You have 3 Move points left from your movement, and two Move cards in hand. You are aiming for the 4-point path.
+1697	I pay with my 3 remaining points and a sideways card
+1698	Leftovers from your Movement phase don't count: you need effects played to enter.
+1699	I play my two Move cards to pay 4
+1700	Separate Move effects, played when entering.
+1701	Who goes inside with you?
+1702	My two Units
+1703	There is only room for one.
+1704	A single Unit, of my choice
+1705	The other can neither act nor absorb during this action.
+1706	You defeat the monster. What happens to this 4-point path?
+1707	It stays open to all
+1708	Your Shield closes it.
+1709	I mark it with a Shield; I won't come back, but another player can take the 2 or 6 path
+1710	Each path is only used once, and each player only enters once.
+1712	An Elusive enemy
+1713	Shades: Armor 3 or 6, Attack 4. You have a Ranged Attack 4. Do you try it in the first phase?
+1714	Yes: 4 against 3
+1715	In the Ranged and Siege phase, it is always the higher Armor: 6.
+1716	No: it would take 6
+1717	Better to keep this card for the Attack phase.
+1718	Block phase. You can block their Attack of 4, or let a Unit with Armor 5 absorb it.
+1719	The Unit absorbs it: no harm done
+1720	Not blocking leaves their Armor at 6 for the whole combat.
+1721	I block the 4
+1722	All their attacks blocked: their Armor drops to 3 for the Attack phase.
+1723	Attack phase. What do you need?
+1724	Attack 3, and my Ranged Attack counts
+1725	In this phase all Attack types combine, against the low Armor.
+1726	Attack 6
+1727	You blocked: the low value applies.
+1729	Volkare attacks you
+1730	Second Day. Volkare enters your space with six tokens. You aren't ready. What does retreating cost?
+1731	2 Wounds
+1732	That is the rate for the first Day and the first Night.
+1733	3 Wounds
+1734	2, 3 then 4 Wounds depending on how far the game has gone. You then withdraw to an adjacent safe space.
+1735	Nothing, but I skip my turn
+1736	Retreating is paid in Wounds.
+1737	Later, you face him. His die determines an attack of 5. You don't block it and you have Guardsmen with Armor 5.
+1738	The Guardsmen absorb 10 Damage
+1739	His attack has Assassination: no Units.
+1740	My Hero takes 10 Damage
+1741	Brutal, so doubled, and Assassination, so for the Hero alone. Better to block it.
+1742	My Hero takes 5 Damage
+1743	His attack is also Brutal: unblocked, it doubles.
+1744	Two tokens of his army remain. Can you target Volkare himself to finish it?
+1745	Yes, with a Siege Attack
+1746	Volkare is never a target.
+1747	No: he falls when his last two troops fall
+1748	Eliminating all his troops is the only way to defeat him.
+1750	Ambush and Pursuit
+1751	An Ambushing enemy is 2 spaces from you. You move to another space, also 2 spaces from it; the space between you is a Mountain.
+1752	It attacks me
+1753	The space in between must contain neither mountain nor lake.
+1754	It doesn't attack me
+1755	Ambush only reaches 2 spaces through a revealed, clear space.
+1756	A token is Pursuing you and is 3 spaces away. You finish your Movement.
+1757	It moves one space towards me
+1758	It even crosses lakes and mountains, as long as the space is revealed and free.
+1759	It attacks me right away
+1760	It must reach you first.
+1761	It only moves if I provoked it
+1762	Pursuit is automatic at the end of each Movement of the pursued Hero.
+1763	Next turn, it is adjacent and you are in a Village.
+1764	It attacks me: that is my action
+1765	Not in a place where an interaction is possible.
+1766	It can't attack me here
+1767	Interaction sites and fortified sites you aren't besieging protect you.
+1769	Bringing down a Faction Leader
+1770	The Leader is at level 4, Armor 5 at that level, surrounded by two followers. You gather 12 Attack points against it in the Attack phase. What happens?
+1771	It loses 1 level
+1772	Count the multiples of its Armor.
+1773	It loses 2 levels
+1774	5 then 10: two Shields placed. It would have taken 15 for a third.
+1775	It is defeated
+1776	It still has levels left.
+1777	The combat ends. What happens to its marker, and are its defeated followers replaced?
+1778	The marker drops to level 2; no new followers arrive
+1779	Its companions depend on its starting level, once and for all.
+1780	The marker drops and two new followers arrive
+1781	Enemies are never added when its level drops.
+1782	The marker doesn't move before the next Round
+1783	It drops at the end of the combat.
+1784	You also had a Spell able to destroy an enemy. Does it work on the Leader?
+1785	Leaders have Arcane Immunity.
+1786	No: only Attacks and Blocks affect it
+1787	Arcane Immunity, like Volkare.
+1790	Fire
+1791	Ice
+1792	Cold Fire
+1793	Siege Attack
+1794	Gold die from the Source (Day wildcard)
+1795	Pay the mana
+1796	with…
+1797	A Wound can't be played.

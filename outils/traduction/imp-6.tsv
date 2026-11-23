@@ -1,0 +1,266 @@
+1277	Normal end of the game. Triggered when the Main deck is empty, when a player Develops their last card, when King of Kings is flipped face down, or by a card effect. In solo, also when the Bot's Dynasty deck runs out or it gains King of Kings. Finish the round, play one last round, then count the points.
+1278	Immediate end of the game as soon as the Unrest pile is empty. In multiplayer, the player with the fewest Unrest wins. In solo, you lose automatically.
+1279	Dynasty deck
+1280	The Bot's card reserve: its Nation cards, then its Accession, then its Developments from strongest to weakest. A card comes out each time its deck is empty. When it runs out, the Countdown is triggered.
+1281	King of Kings
+1282	Last card of the Fame deck. When it is the only one left, gaining a Fame card makes you resolve it instead, only once per player. The Bot gains 6 Progress if it is Barbarian; as an Empire, it gains 3 Progress and a card from its Dynasty deck, and the end of the game is triggered.
+1283	exil[\\p{L}]*
+1284	innov[\\p{L}]*
+1285	acqui[\\p{L}]*
+1286	abandon[\\p{L}]*
+1287	recall[\\p{L}]*
+1288	histor[\\p{L}]*
+1289	return[\\p{L}]*
+1290	recover[\\p{L}]*
+1337	Prosperity
+1350	2 Materials
+1351	Dido, Queen of Carthage
+1352	Carthaginian Merchants
+1353	Balearic Islands
+1354	Mauretania
+1356	Iberia
+1357	Berbers
+1358	City of Carthage
+1359	Elephants
+1360	Hegemony
+1362	Merchant Ships
+1365	Boudica
+1366	Cattle Raid
+1367	Cauldron of Cerridwen
+1370	Gallia Belgica
+1373	Celtic Gold
+1374	Celtic Innovation
+1375	Chain Mail
+1377	Ogham Script
+1378	Vercingetorix
+1380	Greek Mercenaries
+1381	City of Sparta
+1382	Peloponnese
+1383	Pholoe Forest
+1384	City of Athens
+1385	Plains of Thessaly
+1386	Olympic Games
+1387	Greek Prosperity
+1388	Pericles
+1389	City of Corinth
+1391	Greek Innovation
+1392	Direct Democracy
+1395	Philip II
+1397	Aliakmon Valley
+1399	Pelagonia
+1402	Parmenion
+1403	Companion Cavalry
+1404	Alexander the Great
+1405	Mosaics
+1406	Alexandria in Egypt
+1407	Alexandria in Ariana
+1412	Nisaean Plain
+1413	Median Empire
+1414	City of Persepolis
+1415	Battering Ram
+1416	Windmills
+1418	Persian Gold
+1420	Darius I
+1422	City of Rome
+1424	Roman Expansion
+1425	Bread and Circuses
+1426	Gallia Aquitania
+1427	Raetia
+1428	Julius Caesar
+1429	Military Genius
+1430	Roman Invasion
+1431	Legions
+1432	The Senate
+1433	Rome, the Eternal City
+1434	Emperor Trajan
+1436	Tian Shan
+1437	Mounted Archers
+1439	Pontic Steppe
+1440	Tarim Basin
+1445	City of Gelonus
+1449	Erik the Red
+1455	Faroe Islands
+1458	City of Dubh Linn
+1461	Rollo the Walker
+1462	Viking Raid
+1463	Harald Hardrada
+1464	4 slots. Recommended to start.
+1465	4 slots, and the Bot discards a card from its deck at the end of each turn.
+1466	Standard rules, 5 slots.
+1467	The Bot starts with 3 Materials, 2 Population, 1 Progress and scores 1 point per 5 resources.
+1468	Like Sovereign, with a 6th slot.
+1469	Market card
+1470	a card
+1471	from the Market
+1472	Material
+1473	The Carthaginians
+1474	The merchants of Carthage
+1475	The Punic ships
+1476	count their cargo at the quay
+1477	trade quietly in their outposts
+1478	The Celts
+1479	The Celtic tribes
+1480	The druids
+1481	feast around the cauldron
+1482	listen to their bards by the fire
+1483	The Greeks
+1484	The Greek cities
+1485	The hoplites
+1486	debate at length in the agora
+1487	train at the gymnasium
+1488	The Macedonians
+1489	The Macedonian phalanxes
+1490	The king's companions
+1491	sharpen their sarissas
+1492	review their troops
+1493	The Persians
+1494	The satraps
+1495	The Great King's armies
+1496	hold council at court
+1497	levy tribute in their provinces
+1498	The Romans
+1499	The legions
+1500	The senators
+1501	fortify their camps
+1502	speechify in the Senate
+1503	The Scythians
+1504	The steppe riders
+1505	The Scythian archers
+1506	let their horses graze
+1507	break camp without a sound
+1508	The Vikings
+1509	The jarls
+1510	The Northern warriors
+1511	repair their ships
+1512	tell each other their sagas
+1513	proclaim themselves Kings of Kings
+1514	cover their name in glory with
+1515	enter legend thanks to
+1516	lay hands on
+1517	acquire
+1519	discover
+1521	develop
+1525	forsake
+1526	Regions
+1527	a Region
+1529	set aside
+1530	make disappear
+1531	record several great deeds in their History
+1532	carve several feats into memory
+1534	bring
+1535	into their History
+1536	calm some unrest
+1537	restore calm at home
+1538	crush a revolt
+1539	Now at the head of an Empire,
+1540	Unrest sown in your camp
+1541	You are not spared:
+1542	You pay the price:
+1543	Their shadow reaches you:
+1544	, while their treasury grows by
+1545	, and their coffers fill with
+1546	Your defences held firm
+1547	You repelled their assault
+1548	, but
+1549	their treasury grows by
+1550	they bring in
+1551	Their treasury grows by
+1552	Their coffers fill with
+1553	They bring in
+1554	an Unrest sown in your camp
+1561	% wins">
+1564	They will appear after your first completed game.
+1566	wins (
+1567	best score
+1568	average gap with the Bot
+1573	Training:
+1575	, best score
+1577	Known Market cards (
+1578	The cards you have described. Tap ✕ to remove one.
+1580	" aria-label="Remove
+1581	None yet. Each card you describe during a game is remembered here.
+1583	You play the
+1585	loss
+1586	out of 4 allowed. Next level:
+1587	Added to your starting deck:
+1588	Removed from your starting deck:
+1589	No campaign in progress.
+1594	Result
+1595	Training (
+1597	No completed game yet.
+1598	Library
+1600	Training ·
+1601	· turn
+1602	of 12
+1603	Training
+1604	, no opponent.
+1605	Hourglass:
+1606	Progress left
+1607	tokens out of 12">
+1609	Benchmarks
+1610	50 points: you have the basics.
+1611	90 points: your feats will go down in History.
+1612	Each turn
+1613	Play your turn normally.
+1614	At Cleanup, the Progress placed on the Market comes from the hourglass, not the supply.
+1615	Then you may exile a Market card.
+1616	Resolve your Solstice effects.
+1619	Training setup
+1620	Set up your nation (
+1621	) and the Market exactly as for a 2-player game.
+1622	Exile the
+1623	top 15 cards
+1624	of the Main deck: place them face up in the Exile pile.
+1626	12 Progress tokens
+1627	next to the Market: it is your hourglass.
+1628	No Bot cards: the app simply counts the turns.
+1629	Start training
+1631	Play your turn normally. When you reach Cleanup, tap the first button.
+1632	I've reached Cleanup
+1634	A card effect ends the game
+1637	Abandon training
+1639	Abandon this training? It won't be saved.
+1640	Yes, abandon
+1641	No, keep going
+1642	: the Unrest pile is empty. The game stops on the spot.
+1643	A card effect ends the game: let's count your points.
+1644	Cleanup: place
+1645	1 Progress from the hourglass
+1646	(not from the supply) on a Market card. There will be
+1647	left. Then you may exile a Market card, as a second player would.
+1649	Then finish your Cleanup as usual: tokens, discard, draw.
+1650	End of turn: resolve your Solstice effects now.
+1651	Solstice resolved
+1652	The hourglass is empty
+1653	: twelve turns have passed.
+1654	Collapse: count your points anyway to measure your progress.
+1655	End of training: count your points.
+1657	Basics acquired
+1658	Needs more work
+1659	Your feats will go down in History. The Bot had better watch out.
+1660	You have absorbed the rules and the basic strategies: you are ready to face the Bot.
+1661	A little more training: the rulebook sets the first milestone at 50 points.
+1664	Points from star cards (10 at most per card)
+1665	Points from question-mark cards whose condition is met
+1666	Number of Unrest cards (−2 each)
+1667	Other negative points
+1668	Progress tokens in your reserve
+1669	Count all your cards: hand, play area, deck, discard pile, History, reserved cards and Power card. Leave out the Nation deck and unpaid Developments.
+1671	Confirm my score
+1676	No cards.
+1677	· round
+1682	Current score:
+1683	from cards,
+1684	from Progress,
+1685	from resources (1 per
+1686	Unrest
+1687	in its possession.
+1688	Regions in play (
+1689	Discard (
+1690	History (
+1693	Undo my last answer
+1697	Test card
+1698	Category (banner colour)
+1700	Icons at the top of the card
+1701	Permanent (∞)
+1702	Attack (sword)

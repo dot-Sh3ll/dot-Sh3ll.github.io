@@ -1,0 +1,230 @@
+371	The three kinds of lasting effects.
+372	: you decide, during your Activation order, by placing a token.
+373	: always active while the card is in play, including during Research, Pacify, the Solstice and the Countdown.
+374	: automatic at the end of the round.
+375	During the Solstice, you'd like to Exhaust a Region to gain Materials. Possible?
+376	No Action and no Exhaust ability during the Solstice.
+377	You have three Solstice effects. Who decides their order?
+378	The first player
+380	The order the cards were played in
+381	When several of your effects resolve at the same time, you choose their order.
+383	Unrest, Regions, History and Glory
+384	Four mechanics that give the game its tension: what clogs you, what produces, what you put into History, and what scores big.
+385	Unrest
+386	They have no useful effect and dilute your deck. If the common pile runs out, it is a Collapse. Three ways to get rid of them:
+387	Play it as an Action
+388	: spend an Action token, then pay 3
+389	, or 1
+390	, or discard 2 cards. It goes back to the pile.
+391	The Pacify order
+392	: it takes your whole turn, but you return all the Unrest in your hand without paying anything.
+393	A card effect
+394	that says "Return an Unrest card": you then ignore the Unrest text, so no cost.
+395	Recovering an Unrest means taking it from the common pile. Taking the last one triggers the Collapse.
+396	Regions and cards in play
+397	A permanent card stays in your play area until an effect removes it.
+399	a Region: it goes to your discard pile.
+401	a Region: it returns to your hand. Only Regions can be Abandoned or Recalled.
+402	In both cases, resources placed on it return to your reserve, and cards Reserved under it follow the Region. An Exhaust token placed on it doesn't return to your State card before the end of the turn.
+403	Reserve
+404	: slide a card from your hand, face up, under the card in play that carries this keyword. A Reserved card is no longer in play: you can't play it, discard it or use its abilities. It still counts for scoring. It is a good way to slim down your deck.
+405	History
+406	Putting a card into your History means sliding it under your Power card. It leaves play for good, but its points still count. You may look at your own History, not other players'. Many strong cards are single-use and go into History after being played.
+407	Glory and Fame
+408	The
+409	card makes you Abandon three Regions in play to gain a
+410	card. So you need three Regions in front of you, and replaying them will cost you Actions.
+411	The Fame deck and King of Kings
+412	The King of Kings card always stays at the very bottom of the Fame deck. While face-down cards remain, Looking at, gaining or Drawing a Fame card only concerns those.
+413	A card put back into this deck goes on top, without shuffling.
+414	When King of Kings is the only card left, any effect that makes you gain or Draw a Fame card makes you
+415	resolve King of Kings
+416	instead. The first time in the game, it is flipped to side B.
+417	Each player can only resolve it once per game, whichever side.
+418	When the card ends up flipped face down, the Countdown is triggered.
+419	You play an Unrest from your hand to get rid of it. What does it cost you?
+421	An Action, plus 3 Materials or 1 Population or 2 discarded cards
+422	Only 2 discarded cards
+423	You need the Action to play the card, then the cost written on it.
+424	You Abandon a Region carrying 2 Materials with a Reserved card under it. What happens to them?
+425	Everything is lost
+426	The Materials go to my reserve, the Reserved card is discarded with the Region
+427	Everything stays in play
+428	The resources return to the reserve and the Reserved card shares the Region's fate.
+429	Does a card in your History count for scoring?
+430	It is no longer in play, but its victory points count.
+432	End of the game and scoring
+433	Two possible endings, with two ways of naming the winner.
+434	Triggered when:
+435	the Main deck is empty;
+436	a player Develops the last card in their Development area, or meets their nation's specific condition;
+437	the King of Kings card is flipped face down;
+438	an effect says it triggers the end of the game.
+439	Finish the current round, Solstice included, then play
+440	one last full round
+441	, Solstice included. Then count.
+442	Triggered the moment
+443	the Unrest pile is empty
+444	, even if a Countdown was already under way.
+445	The game stops immediately, the Action in progress is interrupted. Everyone counts their Unrest in hand, play area, deck, discard pile and History. The lowest total wins. Tie: break it with Countdown points.
+446	Counting points
+447	Leave the cards where they are: some are worth different points depending on where they are. The same icon or token can count for several cards. Each
+448	token in your reserve is worth 1 point. The highest total wins; in case of a tie, the victory is shared.
+449	Hands-on: does it count or not?
+450	For each line, decide whether it counts towards your Countdown score, then check.
+451	Check
+452	Hands-on: score sheet
+453	Points from fixed-value cards
+454	Points from variable cards (10 max each)
+455	Negative points
+456	Progress in reserve
+457	The Countdown has just been triggered in the middle of a round. How many turns do you have left at most?
+459	The end of this round, then one full round
+460	Three rounds
+461	Finish the current round with its Solstice, then one final round with its Solstice.
+462	A Countdown is under way, and the Unrest pile runs out. What happens?
+463	The Countdown finishes normally
+464	Collapse: the game stops at once
+465	The Unrest is reshuffled
+466	The Collapse takes priority, even over a Countdown already triggered.
+469	All keywords
+470	On the cards, each verb has a precise meaning. Look up a term during the game.
+472	Recall, Find, Passive…
+473	Also show terms specific to Horizons
+474	"Find" a card: in what order do you search?
+475	Deck, discard pile, hand
+476	Hand, discard pile, deck, Nation deck
+477	Nation deck first
+478	Hand, then discard pile, then deck, then Nation deck (never the Accession). Stop as soon as you find it, and shuffle the deck or the Nation deck if you searched them.
+479	"Draw 2 cards, if possible." Your deck holds 1 card. What do you do?
+480	I draw 1 card, shuffle, draw the 2nd
+481	I draw 1 card and stop
+482	I draw nothing
+483	"If possible" forbids shuffling the discard pile.
+485	The eight Classics nations
+486	Each deck plays differently. The stars show complexity according to the rulebook: start with a one-star nation.
+487	Notes on Classics cards
+488	Sacred Way
+489	: you can't use it to add your Accession card to your deck.
+490	Sumerians
+491	: its Unrest-returning effect applies when a Countdown is triggered, from any area counted for scoring. It doesn't trigger if the game ends in a Collapse, and doesn't prevent it.
+492	Which Viking quirk ends the game?
+493	Reaching the Empire State
+494	Adding their Zenith card to their discard pile
+495	Developing their last card
+496	The Vikings never become an Empire and have no Developments. The card at the bottom of their Nation deck, the Zenith, triggers the end of the game.
+499	Four settings to adjust the game, and a solo learning mode.
+500	Training mode (alone, no opponent)
+501	Ideal for a first try or to discover a nation.
+502	Set up as for 2 players.
+503	Exile the top 15 cards of the Main deck.
+504	Put 12 Progress tokens near the Market: it is your hourglass.
+505	Play your turns normally.
+506	At Cleanup, the Progress placed on the Market comes from this hourglass. Then you may Exile a Market card, to simulate an opponent helping themselves.
+507	Resolve your Solstice effects after each turn.
+508	The game lasts 12 turns, or stops if an effect triggers the end.
+509	Rulebook benchmarks: 50 points, you master the basics; 90 points is a feat.
+510	Pacifist variant
+511	During setup, set aside the common cards marked with the Attack icon. Once the Market is laid out, shuffle them into the Main deck. Attacks thus arrive later.
+512	Precious cards variant
+513	At Cleanup, you can no longer Discard cards from your hand. Managing Unrest becomes much tighter.
+514	Quick game variant
+515	About 15 minutes less per player.
+516	Once the Market is set up, Exile the top 10 cards of the Main deck.
+517	Each player discards the top 2 cards of their Nation deck: they are therefore part of their deck from the first shuffle.
+518	When you add your Accession to your discard pile, choose one of your Development cards and remove it from the game.
+519	At the Countdown, finish the current round and its Solstice, with no extra round.
+520	Quick setup variant
+521	For experienced players: shuffle all the Market cards together instead of sorting them, form the decks with the right number of cards and flip one card from each. Some nations will struggle to find the categories they need.
+522	In Training mode, when does the game normally end?
+523	When the Main deck is empty
+524	After 12 turns, when the 12-Progress hourglass runs out
+525	After 20 turns
+526	One Progress from the hourglass goes to the Market at each Cleanup: 12 tokens, 12 turns.
+528	Playing solo against the Bot
+529	The Bot is an automated opponent. It doesn't read the text of its cards: the table on its State card tells it what to do.
+531	The Play solo tab applies everything below for you: you just follow its instructions.
+532	Set up your nation and the Market as for 2 players.
+533	Place the slot markers 1 to 5 under the five Market cards (see difficulty levels).
+534	Choose the Bot's nation. Its starting Unrest cards join the common pile. Its Power card is only used to hold its History.
+535	Build its
+536	Dynasty deck
+537	: the Developments sorted by value, strongest on top; on top of them the Accession face up; on top of that the shuffled Nation cards, face down.
+538	Shuffle its starting cards and place one face down under each marker. The rest forms the Bot deck.
+539	Place its State card on the Barbarian side. The Bot uses neither Action nor Exhaust tokens.
+540	A round
+541	You play your turn normally, then the Bot plays its turn, then you resolve your Solstice effects. The Bot ignores the Solstice.
+542	The Bot's turn
+543	Roll the die and place it on the card in the matching slot: it won't be resolved this turn. If no slot matches, all cards are resolved.
+544	Resolve the other cards in ascending slot order. For each: flip it, look in the table for the
+545	first line from the top
+546	matching its name, type or category, and apply it as much as possible. Bold text concerns you, the rest concerns the Bot.
+547	If nothing in the line can be resolved, move to the next matching line. As soon as part of the effect resolves, that card is done: one effect per card.
+548	The card then goes to the Bot's discard pile, unless stated otherwise. The first line always concerns Unrest: usually, back to the pile.
+549	Its Cleanup
+550	Add 1 Progress on the Market card above the unresolved card. Nothing if the die showed 6. Against the Carthaginians, it is 2 Materials instead.
+551	Slide the unresolved card to slot 1, face down, then fill the other slots from the Bot deck.
+552	Deck empty when filling: the top card of the Dynasty deck goes to its discard pile, which is shuffled to rebuild the deck. When it is the Accession, flip its State card and use the new table.
+553	How it chooses
+554	Acquire or Innovate
+555	: the Market card worth the most points; if tied, the one carrying the most tokens; then the lowest slot number. Each Progress placed on a card makes it worth 1 more point in its eyes.
+556	Cards it gains go
+557	on top of its deck
+558	: the card first, the Unrest on top.
+559	If it must Innovate with no valid card, it takes the top card of the relevant deck; if that is impossible, it gains 2 Progress.
+560	: the lowest slot with no token.
+561	Abandon / Recall
+562	: its most recently played Region (to its discard pile, or on top of its deck).
+563	It only shuffles its discard pile during its Cleanup.
+564	It ignores your effects that would make it Discard or Return an Unrest. Any effect of its that gives you an Unrest, steals from you, makes you discard, Abandon or Recall counts as an Attack: your protections work.
+565	For the Bot, a variable-points card is worth 5, and a conditional card is worth its maximum.
+566	End of the game
+567	Same triggers as in multiplayer, plus two: the Dynasty deck is exhausted, or the Bot gains King of Kings.
+568	If the game ends in a Collapse, you lose.
+569	At the Countdown, the Bot scores 1 point per Progress, 1 point per group of 10 Materials and Population combined, and its card points (hand, play, deck, discard, History; not the Dynasty deck or its Power card). You need strictly more points than it.
+570	Five difficulty levels
+572	Setting
+573	Chieftain
+574	4 slots only; a 5 or 6 on the die covers nothing. Recommended to start.
+575	Warlord
+576	Like Chieftain, and at the end of its turn the top card of the Bot deck is discarded.
+578	The standard rules, 5 slots.
+580	The Bot starts with 3 Materials, 2 Population, 1 Progress and scores 1 point per group of 5 resources.
+582	Like Sovereign, with a 6th slot: 5 effects every turn.
+584	: keep the same nation and go up one level with each win. Five wins to win, four losses to lose. After a win, add to your starting deck a common card gained during the game, or remove a card from your starting deck. After a loss, the next game starts with double resources.
+585	With your box.
+586	Use the Bot State cards provided in Classics for your eight nations. The Resolve keyword only appears on Horizons State cards.
+587	A Bot card matches two lines of its table. Which one do you apply?
+588	Both
+589	The higher one, and the next only if nothing in the first can be resolved
+590	The one you choose
+591	One effect per card: the highest line of which at least part can be resolved.
+592	In solo, the Unrest pile runs out. Result?
+593	Compare Unrest
+594	I lose automatically
+595	I win automatically
+596	Against the Bot, a Collapse is always a loss for you.
+598	Review and reference
+599	Ten questions to check it all holds together, then the reminders to keep near the table.
+600	1 Progress pays for 1 Population or 2 Materials.
+601	The same card can only be played once per turn as a Free action.
+602	Each player resolves King of Kings only once per game.
+603	No Action and no Exhaust ability during the Solstice.
+604	A variable-points card caps at 10, Power card included.
+605	Solstice effects resolve simultaneously.
+606	Innovate from the Main deck: only for a Tributary or a category whose deck is empty.
+607	The Market always holds 5 cards, refilled at once.
+608	Acquiring a card other than a Region from the Exile pile also makes you Recover an Unrest.
+609	An icon Considered as another one is no longer the original icon, until the end of the turn.
+610	At the end of your turn: 1 Progress from the supply onto a Market card.
+611	Only Regions can be Recalled or Abandoned.
+612	The turn in one line
+613	Choose Activation, Research or Pacify. Then Cleanup: Progress to the Market, tokens back, free discard, draw to 5. End of round: Solstice.
+614	How many tokens do you usually have at the start of your turn?
+615	3 Actions and 5 Exhaust
+616	5 Actions and 3 Exhaust
+617	4 of each
+618	3 Action tokens and 5 Exhaust tokens on your State card.
+619	Which of these is not one of the three orders?
+621	The three orders are Activation, Research and Pacify.
+622	You Acquire a Region from the Market. Do you get an Unrest?

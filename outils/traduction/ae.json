@@ -1,0 +1,5292 @@
+[
+{
+"t": "width=device-width, initial-scale=1",
+"n": 1,
+"ctx": "\"utf-8\"> <meta name=\"viewport\" content=\""
+},
+{
+"t": "Marché d'Aeon's End",
+"n": 1,
+"ctx": "=device-width, initial-scale=1\"> <title>"
+},
+{
+"t": "Marché d'",
+"n": 1,
+"ctx": "e> </head> <body> <main> <header>   <h1>"
+},
+{
+"t": "Aeon's End",
+"n": 1,
+"ctx": "y> <main> <header>   <h1>Marché d'<span>"
+},
+{
+"t": "Neuf piles de gemmes, reliques et sorts tirées de tes 98 cartes. Choisis la répartition et le type de marché avant chaque combat.",
+"n": 1,
+"ctx": "ché d'<span>Aeon's End</span></h1>   <p>"
+},
+{
+"t": "Sections",
+"n": 1,
+"ctx": "class=\"tabs\" role=\"tablist\" aria-label=\""
+},
+{
+"t": "Nouveau marché",
+"n": 1,
+"ctx": "\"tab\" id=\"tab-gen\" aria-selected=\"true\">"
+},
+{
+"t": "Expédition",
+"n": 3,
+"ctx": "tab\" id=\"tab-exp\" aria-selected=\"false\">"
+},
+{
+"t": "Journal",
+"n": 1,
+"ctx": "ab\" id=\"tab-wins\" aria-selected=\"false\">"
+},
+{
+"t": "Quel marché pour ce combat&nbsp;?",
+"n": 1,
+"ctx": "\"> <section class=\"ask\" id=\"ask\">   <h2>"
+},
+{
+"t": "Némésis (facultatif)",
+"n": 1,
+"ctx": "s=\"fight\">     <label class=\"fld\"><span>"
+},
+{
+"t": "Mage 1",
+"n": 3,
+"ctx": "t></label>     <label class=\"fld\"><span>"
+},
+{
+"t": "Mage 2",
+"n": 3,
+"ctx": "t></label>     <label class=\"fld\"><span>"
+},
+{
+"t": "Répartition des 9 piles",
+"n": 1,
+"ctx": "fieldset class=\"dist\" id=\"dist\"><legend>"
+},
+{
+"t": "Le plus facile",
+"n": 2,
+"ctx": "t\" type=\"button\">       <span class=\"k\">"
+},
+{
+"t": "Optimisé",
+"n": 1,
+"ctx": "k\">Le plus facile</span><span class=\"t\">"
+},
+{
+"t": "Les meilleures cartes à chaque poste : économie rapide, épuration du deck, sorts d'ouverture et finisseurs.",
+"n": 1,
+"ctx": "\">Optimisé</span>       <span class=\"d\">"
+},
+{
+"t": "À toi de trouver",
+"n": 2,
+"ctx": "o\" type=\"button\">       <span class=\"k\">"
+},
+{
+"t": "Original",
+"n": 2,
+"ctx": ">À toi de trouver</span><span class=\"t\">"
+},
+{
+"t": "Un marché bâti autour d'une synergie cachée. L'indice reste masqué tant que tu ne le demandes pas.",
+"n": 1,
+"ctx": "\">Original</span>       <span class=\"d\">"
+},
+{
+"t": "Au hasard",
+"n": 3,
+"ctx": "d\" type=\"button\">       <span class=\"k\">"
+},
+{
+"t": "Full random",
+"n": 1,
+"ctx": "ass=\"k\">Au hasard</span><span class=\"t\">"
+},
+{
+"t": "Neuf cartes tirées sans aucun filtre. Tu fais avec ce qui sort.",
+"n": 1,
+"ctx": "ull random</span>       <span class=\"d\">"
+},
+{
+"t": "Thème du marché Original",
+"n": 1,
+"ctx": " class=\"opts\">     <label for=\"f-theme\">"
+},
+{
+"t": "Éviter les cartes des 3 derniers marchés",
+"n": 1,
+"ctx": "t type=\"checkbox\" id=\"f-fresh\" checked> "
+},
+{
+"t": "Boîtes utilisées",
+"n": 1,
+"ctx": "class=\"boxes\" id=\"boxes\">   <summary><b>"
+},
+{
+"t": "Nouveau combat",
+"n": 1,
+"ctx": "tn primary\" id=\"newfight\" type=\"button\">"
+},
+{
+"t": "Relancer ce mode",
+"n": 1,
+"ctx": "on class=\"btn\" id=\"again\" type=\"button\">"
+},
+{
+"t": "Copier la liste",
+"n": 2,
+"ctx": "ton class=\"btn\" id=\"copy\" type=\"button\">"
+},
+{
+"t": "Victoire",
+"n": 6,
+"ctx": "s=\"btn win-b\" id=\"logwin\" type=\"button\">"
+},
+{
+"t": "Défaite",
+"n": 6,
+"ctx": "\"btn loss-b\" id=\"logloss\" type=\"button\">"
+},
+{
+"t": "Némésis",
+"n": 2,
+"ctx": "m\" hidden>     <label class=\"fld\"><span>"
+},
+{
+"t": "Date",
+"n": 2,
+"ctx": "t></label>     <label class=\"fld\"><span>"
+},
+{
+"t": "Remarque (facultatif)",
+"n": 2,
+"ctx": "abel>     <label class=\"fld wide\"><span>"
+},
+{
+"t": "Enregistrer",
+"n": 1,
+"ctx": "\"btn primary\" type=\"submit\" id=\"l-save\">"
+},
+{
+"t": "Annuler",
+"n": 4,
+"ctx": "class=\"btn\" type=\"button\" id=\"l-cancel\">"
+},
+{
+"t": "Chargement de l'expédition…",
+"n": 2,
+"ctx": "hidden>   <div id=\"exp\"><p class=\"jmsg\">"
+},
+{
+"t": "Journal des combats",
+"n": 1,
+"ctx": "v class=\"wins-head xhead\">     <div><h2>"
+},
+{
+"t": "Chargement du journal…",
+"n": 2,
+"ctx": "nal des combats</h2>     <p id=\"winsum\">"
+},
+{
+"t": "Ajouter une partie",
+"n": 1,
+"ctx": "\"btn primary\" type=\"button\" id=\"a-open\">"
+},
+{
+"t": "Choisir des photos",
+"n": 1,
+"ctx": "       <label class=\"btn\" for=\"a-photo\">"
+},
+{
+"t": "Analyser",
+"n": 1,
+"ctx": "\" type=\"button\" id=\"a-analyze\" disabled>"
+},
+{
+"t": "Arrêter",
+"n": 1,
+"ctx": "=\"btn\" type=\"button\" id=\"a-stop\" hidden>"
+},
+{
+"t": "Prends la table en photo (marché, et si possible la némésis et les plateaux des mages). Je reconnais les cartes et je remplis la fiche ; tu vérifies avant d'enregistrer. Chaque analyse utilise un peu de ton usage de Claude.",
+"n": 1,
+"ctx": "utton>       <span class=\"st\" id=\"a-st\">"
+},
+{
+"t": "Résultat",
+"n": 1,
+"ctx": "=\"resrow\" role=\"radiogroup\" aria-label=\""
+},
+{
+"t": "Enregistrer la partie",
+"n": 1,
+"ctx": "\"btn primary\" type=\"submit\" id=\"a-save\">"
+},
+{
+"t": "Outil non officiel. Noms et coûts relevés sur tes cartes Tirage aléatoire. Les textes d'effet sont résumés : en cas de doute, la carte fait foi. Les notes de puissance et les profils de némésis et de mages sont une appréciation personnelle. Le mode Expédition suit un résumé des règles d'Une Ère Nouvelle.",
+"n": 1,
+"ctx": "ns\" id=\"wins\"></div> </div>  <footer>   "
+},
+{
+"t": "aeons-end-journal-v1",
+"n": 1,
+"ctx": "window.claude.use) return;   var KEY = \""
+},
+{
+"t": "null",
+"n": 2,
+"ctx": "SON.parse(localStorage.getItem(KEY) || \""
+},
+{
+"t": "object",
+"n": 1,
+"ctx": "null; }     if (!mem || typeof mem !== \""
+},
+{
+"t": "db",
+"n": 2,
+"ctx": "n(cap){ return Promise.resolve(cap === \""
+},
+{
+"t": "use strict",
+"n": 1,
+"ctx": ": null); } }; })(); </script> <script> \""
+},
+{
+"t": "ErraticIngot",
+"n": 1,
+"ctx": " */ const RAW = [ // Guerre Éternelle [\""
+},
+{
+"t": "Gem",
+"n": 42,
+"ctx": " [ // Guerre Éternelle [\"ErraticIngot\",\""
+},
+{
+"t": "WE",
+"n": 29,
+"ctx": "Guerre Éternelle [\"ErraticIngot\",\"Gem\",\""
+},
+{
+"t": "Lingot erratique",
+"n": 1,
+"ctx": "Éternelle [\"ErraticIngot\",\"Gem\",\"WE\",5,\""
+},
+{
+"t": "Erratic Ingot",
+"n": 1,
+"ctx": "Ingot\",\"Gem\",\"WE\",5,\"Lingot erratique\",\""
+},
+{
+"t": "Gagnez 2 Æ.|Gagnez 2 Æ supplémentaires s'il y a au moins une carte Ordre du tour de la némésis dans la défausse de l'ordre du tour.",
+"n": 1,
+"ctx": "\",5,\"Lingot erratique\",\"Erratic Ingot\",\""
+},
+{
+"t": "turn",
+"n": 7,
+"ctx": "ns la défausse de l'ordre du tour.\",4,[\""
+},
+{
+"t": "VolcanicGlass",
+"n": 1,
+"ctx": "sse de l'ordre du tour.\",4,[\"turn\"]], [\""
+},
+{
+"t": "Verre pyroclastique",
+"n": 1,
+"ctx": "turn\"]], [\"VolcanicGlass\",\"Gem\",\"WE\",3,\""
+},
+{
+"t": "Volcanic Glass",
+"n": 1,
+"ctx": "ss\",\"Gem\",\"WE\",3,\"Verre pyroclastique\",\""
+},
+{
+"t": "Quand vous gagnez cette carte pendant votre tour, vous pouvez dépenser 2 Æ : un allié gagne alors aussi un Verre pyroclastique et le place sur sa pioche.|Gagnez 2 Æ.",
+"n": 1,
+"ctx": "\"Verre pyroclastique\",\"Volcanic Glass\",\""
+},
+{
+"t": "coop",
+"n": 32,
+"ctx": "e place sur sa pioche.|Gagnez 2 Æ.\",3,[\""
+},
+{
+"t": "sup",
+"n": 21,
+"ctx": " sur sa pioche.|Gagnez 2 Æ.\",3,[\"coop\",\""
+},
+{
+"t": "BloodstoneJewel",
+"n": 1,
+"ctx": "oche.|Gagnez 2 Æ.\",3,[\"coop\",\"sup\"]], [\""
+},
+{
+"t": "Pierre de sang",
+"n": 1,
+"ctx": "up\"]], [\"BloodstoneJewel\",\"Gem\",\"WE\",6,\""
+},
+{
+"t": "Bloodstone Jewel",
+"n": 1,
+"ctx": "neJewel\",\"Gem\",\"WE\",6,\"Pierre de sang\",\""
+},
+{
+"t": "La première fois que vous gagnez une Pierre de sang pendant votre tour, gagnez 3 Æ.|Gagnez 3 Æ.",
+"n": 1,
+"ctx": ",6,\"Pierre de sang\",\"Bloodstone Jewel\",\""
+},
+{
+"t": "DreadDiamond",
+"n": 1,
+"ctx": " gagnez 3 Æ.|Gagnez 3 Æ.\",4,[\"sup\"]], [\""
+},
+{
+"t": "Diamant inquiétant",
+"n": 1,
+"ctx": "[\"sup\"]], [\"DreadDiamond\",\"Gem\",\"WE\",3,\""
+},
+{
+"t": "Dread Diamond",
+"n": 1,
+"ctx": "ond\",\"Gem\",\"WE\",3,\"Diamant inquiétant\",\""
+},
+{
+"t": "Gagnez 2 Æ.|Vous pouvez défausser un sort préparé : gagnez alors 1 Æ supplémentaire.",
+"n": 1,
+"ctx": "3,\"Diamant inquiétant\",\"Dread Diamond\",\""
+},
+{
+"t": "ScoriaSlag",
+"n": 1,
+"ctx": "nez alors 1 Æ supplémentaire.\",2,[]], [\""
+},
+{
+"t": "Bouquet de scories",
+"n": 1,
+"ctx": "re.\",2,[]], [\"ScoriaSlag\",\"Gem\",\"WE\",4,\""
+},
+{
+"t": "Scoria Slag",
+"n": 1,
+"ctx": "lag\",\"Gem\",\"WE\",4,\"Bouquet de scories\",\""
+},
+{
+"t": "Gagnez 2 Æ.|Si le palier de la némésis est 2 ou plus, gagnez 1 Æ supplémentaire.",
+"n": 1,
+"ctx": "\",4,\"Bouquet de scories\",\"Scoria Slag\",\""
+},
+{
+"t": "BreachOre",
+"n": 1,
+"ctx": "s, gagnez 1 Æ supplémentaire.\",3,[]], [\""
+},
+{
+"t": "Minerai de la brèche",
+"n": 1,
+"ctx": "ire.\",3,[]], [\"BreachOre\",\"Gem\",\"WE\",4,\""
+},
+{
+"t": "Breach Ore",
+"n": 1,
+"ctx": "e\",\"Gem\",\"WE\",4,\"Minerai de la brèche\",\""
+},
+{
+"t": "Gagnez 2 Æ.~Stabilisez votre brèche fermée au coût de stabilisation le plus bas.",
+"n": 1,
+"ctx": ",4,\"Minerai de la brèche\",\"Breach Ore\",\""
+},
+{
+"t": "br",
+"n": 35,
+"ctx": "coût de stabilisation le plus bas.\",3,[\""
+},
+{
+"t": "FrozenMagmite",
+"n": 1,
+"ctx": "tabilisation le plus bas.\",3,[\"br\"]], [\""
+},
+{
+"t": "Magnétite congelée",
+"n": 1,
+"ctx": "[\"br\"]], [\"FrozenMagmite\",\"Gem\",\"WE\",3,\""
+},
+{
+"t": "Frozen Magmite",
+"n": 1,
+"ctx": "ite\",\"Gem\",\"WE\",3,\"Magnétite congelée\",\""
+},
+{
+"t": "Gagnez 2 Æ.|Vous pouvez placer la prochaine carte que vous gagnez ce tour sur votre pioche.",
+"n": 1,
+"ctx": ",\"Magnétite congelée\",\"Frozen Magmite\",\""
+},
+{
+"t": "VortexGauntlet",
+"n": 1,
+"ctx": "e tour sur votre pioche.\",3,[\"sup\"]], [\""
+},
+{
+"t": "Relic",
+"n": 39,
+"ctx": "pioche.\",3,[\"sup\"]], [\"VortexGauntlet\",\""
+},
+{
+"t": "Gantelet de vorticité",
+"n": 1,
+"ctx": "p\"]], [\"VortexGauntlet\",\"Relic\",\"WE\",6,\""
+},
+{
+"t": "Vortex Gauntlet",
+"n": 1,
+"ctx": "\"Relic\",\"WE\",6,\"Gantelet de vorticité\",\""
+},
+{
+"t": "Lancez un sort préparé de n'importe quel joueur.|Ce sort retourne dans la main de ce joueur.",
+"n": 1,
+"ctx": "ntelet de vorticité\",\"Vortex Gauntlet\",\""
+},
+{
+"t": "amp",
+"n": 25,
+"ctx": "etourne dans la main de ce joueur.\",4,[\""
+},
+{
+"t": "CairnCompass",
+"n": 1,
+"ctx": "ns la main de ce joueur.\",4,[\"amp\"]], [\""
+},
+{
+"t": "Boussole de cairn",
+"n": 1,
+"ctx": "amp\"]], [\"CairnCompass\",\"Relic\",\"WE\",4,\""
+},
+{
+"t": "Cairn Compass",
+"n": 1,
+"ctx": "ss\",\"Relic\",\"WE\",4,\"Boussole de cairn\",\""
+},
+{
+"t": "Un allié peut préparer un sort de sa défausse sur ses brèches ouvertes ou fermées.",
+"n": 1,
+"ctx": ",4,\"Boussole de cairn\",\"Cairn Compass\",\""
+},
+{
+"t": "FiendCatcher",
+"n": 1,
+"ctx": "ertes ou fermées.\",3,[\"amp\",\"coop\"]], [\""
+},
+{
+"t": "Attrapeur de démons",
+"n": 1,
+"ctx": "oop\"]], [\"FiendCatcher\",\"Relic\",\"WE\",3,\""
+},
+{
+"t": "Fiend Catcher",
+"n": 1,
+"ctx": "\",\"Relic\",\"WE\",3,\"Attrapeur de démons\",\""
+},
+{
+"t": "Vous pouvez détruire une carte de votre main ou de votre défausse.|Révélez la carte du dessus du deck Ordre du tour. Si c'est une carte de la némésis, vous pouvez la placer sous ce deck.",
+"n": 1,
+"ctx": ",\"Attrapeur de démons\",\"Fiend Catcher\",\""
+},
+{
+"t": "thin",
+"n": 22,
+"ctx": "ous pouvez la placer sous ce deck.\",4,[\""
+},
+{
+"t": "ConclaveScroll",
+"n": 1,
+"ctx": "er sous ce deck.\",4,[\"thin\",\"turn\"]], [\""
+},
+{
+"t": "Parchemin du conclave",
+"n": 1,
+"ctx": "n\"]], [\"ConclaveScroll\",\"Relic\",\"WE\",3,\""
+},
+{
+"t": "Conclave Scroll",
+"n": 1,
+"ctx": "\"Relic\",\"WE\",3,\"Parchemin du conclave\",\""
+},
+{
+"t": "Gagnez 1 charge.|Si la pile de réserve de cette carte est vide, vous pouvez détruire la carte du dessus de la défausse d'un allié.",
+"n": 1,
+"ctx": "rchemin du conclave\",\"Conclave Scroll\",\""
+},
+{
+"t": "ch",
+"n": 31,
+"ctx": " dessus de la défausse d'un allié.\",3,[\""
+},
+{
+"t": "PrimordialFetish",
+"n": 1,
+"ctx": " d'un allié.\",3,[\"ch\",\"sup\",\"thin\"]], [\""
+},
+{
+"t": "Fétiche primordial",
+"n": 1,
+"ctx": "]], [\"PrimordialFetish\",\"Relic\",\"WE\",4,\""
+},
+{
+"t": "Primordial Fetish",
+"n": 1,
+"ctx": "h\",\"Relic\",\"WE\",4,\"Fétiche primordial\",\""
+},
+{
+"t": "Stabilisez la brèche de n'importe quel joueur.~Détruisez cette carte. Gagnez 3 vies.",
+"n": 1,
+"ctx": "étiche primordial\",\"Primordial Fetish\",\""
+},
+{
+"t": "surv",
+"n": 17,
+"ctx": "z cette carte. Gagnez 3 vies.\",3,[\"br\",\""
+},
+{
+"t": "MagesTotem",
+"n": 1,
+"ctx": "te. Gagnez 3 vies.\",3,[\"br\",\"surv\"]], [\""
+},
+{
+"t": "Totem de mage",
+"n": 1,
+"ctx": "\"surv\"]], [\"MagesTotem\",\"Relic\",\"WE\",2,\""
+},
+{
+"t": "Mage's Totem",
+"n": 1,
+"ctx": "sTotem\",\"Relic\",\"WE\",2,\"Totem de mage\",\""
+},
+{
+"t": "Détruisez une gemme ou une relique que vous avez jouée ce tour.~Détruisez cette carte. Gravehold gagne 1 vie.",
+"n": 1,
+"ctx": ",\"WE\",2,\"Totem de mage\",\"Mage's Totem\",\""
+},
+{
+"t": "ReduceToAsh",
+"n": 1,
+"ctx": "old gagne 1 vie.\",4,[\"thin\",\"surv\"]], [\""
+},
+{
+"t": "Spell",
+"n": 72,
+"ctx": "e.\",4,[\"thin\",\"surv\"]], [\"ReduceToAsh\",\""
+},
+{
+"t": "Retour à la poussière",
+"n": 1,
+"ctx": "surv\"]], [\"ReduceToAsh\",\"Spell\",\"WE\",7,\""
+},
+{
+"t": "Reduce to Ash",
+"n": 1,
+"ctx": "\"Spell\",\"WE\",7,\"Retour à la poussière\",\""
+},
+{
+"t": "Tant que ce sort est préparé, au début de votre phase d'incantation, révélez la carte du dessus de votre pioche. Vous pouvez la détruire.|Lancer : infligez 4 dégâts.",
+"n": 1,
+"ctx": "Retour à la poussière\",\"Reduce to Ash\",\""
+},
+{
+"t": "Carbonize",
+"n": 2,
+"ctx": "er : infligez 4 dégâts.\",3,[\"thin\"]], [\""
+},
+{
+"t": "Carbonisation",
+"n": 1,
+"ctx": "[\"thin\"]], [\"Carbonize\",\"Spell\",\"WE\",4,\""
+},
+{
+"t": "Lancer : infligez 3 dégâts.|Révélez la carte du dessus du deck Ordre du tour. Vous pouvez la placer sous ce deck.",
+"n": 1,
+"ctx": "ll\",\"WE\",4,\"Carbonisation\",\"Carbonize\",\""
+},
+{
+"t": "Equilibrium",
+"n": 2,
+"ctx": "la placer sous ce deck.\",4,[\"turn\"]], [\""
+},
+{
+"t": "Équilibre",
+"n": 1,
+"ctx": "turn\"]], [\"Equilibrium\",\"Spell\",\"WE\",7,\""
+},
+{
+"t": "Tant que ce sort est préparé, quand vous subissez des dégâts, réduisez-les de 1 (minimum 1).|Lancer : infligez 4 dégâts.",
+"n": 1,
+"ctx": "pell\",\"WE\",7,\"Équilibre\",\"Equilibrium\",\""
+},
+{
+"t": "ConvectionField",
+"n": 1,
+"ctx": "er : infligez 4 dégâts.\",3,[\"surv\"]], [\""
+},
+{
+"t": "Champ de convection",
+"n": 1,
+"ctx": "\"]], [\"ConvectionField\",\"Spell\",\"WE\",5,\""
+},
+{
+"t": "Convection Field",
+"n": 1,
+"ctx": "\",\"Spell\",\"WE\",5,\"Champ de convection\",\""
+},
+{
+"t": "Lancer : infligez 4 dégâts.~Lancer : infligez 2 dégâts. Un allié peut détruire une carte de sa main.",
+"n": 1,
+"ctx": "hamp de convection\",\"Convection Field\",\""
+},
+{
+"t": "JaggedLightning",
+"n": 1,
+"ctx": "arte de sa main.\",4,[\"thin\",\"coop\"]], [\""
+},
+{
+"t": "Éclair déchirant",
+"n": 1,
+"ctx": "\"]], [\"JaggedLightning\",\"Spell\",\"WE\",4,\""
+},
+{
+"t": "Jagged Lightning",
+"n": 1,
+"ctx": "ing\",\"Spell\",\"WE\",4,\"Éclair déchirant\",\""
+},
+{
+"t": "Lancer : infligez 3 dégâts.|Vous pouvez défausser une carte de votre main : un joueur stabilise alors sa brèche fermée au coût de stabilisation le plus bas.",
+"n": 1,
+"ctx": ",\"Éclair déchirant\",\"Jagged Lightning\",\""
+},
+{
+"t": "Kindle",
+"n": 2,
+"ctx": "tabilisation le plus bas.\",3,[\"br\"]], [\""
+},
+{
+"t": "Mèche",
+"n": 1,
+"ctx": ".\",3,[\"br\"]], [\"Kindle\",\"Spell\",\"WE\",4,\""
+},
+{
+"t": "Tant que ce sort est préparé, pendant votre phase principale, vous pouvez aussi préparer une Étincelle sur la même brèche.|Lancer : infligez 3 dégâts.",
+"n": 1,
+"ctx": "indle\",\"Spell\",\"WE\",4,\"Mèche\",\"Kindle\",\""
+},
+{
+"t": "zero",
+"n": 6,
+"ctx": "rèche.|Lancer : infligez 3 dégâts.\",4,[\""
+},
+{
+"t": "ThoughtformFamiliar",
+"n": 1,
+"ctx": "ez 3 dégâts.\",4,[\"zero\",\"br\",\"amp\"]], [\""
+},
+{
+"t": "Familier imaginaire",
+"n": 1,
+"ctx": " [\"ThoughtformFamiliar\",\"Spell\",\"WE\",3,\""
+},
+{
+"t": "Thoughtform Familiar",
+"n": 1,
+"ctx": "\",\"Spell\",\"WE\",3,\"Familier imaginaire\",\""
+},
+{
+"t": "Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire pour chacun de vos autres sorts préparés.",
+"n": 1,
+"ctx": "ier imaginaire\",\"Thoughtform Familiar\",\""
+},
+{
+"t": "Crystallize",
+"n": 2,
+"ctx": "os autres sorts préparés.\",4,[\"br\"]], [\""
+},
+{
+"t": "Cristallisation",
+"n": 1,
+"ctx": "[\"br\"]], [\"Crystallize\",\"Spell\",\"WE\",8,\""
+},
+{
+"t": "Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : un allié révèle sa main. Infligez 2 dégâts par gemme dans la main de cet allié.",
+"n": 1,
+"ctx": "\"WE\",8,\"Cristallisation\",\"Crystallize\",\""
+},
+{
+"t": "FieryTorrent",
+"n": 1,
+"ctx": "main de cet allié.\",3,[\"br\",\"coop\"]], [\""
+},
+{
+"t": "Torrent ardent",
+"n": 1,
+"ctx": "oop\"]], [\"FieryTorrent\",\"Spell\",\"WE\",5,\""
+},
+{
+"t": "Fiery Torrent",
+"n": 1,
+"ctx": "rrent\",\"Spell\",\"WE\",5,\"Torrent ardent\",\""
+},
+{
+"t": "Lancer : infligez 2 dégâts.|Infligez 2 dégâts supplémentaires pour chaque autre Torrent ardent préparé par n'importe quel joueur.",
+"n": 1,
+"ctx": "WE\",5,\"Torrent ardent\",\"Fiery Torrent\",\""
+},
+{
+"t": "CelestialSpire",
+"n": 1,
+"ctx": "orte quel joueur.\",3,[\"amp\",\"coop\"]], [\""
+},
+{
+"t": "Flèche céleste",
+"n": 1,
+"ctx": "p\"]], [\"CelestialSpire\",\"Spell\",\"WE\",5,\""
+},
+{
+"t": "Celestial Spire",
+"n": 1,
+"ctx": "Spire\",\"Spell\",\"WE\",5,\"Flèche céleste\",\""
+},
+{
+"t": "Lancer : infligez 3 dégâts.|Si la pile de réserve de cette carte est vide, un allié pioche une carte.",
+"n": 1,
+"ctx": "\",5,\"Flèche céleste\",\"Celestial Spire\",\""
+},
+{
+"t": "ConjureTheLost",
+"n": 1,
+"ctx": "pioche une carte.\",3,[\"sup\",\"coop\"]], [\""
+},
+{
+"t": "Conjuration des oubliés",
+"n": 1,
+"ctx": "p\"]], [\"ConjureTheLost\",\"Spell\",\"WE\",6,\""
+},
+{
+"t": "Conjure the Lost",
+"n": 1,
+"ctx": "pell\",\"WE\",6,\"Conjuration des oubliés\",\""
+},
+{
+"t": "Lancer : infligez 5 dégâts.|Vous pouvez détruire cette carte : Gravehold gagne alors 4 vies.",
+"n": 1,
+"ctx": "ration des oubliés\",\"Conjure the Lost\",\""
+},
+{
+"t": "NovaForge",
+"n": 1,
+"ctx": "old gagne alors 4 vies.\",4,[\"surv\"]], [\""
+},
+{
+"t": "Forge Nova",
+"n": 1,
+"ctx": "[\"surv\"]], [\"NovaForge\",\"Spell\",\"WE\",6,\""
+},
+{
+"t": "Nova Forge",
+"n": 1,
+"ctx": "NovaForge\",\"Spell\",\"WE\",6,\"Forge Nova\",\""
+},
+{
+"t": "Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 2 Æ utilisables uniquement pour gagner un sort.|Lancer : infligez 4 dégâts.",
+"n": 1,
+"ctx": "pell\",\"WE\",6,\"Forge Nova\",\"Nova Forge\",\""
+},
+{
+"t": "PyrotechnicSurge",
+"n": 1,
+"ctx": "cer : infligez 4 dégâts.\",4,[\"sup\"]], [\""
+},
+{
+"t": "Afflux pyrotechnique",
+"n": 1,
+"ctx": "]], [\"PyrotechnicSurge\",\"Spell\",\"WE\",4,\""
+},
+{
+"t": "Pyrotechnic Surge",
+"n": 1,
+"ctx": ",\"Spell\",\"WE\",4,\"Afflux pyrotechnique\",\""
+},
+{
+"t": "Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : infligez 4 dégâts. Vous pouvez détruire une carte de votre défausse.",
+"n": 1,
+"ctx": "lux pyrotechnique\",\"Pyrotechnic Surge\",\""
+},
+{
+"t": "Aurora",
+"n": 2,
+"ctx": "de votre défausse.\",4,[\"br\",\"thin\"]], [\""
+},
+{
+"t": "Aurore",
+"n": 1,
+"ctx": "br\",\"thin\"]], [\"Aurora\",\"Spell\",\"WE\",5,\""
+},
+{
+"t": "Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 charge.|Lancer : infligez 3 dégâts.",
+"n": 1,
+"ctx": "rora\",\"Spell\",\"WE\",5,\"Aurore\",\"Aurora\",\""
+},
+{
+"t": "AlienElement",
+"n": 1,
+"ctx": "s.\",4,[\"ch\"]], // Ténèbres d'ailleurs [\""
+},
+{
+"t": "OD",
+"n": 13,
+"ctx": "èbres d'ailleurs [\"AlienElement\",\"Gem\",\""
+},
+{
+"t": "Élément Extraterrestre",
+"n": 1,
+"ctx": "'ailleurs [\"AlienElement\",\"Gem\",\"OD\",4,\""
+},
+{
+"t": "Alien Element",
+"n": 1,
+"ctx": ",\"Gem\",\"OD\",4,\"Élément Extraterrestre\",\""
+},
+{
+"t": "Gagnez 1 Æ.|Gagnez 1 Æ supplémentaire pour chacune de vos brèches où un sort est préparé.",
+"n": 1,
+"ctx": "lément Extraterrestre\",\"Alien Element\",\""
+},
+{
+"t": "PainStone",
+"n": 1,
+"ctx": "s où un sort est préparé.\",3,[\"br\"]], [\""
+},
+{
+"t": "Pierre de Douleur",
+"n": 1,
+"ctx": "\",3,[\"br\"]], [\"PainStone\",\"Gem\",\"OD\",6,\""
+},
+{
+"t": "Pain Stone",
+"n": 1,
+"ctx": "tone\",\"Gem\",\"OD\",6,\"Pierre de Douleur\",\""
+},
+{
+"t": "Gagnez 3 Æ.~Gagnez 2 Æ et infligez 1 dégât.",
+"n": 1,
+"ctx": "OD\",6,\"Pierre de Douleur\",\"Pain Stone\",\""
+},
+{
+"t": "min",
+"n": 13,
+"ctx": "Æ.~Gagnez 2 Æ et infligez 1 dégât.\",4,[\""
+},
+{
+"t": "HauntedBerylite",
+"n": 1,
+"ctx": "2 Æ et infligez 1 dégât.\",4,[\"min\"]], [\""
+},
+{
+"t": "Berylite Hantée",
+"n": 1,
+"ctx": "in\"]], [\"HauntedBerylite\",\"Gem\",\"OD\",3,\""
+},
+{
+"t": "Haunted Berylite",
+"n": 1,
+"ctx": "rylite\",\"Gem\",\"OD\",3,\"Berylite Hantée\",\""
+},
+{
+"t": "Gagnez 2 Æ.~Défaussez une carte de votre main : gagnez alors 2 charges.",
+"n": 1,
+"ctx": "3,\"Berylite Hantée\",\"Haunted Berylite\",\""
+},
+{
+"t": "AstralCube",
+"n": 1,
+"ctx": ": gagnez alors 2 charges.\",4,[\"ch\"]], [\""
+},
+{
+"t": "Cube Astral",
+"n": 1,
+"ctx": ",[\"ch\"]], [\"AstralCube\",\"Relic\",\"OD\",5,\""
+},
+{
+"t": "Astral Cube",
+"n": 1,
+"ctx": "tralCube\",\"Relic\",\"OD\",5,\"Cube Astral\",\""
+},
+{
+"t": "Reprenez en main une gemme que vous avez jouée ce tour.|Révélez la carte du dessus du deck Ordre du tour. Si c'est la carte d'un joueur, ce joueur gagne 1 vie.",
+"n": 1,
+"ctx": "ic\",\"OD\",5,\"Cube Astral\",\"Astral Cube\",\""
+},
+{
+"t": "RiddleSphere",
+"n": 1,
+"ctx": "eur gagne 1 vie.\",4,[\"turn\",\"surv\"]], [\""
+},
+{
+"t": "Sphère des Secrets",
+"n": 1,
+"ctx": "urv\"]], [\"RiddleSphere\",\"Relic\",\"OD\",3,\""
+},
+{
+"t": "Riddlesphere",
+"n": 1,
+"ctx": "e\",\"Relic\",\"OD\",3,\"Sphère des Secrets\",\""
+},
+{
+"t": "Gagnez 1 charge.~Vous pouvez perdre 2 charges : gagnez alors 5 Æ.",
+"n": 1,
+"ctx": ",3,\"Sphère des Secrets\",\"Riddlesphere\",\""
+},
+{
+"t": "Char",
+"n": 2,
+"ctx": "arges : gagnez alors 5 Æ.\",3,[\"ch\"]], [\""
+},
+{
+"t": "Carboniser",
+"n": 1,
+"ctx": " Æ.\",3,[\"ch\"]], [\"Char\",\"Spell\",\"OD\",8,\""
+},
+{
+"t": "Lancer : infligez 6 dégâts.|Si ces dégâts font défausser un serviteur, un joueur gagne 2 vies.",
+"n": 1,
+"ctx": "ar\",\"Spell\",\"OD\",8,\"Carboniser\",\"Char\",\""
+},
+{
+"t": "Scorch",
+"n": 2,
+"ctx": "eur gagne 2 vies.\",4,[\"min\",\"surv\"]], [\""
+},
+{
+"t": "Calciner",
+"n": 1,
+"ctx": "in\",\"surv\"]], [\"Scorch\",\"Spell\",\"OD\",5,\""
+},
+{
+"t": "Lancer : infligez 4 dégâts.|Si ces dégâts font défausser un serviteur issu du deck Némésis, un allié gagne 2 charges.",
+"n": 1,
+"ctx": "ch\",\"Spell\",\"OD\",5,\"Calciner\",\"Scorch\",\""
+},
+{
+"t": "Pyromancy",
+"n": 2,
+"ctx": "e 2 charges.\",4,[\"min\",\"ch\",\"coop\"]], [\""
+},
+{
+"t": "Pyromancie",
+"n": 1,
+"ctx": ",\"coop\"]], [\"Pyromancy\",\"Spell\",\"OD\",7,\""
+},
+{
+"t": "Lancer : infligez 1 dégât.|Les alliés peuvent défausser ensemble jusqu'à deux cartes de leur main. Infligez 3 dégâts supplémentaires par carte ainsi défaussée.",
+"n": 1,
+"ctx": "Spell\",\"OD\",7,\"Pyromancie\",\"Pyromancy\",\""
+},
+{
+"t": "FeedbackAura",
+"n": 1,
+"ctx": " carte ainsi défaussée.\",3,[\"coop\"]], [\""
+},
+{
+"t": "Aura de Réaction",
+"n": 1,
+"ctx": "oop\"]], [\"FeedbackAura\",\"Spell\",\"OD\",5,\""
+},
+{
+"t": "Feedback Aura",
+"n": 1,
+"ctx": "ura\",\"Spell\",\"OD\",5,\"Aura de Réaction\",\""
+},
+{
+"t": "Lancer : infligez 3 dégâts.|Si vous avez 4 charges ou plus, infligez 3 dégâts supplémentaires.",
+"n": 1,
+"ctx": "\",5,\"Aura de Réaction\",\"Feedback Aura\",\""
+},
+{
+"t": "Catalyst",
+"n": 2,
+"ctx": "3 dégâts supplémentaires.\",3,[\"ch\"]], [\""
+},
+{
+"t": "Catalyseur",
+"n": 1,
+"ctx": ",3,[\"ch\"]], [\"Catalyst\",\"Spell\",\"OD\",6,\""
+},
+{
+"t": "Lancer : infligez 2 dégâts.|Si vous avez 2 vies ou moins, infligez 5 dégâts supplémentaires.",
+"n": 1,
+"ctx": "\"Spell\",\"OD\",6,\"Catalyseur\",\"Catalyst\",\""
+},
+{
+"t": "NetherConduit",
+"n": 2,
+"ctx": "dégâts supplémentaires.\",2,[\"surv\"]], [\""
+},
+{
+"t": "Conduit du Néant",
+"n": 1,
+"ctx": "rv\"]], [\"NetherConduit\",\"Spell\",\"OD\",7,\""
+},
+{
+"t": "Nether Conduit",
+"n": 1,
+"ctx": "uit\",\"Spell\",\"OD\",7,\"Conduit du Néant\",\""
+},
+{
+"t": "Lancer : révélez une carte de votre main qui coûte 2 Æ ou plus. Infligez autant de dégâts qu'il manque de cartes dans sa pile de réserve. Un allié peut ensuite gagner une carte de cette pile.|(Piles de gemmes : 7 cartes au départ. Reliques et sorts : 5.)",
+"n": 1,
+"ctx": ",7,\"Conduit du Néant\",\"Nether Conduit\",\""
+},
+{
+"t": "LurkingSionite",
+"n": 1,
+"ctx": ",[\"sup\",\"coop\"]], // Une Ère Nouvelle [\""
+},
+{
+"t": "NA",
+"n": 24,
+"ctx": "e Ère Nouvelle [\"LurkingSionite\",\"Gem\",\""
+},
+{
+"t": "Sionite de l'ombre",
+"n": 1,
+"ctx": "ouvelle [\"LurkingSionite\",\"Gem\",\"NA\",3,\""
+},
+{
+"t": "Lurking Sionite",
+"n": 1,
+"ctx": "ite\",\"Gem\",\"NA\",3,\"Sionite de l'ombre\",\""
+},
+{
+"t": "Gagnez 2 Æ.|S'il y a une Sionite de l'ombre dans la défausse d'un allié, gagnez 1 Æ supplémentaire.",
+"n": 1,
+"ctx": "\"Sionite de l'ombre\",\"Lurking Sionite\",\""
+},
+{
+"t": "UnrefinedBlaststone",
+"n": 2,
+"ctx": "nez 1 Æ supplémentaire.\",3,[\"coop\"]], [\""
+},
+{
+"t": "Explosite brute",
+"n": 1,
+"ctx": "], [\"UnrefinedBlaststone\",\"Gem\",\"NA\",6,\""
+},
+{
+"t": "Unrefined Blaststone",
+"n": 1,
+"ctx": "tstone\",\"Gem\",\"NA\",6,\"Explosite brute\",\""
+},
+{
+"t": "Gagnez 3 Æ.~Détruisez une carte de la pile de réserve de cette carte : infligez alors 3 dégâts.",
+"n": 1,
+"ctx": "xplosite brute\",\"Unrefined Blaststone\",\""
+},
+{
+"t": "Exogranite",
+"n": 3,
+"ctx": "infligez alors 3 dégâts.\",4,[\"sup\"]], [\""
+},
+{
+"t": "Gagnez 2 Æ.~Détruisez cette carte. Gagnez 3 Æ.",
+"n": 1,
+"ctx": "\"Gem\",\"NA\",3,\"Exogranite\",\"Exogranite\",\""
+},
+{
+"t": "RecurringJasper",
+"n": 1,
+"ctx": "ette carte. Gagnez 3 Æ.\",3,[\"thin\"]], [\""
+},
+{
+"t": "Jaspe périodique",
+"n": 1,
+"ctx": "in\"]], [\"RecurringJasper\",\"Gem\",\"NA\",4,\""
+},
+{
+"t": "Recurring Jasper",
+"n": 1,
+"ctx": "asper\",\"Gem\",\"NA\",4,\"Jaspe périodique\",\""
+},
+{
+"t": "Gagnez 2 Æ.|Si la carte du dessus de votre défausse est un sort, vous pouvez placer cette gemme sur votre pioche.",
+"n": 1,
+"ctx": ",\"Jaspe périodique\",\"Recurring Jasper\",\""
+},
+{
+"t": "EnergizedRubidium",
+"n": 1,
+"ctx": "cette gemme sur votre pioche.\",3,[]], [\""
+},
+{
+"t": "Rubidium énergisé",
+"n": 1,
+"ctx": "[]], [\"EnergizedRubidium\",\"Gem\",\"NA\",5,\""
+},
+{
+"t": "Energized Rubidium",
+"n": 1,
+"ctx": "dium\",\"Gem\",\"NA\",5,\"Rubidium énergisé\",\""
+},
+{
+"t": "Gagnez 3 Æ.|Un allié peut défausser une carte de sa main : il gagne alors 1 charge.",
+"n": 1,
+"ctx": "ubidium énergisé\",\"Energized Rubidium\",\""
+},
+{
+"t": "ResonantPearl",
+"n": 1,
+"ctx": "ne alors 1 charge.\",4,[\"ch\",\"coop\"]], [\""
+},
+{
+"t": "Perle résonnante",
+"n": 1,
+"ctx": "coop\"]], [\"ResonantPearl\",\"Gem\",\"NA\",3,\""
+},
+{
+"t": "Resonant Pearl",
+"n": 1,
+"ctx": "Pearl\",\"Gem\",\"NA\",3,\"Perle résonnante\",\""
+},
+{
+"t": "Gagnez 2 Æ.|Un allié peut défausser une Perle résonnante de sa main et piocher une carte : gagnez alors 1 Æ supplémentaire.",
+"n": 1,
+"ctx": ",3,\"Perle résonnante\",\"Resonant Pearl\",\""
+},
+{
+"t": "CagedFire",
+"n": 1,
+"ctx": "ors 1 Æ supplémentaire.\",3,[\"coop\"]], [\""
+},
+{
+"t": "Feu en cage",
+"n": 1,
+"ctx": "[\"coop\"]], [\"CagedFire\",\"Relic\",\"NA\",3,\""
+},
+{
+"t": "Caged Fire",
+"n": 1,
+"ctx": "agedFire\",\"Relic\",\"NA\",3,\"Feu en cage\",\""
+},
+{
+"t": "Détruisez la carte du dessus de la défausse de n'importe quel joueur.~Détruisez cette carte. Gagnez 2 vies.",
+"n": 1,
+"ctx": "lic\",\"NA\",3,\"Feu en cage\",\"Caged Fire\",\""
+},
+{
+"t": "GalvanizedBauble",
+"n": 1,
+"ctx": ". Gagnez 2 vies.\",4,[\"thin\",\"surv\"]], [\""
+},
+{
+"t": "Babiole galvanisée",
+"n": 1,
+"ctx": "]], [\"GalvanizedBauble\",\"Relic\",\"NA\",3,\""
+},
+{
+"t": "Galvanized Bauble",
+"n": 1,
+"ctx": "e\",\"Relic\",\"NA\",3,\"Babiole galvanisée\",\""
+},
+{
+"t": "Stabilisez la brèche d'un allié.~Lancez un sort préparé de n'importe quel joueur. Vous pouvez le détruire.",
+"n": 1,
+"ctx": "abiole galvanisée\",\"Galvanized Bauble\",\""
+},
+{
+"t": "AetherConduit",
+"n": 1,
+"ctx": "uire.\",4,[\"br\",\"amp\",\"coop\",\"thin\"]], [\""
+},
+{
+"t": "Conduit d'éther",
+"n": 1,
+"ctx": "in\"]], [\"AetherConduit\",\"Relic\",\"NA\",4,\""
+},
+{
+"t": "Aether Conduit",
+"n": 1,
+"ctx": "duit\",\"Relic\",\"NA\",4,\"Conduit d'éther\",\""
+},
+{
+"t": "Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, le joueur qui l'a lancé gagne 1 Æ.",
+"n": 1,
+"ctx": "\",4,\"Conduit d'éther\",\"Aether Conduit\",\""
+},
+{
+"t": "WellOfEnergy",
+"n": 1,
+"ctx": "'a lancé gagne 1 Æ.\",3,[\"amp\",\"br\"]], [\""
+},
+{
+"t": "Puits d'énergie",
+"n": 1,
+"ctx": "\"br\"]], [\"WellOfEnergy\",\"Relic\",\"NA\",7,\""
+},
+{
+"t": "Well of Energy",
+"n": 1,
+"ctx": "ergy\",\"Relic\",\"NA\",7,\"Puits d'énergie\",\""
+},
+{
+"t": "Gravehold gagne 2 vies.~Un joueur gagne 2 vies.",
+"n": 1,
+"ctx": "\",7,\"Puits d'énergie\",\"Well of Energy\",\""
+},
+{
+"t": "PainConduit",
+"n": 1,
+"ctx": "Un joueur gagne 2 vies.\",3,[\"surv\"]], [\""
+},
+{
+"t": "Conduit de douleur",
+"n": 1,
+"ctx": "surv\"]], [\"PainConduit\",\"Relic\",\"NA\",3,\""
+},
+{
+"t": "Pain Conduit",
+"n": 1,
+"ctx": "t\",\"Relic\",\"NA\",3,\"Conduit de douleur\",\""
+},
+{
+"t": "Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, il inflige 2 dégâts supplémentaires, puis défaussez cette carte.",
+"n": 1,
+"ctx": ",3,\"Conduit de douleur\",\"Pain Conduit\",\""
+},
+{
+"t": "LinkConduit",
+"n": 1,
+"ctx": "s défaussez cette carte.\",3,[\"amp\"]], [\""
+},
+{
+"t": "Conduit de lien",
+"n": 1,
+"ctx": "\"amp\"]], [\"LinkConduit\",\"Relic\",\"NA\",6,\""
+},
+{
+"t": "Link Conduit",
+"n": 1,
+"ctx": "duit\",\"Relic\",\"NA\",6,\"Conduit de lien\",\""
+},
+{
+"t": "Connectez cette carte à la brèche de n'importe quel joueur.|Deux sorts peuvent être préparés sur cette brèche.",
+"n": 1,
+"ctx": "NA\",6,\"Conduit de lien\",\"Link Conduit\",\""
+},
+{
+"t": "MarbleGalaxy",
+"n": 1,
+"ctx": "s sur cette brèche.\",3,[\"amp\",\"br\"]], [\""
+},
+{
+"t": "Galaxie de poche",
+"n": 1,
+"ctx": "\"br\"]], [\"MarbleGalaxy\",\"Relic\",\"NA\",2,\""
+},
+{
+"t": "Marble Galaxy",
+"n": 1,
+"ctx": "axy\",\"Relic\",\"NA\",2,\"Galaxie de poche\",\""
+},
+{
+"t": "Un allié peut défausser une Galaxie de poche de sa main et piocher une carte.|Gagnez 1 charge ou stabilisez votre brèche fermée au coût de stabilisation le plus bas. Si un allié a défaussé une Galaxie de poche, appliquez les deux effets.",
+"n": 1,
+"ctx": "\",2,\"Galaxie de poche\",\"Marble Galaxy\",\""
+},
+{
+"t": "DelugeOfPower",
+"n": 1,
+"ctx": " deux effets.\",3,[\"ch\",\"br\",\"coop\"]], [\""
+},
+{
+"t": "Déluge de puissance",
+"n": 1,
+"ctx": "op\"]], [\"DelugeOfPower\",\"Spell\",\"NA\",6,\""
+},
+{
+"t": "Deluge of Power",
+"n": 1,
+"ctx": "\",\"Spell\",\"NA\",6,\"Déluge de puissance\",\""
+},
+{
+"t": "Lancer : infligez 4 dégâts.|Un allié peut défausser jusqu'à deux cartes de sa main. Il pioche une carte par carte ainsi défaussée.",
+"n": 1,
+"ctx": "Déluge de puissance\",\"Deluge of Power\",\""
+},
+{
+"t": "mem",
+"n": 8,
+"ctx": " par carte ainsi défaussée.\",3,[\"coop\",\""
+},
+{
+"t": "ReverberatingShock",
+"n": 2,
+"ctx": " ainsi défaussée.\",3,[\"coop\",\"mem\"]], [\""
+},
+{
+"t": "Choc répercuté",
+"n": 1,
+"ctx": ", [\"ReverberatingShock\",\"Spell\",\"NA\",4,\""
+},
+{
+"t": "Reverberating Shock",
+"n": 1,
+"ctx": "Shock\",\"Spell\",\"NA\",4,\"Choc répercuté\",\""
+},
+{
+"t": "Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 1 dégât. Gagnez 1 Æ utilisable uniquement pour gagner des cartes.",
+"n": 1,
+"ctx": "\"Choc répercuté\",\"Reverberating Shock\",\""
+},
+{
+"t": "FatalHarmony",
+"n": 1,
+"ctx": "gagner des cartes.\",3,[\"amp\",\"sup\"]], [\""
+},
+{
+"t": "Symbiose léthale",
+"n": 1,
+"ctx": "sup\"]], [\"FatalHarmony\",\"Spell\",\"NA\",5,\""
+},
+{
+"t": "Fatal Harmony",
+"n": 1,
+"ctx": "ony\",\"Spell\",\"NA\",5,\"Symbiose léthale\",\""
+},
+{
+"t": "Lancer : infligez 4 dégâts.|Un allié peut défausser une Symbiose léthale de sa main et piocher une carte : infligez alors 3 dégâts.|(Les bonus de dégâts s'appliquent aux deux.)",
+"n": 1,
+"ctx": "\",5,\"Symbiose léthale\",\"Fatal Harmony\",\""
+},
+{
+"t": "BouncingBoom",
+"n": 2,
+"ctx": "iquent aux deux.)\",3,[\"coop\",\"amp\"]], [\""
+},
+{
+"t": "Rebonds explosifs",
+"n": 1,
+"ctx": "amp\"]], [\"BouncingBoom\",\"Spell\",\"NA\",6,\""
+},
+{
+"t": "Bouncing Boom",
+"n": 1,
+"ctx": "om\",\"Spell\",\"NA\",6,\"Rebonds explosifs\",\""
+},
+{
+"t": "Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 2 dégâts.",
+"n": 1,
+"ctx": ",6,\"Rebonds explosifs\",\"Bouncing Boom\",\""
+},
+{
+"t": "SpiritLift",
+"n": 1,
+"ctx": "cer : infligez 2 dégâts.\",3,[\"amp\"]], [\""
+},
+{
+"t": "Ascension spirituelle",
+"n": 1,
+"ctx": "[\"amp\"]], [\"SpiritLift\",\"Spell\",\"NA\",8,\""
+},
+{
+"t": "Spirit Lift",
+"n": 1,
+"ctx": "\"Spell\",\"NA\",8,\"Ascension spirituelle\",\""
+},
+{
+"t": "Tant que ce sort est préparé, une fois pendant votre tour, quand vous gagnez une charge, un allié gagne 2 charges.|Lancer : infligez 5 dégâts.",
+"n": 1,
+"ctx": ",\"Ascension spirituelle\",\"Spirit Lift\",\""
+},
+{
+"t": "TetheredDarts",
+"n": 1,
+"ctx": "infligez 5 dégâts.\",4,[\"ch\",\"coop\"]], [\""
+},
+{
+"t": "Épines en chaîne",
+"n": 1,
+"ctx": "op\"]], [\"TetheredDarts\",\"Spell\",\"NA\",3,\""
+},
+{
+"t": "Tethered Darts",
+"n": 1,
+"ctx": "rts\",\"Spell\",\"NA\",3,\"Épines en chaîne\",\""
+},
+{
+"t": "Lancer : infligez 2 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, vous pouvez le placer dans la main d'un allié.",
+"n": 1,
+"ctx": ",3,\"Épines en chaîne\",\"Tethered Darts\",\""
+},
+{
+"t": "ForceAmplifier",
+"n": 1,
+"ctx": "a main d'un allié.\",2,[\"br\",\"coop\"]], [\""
+},
+{
+"t": "Décuple-force",
+"n": 1,
+"ctx": "p\"]], [\"ForceAmplifier\",\"Spell\",\"NA\",4,\""
+},
+{
+"t": "Force Amplifier",
+"n": 1,
+"ctx": "lifier\",\"Spell\",\"NA\",4,\"Décuple-force\",\""
+},
+{
+"t": "Lancer : infligez 3 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, infligez 1 dégât supplémentaire.",
+"n": 1,
+"ctx": "A\",4,\"Décuple-force\",\"Force Amplifier\",\""
+},
+{
+"t": "ImbuedSmash",
+"n": 1,
+"ctx": "z 1 dégât supplémentaire.\",4,[\"br\"]], [\""
+},
+{
+"t": "Impact concentré",
+"n": 1,
+"ctx": "[\"br\"]], [\"ImbuedSmash\",\"Spell\",\"NA\",5,\""
+},
+{
+"t": "Imbued Smash",
+"n": 1,
+"ctx": "ash\",\"Spell\",\"NA\",5,\"Impact concentré\",\""
+},
+{
+"t": "Lancer : infligez 4 dégâts.|Vous pouvez défausser une carte de votre main : infligez alors 2 dégâts à la némésis.|(Les bonus de dégâts s'appliquent aux deux.)",
+"n": 1,
+"ctx": "A\",5,\"Impact concentré\",\"Imbued Smash\",\""
+},
+{
+"t": "PatternStrike",
+"n": 1,
+"ctx": " s'appliquent aux deux.)\",4,[\"amp\"]], [\""
+},
+{
+"t": "Frappe calculée",
+"n": 1,
+"ctx": "mp\"]], [\"PatternStrike\",\"Spell\",\"NA\",7,\""
+},
+{
+"t": "Pattern Strike",
+"n": 1,
+"ctx": "rike\",\"Spell\",\"NA\",7,\"Frappe calculée\",\""
+},
+{
+"t": "Lancer : infligez 4 dégâts.|Vous pouvez reprendre en main jusqu'à deux cartes de votre défausse qui coûtent 0 Æ.",
+"n": 1,
+"ctx": "\",7,\"Frappe calculée\",\"Pattern Strike\",\""
+},
+{
+"t": "ShiningFluorite",
+"n": 1,
+"ctx": ".\",3,[\"zero\"]], // De Vieux Souvenirs [\""
+},
+{
+"t": "TA",
+"n": 9,
+"ctx": "eux Souvenirs [\"ShiningFluorite\",\"Gem\",\""
+},
+{
+"t": "Fluorite lumineuse",
+"n": 1,
+"ctx": "venirs [\"ShiningFluorite\",\"Gem\",\"TA\",7,\""
+},
+{
+"t": "Shining Fluorite",
+"n": 1,
+"ctx": "ite\",\"Gem\",\"TA\",7,\"Fluorite lumineuse\",\""
+},
+{
+"t": "Gagnez 3 Æ.|Placez dans votre main le prochain sort que vous gagnez ce tour.",
+"n": 1,
+"ctx": "Fluorite lumineuse\",\"Shining Fluorite\",\""
+},
+{
+"t": "PolyphaseTurbine",
+"n": 1,
+"ctx": "que vous gagnez ce tour.\",3,[\"sup\"]], [\""
+},
+{
+"t": "Turbine polyphasée",
+"n": 1,
+"ctx": "]], [\"PolyphaseTurbine\",\"Relic\",\"TA\",3,\""
+},
+{
+"t": "Polyphase Turbine",
+"n": 1,
+"ctx": "e\",\"Relic\",\"TA\",3,\"Turbine polyphasée\",\""
+},
+{
+"t": "Si c'est la première Turbine polyphasée que vous jouez ce tour, gagnez 2 Æ. Sinon, gagnez 1 charge et 1 Æ.",
+"n": 1,
+"ctx": "urbine polyphasée\",\"Polyphase Turbine\",\""
+},
+{
+"t": "BreachExtractor",
+"n": 1,
+"ctx": ", gagnez 1 charge et 1 Æ.\",4,[\"ch\"]], [\""
+},
+{
+"t": "Extracteur de brèche",
+"n": 1,
+"ctx": "\"]], [\"BreachExtractor\",\"Relic\",\"TA\",5,\""
+},
+{
+"t": "Breach Extractor",
+"n": 1,
+"ctx": ",\"Relic\",\"TA\",5,\"Extracteur de brèche\",\""
+},
+{
+"t": "Un joueur détruit jusqu'à deux cartes de sa main.~Détruisez cette carte. Gravehold gagne 3 vies.",
+"n": 1,
+"ctx": "tracteur de brèche\",\"Breach Extractor\",\""
+},
+{
+"t": "FocusingConduit",
+"n": 1,
+"ctx": "ld gagne 3 vies.\",4,[\"thin\",\"surv\"]], [\""
+},
+{
+"t": "Conduit de stabilisation",
+"n": 1,
+"ctx": "\"]], [\"FocusingConduit\",\"Relic\",\"TA\",5,\""
+},
+{
+"t": "Focusing Conduit",
+"n": 1,
+"ctx": "lic\",\"TA\",5,\"Conduit de stabilisation\",\""
+},
+{
+"t": "Connectez cette carte à la brèche de n'importe quel joueur.|À la fin de la phase d'incantation de ce joueur, stabilisez cette brèche. Quand elle est ouverte, détruisez cette carte.",
+"n": 1,
+"ctx": "t de stabilisation\",\"Focusing Conduit\",\""
+},
+{
+"t": "DualFlash",
+"n": 1,
+"ctx": "e, détruisez cette carte.\",4,[\"br\"]], [\""
+},
+{
+"t": "Double détonation",
+"n": 1,
+"ctx": "4,[\"br\"]], [\"DualFlash\",\"Spell\",\"TA\",3,\""
+},
+{
+"t": "Dual Flash",
+"n": 1,
+"ctx": "sh\",\"Spell\",\"TA\",3,\"Double détonation\",\""
+},
+{
+"t": "Lancer : infligez 2 dégâts.|Si c'est la première Double détonation que vous lancez pendant cette phase d'incantation, vous pouvez lancer la Double détonation préparée d'un joueur sans le défausser.",
+"n": 1,
+"ctx": "TA\",3,\"Double détonation\",\"Dual Flash\",\""
+},
+{
+"t": "DustCaller",
+"n": 1,
+"ctx": "ans le défausser.\",3,[\"amp\",\"coop\"]], [\""
+},
+{
+"t": "Invoque-débris",
+"n": 1,
+"ctx": "\"coop\"]], [\"DustCaller\",\"Spell\",\"TA\",5,\""
+},
+{
+"t": "Dust Caller",
+"n": 1,
+"ctx": "aller\",\"Spell\",\"TA\",5,\"Invoque-débris\",\""
+},
+{
+"t": "Lancer : infligez 4 dégâts.|Un allié reprend en main une carte de sa défausse qui coûte 0 Æ.",
+"n": 1,
+"ctx": ",\"TA\",5,\"Invoque-débris\",\"Dust Caller\",\""
+},
+{
+"t": "SymbioticSynapse",
+"n": 1,
+"ctx": "e qui coûte 0 Æ.\",4,[\"zero\",\"coop\"]], [\""
+},
+{
+"t": "Synapse symbiotique",
+"n": 1,
+"ctx": "]], [\"SymbioticSynapse\",\"Spell\",\"TA\",7,\""
+},
+{
+"t": "Symbiotic Synapse",
+"n": 1,
+"ctx": "\",\"Spell\",\"TA\",7,\"Synapse symbiotique\",\""
+},
+{
+"t": "S'il y a une autre Synapse symbiotique dans la défausse d'un joueur, ce sort gagne Écho.|Lancer : infligez 4 dégâts.",
+"n": 1,
+"ctx": "napse symbiotique\",\"Symbiotic Synapse\",\""
+},
+{
+"t": "GlassEyedOracle",
+"n": 1,
+"ctx": "s.\",4,[\"amp\"]], // Retour à Gravehold [\""
+},
+{
+"t": "RTG",
+"n": 5,
+"ctx": "à Gravehold [\"GlassEyedOracle\",\"Relic\",\""
+},
+{
+"t": "Oracle de verre",
+"n": 1,
+"ctx": "old [\"GlassEyedOracle\",\"Relic\",\"RTG\",1,\""
+},
+{
+"t": "Glass-Eyed Oracle",
+"n": 1,
+"ctx": "cle\",\"Relic\",\"RTG\",1,\"Oracle de verre\",\""
+},
+{
+"t": "Gagnez 1 Æ.~Détruisez cette carte et autant d'exemplaires que vous voulez dans votre main. Vous pouvez gagner une carte dont le coût ne dépasse pas trois fois le nombre d'exemplaires détruits.",
+"n": 1,
+"ctx": ",\"Oracle de verre\",\"Glass-Eyed Oracle\",\""
+},
+{
+"t": "Cleanse",
+"n": 2,
+"ctx": "plaires détruits.\",3,[\"thin\",\"sup\"]], [\""
+},
+{
+"t": "Purge",
+"n": 1,
+"ctx": "n\",\"sup\"]], [\"Cleanse\",\"Spell\",\"RTG\",4,\""
+},
+{
+"t": "Lancer : infligez 3 dégâts.|Si vous avez 3 vies ou moins, gagnez 1 vie.",
+"n": 1,
+"ctx": "nse\",\"Spell\",\"RTG\",4,\"Purge\",\"Cleanse\",\""
+},
+{
+"t": "MemoryBreak",
+"n": 1,
+"ctx": "ou moins, gagnez 1 vie.\",3,[\"surv\"]], [\""
+},
+{
+"t": "Brise-mémoire",
+"n": 1,
+"ctx": "urv\"]], [\"MemoryBreak\",\"Spell\",\"RTG\",6,\""
+},
+{
+"t": "Memory Break",
+"n": 1,
+"ctx": "Break\",\"Spell\",\"RTG\",6,\"Brise-mémoire\",\""
+},
+{
+"t": "Lancer : infligez 3 dégâts.|Vous pouvez détruire une carte de votre main : infligez alors des dégâts supplémentaires égaux à son coût.",
+"n": 1,
+"ctx": "\"RTG\",6,\"Brise-mémoire\",\"Memory Break\",\""
+},
+{
+"t": "FracturedQuartz",
+"n": 2,
+"ctx": "n coût.\",4,[\"thin\"]], // Cartes promo [\""
+},
+{
+"t": "PR",
+"n": 7,
+"ctx": " Cartes promo [\"FracturedQuartz\",\"Gem\",\""
+},
+{
+"t": "Quartz fracturé",
+"n": 1,
+"ctx": " promo [\"FracturedQuartz\",\"Gem\",\"PR\",4,\""
+},
+{
+"t": "Gagnez 2 Æ.|Vous pouvez détruire deux cartes de la pile de réserve de cette carte : gagnez alors 1 Æ supplémentaire.",
+"n": 1,
+"ctx": "rtz\",\"Gem\",\"PR\",4,\"Quartz fracturé\",\"\",\""
+},
+{
+"t": "CombustionAbacus",
+"n": 1,
+"ctx": "lors 1 Æ supplémentaire.\",3,[\"sup\"]], [\""
+},
+{
+"t": "Boulier de combustion",
+"n": 1,
+"ctx": "]], [\"CombustionAbacus\",\"Relic\",\"PR\",4,\""
+},
+{
+"t": "Vous pouvez lancer le sort préparé d'un allié.|Un allié pioche une carte.",
+"n": 1,
+"ctx": "lic\",\"PR\",4,\"Boulier de combustion\",\"\",\""
+},
+{
+"t": "GemSlingshot",
+"n": 1,
+"ctx": "pioche une carte.\",4,[\"amp\",\"coop\"]], [\""
+},
+{
+"t": "Lance-pierres précieuses",
+"n": 1,
+"ctx": "oop\"]], [\"GemSlingshot\",\"Relic\",\"PR\",3,\""
+},
+{
+"t": "Défaussez ou détruisez une carte de votre main : infligez alors autant de dégâts que son coût.",
+"n": 1,
+"ctx": "\",\"PR\",3,\"Lance-pierres précieuses\",\"\",\""
+},
+{
+"t": "ThievingSpirit",
+"n": 1,
+"ctx": "de dégâts que son coût.\",4,[\"thin\"]], [\""
+},
+{
+"t": "Esprit voleur",
+"n": 1,
+"ctx": "n\"]], [\"ThievingSpirit\",\"Spell\",\"PR\",5,\""
+},
+{
+"t": "Lancer : infligez 4 dégâts.|Gagnez 1 Æ.",
+"n": 1,
+"ctx": "rit\",\"Spell\",\"PR\",5,\"Esprit voleur\",\"\",\""
+},
+{
+"t": "LightingFlame",
+"n": 1,
+"ctx": "nfligez 4 dégâts.|Gagnez 1 Æ.\",4,[]], [\""
+},
+{
+"t": "Flamme éclairante",
+"n": 1,
+"ctx": "4,[]], [\"LightingFlame\",\"Spell\",\"PR\",6,\""
+},
+{
+"t": "Lancer : infligez 5 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, vous pouvez le détruire : gagnez alors 3 charges.",
+"n": 1,
+"ctx": ",\"Spell\",\"PR\",6,\"Flamme éclairante\",\"\",\""
+},
+{
+"t": "TemporalArc",
+"n": 1,
+"ctx": "nez alors 3 charges.\",4,[\"br\",\"ch\"]], [\""
+},
+{
+"t": "Arc temporel",
+"n": 1,
+"ctx": ",\"ch\"]], [\"TemporalArc\",\"Spell\",\"PR\",7,\""
+},
+{
+"t": "Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : infligez 4 dégâts. Vous pouvez placer cette carte dans votre main.",
+"n": 1,
+"ctx": "lArc\",\"Spell\",\"PR\",7,\"Arc temporel\",\"\",\""
+},
+{
+"t": "DiamondCluster",
+"n": 1,
+"ctx": "\"br\",\"amp\"]], // Boîte de base (amie) [\""
+},
+{
+"t": "BASE",
+"n": 30,
+"ctx": "de base (amie) [\"DiamondCluster\",\"Gem\",\""
+},
+{
+"t": "Agrégat de diamants",
+"n": 1,
+"ctx": "amie) [\"DiamondCluster\",\"Gem\",\"BASE\",4,\""
+},
+{
+"t": "Gagnez 2 Æ.|Si c'est le deuxième Agrégat de diamants que vous jouez ce tour, gagnez 2 Æ supplémentaires.",
+"n": 1,
+"ctx": "Gem\",\"BASE\",4,\"Agrégat de diamants\",\"\",\""
+},
+{
+"t": "SearingRuby",
+"n": 1,
+"ctx": ", gagnez 2 Æ supplémentaires.\",4,[]], [\""
+},
+{
+"t": "Rubis fulgurant",
+"n": 1,
+"ctx": "\",4,[]], [\"SearingRuby\",\"Gem\",\"BASE\",4,\""
+},
+{
+"t": "Gagnez 2 Æ.|Gagnez 1 Æ supplémentaire utilisable uniquement pour gagner un sort.",
+"n": 1,
+"ctx": "y\",\"Gem\",\"BASE\",4,\"Rubis fulgurant\",\"\",\""
+},
+{
+"t": "BurningOpal",
+"n": 1,
+"ctx": "ent pour gagner un sort.\",3,[\"sup\"]], [\""
+},
+{
+"t": "Opale brûlante",
+"n": 1,
+"ctx": "\"sup\"]], [\"BurningOpal\",\"Gem\",\"BASE\",5,\""
+},
+{
+"t": "Gagnez 3 Æ.|Vous pouvez défausser une carte de votre main : un allié pioche alors une carte.",
+"n": 1,
+"ctx": "al\",\"Gem\",\"BASE\",5,\"Opale brûlante\",\"\",\""
+},
+{
+"t": "CloudedSapphire",
+"n": 1,
+"ctx": "pioche alors une carte.\",4,[\"coop\"]], [\""
+},
+{
+"t": "Saphir nuageux",
+"n": 1,
+"ctx": "\"]], [\"CloudedSapphire\",\"Gem\",\"BASE\",6,\""
+},
+{
+"t": "Gagnez 3 Æ.|Si c'est le premier Saphir nuageux que vous jouez ce tour, un allié gagne 1 charge.",
+"n": 1,
+"ctx": "re\",\"Gem\",\"BASE\",6,\"Saphir nuageux\",\"\",\""
+},
+{
+"t": "Jade",
+"n": 2,
+"ctx": "ié gagne 1 charge.\",4,[\"ch\",\"coop\"]], [\""
+},
+{
+"t": "Gagnez 2 Æ.",
+"n": 1,
+"ctx": "p\"]], [\"Jade\",\"Gem\",\"BASE\",2,\"Jade\",\"\",\""
+},
+{
+"t": "VriswoodAmber",
+"n": 1,
+"ctx": "ASE\",2,\"Jade\",\"\",\"Gagnez 2 Æ.\",4,[]], [\""
+},
+{
+"t": "Ambre de V'risbois",
+"n": 1,
+"ctx": "4,[]], [\"VriswoodAmber\",\"Gem\",\"BASE\",3,\""
+},
+{
+"t": "Quand vous gagnez cette carte, vous pouvez la placer sur votre pioche.|Gagnez 2 Æ.",
+"n": 1,
+"ctx": "\"Gem\",\"BASE\",3,\"Ambre de V'risbois\",\"\",\""
+},
+{
+"t": "SiftersPearl",
+"n": 1,
+"ctx": "otre pioche.|Gagnez 2 Æ.\",3,[\"sup\"]], [\""
+},
+{
+"t": "Perle filtrante",
+"n": 1,
+"ctx": "sup\"]], [\"SiftersPearl\",\"Gem\",\"BASE\",3,\""
+},
+{
+"t": "Gagnez 2 Æ.|Chaque joueur révèle la carte du dessus de sa pioche, puis la défausse ou la replace.",
+"n": 1,
+"ctx": "l\",\"Gem\",\"BASE\",3,\"Perle filtrante\",\"\",\""
+},
+{
+"t": "UnstablePrism",
+"n": 1,
+"ctx": "défausse ou la replace.\",3,[\"coop\"]], [\""
+},
+{
+"t": "Prisme instable",
+"n": 1,
+"ctx": "\"]], [\"UnstablePrism\",\"Relic\",\"BASE\",3,\""
+},
+{
+"t": "Jouez deux fois une gemme de votre main, puis détruisez-la.~Gagnez 2 Æ.",
+"n": 1,
+"ctx": ",\"Relic\",\"BASE\",3,\"Prisme instable\",\"\",\""
+},
+{
+"t": "MagesTalisman",
+"n": 1,
+"ctx": "truisez-la.~Gagnez 2 Æ.\",4,[\"thin\"]], [\""
+},
+{
+"t": "Talisman de mage",
+"n": 1,
+"ctx": "\"]], [\"MagesTalisman\",\"Relic\",\"BASE\",5,\""
+},
+{
+"t": "Gagnez 1 charge.|Un allié gagne 1 charge.",
+"n": 1,
+"ctx": "\"Relic\",\"BASE\",5,\"Talisman de mage\",\"\",\""
+},
+{
+"t": "FlexingDagger",
+"n": 1,
+"ctx": "ié gagne 1 charge.\",3,[\"ch\",\"coop\"]], [\""
+},
+{
+"t": "Dague fléchissante",
+"n": 1,
+"ctx": "\"]], [\"FlexingDagger\",\"Relic\",\"BASE\",2,\""
+},
+{
+"t": "La prochaine fois que vous stabilisez ou ouvrez une brèche ce tour, cela coûte 3 Æ de moins.~Détruisez cette carte. Infligez 1 dégât.",
+"n": 1,
+"ctx": "elic\",\"BASE\",2,\"Dague fléchissante\",\"\",\""
+},
+{
+"t": "BottledVortex",
+"n": 1,
+"ctx": " carte. Infligez 1 dégât.\",3,[\"br\"]], [\""
+},
+{
+"t": "Vortex en bouteille",
+"n": 1,
+"ctx": "\"]], [\"BottledVortex\",\"Relic\",\"BASE\",3,\""
+},
+{
+"t": "Détruisez cette carte. Détruisez jusqu'à deux cartes de votre main ou de votre défausse. Piochez une carte.",
+"n": 1,
+"ctx": "lic\",\"BASE\",3,\"Vortex en bouteille\",\"\",\""
+},
+{
+"t": "BlastingStaff",
+"n": 1,
+"ctx": "sse. Piochez une carte.\",4,[\"thin\"]], [\""
+},
+{
+"t": "Bâton d'explosion",
+"n": 1,
+"ctx": "\"]], [\"BlastingStaff\",\"Relic\",\"BASE\",4,\""
+},
+{
+"t": "Vous pouvez lancer un sort que vous avez préparé ce tour : il inflige alors 2 dégâts supplémentaires.",
+"n": 1,
+"ctx": "Relic\",\"BASE\",4,\"Bâton d'explosion\",\"\",\""
+},
+{
+"t": "FocusingOrb",
+"n": 1,
+"ctx": " dégâts supplémentaires.\",4,[\"amp\"]], [\""
+},
+{
+"t": "Orbe de stabilisation",
+"n": 1,
+"ctx": "mp\"]], [\"FocusingOrb\",\"Relic\",\"BASE\",4,\""
+},
+{
+"t": "Stabilisez la brèche de n'importe quel joueur.~Détruisez cette carte. Gravehold gagne 3 vies.",
+"n": 1,
+"ctx": "c\",\"BASE\",4,\"Orbe de stabilisation\",\"\",\""
+},
+{
+"t": "ChaosArc",
+"n": 1,
+"ctx": "hold gagne 3 vies.\",3,[\"br\",\"surv\"]], [\""
+},
+{
+"t": "Arc chaotique",
+"n": 1,
+"ctx": "\"surv\"]], [\"ChaosArc\",\"Spell\",\"BASE\",6,\""
+},
+{
+"t": "Lancer : infligez 3 dégâts.|Infligez 2 dégâts supplémentaires pour chaque sort préparé sur une brèche adjacente.",
+"n": 1,
+"ctx": "c\",\"Spell\",\"BASE\",6,\"Arc chaotique\",\"\",\""
+},
+{
+"t": "Ignite",
+"n": 1,
+"ctx": "sur une brèche adjacente.\",4,[\"br\"]], [\""
+},
+{
+"t": "Mise à feu",
+"n": 1,
+"ctx": ",4,[\"br\"]], [\"Ignite\",\"Spell\",\"BASE\",4,\""
+},
+{
+"t": "Lancer : infligez 2 dégâts.|Un allié gagne 1 charge.",
+"n": 1,
+"ctx": "nite\",\"Spell\",\"BASE\",4,\"Mise à feu\",\"\",\""
+},
+{
+"t": "EssenceTheft",
+"n": 1,
+"ctx": "ié gagne 1 charge.\",4,[\"ch\",\"coop\"]], [\""
+},
+{
+"t": "Vol d'essence",
+"n": 1,
+"ctx": "p\"]], [\"EssenceTheft\",\"Spell\",\"BASE\",5,\""
+},
+{
+"t": "Lancer : infligez 3 dégâts.|Vous pouvez défausser une carte de votre main : un joueur gagne alors 1 vie.",
+"n": 1,
+"ctx": "t\",\"Spell\",\"BASE\",5,\"Vol d'essence\",\"\",\""
+},
+{
+"t": "FeralLightning",
+"n": 1,
+"ctx": "ueur gagne alors 1 vie.\",3,[\"surv\"]], [\""
+},
+{
+"t": "Éclair enragé",
+"n": 1,
+"ctx": "]], [\"FeralLightning\",\"Spell\",\"BASE\",5,\""
+},
+{
+"t": "Ce sort peut être préparé sur une brèche fermée sans la stabiliser.|Lancer : infligez 3 dégâts.",
+"n": 1,
+"ctx": "g\",\"Spell\",\"BASE\",5,\"Éclair enragé\",\"\",\""
+},
+{
+"t": "PlanarInsight",
+"n": 1,
+"ctx": "ncer : infligez 3 dégâts.\",3,[\"br\"]], [\""
+},
+{
+"t": "Aperçu planaire",
+"n": 1,
+"ctx": "\"]], [\"PlanarInsight\",\"Spell\",\"BASE\",6,\""
+},
+{
+"t": "Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire pour chacune de vos brèches ouvertes.",
+"n": 1,
+"ctx": ",\"Spell\",\"BASE\",6,\"Aperçu planaire\",\"\",\""
+},
+{
+"t": "SpectralEcho",
+"n": 1,
+"ctx": " de vos brèches ouvertes.\",4,[\"br\"]], [\""
+},
+{
+"t": "Écho spectral",
+"n": 1,
+"ctx": "r\"]], [\"SpectralEcho\",\"Spell\",\"BASE\",3,\""
+},
+{
+"t": "Lancer : infligez 2 dégâts.|Vous pouvez détruire une carte de votre main.",
+"n": 1,
+"ctx": "o\",\"Spell\",\"BASE\",3,\"Écho spectral\",\"\",\""
+},
+{
+"t": "ConsumingVoid",
+"n": 1,
+"ctx": "ne carte de votre main.\",4,[\"thin\"]], [\""
+},
+{
+"t": "Vide dévorant",
+"n": 1,
+"ctx": "\"]], [\"ConsumingVoid\",\"Spell\",\"BASE\",7,\""
+},
+{
+"t": "Lancer : détruisez jusqu'à deux cartes de votre main. Infligez 3 dégâts par carte ainsi détruite.",
+"n": 1,
+"ctx": "d\",\"Spell\",\"BASE\",7,\"Vide dévorant\",\"\",\""
+},
+{
+"t": "LavaTendril",
+"n": 1,
+"ctx": "r carte ainsi détruite.\",3,[\"thin\"]], [\""
+},
+{
+"t": "Tentacule de lave",
+"n": 1,
+"ctx": "in\"]], [\"LavaTendril\",\"Spell\",\"BASE\",4,\""
+},
+{
+"t": "Tant que ce sort est préparé, à la fin de votre phase d'incantation, infligez 1 dégât.|Lancer : infligez 3 dégâts.",
+"n": 1,
+"ctx": "Spell\",\"BASE\",4,\"Tentacule de lave\",\"\",\""
+},
+{
+"t": "ArcaneNexus",
+"n": 1,
+"ctx": "cer : infligez 3 dégâts.\",4,[\"min\"]], [\""
+},
+{
+"t": "Nexus des arcanes",
+"n": 1,
+"ctx": "in\"]], [\"ArcaneNexus\",\"Spell\",\"BASE\",7,\""
+},
+{
+"t": "Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez reprendre en main une gemme jouée ce tour.|Lancer : infligez 4 dégâts.",
+"n": 1,
+"ctx": "Spell\",\"BASE\",7,\"Nexus des arcanes\",\"\",\""
+},
+{
+"t": "DarkFire",
+"n": 1,
+"ctx": ".|Lancer : infligez 4 dégâts.\",4,[]], [\""
+},
+{
+"t": "Feu obscur",
+"n": 1,
+"ctx": ".\",4,[]], [\"DarkFire\",\"Spell\",\"BASE\",5,\""
+},
+{
+"t": "Lancer : défaussez jusqu'à deux cartes de votre main. Infligez 3 dégâts par carte ainsi défaussée.",
+"n": 1,
+"ctx": "Fire\",\"Spell\",\"BASE\",5,\"Feu obscur\",\"\",\""
+},
+{
+"t": "PhoenixFlame",
+"n": 1,
+"ctx": "ts par carte ainsi défaussée.\",4,[]], [\""
+},
+{
+"t": "Flamme du phénix",
+"n": 1,
+"ctx": ",[]], [\"PhoenixFlame\",\"Spell\",\"BASE\",3,\""
+},
+{
+"t": "Lancer : infligez 2 dégâts.|Vous pouvez perdre 1 charge pour infliger 2 dégâts supplémentaires.",
+"n": 1,
+"ctx": "\"Spell\",\"BASE\",3,\"Flamme du phénix\",\"\",\""
+},
+{
+"t": "AmplifyVision",
+"n": 1,
+"ctx": "2 dégâts supplémentaires.\",3,[\"ch\"]], [\""
+},
+{
+"t": "Vision amplifiée",
+"n": 1,
+"ctx": "\"]], [\"AmplifyVision\",\"Spell\",\"BASE\",4,\""
+},
+{
+"t": "Lancer : stabilisez votre brèche fermée au coût de stabilisation le plus bas. Infligez 2 dégâts. Si toutes vos brèches sont ouvertes, infligez 1 dégât supplémentaire.",
+"n": 1,
+"ctx": "\"Spell\",\"BASE\",4,\"Vision amplifiée\",\"\",\""
+},
+{
+"t": "WildfireWhip",
+"n": 1,
+"ctx": "z 1 dégât supplémentaire.\",4,[\"br\"]], [\""
+},
+{
+"t": "Fouet ardent",
+"n": 1,
+"ctx": "r\"]], [\"WildfireWhip\",\"Spell\",\"BASE\",6,\""
+},
+{
+"t": "Tant que ce sort est préparé, pendant votre phase principale, vous pouvez dépenser 2 Æ pour lancer le sort préparé de n'importe quel joueur.|Lancer : infligez 4 dégâts.",
+"n": 1,
+"ctx": "ip\",\"Spell\",\"BASE\",6,\"Fouet ardent\",\"\",\""
+},
+{
+"t": "OblivionSwell",
+"n": 1,
+"ctx": "cer : infligez 4 dégâts.\",4,[\"amp\"]], [\""
+},
+{
+"t": "Vague d'oubli",
+"n": 1,
+"ctx": "\"]], [\"OblivionSwell\",\"Spell\",\"BASE\",5,\""
+},
+{
+"t": "Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 Æ.|Lancer : infligez 2 dégâts. Vous pouvez défausser une gemme : infligez alors des dégâts supplémentaires égaux à son coût.",
+"n": 1,
+"ctx": "l\",\"Spell\",\"BASE\",5,\"Vague d'oubli\",\"\",\""
+},
+{
+"t": "TripliteCore",
+"n": 1,
+"ctx": " son coût.\",3,[]], // Secrets enfouis [\""
+},
+{
+"t": "BS",
+"n": 24,
+"ctx": " Secrets enfouis [\"TripliteCore\",\"Gem\",\""
+},
+{
+"t": "Noyau de Triplite",
+"n": 1,
+"ctx": "s enfouis [\"TripliteCore\",\"Gem\",\"BS\",4,\""
+},
+{
+"t": "Triplite Core",
+"n": 1,
+"ctx": "Core\",\"Gem\",\"BS\",4,\"Noyau de Triplite\",\""
+},
+{
+"t": "Gagnez 3 Æ utilisables uniquement pour gagner des cartes.",
+"n": 1,
+"ctx": ",4,\"Noyau de Triplite\",\"Triplite Core\",\""
+},
+{
+"t": "ObliviumResin",
+"n": 1,
+"ctx": " pour gagner des cartes.\",4,[\"sup\"]], [\""
+},
+{
+"t": "Résine d'Oubli",
+"n": 1,
+"ctx": "\"sup\"]], [\"ObliviumResin\",\"Gem\",\"BS\",5,\""
+},
+{
+"t": "Oblivium Resin",
+"n": 1,
+"ctx": "umResin\",\"Gem\",\"BS\",5,\"Résine d'Oubli\",\""
+},
+{
+"t": "Gagnez 2 Æ.|Si vous avez en main trois cartes ou plus qui coûtent 0 Æ, gagnez 2 Æ supplémentaires.",
+"n": 1,
+"ctx": "S\",5,\"Résine d'Oubli\",\"Oblivium Resin\",\""
+},
+{
+"t": "Summonite",
+"n": 2,
+"ctx": "ez 2 Æ supplémentaires.\",3,[\"zero\"]], [\""
+},
+{
+"t": "Invoquine",
+"n": 1,
+"ctx": "3,[\"zero\"]], [\"Summonite\",\"Gem\",\"BS\",3,\""
+},
+{
+"t": "Gagnez 2 Æ.~Gagnez une Invoquine de la réserve et placez-la sur la défausse d'un allié.",
+"n": 1,
+"ctx": "\",\"Gem\",\"BS\",3,\"Invoquine\",\"Summonite\",\""
+},
+{
+"t": "JoltingCrust",
+"n": 1,
+"ctx": "ausse d'un allié.\",3,[\"coop\",\"sup\"]], [\""
+},
+{
+"t": "Voltécorce",
+"n": 1,
+"ctx": ",\"sup\"]], [\"JoltingCrust\",\"Gem\",\"BS\",3,\""
+},
+{
+"t": "Jolting Crust",
+"n": 1,
+"ctx": "oltingCrust\",\"Gem\",\"BS\",3,\"Voltécorce\",\""
+},
+{
+"t": "Gagnez 2 Æ. Gagnez 1 jeton Pulsation.~Gagnez 2 Æ. Perdez 1 jeton Pulsation : gagnez alors 1 charge.",
+"n": 1,
+"ctx": "m\",\"BS\",3,\"Voltécorce\",\"Jolting Crust\",\""
+},
+{
+"t": "MentiteChunk",
+"n": 1,
+"ctx": " : gagnez alors 1 charge.\",3,[\"ch\"]], [\""
+},
+{
+"t": "Fragment de Mentite",
+"n": 1,
+"ctx": ",[\"ch\"]], [\"MentiteChunk\",\"Gem\",\"BS\",5,\""
+},
+{
+"t": "Mentite Chunk",
+"n": 1,
+"ctx": "nk\",\"Gem\",\"BS\",5,\"Fragment de Mentite\",\""
+},
+{
+"t": "Gagnez 3 Æ.|S'il y a sept cartes ou plus dans votre défausse, gagnez 1 Æ supplémentaire.",
+"n": 1,
+"ctx": ",\"Fragment de Mentite\",\"Mentite Chunk\",\""
+},
+{
+"t": "VoidiumSpike",
+"n": 1,
+"ctx": "gnez 1 Æ supplémentaire.\",4,[\"mem\"]], [\""
+},
+{
+"t": "Pointe de Vide",
+"n": 1,
+"ctx": "[\"mem\"]], [\"VoidiumSpike\",\"Gem\",\"BS\",3,\""
+},
+{
+"t": "Voidium Spike",
+"n": 1,
+"ctx": "umSpike\",\"Gem\",\"BS\",3,\"Pointe de Vide\",\""
+},
+{
+"t": "Gagnez 2 Æ.|Chaque allié peut défausser une carte de sa main. Chaque allié qui le fait gagne 1 charge.",
+"n": 1,
+"ctx": "BS\",3,\"Pointe de Vide\",\"Voidium Spike\",\""
+},
+{
+"t": "MutedLacosite",
+"n": 1,
+"ctx": "it gagne 1 charge.\",3,[\"ch\",\"coop\"]], [\""
+},
+{
+"t": "Lacosite Muette",
+"n": 1,
+"ctx": "coop\"]], [\"MutedLacosite\",\"Gem\",\"BS\",5,\""
+},
+{
+"t": "Muted Lacosite",
+"n": 1,
+"ctx": "cosite\",\"Gem\",\"BS\",5,\"Lacosite Muette\",\""
+},
+{
+"t": "Quand vous gagnez cette carte, réduisez un serviteur au silence.|Gagnez 3 Æ.",
+"n": 1,
+"ctx": "\",5,\"Lacosite Muette\",\"Muted Lacosite\",\""
+},
+{
+"t": "ShiningTetrite",
+"n": 1,
+"ctx": " au silence.|Gagnez 3 Æ.\",4,[\"min\"]], [\""
+},
+{
+"t": "Tétrite Lumineuse",
+"n": 1,
+"ctx": "min\"]], [\"ShiningTetrite\",\"Gem\",\"BS\",6,\""
+},
+{
+"t": "Shining Tetrite",
+"n": 1,
+"ctx": "rite\",\"Gem\",\"BS\",6,\"Tétrite Lumineuse\",\""
+},
+{
+"t": "Gagnez 4 Æ qui ne peuvent pas servir à gagner une carte.",
+"n": 1,
+"ctx": ",\"Tétrite Lumineuse\",\"Shining Tetrite\",\""
+},
+{
+"t": "ManifoldContainer",
+"n": 1,
+"ctx": " à gagner une carte.\",2,[\"ch\",\"br\"]], [\""
+},
+{
+"t": "Cube Sans Fond",
+"n": 1,
+"ctx": "], [\"ManifoldContainer\",\"Relic\",\"BS\",4,\""
+},
+{
+"t": "Manifold Container",
+"n": 1,
+"ctx": "ainer\",\"Relic\",\"BS\",4,\"Cube Sans Fond\",\""
+},
+{
+"t": "Gagnez 1 Æ.|La prochaine fois que vous gagnez une carte ce tour, vous pouvez aussi gagner une carte qui coûte moins cher.",
+"n": 1,
+"ctx": ",\"Cube Sans Fond\",\"Manifold Container\",\""
+},
+{
+"t": "SoulCords",
+"n": 1,
+"ctx": "te qui coûte moins cher.\",4,[\"sup\"]], [\""
+},
+{
+"t": "Filaments d'Âme",
+"n": 1,
+"ctx": ",[\"sup\"]], [\"SoulCords\",\"Relic\",\"BS\",5,\""
+},
+{
+"t": "Soul Cords",
+"n": 1,
+"ctx": "ords\",\"Relic\",\"BS\",5,\"Filaments d'Âme\",\""
+},
+{
+"t": "Un joueur gagne 1 jeton Pulsation.|Chaque joueur qui a 2 jetons Pulsation ou plus gagne 1 charge.",
+"n": 1,
+"ctx": ",\"BS\",5,\"Filaments d'Âme\",\"Soul Cords\",\""
+},
+{
+"t": "ScholarsOpus",
+"n": 1,
+"ctx": "us gagne 1 charge.\",2,[\"ch\",\"coop\"]], [\""
+},
+{
+"t": "Œuvre de l'Érudit",
+"n": 1,
+"ctx": "oop\"]], [\"ScholarsOpus\",\"Relic\",\"BS\",3,\""
+},
+{
+"t": "Scholar's Opus",
+"n": 1,
+"ctx": "us\",\"Relic\",\"BS\",3,\"Œuvre de l'Érudit\",\""
+},
+{
+"t": "Gagnez 1 charge.|S'il y a sept cartes ou plus dans votre défausse, gagnez 1 charge supplémentaire.",
+"n": 1,
+"ctx": "3,\"Œuvre de l'Érudit\",\"Scholar's Opus\",\""
+},
+{
+"t": "BottledStar",
+"n": 1,
+"ctx": "rge supplémentaire.\",3,[\"ch\",\"mem\"]], [\""
+},
+{
+"t": "Étoile Miniature",
+"n": 1,
+"ctx": "\"mem\"]], [\"BottledStar\",\"Relic\",\"BS\",7,\""
+},
+{
+"t": "Bottled Star",
+"n": 1,
+"ctx": "tar\",\"Relic\",\"BS\",7,\"Étoile Miniature\",\""
+},
+{
+"t": "Gagnez 3 charges.",
+"n": 1,
+"ctx": "S\",7,\"Étoile Miniature\",\"Bottled Star\",\""
+},
+{
+"t": "LivingGauntlet",
+"n": 1,
+"ctx": " Star\",\"Gagnez 3 charges.\",3,[\"ch\"]], [\""
+},
+{
+"t": "Gantelet Vivant",
+"n": 1,
+"ctx": "h\"]], [\"LivingGauntlet\",\"Relic\",\"BS\",4,\""
+},
+{
+"t": "Living Gauntlet",
+"n": 1,
+"ctx": "tlet\",\"Relic\",\"BS\",4,\"Gantelet Vivant\",\""
+},
+{
+"t": "Révélez la carte du dessus de votre pioche. Vous pouvez la détruire ou la défausser.|Chaque allié peut piocher une carte. Chaque allié qui le fait défausse une carte de sa main.",
+"n": 1,
+"ctx": ",4,\"Gantelet Vivant\",\"Living Gauntlet\",\""
+},
+{
+"t": "NerveJab",
+"n": 2,
+"ctx": "e sa main.\",3,[\"thin\",\"coop\",\"mem\"]], [\""
+},
+{
+"t": "Frappe Audacieuse",
+"n": 1,
+"ctx": "p\",\"mem\"]], [\"NerveJab\",\"Spell\",\"BS\",2,\""
+},
+{
+"t": "Nerve Jab",
+"n": 1,
+"ctx": "ab\",\"Spell\",\"BS\",2,\"Frappe Audacieuse\",\""
+},
+{
+"t": "Lancer : infligez 1 dégât.|Réduisez un serviteur au silence.",
+"n": 1,
+"ctx": "\"BS\",2,\"Frappe Audacieuse\",\"Nerve Jab\",\""
+},
+{
+"t": "DoubleTap",
+"n": 2,
+"ctx": "un serviteur au silence.\",3,[\"min\"]], [\""
+},
+{
+"t": "Coup Double",
+"n": 1,
+"ctx": ",[\"min\"]], [\"DoubleTap\",\"Spell\",\"BS\",3,\""
+},
+{
+"t": "Double Tap",
+"n": 1,
+"ctx": "oubleTap\",\"Spell\",\"BS\",3,\"Coup Double\",\""
+},
+{
+"t": "Lancer : infligez 1 dégât. Infligez 1 dégât.|(Les bonus de dégâts s'appliquent aux deux.)",
+"n": 1,
+"ctx": "ell\",\"BS\",3,\"Coup Double\",\"Double Tap\",\""
+},
+{
+"t": "DrainingTouch",
+"n": 2,
+"ctx": "liquent aux deux.)\",3,[\"amp\",\"min\"]], [\""
+},
+{
+"t": "Toucher Vampirique",
+"n": 1,
+"ctx": "in\"]], [\"DrainingTouch\",\"Spell\",\"BS\",2,\""
+},
+{
+"t": "Draining Touch",
+"n": 1,
+"ctx": "h\",\"Spell\",\"BS\",2,\"Toucher Vampirique\",\""
+},
+{
+"t": "Lancer : infligez 1 dégât.|Gagnez 1 charge.",
+"n": 1,
+"ctx": ",\"Toucher Vampirique\",\"Draining Touch\",\""
+},
+{
+"t": "PrecisionShot",
+"n": 1,
+"ctx": "1 dégât.|Gagnez 1 charge.\",3,[\"ch\"]], [\""
+},
+{
+"t": "Tir de Précision",
+"n": 1,
+"ctx": "ch\"]], [\"PrecisionShot\",\"Spell\",\"BS\",3,\""
+},
+{
+"t": "Precision Shot",
+"n": 1,
+"ctx": "hot\",\"Spell\",\"BS\",3,\"Tir de Précision\",\""
+},
+{
+"t": "Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 2 dégâts. S'il y a six autres cartes ou plus dans votre défausse, infligez 2 dégâts supplémentaires.",
+"n": 1,
+"ctx": ",3,\"Tir de Précision\",\"Precision Shot\",\""
+},
+{
+"t": "BladeOfWisdom",
+"n": 1,
+"ctx": "ts supplémentaires.\",4,[\"mem\",\"br\"]], [\""
+},
+{
+"t": "Lame de Sagesse",
+"n": 1,
+"ctx": "br\"]], [\"BladeOfWisdom\",\"Spell\",\"BS\",6,\""
+},
+{
+"t": "Blade of Wisdom",
+"n": 1,
+"ctx": "sdom\",\"Spell\",\"BS\",6,\"Lame de Sagesse\",\""
+},
+{
+"t": "Quand vous gagnez cette carte, s'il y a sept autres cartes ou plus dans votre défausse, gagnez 2 vies.|Lancer : infligez 5 dégâts.",
+"n": 1,
+"ctx": ",6,\"Lame de Sagesse\",\"Blade of Wisdom\",\""
+},
+{
+"t": "StunningForce",
+"n": 1,
+"ctx": "nfligez 5 dégâts.\",4,[\"mem\",\"surv\"]], [\""
+},
+{
+"t": "Force Colossale",
+"n": 1,
+"ctx": "rv\"]], [\"StunningForce\",\"Spell\",\"BS\",5,\""
+},
+{
+"t": "Stunning Force",
+"n": 1,
+"ctx": "orce\",\"Spell\",\"BS\",5,\"Force Colossale\",\""
+},
+{
+"t": "Lancer : infligez 4 dégâts à la némésis.|Réduisez un serviteur au silence.",
+"n": 1,
+"ctx": "\",5,\"Force Colossale\",\"Stunning Force\",\""
+},
+{
+"t": "FlashOfIntellect",
+"n": 1,
+"ctx": "un serviteur au silence.\",4,[\"min\"]], [\""
+},
+{
+"t": "Éclair de Génie",
+"n": 1,
+"ctx": "]], [\"FlashOfIntellect\",\"Spell\",\"BS\",4,\""
+},
+{
+"t": "Flash of Intellect",
+"n": 1,
+"ctx": "lect\",\"Spell\",\"BS\",4,\"Éclair de Génie\",\""
+},
+{
+"t": "Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 3 dégâts. S'il y a six autres cartes ou plus dans votre défausse, vous pouvez gagner un Éclair de Génie de la réserve et le placer sur votre pioche.",
+"n": 1,
+"ctx": "\"Éclair de Génie\",\"Flash of Intellect\",\""
+},
+{
+"t": "BurningCurrent",
+"n": 2,
+"ctx": "votre pioche.\",3,[\"mem\",\"sup\",\"br\"]], [\""
+},
+{
+"t": "Courant Flamboyant",
+"n": 1,
+"ctx": "r\"]], [\"BurningCurrent\",\"Spell\",\"BS\",3,\""
+},
+{
+"t": "Burning Current",
+"n": 1,
+"ctx": "t\",\"Spell\",\"BS\",3,\"Courant Flamboyant\",\""
+},
+{
+"t": "Tant que ce sort est préparé, pendant votre phase d'incantation, vous pouvez perdre 2 jetons Pulsation : les sorts que vous lancez ce tour infligent alors 1 dégât supplémentaire.|Lancer : infligez 1 dégât. Gagnez 1 jeton Pulsation.",
+"n": 1,
+"ctx": "\"Courant Flamboyant\",\"Burning Current\",\""
+},
+{
+"t": "PsychicEruption",
+"n": 1,
+"ctx": " 1 jeton Pulsation.\",3,[\"ch\",\"amp\"]], [\""
+},
+{
+"t": "Éruption Psychique",
+"n": 1,
+"ctx": "\"]], [\"PsychicEruption\",\"Spell\",\"BS\",8,\""
+},
+{
+"t": "Psychic Eruption",
+"n": 1,
+"ctx": "n\",\"Spell\",\"BS\",8,\"Éruption Psychique\",\""
+},
+{
+"t": "Lancer : infligez autant de dégâts qu'il y a de cartes dans la défausse d'un joueur.",
+"n": 1,
+"ctx": "Éruption Psychique\",\"Psychic Eruption\",\""
+},
+{
+"t": "Guerre Éternelle",
+"n": 14,
+"ctx": "tags:r[8]}));  const BOXES = [   [\"WE\",\""
+},
+{
+"t": "Une Ère Nouvelle",
+"n": 14,
+"ctx": " = [   [\"WE\",\"Guerre Éternelle\"],[\"NA\",\""
+},
+{
+"t": "Secrets enfouis",
+"n": 2,
+"ctx": "elle\"],[\"NA\",\"Une Ère Nouvelle\"],[\"BS\",\""
+},
+{
+"t": "Ténèbres d'ailleurs",
+"n": 6,
+"ctx": "le\"],[\"BS\",\"Secrets enfouis\"],   [\"OD\",\""
+},
+{
+"t": "De Vieux Souvenirs",
+"n": 5,
+"ctx": ",   [\"OD\",\"Ténèbres d'ailleurs\"],[\"TA\",\""
+},
+{
+"t": "Retour à Gravehold",
+"n": 6,
+"ctx": "s\"],[\"TA\",\"De Vieux Souvenirs\"],[\"RTG\",\""
+},
+{
+"t": "Cartes promo",
+"n": 1,
+"ctx": "s\"],[\"RTG\",\"Retour à Gravehold\"],[\"PR\",\""
+},
+{
+"t": "Le commencement",
+"n": 14,
+"ctx": "vehold\"],[\"PR\",\"Cartes promo\"],[\"BASE\",\""
+},
+{
+"t": "Gemmes",
+"n": 2,
+"ctx": "mEntries(BOXES); const TYPES = [[\"Gem\",\""
+},
+{
+"t": "Reliques",
+"n": 2,
+"ctx": "nst TYPES = [[\"Gem\",\"Gemmes\"],[\"Relic\",\""
+},
+{
+"t": "Sorts",
+"n": 2,
+"ctx": "Gemmes\"],[\"Relic\",\"Reliques\"],[\"Spell\",\""
+},
+{
+"t": "Classique",
+"n": 1,
+"ctx": "rs 9 piles */ const DISTS = [   [\"324\",\""
+},
+{
+"t": "Plus de sorts",
+"n": 1,
+"ctx": "[   [\"324\",\"Classique\",[3,2,4]],[\"315\",\""
+},
+{
+"t": "Tout pour l'attaque",
+"n": 1,
+"ctx": "[\"315\",\"Plus de sorts\",[3,1,5]],[\"225\",\""
+},
+{
+"t": "Plus de reliques",
+"n": 1,
+"ctx": "out pour l'attaque\",[2,2,5]],   [\"234\",\""
+},
+{
+"t": "Équilibrée",
+"n": 1,
+"ctx": "34\",\"Plus de reliques\",[2,3,4]],[\"333\",\""
+},
+{
+"t": "any",
+"n": 1,
+"ctx": "[2,3,4]],[\"333\",\"Équilibrée\",[3,3,3]],[\""
+},
+{
+"t": "Surprise",
+"n": 1,
+"ctx": "]],[\"333\",\"Équilibrée\",[3,3,3]],[\"any\",\""
+},
+{
+"t": "ae-dist",
+"n": 2,
+"ctx": "24\"; try{ const d=localStorage.getItem(\""
+},
+{
+"t": "Moteur à charges",
+"n": 1,
+"ctx": ">=a[i]) }  const THEMES = {   ch:{name:\""
+},
+{
+"t": "Plusieurs cartes produisent ou dépensent des charges. Cherche comment déclencher la capacité d'un mage bien plus souvent que d'habitude.",
+"n": 1,
+"ctx": "= {   ch:{name:\"Moteur à charges\",hint:\""
+},
+{
+"t": "Défausse bien remplie",
+"n": 1,
+"ctx": "souvent que d'habitude.\"},   mem:{name:\""
+},
+{
+"t": "Certaines cartes se renforcent quand ta défausse compte six ou sept cartes. Surveille le moment où elle redevient ta pioche.",
+"n": 1,
+"ctx": "mem:{name:\"Défausse bien remplie\",hint:\""
+},
+{
+"t": "Épuration",
+"n": 1,
+"ctx": "e redevient ta pioche.\"},   thin:{name:\""
+},
+{
+"t": "Ce marché détruit des cartes à tour de bras. Un deck de dix cartes qui ne contient plus aucun Cristal tourne très vite.",
+"n": 1,
+"ctx": "oche.\"},   thin:{name:\"Épuration\",hint:\""
+},
+{
+"t": "Maîtres des brèches",
+"n": 1,
+"ctx": "ristal tourne très vite.\"},   br:{name:\""
+},
+{
+"t": "Tout pousse à ouvrir tes brèches tôt et à garder plusieurs sorts préparés en même temps.",
+"n": 1,
+"ctx": "   br:{name:\"Maîtres des brèches\",hint:\""
+},
+{
+"t": "Sorts démultipliés",
+"n": 1,
+"ctx": "préparés en même temps.\"},   amp:{name:\""
+},
+{
+"t": "Des sorts lancés deux fois, relancés ou gonflés par un bonus. Un même bonus de dégâts peut s'appliquer à chaque impact.",
+"n": 1,
+"ctx": "   amp:{name:\"Sorts démultipliés\",hint:\""
+},
+{
+"t": "Jeu d'équipe",
+"n": 1,
+"ctx": "iquer à chaque impact.\"},   coop:{name:\""
+},
+{
+"t": "Les meilleures cartes ici agissent sur un allié ou réclament la même carte chez deux mages. Répartissez les achats.",
+"n": 1,
+"ctx": "t.\"},   coop:{name:\"Jeu d'équipe\",hint:\""
+},
+{
+"t": "Ruée sur la réserve",
+"n": 1,
+"ctx": "Répartissez les achats.\"},   sup:{name:\""
+},
+{
+"t": "Des cartes récompensent le fait de gagner beaucoup de cartes, ou de vider une pile de la réserve.",
+"n": 1,
+"ctx": "  sup:{name:\"Ruée sur la réserve\",hint:\""
+},
+{
+"t": "Chasse aux serviteurs",
+"n": 1,
+"ctx": "une pile de la réserve.\"},   min:{name:\""
+},
+{
+"t": "Silence, petits dégâts répétés et bonus quand un serviteur tombe : garde ces cartes pour eux plutôt que pour la némésis.",
+"n": 1,
+"ctx": "min:{name:\"Chasse aux serviteurs\",hint:\""
+},
+{
+"t": "Sur le fil",
+"n": 1,
+"ctx": "t que pour la némésis.\"},   surv:{name:\""
+},
+{
+"t": "Des soins, des cartes à sacrifier pour Gravehold et des effets qui s'activent quand tes vies sont au plus bas.",
+"n": 1,
+"ctx": "sis.\"},   surv:{name:\"Sur le fil\",hint:\""
+},
+{
+"t": "Retour aux sources",
+"n": 1,
+"ctx": "vies sont au plus bas.\"},   zero:{name:\""
+},
+{
+"t": "Pour une fois, tes Cristaux et tes Étincelles de départ valent de l'or. Réfléchis avant de les détruire.",
+"n": 1,
+"ctx": "  zero:{name:\"Retour aux sources\",hint:\""
+},
+{
+"t": "Maîtres du temps",
+"n": 1,
+"ctx": "avant de les détruire.\"},   turn:{name:\""
+},
+{
+"t": "Plusieurs cartes lisent ou manipulent le deck Ordre du tour. Compte les cartes déjà sorties.",
+"n": 1,
+"ctx": ",   turn:{name:\"Maîtres du temps\",hint:\""
+},
+{
+"t": "Rage Incarnée",
+"n": 2,
+"ctx": "rienter le tirage. */ const NEM = [   [\""
+},
+{
+"t": "elle frappe les mages de plein fouet : soins et protections",
+"n": 1,
+"ctx": "née\",\"Le commencement\",{want:[\"surv\"]},\""
+},
+{
+"t": "Reine Carapace",
+"n": 2,
+"ctx": "ein fouet : soins et protections\"],   [\""
+},
+{
+"t": "sa nuée de carapaces tombe sous les petits dégâts répétés",
+"n": 1,
+"ctx": "pace\",\"Le commencement\",{want:[\"min\"]},\""
+},
+{
+"t": "Prince des Gloutons",
+"n": 2,
+"ctx": "e sous les petits dégâts répétés\"],   [\""
+},
+{
+"t": "il dévore la réserve : j'écarte les cartes qui vident vos propres piles",
+"n": 1,
+"ctx": "e\",\"FracturedQuartz\",\"NetherConduit\"]},\""
+},
+{
+"t": "Masque Tordu",
+"n": 2,
+"ctx": "tes qui vident vos propres piles\"],   [\""
+},
+{
+"t": "ses corruptions encombrent les decks : cartes de destruction",
+"n": 1,
+"ctx": "rdu\",\"Le commencement\",{want:[\"thin\"]},\""
+},
+{
+"t": "Titan de l'Ombre",
+"n": 2,
+"ctx": "es decks : cartes de destruction\"],   [\""
+},
+{
+"t": "il use Gravehold et les mages : soins",
+"n": 1,
+"ctx": "re\",\"Guerre Éternelle\",{want:[\"surv\"]},\""
+},
+{
+"t": "Couronne Creuse",
+"n": 2,
+"ctx": "e Gravehold et les mages : soins\"],   [\""
+},
+{
+"t": "seuls ses acolytes comptent : cartes contre les serviteurs",
+"n": 1,
+"ctx": "use\",\"Guerre Éternelle\",{want:[\"min\"]},\""
+},
+{
+"t": "Démon des Voiles",
+"n": 2,
+"ctx": "t : cartes contre les serviteurs\"],   [\""
+},
+{
+"t": "ses voiles amortissent chaque coup : gros sorts plutôt que petits impacts",
+"n": 1,
+"ctx": ",\"ReverberatingShock\",\"BouncingBoom\"]},\""
+},
+{
+"t": "Sorcière du Portail",
+"n": 2,
+"ctx": " sorts plutôt que petits impacts\"],   [\""
+},
+{
+"t": "elle accélère le temps : cartes qui contrôlent l'ordre du tour",
+"n": 1,
+"ctx": "il\",\"Guerre Éternelle\",{want:[\"turn\"]},\""
+},
+{
+"t": "Maggoth",
+"n": 2,
+"ctx": "s qui contrôlent l'ordre du tour\"],   [\""
+},
+{
+"t": "Arachnos",
+"n": 2,
+"ctx": "ggoth\",\"Une Ère Nouvelle\",null,\"\"],   [\""
+},
+{
+"t": "ses araignées pullulent : cartes contre les serviteurs",
+"n": 1,
+"ctx": "nos\",\"Une Ère Nouvelle\",{want:[\"min\"]},\""
+},
+{
+"t": "Marcheur éternel",
+"n": 2,
+"ctx": "t : cartes contre les serviteurs\"],   [\""
+},
+{
+"t": "Fenrix",
+"n": 2,
+"ctx": "ernel\",\"Une Ère Nouvelle\",null,\"\"],   [\""
+},
+{
+"t": "Fouisseur",
+"n": 2,
+"ctx": "enrix\",\"Une Ère Nouvelle\",null,\"\"],   [\""
+},
+{
+"t": "Forteresse",
+"n": 2,
+"ctx": "eur\",\"Retour à Gravehold\",null,\"\"],   [\""
+},
+{
+"t": "Prophète aux trois Trépas",
+"n": 2,
+"ctx": "sse\",\"Retour à Gravehold\",null,\"\"],   [\""
+},
+{
+"t": "Maître des Spectres",
+"n": 2,
+"ctx": "as\",\"Ténèbres d'ailleurs\",null,\"\"],   [\""
+},
+{
+"t": "ses spectres s'accumulent : cartes contre les serviteurs",
+"n": 1,
+"ctx": "\",\"Ténèbres d'ailleurs\",{want:[\"min\"]},\""
+},
+{
+"t": "Le Vagabond",
+"n": 2,
+"ctx": "t : cartes contre les serviteurs\"],   [\""
+},
+{
+"t": "L'Infecteur",
+"n": 1,
+"ctx": "ond\",\"De Vieux Souvenirs\",null,\"\"],   [\""
+},
+{
+"t": "Le Commencement",
+"n": 11,
+"ctx": " Souvenirs\",null,\"\"],   [\"L'Infecteur\",\""
+},
+{
+"t": "Le Sabbat",
+"n": 1,
+"ctx": "Infecteur\",\"Le Commencement\",null,\"\"],[\""
+},
+{
+"t": "Le Fléau",
+"n": 1,
+"ctx": "Le Sabbat\",\"Le Commencement\",null,\"\"],[\""
+},
+{
+"t": "La Colère",
+"n": 1,
+"ctx": " Fléau\",\"Le Commencement\",null,\"\"],   [\""
+},
+{
+"t": "La Désolation",
+"n": 1,
+"ctx": "La Colère\",\"Le Commencement\",null,\"\"],[\""
+},
+{
+"t": "Dezmodia",
+"n": 1,
+"ctx": "cement\",null,\"\"] ]; const MAGES = [   [\""
+},
+{
+"t": "ses brèches Sigil",
+"n": 1,
+"ctx": " [\"Dezmodia\",\"Guerre Éternelle\",[\"br\"],\""
+},
+{
+"t": "Garu",
+"n": 1,
+"ctx": "nelle\",[\"br\"],\"ses brèches Sigil\"],   [\""
+},
+{
+"t": "sa capacité défausse plusieurs sorts préparés",
+"n": 1,
+"ctx": "],   [\"Garu\",\"Guerre Éternelle\",[\"br\"],\""
+},
+{
+"t": "Gex",
+"n": 1,
+"ctx": "éfausse plusieurs sorts préparés\"],   [\""
+},
+{
+"t": "sa capacité épure et soigne, à recharger souvent",
+"n": 1,
+"ctx": "\"],   [\"Gex\",\"Guerre Éternelle\",[\"ch\"],\""
+},
+{
+"t": "Mazahaedron",
+"n": 1,
+"ctx": "e et soigne, à recharger souvent\"],   [\""
+},
+{
+"t": "capacité à 4 charges, rentable en boucle",
+"n": 1,
+"ctx": "Mazahaedron\",\"Guerre Éternelle\",[\"ch\"],\""
+},
+{
+"t": "Mist",
+"n": 1,
+"ctx": " à 4 charges, rentable en boucle\"],   [\""
+},
+{
+"t": "elle lance jusqu'à trois sorts préparés",
+"n": 1,
+"ctx": "\"Mist\",\"Guerre Éternelle\",[\"br\",\"amp\"],\""
+},
+{
+"t": "Quilius",
+"n": 1,
+"ctx": "nce jusqu'à trois sorts préparés\"],   [\""
+},
+{
+"t": "ses trophées viennent des serviteurs tués",
+"n": 1,
+"ctx": " [\"Quilius\",\"Guerre Éternelle\",[\"min\"],\""
+},
+{
+"t": "Ulgimor",
+"n": 1,
+"ctx": "ées viennent des serviteurs tués\"],   [\""
+},
+{
+"t": "il encaisse pour l'équipe",
+"n": 1,
+"ctx": "[\"Ulgimor\",\"Guerre Éternelle\",[\"surv\"],\""
+},
+{
+"t": "Yan Magda",
+"n": 1,
+"ctx": "urv\"],\"il encaisse pour l'équipe\"],   [\""
+},
+{
+"t": "elle veut ses quatre brèches ouvertes",
+"n": 1,
+"ctx": "[\"Yan Magda\",\"Guerre Éternelle\",[\"br\"],\""
+},
+{
+"t": "Indira",
+"n": 1,
+"ctx": "veut ses quatre brèches ouvertes\"],   [\""
+},
+{
+"t": "ses sorts lancés depuis la main gagnent des dégâts",
+"n": 1,
+"ctx": "\"Indira\",\"Ténèbres d'ailleurs\",[\"amp\"],\""
+},
+{
+"t": "Vestige",
+"n": 1,
+"ctx": "epuis la main gagnent des dégâts\"],   [\""
+},
+{
+"t": "Sahala",
+"n": 1,
+"ctx": "tige\",\"Ténèbres d'ailleurs\",[],\"\"],   [\""
+},
+{
+"t": "sa brèche céleste accueille deux sorts",
+"n": 1,
+"ctx": "   [\"Sahala\",\"Une Ère Nouvelle\",[\"br\"],\""
+},
+{
+"t": "Gygar",
+"n": 1,
+"ctx": "che céleste accueille deux sorts\"],   [\""
+},
+{
+"t": "sa capacité se recharge elle-même",
+"n": 1,
+"ctx": ",   [\"Gygar\",\"Une Ère Nouvelle\",[\"ch\"],\""
+},
+{
+"t": "Soskel",
+"n": 1,
+"ctx": "a capacité se recharge elle-même\"],   [\""
+},
+{
+"t": "ses jetons renforcent les brèches",
+"n": 1,
+"ctx": "   [\"Soskel\",\"Une Ère Nouvelle\",[\"br\"],\""
+},
+{
+"t": "Taqren",
+"n": 1,
+"ctx": "es jetons renforcent les brèches\"],   [\""
+},
+{
+"t": "il soigne selon ses brèches ouvertes",
+"n": 1,
+"ctx": "   [\"Taqren\",\"Une Ère Nouvelle\",[\"br\"],\""
+},
+{
+"t": "Talix",
+"n": 1,
+"ctx": "oigne selon ses brèches ouvertes\"],   [\""
+},
+{
+"t": "elle joue avec ses Étincelles",
+"n": 1,
+"ctx": "  [\"Talix\",\"Une Ère Nouvelle\",[\"zero\"],\""
+},
+{
+"t": "Rhia",
+"n": 1,
+"ctx": "],\"elle joue avec ses Étincelles\"],   [\""
+},
+{
+"t": "elle échange ses cartes contre la réserve",
+"n": 1,
+"ctx": ",   [\"Rhia\",\"Une Ère Nouvelle\",[\"sup\"],\""
+},
+{
+"t": "Claudia",
+"n": 1,
+"ctx": "nge ses cartes contre la réserve\"],   [\""
+},
+{
+"t": "elle copie les achats d'un allié",
+"n": 1,
+"ctx": "dia\",\"Une Ère Nouvelle\",[\"sup\",\"coop\"],\""
+},
+{
+"t": "Lost",
+"n": 1,
+"ctx": "elle copie les achats d'un allié\"],   [\""
+},
+{
+"t": "il reprend ses cartes à 0",
+"n": 1,
+"ctx": "   [\"Lost\",\"Une Ère Nouvelle\",[\"zero\"],\""
+},
+{
+"t": "Mazra",
+"n": 1,
+"ctx": "ero\"],\"il reprend ses cartes à 0\"],   [\""
+},
+{
+"t": "Qu",
+"n": 1,
+"ctx": "Mazra\",\"De Vieux Souvenirs\",[],\"\"],   [\""
+},
+{
+"t": "elle relance des sorts préparés",
+"n": 1,
+"ctx": "\"Qu\",\"De Vieux Souvenirs\",[\"amp\",\"br\"],\""
+},
+{
+"t": "Ohat et Ulgimor",
+"n": 1,
+"ctx": "\"elle relance des sorts préparés\"],   [\""
+},
+{
+"t": "Cairna",
+"n": 1,
+"ctx": "gimor\",\"Retour à Gravehold\",[],\"\"],   [\""
+},
+{
+"t": "capacité à 3 charges qui gagne des sorts",
+"n": 1,
+"ctx": "rna\",\"Retour à Gravehold\",[\"ch\",\"sup\"],\""
+},
+{
+"t": "Adelheim",
+"n": 1,
+"ctx": " à 3 charges qui gagne des sorts\"],   [\""
+},
+{
+"t": "sa capacité annule une carte némésis",
+"n": 1,
+"ctx": "  [\"Adelheim\",\"Le commencement\",[\"ch\"],\""
+},
+{
+"t": "Brama",
+"n": 1,
+"ctx": "apacité annule une carte némésis\"],   [\""
+},
+{
+"t": "sa capacité soigne 4 vies",
+"n": 1,
+"ctx": "],   [\"Brama\",\"Le commencement\",[\"ch\"],\""
+},
+{
+"t": "Jian",
+"n": 1,
+"ctx": "\"ch\"],\"sa capacité soigne 4 vies\"],   [\""
+},
+{
+"t": "elle lance deux fois le même sort",
+"n": 1,
+"ctx": "],   [\"Jian\",\"Le commencement\",[\"amp\"],\""
+},
+{
+"t": "Kadir",
+"n": 1,
+"ctx": "lle lance deux fois le même sort\"],   [\""
+},
+{
+"t": "elle prépare deux sorts par brèche",
+"n": 1,
+"ctx": "\"Kadir\",\"Le commencement\",[\"br\",\"amp\"],\""
+},
+{
+"t": "Lash",
+"n": 1,
+"ctx": "le prépare deux sorts par brèche\"],   [\""
+},
+{
+"t": "il manipule l'ordre du tour",
+"n": 1,
+"ctx": ",   [\"Lash\",\"Le commencement\",[\"turn\"],\""
+},
+{
+"t": "Mist (boîte de base)",
+"n": 1,
+"ctx": "n\"],\"il manipule l'ordre du tour\"],   [\""
+},
+{
+"t": "elle fait piocher un allié",
+"n": 1,
+"ctx": "e de base)\",\"Le commencement\",[\"coop\"],\""
+},
+{
+"t": "Phaedraxa",
+"n": 1,
+"ctx": "op\"],\"elle fait piocher un allié\"],   [\""
+},
+{
+"t": "sa capacité annule les dégâts d'un tour",
+"n": 1,
+"ctx": " [\"Phaedraxa\",\"Le commencement\",[\"ch\"],\""
+},
+{
+"t": "Xaxos",
+"n": 1,
+"ctx": "cité annule les dégâts d'un tour\"],   [\""
+},
+{
+"t": "il distribue des charges et lit l'ordre du tour",
+"n": 1,
+"ctx": "Xaxos\",\"Le commencement\",[\"ch\",\"turn\"],\""
+},
+{
+"t": "Brama (Le Commencement)",
+"n": 1,
+"ctx": "s charges et lit l'ordre du tour\"],   [\""
+},
+{
+"t": "Janti",
+"n": 1,
+"ctx": "mmencement)\",\"Le Commencement\",[],\"\"],[\""
+},
+{
+"t": "Leisan",
+"n": 1,
+"ctx": "\"\"],[\"Janti\",\"Le Commencement\",[],\"\"],[\""
+},
+{
+"t": "Mazahaedron (Le Commencement)",
+"n": 1,
+"ctx": "[\"Leisan\",\"Le Commencement\",[],\"\"],   [\""
+},
+{
+"t": "Raven",
+"n": 1,
+"ctx": "mmencement)\",\"Le Commencement\",[],\"\"],[\""
+},
+{
+"t": "Thraxir",
+"n": 1,
+"ctx": "\"\"],[\"Raven\",\"Le Commencement\",[],\"\"],[\""
+},
+{
+"t": "Contre",
+"n": 2,
+"ctx": "==\"Spell\"&&c.cost>=6)){ b+=1; why.push(\""
+},
+{
+"t": "Pour",
+"n": 2,
+"ctx": "tags.includes(t))){ mb+=0.75; why.push(\""
+},
+{
+"t": "ae-boxes2",
+"n": 2,
+"ctx": "st s = JSON.parse(localStorage.getItem(\""
+},
+{
+"t": "ae-recent",
+"n": 2,
+"ctx": "onst r=JSON.parse(localStorage.getItem(\""
+},
+{
+"t": "rand",
+"n": 2,
+"ctx": "slots.push({type:t})});   return {mode:\""
+},
+{
+"t": "Économie rapide",
+"n": 1,
+"ctx": "lan={     Gem:[{test:c=>c.cost<=4,role:\""
+},
+{
+"t": "Gros éther",
+"n": 1,
+"ctx": "nomie rapide\"},{test:c=>c.cost>=5,role:\""
+},
+{
+"t": "Éther d'appoint",
+"n": 1,
+"ctx": ">=5,role:\"Gros éther\"},{test:null,role:\""
+},
+{
+"t": "Épuration du deck",
+"n": 1,
+"ctx": "\"}],     Relic:[{test:has(\"thin\"),role:\""
+},
+{
+"t": "Soutien",
+"n": 3,
+"ctx": "{test:c=>!c.tags.includes(\"thin\"),role:\""
+},
+{
+"t": "Sort d'ouverture",
+"n": 2,
+"ctx": "}],     Spell:[{test:c=>c.cost<=4,role:\""
+},
+{
+"t": "Finisseur",
+"n": 2,
+"ctx": " d'ouverture\"},{test:c=>c.cost>=6,role:\""
+},
+{
+"t": "Milieu de partie",
+"n": 1,
+"ctx": ":\"Finisseur\"},{test:c=>c.cost===5,role:\""
+},
+{
+"t": "opt",
+"n": 7,
+"ctx": ".push({type:t,...p})));   return {mode:\""
+},
+{
+"t": "combo",
+"n": 6,
+"ctx": "=>s.type===\"Spell\");   const res={mode:\""
+},
+{
+"t": "&amp;",
+"n": 1,
+"ctx": "c=s=>String(s==null?\"\":s).replace(/&/g,\""
+},
+{
+"t": "&lt;",
+"n": 1,
+"ctx": ":s).replace(/&/g,\"&amp;\").replace(/</g,\""
+},
+{
+"t": "OU",
+"n": 1,
+"ctx": ")).join(\"<br>\")).join('<span class=\"or\">"
+},
+{
+"t": "Marché optimisé",
+"n": 1,
+"ctx": "; } const MODES={opt:[\"Le plus facile\",\""
+},
+{
+"t": "Marché original",
+"n": 1,
+"ctx": "é optimisé\"],combo:[\"À toi de trouver\",\""
+},
+{
+"t": "Marché full random",
+"n": 1,
+"ctx": "\",\"Marché original\"],rand:[\"Au hasard\",\""
+},
+{
+"t": "Déjà joué",
+"n": 1,
+"ctx": " hasard\",\"Marché full random\"],replay:[\""
+},
+{
+"t": "Marché rejoué",
+"n": 1,
+"ctx": "rché full random\"],replay:[\"Déjà joué\",\""
+},
+{
+"t": ": je ne connais pas assez cette némésis pour orienter le tirage, il reste généraliste.",
+"n": 1,
+"ctx": ": \"+esc(N[3])+\".\":\"<b>\"+esc(N[0])+\"</b> "
+},
+{
+"t": "rk",
+"n": 1,
+"ctx": "unction render(){   const m=current; $(\""
+},
+{
+"t": "again",
+"n": 2,
+"ctx": "m.mode][0]+\" · \"+distText(m.dist);   $(\""
+},
+{
+"t": "replay",
+"n": 3,
+"ctx": "(m.dist);   $(\"again\").hidden=m.mode===\""
+},
+{
+"t": "rt",
+"n": 1,
+"ctx": "$(\"again\").hidden=m.mode===\"replay\"; $(\""
+},
+{
+"t": "note",
+"n": 1,
+"ctx": "ntent=MODES[m.mode][1];   const note=$(\""
+},
+{
+"t": "Plan de jeu : achète la gemme bon marché dès les premiers tours, épure tes Cristaux et Étincelles avec la relique dédiée, puis empile les finisseurs.",
+"n": 1,
+"ctx": "m.mode===\"opt\"){     note.innerHTML=\"<p>"
+},
+{
+"t": "Chaque carte porte son rôle. Tu peux en changer une : la remplaçante tient le même poste.",
+"n": 1,
+"ctx": "urs.</p>\"+adaptText()+\"<p class='muted'>"
+},
+{
+"t": "carte(s) de ce marché ne sont pas dans le générateur et manquent ici.",
+"n": 1,
+"ctx": "missing?\"<p class='muted'>\"+m.missing+\" "
+},
+{
+"t": "Tirage sans filtre : aucune garantie de coût ni d'équilibre. Bonne chance.",
+"n": 1,
+"ctx": ".mode===\"rand\"){     note.innerHTML=\"<p>"
+},
+{
+"t": "Une synergie relie",
+"n": 1,
+"ctx": ".</b> \"+esc(th.hint)+\"</p>\"       : \"<p>"
+},
+{
+"t": "de ces cartes. À toi de la trouver en jouant.",
+"n": 1,
+"ctx": "      : \"<p>Une synergie relie \"+nkey+\" "
+},
+{
+"t": "Thème retenu parce qu'il sert ce combat.",
+"n": 1,
+"ctx": "n&&fitsFight(m.theme)?\"<p class='muted'>"
+},
+{
+"t": "Révéler l'indice",
+"n": 1,
+"ctx": "on class='btn' id='bhint' type='button'>"
+},
+{
+"t": "Montrer les cartes du combo",
+"n": 1,
+"ctx": "on class='btn' id='bkeys' type='button'>"
+},
+{
+"t": "bhint",
+"n": 1,
+"ctx": "on>\")       + \"</div>\";     const bh=$(\""
+},
+{
+"t": "bkeys",
+"n": 1,
+"ctx": "</div>\";     const bh=$(\"bhint\"), bk=$(\""
+},
+{
+"t": "market",
+"n": 1,
+"ctx": "Shown=true;render()};   }   const mk=$(\""
+},
+{
+"t": "div",
+"n": 2,
+"ctx": "t];     const g=document.createElement(\""
+},
+{
+"t": "group g-",
+"n": 1,
+"ctx": "ment.createElement(\"div\"); g.className=\""
+},
+{
+"t": "piles",
+"n": 1,
+"ctx": "erHTML=\"<h3>\"+label+\" <small>\"+n+(n>1?\" "
+},
+{
+"t": "pile",
+"n": 1,
+"ctx": "h3>\"+label+\" <small>\"+n+(n>1?\" piles\":\" "
+},
+{
+"t": "cards",
+"n": 1,
+"ctx": "t.createElement(\"div\"); wrap.className=\""
+},
+{
+"t": "article",
+"n": 1,
+"ctx": "st c=s.card, el=document.createElement(\""
+},
+{
+"t": "card",
+"n": 1,
+"ctx": "Element(\"article\");       el.className=\""
+},
+{
+"t": "key",
+"n": 1,
+"ctx": "\"+(m.mode===\"combo\"&&keysShown&&s.key?\" "
+},
+{
+"t": "Coût en éther",
+"n": 1,
+"ctx": "v class=\"top\"><span class=\"cost\" title=\""
+},
+{
+"t": "\" aria-label=\"Changer",
+"n": 1,
+"ctx": "class=\"swap\" type=\"button\" data-i=\"'+i+'"
+},
+{
+"t": "\">Changer",
+"n": 1,
+"ctx": " aria-label=\"Changer '+esc(c.fr||c.en)+'"
+},
+{
+"t": ".swap",
+"n": 1,
+"ctx": "dChild(g);   });   mk.querySelectorAll(\""
+},
+{
+"t": "boxes",
+"n": 3,
+"ctx": "ion generate(mode){   if(!enough()){ $(\""
+},
+{
+"t": "f-nem",
+"n": 3,
+"ctx": "false; keysShown=false;   fight={nem:$(\""
+},
+{
+"t": "logform",
+"n": 5,
+"ctx": "Result(); } function showResult(){   $(\""
+},
+{
+"t": "l-done",
+"n": 3,
+"ctx": "esult(){   $(\"logform\").hidden=true; $(\""
+},
+{
+"t": "ask",
+"n": 2,
+"ctx": "den=true; $(\"l-done\").hidden=true;   $(\""
+},
+{
+"t": "result",
+"n": 2,
+"ctx": "hidden=true; $(\"boxes\").hidden=true; $(\""
+},
+{
+"t": "warn",
+"n": 1,
+"ctx": "}); } function showWarn(){   const w=$(\""
+},
+{
+"t": "Pas assez de cartes pour cette répartition : coche une boîte de plus ou choisis-en une autre.",
+"n": 1,
+"ctx": "eturn}   w.hidden=false; w.textContent=\""
+},
+{
+"t": "gemmes,",
+"n": 1,
+"ctx": "on distText(d){ return d.Gem+(d.Gem>1?\" "
+},
+{
+"t": "gemme,",
+"n": 1,
+"ctx": "d){ return d.Gem+(d.Gem>1?\" gemmes, \":\" "
+},
+{
+"t": "reliques,",
+"n": 1,
+"ctx": "mes, \":\" gemme, \")+d.Relic+(d.Relic>1?\" "
+},
+{
+"t": "relique,",
+"n": 1,
+"ctx": ", \")+d.Relic+(d.Relic>1?\" reliques, \":\" "
+},
+{
+"t": "sorts",
+"n": 2,
+"ctx": "1?\" reliques, \":\" relique, \")+d.Spell+\" "
+},
+{
+"t": "dist",
+"n": 1,
+"ctx": "\" } function renderDist(){   const f=$(\""
+},
+{
+"t": "label",
+"n": 2,
+"ctx": "=>{     const l=document.createElement(\""
+},
+{
+"t": "\" value=\"",
+"n": 1,
+"ctx": " type=\"radio\" name=\"dist\" id=\"dist-'+k+'"
+},
+{
+"t": "checked",
+"n": 4,
+"ctx": "'+k+'\" value=\"'+k+'\"'+(k===distChoice?\" "
+},
+{
+"t": "input",
+"n": 2,
+"ctx": "i>':'')+'</span>';     l.querySelector(\""
+},
+{
+"t": "boxlist",
+"n": 1,
+"ctx": "} function renderBoxes(){   const bl=$(\""
+},
+{
+"t": "gemmes ·",
+"n": 1,
+"ctx": "<span>'+esc(name)+' <small>'+n(\"Gem\")+' "
+},
+{
+"t": "reliques ·",
+"n": 1,
+"ctx": "ll>'+n(\"Gem\")+' gemmes · '+n(\"Relic\")+' "
+},
+{
+"t": "boxsum",
+"n": 1,
+"ctx": "ilter(c=>owned.has(c.box)).length;   $(\""
+},
+{
+"t": "sur",
+"n": 1,
+"ctx": "   $(\"boxsum\").textContent=owned.size+\" "
+},
+{
+"t": "cartes",
+"n": 1,
+"ctx": "ned.size+\" sur \"+BOXES.length+\" · \"+n+\" "
+},
+{
+"t": ".mode",
+"n": 1,
+"ctx": " cartes\"; }  document.querySelectorAll(\""
+},
+{
+"t": "newfight",
+"n": 1,
+"ctx": ".onclick=()=>generate(current.mode); $(\""
+},
+{
+"t": "copy",
+"n": 2,
+"ctx": "=false; window.scrollTo({top:0}); }; $(\""
+},
+{
+"t": "Liste copiée",
+"n": 1,
+"ctx": "\");   const done=ok=>{b.textContent=ok?\""
+},
+{
+"t": "Copie impossible ici",
+"n": 1,
+"ctx": "e=ok=>{b.textContent=ok?\"Liste copiée\":\""
+},
+{
+"t": "loading",
+"n": 6,
+"ctx": "----- */ let db=null, games=[], jstate=\""
+},
+{
+"t": "selected",
+"n": 3,
+"ctx": "\">'     +ns.map(n=>'<option'+(n===sel?' "
+},
+{
+"t": "Pas encore choisie",
+"n": 1,
+"ctx": "(\"f-nem\").innerHTML=optionsHtml(NEM,\"\",\""
+},
+{
+"t": "Pas encore choisi",
+"n": 2,
+"ctx": "\"f-m1\").innerHTML=optionsHtml(MAGES,\"\",\""
+},
+{
+"t": "f-theme",
+"n": 2,
+"ctx": "tml(MAGES,\"\",\"Pas encore choisi\");   $(\""
+},
+{
+"t": "Surprise (caché)",
+"n": 1,
+"ctx": "(\"f-theme\").innerHTML='<option value=\"\">"
+},
+{
+"t": "ok",
+"n": 6,
+"ctx": "){   const cards=byId();   if(jstate!==\""
+},
+{
+"t": "winsum",
+"n": 2,
+"ctx": "rds=byId();   if(jstate!==\"ok\"){     $(\""
+},
+{
+"t": "slow",
+"n": 4,
+"ctx": " ? \"Chargement du journal…\" : jstate===\""
+},
+{
+"t": "Le journal ne répond pas encore. Il s'affichera dès que la connexion revient.",
+"n": 1,
+"ctx": "ement du journal…\" : jstate===\"slow\" ? \""
+},
+{
+"t": "Le journal n'est pas disponible dans ce navigateur.",
+"n": 1,
+"ctx": "chera dès que la connexion revient.\" : \""
+},
+{
+"t": "stats",
+"n": 2,
+"ctx": "navigateur.\";     if(!games.length){ $(\""
+},
+{
+"t": "wins",
+"n": 4,
+"ctx": "es.length){ $(\"stats\").innerHTML=\"\"; $(\""
+},
+{
+"t": "hunt",
+"n": 2,
+"ctx": "nnerHTML=\"\"; $(\"wins\").innerHTML=\"\"; $(\""
+},
+{
+"t": "nwins",
+"n": 2,
+"ctx": "nnerHTML=\"\"; $(\"hunt\").innerHTML=\"\"; $(\""
+},
+{
+"t": "string",
+"n": 3,
+"ctx": "}   const item=x=>{ const c=typeof x===\""
+},
+{
+"t": "title=\"",
+"n": 1,
+"ctx": "-b[1]).map(([n,c,fx])=>     '<li'+(fx?' "
+},
+{
+"t": "&quot;",
+"n": 2,
+"ctx": "i'+(fx?' title=\"'+esc(fx).replace(/\"/g,\""
+},
+{
+"t": "vic",
+"n": 1,
+"ctx": ";     return '<article class=\"win '+(v?\""
+},
+{
+"t": "loss",
+"n": 2,
+"ctx": "return '<article class=\"win '+(v?\"vic\":\""
+},
+{
+"t": "Némésis inconnue",
+"n": 1,
+"ctx": "t(g.date):\"\")+'</span><h3>'+esc(g.nem||\""
+},
+{
+"t": "Mages",
+"n": 2,
+"ctx": "an>':'')     +'<div class=\"mages\"><span>"
+},
+{
+"t": "et",
+"n": 5,
+"ctx": "</span>'+((g.mages||[]).map(esc).join(\" "
+},
+{
+"t": "non notés",
+"n": 1,
+"ctx": "+((g.mages||[]).map(esc).join(\" et \")||\""
+},
+{
+"t": "\">Rejouer ce marché",
+"n": 1,
+"ctx": "type=\"button\" data-replay=\"'+esc(g.id)+'"
+},
+{
+"t": "\">Supprimer",
+"n": 1,
+"ctx": "p\" type=\"button\" data-del=\"'+esc(g.id)+'"
+},
+{
+"t": "g-Gem",
+"n": 1,
+"ctx": "iv></div>'     +'<div class=\"mk\">'+col(\""
+},
+{
+"t": "g-Relic",
+"n": 1,
+"ctx": "mk\">'+col(\"g-Gem\",\"Gemmes\",g.gems)+col(\""
+},
+{
+"t": "g-Spell",
+"n": 1,
+"ctx": "col(\"g-Relic\",\"Reliques\",g.relics)+col(\""
+},
+{
+"t": "Aucune partie notée. Génère un marché, joue, puis clique sur Victoire ou Défaite.",
+"n": 1,
+"ctx": ">'; }).join(\"\")     || '<p class=\"jmsg\">"
+},
+{
+"t": "[data-replay]",
+"n": 1,
+"ctx": "ite.</p>';   document.querySelectorAll(\""
+},
+{
+"t": "[data-del]",
+"n": 1,
+"ctx": ".replay));   document.querySelectorAll(\""
+},
+{
+"t": "parties/",
+"n": 1,
+"ctx": "=>{     if(b.dataset.sure){ db&&db.doc(\""
+},
+{
+"t": "Suppression impossible",
+"n": 1,
+"ctx": "el).delete().catch(()=>{ b.textContent=\""
+},
+{
+"t": "Confirmer la suppression",
+"n": 1,
+"ctx": "lse{ b.dataset.sure=\"1\"; b.textContent=\""
+},
+{
+"t": "victoire",
+"n": 2,
+"ctx": ").textContent=list.length?wins.length+\" "
+},
+{
+"t": "défaite",
+"n": 3,
+"ctx": "length>1?\"s\":\"\")+\" et \"+losses.length+\" "
+},
+{
+"t": "notées.",
+"n": 1,
+"ctx": "h+\" défaite\"+(losses.length>1?\"s\":\"\")+\" "
+},
+{
+"t": "némésis sur",
+"n": 1,
+"ctx": "gth>1?\"s\":\"\")+\" notées. \"+beaten.size+\" "
+},
+{
+"t": "déjà tombées.",
+"n": 1,
+"ctx": "eaten.size+\" némésis sur \"+NEM.length+\" "
+},
+{
+"t": "Le journal est vide pour l'instant.",
+"n": 1,
+"ctx": "ésis sur \"+NEM.length+\" déjà tombées.\":\""
+},
+{
+"t": "Bilan",
+"n": 1,
+"ctx": "t.length?\"\":     '<div class=\"stat\"><h4>"
+},
+{
+"t": "de victoires sur",
+"n": 1,
+"ctx": "=\"big\">'+rate+' %</div><div class=\"sub\">"
+},
+{
+"t": "partie",
+"n": 1,
+"ctx": "=\"sub\">de victoires sur '+list.length+' "
+},
+{
+"t": "Par némésis",
+"n": 1,
+"ctx": "div></div>'     +'<div class=\"stat\"><h4>"
+},
+{
+"t": "Cartes des victoires",
+"n": 1,
+"ctx": "/ul></div>'     +'<div class=\"stat\"><h4>"
+},
+{
+"t": "Pas encore de données",
+"n": 2,
+"ctx": "0]].fr,x[1]+\" ×\")).join(\"\")||'<li><span>"
+},
+{
+"t": "Duos gagnants",
+"n": 1,
+"ctx": "/ol></div>'     +'<div class=\"stat\"><h4>"
+},
+{
+"t": "Jamais jouées",
+"n": 1,
+"ctx": "/ul></div>'     +'<div class=\"stat\"><h4>"
+},
+{
+"t": "cartes sur",
+"n": 1,
+"ctx": ">'+never.length+'</div><div class=\"sub\">"
+},
+{
+"t": "dans les boîtes cochées",
+"n": 1,
+"ctx": "DS.filter(c=>owned.has(c.box)).length+' "
+},
+{
+"t": "Voir la liste",
+"n": 1,
+"ctx": " cochées</div>'     +'<details><summary>"
+},
+{
+"t": "Tableau de chasse",
+"n": 1,
+"ctx": "push(n[0]));   $(\"hunt\").innerHTML='<h3>"
+},
+{
+"t": "done",
+"n": 3,
+"ctx": "n=>'<span class=\"chip'+(beaten.has(n)?' "
+},
+{
+"t": "lost",
+"n": 1,
+"ctx": "+(beaten.has(n)?' done':lostTo.has(n)?' "
+},
+{
+"t": "title=\"Affrontée, pas encore vaincue\"",
+"n": 1,
+"ctx": "')+'\"'+(lostTo.has(n)&&!beaten.has(n)?' "
+},
+{
+"t": "Marché",
+"n": 1,
+"ctx": "l:n(\"Spell\")},slots,missing,     label:\""
+},
+{
+"t": "de la victoire",
+"n": 1,
+"ctx": "sing,     label:\"Marché \"+(g.res===\"V\"?\""
+},
+{
+"t": "de la défaite",
+"n": 1,
+"ctx": "Marché \"+(g.res===\"V\"?\"de la victoire\":\""
+},
+{
+"t": "contre",
+"n": 4,
+"ctx": "\"V\"?\"de la victoire\":\"de la défaite\")+\" "
+},
+{
+"t": "une némésis",
+"n": 1,
+"ctx": "e\":\"de la défaite\")+\" contre \"+(g.nem||\""
+},
+{
+"t": ", avec",
+"n": 1,
+"ctx": "||\"une némésis\")+((g.mages||[]).length?\""
+},
+{
+"t": "marche",
+"n": 2,
+"ctx": "join(\" et \"):\"\")+\".\"};   location.hash=\""
+},
+{
+"t": "l-nem",
+"n": 2,
+"ctx": " logRes=res; const f=$(\"logform\");   $(\""
+},
+{
+"t": "À choisir",
+"n": 2,
+"ctx": "\").innerHTML=optionsHtml(NEM,fight.nem,\""
+},
+{
+"t": "Non noté",
+"n": 4,
+"ctx": "L=optionsHtml(MAGES,fight.mages[0]||\"\",\""
+},
+{
+"t": "l-date",
+"n": 2,
+"ctx": "\",\"Non noté\");   const d=new Date(); $(\""
+},
+{
+"t": "l-note",
+"n": 2,
+"ctx": "ring(d.getDate()).padStart(2,\"0\");   $(\""
+},
+{
+"t": "l-msg",
+"n": 4,
+"ctx": "tart(2,\"0\");   $(\"l-note\").value=\"\"; $(\""
+},
+{
+"t": "Le journal n'est pas disponible dans cette vue.",
+"n": 2,
+"ctx": "value=\"\"; $(\"l-msg\").textContent=db?\"\":\""
+},
+{
+"t": "l-save",
+"n": 4,
+"ctx": "t pas disponible dans cette vue.\";   $(\""
+},
+{
+"t": "Enregistrer la",
+"n": 1,
+"ctx": "cette vue.\";   $(\"l-save\").textContent=\""
+},
+{
+"t": "logwin",
+"n": 1,
+"ctx": "one\").hidden=true; f.hidden=false; } $(\""
+},
+{
+"t": "logloss",
+"n": 1,
+"ctx": "(\"logwin\").onclick=()=>openLog(\"V\"); $(\""
+},
+{
+"t": "l-cancel",
+"n": 1,
+"ctx": "\"logloss\").onclick=()=>openLog(\"D\"); $(\""
+},
+{
+"t": "Choisis la némésis affrontée.",
+"n": 2,
+"ctx": "alue; if(!nem){ $(\"l-msg\").textContent=\""
+},
+{
+"t": "parties",
+"n": 4,
+"ctx": "-msg\").textContent=\"\";   db.collection(\""
+},
+{
+"t": "enregistrée dans le journal.",
+"n": 1,
+"ctx": "?\"Victoire\":\"Défaite\")+\" contre \"+nem+\" "
+},
+{
+"t": "Enregistrement impossible pour l'instant. Réessaie dans un instant.",
+"n": 2,
+"ctx": "disabled=false; $(\"l-msg\").textContent=\""
+},
+{
+"t": "off",
+"n": 4,
+"ctx": "db\"):null }catch(e){}   if(!d){ jstate=\""
+},
+{
+"t": "expeditions",
+"n": 1,
+"ctx": "nderExp(); } },10000);   db.collection(\""
+},
+{
+"t": "Standard",
+"n": 1,
+"ctx": "V + 2A\",\"7V\"]]}; const XVAR={std:{name:\""
+},
+{
+"t": "Courte",
+"n": 1,
+"ctx": "\"Standard\",first:1,last:4},short:{name:\""
+},
+{
+"t": "Longue",
+"n": 1,
+"ctx": "me:\"Courte\",first:2,last:4},long:{name:\""
+},
+{
+"t": "II",
+"n": 1,
+"ctx": ",first:1,last:8}}; const ROMAN=[\"\",\"I\",\""
+},
+{
+"t": "III",
+"n": 1,
+"ctx": "t:1,last:8}}; const ROMAN=[\"\",\"I\",\"II\",\""
+},
+{
+"t": "Gemme",
+"n": 1,
+"ctx": "ROMAN=[\"\",\"I\",\"II\",\"III\"], TYPEFR={Gem:\""
+},
+{
+"t": "Relique",
+"n": 1,
+"ctx": "\"II\",\"III\"], TYPEFR={Gem:\"Gemme\",Relic:\""
+},
+{
+"t": "Sort",
+"n": 1,
+"ctx": "EFR={Gem:\"Gemme\",Relic:\"Relique\",Spell:\""
+},
+{
+"t": "long",
+"n": 3,
+"ctx": "ll:4}; const xlevel=(E,b)=>E.variant===\""
+},
+{
+"t": "expeditions/",
+"n": 1,
+"ctx": "elete data.id;   xq=xq.then(()=>db.doc(\""
+},
+{
+"t": "Sauvegarde impossible pour l'instant. Réessaie dans un instant.",
+"n": 1,
+"ctx": "ns/\"+E.id).set(data)).catch(()=>{ xmsg=\""
+},
+{
+"t": "x-var",
+"n": 1,
+"ctx": "){   if(!db) return;   const variant=$(\""
+},
+{
+"t": "x-pl",
+"n": 1,
+"ctx": "t variant=$(\"x-var\").value, players=+$(\""
+},
+{
+"t": "x-name",
+"n": 1,
+"ctx": "rs=+$(\"x-pl\").value;   const E={name:$(\""
+},
+{
+"t": "Expédition du",
+"n": 1,
+"ctx": "nst E={name:$(\"x-name\").value.trim()||(\""
+},
+{
+"t": "x-endless",
+"n": 1,
+"ctx": ").join(\"/\")),variant,players,endless:$(\""
+},
+{
+"t": "active",
+"n": 4,
+"ctx": "ess:$(\"x-endless\").checked,     status:\""
+},
+{
+"t": "prep",
+"n": 5,
+"ctx": "now(),battle:XVAR[variant].first,phase:\""
+},
+{
+"t": "short",
+"n": 1,
+"ctx": "   E.usedMages=[...um];   if(variant===\""
+},
+{
+"t": "start",
+"n": 2,
+"ctx": "); E.treasures[1]+=5;     E.last={kind:\""
+},
+{
+"t": "Expédition courte : le combat 1 compte comme gagné. Ajoute ces cartes à ta caserne et pioche 5 trésors de niveau I.",
+"n": 1,
+"ctx": "   E.last={kind:\"start\",cards:got,text:\""
+},
+{
+"t": "Pas assez de cartes ou de mages dans les boîtes cochées pour lancer une expédition.",
+"n": 1,
+"ctx": "E.barracks.mages.length<players){ xmsg=\""
+},
+{
+"t": "Expédition «",
+"n": 1,
+"ctx": "(\"Relic\"),spells:of(\"Spell\"),     note:\""
+},
+{
+"t": "», combat",
+"n": 1,
+"ctx": "ll\"),     note:\"Expédition « \"+E.name+\" "
+},
+{
+"t": ", essai",
+"n": 1,
+"ctx": "+\" », combat \"+E.battle+(E.cur.tries>1?\""
+},
+{
+"t": "expedition",
+"n": 2,
+"ctx": "ai \"+E.cur.tries:\"\"),date:today(),mode:\""
+},
+{
+"t": "Choisis la némésis du combat.",
+"n": 1,
+"ctx": ".type===t).length;   if(!xd.nem){ xmsg=\""
+},
+{
+"t": "Choisis",
+"n": 1,
+"ctx": " if(xd.mages.length!==E.players){ xmsg=\""
+},
+{
+"t": "mage",
+"n": 2,
+"ctx": "E.players){ xmsg=\"Choisis \"+E.players+\" "
+},
+{
+"t": "dans la caserne.",
+"n": 1,
+"ctx": ".players+\" mage\"+(E.players>1?\"s\":\"\")+\" "
+},
+{
+"t": "Le marché doit compter exactement 3 gemmes, 2 reliques et 4 sorts.",
+"n": 1,
+"ctx": "NEED).some(([t,n])=>cnt(t)!==n)){ xmsg=\""
+},
+{
+"t": "fight",
+"n": 2,
+"ctx": "anished||[]).concat(gone); }   E.phase=\""
+},
+{
+"t": "win",
+"n": 2,
+"ctx": "wards:got,treasure:g});   E.last={kind:\""
+},
+{
+"t": "Pioche",
+"n": 1,
+"ctx": "in\",nem:E.cur.nem,pts,cards:got,text:g?\""
+},
+{
+"t": "trésors de niveau",
+"n": 1,
+"ctx": "em,pts,cards:got,text:g?\"Pioche \"+g.n+\" "
+},
+{
+"t": "et ajoute-les à ta caserne.",
+"n": 1,
+"ctx": "n+\" trésors de niveau \"+ROMAN[g.tier]+\" "
+},
+{
+"t": "support",
+"n": 4,
+"ctx": "E.cur.tries,res:\"D\",pts:0});   E.phase=\""
+},
+{
+"t": "ajouté",
+"n": 1,
+"ctx": "d); text=TYPEFR[kind]+(kind===\"Spell\"?\" "
+},
+{
+"t": "ajoutée",
+"n": 1,
+"ctx": "YPEFR[kind]+(kind===\"Spell\"?\" ajouté\":\" "
+},
+{
+"t": "à la caserne :",
+"n": 1,
+"ctx": "(kind===\"Spell\"?\" ajouté\":\" ajoutée\")+\" "
+},
+{
+"t": "Plus aucune carte de ce type disponible.",
+"n": 1,
+"ctx": "erne : \"+cardName(id)+\".\"; } else text=\""
+},
+{
+"t": "Nouveau mage dans la caserne :",
+"n": 1,
+"ctx": "ush(m); E.barracks.mages.push(m); text=\""
+},
+{
+"t": "Plus aucun mage disponible.",
+"n": 1,
+"ctx": "dans la caserne : \"+m+\".\"; } else text=\""
+},
+{
+"t": "Pioche 1 trésor de niveau",
+"n": 1,
+"ctx": "+kind.slice(1); E.treasures[t]++; text=\""
+},
+{
+"t": "et ajoute-le à ta caserne.",
+"n": 1,
+"ctx": "\"Pioche 1 trésor de niveau \"+ROMAN[t]+\" "
+},
+{
+"t": "Soutien après la défaite.",
+"n": 1,
+"ctx": "  E.last={kind:\"support\",cards:[],text:\""
+},
+{
+"t": "Tu affrontes à nouveau",
+"n": 1,
+"ctx": "ext:\"Soutien après la défaite. \"+text+\" "
+},
+{
+"t": "\" title=\"",
+"n": 1,
+"ctx": "   return '<div class=\"xrow g-'+c.type+'"
+},
+{
+"t": "aria-label=\"Mettre",
+"n": 1,
+"ctx": "'+(xd.market.has(c.id)?\" checked\":\"\")+' "
+},
+{
+"t": "au marché\">",
+"n": 1,
+"ctx": ":\"\")+' aria-label=\"Mettre '+esc(c.fr)+' "
+},
+{
+"t": "\" style=\"color:var(--c)\">",
+"n": 1,
+"ctx": "h?'<div class=\"xrows\"><h4 class=\"g-'+t+'"
+},
+{
+"t": "exp",
+"n": 3,
+"ctx": " } function renderExp(){   const box=$(\""
+},
+{
+"t": "L'expédition ne répond pas encore. Elle s'affichera dès que la connexion revient.",
+"n": 1,
+"ctx": "ment de l'expédition…\":xstate===\"slow\"?\""
+},
+{
+"t": "Le mode Expédition a besoin du journal, qui n'est pas disponible dans cette vue. Ouvre la page connecté à ton compte.",
+"n": 1,
+"ctx": "fichera dès que la connexion revient.\":\""
+},
+{
+"t": "Une campagne de plusieurs combats selon les règles d\\'Une Ère Nouvelle : une caserne de cartes et de mages qui grossit après chaque combat, des némésis de plus en plus fortes, un score.",
+"n": 1,
+"ctx": "><div><h2>Expédition</h2><p class=\"sub\">"
+},
+{
+"t": "Nouvelle expédition",
+"n": 1,
+"ctx": "</div>'       +'<div class=\"xpanel\"><h3>"
+},
+{
+"t": "Nom",
+"n": 1,
+"ctx": "=\"fld\" style=\"grid-column:span 2\"><span>"
+},
+{
+"t": "Durée",
+"n": 1,
+"ctx": "abel>'       +'<label class=\"fld\"><span>"
+},
+{
+"t": "Standard, 4 combats",
+"n": 1,
+"ctx": "><select id=\"x-var\"><option value=\"std\">"
+},
+{
+"t": "Courte, 3 combats",
+"n": 1,
+"ctx": "4 combats</option><option value=\"short\">"
+},
+{
+"t": "Longue, 8 combats",
+"n": 1,
+"ctx": " 3 combats</option><option value=\"long\">"
+},
+{
+"t": "Joueurs",
+"n": 1,
+"ctx": "abel>'       +'<label class=\"fld\"><span>"
+},
+{
+"t": "Réserve sans fin : les cartes non choisies restent dans la caserne au lieu d\\'être bannies",
+"n": 1,
+"ctx": "><input type=\"checkbox\" id=\"x-endless\"> "
+},
+{
+"t": "La caserne de départ est tirée dans les boîtes cochées de l\\'onglet Nouveau marché : 3 gemmes, 2 reliques, 4 sorts et 4 mages. Les trésors restent des cartes physiques : l\\'appli te dit combien en piocher.",
+"n": 1,
+"ctx": "/label></div>'       +'<p class=\"muted\">"
+},
+{
+"t": "Lancer l\\'expédition",
+"n": 1,
+"ctx": "tn primary\" type=\"button\" id=\"x-create\">"
+},
+{
+"t": "Expéditions passées",
+"n": 1,
+"ctx": " +(past.length?'<div class=\"xpanel\"><h3>"
+},
+{
+"t": "abandoned",
+"n": 2,
+"ctx": "+esc(XVAR[e.variant].name)+(e.status===\""
+},
+{
+"t": "· abandonnée au combat",
+"n": 1,
+"ctx": "ariant].name)+(e.status===\"abandoned\"?\" "
+},
+{
+"t": "pts",
+"n": 1,
+"ctx": "le=\"color:var(--gold)\">'+(e.score||0)+' "
+},
+{
+"t": "x-create",
+"n": 1,
+"ctx": "n(\"\")+'</ul></div>':\"\");     const b=$(\""
+},
+{
+"t": "now",
+"n": 1,
+"ctx": "p'+(b===E.battle&&E.status===\"active\"?\" "
+},
+{
+"t": "won",
+"n": 1,
+"ctx": "le&&E.status===\"active\"?\" now\":\"\")+(w?\" "
+},
+{
+"t": "Combat",
+"n": 2,
+"ctx": "\"active\"?\" now\":\"\")+(w?\" won\":\"\")+'\"><b>"
+},
+{
+"t": "Niveau",
+"n": 1,
+"ctx": ")+'\"><b>Combat '+b+'</b><span class=\"m\">"
+},
+{
+"t": "de niveau",
+"n": 1,
+"ctx": "E.treasures[t]).map(t=>E.treasures[t]+\" "
+},
+{
+"t": "Victoire contre",
+"n": 1,
+"ctx": "?\" loss\":\"\")+'\"><h4>'+(L2.kind===\"win\"?\""
+},
+{
+"t": "points",
+"n": 2,
+"ctx": "re contre \"+esc(L2.nem)+\" · +\"+L2.pts+\" "
+},
+{
+"t": "Départ",
+"n": 1,
+"ctx": " +\"+L2.pts+\" points\":L2.kind===\"start\"?\""
+},
+{
+"t": "Nouvelles cartes dans la caserne :",
+"n": 1,
+"ctx": "'       +(L2.cards&&L2.cards.length?'<p>"
+},
+{
+"t": "· revanche après la défaite",
+"n": 1,
+"ctx": "sc(E.cur.nem)+'</b> <span class=\"muted\">"
+},
+{
+"t": "Némésis de niveau",
+"n": 1,
+"ctx": "d\" style=\"flex:1;min-width:180px\"><span>"
+},
+{
+"t": "À tirer",
+"n": 1,
+"ctx": "id=\"x-nem\">'         +'<option value=\"\">"
+},
+{
+"t": "Autres niveaux",
+"n": 1,
+"ctx": ">').join(\"\")         +'<optgroup label=\""
+},
+{
+"t": "Tirer au hasard",
+"n": 1,
+"ctx": "lass=\"btn\" type=\"button\" id=\"x-rollnem\">"
+},
+{
+"t": "ko",
+"n": 1,
+"ctx": "n lab+' <b class=\"'+(n===XNEED[t]?\"ok\":\""
+},
+{
+"t": "Ce marché cache une synergie.",
+"n": 1,
+"ctx": "d.theme].hint)+'</p>':'<p class=\"muted\">"
+},
+{
+"t": "Révéler l\\'indice",
+"n": 1,
+"ctx": " class=\"swap\" type=\"button\" id=\"x-hint\">"
+},
+{
+"t": "Préparer le combat",
+"n": 1,
+"ctx": " : \"\";     act='<div class=\"xpanel\"><h3>"
+},
+{
+"t": "1. Némésis",
+"n": 1,
+"ctx": "e combat '+E.battle+'</h3>'       +'<h4>"
+},
+{
+"t": "2. Mages (",
+"n": 1,
+"ctx": "<h4>1. Némésis</h4>'+nemSel       +'<h4>"
+},
+{
+"t": "3. Marché : coche 3 gemmes, 2 reliques et 4 sorts",
+"n": 1,
+"ctx": "/label>').join(\"\")+'</div>'       +'<h4>"
+},
+{
+"t": "Proposer : optimisé",
+"n": 1,
+"ctx": "class=\"btn\" type=\"button\" data-xp=\"opt\">"
+},
+{
+"t": "Réserve sans fin : les cartes non cochées restent dans la caserne.",
+"n": 1,
+"ctx": "       +'<p class=\"muted\">'+(E.endless?\""
+},
+{
+"t": "Les cartes non cochées seront bannies de l'expédition au début du combat.",
+"n": 1,
+"ctx": " non cochées restent dans la caserne.\":\""
+},
+{
+"t": "Commencer le combat",
+"n": 1,
+"ctx": "btn primary\" type=\"button\" id=\"x-start\">"
+},
+{
+"t": "Mages :",
+"n": 1,
+"ctx": "r.nem)+'</h3>'       +'<p class=\"muted\">"
+},
+{
+"t": "· essai",
+"n": 1,
+"ctx": "es.map(esc).join(\" et \")+(E.cur.tries?' "
+},
+{
+"t": "Confirmer la victoire",
+"n": 1,
+"ctx": "ss=\"btn win-b\" type=\"button\" id=\"x-win\">"
+},
+{
+"t": "Confirmer la défaite",
+"n": 1,
+"ctx": "=\"btn loss-b\" type=\"button\" id=\"x-loss\">"
+},
+{
+"t": "Défaite contre",
+"n": 1,
+"ctx": "t]>0);     act='<div class=\"xpanel\"><h3>"
+},
+{
+"t": "Choisis un soutien pour la revanche :",
+"n": 1,
+"ctx": "éfaite contre '+esc(E.cur.nem)+'</h3><p>"
+},
+{
+"t": "Une gemme",
+"n": 1,
+"ctx": "class=\"btn\" type=\"button\" data-xs=\"Gem\">"
+},
+{
+"t": "Une relique",
+"n": 1,
+"ctx": "ass=\"btn\" type=\"button\" data-xs=\"Relic\">"
+},
+{
+"t": "Un sort",
+"n": 1,
+"ctx": "ass=\"btn\" type=\"button\" data-xs=\"Spell\">"
+},
+{
+"t": "Un mage",
+"n": 1,
+"ctx": "lass=\"btn\" type=\"button\" data-xs=\"mage\">"
+},
+{
+"t": "\">Un trésor de niveau",
+"n": 1,
+"ctx": "lass=\"btn\" type=\"button\" data-xs=\"T'+t+'"
+},
+{
+"t": "Caserne",
+"n": 1,
+"ctx": ";   const side='<div class=\"xpanel\"><h3>"
+},
+{
+"t": "Trésors",
+"n": 1,
+"ctx": ".map(esc).join(\", \")+'</p>'     +'<p><b>"
+},
+{
+"t": "aucun pour l'instant",
+"n": 1,
+"ctx": "</p>'     +'<p><b>Trésors</b> : '+(tr||\""
+},
+{
+"t": "cartes, listées à gauche.",
+"n": 1,
+"ctx": "ass=\"muted\">'+E.barracks.cards.length+' "
+},
+{
+"t": "Rappels du combat",
+"n": 1,
+"ctx": ">')     +'</div><div class=\"xpanel\"><h3>"
+},
+{
+"t": "Trésors utilisables",
+"n": 1,
+"ctx": "u combat '+E.battle+'</h3>'     +'<p><b>"
+},
+{
+"t": "ceux de la caserne (niveaux",
+"n": 1,
+"ctx": "'<p><b>Trésors utilisables</b> : '+(tr?\""
+},
+{
+"t": "aucun",
+"n": 1,
+"ctx": "es[t]).map(t=>ROMAN[t]).join(\", \")+\")\":\""
+},
+{
+"t": "Niveau I : chaque joueur en choisit un et remplace une carte de départ du même type (gemme ou sort) dans son deck. Niveau II : le groupe en choisit un seul, qui s\\'applique à tous. Niveau III : chaque joueur en pose un sur son plateau.",
+"n": 1,
+"ctx": "\"aucun\")+'.</p>'     +'<p class=\"muted\">"
+},
+{
+"t": "Deck Némésis à",
+"n": 1,
+"ctx": "n sur son plateau.</p>'     +(deck?'<h4>"
+},
+{
+"t": "joueurs",
+"n": 2,
+"ctx": "(deck?'<h4>Deck Némésis à '+E.players+' "
+},
+{
+"t": "Palier 1",
+"n": 1,
+"ctx": "joueurs</h4><table class=\"deck\"><tr><th>"
+},
+{
+"t": "Palier 2",
+"n": 1,
+"ctx": "e class=\"deck\"><tr><th>Palier 1</th><th>"
+},
+{
+"t": "Palier 3",
+"n": 1,
+"ctx": "r><th>Palier 1</th><th>Palier 2</th><th>"
+},
+{
+"t": "En plus des cartes propres à la némésis. V : cartes de base améliorées, A : cartes de base générales.",
+"n": 1,
+"ctx": "</tr></table>'       +'<p class=\"muted\">"
+},
+{
+"t": "Pour l'expédition longue, j'utilise la colonne du niveau du combat : la règle ne le précise pas.",
+"n": 1,
+"ctx": " base générales.'+(E.variant===\"long\"?\" "
+},
+{
+"t": "· réserve sans fin",
+"n": 1,
+"ctx": "' · '+E.players+' joueurs'+(E.endless?\" "
+},
+{
+"t": "abandon",
+"n": 3,
+"ctx": "=\"button\" id=\"x-abandon\">'+(xconfirm===\""
+},
+{
+"t": "Confirmer l'abandon",
+"n": 1,
+"ctx": "id=\"x-abandon\">'+(xconfirm===\"abandon\"?\""
+},
+{
+"t": "Abandonner l'expédition",
+"n": 1,
+"ctx": "firm===\"abandon\"?\"Confirmer l'abandon\":\""
+},
+{
+"t": "x-abandon",
+"n": 1,
+"ctx": "el=$(id); if(el) el.onclick=f; };   on(\""
+},
+{
+"t": "x-nem",
+"n": 1,
+"ctx": "ndon\"; renderExp(); } });   const ns=$(\""
+},
+{
+"t": "x-rollnem",
+"n": 1,
+"ctx": "ge=e=>{ xd.nem=e.target.value; };   on(\""
+},
+{
+"t": "[data-xm]",
+"n": 1,
+"ctx": "derExp(); } });   box.querySelectorAll(\""
+},
+{
+"t": "[data-xc]",
+"n": 1,
+"ctx": "(x=>x!==m); });   box.querySelectorAll(\""
+},
+{
+"t": "[data-xp]",
+"n": 1,
+"ctx": "enderExp(); });   box.querySelectorAll(\""
+},
+{
+"t": "x-hint",
+"n": 1,
+"ctx": "ck=()=>xpropose(E,b.dataset.xp));   on(\""
+},
+{
+"t": "x-start",
+"n": 1,
+"ctx": ">{ xd.hint=true; renderExp(); });   on(\""
+},
+{
+"t": "x-askwin",
+"n": 1,
+"ctx": ");   on(\"x-start\",()=>xstart(E));   on(\""
+},
+{
+"t": "x-askloss",
+"n": 1,
+"ctx": ")=>{ xconfirm=\"V\"; renderExp(); }); on(\""
+},
+{
+"t": "x-cancel",
+"n": 1,
+"ctx": ")=>{ xconfirm=\"D\"; renderExp(); }); on(\""
+},
+{
+"t": "x-win",
+"n": 1,
+"ctx": "=>{ xconfirm=\"\"; renderExp(); });   on(\""
+},
+{
+"t": "x-loss",
+"n": 1,
+"ctx": "in\",()=>{ xconfirm=\"\"; xwin(E); }); on(\""
+},
+{
+"t": "[data-xs]",
+"n": 1,
+"ctx": "; xloss(E); });   box.querySelectorAll(\""
+},
+{
+"t": "a-pick",
+"n": 3,
+"ctx": " actl=null; function renderPick(){   $(\""
+},
+{
+"t": "doubt",
+"n": 1,
+"ctx": "rn '<div class=\"pchip'+(doubt.has(id)?\" "
+},
+{
+"t": "title=\"Pas sûr de cette carte : vérifie-la\"",
+"n": 1,
+"ctx": "s(id)?\" doubt\":\"\")+'\"'+(doubt.has(id)?' "
+},
+{
+"t": "à vérifier",
+"n": 1,
+"ctx": "le=\"color:var(--gold);font-size:12.5px\">"
+},
+{
+"t": "\" aria-label=\"Retirer",
+"n": 1,
+"ctx": "an><button type=\"button\" data-rm=\"'+id+'"
+},
+{
+"t": "\" aria-label=\"Ajouter :",
+"n": 1,
+"ctx": "(\"\")     +'</div><select data-add=\"'+t+'"
+},
+{
+"t": "Ajouter…",
+"n": 1,
+"ctx": "label.toLowerCase()+'\"><option value=\"\">"
+},
+{
+"t": "[data-rm]",
+"n": 1,
+"ctx": "in(\"\");   $(\"a-pick\").querySelectorAll(\""
+},
+{
+"t": "[data-add]",
+"n": 1,
+"ctx": "(); });   $(\"a-pick\").querySelectorAll(\""
+},
+{
+"t": "a-nem",
+"n": 3,
+"ctx": "lic:[],Spell:[]}; doubt=new Set();   $(\""
+},
+{
+"t": "a-date",
+"n": 2,
+"ctx": "=optionsHtml(MAGES,\"\",\"Non noté\");   $(\""
+},
+{
+"t": "a-note",
+"n": 2,
+"ctx": "noté\");   $(\"a-date\").value=today(); $(\""
+},
+{
+"t": "a-msg",
+"n": 5,
+"ctx": "value=today(); $(\"a-note\").value=\"\"; $(\""
+},
+{
+"t": "a-res-v",
+"n": 1,
+"ctx": "value=\"\"; $(\"a-msg\").textContent=\"\"; $(\""
+},
+{
+"t": "a-photo",
+"n": 6,
+"ctx": "ent=\"\"; $(\"a-res-v\").checked=true;   $(\""
+},
+{
+"t": "a-analyze",
+"n": 4,
+"ctx": "ecked=true;   $(\"a-photo\").value=\"\"; $(\""
+},
+{
+"t": "a-photo-row",
+"n": 3,
+"ctx": "=\"\"; $(\"a-analyze\").disabled=true;   $(\""
+},
+{
+"t": "a-done",
+"n": 2,
+"ctx": "ccept=imgLim.mediaTypes.join(\",\");   $(\""
+},
+{
+"t": "addform",
+"n": 5,
+"ctx": "oin(\",\");   $(\"a-done\").hidden=true; $(\""
+},
+{
+"t": "a-open",
+"n": 1,
+"ctx": "form\").hidden=false; renderPick(); } $(\""
+},
+{
+"t": "a-cancel",
+"n": 1,
+"ctx": "ck(); } $(\"a-open\").onclick=openAdd; $(\""
+},
+{
+"t": "a-st",
+"n": 2,
+"ctx": " $(\"a-analyze\").disabled=!n;   if(n) $(\""
+},
+{
+"t": "photo",
+"n": 1,
+"ctx": "d=!n;   if(n) $(\"a-st\").textContent=n+\" "
+},
+{
+"t": "choisie",
+"n": 1,
+"ctx": ").textContent=n+\" photo\"+(n>1?\"s\":\"\")+\" "
+},
+{
+"t": ": seules les",
+"n": 1,
+"ctx": ">1?\"s\":\"\")+(imgLim&&n>imgLim.maxCount?\" "
+},
+{
+"t": "premières seront analysées.",
+"n": 1,
+"ctx": "ount?\" : seules les \"+imgLim.maxCount+\" "
+},
+{
+"t": ". Clique sur Analyser.",
+"n": 1,
+"ctx": "axCount+\" premières seront analysées.\":\""
+},
+{
+"t": "Tu regardes",
+"n": 1,
+"ctx": "\" | \"+c.fr).join(\"\\n\");   const prompt=\""
+},
+{
+"t": "photos",
+"n": 1,
+"ctx": "gardes \"+(files.length>1?files.length+\" "
+},
+{
+"t": "une photo",
+"n": 1,
+"ctx": "(files.length>1?files.length+\" photos\":\""
+},
+{
+"t": "d'une partie du jeu de cartes coopératif Aeon's End, édition française.\\n",
+"n": 1,
+"ctx": "1?files.length+\" photos\":\"une photo\")+\" "
+},
+{
+"t": "Repère les cartes du marché (la réserve) : des piles de gemmes, reliques et sorts posées face visible, chacune avec son nom en haut du cadre de texte et son coût dans un hexagone en haut à droite. Il y en a en général 9 (3 gemmes, 2 reliques, 4 sorts), mais ce nombre peut varier.\\n",
+"n": 1,
+"ctx": "Aeon's End, édition française.\\n\"     +\""
+},
+{
+"t": "Ignore les cartes de départ (Cristal, Éclat, Étincelle), les cartes en main ou dans les pioches, les trésors et les cartes de la némésis.\\n",
+"n": 1,
+"ctx": "), mais ce nombre peut varier.\\n\"     +\""
+},
+{
+"t": "Si tu vois le plateau de la némésis ou les plateaux des mages, donne leurs noms.\\n\\n",
+"n": 1,
+"ctx": "s et les cartes de la némésis.\\n\"     +\""
+},
+{
+"t": "Cartes possibles (id | type | coût | nom) :\\n",
+"n": 1,
+"ctx": "des mages, donne leurs noms.\\n\\n\"     +\""
+},
+{
+"t": "\\n\\nNémésis possibles :",
+"n": 1,
+"ctx": "les (id | type | coût | nom) :\\n\"+list+\""
+},
+{
+"t": "\\nMages possibles :",
+"n": 1,
+"ctx": "sibles : \"+NEM.map(n=>n[0]).join(\", \")+\""
+},
+{
+"t": "Réponds uniquement avec un objet JSON de cette forme : {\"cards\":[\"id\",...],\"doubtful\":[\"id\",...],\"nemesis\":\"nom exact ou null\",\"mages\":[\"nom exact\",...],\"comment\":\"une phrase courte en français\"}.",
+"n": 1,
+"ctx": "ES.map(m=>m[0]).join(\", \")+\"\\n\\n\"     +'"
+},
+{
+"t": "N'utilise que des id de la liste. Mets dans doubtful les cartes que tu as identifiées sans en être sûr (elles figurent aussi dans cards). N'invente aucune carte : si un nom est illisible, laisse-la de côté et signale-le dans comment.",
+"n": 1,
+"ctx": "ne phrase courte en français\"}. '     +\""
+},
+{
+"t": "a-stop",
+"n": 3,
+"ctx": "\"), st=$(\"a-st\"); btn.disabled=true; $(\""
+},
+{
+"t": "Analyse en cours… cela peut prendre une minute.",
+"n": 1,
+"ctx": "\"a-stop\").hidden=false; st.textContent=\""
+},
+{
+"t": "carte",
+"n": 1,
+"ctx": "st.textContent=got.length?(got.length+\" "
+},
+{
+"t": "reconnue",
+"n": 1,
+"ctx": "length+\" carte\"+(got.length>1?\"s\":\"\")+\" "
+},
+{
+"t": ", dont",
+"n": 1,
+"ctx": "nue\"+(got.length>1?\"s\":\"\")+(doubt.size?\""
+},
+{
+"t": "à vérifier (encadrées en doré)",
+"n": 1,
+"ctx": ":\"\")+(doubt.size?\", dont \"+doubt.size+\" "
+},
+{
+"t": "Vérifie et complète avant d'enregistrer.",
+"n": 1,
+"ctx": "\". \"+(r.comment?String(r.comment):\"\")+\" "
+},
+{
+"t": "Aucune carte reconnue.",
+"n": 1,
+"ctx": "fie et complète avant d'enregistrer.\"):\""
+},
+{
+"t": "Essaie une photo plus nette et plus proche, ou ajoute les cartes à la main.",
+"n": 1,
+"ctx": "r&&r.comment?String(r.comment)+\" \":\"\")+\""
+},
+{
+"t": "cancelled",
+"n": 1,
+"ctx": " c=e&&e.code;     st.textContent = c===\""
+},
+{
+"t": "Analyse arrêtée.",
+"n": 1,
+"ctx": ";     st.textContent = c===\"cancelled\"?\""
+},
+{
+"t": "not_granted",
+"n": 2,
+"ctx": "celled\"?\"Analyse arrêtée.\"       : c===\""
+},
+{
+"t": "sampling_disabled",
+"n": 2,
+"ctx": "rêtée.\"       : c===\"not_granted\"||c===\""
+},
+{
+"t": "images_unavailable",
+"n": 1,
+"ctx": "granted\"||c===\"sampling_disabled\"||c===\""
+},
+{
+"t": "not_declared",
+"n": 1,
+"ctx": "sabled\"||c===\"images_unavailable\"||c===\""
+},
+{
+"t": "L'analyse de photo n'est pas autorisée dans cette vue. Tu peux remplir la fiche à la main.",
+"n": 1,
+"ctx": "mages_unavailable\"||c===\"not_declared\"?\""
+},
+{
+"t": "rate_limited",
+"n": 1,
+"ctx": "mplir la fiche à la main.\"       : c===\""
+},
+{
+"t": "Trop d'analyses d'un coup ou limite d'usage atteinte. Réessaie plus tard.",
+"n": 1,
+"ctx": "à la main.\"       : c===\"rate_limited\"?\""
+},
+{
+"t": "image_rejected",
+"n": 1,
+"ctx": "inte. Réessaie plus tard.\"       : c===\""
+},
+{
+"t": "Cette photo n'est pas acceptée (format ou taille). Essaie une autre photo.",
+"n": 1,
+"ctx": "us tard.\"       : c===\"image_rejected\"?\""
+},
+{
+"t": "invalid_json",
+"n": 1,
+"ctx": ". Essaie une autre photo.\"       : c===\""
+},
+{
+"t": "empty_completion",
+"n": 1,
+"ctx": "hoto.\"       : c===\"invalid_json\"||c===\""
+},
+{
+"t": "La réponse n'était pas exploitable. Réessaie, ou remplis la fiche à la main.",
+"n": 1,
+"ctx": "\"invalid_json\"||c===\"empty_completion\"?\""
+},
+{
+"t": "session_expired",
+"n": 1,
+"ctx": "mplis la fiche à la main.\"       : c===\""
+},
+{
+"t": "Ta session a expiré : reconnecte-toi puis réessaie.",
+"n": 1,
+"ctx": "a main.\"       : c===\"session_expired\"?\""
+},
+{
+"t": "L'analyse a échoué. Réessaie dans un instant.",
+"n": 1,
+"ctx": "reconnecte-toi puis réessaie.\"       : \""
+},
+{
+"t": "Ajoute au moins une carte du marché.",
+"n": 1,
+"ctx": ".Spell.length){ $(\"a-msg\").textContent=\""
+},
+{
+"t": "a-res-d",
+"n": 1,
+"ctx": "e du marché.\"; return; }   const res=$(\""
+},
+{
+"t": "saisie",
+"n": 1,
+"ctx": "trim(),date:$(\"a-date\").value||\"\",mode:\""
+},
+{
+"t": "a-save",
+"n": 3,
+"ctx": "||\"\",mode:\"saisie\",ts:Date.now()};   $(\""
+},
+{
+"t": "ajoutée au journal.",
+"n": 1,
+"ctx": "?\"Victoire\":\"Défaite\")+\" contre \"+nem+\" "
+},
+{
+"t": "sample",
+"n": 1,
+"ctx": "dow.claude.use?await window.claude.use(\""
+},
+{
+"t": "#victoires",
+"n": 1,
+"ctx": " showView(){   const v=location.hash===\""
+},
+{
+"t": "#expedition",
+"n": 1,
+"ctx": "===\"#victoires\"?\"wins\":location.hash===\""
+},
+{
+"t": "gen",
+"n": 2,
+"ctx": "s\":location.hash===\"#expedition\"?\"exp\":\""
+},
+{
+"t": "view-",
+"n": 1,
+"ctx": "   [\"gen\",\"exp\",\"wins\"].forEach(k=>{ $(\""
+},
+{
+"t": "tab-",
+"n": 1,
+"ctx": "Each(k=>{ $(\"view-\"+k).hidden=k!==v; $(\""
+},
+{
+"t": "aria-selected",
+"n": 1,
+"ctx": "hidden=k!==v; $(\"tab-\"+k).setAttribute(\""
+},
+{
+"t": "tab-gen",
+"n": 1,
+"ctx": "aria-selected\",String(k===v)); }); } $(\""
+},
+{
+"t": "tab-wins",
+"n": 1,
+"ctx": "cation.hash=\"marche\"; showView(); }; $(\""
+},
+{
+"t": "victoires",
+"n": 1,
+"ctx": "tab-wins\").onclick=()=>{ location.hash=\""
+},
+{
+"t": "tab-exp",
+"n": 1,
+"ctx": "ion.hash=\"victoires\"; showView(); }; $(\""
+},
+{
+"t": "hashchange",
+"n": 1,
+"ctx": "showView(); }; window.addEventListener(\""
+},
+{
+"t": "f-fresh",
+"n": 1,
+"ctx": "e=e=>{ themeChoice=e.target.value }; $(\""
+},
+{
+"t": "← Toutes les aides de jeu",
+"n": 1,
+"ctx": "\" style=\"color:inherit;font-weight:600\">"
+},
+{
+"t": "☕ Cet outil vous a plu ? Offrez-moi un café",
+"n": 1,
+"ctx": "\" style=\"color:inherit;font-weight:600\">"
+},
+{
+"t": "Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.",
+"n": 1,
+"ctx": "=\"width:100%;font-size:12px;opacity:.8\">"
+},
+{
+"t": "Retour à l'accueil des aides de jeu",
+"n": 1,
+"ctx": "ref=\"../\" class=\"site-home\" aria-label=\""
+},
+{
+"t": "Accueil",
+"n": 1,
+"ctx": "t-size:15px\">⌂</span><span class=\"sh-t\">"
+},
+{
+"t": ".site-home",
+"n": 1,
+"ctx": "unction(){var a=document.querySelector(\""
+},
+{
+"t": "scroll",
+"n": 1,
+"ctx": "indow.scrollY; window.addEventListener(\""
+},
+{
+"t": "away",
+"n": 2,
+"ctx": "crollY;if(n>y+8&&n>120)a.classList.add(\""
+}
+]

@@ -1,0 +1,2414 @@
+0	width=device-width, initial-scale=1
+1	Mage Knight, tutoriel et compagnon
+2	Mage Knight
+3	Tutoriel interactif et compagnon de partie
+7	Apprendre les règles
+8	Toutes les règles, chapitre par chapitre. Chaque point de règle se lit, puis se joue dans un ou plusieurs cas pratiques, avant quelques questions de vérification.
+10	Aide-mémoire
+11	Votre tour
+12	Se déplacer (facultatif), autant de cases que vos points de Mouvement le permettent.
+13	Faire une seule action : combattre ou interagir avec un lieu. Après l'action, plus de déplacement.
+14	Fin du tour : défaussez les cartes jouées, puis piochez jusqu'à votre Limite de Main.
+15	À la place, vous pouvez vous Reposer : défaussez une carte normale et autant de Blessures que vous voulez (Repos Standard), ou une seule Blessure si vous n'avez que cela en main (Repos Prolongé). Chaque tour, il faut jouer ou défausser au moins une carte.
+16	Le deck n'est remélangé qu'à la fin de la Manche. Quand il est vide, vous pouvez annoncer la fin de la Manche ; le jour devient nuit, et inversement.
+17	Jouer une carte
+18	Effet de base
+19	: gratuit.
+20	Effet amélioré
+21	: payez un mana de la couleur de la carte.
+22	Inclinée
+23	(à l'horizontale) : n'importe quelle carte vaut Mouvement 1, Influence 1, Attaque 1 ou Parade 1.
+24	Une Blessure ne se joue pas. Elle occupe une place dans votre main.
+27	: un dé par tour, relancé à la fin de votre tour.
+29	: disparaissent à la fin du tour.
+31	: se conservent, trois par couleur au plus.
+33	: remplace n'importe quelle couleur de base, le jour seulement.
+35	: la nuit seulement, pour l'effet amélioré des Sorts.
+36	Coût des terrains
+42	Forêt
+43	Terres désolées
+44	Désert
+46	Lac, montagne
+47	infranchissable
+48	Explorer une tuile
+49	Combat en quatre phases
+50	Distance et siège
+51	: seules ces attaques comptent. Contre un ennemi fortifié, seul le siège compte.
+53	: égalez ou dépassez l'Attaque ennemie, sinon la Parade est perdue.
+54	Dégâts
+55	: une Unité absorbe son Armure et devient Blessée ; le héros prend une Blessure par tranche d'Armure, arrondi au supérieur.
+57	: toutes vos attaques comptent. Il faut atteindre l'Armure ennemie d'un seul coup.
+58	Capacités des ennemis
+59	Fortifié
+60	: insensible aux Attaques à distance.
+62	: il faut le double de Parade.
+64	: dégâts doublés s'il n'est pas paré.
+66	: chaque Blessure en main en ajoute une dans la défausse.
+67	Résistance
+68	: les attaques de ce type sont divisées par deux.
+69	Assommé
+70	: autant de Blessures que votre Limite de Main dans un même combat, et vous défaussez tout le reste de votre main.
+73	: recruter, se soigner pour 3 Influence par point de Soin.
+74	Orques Maraudeurs
+75	: attaquables depuis une case voisine. Longer leur case les provoque.
+77	: y entrer lance l'assaut. Garnison fortifiée, Réputation −1. Conquise, elle augmente votre main à proximité.
+79	: action pour affronter un monstre ; récompense en fin de tour, deux Cristaux tirés au dé.
+81	: finir son tour dessus donne un cristal.
+82	Clairière Magique
+83	: un jeton de mana or (noir la nuit) au début du tour, une Blessure retirée de la main ou de la défausse à la fin.
+84	Gloire et Réputation
+87	vient des ennemis vaincus. Paliers de niveau : 3, 8, 15, 24.
+88	Niveaux pairs : une Compétence et une carte Action Avancée. Niveaux impairs : Armure, Limite de Main ou jeton Commandement en plus.
+89	Réputation
+90	modifie votre Influence à chaque interaction. Vaincre des maraudeurs l'augmente, attaquer une forteresse la diminue.
+91	Vocabulaire et limites
+92	Ce tutoriel emploie les termes du Livret de Règles. Le guide pas à pas en utilise parfois d'autres : Round pour Manche, Renommée pour Gloire, jouée latéralement pour inclinée, Rapide pour Vif, Tanière pour Antre, Frayère pour Sombres Terriers, Étendard pour Bannière.
+93	Le plateau, les ennemis et les Unités des cas pratiques sont des exemples pour apprendre ; fiez-vous aux tuiles, aux jetons et aux cartes de votre boîte.
+94	Dans les cas de combat, les cartes marquées « exemple » sont inventées pour l'exercice. Les autres reprennent les cartes Action Basique.
+95	La partie libre reste simplifiée : un seul ennemi par combat, ni Sorts, ni Artefacts, ni Compétences, ni Tactiques.
+96	Tutoriel non officiel pour apprendre le jeu de plateau Mage Knight, d'après son livret de règles. Textes et dessins écrits pour cette page.
+97	Compagnon de partie
+98	Rappel des règles du Fantôme
+99	Le Fantôme reçoit les 16 cartes Action Basique d'un Héros non choisi et 3 Cristaux, des couleurs des points en bas de sa carte Héros. Il peut dépasser 3 Cristaux par couleur.
+100	À son tour : Deck vide, il annonce la fin de la Manche. Sinon il défausse 3 cartes. S'il possède des Cristaux de la couleur de la dernière, il en défausse autant de plus, sans regarder leur couleur.
+101	S'il ne peut pas défausser toutes les cartes prévues, il défausse ce qu'il peut et annonce la fin de la Manche à son tour suivant.
+102	Quand un joueur annonce la fin de la Manche, chacun des autres, Fantôme compris, joue un dernier tour.
+103	En solo, vous choisissez votre Tactique en premier, puis le Fantôme en prend une au hasard. Les deux sont retirées pour le reste de la partie. La plus petite Tactique joue en premier.
+104	En coopération, le Fantôme tire sa Tactique au hasard avant les joueurs. À la fin de chaque Manche, les joueurs retirent du jeu une des Tactiques qu'ils ont utilisées, sauf après le dernier Jour et la dernière Nuit.
+105	À chaque nouvelle Manche : l'Action Avancée retirée du bas de l'Offre va dans le Deck du Fantôme, qu'on remélange. Le Sort retiré de l'Offre va sous sa pioche comme d'habitude, et le Fantôme gagne un Cristal de sa couleur.
+106	Aide de jeu non officielle pour Mage Knight, d'après le Livret de Règles et le Livret de Règles des Extensions. Les scénarios marqués Maison ont été écrits pour cette page et ne viennent pas du livret. La partie en cours est gardée dans ce navigateur.
+107	use strict
+116	Mouvement 2
+117	Mouvement 4
+120	Rapidité
+121	Attaque à distance 3
+124	Attaque 2 ou Parade 2
+125	Attaque 4
+128	Détermination
+129	Parade 5
+131	Influence 2
+132	Influence 4
+135	Influence 5, Réputation −1
+136	Tranquillité
+137	Soin 1 ou piochez 1 carte
+138	Soin 2 ou piochez 2 cartes
+141	Cristallisation
+142	Payez 1 mana : gagnez un cristal de sa couleur
+143	Gagnez un cristal au choix
+146	Attirance de mana
+147	Un dé de la Source en plus ce tour-ci
+148	Prenez un dé, fixez sa couleur : 2 jetons de cette couleur
+152	Gagnez un jeton bleu, blanc ou rouge
+153	Prochaine carte : effet amélioré gratuit et +2
+157	Défaussez une autre carte : Mouvement, Influence, Attaque ou Parade 3
+158	Même chose avec 5
+159	Trait de feu
+160	Gagnez un cristal rouge
+161	Attaque de feu à distance 3
+164	Trait de glace
+165	Gagnez un cristal bleu
+166	Attaque de glace à distance 3
+168	Trait vif
+169	Gagnez un cristal blanc
+170	Attaque à distance 4
+171	Trait écrasant
+172	Gagnez un cristal vert
+173	Attaque de siège 3
+175	Marche revigorante
+176	Mouvement 2 et Soin 1
+177	Mouvement 4 et Soin 2
+186	cristallisation
+200	Arbalétriers
+201	Rôdeurs
+202	Chevaucheurs de loups
+203	Sorcières maudites
+204	Cuirassés
+207	Épéistes
+227	Portail : votre point de départ.
+228	Village : recrutez des Unités ou soignez-vous avec de l\'Influence.
+229	Mine de cristal : terminez votre tour ici pour gagner un cristal rouge.
+230	Clairière Magique : un jeton de mana or (noir la nuit) au début du tour, et une Blessure retirée de votre main ou de votre défausse en fin de tour.
+231	Forteresse : y entrer déclenche l\'assaut contre sa garnison fortifiée.
+232	Antre : une action pour affronter le monstre qui s\'y cache.
+235	Les cartes
+236	Vos cartes sont vos actions
+237	Dans Mage Knight, tout passe par votre main de cartes. Chaque carte offre un
+238	effet de base
+239	, gratuit, écrit en haut.
+240	N'importe quelle carte peut aussi être jouée
+241	inclinée
+242	(à l'horizontale) : elle vaut alors 1 point de Mouvement, d'Influence, d'Attaque ou de Parade, quel que soit son texte.
+243	Se déplacer coûte des points de Mouvement selon le terrain d'arrivée. Le chiffre en haut de chaque case indique ce coût.
+244	Rejoignez la forêt cerclée d\'or (coût 3).
+245	Jouez Marche ou Endurance pour 2 points, puis une autre carte inclinée pour le troisième, et cliquez sur la forêt.
+246	Le mana
+247	Le mana rend vos cartes plus fortes
+248	effet amélioré
+249	d'une carte demande un mana de sa couleur. La
+250	, à droite, propose trois dés : vous pouvez en utiliser
+251	un seul par tour
+252	Un dé
+253	remplace n'importe quelle couleur, mais seulement le jour. Le dé utilisé est relancé à la fin de votre tour.
+256	sont du mana que l'on garde d'un tour à l'autre. La carte Cristallisation en fabrique.
+257	Atteignez la forêt cerclée d\'or en utilisant au moins un effet amélioré.
+258	Le trajet coûte 2 (plaine du portail) puis 3 (forêt). Marche en effet amélioré avec le dé vert donne 4, une carte inclinée fait le reste.
+260	Révéler de nouvelles terres
+261	Le plateau se découvre peu à peu. Depuis une case au bord d'une zone inconnue, dépensez
+262	2 points de Mouvement
+263	pour révéler la tuile voisine. Dans le scénario d'initiation, chaque tuile révélée rapporte 1 point de Gloire.
+264	Vous pouvez continuer à marcher après avoir exploré, tant qu'il vous reste des points. Les points non dépensés sont perdus à la fin du tour.
+265	La nuit, la forêt coûte 5 au lieu de 3 et le désert 3 au lieu de 5.
+266	Explorez la tuile au sud-est, puis entrez dans le village.
+267	Il faut 6 points : 2 pour explorer en cliquant sur une case « ? » voisine, 2 pour la plaine, 2 pour le village. Trois cartes de Mouvement suffisent.
+268	Interagir avec les habitants
+269	Après vos déplacements, vous avez droit à
+270	une action
+271	. Dans un village, c'est une interaction, payée en points d'
+273	Vous pouvez y
+274	recruter une Unité
+275	(il faut un jeton Commandement libre) et vous
+277	: 3 Influence par point de Soin, chaque point retire une Blessure de votre main.
+279	ajoute ou retire de l'Influence à chaque interaction. Menace, en effet amélioré, la fait baisser.
+280	Recrutez une Unité au village.
+281	Promesse en effet amélioré avec le dé blanc donne 4 Influence, de quoi engager les Villageois. Avec Menace et des cartes inclinées, vous pouvez aussi soigner votre Blessure.
+283	Un combat en quatre phases
+284	Des Orques Maraudeurs campent sur la case voisine. Cliquez sur eux pour les attaquer : c'est votre action du tour.
+285	Le combat suit toujours le même ordre :
+286	attaque à distance
+288	dégâts
+290	. Le panneau de droite vous guide.
+291	Deux règles à retenir : une Parade ne compte que si elle égale l'Attaque ennemie, et il faut atteindre l'Armure ennemie en une seule fois.
+292	Battez les Rôdeurs (Armure 3, Attaque 4).
+293	Un seul dé par tour : gardez le rouge pour Rage en effet amélioré (Attaque 4). Pour parer 4, jouez Détermination et l\'autre Rage en Parade 2 chacune. Vous pouvez aussi encaisser deux Blessures.
+294	Blessures, Unités et ennemis Vifs
+295	Ces Orques sont
+297	: pour les parer, il faut le
+299	de leur Attaque. Parfois, encaisser est le meilleur choix.
+300	Les dégâts non parés se répartissent. Une
+301	Unité
+302	en absorbe autant que son Armure et devient Blessée. Votre héros reçoit une
+303	Blessure par tranche d'Armure
+304	, arrondi au supérieur : 3 dégâts contre Armure 2 font 2 Blessures.
+305	Une Unité s'active une fois par Manche, en cliquant dessus.
+306	Battez les Chevaucheurs de loups (Armure 4, Attaque 3, Vif).
+307	Deux voies : laisser les Villageois encaisser les 3 dégâts puis frapper avec Rage en effet amélioré, ou parer 6 avec les Villageois et deux Rage, puis attaquer avec Improvisation et une carte inclinée.
+309	Assaut, fin de tour et niveau
+310	Entrer dans une forteresse lance l'
+312	. Sa garnison est
+313	fortifiée
+314	: les Attaques à distance n'ont aucun effet, seul le siège compte en première phase. Attaquer une place forte coûte aussi 1 point de Réputation.
+315	Chaque ennemi vaincu rapporte de la
+316	. À la fin du tour, si vous avez franchi un palier, vous montez de
+318	Terminez toujours par « Fin du tour » : cartes jouées défaussées, puis pioche jusqu'à votre Limite de Main.
+319	Prenez la forteresse (Armure 4, Attaque 4), puis terminez votre tour pour passer niveau 2.
+320	Endurance et Rapidité inclinée donnent les 3 points pour entrer. Détermination en effet amélioré avec le dé bleu pare 5. Les deux Rage font Attaque 4.
+322	Partie libre
+323	Première expédition
+324	À vous de jouer, sans filet. Votre deck de 16 cartes est mélangé, le plateau est à explorer et les ennemis sont tirés au hasard.
+325	La partie dure
+326	trois Manches
+327	: jour, nuit, jour. Une Manche se termine quand vous l'annoncez, une fois votre deck vide.
+328	Pensez à vous Reposer pour vider votre main des Blessures, à la mine pour les cristaux et au village pour les renforts.
+329	Conquérez la forteresse à l\'est avant la fin de la troisième Manche.
+330	Les Orques Maraudeurs sont une bonne première cible. Une Unité recrutée au village aide beaucoup pour l\'assaut. Longer la case d\'un maraudeur le provoque.
+331	Traverser la forêt de Nuit
+332	La Nuit est tombée. La Forêt coûte maintenant
+333	au lieu de 3, et le dé
+334	de la Source est inutilisable.
+335	Le Désert, lui, ne coûterait plus que 3.
+336	Entrez dans la forêt cerclée d\'or malgré la Nuit.
+337	Marche en effet amélioré avec le dé vert donne 4 points. Une carte inclinée apporte le cinquième.
+339	Ne pas réveiller les Orques
+340	Des Orques Maraudeurs campent sur la colline. Passer
+341	directement d'une case voisine d'eux à une autre case voisine d'eux
+342	les provoque : ils attaquent et votre Mouvement s'arrête.
+343	Le chemin le plus court n'est donc pas toujours le bon.
+344	Rejoignez le village cerclé d\'or sans déclencher de combat.
+345	Le trajet direct longe les Orques. Faites le détour par la forêt à l\'ouest (3 points), puis entrez au village (2 points) : cette forêt ne touche pas leur case.
+346	Quand la Réputation paie
+347	Votre Réputation est à
+348	: elle ajoute 1 point d'Influence à chaque interaction, une seule fois par tour.
+349	Votre main est mauvaise, mais ce bonus peut faire la différence.
+350	Recrutez les Villageois (4 Influence).
+351	Promesse donne 2, Marche inclinée donne 1 en choisissant Influence, et la Réputation ajoute 1.
+352	Récolter un Cristal
+353	La colline voisine abrite une
+354	Mine de Cristal
+355	rouge. Si vous
+356	terminez votre tour
+357	dessus, vous gagnez un Cristal de sa couleur.
+358	Un Cristal se garde d'un tour à l'autre, trois par couleur au plus.
+359	Gagnez un Cristal rouge.
+360	La colline coûte 3 : Marche et Endurance suffisent. Cliquez ensuite sur « Fin du tour ».
+361	La partie commence. Bonne route.
+362	Cas pratique :
+369	Jeton de mana
+371	Le cristal est dépensé.
+373	Dé
+374	de la Source
+375	L\'or remplace toute couleur de base, le jour.
+376	Votre dé de ce tour.
+377	Déjà 3 Cristaux
+378	s : celui-ci devient un jeton de mana pour ce tour.
+379	s : vous ne recevez rien.
+381	Attaque à distance
+382	Attaque de siège
+384	de feu
+385	de glace
+389	Cristalliser un mana
+390	Cristal au choix
+391	Un dé de plus
+392	Deux jetons de mana
+393	Pas de déplacement pendant un combat.
+394	Après votre action, vous ne pouvez plus vous déplacer ce tour-ci.
+395	L\'Influence ne sert pas en combat.
+396	Une Attaque normale se joue pendant la phase d\'Attaque, la quatrième.
+397	Il n\'y a pas de combat en cours.
+398	Les Attaques se jouent en phase 1 (distance et siège) ou en phase 4.
+399	La Parade se joue pendant la phase de Parade, la deuxième.
+400	On ne se soigne pas en plein combat.
+401	Vous n\'avez aucune Blessure à soigner.
+402	Improvisation demande de défausser une autre carte.
+404	Quelle carte défausser ?
+405	Il vous faut un mana (dé ou jeton) à transformer en cristal.
+406	Quel mana cristalliser ?
+407	L\'or devient un cristal de quelle couleur ?
+408	Aucun dé disponible dans la Source.
+409	Quelle couleur pour le dé ?
+410	Un cristal de quelle couleur ?
+411	Quel jeton de mana ?
+413	Quel effet ?
+415	Le mana arrive à la leçon suivante. Ici, utilisez l\'effet de base ou jouez la carte inclinée.
+417	Il vous faut un mana
+418	pour cet effet amélioré
+419	(vous avez déjà pris votre dé ce tour-ci).
+420	Payer avec quel mana ?
+421	jouée inclinée :
+422	en effet amélioré :
+423	(+2 grâce à Concentration)
+424	Une Unité déjà Blessée ne peut plus encaisser.
+426	dégâts et sont Blessés
+427	deux fois (Toxique).
+428	Tous les dégâts sont absorbés.
+430	: une Blessure retirée, il en reste une.
+431	sont soignés.
+432	Une Unité Blessée ne peut pas agir. La soigner coûte
+433	point(s) de Soin.
+434	sont Épuisés jusqu\'à la fin de la Manche.
+435	Il vous faut
+436	Influence (vous en avez
+437	). Jouez des cartes d\'Influence ou des cartes inclinées.
+438	Aucun jeton Commandement libre
+440	Pour recruter, vous devez renvoyer une de vos Unités : elle est retirée du jeu.
+441	rejoignent votre armée, Disponibles tout de suite.
+442	Vous n\'avez rien à soigner.
+443	Vous achetez 1 point de Soin.
+444	Terminez d\'abord le combat.
+445	Pour explorer cette tuile, placez-vous sur une case qui la touche.
+446	Après votre action, vous ne pouvez plus explorer ce tour-ci.
+447	Explorer coûte 2 points de Mouvement (vous en avez
+448	Nouvelle tuile révélée : +1 Gloire.
+449	(coût
+450	, infranchissable
+451	Orques Maraudeurs :
+452	Vous ne pouvez entrer que sur une case voisine.
+453	Vous avez déjà fait votre action ce tour-ci.
+455	: infranchissable.
+456	: il faut
+457	points de Mouvement, vous en avez
+458	. Jouez des cartes de Mouvement, ou d\'autres cartes inclinées.
+459	Vous entrez en
+461	En longeant leur case, vous provoquez les
+462	: ils attaquent, votre déplacement s\'arrête.
+463	Assaut de la forteresse : Réputation −1.
+465	Combat contre
+467	, Attaque
+468	vaincus : +
+470	Les habitants apprécient : Réputation +1.
+471	La forteresse est à vous.
+473	Récompense en fin de tour : deux Cristaux tirés au dé.
+475	Il manque
+476	point(s) : une attaque insuffisante ne fait rien.
+478	Phase de Parade : l\'ennemi attaque.
+479	Attaque parée, aucun dégât.
+480	Parade insuffisante : il faut
+481	d\'un coup.
+483	Non paré :
+484	dégâts à répartir.
+486	Votre héros encaisse
+487	dégâts :
+488	Blessure(s) en main.
+489	Toxique : autant dans la défausse.
+490	Assommé : vous défaussez vos autres cartes.
+492	Assaut manqué : vous reculez sur votre case précédente.
+493	Vous rompez le combat. L\'ennemi reste en place.
+494	Récompense de l\'Antre : dé noir, +1 Gloire à la place du Cristal.
+495	Dé or : un Cristal de quelle couleur ?
+496	Récompense de l\'Antre : Cristal
+498	Aux niveaux pairs, vous gagnez une Compétence (non simulée ici) et une carte Action Avancée, prise dans une Offre de trois cartes et placée sur le dessus de votre Deck. Laquelle prenez-vous ?
+499	rejoint votre deck.
+500	Niveau 3 : Armure 3 et un deuxième jeton Commandement.
+501	Niveau 5 : Limite de Main 6 et un troisième jeton Commandement.
+502	Vous n\'avez joué aucune carte ce tour-ci : la règle impose d\'en défausser au moins une avant de piocher.
+503	La mine vous donne un cristal
+504	La Clairière retire une Blessure de votre main.
+505	La Clairière retire une Blessure de votre défausse.
+506	Nouveau tour. Vous complétez votre main à
+508	(+1 grâce à votre forteresse)
+509	; votre deck est vide.
+510	La Clairière vous offre un jeton de mana
+512	noir (utile seulement pour l\'effet amélioré des Sorts).
+513	Le Repos remplace tout le tour : impossible après un déplacement ou une action.
+514	Votre main est vide.
+515	Repos : quelle carte défausser ?
+516	Vous défaussez une carte normale et toutes vos Blessures en main. Les Blessures défaussées reviendront au prochain mélange : seul le Soin les retire pour de bon.
+517	Vous vous reposez :
+518	Blessure(s) défaussée(s).
+519	Repos Prolongé : vous n\'avez que des Blessures, une seule est défaussée.
+520	Expédition réussie
+521	Fin de l\'expédition
+522	Rejouer une partie
+523	Trois Manches se sont écoulées. Gloire :
+524	, niveau
+525	La forteresse est tombée.
+526	La forteresse tient toujours : tentez une autre approche.
+528	le jour se lève.
+529	la nuit tombe. La forêt coûte 5, le désert 3, et l\'or de la Source est inutilisable.
+530	Deck remélangé, Unités prêtes.
+531	stroke="rgba(10,25,30,.38)" stroke-width="2" fill="none" stroke-linecap="round"
+532	Z" fill="rgba(10,40,20,.45)"/>
+534	Z" fill="rgba(20,25,35,.5)"/>
+535	stroke="#12202a" stroke-width="1.6"
+536	" cy="
+537	" r="13" fill="none" stroke="#12202a" stroke-width="3"/>
+538	" r="6" fill="var(--m-gold)"
+539	v-12l13 -10l13 10v12z" fill="#f1e6cf"
+540	" width="6" height="9" fill="#7a5a3a"/>
+541	l10 9l-10 16l-10 -16z" fill="var(--m-
+542	" r="12" fill="var(--m-gold)" opacity=".85"
+543	l-5 -5" stroke="#12202a" stroke-width="2" fill="none"/>
+544	v-22h6v5h4v-5h6v5h4v-5h6v22z" fill="
+547	" width="6" height="9" fill="#12202a"/>
+548	q0 -24 14 -24t14 24z" fill="#3a2f2a"
+549	" r="1.8" fill="#f2c94c"/>
+550	" role="img" aria-label="Plateau de jeu">
+551	Zone inexplorée : 2 points de Mouvement depuis une case voisine
+552	" fill="var(--t-fog)"/>
+553	" text-anchor="middle" font-size="22" fill="var(--muted)">?
+554	, coût
+555	· Orques Maraudeurs :
+556	" fill="var(--t-
+557	" text-anchor="middle">
+558	" r="15" fill="#3d6b34" stroke="#12202a" stroke-width="2"/>
+559	l-14 14" stroke="#f3efe2" stroke-width="3" stroke-linecap="round"/>
+560	" r="13" fill="var(--accent)" stroke="#fff" stroke-width="2.5"/>
+561	h12v5q0 6 -6 8q-6 -2 -6 -8z" fill="#fff"/>
+564	· Manche
+565	· tour
+566	Cliquez une case voisine pour y entrer, une case « ? » pour explorer.
+567	" title="mana
+570	· Attaque
+571	· Gloire
+572	Résistance physique
+575	Ennemi fortifié : seules les Attaques de
+576	siège
+577	comptent dans cette phase.
+578	Seules les Attaques
+579	à distance
+580	et de
+581	comptent ici. Vaincre maintenant évite sa riposte.
+582	Attaque utilisable
+584	>Attaquer
+585	Passer à la Parade
+586	« Attaquer » reste grisé tant qu'il manque
+588	. En phase 1, seules
+589	les Attaques de Siège
+590	les Attaques à distance et de Siège
+591	comptent : une carte jouée en Attaque normale ou inclinée attendra la phase 4. Sinon, passez à la Parade.
+592	L'ennemi frappe à
+593	Il est Vif : il faut le double.
+594	Une Parade ne compte que si elle atteint
+595	>Parer
+596	Ne pas parer
+597	« Parer » reste grisé tant qu'il manque
+598	de Parade. Jouez des cartes en Parade, ou choisissez de ne pas parer.
+599	Dégâts restants :
+600	(Brutal : doublés)
+601	. Cliquez une Unité pour qu'elle en absorbe autant que son Armure, ou laissez votre héros encaisser :
+602	Blessure(s) avec Armure
+603	Le héros encaisse
+604	Toutes vos Attaques comptent. Il faut atteindre l'Armure en une fois.
+605	Résistance physique : vos attaques physiques sont divisées par deux.
+606	Rompre le combat
+607	: il faut atteindre l'Armure en une fois. Jouez des cartes d'Attaque ; toute carte inclinée ajoute 1.
+608	Votre héros
+610	">Mouvement
+611	">Influence
+612	Sur cette case
+613	Rien de particulier ici.
+614	">Recruter
+615	Interagir (Influence
+616	, Réputation comprise
+619	Acheter 1 Soin (3)
+620	Votre forteresse (Influence
+623	Entrer dans l'antre
+624	Source de mana
+627	" title="Dé
+628	: inutilisable
+629	(réservé aux Sorts, la nuit)
+630	la nuit
+631	" style="color:
+633	Dé du tour utilisé
+634	1 dé par tour
+635	" title="jeton
+636	Concentration active
+637	: prochain effet amélioré gratuit, +2.
+638	Feuille de héros
+640	Limite de Main
+642	Unités
+645	Déjà Blessée
+647	Blessée : soigner (
+648	Épuisée
+652	Votre main
+653	· deck
+654	· défausse
+655	Annoncer la fin de la Manche
+656	>Se reposer
+657	>Fin du tour
+659	Injouable. Elle prend une place dans votre main. Soignez-la, ou défaussez-la en vous reposant.
+661	Amélioré
+662	">Base
+663	">Amélioré
+664	">Inclinée (+1)
+665	Main vide. Terminez votre tour pour piocher.
+667	Jouées ce tour :
+669	Cas pratique
+671	Objectif atteint
+673	Un indice
+674	Nouvelle partie
+675	Recommencer ce cas
+676	La Manche
+677	Préparer et terminer une Manche
+678	Une partie alterne des Manches de Jour et de Nuit. Le scénario fixe leur nombre.
+679	Au début de chaque Manche après la première : retournez le plateau Jour/Nuit, relancez tous les dés de la Source (au moins la moitié en couleurs fondamentales, sinon relancez les dés or et noirs) et proposez une nouvelle Offre des Unités (nombre de joueurs + 2).
+680	Les Offres de Sorts et d'Actions Avancées glissent : la carte du bas repart sous sa pioche, une nouvelle arrive en haut.
+681	Chaque joueur remélange toutes ses cartes, Blessures comprises, puis pioche jusqu'à sa Limite de cartes en main. Ses Unités Épuisées redeviennent Disponibles, ses Compétences retournées aussi. Les Unités Blessées le restent.
+682	Chacun choisit une carte Tactique, le joueur le moins Glorieux en premier. Le numéro de la Tactique fixe l'Ordre de Jeu : le plus petit numéro joue d'abord.
+683	Si votre Deck est vide au début de votre tour, vous pouvez annoncer la fin de la Manche au lieu de jouer. Chaque autre joueur joue alors un dernier tour. Deck vide et main vide : vous êtes obligé de l'annoncer.
+684	Au début de votre tour, votre Deck est vide mais il vous reste 3 cartes en main.
+685	Vous devez annoncer la fin de la Manche
+686	Vous choisissez : annoncer la fin de la Manche ou jouer un tour
+687	Vous remélangez votre défausse pour piocher
+688	L'annonce n'est obligatoire que si la main est vide aussi. On ne remélange jamais sa défausse en cours de Manche.
+689	Qui choisit sa carte Tactique en premier ?
+690	Le joueur le plus Glorieux
+691	Le joueur le moins Glorieux
+692	Le premier dans l'Ordre de Jeu précédent
+693	Le moins avancé sur l'Échelle de Gloire choisit d'abord. À égalité, c'est celui dont le jeton d'Ordre de Jeu est le plus bas.
+694	Vous annoncez la fin de la Manche. Que se passe-t-il ?
+695	Vous jouez votre tour, puis la Manche s'arrête
+696	Vous ne jouez pas ; chaque autre joueur joue un dernier tour
+697	La Manche s'arrête immédiatement pour tous
+698	L'annonce remplace votre tour. Vous ne profitez même pas d'une Mine ou d'une Clairière.
+699	Le tour
+700	Le tour de jeu dans le détail
+701	Tour Normal : un Mouvement facultatif, puis une seule action (combat, interaction, entrée dans un site d'aventures). Plus aucun Mouvement après l'action.
+702	Repos, à la place : ni Mouvement ni action. Repos Standard : défaussez une carte autre que Blessure et autant de Blessures que vous voulez. Repos Prolongé, si vous n'avez que des Blessures : montrez votre main et défaussez-en une seule.
+703	Les effets spéciaux et le Soin se jouent à tout moment de votre tour, même pendant un Repos. Seule exception : pas de Soin pendant un combat.
+704	Chaque tour, vous devez jouer ou défausser au moins une carte.
+705	Une carte jouée pour un effet ne peut plus servir ensuite pour son autre effet.
+706	Vous pouvez revenir sur vos choix tant que rien de nouveau n'a été révélé : tuile, jeton Ennemi, carte piochée, dé lancé.
+707	Fin du tour, dans l'ordre : relancer les dés utilisés, Retraite forcée éventuelle, rendre les jetons Mana et défausser les cartes jouées, effet de la Mine ou de la Clairière, récompenses de combat, changement de Niveau, défausse libre (jamais de Blessure), pioche jusqu'à la Limite.
+708	Vous vous Reposez. Que pouvez-vous encore faire ce tour-ci ?
+709	Avancer d'une case
+710	Jouer une carte de Soin
+711	Recruter au Village où vous êtes
+712	Le Repos interdit le Mouvement, le combat et l'interaction. Soin et effets spéciaux restent permis, avant ou après.
+713	Votre main contient 4 Blessures et rien d'autre. Vous vous Reposez. Combien en défaussez-vous ?
+714	Les 4
+715	Une seule
+717	C'est un Repos Prolongé : une seule Blessure part en défausse.
+718	En plein combat, vous gagnez assez de Gloire pour franchir une ligne. Quand changez-vous de Niveau ?
+719	Tout de suite
+720	À la fin du tour, avant de piocher
+721	Au début de la Manche suivante
+722	Les changements de Niveau se règlent toujours à la fin du tour.
+723	Mouvement et exploration, les précisions
+724	Révéler une tuile coûte 2 points depuis une case adjacente à son emplacement. Sa position et son orientation sont imposées, et rien ne se place derrière le littoral.
+725	Vous alternez librement déplacements et explorations, et vous pouvez jouer de nouvelles cartes en cours de route.
+726	Entrer sur un site fortifié non conquis arrête votre Mouvement et déclenche l'assaut. La case d'un ennemi errant est interdite tant qu'il n'est pas vaincu.
+727	Un site d'aventures peut toujours être ignoré : vous traversez ou vous vous arrêtez sans combattre.
+728	Vous pouvez traverser la case d'un autre joueur sans vous y arrêter. Vous y arrêter, c'est l'attaquer.
+729	Plusieurs effets qui réduisent un coût de terrain se cumulent, sans jamais descendre sous 0.
+730	Retraite forcée : si vous finissez votre tour sur une case non sécurisée (terrain normalement inaccessible, site fortifié non conquis, case d'un autre Héros), vous reculez de case en case et prenez une Blessure par case.
+731	Entrer dans une Cité coûte toujours 2, quel que soit son terrain.
+732	Un Donjon se trouve sur votre chemin. Pouvez-vous traverser sa case sans y combattre ?
+733	Oui, un site d'aventures peut être ignoré
+734	Non, y entrer déclenche le combat
+735	Oui, mais en payant 2 points de plus
+736	Seuls les sites fortifiés non conquis et les ennemis errants bloquent ou interrompent le Mouvement.
+737	Grâce à un effet, vous finissez votre tour sur un Lac et devez reculer de 2 cases pour retrouver une case sécurisée.
+738	Rien d'autre ne se passe
+739	Vous prenez 2 Blessures
+740	Vous perdez 2 points de Réputation
+741	La Retraite forcée coûte une Blessure par case de recul.
+742	Jour et Nuit
+743	Ce que la Nuit change
+744	Terrains : la Forêt coûte 5 au lieu de 3, le Désert 3 au lieu de 5.
+745	Le mana or est inutilisable la Nuit, d'où qu'il vienne. Le mana noir est inutilisable le Jour.
+746	Le noir n'est pas un joker : la Nuit, il sert surtout à l'effet amélioré des Sorts.
+747	De Jour, la garnison d'une Forteresse ou d'une Tour de Mage est révélée dès qu'un joueur arrive sur une case adjacente. La Nuit, elle reste cachée jusqu'à l'assaut.
+748	Un jeton Ruines posé la Nuit reste face cachée jusqu'à ce qu'un joueur entre sur la case, ou jusqu'au Jour suivant.
+749	Dans un Donjon, les règles de Nuit s'appliquent même en plein Jour.
+750	Cristaux : un Cristal redevient du mana pur quand vous voulez ; l'inverse demande un effet. Trois par couleur au plus : un Cristal gagné en trop par un effet devient un simple jeton Mana, celui d'une Mine ou d'une récompense est perdu.
+751	Il fait Nuit. Une carte vous a donné un jeton de mana or. Peut-il payer l'effet amélioré d'une carte verte ?
+752	Oui, l'or remplace toute couleur
+753	Non, l'or est inutilisable la Nuit
+754	Oui, mais seulement s'il vient d'une carte
+755	La Nuit, le mana or ne sert à rien, quelle que soit sa provenance.
+756	De Nuit, vous vous arrêtez à côté d'une Forteresse dont le jeton est face cachée.
+757	Le jeton est révélé
+758	Il reste caché, sauf si vous donnez l'assaut
+759	Il est révélé puis recaché
+760	La révélation par simple proximité ne fonctionne que de Jour.
+761	Combien coûte l'entrée dans un Désert pendant une Manche de Nuit ?
+762	Le Désert coûte 5 de Jour et 3 de Nuit. La Forêt fait l'inverse.
+764	Apprendre et lancer des Sorts
+765	Un Sort est une carte Joueur : il rejoint votre Deck et se pioche comme les autres.
+766	Même son effet de base coûte un mana de sa couleur.
+767	Effet amélioré : un mana de sa couleur et un mana noir. Il n'est donc possible que la Nuit, ou dans un Donjon.
+768	Vous ne prenez qu'un dé de la Source par tour : si c'est le noir, l'autre mana doit venir d'un Cristal, d'un jeton ou d'un effet.
+769	Comme toute carte, un Sort peut être joué incliné pour 1 point.
+770	Acheter un Sort : dans une Tour de Mage conquise, pour 7 Influence plus un mana de la couleur du Sort. On peut aussi en gagner en récompense. Il va sur le dessus de votre Deck, et l'Offre est complétée par le haut.
+771	De Jour, que faut-il payer pour l'effet de base d'un Sort rouge ?
+772	Rien, comme une carte Action
+773	Un mana rouge
+774	Un mana rouge et un mana noir
+775	Un Sort demande toujours un mana de sa couleur, même pour son effet de base. L'or convient aussi de Jour.
+776	La Nuit, sans Cristal ni jeton. La Source montre un dé noir et un dé bleu. Pouvez-vous lancer l'effet amélioré d'un Sort bleu ?
+777	Oui, en prenant les deux dés
+778	Non : un seul dé de la Source par tour
+779	Oui, le noir suffit
+780	Il faut deux manas et la Source n'en fournit qu'un par tour, sauf effet qui en donne plus.
+781	Dans une Tour de Mage conquise, apprendre un Sort vert coûte…
+782	7 Influence
+783	7 Influence et un mana vert
+784	6 Influence
+785	7 points d'Influence et un mana de la couleur du Sort. Six points, c'est le prix d'une Action Avancée au Monastère.
+787	Artefacts et Bannières
+788	Effet de base : l'Artefact se joue comme une carte normale, puis part en défausse.
+789	Effet amélioré : au lieu de payer du mana, vous détruisez l'Artefact. Il est retiré du jeu.
+790	Il peut aussi être joué incliné pour 1 point.
+791	Gagner des Artefacts se fait en fin de tour : piochez-en autant que gagnés, plus un. Remettez-en un sous la pioche, les autres vont sur votre Deck. Il n'y a jamais d'Offre d'Artefacts.
+792	Bannière : un Artefact que l'on attache à une Unité, à tout moment de son tour. L'Unité profite de son effet de base. Une seule Bannière par Unité, et pas d'effet amélioré tant qu'elle est attachée.
+793	Si l'Unité est détruite ou renvoyée, la Bannière part en défausse. En fin de Manche, vous la laissez sur l'Unité ou vous la remélangez dans votre Deck.
+794	Vous gagnez un Artefact. Combien de cartes piochez-vous dans la pioche Artefacts ?
+796	Deux, et vous en gardez une
+797	Trois, et vous en gardez une
+798	Toujours une de plus que le nombre gagné, pour laisser un choix.
+799	Vous utilisez l'effet amélioré d'un Artefact. Où va la carte ?
+800	Dans votre défausse
+801	Elle est retirée du jeu
+802	Sous la pioche Artefacts
+803	L'effet amélioré détruit l'Artefact.
+804	Vous renvoyez une Unité qui porte une Bannière. La Bannière…
+805	est retirée du jeu avec l'Unité
+806	va dans votre défausse
+807	revient dans votre main
+808	Vous la repiocherez plus tard, souvent à une Manche suivante.
+810	Niveaux et Compétences
+811	Vous gagnez un Niveau par ligne franchie sur l'Échelle de Gloire, à la fin du tour. Le maximum est le Niveau 10.
+812	Niveau impair : le jeton Niveau suivant devient visible (Armure ou Limite de cartes en main augmente) et vous recevez un jeton Commandement de plus.
+813	Niveau pair : une Compétence et une Action Avancée. Révélez deux tuiles de votre pile, gardez-en une, placez l'autre dans l'Offre commune, puis prenez l'Action Avancée de votre choix dans l'Offre.
+814	Variante au Niveau pair : prenez à la place une Compétence laissée par un autre joueur dans l'Offre commune. Vos deux tuiles y partent, et vous recevez l'Action Avancée du bas de l'Offre.
+815	Trois sortes de Compétences : utilisable une fois par tour ; une fois par Manche (la tuile est retournée) ; interactive, une fois par Manche, dont l'effet dure jusqu'à votre prochain tour et touche les autres joueurs.
+816	Toute nouvelle carte gagnée va sur le dessus de votre Deck.
+817	Vous atteignez le Niveau 3. Que gagnez-vous ?
+818	Une Compétence et une Action Avancée
+819	Un jeton Commandement et le jeton Niveau suivant
+820	Un Sort
+821	Les Niveaux impairs améliorent Armure ou Limite de cartes en main et ajoutent un jeton Commandement.
+822	Niveau 4 : vous préférez la Compétence qu'un autre joueur a laissée dans l'Offre commune. Quelle Action Avancée recevez-vous ?
+823	Celle de votre choix
+824	Celle du bas de l'Offre
+825	Prendre la Compétence d'un autre vous prive du choix de la carte.
+826	Les Unités dans le détail
+827	Deux pioches : Unités Régulières (dos argenté) et d'Élite (dos doré). Dès qu'une tuile Royaume est révélée, l'Offre alterne Élite et Régulière.
+828	Une Unité se recrute uniquement sur un site dont l'icône figure sur sa carte, pour son coût en Influence. L'Offre des Unités n'est complétée qu'à la Manche suivante.
+829	Sans jeton Commandement libre, il faut renvoyer une Unité pour en recruter une autre. La recrue arrive Disponible et peut servir tout de suite, mais pas pour payer son propre recrutement.
+830	Activer une Unité l'Épuise jusqu'à la fin de la Manche. Certaines capacités demandent en plus un mana.
+831	Une Unité Épuisée peut encore encaisser des Dégâts. Une Unité Blessée ne peut ni agir ni encaisser.
+832	Soigner une Unité coûte autant de points de Soin que son niveau, pour chaque Blessure.
+833	Unité Résistante au type de l'attaque : elle absorbe d'abord son Armure sans être Blessée. S'il reste des Dégâts, elle est Blessée et absorbe son Armure une seconde fois. Dans tous les cas, elle n'encaisse qu'une fois par combat.
+834	Une Unité d'Armure 4 avec Résistance physique encaisse une attaque physique de 7.
+835	Elle n'est pas Blessée
+836	Elle est Blessée et tout est absorbé
+837	Elle est Blessée et il reste 3 Dégâts
+838	4 absorbés sans Blessure, puis elle est Blessée et absorbe les 3 restants.
+839	La même Unité encaisse une attaque physique de 4.
+840	Rien ne se passe : tout est absorbé sans Blessure
+841	Elle est Blessée
+842	Elle est détruite
+843	L'Armure suffit. Elle ne pourra toutefois plus encaisser pendant ce combat.
+844	Soigner une Unité de niveau 3 qui porte une Blessure coûte…
+845	1 point de Soin
+846	3 points de Soin
+847	3 points d'Influence
+848	Autant de points de Soin que le niveau de l'Unité.
+849	Éléments
+850	Feu, Glace et Résistances
+851	Attaques et Parades existent en quatre types : physique, Feu, Glace et Feu Glacé.
+852	Parer : contre une attaque physique, toute Parade est efficace. Contre le Feu, seules Glace et Feu Glacé. Contre la Glace, seuls Feu et Feu Glacé. Contre le Feu Glacé, seul le Feu Glacé.
+853	Les Parades inefficaces sont additionnées puis divisées par deux, arrondi à l'inférieur.
+854	Résistance d'un ennemi : vos Attaques de ce type sont additionnées puis divisées par deux, arrondi à l'inférieur. Le Feu Glacé n'est réduit que par un ennemi qui résiste à la fois au Feu et à la Glace.
+855	Une carte inclinée donne toujours un point physique, et jamais d'Attaque à Distance ni de Siège.
+856	Un ennemi résistant au Feu ignore aussi les effets spéciaux, autres qu'Attaque et Parade, des cartes rouges et des capacités d'Unité payées en mana rouge. De même pour la Glace avec le bleu.
+857	La couleur d'une carte ne fait pas l'élément : « Attaque 4 » sur une carte rouge reste physique.
+858	Un ennemi lance une Attaque de Glace 5. Vous jouez Parade de Feu 3 et Parade physique 4. Est-elle parée ?
+859	Oui : 3 + 2 = 5
+860	Non : il manque 1
+861	Oui : 3 + 4 = 7
+862	Le Feu compte plein, le physique pour moitié : 3 + 2 = 5, juste assez.
+863	Ennemi d'Armure 4, Résistances physique et Glace. Vous avez Attaque de Feu 2 et Attaque physique 5.
+864	Vaincu : 2 + 2 = 4
+865	Insuffisant : 3
+866	Vaincu : 7
+867	Le Feu n'est pas réduit. Le physique est divisé par deux, arrondi à l'inférieur : 2.
+868	Capacités
+869	Les capacités des ennemis
+870	Fortifié : pendant la phase à Distance et de Siège, seul le Siège le touche. Les défenseurs d'un site fortifié sont toujours Fortifiés. Un ennemi Fortifié qui défend un site fortifié est intouchable dans cette phase.
+871	Vif : son Attaque est doublée, mais seulement pour la Parade.
+872	Brutal : son Attaque est doublée, mais seulement pour les Dégâts.
+873	Toxique : chaque Blessure prise en main en ajoute une dans votre défausse. Une Unité Blessée par lui reçoit deux Blessures.
+874	Paralysant : si votre Héros prend ses Dégâts, vous défaussez toutes vos cartes autres que Blessure. Une Unité qui devrait être Blessée est détruite.
+875	Invocation : en phase de Parade, piochez un jeton marron. Il attaque à la place de l'invocateur, puis il est défaussé. Le parer ne rapporte aucune Gloire.
+876	Assommé : si vous prenez en un combat autant de Blessures que votre Limite de cartes en main non modifiée, vous défaussez toutes vos autres cartes. Unités et Compétences restent utilisables.
+877	Un ennemi d'Attaque 3 est Vif et Brutal. Combien de Parade faut-il, et combien de Dégâts s'il passe ?
+878	Parade 6, Dégâts 6
+879	Parade 6, Dégâts 3
+880	Parade 3, Dégâts 6
+881	Vif double l'Attaque pour la Parade, Brutal la double pour les Dégâts.
+882	Un ennemi Toxique inflige 2 Blessures à votre Héros. Bilan ?
+883	2 Blessures en main
+884	2 en main et 2 dans la défausse
+885	4 en main
+886	Chaque Blessure prise en main s'accompagne d'une Blessure placée dans la défausse.
+887	La garnison d'une Forteresse porte la capacité Fortifié. Vous avez Attaque de Siège 6 en première phase.
+888	Elle est vaincue si son Armure est de 6 ou moins
+889	Impossible : doublement Fortifiée, elle est intouchable dans cette phase
+890	Le Siège est divisé par deux
+891	Il faudra attendre la phase d'Attaque, où les fortifications ne comptent plus.
+892	Plusieurs ennemis
+893	Combattre plusieurs ennemis
+894	Un seul combat par tour, mais il peut réunir plusieurs ennemis : site à plusieurs jetons, errants provoqués par votre Mouvement, errants adjacents que vous défiez en plus.
+895	En entrant dans un site d'aventures, vous ne pouvez défier personne d'autre. Et jamais d'ennemis et de joueur dans le même combat.
+896	Attaquer : ciblez un ou plusieurs ennemis et égalez la somme de leurs Armures. Vous pouvez lancer plusieurs attaques séparées dans la même phase.
+897	Dans un groupe ciblé, une seule Résistance réduit toutes vos Attaques de ce type, et un seul Fortifié interdit les Attaques à Distance en première phase. Séparer ses attaques évite ces pénalités.
+898	Parer : un ennemi à la fois, jamais de Parade groupée.
+899	Dégâts : chaque ennemi ni vaincu ni paré frappe, dans l'ordre que vous choisissez.
+900	Lors d'un assaut, les errants qui s'en mêlent ne sont pas Fortifiés, et il n'est pas nécessaire de les vaincre pour conquérir le site.
+901	Deux ennemis : Armure 3 avec Résistance physique, et Armure 4 sans Résistance. Vous lancez une seule Attaque physique de 7 sur les deux.
+902	Les deux sont vaincus
+903	Aucun : l'attaque tombe à 3 contre 7 d'Armure
+904	Seul le second est vaincu
+905	La Résistance d'un seul réduit toute l'attaque groupée. En ciblant uniquement le second, 7 suffisait largement.
+906	Deux ennemis non parés, d'Attaque 3 et 4. Pouvez-vous jouer une seule Parade de 7 contre le groupe ?
+907	Oui, on additionne leurs Attaques
+908	Non, chaque ennemi se pare séparément
+909	Oui, mais seulement s'ils sont du même type
+910	Chaque Parade vise un seul ennemi. Il faut ici une Parade de 3 et une autre de 4.
+911	Sites habités
+912	Villages, Monastères, Forteresses, Tours de Mage
+913	Interaction : votre Réputation modifie votre Influence une seule fois par tour, quel que soit le nombre d'achats. Sur la case X de l'Échelle, plus aucune interaction.
+914	Village : recruter, Soin à 3 Influence le point. Piller : en dehors de votre tour, −1 Réputation et piochez 2 cartes. Un seul pillage entre deux de vos tours, et ce n'est pas une action.
+915	Monastère : recruter, Soin à 2 Influence le point, apprendre pour 6 Influence l'Action Avancée ajoutée à l'Offre des Unités quand le Monastère a été révélé.
+916	Brûler un Monastère est une action : −3 Réputation, un ennemi violet, et vos Unités refusent de participer. Victoire : un Artefact, et le Monastère n'existe plus.
+917	Forteresse : garnison grise, Fortifiée, −1 Réputation par assaut. Conquise, elle est à vous : vous y recrutez, et en finissant votre tour dedans ou à côté, votre Limite augmente de 1 par Forteresse que vous possédez. Assaut raté : retour à la case d'où vous veniez.
+918	Forteresse d'un autre joueur : c'est aussi un assaut. S'il est absent, un jeton gris la défend et ne rapporte que la moitié de sa Gloire. S'il est présent, c'est un combat Joueur contre Joueur.
+919	Tour de Mage : garnison violette, Fortifiée, −1 Réputation par assaut. Récompense : un Sort. Ensuite, tout le monde peut y recruter et y acheter des Sorts.
+920	Vous brûlez un Monastère avec deux Unités à vos côtés. Peuvent-elles encaisser les Dégâts ?
+922	Non, elles ne participent pas à ce combat
+923	Oui, mais elles sont détruites
+924	Vos Unités ne peuvent ni être activées ni recevoir de Dégâts pendant ce combat.
+925	Vous possédez 2 Forteresses et finissez votre tour à côté de l'une d'elles. Votre Limite est de 5. Vous piochez jusqu'à…
+926	5 cartes
+927	6 cartes
+928	7 cartes
+929	+1 par Forteresse possédée, où qu'elles soient, à condition de finir dans ou à côté de l'une d'elles.
+930	Piller un Village, c'est…
+931	Votre action du tour, pour −1 Réputation
+932	Hors de votre tour : −1 Réputation et 2 cartes piochées
+933	Un combat contre un jeton gris
+934	Le pillage se décide après la fin de votre tour et prépare le suivant.
+936	Sites d'aventures et ennemis errants
+937	Entrer dans un site d'aventures est l'action du tour. Aucune Réputation à gagner ni à perdre. Un site conquis reçoit votre jeton Bouclier, et la récompense arrive en fin de tour.
+938	Antre : un ennemi marron. Récompense : 2 Cristaux tirés au dé (or : couleur au choix ; noir : +1 Gloire à la place). En cas d'échec, l'ennemi reste sur place, face visible.
+939	Donjon : un ennemi marron, sans vos Unités et avec les règles de Nuit. Récompense au dé : or ou noir donne un Sort, une autre couleur un Artefact. En cas d'échec, le jeton est défaussé. Un Donjon conquis peut être refait, pour la Gloire seulement.
+940	Ruines : un jeton jaune. Autel : payez 3 manas de la couleur indiquée et gagnez 7 Gloire. Ou bien des ennemis gardent un trésor : les survivants restent sur place, et la récompense va à celui qui bat le dernier.
+941	Sombres Terriers et Tombeau : cousins plus dangereux de l'Antre et du Donjon. Le détail figure sur leur carte de Description.
+942	Ennemis errants : les vaincre rapporte +1 Réputation par Orques Maraudeurs et +2 par Draconien. Rencontrés dans des Ruines, ils n'en rapportent pas.
+943	Vous échouez dans un Donjon. Que devient le jeton Ennemi ?
+944	Il reste sur la case, face visible
+945	Il est défaussé ; un nouveau sera pioché la prochaine fois
+946	Il devient un ennemi errant
+947	C'est dans l'Antre et les Ruines que les ennemis invaincus restent en place.
+948	Vous entrez dans un Donjon pendant une Manche de Jour. Le dé or de la Source est-il utilisable ?
+949	Oui, il fait Jour
+950	Non, les règles de Nuit s'y appliquent
+951	Oui, mais il compte comme noir
+952	En revanche, le mana noir y devient utilisable pour l'effet amélioré d'un Sort.
+953	Récompense d'un Antre : vos deux lancers donnent noir et or.
+954	Deux Cristaux au choix
+955	+1 Gloire et un Cristal de la couleur de votre choix
+957	Le noir vaut 1 point de Gloire, l'or laisse choisir la couleur du Cristal.
+958	Cités
+959	Assiéger et gouverner une Cité
+960	Entrer dans une Cité non conquise déclenche l'assaut : défenseurs Fortifiés, −1 Réputation. Le niveau de la Cité, fixé par le scénario, détermine ses défenseurs.
+961	Bonus des défenseurs selon la couleur. Blanche : +1 Armure. Bleue : +2 aux Attaques de Feu ou de Glace, +1 aux Attaques de Feu Glacé. Rouge : les attaques physiques deviennent Brutales. Verte : les attaques physiques deviennent Toxiques.
+962	Chaque défenseur vaincu vous fait poser un jeton Bouclier sur la carte Cité. Quand tous sont vaincus, la Cité est conquise. Son Seigneur est le joueur qui a le plus de Boucliers ; à égalité, celui qui a posé le premier.
+963	Dans une Cité conquise, tout joueur peut interagir, avec +1 Influence par Bouclier qu'il y a posé. Rouge : Artefacts à 12 Influence. Bleue : Sorts, comme dans une Tour de Mage. Blanche : toute Unité, et 2 Influence pour ajouter une Élite à l'Offre. Verte : Actions Avancées à 6 Influence.
+964	Finir son tour dans ou à côté d'une Cité conquise où l'on a un Bouclier : Limite +1, ou +2 pour le Seigneur. Ce bonus ne s'ajoute pas à celui des Forteresses : on garde le meilleur.
+965	Aucun combat entre joueurs dans une Cité.
+966	Assaut coopératif : depuis une case adjacente, un joueur propose aux Héros voisins une répartition des défenseurs. Si tous acceptent, chacun combat sa part à tour de rôle, puis passe son prochain tour.
+967	Cité Verte : un défenseur à Attaque physique inflige 1 Blessure à votre Héros. Combien de cartes Blessure recevez-vous en tout ?
+968	Deux : une en main, une en défausse
+970	Dans la Cité Verte, les attaques physiques des défenseurs sont Toxiques.
+971	Vous avez 2 Boucliers sur une Cité conquise dont vous n'êtes pas le Seigneur. Quels bonus y obtenez-vous ?
+972	+2 Influence, Limite +1
+973	+1 Influence, Limite +2
+974	+2 Influence, Limite +2
+975	+1 Influence par Bouclier. La Limite augmente de 1, ou de 2 pour le seul Seigneur.
+976	Joueur contre Joueur
+977	Affronter un autre Mage Knight
+978	Finir votre Mouvement sur la case d'un autre joueur, c'est l'attaquer : c'est votre action du tour. Interdit sur un Portail, dans une Cité, et après l'annonce de la fin de la Manche.
+979	Le défenseur choisit. Participer pleinement : il joue maintenant son prochain tour, avec dé de la Source et Compétences, puis sautera ce tour. Participer partiellement : ni dé ni Compétences, mais il garde son tour.
+980	Deux phases : Distance et Siège (le défenseur attaque d'abord), puis Mêlée (l'agresseur d'abord). Les joueurs alternent jusqu'à ce que les deux passent.
+981	Ici, une Parade peut être partielle. En phase à Distance, il faut 2 points de Parade par point d'Attaque. En Mêlée, 1 pour 1.
+982	L'attaquant répartit les Dégâts. Pour infliger une Blessure à un Héros ou à une Unité, il faut autant de Dégâts que son Armure, le double si l'Unité résiste.
+983	En Mêlée, les Dégâts peuvent aussi voler un Artefact (5 Dégâts) ou forcer l'adversaire à reculer sur une case adjacente sécurisée, pour son coût de Mouvement. Dans ce cas le combat s'arrête et vous l'emportez.
+984	Gloire du vainqueur : 1 point + 2 par Niveau d'écart s'il était de Niveau inférieur ; 1 point à Niveau égal s'il avait moins de Gloire ; rien sinon. Si personne ne recule, c'est l'agresseur qui retourne d'où il venait, sans vainqueur.
+985	Phase à Distance : on vous lance une Attaque à Distance physique de 4. Vous jouez Parade 6. Combien de Dégâts passent ?
+987	Dans cette phase, 2 points de Parade bloquent 1 point d'Attaque : 6 de Parade en bloquent 3.
+988	Combien de Dégâts faut-il assigner pour infliger une Blessure à un Héros d'Armure 3 ?
+989	1 suffit
+990	Contre un joueur, il faut atteindre l'Armure. Contre un ennemi classique, le moindre Dégât blessait.
+991	Solo et score
+992	Scénarios, joueur Fantôme et score
+993	Chaque scénario fixe la forme du plateau, les tuiles, le niveau des Cités, la durée et la condition de fin.
+994	Mission de Reconnaissance : 3 Manches, +1 Gloire par tuile révélée, pas d'Unités d'Élite, et on n'entre pas dans la Cité. Quand la tuile Cité est révélée, chaque joueur joue un dernier tour. En solo : 4 Manches.
+995	En solo et en coopératif, un joueur Fantôme donne le rythme. Il reçoit un Deck de 16 cartes Action Basique et 3 Cristaux, et sa Tactique ne sert qu'à le placer dans l'Ordre de Jeu.
+996	Tour du Fantôme : il retourne 3 cartes de son Deck. S'il possède des Cristaux de la couleur de la dernière, il en retourne autant en plus. Deck vide : il annonce la fin de la Manche.
+997	À chaque nouvelle Manche, l'Action Avancée retirée de l'Offre rejoint son Deck, et il gagne un Cristal de la couleur du Sort retiré.
+998	Score : votre Gloire, plus les Hauts Faits de la carte de Score. Ses premières lignes : 2 points par Sort ou Artefact, 1 par Action Avancée, 1 par paire de Cristaux, et le niveau de chaque Unité (moitié si elle est Blessée). La suite est sur la carte.
+999	Le Fantôme retourne 3 cartes. La dernière est verte et il possède 2 Cristaux verts. Combien de cartes retourne-t-il en plus ?
+1000	Autant que de Cristaux de cette couleur. La couleur de ces cartes supplémentaires ne compte plus.
+1001	Mission de Reconnaissance : un joueur révèle la tuile Cité. Ensuite ?
+1002	La partie s'arrête aussitôt
+1003	Chaque joueur, lui compris, joue un dernier tour
+1004	On termine la Manche en cours
+1005	Si la Manche se termine pendant ces derniers tours, la partie s'arrête à ce moment-là.
+1009	Feu Glacé
+1011	:-1" aria-label="moins">−
+1012	:1" aria-label="plus">+
+1013	Essayez : la Parade
+1014	Attaque ennemie de type
+1015	" class="
+1016	de valeur
+1019	moitié
+1022	">Efficaces
+1023	+ inefficaces
+1025	attaque parée.
+1026	la Parade échoue entièrement.
+1027	Essayez : l'Attaque
+1028	Ennemi d'Armure
+1030	résistant à
+1032	">Pleines
+1033	+ réduites
+1034	contre Armure
+1035	ennemi vaincu.
+1036	attaque sans effet.
+1039	But du jeu
+1040	But du jeu et matériel
+1041	Vous incarnez un Mage Knight : vous explorez, combattez et gagnez en puissance. Le scénario fixe l'objectif et la durée ; en compétitif, le plus Glorieux l'emporte.
+1042	Votre Héros commence avec un Deck de 16 cartes Action Basique, une main de 5 cartes, une Armure de 2 et un seul jeton Commandement.
+1043	Le plateau se construit en explorant : d'abord des tuiles Campagne (dos vert), puis des tuiles Royaume (dos marron), où se trouvent les Cités.
+1044	Deux échelles vous suivent : la Gloire, qui fait monter de Niveau, et la Réputation, qui pèse sur vos interactions.
+1045	La Source contient autant de dés Mana que de joueurs, plus 2. Au moins la moitié doit montrer une couleur fondamentale, sinon on relance les dés or et noirs.
+1046	Trois Offres sont visibles : Unités (joueurs + 2), Sorts (3) et Actions Avancées (3). Les Artefacts ne sont jamais proposés en Offre.
+1047	Les jetons Ennemi sont triés par couleur de dos : chaque couleur correspond à un type de lieu ou d'adversaire, et les rouges et les blancs sont les plus dangereux.
+1048	À deux joueurs, combien de dés Mana place-t-on dans la Source ?
+1049	Le nombre de joueurs plus 2.
+1050	Avec quoi votre Héros commence-t-il la partie ?
+1051	5 cartes en main, Armure 2, un jeton Commandement
+1052	7 cartes en main, Armure 3, deux jetons Commandement
+1053	5 cartes en main et une Unité
+1054	Ce sont les valeurs du premier jeton Niveau. Les Unités se recrutent en cours de partie.
+1055	Jouer ses cartes
+1056	Une carte Action porte deux effets : celui du haut, gratuit, et celui du bas, amélioré, qui coûte un mana de la couleur de la carte.
+1057	Toute carte, sauf une Blessure, peut être jouée inclinée : elle vaut alors 1 Mouvement, 1 Influence, 1 Attaque ou 1 Parade. Jamais d'Attaque à Distance, de Siège, ni d'élément.
+1058	Les effets de même nature s'additionnent : jouez autant de cartes que vous voulez.
+1059	Une carte ne sert qu'une fois par tour, pour un seul de ses effets.
+1060	À la fin du tour, les cartes jouées partent en défausse. Les autres restent en main, sauf celles que vous choisissez de défausser, puis vous piochez jusqu'à votre Limite de cartes en main.
+1061	Quand le Deck est vide, on ne remélange pas la défausse : il faut attendre la fin de la Manche.
+1062	Défausser envoie une carte dans votre défausse ; détruire la retire du jeu. « Toute carte » ne désigne jamais une Blessure.
+1063	Il vous faut 3 points de Mouvement. Vous avez Marche (Mouvement 2, amélioré 4), d'autres cartes, et aucun mana.
+1064	Impossible sans mana
+1065	Marche, plus une autre carte inclinée
+1066	Marche jouée deux fois
+1067	Une carte inclinée ajoute 1 point. Une carte ne se joue qu'une fois par tour.
+1068	Peut-on incliner une carte pour ajouter 1 à une Attaque à Distance ?
+1069	Non, une carte inclinée ne donne qu'une Attaque physique normale
+1070	Oui, mais seulement une carte blanche
+1071	Les cartes inclinées n'aident ni les Attaques à Distance, ni le Siège, ni les éléments.
+1072	Le mana et les Cristaux
+1073	Quatre couleurs fondamentales : rouge, bleu, blanc, vert. Deux couleurs spéciales : or et noir.
+1074	Le mana existe sous trois formes : un dé de la Source, un jeton, ou un Cristal.
+1075	Source : un seul dé par tour. Vous le prenez au moment de l'utiliser, et il est relancé à la fin de votre tour.
+1076	Jeton : donné par un effet, il disparaît à la fin du tour s'il n'a pas servi.
+1077	Cristal : il se garde dans votre Inventaire, trois par couleur au plus, et redevient du mana quand vous le décidez.
+1078	Le mana or remplace n'importe quelle couleur fondamentale, le Jour seulement. Le mana noir ne sert que la Nuit. Il n'existe pas de Cristal or ou noir.
+1079	Une Mine de Cristal donne un Cristal de sa couleur si vous terminez votre tour dessus.
+1080	Vous avez déjà pris un dé de la Source ce tour-ci. Pouvez-vous payer un second effet amélioré ?
+1081	Non, un seul mana par tour
+1082	Oui, avec un Cristal ou un jeton
+1083	Oui, en prenant un second dé
+1084	La limite ne porte que sur les dés de la Source.
+1085	Que devient un jeton Mana non utilisé à la fin du tour ?
+1086	Il devient un Cristal
+1087	Il est perdu
+1088	Il retourne dans la Source
+1089	Seul un effet permet de transformer du mana en Cristal.
+1091	Interaction et Réputation
+1092	Interagir est votre action du tour. C'est possible sur un site habité : Village, Monastère, Forteresse à vous, Tour de Mage conquise, Cité conquise.
+1093	Additionnez l'Influence de vos cartes, de vos cartes inclinées et de vos Unités, puis appliquez une seule fois le modificateur de votre Réputation.
+1094	Avec ce total, achetez tout ce que le site propose, en une seule interaction.
+1095	Recruter : l'icône du site doit figurer sur la carte de l'Unité, vous payez son coût et il vous faut un jeton Commandement libre.
+1096	Se soigner : 3 Influence le point de Soin au Village, 2 au Monastère.
+1097	La Réputation monte quand vous battez des ennemis errants. Elle baisse à chaque assaut (−1), à chaque pillage (−1) et si vous brûlez un Monastère (−3). Sur la case X, plus aucune interaction.
+1098	Votre Réputation vous donne +1. Vous recrutez deux Unités dans la même interaction. Combien de fois le bonus compte-t-il ?
+1099	Une fois
+1100	Deux fois
+1101	Jamais pour un recrutement
+1102	Bonus et malus de Réputation s'appliquent une seule fois par tour.
+1103	Vous venez de recruter au Village. Pouvez-vous encore vous déplacer ce tour-ci ?
+1104	Oui, s'il vous reste des points
+1105	Non, tout Mouvement se fait avant l'action
+1106	Oui, d'une seule case
+1107	L'interaction est l'action du tour, et aucun Mouvement ne suit l'action.
+1108	Le combat
+1109	Le combat en quatre phases
+1110	Phase 1, Distance et Siège : seules ces Attaques comptent. Vaincre l'ennemi ici vous évite sa riposte.
+1111	Phase 2, Parade : il faut égaler ou dépasser l'Attaque ennemie. C'est tout ou rien : une Parade trop faible ne réduit rien.
+1112	Phase 3, Dégâts : un ennemi ni vaincu ni paré inflige des Dégâts égaux à son Attaque.
+1113	Phase 4, Attaque : toutes vos Attaques comptent, y compris les Attaques à Distance ou de Siège encore disponibles et les cartes inclinées.
+1114	Il faut atteindre l'Armure ennemie en une seule attaque. Rien ne se reporte d'une phase à l'autre ni d'un tour à l'autre.
+1115	La Gloire d'un ennemi vaincu se marque aussitôt. Le Niveau, lui, ne change qu'en fin de tour.
+1116	Un seul combat par tour, et aucun Soin pendant le combat.
+1117	En cas d'échec : un ennemi errant reste sur sa case ; après un assaut raté, vous reculez sur la case d'où vous veniez.
+1118	Ennemi d'Armure 5. Vous lui infligez 3 en phase 1, puis 3 en phase 4.
+1119	Il est vaincu : 6 au total
+1120	Il n'est pas vaincu : chaque attaque doit atteindre 5 à elle seule
+1121	Il est vaincu en phase 4 seulement
+1122	Les Dégâts ne se cumulent pas d'une attaque à l'autre.
+1123	Vous jouez Parade 3 contre une Attaque de 4.
+1124	Vous ne subissez que 1 Dégât
+1125	La Parade échoue : vous subissez 4 Dégâts
+1126	L'ennemi est repoussé
+1127	Contre un ennemi, la Parade est tout ou rien.
+1129	Blessures, Repos et Soin
+1130	Les Dégâts non parés se répartissent. Une Unité désignée devient Blessée et absorbe autant de Dégâts que son Armure.
+1131	Le reste va au Héros : une carte Blessure en main par tranche d'Armure, arrondi au supérieur. Avec une Armure de 2, 3 Dégâts font 2 Blessures.
+1132	Une Blessure reste en main : elle ne se joue pas, ne s'incline pas et ne se défausse pas en fin de tour.
+1133	Assommé : si vous recevez en un combat autant de Blessures que votre Limite de cartes en main, vous défaussez toutes vos autres cartes.
+1134	Repos Standard : défaussez une carte autre que Blessure et autant de Blessures que vous voulez. Repos Prolongé, avec une main de Blessures seulement : une seule. Ces Blessures vont dans votre défausse et reviendront.
+1135	Soin : chaque point retire définitivement une Blessure de votre main. Soigner une Unité coûte autant de points que son niveau. Les points non utilisés sont perdus dès qu'un combat commence.
+1136	La Clairière Magique retire une Blessure de votre main ou de votre défausse en fin de tour. Ce n'est pas un Soin : elle n'aide pas les Unités.
+1137	7 Dégâts. Vos Villageois (Armure 3) encaissent d'abord, votre Héros (Armure 2) prend le reste.
+1138	2 Blessures pour le Héros
+1139	4 Blessures pour le Héros
+1140	Aucune : l'Unité absorbe tout
+1141	7 − 3 = 4 Dégâts restants, soit 2 Blessures avec une Armure de 2. Les Villageois sont Blessés.
+1142	Vous défaussez une Blessure en vous Reposant. Que devient-elle ?
+1143	Elle reviendra au prochain mélange de votre Deck
+1144	Elle retourne dans votre main au tour suivant
+1145	Seul le Soin, ou la Clairière Magique, s'en débarrasse pour de bon.
+1146	Coopération
+1147	Jouer en coopération
+1148	Dans un scénario coopératif, tous les joueurs gagnent ou perdent ensemble. Le combat entre joueurs n'existe pas : vous ne pouvez pas terminer votre Mouvement sur la case d'un partenaire.
+1149	Un joueur Fantôme donne le rythme. Il tire sa Tactique au hasard avant les joueurs. À la fin de chaque Manche, les joueurs retirent du jeu une des Tactiques qu'ils ont utilisées.
+1150	Retirez du jeu les quatre Sorts interactifs (n° 17 à 20) et la Compétence interactive de chaque Héros.
+1151	Assaut coopératif d'une Cité : depuis une case adjacente, un joueur qui n'a pas encore fait d'action invite les Héros adjacents et propose combien de défenseurs chacun affrontera, au moins un par joueur.
+1152	Si tous acceptent, les jetons sont mélangés et distribués sans être regardés. Les invités retournent leur jeton d'Ordre de Jeu : ils passeront leur prochain tour. Chacun entre dans la Cité et combat sa part, à tour de rôle.
+1153	La Cité tombe si tous ses défenseurs sont vaincus. Sinon, tout le monde recule sur sa case de départ.
+1154	Score d'équipe : la Gloire du joueur le moins avancé, puis le meilleur des joueurs pour chaque Haut Fait, puis les points de mission : 10 par Cité conquise, 10 si chacun est Seigneur d'une Cité, 15 si toutes sont prises, 30 par Manche non utilisée.
+1155	Conquête Coopérative Éclair, le scénario court : 4 Manches, 1 Gloire et 2 Réputation au départ, un dé de plus dans la Source et une Unité de plus dans l'Offre.
+1156	Sur quoi repose la base du score d'équipe ?
+1157	La Gloire du joueur le plus avancé
+1158	La Gloire du joueur le moins avancé
+1159	La somme des Gloires
+1160	Laisser un partenaire à la traîne coûte donc des points à toute l'équipe.
+1161	En coopération, qui prend sa carte Tactique en premier ?
+1162	Le Fantôme, au hasard
+1163	Le joueur qui a annoncé la fin de la Manche
+1164	En solo c'est l'inverse : vous choisissez d'abord, puis le Fantôme tire parmi les restantes.
+1166	Action Avancée
+1167	Carte plus puissante que les cartes de base, gagnée aux Niveaux pairs, au Monastère ou en récompense.
+1168	Site d\'aventures abritant un monstre marron. Appelé Tanière dans le guide pas à pas.
+1169	Pour le Héros : Dégâts absorbés par chaque Blessure reçue. Pour un ennemi : valeur d\'Attaque à atteindre pour le vaincre.
+1171	Entrée sur un site fortifié non conquis. Déclenche le combat et coûte 1 Réputation.
+1172	État du Héros qui reçoit en un combat autant de Blessures que sa Limite de cartes en main : il défausse ses autres cartes.
+1173	Bannière
+1174	Artefact que l\'on attache à une Unité. Appelé Étendard dans le guide pas à pas.
+1175	Carte injouable qui encombre la main. Retirée par le Soin, défaussée par le Repos.
+1176	Carte inclinée
+1177	Carte jouée à l\'horizontale pour 1 Mouvement, 1 Influence, 1 Attaque ou 1 Parade.
+1178	Case sécurisée
+1179	Case où l\'on peut finir son tour : accessible normalement, sans site fortifié non conquis ni autre Héros.
+1180	Jeton nécessaire pour diriger une Unité. Un de plus à chaque Niveau impair.
+1181	Mana conservé dans l\'Inventaire, trois par couleur au plus.
+1182	Disponible, Épuisée
+1183	États d\'une Unité : prête à agir, ou déjà activée jusqu\'à la fin de la Manche.
+1184	Second effet d\'une carte, payé en mana. Appelé effet puissant dans le guide pas à pas.
+1185	Ennemi errant
+1186	Orques Maraudeurs ou Draconien posé sur le plateau, que l\'on peut défier depuis une case voisine ou provoquer en le longeant.
+1187	Fantôme
+1188	Joueur fictif des parties solo et coopératives, qui fait avancer la Manche.
+1189	Ennemi que seules les Attaques de Siège atteignent en première phase.
+1190	Points gagnés en battant des ennemis. Font monter de Niveau. Appelée Renommée dans le guide pas à pas.
+1191	Points dépensés lors d\'une interaction pour recruter, se soigner ou apprendre.
+1192	Limite de cartes en main
+1193	Nombre de cartes jusqu\'auquel on pioche en fin de tour.
+1194	Suite de tours, de Jour ou de Nuit, close quand un joueur l\'annonce. Appelée Round dans le guide pas à pas.
+1196	Cartes visibles que l\'on peut acquérir : Unités, Sorts, Actions Avancées.
+1197	Effet qui annule l\'Attaque d\'un ennemi s\'il l\'égale ou la dépasse.
+1198	Échelle qui ajoute ou retire de l\'Influence à chaque interaction.
+1199	Divise par deux les Attaques du type concerné. Pour une Unité : lui permet d\'absorber deux fois son Armure.
+1200	Retraite forcée
+1201	Recul imposé en fin de tour depuis une case non sécurisée, une Blessure par case.
+1203	Joueur qui a posé le plus de jetons Bouclier sur une Cité conquise.
+1204	Siège
+1205	Attaque utilisable en première phase, même contre un ennemi Fortifié.
+1206	Sombres Terriers
+1207	Site d\'aventures proche de l\'Antre, en plus dangereux. Appelé Frayère dans le guide pas à pas.
+1208	Réserve commune de dés Mana : un dé par joueur et par tour.
+1210	Carte choisie à chaque Manche : son numéro fixe l\'Ordre de Jeu.
+1211	Toxique, Paralysant, Vif, Brutal
+1212	Capacités d\'ennemis : voir le chapitre Capacités.
+1213	Légion : sites
+1214	La Légion Oubliée : nouveaux sites
+1215	Rempart : il se trouve entre deux cases. Le franchir coûte 1 point de Mouvement de plus, et ce surcoût ne se réduit jamais. Les effets qui vous posent directement sur une case l'ignorent.
+1216	Défier un ennemi errant, ou attaquer Volkare ou un autre joueur, à travers un Rempart : la cible est Fortifiée. Un assaut de site fortifié à travers un Rempart rend ses défenseurs doublement Fortifiés.
+1217	Les ennemis errants ne vous attaquent jamais à travers un Rempart : finir un déplacement sur une case séparée d'eux par un Rempart ne les provoque pas.
+1218	Dédale et Labyrinthe : sites d'aventures. Y entrer est votre action. Une seule de vos Unités Disponibles peut vous accompagner. Vous payez 2, 4 ou 6 points de Mouvement, avec des effets joués pour l'occasion et non les restes de votre déplacement.
+1219	Vous y combattez un ennemi marron (Dédale) ou rouge (Labyrinthe). Victoire : la récompense dépend du chemin payé, et votre Bouclier marque ce chemin ; vous n'y reviendrez plus, mais un autre joueur peut prendre un chemin libre. Défaite : le jeton est défaussé.
+1220	Mine sans fond : comme une Mine, mais vous choisissez la couleur du Cristal parmi celles proposées à son entrée, avant vos récompenses de combat.
+1221	Camp de réfugiés : vous y recrutez n'importe quelle Unité de l'Offre. Coût normal pour une Unité de Village, +1 pour une Unité de Forteresse, de Tour de Mage ou de Monastère, +3 pour une Unité recrutable seulement en Cité.
+1222	Variante solo « Contrôle sur les Offres » : à la fin de chaque Manche, en plus de la carte du bas, vous pouvez retirer celle du milieu des Offres de Sorts et d'Actions Avancées.
+1223	Vous entrez dans un Dédale en payant 4 points de Mouvement. Combien de vos Unités peuvent participer ?
+1224	Une seule, choisie à l'entrée
+1226	Une Unité Disponible vous accompagne ; les autres ne peuvent ni agir ni encaisser.
+1227	Au Camp de réfugiés, une Unité de Monastère coûte 7. Combien payez-vous ?
+1228	+1 pour une Unité de Forteresse, de Tour de Mage ou de Monastère.
+1229	Des Orques sont de l'autre côté d'un Rempart. Vous longez leur case sans le franchir.
+1230	Ils vous attaquent
+1231	Ils ne sont pas provoqués
+1232	Ils attaquent, mais sont Fortifiés
+1233	Un ennemi errant n'attaque jamais à travers un Rempart.
+1234	Légion : ennemis
+1235	La Légion Oubliée : nouvelles capacités ennemies
+1236	Attaques multiples : un ennemi à plusieurs valeurs d'Attaque frappe plusieurs fois. Chaque attaque se pare et s'encaisse séparément, dans l'ordre de votre choix. Il n'est « bloqué » que si toutes ses attaques le sont.
+1237	Insaisissable : deux valeurs d'Armure. La plus haute s'applique en phase à Distance et Siège. Si vous parez toutes ses attaques, la plus basse s'applique en phase d'Attaque ; sinon la plus haute reste jusqu'à la fin du combat, même si vous l'avez empêché d'attaquer.
+1238	Assassin : ses Dégâts non parés vont tous au Héros, jamais aux Unités. Vos Unités peuvent en revanche aider à le parer.
+1239	Lourd : en phase de Parade, chaque point de Mouvement dépensé retire 1 à son Attaque, pour la Parade et pour les Dégâts. Une Attaque tombée à 0 est parée. Il faut des effets de Mouvement joués pendant le combat.
+1240	Non-Fortifié : il n'est jamais Fortifié, ni dans un site fortifié ni à travers un Rempart.
+1241	Immunité aux Arcanes : seuls vos effets d'Attaque et de Parade le touchent. Rien ne peut le détruire, réduire son Armure ou l'empêcher d'attaquer. Ses attaques, elles, peuvent être affaiblies.
+1242	Certains jetons portent un modificateur de Réputation, gagné ou perdu en les vainquant, en plus de la Gloire.
+1243	Un ennemi Insaisissable (Armure 3 / 6) vous attaque. Vous préférez encaisser sans parer. Quelle Armure devrez-vous battre en phase d'Attaque ?
+1244	La petite valeur ne s'obtient qu'en parant toutes ses attaques.
+1245	Un Assassin vous inflige 4 Dégâts non parés. Vos Gardes peuvent-ils les encaisser ?
+1246	Non, tout va au Héros
+1247	Oui, pour la moitié
+1248	Les Dégâts d'un Assassin ne s'assignent jamais à une Unité.
+1249	Un ennemi Lourd attaque à 8. Vous jouez 3 points de Mouvement pendant la Parade. Quelle Parade faut-il encore ?
+1250	Chaque point de Mouvement retire 1 à son Attaque : 8 − 3 = 5.
+1251	Légion : Unités
+1252	La Légion Oubliée : nouvelles Unités
+1253	Voyous : si vous en recrutez lors d'une interaction, votre bonus ou malus de Réputation est inversé pour toute cette interaction. Ils n'encaissent des Dégâts que si vous payez 2 Influence pendant le combat.
+1254	Héros (l'Unité) : en recruter double votre bonus ou malus de Réputation pour l'interaction. Lors de l'assaut d'un site fortifié, leurs capacités coûtent 2 Influence ; ils peuvent tout de même encaisser.
+1255	Impossible de recruter des Voyous et des Héros dans la même interaction.
+1256	Maîtres de Delphana : recrutables seulement par interaction. Une fois activés, ils peuvent utiliser plusieurs de leurs capacités, chacune une fois, en payant leur mana.
+1257	Familiers magiques : recrutables aussi dans une Clairière Magique, comme action et sans effet de Réputation. Il faut payer un mana fondamental, puis un Cristal au début de chacun de vos tours suivants, sinon ils quittent la partie.
+1258	Bannière de Commandement : attachée à une Unité, elle remplace son jeton Commandement, donc vous contrôlez une Unité de plus. Si l'Unité perd la Bannière, elle quitte la partie.
+1259	Nouveaux Héros : Wolfhawk (La Légion Oubliée), Krang et Braevalar (Les Ombres de Tezla) se jouent comme les autres. Certaines Compétences de Krang ont un effet de Réactivation : une fois par tour, une tuile retournée peut revenir face visible à la condition indiquée dessus, puis resservir.
+1260	Votre Réputation donne un malus de 2. Vous recrutez des Voyous. Que devient ce malus ?
+1261	Il reste de 2
+1262	Il devient un bonus de 2
+1263	Il est doublé
+1264	Les Voyous inversent l'effet de la Réputation pour toute l'interaction.
+1265	Vous assiégez une Forteresse avec une Unité de Héros. Peuvent-ils attaquer ?
+1266	Oui, normalement
+1267	Oui, si vous payez 2 Influence pendant le combat
+1269	Sans cette Influence, ils peuvent seulement encaisser.
+1271	La Légion Oubliée : affronter Volkare
+1272	Volkare remplace le joueur Fantôme dans ses scénarios. Sa figurine se déplace sans tenir compte des terrains, des Remparts ni des sites, et ne provoque pas les ennemis errants.
+1273	Son armée dépend du niveau réglé sur la base de sa figurine, de 4 à 15. Au-delà, on règle la moitié du niveau et on double les jetons.
+1274	Le combattre, c'est affronter tous ses jetons à la fois, en quatre phases ordinaires. Ses troupes ne sont pas Fortifiées, sauf dans un site fortifié ou à travers un Rempart.
+1275	Avant le combat, son dé désigne l'attaque qu'il porte lui-même. Elle est toujours Brutale et Assassin : parez-la, ou votre Héros l'encaisse seul.
+1276	Volkare ne peut pas être ciblé et il est immunisé aux Arcanes. Il est vaincu quand toutes ses troupes le sont ; les éliminer toutes dès la première phase évite son attaque.
+1277	S'il vous attaque, vous choisissez : battre en retraite contre 2, 3 ou 4 Blessures selon que l'on est au premier, deuxième ou troisième couple Jour/Nuit, ou combattre.
+1278	Vous pouvez aussi lui donner l'assaut depuis une case adjacente, seul ou à plusieurs, sans perdre de Réputation. Si vous ne le battez pas, vous retournez à votre case.
+1279	Volkare tire son attaque au dé. Pouvez-vous assigner ses Dégâts à une Unité ?
+1280	Non : son attaque est Assassin
+1281	Oui, si elle résiste au type de l'attaque
+1282	Toutes ses attaques sont Brutales et Assassin.
+1283	Comment vaincre Volkare ?
+1284	En battant l'Armure de son jeton
+1285	En éliminant toutes ses troupes
+1286	En le parant deux fois
+1287	Il ne peut pas être pris pour cible.
+1288	Tezla : Factions
+1289	Les Ombres de Tezla : Factions et nouvelles capacités
+1290	Deux Factions : les Élémentalistes et les Sombres Croisés. Leurs jetons verts, marron et rouges portent le symbole de leur Faction. Certains scénarios demandent de les trier en piles séparées.
+1291	Faction au hasard : lancez un dé de mana. Or, vert ou blanc : Élémentalistes. Noir, bleu ou rouge : Sombres Croisés.
+1292	Jeton Faction : vaincre un ennemi de Faction rapporte un objet mineur de la pile de cette Faction. Il s'utilise pendant votre tour, un seul du même nom par tour, puis il est défaussé. Lors d'une interaction, on peut le défausser pour 1 Gloire ou 3 Influence. Inutilisé, il vaut 1 Gloire en fin de partie.
+1293	Défense : le premier ennemi que vous attaquez ajoute la valeur de Défense à son Armure jusqu'à la fin du combat. Avec plusieurs défenseurs, chaque Défense protège un jeton différent. Un défenseur vaincu avant d'avoir servi ne protège personne.
+1294	Vampire : son Armure augmente de 1, pour tout le combat, par Unité qu'il blesse et par Blessure que son attaque met dans votre main.
+1295	Embuscade : l'ennemi errant vous attaque jusqu'à 2 cases. Vous le provoquez en passant d'une case située à 1 ou 2 cases de lui à une autre située à 1 ou 2 cases de lui. Il faut que l'arrivée soit adjacente, ou que la case intermédiaire soit révélée, sans lac ni montagne, et qu'aucun Rempart ne vous sépare. Pour le défier, il faut toujours être adjacent.
+1296	Poursuite : quand le Héros poursuivi a fini son Mouvement, le jeton avance d'une case vers lui, lacs et montagnes compris. S'il était déjà adjacent, il attaque : c'est votre action du tour, même si vous vouliez vous Reposer. Il n'attaque pas un Héros situé dans un lieu d'interaction ou dans un site fortifié qu'il n'assiège pas.
+1297	Des Protecteurs (Armure 4, Défense 2) sont seuls. Quelle Attaque faut-il ?
+1298	Seuls, ils se protègent eux-mêmes : 4 + 2.
+1299	Un Vampire d'Armure 5 vous inflige 2 Blessures. Quelle est son Armure en phase d'Attaque ?
+1300	+1 par Blessure ajoutée à votre main.
+1301	Votre dé de Faction donne bleu.
+1302	Élémentalistes
+1303	Sombres Croisés
+1304	On relance
+1305	Noir, bleu ou rouge désignent les Sombres Croisés.
+1306	Tezla : Chefs
+1307	Les Ombres de Tezla : lieux et Chefs de Faction
+1308	Vallée Oubliée : fonctionne comme une Clairière Magique ; y entrer coûte 2.
+1309	Nécropole et Cimetières : les règles de Nuit s'y appliquent en plein Jour, et commencer son tour dessus pendant la Nuit donne un jeton de mana noir. La Nécropole coûte 2 ; un Cimetière coûte le terrain qu'il recouvre.
+1310	Chef de Faction : un grand jeton à niveaux. Son niveau de départ, fixé par le scénario, donne son Armure, son Attaque et le nombre de jetons de sa Faction qui l'accompagnent. Il est immunisé aux Arcanes.
+1311	L'attaquer : toutes vos Attaques contre lui forment une seule attaque. Si elle égale son Armure, posez un Bouclier sur son niveau actuel ; chaque multiple de son Armure retire un niveau de plus.
+1312	Il attaque comme tout ennemi, selon son niveau au début du combat. Son marqueur ne descend qu'à la fin du combat, jusqu'au premier rang sans Bouclier. Un Bouclier sur le niveau 1 : il est vaincu.
+1313	Ses compagnons ne reviennent pas quand son niveau baisse. Le vaincre rapporte la Gloire indiquée, mais pas de jeton Faction.
+1314	À plusieurs, on l'assaille comme une Cité : répartition des ennemis, chacun entre sur sa case et combat sa part, et tous subissent son attaque.
+1315	Départ à haut niveau : le Héros commence avec ses Compétences et jetons Commandement, 2 Cristaux, une Action Avancée gratuite par niveau impair au-delà du premier, et 6 Influence par niveau pour acheter parmi des cartes piochées (Action Avancée 6, Unité à son coût, Sort 9 ou 7 plus un Cristal de sa couleur, Artefact 12, Cristal 3).
+1316	Un Chef a 5 d'Armure. Votre attaque unique vaut 11. De combien de niveaux baisse-t-il ?
+1317	Un niveau par multiple de son Armure : 10 suffit pour deux, 15 pour trois.
+1318	Vous retirez un niveau au Chef en phase à Distance. Avec quelles valeurs attaque-t-il en phase de Parade ?
+1319	Celles du nouveau niveau
+1320	Celles du niveau de début de combat
+1321	Il n'attaque plus
+1322	Le marqueur ne bouge qu'à la fin du combat.
+1323	Les bases
+1325	Combats avancés
+1326	Le monde
+1327	À plusieurs et en solo
+1330	Entrer sur une case coûte des points de Mouvement selon son terrain ; le tableau figure dans l'aide-mémoire en bas de page. Les points non dépensés sont perdus en fin de tour.
+1331	Bouclier ardent
+1332	Parade de Feu 3
+1333	Parade de Feu 5
+1334	Lame ardente
+1335	Attaque de Feu 3
+1336	Attaque de Feu 5
+1337	Dard ardent
+1338	Attaque de Feu à distance 3
+1339	Attaque de Feu à distance 5
+1340	Bélier
+1341	Attaque de Siège 4
+1342	Attaque de Siège 6
+1343	Sort rouge
+1344	Attaque de Feu de Siège 8
+1346	Attaque 3
+1347	En le détruisant : Attaque 6
+1350	Une Unité Résistante en première ligne
+1351	Les Brutes frappent à 7 : impossible à parer avec cette main. Vos Golems ont une Résistance physique. Sortez du combat vainqueur et sans Blessure pour votre Héros.
+1354	Votre Héros a pris
+1355	Blessure(s). Laissez les Golems encaisser.
+1356	Ne parez pas. En phase de Dégâts, désignez les Golems : ils absorbent 4 sans Blessure, puis sont Blessés et absorbent les 3 restants. Attaquez ensuite avec Rage améliorée et l'autre Rage.
+1358	Parer une Attaque de Glace
+1359	Ces mages lancent une Attaque de Glace de 5. Seules les Parades de Feu comptent plein ; les autres valent moitié. Gagnez sans prendre de Blessure.
+1360	Mages de givre
+1362	Vous avez pris
+1363	Blessure(s) : l'attaque n'a pas été parée.
+1364	Deux voies. Bouclier ardent amélioré avec le dé rouge pare 5 d'un coup, puis les deux Rage font Attaque 4. Ou Bouclier ardent de base (3) plus 4 points de Parade physique, qui comptent pour 2, et Rage améliorée pour attaquer.
+1366	Percer une Résistance
+1367	Ces Golems résistent au physique et à la Glace : vos Attaques physiques sont divisées par deux. Le Feu, lui, passe plein. Gagnez sans Blessure.
+1368	Golems de givre
+1370	Blessure(s). Une Rage suffit à parer leur Attaque de 2.
+1371	Parez avec une Rage (Parade 2). En phase d'Attaque : Dard ardent amélioré (Feu 5, dé rouge), plus l'autre Rage et Rapidité inclinée, soit 3 points physiques qui comptent pour 1. Total 6. Une Attaque à distance peut se jouer en phase d'Attaque : elle y compte comme les autres. Pas en phase 1 ici : le Dard seul ne fait que 5 contre 6, et Rage ou une carte inclinée ne comptent pas encore.
+1373	Vif et Brutal
+1374	Attaque 3, mais Vif : il faut le double pour le parer. Et Brutal : s'il passe, les Dégâts doublent. Gagnez sans Blessure.
+1375	Loups enragés
+1376	Blessure(s) : Brutal a doublé les Dégâts.
+1377	Il faut une Parade de 6 : Détermination améliorée avec le dé bleu (5) et une carte inclinée (1). Puis les deux Rage pour Attaque 4.
+1379	Doublement Fortifié
+1380	Site fortifié : tous les défenseurs sont Fortifiés
+1381	Vous donnez l'assaut à une Forteresse, et ce défenseur porte en plus la capacité Fortifié. Essayez votre Bélier en première phase, puis trouvez comment gagner sans Blessure.
+1382	Garde du rempart
+1384	Blessure(s). Parez d'abord son Attaque de 3.
+1385	En première phase, il est intouchable, même au Siège. Passez à la Parade : Détermination (2) et Marche inclinée (1). En phase d'Attaque, les fortifications ne comptent plus : le Bélier suffit.
+1387	Deux ennemis, deux attaques
+1388	Deux adversaires. Les Spectres résistent au physique. Si vous les attaquez ensemble, leur Résistance réduit toute votre attaque. Battez les deux sans Blessure.
+1392	Blessure(s). Chaque ennemi se pare séparément.
+1393	Parez les Spectres avec Détermination (2), puis les Pillards avec une Rage (2) et une carte inclinée (1). En phase d'Attaque, sélectionnez les Spectres seuls et jouez Lame ardente (Feu 3). Puis les Pillards seuls : Rage améliorée (4).
+1395	Un Sort amélioré, la Nuit
+1396	Il fait Nuit. L'effet amélioré du Sort demande un mana rouge et un mana noir, et vous ne pouvez prendre qu'un dé de la Source. Abattez l'Ogre avant qu'il ne frappe.
+1399	L'Ogre a eu le temps de riposter. Visez la première phase.
+1400	Jouez l'effet amélioré du Sort : payez le rouge avec votre Cristal et le noir avec le dé de la Source. Siège de Feu 8 contre Armure 7, dès la première phase.
+1402	Sacrifier un Artefact
+1403	Votre Artefact donne Attaque 3 et retourne en défausse. Détruit, il donne Attaque 6, mais il quitte la partie. Gagnez sans Blessure.
+1404	Chevalier noir
+1406	Blessure(s). Parez d'abord.
+1407	Parade : Détermination (2) et Marche inclinée (1). Attaque : l'effet amélioré de l'Artefact, qui le détruit.
+1409	Seul dans le Donjon
+1410	Donjon : règles de Nuit, Unités restées dehors
+1411	Vous descendez dans un Donjon en plein Jour. Les règles de Nuit s'y appliquent et vos Villageois attendent dehors. Battez le Minotaure sans Blessure.
+1412	Blessure(s). Brutal double les Dégâts : mieux vaut le vaincre avant.
+1413	Le dé or ne sert à rien ici. Payez l'effet de base du Sort avec votre Cristal rouge : Attaque de Feu à distance 5, assez pour le vaincre en première phase.
+1415	Les murs de la Cité Blanche
+1416	Cité Blanche : défenseurs Fortifiés, +1 Armure
+1417	Dans la Cité Blanche, chaque défenseur gagne 1 point d'Armure. Ce garde passe donc de 4 à 5. Battez-le sans Blessure.
+1418	Garde de la Cité
+1419	Blessure(s). Parez son Attaque de 3.
+1420	Parade : Détermination (2) et Marche inclinée (1). Attaque : Rage améliorée avec le dé rouge (4) et l'autre Rage (2), soit 6 contre 5.
+1423	Repos Standard
+1424	Votre main est encombrée. Vous choisissez de vous Reposer. Sélectionnez les cartes à défausser pour vider le plus de Blessures possible.
+1425	Me reposer en défaussant la sélection
+1426	Un Repos Standard demande de défausser une carte autre que Blessure.
+1427	Une seule carte autre que Blessure : gardez l\'autre pour le prochain tour.
+1428	C\'est permis, mais vous pouvez défausser autant de Blessures que vous voulez : prenez les trois.
+1429	Une carte normale et les trois Blessures partent en défausse. Vous piocherez 4 cartes neuves. Attention : ces Blessures reviendront au prochain mélange.
+1431	Repos Prolongé
+1432	Cette fois, votre main ne contient que des Blessures. Sélectionnez ce que le Repos vous permet de défausser.
+1433	Repos Prolongé : vous montrez votre main et défaussez une seule Blessure. Vous ne piocherez qu\'une carte.
+1434	Sans carte normale à défausser, le Repos ne retire qu\'une seule Blessure.
+1435	Sélectionnez une Blessure.
+1437	Payer un Sort en plein Jour
+1438	Il fait Jour. Vous voulez l'effet de base d'un Sort rouge. Sélectionnez le mana que vous dépensez.
+1439	Dé or de la Source
+1440	Dé noir de la Source
+1441	Dé vert de la Source
+1442	Cristal bleu
+1443	Payer l\'effet de base du Sort rouge
+1444	L\'effet de base d\'un Sort coûte un seul mana, de sa couleur.
+1445	Le Jour, l\'or remplace n\'importe quelle couleur fondamentale. C\'est votre dé du tour.
+1446	Le mana noir est inutilisable le Jour.
+1447	Il faut du rouge, ou de l\'or puisqu\'il fait Jour.
+1450	Préparer une partie solo
+1451	Vous jouez seul, avec un joueur Fantôme. Combien de dés lancez-vous pour la Source ?
+1452	Le calcul est : nombre de joueurs plus 2.
+1453	Un joueur plus 2. Le Fantôme ne compte pas.
+1454	Le Fantôme ne compte pas comme un joueur pour la Source.
+1455	Les trois dés montrent or, noir et bleu. La Source est-elle valable ?
+1456	Au moins la moitié des dés doit montrer une couleur fondamentale. Ici, un seul sur trois.
+1457	Non : je relance le dé or et le dé noir
+1458	On relance les dés or et noirs jusqu'à ce que la moitié au moins soit rouge, bleue, blanche ou verte.
+1459	Combien de cartes révélez-vous pour l'Offre des Unités ?
+1460	Nombre de joueurs plus 2, sans compter le Fantôme. Des Unités Régulières tant qu'aucune tuile Royaume n'est révélée.
+1461	C'est le nombre de joueurs plus 2.
+1462	Aucune avant le premier Village
+1463	L'Offre est révélée dès la mise en place.
+1464	Dernière étape : combien de cartes piochez-vous ?
+1465	Votre Limite de cartes en main aux Niveaux 1 et 2.
+1466	La Limite de départ est de 5.
+1468	Un tour complet, décision par décision
+1469	Votre main : Marche, Endurance, Promesse, Rage et une Blessure. Un Village se trouve à deux Plaines de vous (2 points chacune). Vous voulez y recruter ce tour-ci. Par quoi commencez-vous ?
+1470	Je joue Promesse pour l'Influence, puis je me déplace
+1471	Tout le Mouvement doit être terminé avant l'action.
+1472	Je me déplace, puis j'interagis
+1473	Mouvement d'abord, action ensuite.
+1474	Marche et Endurance donnent 4 points : vous êtes au Village. Les Villageois coûtent 4 Influence. Il vous reste Promesse, Rage et la Blessure. La Source montre un dé blanc.
+1475	Promesse, Rage inclinée et la Blessure inclinée
+1476	Une Blessure ne peut jamais être jouée, même inclinée.
+1477	Promesse améliorée avec le dé blanc
+1478	Influence 4 : les Villageois sont recrutés, Disponibles tout de suite.
+1479	Promesse et Rage inclinée
+1480	Cela ne fait que 3 Influence.
+1481	Le recrutement est fait. Il vous reste Rage. Pouvez-vous entrer dans la Forêt voisine en jouant Rage inclinée et les Villageois ?
+1482	Aucun Mouvement n'est possible après l'action du tour.
+1484	L'interaction était votre action : le tour ne permet plus de Mouvement.
+1485	Fin du tour. Que devient la Blessure dans votre main ?
+1486	Je la défausse
+1487	Une Blessure ne se défausse jamais volontairement en fin de tour.
+1488	Elle reste en main
+1489	Vous gardez Rage et la Blessure, et piochez 3 cartes pour revenir à 5.
+1491	Monter de Niveau
+1492	Vous étiez Niveau 1 avec 2 points de Gloire. Ce tour-ci, vous en gagnez 7 : vous voilà à 9. Les paliers sont à 3 et à 8. Que se passe-t-il à la fin du tour ?
+1493	Je passe Niveau 2
+1494	Vous avez franchi deux lignes : vous gagnez un Niveau pour chacune.
+1495	Je passe Niveau 2, puis Niveau 3
+1496	Chaque ligne franchie donne un Niveau, résolus l'un après l'autre.
+1497	Niveau 2. Vous révélez deux tuiles Compétence de votre pile. L'Offre commune est vide.
+1498	Je garde les deux
+1499	Une seule Compétence par Niveau pair.
+1500	J'en garde une, l'autre va dans l'Offre commune, et je choisis une Action Avancée
+1501	Et la carte choisie va sur le dessus de votre Deck.
+1502	J'en garde une et je prends l'Action Avancée du bas
+1503	La carte du bas n'est imposée que si vous prenez la Compétence d'un autre joueur.
+1504	Niveau 3, maintenant. Que recevez-vous ?
+1505	Une autre Compétence
+1506	Les Compétences viennent aux Niveaux pairs.
+1507	Un jeton Commandement et un nouveau jeton Niveau visible
+1508	Vous pouvez diriger une Unité de plus, et le jeton révélé affiche vos nouvelles valeurs d'Armure et de Limite de cartes en main.
+1510	D\'une Manche à l\'autre
+1511	Trois joueurs ont choisi les Tactiques 5, 2 et 4. Qui joue en premier ?
+1512	Le 5
+1513	C'est le plus petit numéro qui ouvre.
+1514	Le 2
+1515	L'Ordre de Jeu suit les numéros croissants : 2, 4, puis 5.
+1516	Plus tard. Au début de votre tour, votre Deck est vide ; vous avez en main Rage et une Blessure.
+1517	Je dois annoncer la fin de la Manche
+1518	Seulement si votre main est vide aussi.
+1519	J'ai le choix : annoncer, ou jouer un tour
+1520	Deck vide avec des cartes en main : la décision vous appartient.
+1521	Je remélange ma défausse
+1522	Jamais avant la fin de la Manche.
+1523	Vous annoncez la fin de la Manche.
+1524	Je joue quand même mon tour
+1525	L'annonce remplace votre tour.
+1526	Chaque autre joueur joue un dernier tour, puis la Manche s'arrête
+1527	Vous ne profitez même pas de la case où vous êtes.
+1528	Nouvelle Manche. Vos Villageois étaient Épuisés et Blessés. Dans quel état sont-ils ?
+1529	Disponibles et soignés
+1530	Les Blessures ne disparaissent pas toutes seules.
+1531	Disponibles, mais toujours Blessés
+1532	Ils retrouvent leur jeton Commandement mais ne pourront agir qu'une fois soignés.
+1533	Et la Blessure que vous aviez en main ?
+1534	Elle est remélangée dans votre Deck
+1535	Toutes vos cartes, Blessures comprises, reforment le Deck.
+1536	Seul le Soin retire une Blessure.
+1538	Un Monastère, de deux façons
+1539	Vous êtes dans un Monastère avec 8 points d'Influence et une Blessure en main. Que pouvez-vous acheter ?
+1540	L'Action Avancée (6) et un point de Soin (2)
+1541	Plusieurs achats en une interaction, tant que l'Influence suffit.
+1542	L'Action Avancée et deux points de Soin
+1543	Cela ferait 10 Influence.
+1544	Un Sort pour 7
+1545	Les Sorts s'achètent dans une Tour de Mage ou la Cité Bleue.
+1546	Un autre jour, vous décidez de brûler ce Monastère. Qu'arrive-t-il à votre Réputation ?
+1547	C'est le coût d'un assaut ou d'un pillage.
+1548	−3, tout de suite
+1549	La perte est immédiate, quelle que soit l'issue du combat.
+1550	Vous piochez un ennemi violet. Vos deux Unités sont Disponibles.
+1551	Elles combattent normalement
+1552	Elles refusent de prendre part à cet acte.
+1553	Elles ne participent pas : ni activation, ni Dégâts pour elles
+1554	Vous combattez seul.
+1555	Vous l'emportez. Votre récompense ?
+1556	Un Artefact : en fin de tour, j'en pioche deux et j'en garde un
+1557	Et le Monastère n'existe plus pour le reste de la partie.
+1558	Un Sort de l'Offre
+1559	C'est la récompense d'une Tour de Mage.
+1561	L\'Antre et sa récompense
+1562	Un Antre se trouve sur votre chemin. Vous pouvez…
+1563	seulement vous arrêter et combattre
+1564	Un site d'aventures peut toujours être ignoré.
+1565	le traverser, vous y arrêter sans combattre, ou y entrer : ce sera votre action
+1566	Entrer dans l'Antre est l'action du tour.
+1567	Vous entrez et vous échouez face au monstre marron. Que devient son jeton ?
+1568	Le prochain Héros qui entrera affrontera le même monstre.
+1569	Il est défaussé
+1570	C'est le cas du Donjon, pas de l'Antre.
+1571	Au tour suivant, victoire. En fin de tour, vous lancez deux dés pour la récompense :
+1573	. Que gagnez-vous ?
+1574	+1 Gloire
+1575	un Cristal de la couleur de mon choix
+1576	un Cristal
+1577	Couleur fondamentale : ce Cristal. Or : couleur au choix. Noir : 1 point de Gloire à la place.
+1578	Deux Cristaux de mon choix
+1579	Le dé décide de la couleur, sauf sur un résultat or.
+1580	Rien : il fallait gagner du premier coup
+1581	La récompense revient à celui qui conquiert le site, quel que soit le nombre de tentatives.
+1583	Prendre une Cité
+1584	Vous attaquez une Cité Rouge. Un défenseur d'Attaque physique 4 n'est pas paré. Combien de Dégâts inflige-t-il ?
+1585	Dans la Cité Rouge, les attaques physiques des défenseurs deviennent Brutales.
+1586	Brutal double l'Attaque au moment des Dégâts.
+1587	Vous battez 2 des 3 défenseurs.
+1588	La Cité est à moi
+1589	Il faut vaincre tous les défenseurs.
+1590	Je pose 2 jetons Bouclier sur la carte Cité et je recule
+1591	Un Bouclier par défenseur vaincu, et retour à la case d'où vous veniez.
+1592	Un autre joueur bat le dernier défenseur. Qui devient Seigneur de la Cité ?
+1593	Lui : il a porté le coup final
+1594	Seul le nombre de jetons Bouclier compte.
+1595	Moi : 2 Boucliers contre 1
+1596	À égalité, ce serait le premier à avoir posé un Bouclier.
+1597	Vous revenez interagir dans cette Cité Rouge conquise.
+1598	+2 Influence, et des Artefacts à 12 Influence
+1599	+1 Influence par Bouclier que vous y avez posé.
+1600	+1 Influence, et des Sorts à 7
+1601	Les Sorts s'achètent dans la Cité Bleue, et le bonus est de +1 par Bouclier.
+1603	Un duel, coup par coup
+1604	Vous terminez votre Mouvement sur la case d'un rival. Il décide de ne participer que partiellement. Peut-il prendre un dé de la Source ?
+1605	C'est le privilège d'une participation pleine.
+1606	Non, et ses Compétences sont inutilisables
+1607	En échange, il garde son prochain tour.
+1608	Phase à Distance et de Siège. Qui attaque en premier ?
+1609	Moi, l'agresseur
+1610	L'agresseur ouvre la phase de Mêlée.
+1611	Lui, le défenseur
+1612	Les rôles s'inversent ensuite à chaque attaque.
+1613	Il vous lance une Attaque à Distance physique de 4. Vous jouez Parade 4. Votre Armure est de 2.
+1614	Tout est paré
+1615	Dans cette phase, il faut 2 points de Parade par point d'Attaque.
+1616	2 Dégâts passent : il m'inflige une Blessure
+1617	Parade 4 bloque 2. Les 2 Dégâts restants égalent votre Armure : une Blessure.
+1618	4 Dégâts passent
+1619	Contre un joueur, la Parade peut être partielle.
+1620	Mêlée. Vous lui infligez 2 Dégâts non parés. Une Plaine libre (coût 2) est adjacente. Son Armure est de 3.
+1621	Je lui inflige une Blessure
+1622	Il faudrait 3 Dégâts, autant que son Armure.
+1623	Je le force à reculer sur la Plaine : le combat s'arrête et je gagne
+1624	Les Dégâts se convertissent en Mouvement, au coût de la case.
+1625	Je lui vole un Artefact
+1626	Cela coûte 5 Dégâts.
+1627	Vous êtes Niveau 3, il est Niveau 5. Combien de Gloire gagnez-vous ?
+1628	Ajoutez 2 par Niveau d'écart.
+1629	1 point, plus 2 pour chacun des deux Niveaux qui vous séparent.
+1630	On ne gagne rien seulement quand on avait déjà plus de Gloire que le vaincu.
+1632	Un assaut coopératif
+1633	Vous et votre partenaire êtes chacun sur une case adjacente à une Cité défendue par 4 ennemis. À votre tour, vous lui proposez d'en affronter 2 chacun. Il accepte. Que fait-il ?
+1634	Il retourne son jeton d'Ordre de Jeu : il passera son prochain tour
+1635	Participer à l'assaut lui coûte son tour suivant.
+1636	Rien de particulier
+1637	Son jeton est retourné pour marquer le tour qu'il sautera.
+1638	Comment répartit-on les 4 défenseurs ?
+1639	Chacun choisit les deux qu'il préfère
+1640	Personne ne sait d'avance qui il affrontera.
+1641	On les mélange et on en distribue 2 à chacun, sans regarder
+1642	Vous savez combien, pas lesquels.
+1643	Vous battez vos 2 défenseurs. Votre partenaire n'en bat qu'un.
+1644	La Cité est conquise
+1645	Il reste un défenseur.
+1646	La Cité tient : vous reculez tous les deux, mais vos 3 Boucliers restent sur la carte
+1647	Chaque défenseur vaincu compte déjà pour désigner le futur Seigneur.
+1648	Fin de partie : vous avez 60 points de Gloire, votre partenaire 41. Quelle est la base du score d'équipe ?
+1649	C'est le joueur le moins avancé qui compte.
+1650	Aider son partenaire à progresser rapporte à toute l'équipe.
+1651	Les Gloires ne s'additionnent pas.
+1653	Faire jouer le Fantôme
+1654	rrrrggggbbbbwwww
+1655	Le Fantôme possède 2 Cristaux verts et 1 Cristal bleu. À son tour, il défausse trois cartes :
+1656	. Combien de cartes défausse-t-il en plus ?
+1657	Seule la dernière carte compte : elle est
+1658	, et il a
+1660	de cette couleur.
+1661	Regardez la couleur de la troisième carte et comptez ses Cristaux de cette couleur.
+1662	Tour suivant :
+1663	. Combien en plus ?
+1664	La troisième est
+1665	en plus.
+1666	Seule la couleur de la troisième carte compte.
+1667	Plus tard, au début de son tour, son Deck est vide.
+1668	Il remélange sa défausse
+1669	Comme vous, il ne remélange qu'à la nouvelle Manche.
+1670	Il annonce la fin de la Manche : vous jouez un dernier tour
+1671	C'est lui qui impose le rythme de la partie.
+1672	Nouvelle Manche. L'Action Avancée retirée du bas de l'Offre est rouge, le Sort retiré est blanc.
+1673	Les deux cartes vont dans son Deck
+1674	Le Sort retourne sous sa pioche.
+1675	L'Action Avancée rejoint son Deck, et il gagne un Cristal blanc
+1676	Son Deck grossit et ses Cristaux s'accumulent : les Manches raccourcissent.
+1682	À travers le Rempart
+1683	Vous défiez ces Orques à travers un Rempart : ils sont Fortifiés
+1684	Un Rempart vous sépare de ces Tirailleurs. Essayez votre Attaque à distance en première phase, puis gagnez sans Blessure.
+1686	Blessure(s). Parez d'abord leur Attaque de 3.
+1687	En première phase, l'Attaque à distance ne touche pas un ennemi Fortifié. Parez : Détermination (2) et Marche inclinée (1). En phase d'Attaque, tout compte : Rapidité améliorée (3) et Rage (2).
+1689	Défense
+1690	Défense 2 : seuls, ces Protecteurs se protègent eux-mêmes
+1691	Ces Protecteurs ont la capacité Défense 2. Comme ils sont seuls, ils l'appliquent à leur propre Armure. Gagnez sans Blessure.
+1693	Parade : Détermination (2) et une carte inclinée (1). Attaque : il faut 6, soit Rage améliorée avec le dé rouge (4) et l'autre Rage (2).
+1695	Entrer dans un Dédale
+1696	Vous êtes sur un Dédale avec deux Unités Disponibles. Il vous reste 3 points de Mouvement de votre déplacement, et deux cartes de Mouvement en main. Vous visez le chemin à 4 points.
+1697	Je paie avec mes 3 points restants et une carte inclinée
+1698	Les restes de votre phase de Mouvement ne servent pas : il faut des effets joués pour entrer.
+1699	Je joue mes deux cartes de Mouvement pour payer 4
+1700	Des effets de Mouvement distincts, joués au moment d'entrer.
+1701	Qui vous accompagne à l'intérieur ?
+1702	Mes deux Unités
+1703	Il n'y a de place que pour une seule.
+1704	Une seule Unité, que je choisis
+1705	L'autre ne peut ni agir ni encaisser pendant cette action.
+1706	Vous battez le monstre. Que devient ce chemin à 4 points ?
+1707	Il reste ouvert à tous
+1708	Votre Bouclier le condamne.
+1709	Je le marque d'un Bouclier ; je ne reviendrai plus, mais un autre joueur peut prendre le chemin à 2 ou à 6
+1710	Chaque chemin ne sert qu'une fois, et chaque joueur n'entre qu'une fois.
+1711	t-insaisissable
+1712	Un ennemi Insaisissable
+1713	Des Ombres : Armure 3 ou 6, Attaque 4. Vous avez une Attaque à distance 4. La tentez-vous en première phase ?
+1714	Oui : 4 contre 3
+1715	En phase à Distance et Siège, c'est toujours la plus haute Armure : 6.
+1716	Non : il faudrait 6
+1717	Mieux vaut garder cette carte pour la phase d'Attaque.
+1718	Phase de Parade. Vous pouvez parer leur Attaque de 4, ou laisser une Unité d'Armure 5 encaisser.
+1719	L'Unité encaisse : personne n'est gêné
+1720	Ne pas parer laisse leur Armure à 6 pour tout le combat.
+1721	Je pare les 4
+1722	Toutes leurs attaques parées : leur Armure tombe à 3 pour la phase d'Attaque.
+1723	Phase d'Attaque. Que vous faut-il ?
+1724	Attaque 3, et mon Attaque à distance compte
+1725	Dans cette phase tous les types d'Attaque se combinent, contre la petite Armure.
+1726	Attaque 6
+1727	Vous avez paré : c'est la petite valeur qui s'applique.
+1729	Volkare vous attaque
+1730	Deuxième Jour. Volkare entre sur votre case avec six jetons. Vous n'êtes pas prêt. Que coûte la retraite ?
+1731	2 Blessures
+1732	C'est le tarif du premier Jour et de la première Nuit.
+1733	3 Blessures
+1734	2, 3 puis 4 Blessures selon l'avancée de la partie. Vous reculez ensuite sur une case adjacente sécurisée.
+1735	Rien, mais je passe mon tour
+1736	La retraite se paie en Blessures.
+1737	Plus tard, vous l'affrontez. Son dé désigne une attaque de 5. Vous ne la parez pas et vous avez des Gardes d'Armure 5.
+1738	Les Gardes encaissent 10 Dégâts
+1739	Son attaque est Assassin : pas d'Unité.
+1740	Mon Héros encaisse 10 Dégâts
+1741	Brutale, donc doublée, et Assassin, donc pour le Héros seul. Mieux vaut la parer.
+1742	Mon Héros encaisse 5 Dégâts
+1743	Son attaque est aussi Brutale : non parée, elle double.
+1744	Il reste deux jetons de son armée. Pouvez-vous viser Volkare lui-même pour en finir ?
+1745	Oui, avec une Attaque de Siège
+1746	Volkare n'est jamais une cible.
+1747	Non : il tombe quand ses deux dernières troupes tombent
+1748	Éliminer toutes ses troupes est la seule façon de le vaincre.
+1750	Embuscade et Poursuite
+1751	Un ennemi Embusqué est à 2 cases de vous. Vous avancez sur une autre case, elle aussi à 2 cases de lui ; la case qui vous sépare est une Montagne.
+1752	Il m'attaque
+1753	La case intermédiaire ne doit contenir ni montagne ni lac.
+1754	Il ne m'attaque pas
+1755	L'Embuscade porte à 2 cases seulement à travers une case révélée et dégagée.
+1756	Un jeton vous Poursuit et se trouve à 3 cases. Vous terminez votre Mouvement.
+1757	Il avance d'une case vers moi
+1758	Il franchit même lacs et montagnes, tant que la case est révélée et libre.
+1759	Il m'attaque tout de suite
+1760	Il doit d'abord vous rejoindre.
+1761	Il ne bouge que si je l'ai provoqué
+1762	La Poursuite est automatique à chaque fin de Mouvement du Héros poursuivi.
+1763	Au tour suivant, il est adjacent et vous êtes dans un Village.
+1764	Il m'attaque : c'est mon action
+1765	Pas dans un lieu où une interaction est possible.
+1766	Il ne peut pas m'attaquer ici
+1767	Les lieux d'interaction et les sites fortifiés que vous n'assiégez pas vous protègent.
+1769	Abattre un Chef de Faction
+1770	Le Chef est au niveau 4, Armure 5 à ce niveau, entouré de deux fidèles. Vous réunissez 12 points d'Attaque contre lui en phase d'Attaque. Que se passe-t-il ?
+1771	Il perd 1 niveau
+1772	Comptez les multiples de son Armure.
+1773	Il perd 2 niveaux
+1774	5 puis 10 : deux Boucliers posés. Il aurait fallu 15 pour un troisième.
+1775	Il est vaincu
+1776	Il lui reste des niveaux.
+1777	Le combat se termine. Que devient son marqueur, et ses fidèles vaincus sont-ils remplacés ?
+1778	Le marqueur descend au niveau 2 ; aucun nouveau fidèle n'arrive
+1779	Ses compagnons dépendent de son niveau de départ, une fois pour toutes.
+1780	Le marqueur descend et deux nouveaux fidèles arrivent
+1781	On n'ajoute jamais d'ennemis quand son niveau baisse.
+1782	Le marqueur ne bouge pas avant la prochaine Manche
+1783	Il recule à la fin du combat.
+1784	Vous aviez aussi un Sort capable de détruire un ennemi. Fonctionne-t-il sur le Chef ?
+1785	Les Chefs sont immunisés aux Arcanes.
+1786	Non : seules les Attaques et les Parades le touchent
+1787	Immunité aux Arcanes, comme Volkare.
+1790	de Feu
+1791	de Glace
+1792	de Feu Glacé
+1793	Attaque de Siège
+1794	Dé or de la Source (joker de Jour)
+1795	Payer le mana
+1796	avec…
+1797	Une Blessure ne se joue pas.
+1798	Pendant la phase de Dégâts, on ne joue pas de carte : répartissez les Dégâts.
+1799	ne donne rien en combat avec cet effet. Inclinée, elle vaut 1 point d\'Attaque ou de Parade.
+1800	En première phase, seules les Attaques à distance et de Siège comptent. Une carte inclinée n\'en donne jamais.
+1801	En phase de Parade, jouez des Parades.
+1802	Cet effet ne sert pas en phase d\'Attaque.
+1803	L\'effet amélioré d\'un Sort demande du mana noir : impossible de Jour.
+1804	Il vous faut un mana noir.
+1805	Il faudrait deux dés de la Source : un seul par tour. Trouvez l\'autre mana ailleurs.
+1806	(vous avez déjà pris votre dé).
+1808	Même l\'effet de base d\'un Sort coûte un mana
+1809	détruit
+1810	en effet amélioré
+1811	Il est retiré du jeu.
+1812	Sélectionnez au moins un ennemi à attaquer.
+1813	Ennemi doublement Fortifié : intouchable en première phase, même au Siège. Attendez la phase d\'Attaque.
+1815	(Attaques réduites :
+1816	Attaque insuffisante :
+1817	Une Résistance divise par deux
+1818	de vos points.
+1819	point(s) ne comptent pas dans cette phase.
+1820	Rien n\'est perdu : renforcez l\'attaque ou changez de cible.
+1821	Choisissez l\'ennemi à parer.
+1822	: attaque parée (
+1823	Parade insuffisante :
+1824	point(s) inefficaces comptent pour moitié.
+1825	Tout ou rien : ajoutez de la Parade ou renoncez.
+1826	Phase de Parade : les ennemis attaquent.
+1827	Phase de Dégâts.
+1828	Phase d\'Attaque : toutes vos Attaques comptent.
+1830	. Répartissez-les.
+1831	Vos Unités ne vous suivent pas ici : elles ne peuvent ni agir ni encaisser.
+1832	Dans ce cas pratique, cette Unité sert à encaisser : désignez-la pendant la phase de Dégâts.
+1833	Cette Unité a déjà encaissé pendant ce combat.
+1834	Résistance, tout est absorbé sans Blessure.
+1835	Résistance,
+1836	absorbés sans Blessure, puis l\'Unité est Blessée et absorbe encore
+1837	Blessée, elle absorbe
+1838	Tous les Dégâts sont répartis.
+1840	Votre Héros encaisse
+1841	Dégâts :
+1842	Il reste un ennemi debout.
+1843	Cas réussi.
+1844	Distance et Siège
+1845	Résiste :
+1846	Réussi
+1847	À refaire
+1848	Seules vos Attaques à distance et de Siège comptent. Touchez les ennemis visés, jouez vos cartes, puis attaquez.
+1849	Toutes vos Attaques comptent, cartes inclinées comprises. Touchez les ennemis visés.
+1851	réduits de moitié
+1852	hors phase
+1853	Attaquer la sélection
+1854	Terminer le combat
+1855	Chaque ennemi se pare séparément. Touchez celui que vous parez, jouez vos Parades, puis validez.
+1856	Parade contre
+1857	inefficaces, comptés moitié
+1858	Passer aux Dégâts
+1860	à répartir. Touchez une Unité pour qu'elle encaisse, ou laissez votre Héros prendre le reste.
+1861	Le Héros encaisse
+1862	Touchez l'ennemi dont vous réglez les Dégâts en premier.
+1865	" data-foe="
+1867	Paré
+1868	A frappé
+1869	Ciblé
+1870	: inutilisable ici
+1871	aucun dé
+1872	Nuit : or inutilisable, noir utilisable
+1873	Jour : noir inutilisable
+1874	· un dé par tour
+1875	" data-aunit="
+1876	· Armure
+1877	· Résistance physique
+1878	· Blessée
+1879	· a encaissé
+1880	· restée dehors
+1883	Base, 1 mana
+1884	Amélioré, en le détruisant
+1885	Amélioré,
+1886	+ noir
+1887	Amélioré, 1 mana
+1888	Plus de cartes en main.
+1889	Une solution
+1891	Vous avez déroulé tout l'exemple.
+1892	Rejouer l'exemple
+1893	Étape
+1899	" class="chipb
+1902	· chapitre
+1903	réussi
+1905	Ce cas se joue sur le plateau ci-dessous : consigne à gauche, cartes en bas.
+1907	Vérifier
+1909	Pas tout à fait. Relisez les règles du chapitre et réessayez.
+1910	">Chapitre précédent
+1912	" data-topic="
+1913	">Chapitre suivant
+1914	Lancer une partie libre
+1916	">Parcours des règles
+1918	">Partie libre
+1924	button,[data-hex]
+1935	Cadre solo du livret : un joueur Fantôme. Vous choisissez votre Tactique en premier, il en tire une au hasard, et les deux sont retirées pour le reste de la partie. Retirez les quatre Sorts interactifs (n° 17 à 20) et la Compétence interactive de votre Héros.
+1936	Cadre coopératif du livret : un joueur Fantôme, qui tire sa Tactique au hasard avant vous. À la fin de chaque Manche, retirez du jeu une des Tactiques utilisées par les joueurs. Retirez les quatre Sorts interactifs (n° 17 à 20) et la Compétence interactive de chaque Héros. Pas de combat entre joueurs.
+1937	Bonus des scénarios Éclair : vous commencez avec 1 point de Gloire et 2 points de Réputation ; chaque nouvelle ligne atteinte sur l'Échelle de Gloire donne 1 point de Gloire de plus ; un dé de plus dans la Source et une Unité de plus dans l'Offre.
+1938	Score : votre Gloire, les Hauts Faits sans les titres, puis 10 points par Cité conquise, 15 de plus si toutes le sont, 30 par Manche non utilisée, 1 par carte restant dans le Deck du Fantôme et 5 si la fin de la Manche en cours n'était pas annoncée.
+1939	Score d'équipe : la Gloire du joueur le moins avancé, puis pour chaque Haut Fait le meilleur des deux joueurs, sans les titres. Ajoutez 10 points par Cité conquise, 10 si chaque joueur est Seigneur d'au moins une Cité, 15 si toutes sont conquises, 30 par Manche non utilisée, 1 par carte restant dans le Deck du Fantôme et 5 si la fin de la Manche en cours n'était pas annoncée.
+1940	Le livret autorise à jouer n'importe quel scénario en solo avec le cadre de Conquête en solo, sans préciser le nombre de tuiles pour un joueur : ce compagnon reprend les valeurs prévues pour 2 joueurs.
+1941	Mine révélée, y compris sur les tuiles posées à la mise en place : posez-y un jeton Ennemi face visible, vert sur une tuile Campagne, rouge sur une tuile Royaume, et un jeton marron face cachée. Disposez-les pour que le marron reste bien visible : ce ne sont pas des ennemis errants. S'il manque des jetons marron, piochez-les seulement au moment de les révéler.
+1942	Libérer une Mine est votre action, en entrant sur sa case : vous combattez les deux ennemis avec les règles de Nuit, comme dans un Donjon, mais vos Unités participent. Un survivant reste en place et pourra être attaqué plus tard.
+1943	Celui qui élimine le dernier ennemi libère la Mine : jeton Bouclier et +1 Réputation (+2 sur une tuile Royaume). Une Mine ne produit rien tant qu'elle est occupée ; libérée, elle produit tout de suite : un Cristal dès la fin de ce tour.
+1944	Au début de chaque Manche, chaque Mine libérée donne un Cristal de sa couleur à celui qui l'a libérée, où qu'il soit.
+1945	Finir votre Mouvement dans une Clairière Magique vous permet de l'activer : posez-y un jeton Bouclier. Ce n'est pas une action. Une Clairière peut porter plusieurs Boucliers, un par joueur.
+1946	Une fois pendant la première Nuit, sur une case qui n'est pas un site habité, vous pouvez lancer une incantation : c'est votre action. Piochez un monstre marron par Clairière que vous avez activée et combattez-les.
+1947	Chaque monstre vaincu rapporte le double de sa Gloire. Les autres disparaissent à la fin du combat, mais leurs Blessures restent. Chaque monstre invoqué, vaincu ou non, donne en fin de tour un Cristal tiré au dé, comme dans un Antre.
+1948	À la fin de la première Nuit, retirez tous les Boucliers des Clairières : il faut les réactiver pour la seconde incantation.
+1949	Seconde Nuit : nouvelle incantation, cette fois avec des ennemis rouges. Gloire doublée, et deux Cristaux par ennemi invoqué.
+1950	Scénario maison, écrit pour ce compagnon et non testé sur table : ajustez librement s'il se révèle trop dur ou trop facile.
+1951	Volkare remplace le joueur Fantôme et compte comme un joueur : la Source contient joueurs réels + 3 dés, l'Offre des Unités joueurs réels + 3 cartes.
+1952	Deck de Volkare : les 16 cartes Action Basique d'un Héros inutilisé, les quatre Sorts interactifs (n° 109 à 112) et des Blessures selon le Niveau de Poursuite. Il n'est jamais remélangé. Remplacez les Compétences interactives par les Compétences coopératives ; en solo, ajoutez à l'Offre commune une Compétence d'un autre Héros tiré au hasard après chacun de vos Niveaux.
+1953	Tactiques : les joueurs choisissent d'abord, puis Volkare tire la sienne parmi les restantes. En solo, votre Tactique est retirée du jeu à la fin de la Manche ; en coopération, aucune ne l'est.
+1954	Combattre Volkare, c'est affronter toute son armée plus sa propre attaque, tirée au dé, toujours Brutale et Assassin. Volkare ne peut pas être ciblé : il est vaincu quand toutes ses troupes le sont. Elles ne sont pas Fortifiées, sauf dans un site fortifié ou à travers un Rempart.
+1955	À deux, vous pouvez attaquer ou défendre ensemble : répartissez d'un côté les troupes d'élite (blanches et rouges), de l'autre les régulières (grises et vertes), puis chacun combat sa part et subit l'attaque de Volkare.
+1956	Volkare n'annonce jamais la fin de la Manche et ne joue pas de dernier tour. À chaque tour, il révèle une carte : le compagnon vous dit quoi faire.
+1957	Tant que la Cité n'est pas révélée, Volkare explore au gré de ses cartes. Dès qu'elle l'est, il s'y rend par le plus court chemin. Chaque Blessure révélée peut faire partir une Unité Indécise de l'Offre, qui ajoute un jeton gris à son armée.
+1958	Quand Volkare, adjacent à la Cité, doit avancer, il lui donne l'assaut. Cité non conquise : vous perdez. Cité conquise mais non défendue : il la pille, et à la seconde fois vous perdez. Si vous la défendez et qu'il perd au moins un jeton par joueur, il recule d'une case.
+1959	Plateau ouvert limité à 4 colonnes ; le Camp de Volkare est la tuile de départ la plus à gauche, et sa case n'a aucun effet.
+1960	Plateau de forme imposée par le livret, le Camp de Volkare à l'opposé du Portail. Toutes les tuiles sont posées face cachée, sauf le Camp, le Portail et les 3 tuiles qui le touchent.
+1961	Niveaux de la Cité et de Volkare, Blessures de son Deck et Unités marquées : réglés dans l'onglet Partie, selon les Niveaux de Combat et de Poursuite.
+1962	Victoire dès que toute l'armée de Volkare est éliminée. Défaite s'il atteint la Cité avant vous, s'il la pille deux fois, ou si la dernière Manche se termine.
+1963	Score collectif : la Gloire du joueur le moins Glorieux, les Hauts Faits du meilleur joueur par catégorie, sans titres, et 20 points si la Cité est conquise. Volkare vaincu : 30, 40 ou 50 points selon le Niveau de Combat, plus 2 par carte restant dans son Deck, bonus multiplié par 1, 1,5 ou 2 selon le Niveau de Poursuite.
+1964	Volkare marche vers le Portail sans révéler les tuiles. Quand il arrive à 3 cases du Portail, celui-ci se ferme : il devient une case ordinaire, et un joueur qui s'y trouve est exclu de la partie. Les Blessures révélées font partir des Unités Effrayées de l'Offre, sans renforcer son armée.
+1965	Si Volkare perd, avant son tour, au moins deux fois plus de jetons qu'il y a de joueurs, il passe son prochain tour : ne touchez pas au bouton de son tour cette fois-là.
+1966	Victoire dès que toute l'armée de Volkare est éliminée. Défaite s'il entre sur le Portail puis doit encore avancer.
+1967	Score collectif : la Gloire du joueur le moins Glorieux, les Hauts Faits du meilleur joueur par catégorie, sans titres, et 5 points par Cité conquise. Volkare vaincu : 30, 40 ou 50 points selon le Niveau de Combat, plus 2 par carte restant dans son Deck, bonus multiplié par 1, 1,5 ou 2 selon le Niveau de Poursuite.
+1968	Joueur Fantôme. Vous choisissez votre Tactique en premier, il en tire une parmi les restantes, et les deux sont retirées du jeu à la fin de la Manche. Retirez les quatre Sorts interactifs (n° 109 à 112) et remplacez les Compétences interactives par les Compétences coopératives de La Légion Oubliée.
+1969	Joueur Fantôme, qui tire sa Tactique au hasard avant vous. Vous formez une seule équipe. Retirez les quatre Sorts interactifs (n° 109 à 112) et remplacez les Compétences interactives par les Compétences coopératives de La Légion Oubliée.
+1970	Chef de Faction : il faut entrer sur sa case, qui n'est pas sécurisée, pour l'affronter avec ses fidèles. Chaque attaque égale à son Armure lui retire un niveau ; le détail est dans le tutoriel, chapitre « Tezla : Chefs ».
+1971	Score : votre Gloire et les Hauts Faits, sans titres.
+1972	Score d'équipe : la Gloire du joueur le moins Glorieux, et pour chaque Haut Fait le meilleur joueur, sans titres.
+1973	Ajoutez 1 point par carte restant dans le Deck du Fantôme et 5 si la fin de la Manche en cours n'était pas annoncée.
+1974	Départ à haut niveau : chaque Héros commence au Niveau 3 avec 9 points de Gloire, et se compose un Deck et une armée avec 18 points d'Influence, selon la variante du livret.
+1975	Les Cités sont détruites : ni figurine ni carte. Une seule figurine par case de Cité, et y entrer coûte 2. Posez-y un Draconien face cachée, révélé dès qu'un joueur est adjacent, de Jour comme de Nuit. Il n'est pas errant : entrer sur la case, c'est le combattre. Vainqueur, vous trouvez le fragment et marquez la case d'un Bouclier.
+1976	Les Draconiens errants des tuiles Cité sont remplacés par des ennemis errants verts. Retirez les Unités d'Élite recrutables seulement en Cité. Un dé de plus dans la Source et une Unité de plus dans l'Offre. +1 Gloire par ligne atteinte sur l'Échelle, +1 par tuile Royaume révélée, et encore +1 si elle porte une Cité en ruines.
+1977	Regroupez tous les jetons Élémentalistes en une pile : les ennemis errants en sortent et, sauf ceux de la mise en place, gagnent Embuscade. Vaincre un Élémentaliste errant vous fait ajouter une tuile Royaume, comme une exploration, pas forcément à côté de vous.
+1978	Explorer coûte le triple, et vous pouvez payer ce coût avec de l'Influence. Quand la tuile de la Cité blanche est posée, la Vallée Oubliée recouvre la case de la Cité, avec la Grande Prêtresse et ses fidèles. La Forteresse de cette tuile est gardée par 2 Élémentalistes verts. La Vallée n'a aucun effet avant d'être libérée.
+1979	Regroupez tous les jetons Sombres Croisés en une pile : les ennemis errants en sortent. Ceux qu'une exploration fait apparaître pendant votre tour reçoivent votre Bouclier et vous Poursuivent à partir du tour suivant.
+1980	Chaque Clairière Magique révélée devient un Cimetière, avec des ennemis face cachée selon l'ordre de découverte : deux verts ; un vert et un marron ; un rouge ; un vert et un rouge ; un marron et un rouge.
+1981	Libérer un Cimetière est une action, depuis sa case ; les survivants restent. Récompense selon l'ordre : Action Avancée, Sort, Unité, Artefact, puis Artefact et Action Avancée. Ensuite, sur place, dépensez un mana pour le sceller, sans action : Bouclier et +1 Réputation. Quand la tuile de la Cité bleue est posée, la Nécropole recouvre la Cité, avec le Nécromancien.
+1982	Triez les jetons verts, marron et rouges par Faction. Les ennemis errants viennent des Sombres Croisés sur les tuiles du Nord, des Élémentalistes sur celles du Sud, d'une Faction tirée au dé entre les deux ; le schéma du livret indique quelles tuiles sont au Nord et au Sud.
+1983	Clairière Magique révélée sur une tuile Campagne : au Sud, deux Élémentalistes, un vert et un marron, face visible ; au Nord, un Cimetière et deux Sombres Croisés ; entre les deux, une Faction au hasard. Libérer le lieu est une action : vous combattez les deux ennemis, gagnez un Artefact (Clairière) ou un Sort (Cimetière), posez un Bouclier et gagnez 1 Réputation. Avant libération, le lieu n'a aucun effet.
+1984	La Cité verte ne se place pas au Nord, la rouge pas au Sud. La Vallée Oubliée recouvre la Cité verte et abrite le Chef des Élémentalistes ; la Nécropole recouvre la Cité rouge et abrite celui des Sombres Croisés. La troisième Cité est amicale.
+1985	Module Quêtes obligatoire (fiches 7 à 10 de l'Aide de jeu), en mode Normal par défaut. Les niveaux de Cité indiqués tiennent déjà compte des quêtes : pas de +1.
+1986	Coup de main : un Héros sur la même case qu'un autre peut, pendant son propre tour, produire une partie des valeurs hors combat (Parade, Déplacement, Influence, Soin…) demandées par la quête de son allié.
+1987	Un site ne propose des quêtes qu'une seule fois pour toute l'équipe.
+1988	Réussi si l'objectif est atteint. Pour comparer vos parties : votre Gloire et les Hauts Faits sans les titres, plus 5 points par quête réussie au palier I, 10 au palier II, 15 au palier III, et 30 par Manche non utilisée.
+1989	Réussi si l'objectif est atteint. Pour comparer vos parties : la Gloire du joueur le moins avancé et les meilleurs Hauts Faits des deux, plus 5 points par quête réussie au palier I, 10 au palier II, 15 au palier III, et 30 par Manche non utilisée.
+1991	Le Chevalier errant
+1994	Réussir 5 quêtes, dont au moins une de palier II.
+1995	Pas de Cité à prendre : vous parcourez les villages et les monastères, une quête après l'autre. La meilleure porte d'entrée dans le module.
+1996	Plateau en pyramide.
+1997	7 tuiles Campagne : gardez en priorité celles avec Village ou Monastère.
+1998	2 tuiles Royaume sans Cité.
+1999	Rappel : un Monastère ne vous propose de quêtes que si votre Réputation vous donne au moins +1 Influence.
+2000	Dès la cinquième quête réussie, si l'une est de palier II, jouez un dernier tour. Sinon à la fin de la quatrième Manche.
+2002	La Voie du héros
+2003	Réussir une quête de palier III, sans jamais choisir la voie de la crapule.
+2004	Pour qu'une Cité vous confie ses missions, il faut une réputation sans tache. Gagnez la confiance du peuple, prenez la Cité, puis prouvez-vous digne d'elle.
+2005	8 tuiles Campagne.
+2006	1 tuile Royaume avec Cité et 1 sans Cité.
+2007	La Cité révélée est de niveau 4.
+2008	Voie du héros : vous ne choisissez jamais 😈, vous ne pillez aucun Village et ne brûlez aucun Monastère. Sinon, la partie est perdue.
+2009	Accès au palier III : votre Réputation doit vous donner au moins +2 Influence. Prendre la Cité d'assaut vous en coûtera : préparez-vous.
+2010	Dès la quête de palier III réussie, jouez un dernier tour. Sinon à la fin de la cinquième Manche.
+2012	La Confrérie de l'ombre
+2013	Finir la partie avec une Réputation qui vous donne un malus, après avoir réussi 3 quêtes ⚫, dont une de palier III.
+2014	Les honnêtes gens vous ferment leur porte, mais la Confrérie a toujours du travail pour un Chevalier sans scrupules. Prenez une Cité et devenez son homme de l'ombre.
+2015	La Cité révélée est de niveau 5.
+2016	Voie de l'ombre : quand une quête propose 😇 ou 😈, vous choisissez toujours 😈.
+2017	Contacts dans l'ombre : tant que votre Réputation vous donne un malus, à chaque tirage, vous pouvez remplacer le résultat d'un des deux lancers par ⚫.
+2018	Rappel : avec une Réputation à malus, les Monastères vous sont fermés, et dans une Cité conquise vous ne pouvez accepter qu'une quête ⚫.
+2019	Dès la troisième quête ⚫ réussie, si l'une est de palier III, jouez un dernier tour. Sinon à la fin de la cinquième Manche. Votre Réputation doit alors vous donner un malus.
+2021	Compagnons d'armes
+2023	Réussir ensemble 8 quêtes, au moins 3 chacun, dont 2 de palier II.
+2024	Deux Chevaliers, un même tableau de quêtes. Partagez-vous les villages, et prêtez-vous main-forte quand une quête est trop lourde pour un seul.
+2025	Plateau ouvert, tuile de départ côté B.
+2026	Dès la huitième quête réussie, si l'objectif est rempli, chaque joueur joue un dernier tour, pas le Fantôme. Sinon à la fin de la quatrième Manche.
+2028	Les Gardiens du Royaume
+2029	Conquérir la Cité, puis réussir 2 quêtes de palier III, une chacun.
+2030	Le Royaume est menacé de toutes parts. Prenez la Cité, puis devenez les champions que ses habitants attendaient.
+2031	1 tuile Royaume avec Cité et 2 sans Cité.
+2032	La Cité est de niveau 6.
+2033	Gardiens : chaque Course réussie rapporte +1 Réputation aux deux Héros.
+2034	Dès la seconde quête de palier III réussie, chaque joueur joue un dernier tour, pas le Fantôme. Sinon à la fin de la cinquième Manche.
+2036	La Grande Chronique
+2037	Chaque Héros réussit au moins une quête de chaque palier, et l'équipe 12 quêtes au total.
+2038	La grande saga du module : des villages aux Cités, deux Chevaliers écrivent leur légende, quête après quête.
+2039	2 tuiles Royaume avec Cité et 2 sans Cité.
+2040	La première Cité révélée est de niveau 5, la seconde de niveau 7.
+2041	Dès que l'objectif est rempli, chaque joueur joue un dernier tour, pas le Fantôme. Sinon à la fin de la sixième Manche.
+2043	Mission de Reconnaissance
+2045	Localiser la Cité.
+2046	Le scénario de découverte, dans sa variante solo. Idéal pour une première partie complète.
+2047	Plateau en pyramide, tuile de départ côté A.
+2048	8 tuiles Campagne, rangées par numéro.
+2049	Le livret permet aussi de jouer sans Fantôme pour une découverte sans pression.
+2050	+1 Gloire à chaque tuile révélée.
+2051	Pas d'Unités d'Élite. On n'entre pas dans la Cité et on ne la conquiert pas.
+2052	Ne révélez les Sorts et les Actions Avancées que lorsqu'ils deviennent utiles.
+2053	Quand la tuile Cité est révélée, vous jouez un dernier tour.
+2054	Votre Gloire plus les Hauts Faits, sans les titres.
+2056	Conquête Éclair
+2057	Officiel adapté
+2058	Conquérir les deux Cités.
+2059	La conquête en format court : deux Cités de niveau 3 et un Héros dopé dès le départ.
+2060	6 tuiles Campagne.
+2061	2 tuiles Royaume avec Cité et 1 sans Cité.
+2062	Chaque Cité révélée est de niveau 3.
+2063	Quand toutes les Cités sont conquises, vous jouez un dernier tour.
+2065	Libération des Mines
+2066	Révéler toutes les tuiles et libérer toutes les Mines.
+2067	Des ennemis occupent les Mines de cristal. Chassez-les, tunnel après tunnel.
+2068	8 tuiles Campagne : ne retirez que des tuiles sans Mine.
+2069	La tuile Royaume de la Cité Rouge, plus 1 tuile Royaume sans Cité (celle sans Mine est écartée).
+2070	La Cité Rouge est amicale : posez-y un jeton Bouclier, personne n'en est Seigneur.
+2071	Quand tout est révélé et libéré, vous jouez un dernier tour.
+2072	Votre Gloire, les Hauts Faits, plus 4 points par Mine libérée sur une tuile Campagne et 7 sur une tuile Royaume.
+2074	La Nuit des Druides
+2075	Marquer le plus de Gloire grâce aux incantations nocturnes.
+2076	Activez les Clairières Magiques le jour, invoquez des monstres la nuit.
+2077	8 tuiles Campagne : ne retirez que des tuiles sans Clairière Magique.
+2078	La tuile Royaume de la Cité Verte, plus 1 tuile Royaume sans Cité.
+2079	La Cité Verte est amicale : posez-y un jeton Bouclier, personne n'en est Seigneur.
+2080	Après votre incantation de la seconde Nuit, vous jouez un dernier tour. Sinon la partie s'arrête à la fin de cette Nuit.
+2081	Votre Gloire plus les Hauts Faits.
+2082	Conquête en solo
+2083	Le grand scénario solo du livret. Il dépasse les trois heures.
+2084	7 tuiles Campagne.
+2085	La première Cité révélée est de niveau 5, la seconde de niveau 8.
+2087	Dungeon Lords
+2088	Révéler toutes les tuiles et conquérir tous les Donjons et Tombeaux.
+2089	Un réseau de souterrains relie Donjons et Tombeaux. Cinq Manches : trois Jours, deux Nuits.
+2090	8 tuiles Campagne : ne retirez que des tuiles sans Donjon.
+2091	La tuile Royaume de la Cité Bleue, plus 1 tuile Royaume sans Cité : la tuile Désert sans Monastère ni Tombeau.
+2092	La Cité Bleue est amicale : posez-y un jeton Bouclier, personne n'en est Seigneur.
+2093	Quand vous révélez un Village, choisissez une case adjacente accessible, sans site et hors Marais : c'est l'entrée secrète d'un Donjon. Posez-y un jeton marron face cachée.
+2094	Quand vous révélez un Monastère, faites de même avec un jeton rouge : c'est un Tombeau secret.
+2095	Donjons et Tombeaux secrets suivent les règles normales de ces sites : règles de Nuit, sans Unités. En cas d'échec, le jeton est défaussé et remplacé par un nouveau, face cachée. Une fois conquis, on n'y combat plus.
+2096	Depuis un Donjon ou un Tombeau, vous pouvez rejoindre n'importe quel autre déjà conquis pour 2 points de Mouvement plus 1 par case de distance, en contournant lacs et marais.
+2097	Quand tout est révélé et conquis, vous jouez un dernier tour.
+2098	Votre Gloire et les Hauts Faits ; chaque Donjon ou Tombeau, secret ou non, compte 4 points au lieu de 2.
+2100	Baptême du feu
+2101	Vaincre 2 ennemis errants et conquérir 1 site, de n'importe quel type.
+2102	Une Journée et une Nuit pour enchaîner déplacement, combat et premier niveau.
+2103	5 tuiles Campagne, aucune tuile Royaume.
+2104	Pour une découverte sans pression, jouez sans Fantôme, comme le livret le permet pour la Mission de Reconnaissance : la Manche s'arrête alors quand vous l'annoncez.
+2105	+1 Gloire à chaque tuile révélée. Pas d'Unités d'Élite.
+2106	À la fin de la seconde Manche.
+2107	Réussi si l'objectif est atteint. Notez votre Gloire pour vous comparer la fois suivante.
+2109	La Grande Chasse
+2110	Finir sans aucun ennemi errant sur le plateau, toutes les tuiles révélées.
+2111	Les Orques Maraudeurs terrorisent la campagne. Nettoyez la région.
+2112	7 tuiles Campagne, aucune tuile Royaume.
+2113	Chaque assaut de site fortifié reste permis, mais il coûte de la Réputation comme d'habitude.
+2114	À la fin de la troisième Manche, ou dès que l'objectif est atteint (jouez alors un dernier tour).
+2115	Réussi si l'objectif est atteint. Mention spéciale si votre Réputation finit à +3 ou plus.
+2117	Le Protecteur
+2118	Finir avec une Réputation de +2 ou plus, 2 Unités non Blessées et aucune Blessure dans votre Deck.
+2119	Gagner sans se salir les mains : ni pillage, ni incendie, et des troupes en bon état.
+2120	Interdit de piller un Village ou de brûler un Monastère.
+2121	Les Blessures comptent dans la main, le Deck et la défausse : pensez au Soin, aux Villages et aux Clairières.
+2122	À la fin de la troisième Manche.
+2123	Réussi si les trois conditions sont remplies.
+2125	L'Érudit
+2126	Finir avec au moins 2 Sorts, 2 Actions Avancées et 1 Artefact dans votre Deck.
+2127	Tours de Mage, Monastères, Donjons : une partie tournée vers le savoir plutôt que la conquête.
+2128	7 tuiles Campagne : gardez en priorité celles avec Tour de Mage, Monastère ou Donjon.
+2129	1 tuile Royaume sans Cité.
+2130	Toutes les sources comptent : achats, récompenses et changements de Niveau.
+2131	Réussi si la collection est complète. Pour corser : exigez 3 Sorts.
+2133	Course à la Gloire
+2134	Atteindre le Niveau le plus haut possible en trois Manches.
+2135	Aucun objectif sur le plateau : seulement votre progression. À rejouer pour battre votre record.
+2136	7 tuiles Campagne et 1 tuile Royaume sans Cité.
+2137	Paliers indicatifs : Niveau 5, bronze ; Niveau 6, argent ; Niveau 7, or.
+2138	Votre Niveau, puis votre Gloire pour départager deux parties.
+2140	Trois Bannières
+2141	Conquérir 3 sites fortifiés : Forteresses ou Tours de Mage.
+2142	Trois assauts à préparer : trouver du Siège, des Unités, et encaisser la perte de Réputation.
+2143	8 tuiles Campagne : gardez en priorité celles avec Forteresse ou Tour de Mage.
+2144	Dès le troisième site conquis, jouez un dernier tour. Sinon à la fin de la quatrième Manche.
+2145	Réussi si vos Boucliers marquent 3 sites fortifiés. Notez le nombre de Manches utilisées.
+2147	Le Siège
+2148	Conquérir la Cité.
+2149	Une seule Cité, et quatre Manches pour monter l'armée qui la fera tomber. Difficulté réglable.
+2150	Niveau de la Cité : 3 pour une partie accessible, 5 pour une partie difficile, 8 pour les experts.
+2151	Quand la Cité est conquise, jouez un dernier tour. Sinon à la fin de la quatrième Manche.
+2153	Les Profondeurs
+2154	Conquérir 3 sites d'aventures, dont au moins un Donjon ou un Tombeau.
+2155	Sous terre, vos Unités restent dehors et les règles de Nuit s'appliquent. Un scénario pour Héros autonome.
+2156	8 tuiles Campagne : gardez en priorité celles avec Donjon, Antre ou Ruines.
+2157	Un Autel de Ruines activé compte comme un site conquis.
+2158	Réussi si vos Boucliers marquent les 3 sites demandés.
+2160	Contre la montre
+2161	Conquérir une Cité de niveau 3 en trois Manches.
+2162	Jour, Nuit, Jour. Pas le temps de flâner : chaque tour doit rapprocher de la Cité.
+2163	1 tuile Royaume avec Cité, placée en dernier dans la pioche.
+2164	La Cité est de niveau 3.
+2165	Quand la Cité est conquise, ou à la fin de la troisième Manche.
+2167	Tueur de Draconiens
+2168	Vaincre 2 Draconiens errants.
+2169	Les ennemis rouges sont les plus dangereux du jeu. Il faudra monter en puissance avant d'aller les chercher.
+2170	3 tuiles Royaume sans Cité : gardez en priorité celles avec des Draconiens.
+2171	Seuls comptent les Draconiens errants posés sur le plateau, pas les ennemis rouges d'un Tombeau ou de Ruines.
+2172	Dès le second Draconien vaincu, jouez un dernier tour. Sinon à la fin de la quatrième Manche.
+2173	Réussi si les deux Draconiens sont vaincus. Chacun rapporte +2 Réputation.
+2175	Conquête Coopérative Éclair
+2176	Conquérir ensemble les deux Cités.
+2177	Le scénario coopératif court du livret, plus rapide et moins difficile que Coopération Totale.
+2178	Il faut conquérir les deux Cités : il y en a autant que de joueurs. La seconde révélée, de niveau 8, est volontairement trop forte pour un seul Héros : elle se prend en assaut coopératif.
+2179	Assaut coopératif : depuis une case adjacente à la Cité, un joueur propose une répartition des défenseurs ; si l'autre accepte, chacun combat sa part à son tour, puis passe son tour suivant.
+2180	Quand toutes les Cités sont conquises, chaque joueur joue un dernier tour, pas le Fantôme.
+2182	Coopération Totale
+2183	4 h et plus
+2184	Conquérir ensemble les trois Cités.
+2185	Le défi coopératif complet du livret : trois Cités en six Manches.
+2186	3 tuiles Royaume avec Cité et 2 sans Cité.
+2187	Les Cités sont de niveau 5, sauf la dernière révélée, de niveau 8.
+2189	Reconnaissance à deux
+2190	Révéler la Cité, chaque joueur ayant atteint le Niveau 3.
+2191	La Mission de Reconnaissance jouée main dans la main, pour apprendre le jeu à quelqu'un.
+2192	+1 Gloire au joueur qui révèle une tuile, quelle qu'elle soit : seul celui qui explore marque le point. Alternez les explorations pour progresser ensemble.
+2193	Pas d'Unités d'Élite. On n'entre pas dans la Cité et on ne la conquiert pas. Ne révélez les Sorts et les Actions Avancées que lorsqu'ils deviennent utiles.
+2194	Quand la tuile Cité est révélée, chaque joueur joue un dernier tour. Sinon à la fin de la troisième Manche.
+2195	Réussi si la Cité est révélée et si les deux Héros sont au moins Niveau 3.
+2197	Les Mines, ensemble
+2198	Révéler toutes les tuiles et libérer ensemble toutes les Mines.
+2199	Libération des Mines en version coopérative : on se répartit le plateau.
+2200	La tuile Royaume de la Cité Rouge, plus 1 tuile Royaume sans Cité.
+2201	La Cité Rouge est amicale : chaque joueur y pose un jeton Bouclier.
+2202	Quand tout est révélé et libéré, chaque joueur joue un dernier tour. Sinon à la fin de la quatrième Manche.
+2203	Réussi si toutes les Mines sont libérées. Pour un score : la Gloire du joueur le moins avancé, plus 4 points par Mine de tuile Campagne et 7 par Mine de tuile Royaume.
+2205	Deux lames, une Cité
+2206	Conquérir la Cité, chaque joueur y ayant posé au moins un Bouclier.
+2207	Une Cité de niveau 8 : trop pour un seul Héros en quatre Manches. Préparez un assaut coopératif.
+2208	La Cité est de niveau 8. Pour une partie plus douce : niveau 5.
+2209	Rappel de l'assaut coopératif : depuis une case adjacente, un joueur propose une répartition des défenseurs ; si l'autre accepte, chacun combat sa part à son tour, puis passe son prochain tour.
+2210	Quand la Cité est conquise, chaque joueur joue un dernier tour. Sinon à la fin de la quatrième Manche.
+2212	Le Cercle des Druides
+2213	Vaincre à deux au moins 3 ennemis rouges invoqués pendant la seconde Nuit.
+2214	La Nuit des Druides en équipe : la première Nuit sert d'échauffement, la seconde décide de tout.
+2215	La Cité Verte est amicale : chaque joueur y pose un jeton Bouclier.
+2216	Chaque joueur active ses propres Clairières et lance sa propre incantation.
+2217	Quand les deux joueurs ont lancé leur incantation de la seconde Nuit, chacun joue un dernier tour. Sinon à la fin de cette Nuit.
+2218	Réussi si 3 ennemis rouges invoqués ont été vaincus à vous deux.
+2220	Le Retour de Volkare, Éclair
+2221	Légion Oubliée
+2223	Conquérir la Cité, puis y détruire toute l'armée de Volkare.
+2224	Une course contre le général Volkare : il explore, trouve la Cité et marche dessus. Version courte, en quatre Manches.
+2225	5 tuiles Campagne, en plus du Camp de Volkare.
+2226	1 tuile Royaume sans Cité, et 1 tuile Royaume avec Cité tout en dessous de la pioche.
+2228	Conquérir la Cité, puis y détruire ensemble toute l'armée de Volkare.
+2229	La même course à deux : conquérez la Cité, puis organisez sa défense coopérative.
+2230	6 tuiles Campagne, en plus du Camp de Volkare.
+2232	Le Retour de Volkare, Épique
+2233	La version complète, en six Manches, contre une armée bien plus grande.
+2234	7 tuiles Campagne, en plus du Camp de Volkare.
+2236	5 h et plus
+2237	La grande bataille à deux, sur six Manches.
+2238	8 tuiles Campagne, en plus du Camp de Volkare.
+2239	2 tuiles Royaume sans Cité, et 1 tuile Royaume avec Cité tout en dessous de la pioche.
+2241	La Quête de Volkare
+2243	Détruire toute l'armée de Volkare avant qu'il n'atteigne le Portail.
+2244	Volkare marche droit sur votre Portail. Évitez-le, montez en puissance, puis revenez l'arrêter.
+2245	2 tuiles Royaume avec Cité et 4 sans Cité, en plus du Camp de Volkare.
+2247	Détruire ensemble toute l'armée de Volkare avant qu'il n'atteigne le Portail.
+2248	À deux, il faut se retrouver au bon moment à côté de Volkare pour l'attaquer ensemble.
+2249	9 tuiles Campagne.
+2250	2 tuiles Royaume avec Cité et 3 sans Cité, en plus du Camp de Volkare.
+2252	Conquête Éclair, avec le Camp de Volkare
+2253	Conquérir la Cité et le Camp de Volkare.
+2254	La variante du livret des extensions : une des deux Cités est remplacée par le Camp de Volkare. Le joueur Fantôme reste en jeu.
+2255	1 tuile Royaume avec Cité, le Camp de Volkare et 1 tuile Royaume sans Cité, mélangées ensemble.
+2256	La Cité et Volkare sont de niveau 3. Pour Volkare, le niveau minimum de sa base est 4 : 1 jeton gris, 1 rouge, 2 verts.
+2257	Entrer dans le Camp coûte 2 points de Mouvement. Par-dessus un Mur : 1 point de plus, et les troupes que vous affrontez sont Fortifiées.
+2258	Assaillir le Camp ne coûte pas de Réputation. Volkare ne bouge jamais ; ses jetons restent cachés jusqu'à ce qu'un joueur arrive sur une case adjacente, de Jour comme de Nuit.
+2259	Posez un Bouclier sur le jeton Volkare par ennemi rouge ou blanc vaincu, et un par paire d'ennemis gris ou verts. Si des troupes survivent, vous reculez et pourrez revenir, comme pour une Cité.
+2260	Camp conquis : depuis le Camp ou une case adjacente, vous recrutez les Unités de Village et de Forteresse, avec +1 Influence par Bouclier posé, et le Camp compte comme une Forteresse pour votre Limite de cartes en main.
+2261	Quand la Cité et le Camp sont conquis, vous jouez un dernier tour.
+2262	Le Camp conquis compte comme une Cité.
+2264	La Relique Perdue
+2265	Ombres de Tezla
+2266	Retrouver les fragments de la relique dans les deux Cités détruites.
+2267	Deux Manches seulement, mais votre Héros commence au Niveau 3. Un Draconien garde chaque fragment.
+2268	Plateau ouvert limité à 3 colonnes.
+2269	Quand tous les fragments sont récupérés, vous jouez un dernier tour.
+2270	Mission : 5 points par fragment, 10 de plus si vous les avez tous.
+2272	Retrouver ensemble les fragments de la relique dans les trois Cités détruites.
+2273	La même chasse à deux, avec trois Cités en ruines à fouiller en un Jour et une Nuit.
+2274	Plateau ouvert limité à 4 colonnes.
+2275	Quand tous les fragments sont récupérés, chaque joueur joue un dernier tour, pas le Fantôme.
+2276	Mission : 5 points par fragment, 5 de plus si chaque joueur en a trouvé un, 10 de plus si vous les avez tous.
+2278	La Vallée Oubliée
+2279	Trouver la Vallée Oubliée et vaincre la Grande Prêtresse.
+2280	Une vallée cachée par magie : explorer coûte trois fois plus cher, et les Élémentalistes tendent des embuscades.
+2281	5 tuiles Campagne.
+2282	2 tuiles Royaume avec Cité, la blanche et la verte, et 1 sans Cité.
+2283	La Cité verte est amicale : vous et le Fantôme y posez un Bouclier, sans Seigneur.
+2284	La Grande Prêtresse est le Chef de Faction des Élémentalistes, au niveau 4.
+2285	Quand la Grande Prêtresse est vaincue, vous jouez un dernier tour.
+2286	Mission : 20 points si la Grande Prêtresse est vaincue, 30 par Manche non utilisée.
+2288	Trouver la Vallée Oubliée et vaincre ensemble la Grande Prêtresse.
+2289	À deux contre une Grande Prêtresse de niveau 6 : prévoyez un assaut coopératif.
+2290	Plateau ouvert.
+2291	2 tuiles Royaume avec Cité, la blanche et la verte, et 2 sans Cité.
+2292	La Cité verte est amicale : chaque joueur y pose un Bouclier, sans Seigneur.
+2293	La Grande Prêtresse est le Chef de Faction des Élémentalistes, au niveau 6.
+2294	Quand la Grande Prêtresse est vaincue, chaque joueur joue un dernier tour, pas le Fantôme.
+2295	Mission : 20 points si la Grande Prêtresse est vaincue, 20 si chaque joueur a un Bouclier sur son jeton, 30 par Manche non utilisée.
+2297	Le Royaume des Morts
+2298	Sceller tous les Cimetières et vaincre le Nécromancien.
+2299	Les morts-vivants vous poursuivent à travers la campagne. Libérez les Cimetières un à un, puis marchez sur la Nécropole.
+2300	5 tuiles Campagne, dont exactement 2 avec une Clairière Magique.
+2301	2 tuiles Royaume avec Cité, la bleue et la verte, et 1 sans Cité.
+2302	Le Nécromancien est le Chef de Faction des Sombres Croisés, au niveau 4.
+2303	Quand tous les Cimetières sont scellés et le Nécromancien vaincu, vous jouez un dernier tour.
+2304	Mission : 5 points par Cimetière scellé, 10 pour le Nécromancien, 10 de plus si tout est accompli, 30 par Manche non utilisée.
+2306	Sceller tous les Cimetières et vaincre ensemble le Nécromancien.
+2307	Trois Cimetières à purifier à deux, et un Nécromancien de niveau 6.
+2308	6 tuiles Campagne, dont exactement 3 avec une Clairière Magique.
+2309	2 tuiles Royaume avec Cité, la bleue et la verte, et 2 sans Cité.
+2310	Le Nécromancien est le Chef de Faction des Sombres Croisés, au niveau 6.
+2311	Quand tous les Cimetières sont scellés et le Nécromancien vaincu, chaque joueur joue un dernier tour, pas le Fantôme.
+2312	Mission : 5 points par Cimetière scellé, 10 pour le Nécromancien, 10 de plus si tout est accompli, 20 si chaque joueur a un Bouclier sur son jeton, 30 par Manche non utilisée.
+2314	À la vie, à la mort
+2315	Vaincre les deux Avatars de Tezla : les Chefs des deux Factions.
+2316	Le grand scénario de l'extension : le Nord aux Sombres Croisés, le Sud aux Élémentalistes, et vous au milieu.
+2317	3 tuiles Royaume avec Cité : la verte, la rouge et une autre au hasard, amicale ; 2 sans Cité.
+2318	Les deux Chefs de Faction commencent au niveau 6.
+2319	Quand les deux Factions sont défaites, vous jouez un dernier tour.
+2320	Mission : 10 points par Avatar vaincu, 15 de plus pour les deux, 30 par Manche non utilisée.
+2322	Vaincre ensemble les deux Avatars de Tezla.
+2323	Six Manches à deux contre les deux Factions et leurs Chefs.
+2324	7 tuiles Campagne, dont exactement 3 avec une Clairière Magique.
+2325	Quand les deux Factions sont défaites, chaque joueur joue un dernier tour, pas le Fantôme.
+2326	Mission : 10 points par Avatar vaincu, 15 de plus pour les deux, 10 si chaque joueur a un Bouclier sur au moins un Chef, 10 de plus sur les deux, 30 par Manche non utilisée.
+2329	Sans quêtes
+2332	Héroïque
+2333	📜 Scénario du module Quêtes :
+2334	le module est obligatoire ici, en mode Normal par défaut
+2336	. Pas de +1 aux Cités.
+2338	📜 Module Quêtes, mode Normal :
+2339	+1 niveau à chaque Cité
+2340	par rapport aux niveaux indiqués ici.
+2341	📜 Module Quêtes, mode Normal : pas de niveau de Cité à ajuster dans ce scénario.
+2342	📜 Module Quêtes, mode
+2343	: les niveaux de Cité ne changent pas.
+2348	à composer d'après le livret
+2350	(base de la figurine réglée sur
+2351	, jetons doublés)
+2352	Volkare ne bouge pas : il attaque un Héros situé sur une case adjacente
+2353	, ou à défaut à 2 cases
+2354	. S'il y en a plusieurs, il vise le plus avancé sur l'Échelle de Gloire. Personne à portée : il ne se passe rien.
+2355	deux fois de suite
+2356	d'une case
+2357	Déplacez Volkare
+2358	dans la direction
+2359	de la carte scénario. Il traverse les tuiles non explorées sans les révéler. Adjacent au Portail, il y entre quelle que soit la couleur. S'il est déjà sur le Portail et doit avancer, sa quête est accomplie : la partie est perdue. S'il entre sur la case d'un Héros, il l'attaque.
+2360	Course pour la Cité : déplacez Volkare
+2361	vers la Cité, par le plus court chemin et sans révéler de tuile. Entre deux cases possibles, prenez celle dont la direction est la plus proche de la direction
+2362	de la carte scénario. S'il est adjacent à la Cité et doit avancer, il lui donne l'assaut.
+2363	de la carte scénario, sans tenir compte du terrain. S'il arrive en zone inexplorée, révélez une tuile et posez-le dessus. S'il entre sur la case d'un Héros, il l'attaque.
+2364	Volkare est ralenti.
+2365	Il passe ce tour : retournez son jeton Ordre de Jeu face visible.
+2367	: Volkare, ralenti, passe son tour.
+2368	Frénésie.
+2369	Son Deck est épuisé : Volkare agit comme s'il révélait un Sort bleu, sans relancer de dé.
+2370	: Deck de Volkare épuisé, frénésie.
+2371	Blessure : Volkare se repose.
+2372	Son dé donne
+2373	Si une Unité de l'Offre occupe l'emplacement marqué d'un Cristal
+2374	, retirez-la du jeu
+2375	et ajoutez un jeton Ennemi gris à l'armée de Volkare
+2376	. Cet emplacement reste vide jusqu'à la Manche suivante.
+2377	Aucun emplacement ne porte cette couleur : il ne se passe rien.
+2378	: Volkare révèle une Blessure et se repose (dé
+2379	). Reste
+2382	Relancez un dé
+2383	de la Source s'il y en a un
+2384	; à défaut, de Jour, un dé or
+2385	: Volkare révèle
+2386	un Sort
+2387	une Action
+2388	. Reste
+2389	Dé d'attaque de Volkare :
+2390	Lisez sur son jeton l'attaque placée à côté de ce symbole. Elle est toujours Brutale et Assassin : ses Dégâts ne peuvent pas être assignés à vos Unités.
+2391	Cité révélée : Volkare court vers elle
+2392	Signaler que la Cité est révélée
+2393	Si Volkare vous attaque : affrontez toute son armée, ou battez en retraite en prenant
+2394	Blessures en main. S'il finit son tour sur votre case, reculez sur une case adjacente sécurisée.
+2395	Mise en place de Volkare
+2396	coopération à deux
+2398	Niveau de Combat
+2401	Légendaire
+2402	Cité
+2403	de niveau
+2404	. Volkare de niveau
+2405	Niveau de Poursuite
+2407	Équitable
+2410	Blessures dans son Deck.
+2411	Unités Effrayées
+2412	Unités Indécises
+2413	: marquez autant d'emplacements de l'Offre des Unités avec des Cristaux de couleurs différentes.
+2414	Son Deck : les 16 cartes Action Basique d'un Héros qui ne joue pas
+2415	Par défaut 4 de chaque couleur : vérifiez sur les cartes du Héros. Le compagnon ajoute les 4 Sorts interactifs, un par couleur, et les Blessures, puis mélange :
+2417	Commencer la partie
+2420	Partie lancée
+2422	, Deck
+2423	de Volkare
+2424	du Fantôme
+2426	Joueur 1
+2427	Joueur 2
+2428	, puis
+2429	Tactiques. Ordre de jeu :
+2432	: dernier tour du Fantôme, son Deck est vide. La Manche se termine.
+2434	: le Fantôme annonce la fin de la Manche.
+2435	Chaque joueur joue
+2437	un dernier tour.
+2438	défaussée
+2439	, la 3e est
+2440	; le Fantôme a
+2441	, donc
+2442	en plus
+2443	(il n\'en restait aucune)
+2444	(il n\'en restait qu\'une)
+2445	(il n\'en restait que
+2446	Il annoncera la fin de la Manche à son prochain tour.
+2447	C\'était son dernier tour : la Manche se termine.
+2448	Fin de la Manche annoncée. Volkare ne joue pas de dernier tour
+2449	; l'autre joueur, si
+2450	Un joueur annonce
+2451	Vous annoncez
+2452	la fin de la Manche.
+2453	L\'autre joueur et le Fantôme jouent
+2454	Le Fantôme joue
+2455	encore un dernier tour.
+2457	Fin de la
+2458	e Manche : la partie est terminée.
+2460	Fin de Manche.
+2461	Votre Tactique
+2462	est retirée du jeu.
+2464	retirées.
+2465	Préparez la Manche
+2466	). Le Deck de Volkare n'est pas remélangé :
+2467	cartes restantes.
+2468	ajoutée,
+2469	gagné,
+2470	retirée,
+2471	Deck remélangé (
+2473	sur 5">
+2476	" title="
+2477	, couleur testée
+2478	, carte en plus
+2479	:-1" aria-label="Retirer un cristal
+2480	:1" aria-label="Ajouter un cristal
+2482	Défausse
+2484	Cristaux du Fantôme
+2486	Mise en place
+2487	Règles du scénario
+2490	Plateau ouvert
+2491	, limité à
+2493	: tuile de départ côté B, avec les 3 premières tuiles de la pioche accolées. Jamais plus de
+2494	colonnes de tuiles côte à côte.
+2495	Plateau en pyramide
+2496	: tuile de départ côté A, avec les 2 premières tuiles de la pioche posées contre elle. Une tuile Royaume ne se pose jamais sur le littoral, les colonnes les plus à gauche et à droite.
+2497	Pioche de tuiles
+2498	tuiles Campagne (dos vert) triées par numéro, la plus petite au-dessus
+2499	tirez au hasard les tuiles Campagne (dos vert) demandées
+2500	. Pour les tuiles Royaume (dos marron), séparez celles avec et sans icône Cité, tirez le nombre demandé de chaque, mélangez-les et posez les tuiles Campagne par-dessus : la Campagne s'explore toujours en premier. Les tuiles en trop retournent dans la boîte sans être regardées. Toute tuile se pose dans le même sens que la tuile de départ.
+2501	: à la révélation d'une tuile Cité, posez la figurine de sa couleur sur la case et sa carte à côté du plateau. Le tableau de la carte indique, pour le niveau fixé par le scénario, quels défenseurs piocher : posez-les face cachée sur la carte. Une Cité amicale n'a pas de défenseurs.
+2502	dés Mana, le Fantôme ne compte pas. Lancez-les ; si plus de la moitié montrent noir ou or, relancez ceux-là.
+2504	Unités Régulières, à dos argenté (les Élites n'arrivent qu'une fois une tuile Royaume révélée) ; 3 Actions Avancées ; 3 Sorts. Les Artefacts et les Compétences restent en pioche.
+2505	Chaque Héros
+2506	Votre Héros
+2507	: sa carte, sa figurine, ses 16 cartes Action Basique mélangées, le jeton Niveau 1 (Armure 2, main 5, 1 Commandement), ses Compétences face cachée. Gloire
+2508	, Réputation
+2509	2 (bonus +1 en Interaction)
+2510	. Piochez 5 cartes.
+2511	: un Héros non choisi, tiré au hasard. Seuls sa carte et ses 16 cartes Action Basique servent. Il reçoit 3 Cristaux, aux couleurs des points en bas de sa carte : réglez-les dans l'onglet Partie.
+2512	Première Manche
+2513	: Jour. Tactiques, puis chaque Héros entre sur le Portail au début de son premier tour.
+2514	Mise en place pas à pas
+2515	Règles générales du livret ; ce que le scénario précise au-dessus l'emporte.
+2517	Coop à 2
+2519	Module Quêtes
+2520	Tenté
+2524	Choisir un scénario
+2527	Toutes origines
+2530	Tout matériel
+2531	Boîte de base
+2532	Avec extension
+2534	Mode Normal : chaque Cité gagne +1 niveau dans les scénarios classiques, pour compenser les récompenses des quêtes.
+2535	Module désactivé : les scénarios se jouent comme au livret.
+2537	: un seul lancer de dé, la difficulté vient du tirage, les Cités gardent leur niveau.
+2538	Les scénarios marqués « Module Quêtes » sont déjà calibrés.
+2540	Parties de plus de 3 h masquées
+2541	Parties de plus de 3 h affichées
+2542	scénario
+2543	, du plus facile au plus difficile. Une étiquette orangée signale ceux qui demandent une extension ; les autres se jouent avec la boîte de base. Les durées sont des estimations. « Officiel adapté » : scénario du livret joué en solo grâce à la règle « Autres missions Solo ».
+2544	Mise en place et règles
+2545	Recommencer ce scénario
+2546	Jouer ce scénario
+2547	Partie terminée pendant la Manche
+2549	jouée
+2550	✓ Partie enregistrée automatiquement dans le Carnet. Complétez-la ici :
+2551	Résultat
+2555	Réussite
+2557	Échec
+2558	Non précisé
+2560	.score" data-live="0" value="
+2561	Héros
+2562	.heroes" data-live="0" value="
+2563	" placeholder="Tovak, Arythea…">
+2565	.note" data-live="0" value="
+2566	Calculer le score
+2567	Voir le Carnet
+2568	&amp;
+2569	&lt;
+2570	&gt;
+2571	&quot;
+2577	aria-label="
+2578	" aria-label="moins"
+2579	" aria-label="plus"
+2580	" class="pill
+2581	" aria-pressed="
+2588	Armée de Volkare
+2590	Toute l'armée est éliminée.
+2591	Volkare est vaincu : vous remportez la partie.
+2592	>Éliminé
+2593	|1" aria-label="Ajouter un jeton
+2594	Touchez « Éliminé » à chaque jeton vaincu, et + pour un jeton ajouté à son armée
+2595	(Unité Indécise partie le rejoindre)
+2596	Pertes depuis son dernier tour :
+2597	Il passera son prochain tour : retournez son jeton Ordre de Jeu face cachée.
+2598	S'il perd
+2599	jetons avant de rejouer (deux par joueur), il passe son prochain tour.
+2600	En défendant la Cité : s'il perd au moins
+2601	dans le combat (un par joueur), il recule d'une case ; sinon il prend la Cité.
+2602	Volkare a perdu
+2603	jetons avant son tour : il est ralenti et passera son prochain tour.
+2605	de Volkare éliminé. Reste
+2606	Toute l\'armée de Volkare est éliminée : victoire !
+2607	Un jeton
+2608	rejoint l'armée de Volkare. Total
+2614	" aria-label="Retirer l'ennemi
+2615	">Retirer
+2618	Type d'attaque
+2620	Résiste
+2622	au physique
+2624	au Feu
+2626	à la Glace
+2630	Armure de votre Héros
+2633	Assaut d\'un site fortifié
+2634	Ajouter un ennemi
+2635	Ennemi paré
+2638	Attaque parée
+2639	Parade insuffisante
+2641	+ inefficace
+2642	(Vif : Attaque doublée)
+2643	Non paré, il inflige
+2644	pour votre Héros, ou à répartir sur vos Unités.
+2645	Contre une attaque
+2646	toute Parade compte plein
+2647	seules les Parades
+2648	comptent plein
+2649	Remettre la Parade à zéro
+2651	Phase 1 · Distance et Siège
+2652	Phase 4 · Attaque
+2653	Cibles :
+2654	aucune, cochez « Cible » sur un ennemi
+2657	Choisissez une cible
+2658	Cible intouchable dans cette phase
+2659	Cibles vaincues
+2660	Attaque insuffisante
+2662	+ réduite
+2663	d'Armure.
+2664	Un ennemi Fortifié qui défend un site fortifié ne peut être attaqué qu'en phase 4.
+2665	ne compte
+2667	pas en phase 1
+2668	(contre un ennemi Fortifié, seul le Siège compte)
+2669	(les Attaques normales attendent la phase 4)
+2670	Une Résistance d'une des cibles divise par deux
+2671	de vos points : séparer vos attaques peut éviter cette perte.
+2672	Remettre l'Attaque à zéro
+2673	Esprit de Tezla, Grande Prêtresse
+2674	Tezla d\'Obsidienne, Nécromancien
+2675	Chefs de Faction
+2678	. Immunisé aux Arcanes : seuls vos effets d'Attaque et de Parade le touchent.
+2679	Niveau de départ
+2682	Valeur du scénario en cours :
+2683	Le scénario fixe ce niveau.
+2684	À ce niveau, il est accompagné de
+2685	jetons de sa Faction.
+2686	Le jeton indique combien de fidèles l\'accompagnent.
+2687	Placer le Chef au niveau
+2688	Chef vaincu.
+2689	Un Bouclier a été posé sur son niveau 1.
+2690	Boucliers posés :
+2691	joueur 1 :
+2692	, joueur 2 :
+2693	Remettre ce Chef en jeu
+2694	Saisissez l'Armure et l'Attaque du niveau
+2695	dans « Valeurs du jeton », plus bas.
+2696	Commencer un combat contre ce Chef
+2697	Boucliers déjà posés :
+2698	. Ses fidèles vaincus ne reviennent pas quand son niveau baisse.
+2699	Combat en cours, au niveau
+2700	: Armure
+2701	pour tout le combat. Regroupez en une seule attaque, par phase, tout ce que vous lancez contre lui.
+2702	Qui attaque ?
+2704	Valeur de l'attaque
+2706	en moins
+2707	(il n\'en reste pas plus)
+2708	Armure inconnue pour ce niveau.
+2709	>Poser
+2711	Fin du combat
+2712	Annuler le combat
+2713	Boucliers posés pendant ce combat :
+2714	Un Bouclier est sur le niveau 1 : le Chef n\'attaque pas, et il sera vaincu à la fin du combat.
+2715	À la fin du combat, il descendra au niveau
+2716	. Il vous attaque avec les valeurs du niveau
+2718	Valeurs du jeton
+2719	Recopiez une fois pour toutes l'Armure, l'Attaque et le nombre de fidèles de chaque niveau, lus sur le grand jeton. Ces valeurs restent enregistrées pour vos prochaines parties.
+2721	Fidèles
+2722	-a" inputmode="numeric" data-bind="K.
+2723	.a" value="
+2724	" aria-label="Armure niveau
+2725	-t" data-bind="K.
+2726	.t" data-live="0" value="
+2727	" placeholder="ex. Feu 6" aria-label="Attaque niveau
+2728	-f" inputmode="numeric" data-bind="K.
+2729	.f" data-live="0" value="
+2730	" aria-label="Fidèles niveau
+2732	Chef des
+2733	placé au niveau
+2735	Combat contre le Chef des
+2738	posé
+2739	sur le Chef des
+2741	vaincu !
+2742	Fin du combat : le Chef des
+2743	passe au niveau
+2746	Cités conquises
+2748	Toutes les Cités conquises
+2750	Chaque joueur est Seigneur d\'au moins une Cité
+2752	Manches non utilisées
+2754	Cartes restant dans le Deck du Fantôme
+2756	Fin de la Manche en cours non annoncée
+2757	Mines libérées sur tuile Campagne
+2759	Mines libérées sur tuile Royaume
+2761	Chaque joueur a un Bouclier sur le Chef
+2763	Donjons et Tombeaux conquis (2 points de plus chacun)
+2765	Cité conquise
+2766	Fragments retrouvés
+2768	Tous les fragments
+2770	Chaque joueur a trouvé un fragment
+2772	Grande Prêtresse vaincue
+2774	Cimetières scellés
+2776	Nécromancien vaincu
+2778	Tous les Cimetières scellés et Nécromancien vaincu
+2780	Avatars vaincus
+2782	Les deux Avatars vaincus
+2784	Chaque joueur a un Bouclier sur au moins un Chef
+2786	Chaque joueur a un Bouclier sur les deux Chefs
+2788	Le Savant
+2791	Actions Avancées
+2792	Le Trésorier
+2795	Cristaux (1 par paire)
+2796	Le Chef
+2798	Niveaux d\'Unités non Blessées
+2800	Niveaux d\'Unités Blessées (moitié)
+2801	Le Conquérant
+2803	Boucliers sur Forteresses, Tours de Mage et Monastères
+2804	L\'Aventurier
+2806	Boucliers sur sites d\'aventures
+2807	La Victime
+2809	Blessures dans votre Deck
+2810	Gloire du joueur le moins avancé
+2811	Votre Gloire
+2812	Volkare vaincu
+2815	Score de fin de partie
+2816	Scénario
+2817	Partie libre, sans barème de mission
+2819	Scénario maison : il se joue à l'objectif. Le score ci-dessous sert à comparer vos parties.
+2820	Gloire et Hauts Faits
+2822	En équipe, chaque catégorie retient le meilleur joueur, et La Victime le plus Blessé.
+2823	Sans titres en solo et en coopération. Barème de la carte de Score : vérifiez-le une fois sur la vôtre.
+2828	Cartes restant dans son Deck
+2829	T.score.o.vkdeck
+2833	Pour le carnet
+2835	Mission réussie
+2836	Héros joué
+2837	" placeholder="
+2838	ex. Arythea et Tovak
+2839	ex. Arythea
+2840	Enregistrer dans le carnet
+2841	Remettre le score à zéro
+2842	Carnet de campagne
+2844	Réussites
+2845	Scénarios
+2846	Ajouter une partie
+2848	" placeholder="ex. Arythea">
+2850	Sans objectif
+2851	" placeholder="ce qui a marché, ce qui a coincé">
+2852	Ajouter au carnet
+2853	Parties jouées
+2854	Copier le carnet
+2856	">Supprimer
+2857	Par scénario
+2858	Réussites sur parties jouées, puis meilleur score.
+2859	À tenter
+2860	jamais joué
+2861	Vous avez tout joué au moins une fois. Bravo.
+2862	Carnet de campagne Mage Knight\n
+2863	réussite
+2864	échec
+2885	Toucher encore pour supprimer
+2887	#copymsg small
+2888	Carnet copié : collez-le dans une note pour le garder.
+2889	La copie a été refusée par le navigateur.
+2890	La copie n\'est pas disponible ici.
+2892	Aide de jeu pour le solo et la coopération
+2893	Partie terminée
+2900	Rappel du scénario
+2901	Mise en place du Fantôme
+2902	Aucun scénario choisi : passez par l'onglet Scénarios, ou réglez la partie à la main ci-dessous.
+2903	">Solo
+2904	">Coopération à deux
+2905	Prenez au hasard un Héros que personne n'a choisi. Le compagnon remplace son Deck et ses Cristaux : rien à poser sur la table pour lui.
+2906	Ses 3 Cristaux de départ
+2907	Les trois points colorés en bas de sa carte Héros. Exemple du livret : Goldyx a vert, vert, bleu.
+2908	Son Deck de 16 cartes Action Basique, par couleur
+2909	Par défaut 4 de chaque couleur. Vérifiez sur les cartes du Héros et corrigez si besoin. Total :
+2910	Nombre de Manches
+2913	Tactiques de
+2914	Choisissez votre carte Tactique sur la table, puis touchez son numéro.
+2915	Le Fantôme
+2916	tire la sienne au hasard parmi les restantes.
+2917	disabled title="Déjà retirée"
+2918	Retirées pour la partie :
+2919	En coopération, le Fantôme tire sa Tactique au hasard avant que vous ne choisissiez les vôtres.
+2920	Tirer la Tactique du Fantôme
+2921	Contre Volkare, les joueurs choisissent d'abord ; il tirera ensuite sa Tactique parmi les restantes.
+2922	Le Fantôme prend la Tactique
+2923	. Retirez-la de la table.
+2924	Choisissez les vôtres, le joueur le moins Glorieux en premier, puis indiquez-les ici.
+2925	>Valider les Tactiques
+2926	Le Fantôme a annoncé la fin de la Manche.
+2927	Chaque joueur joue son dernier tour
+2928	Jouez votre dernier tour
+2929	, puis terminez la Manche.
+2930	Nos derniers tours sont joués
+2931	Mon dernier tour est joué
+2932	: fin de la Manche
+2933	Volkare ne joue pas de dernier tour.
+2934	Le Fantôme a joué son dernier tour.
+2935	N\'oubliez pas celui de l\'autre joueur.
+2936	Terminer la Manche
+2937	Fin de la Manche annoncée : le Fantôme joue un dernier tour
+2938	, l\'autre joueur aussi
+2939	Dernier tour du Fantôme
+2940	Au prochain tour, le Fantôme annoncera la fin de la Manche.
+2941	Lancer le dé d'attaque de Volkare
+2942	J\'annonce
+2943	la fin de la Manche
+2944	Ordre de jeu
+2945	Préparer la Manche
+2946	Préparez la Manche comme d'habitude : Source, Offres, Decks des joueurs. Reposez les Unités de l'Offre en commençant par les emplacements marqués d'un Cristal. Le Deck de Volkare reste tel quel.
+2947	Passer aux Tactiques
+2948	Mettez-vous d'accord pour retirer du jeu une des Tactiques que vous venez d'utiliser.
+2949	">Tactique
+2950	Renouvelez l'Offre d'Actions Avancées comme d'habitude. Quelle est la couleur de la carte retirée du bas ? Elle rejoint le Deck du Fantôme.
+2951	Renouvelez l'Offre de Sorts. Quelle est la couleur du Sort retiré ? Le Fantôme gagne un Cristal de cette couleur.
+2952	>Remélanger et passer aux Tactiques
+2953	Manches sont jouées.
+2954	Comptez votre score avec la carte de Score.
+2955	Cartes restant dans le Deck
+2957	>Annuler
+2958	Terminer la partie
+2960	Rien pour l\'instant.
+2962	Une partie est en cours : toucher encore pour la remplacer
+2963	Correction : Cristaux
+2964	s du Fantôme à
+2972	Toucher encore : la partie sera close et notée au Carnet
+2976	Toucher encore pour confirmer
+2979	.modes a
+2984	← Toutes les aides de jeu
+2985	☕ Cet outil vous a plu ? Offrez-moi un café
+2986	Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.
+2987	Retour à l'accueil des aides de jeu

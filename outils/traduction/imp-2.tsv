@@ -1,0 +1,190 @@
+158	The State icon limits playing the card from your hand, not using a card already in play.
+160	Setup
+161	Two stages: each player prepares their nation, then the common Market is set up. Tick the steps as you go.
+162	Number of players:
+163	Each player
+164	The Market and the common decks
+165	The Market, from left to right.
+166	Two slots fed by the Main deck, then one Civilised slot, one Tradition slot and one Region slot. It always holds five cards: any emptied slot is refilled at once.
+167	Under which Market cards is an Unrest card tucked?
+168	Under all of them
+169	Under all except Regions
+170	Only under the two Main deck cards
+171	Regions never have Unrest under them; every other Market card has one.
+172	Where does your Accession card go?
+173	In your starting hand
+174	At the very bottom of your Nation deck, face up
+175	In the Development area
+176	The Nation deck is placed crosswise on top of the Accession, which will therefore be the last card to come out.
+179	Your turn: three orders
+180	On your turn you announce a single order out of three, resolve it, then do your Cleanup. The player to the left of the Solstice token starts the round and play goes clockwise.
+181	Hands-on: the three orders
+182	Actions and Exhaust abilities in practice
+183	Take an Action
+184	: remove an Action token from your State card. No token left, no Action, except a Free action.
+185	Play a card
+186	: resolve its text as much as possible, then put it in your discard pile, unless it says to go elsewhere. Permanent cards (icon in the header) stay in play in front of you.
+187	A card whose text starts with
+188	Exhaust
+192	does nothing when you put it down: it is a permanent card whose effect will be used later.
+193	: move an Exhaust token from your State card onto a card in play (or onto your Power card) that doesn't have one yet, then resolve the text after the word Exhaust. If the ability has a cost you can't pay, you can't use it.
+194	Some Exhaust abilities respond to an event ("when…"). They resolve right after the sentence that triggered them, before the next sentence.
+195	Free action
+196	: the card is played without an Action token, even if you have none left. The same card can only be played this way once per turn. Free does not mean without cost: costs written on the card are still due.
+197	Gain an Action
+198	: take an Action token from the supply, even if you go above three. You go back to three at Cleanup.
+199	Hands-on: token counter
+200	Simulate an Activation turn and see what each move uses up.
+201	Actions:
+202	&nbsp; Exhausted:
+203	You start with 3 Actions and 5 Exhaust tokens.
+204	Your hand only holds Unrest and unplayable cards. You want a good Tradition card visible in the Market, without taking the Unrest under it. Which order?
+208	Research: you discard your hand and Innovate a card, without the Unrest.
+209	During a Research order, can you use an Exhaust ability?
+210	Yes, just one
+211	No, neither Action nor Exhaust ability
+212	Yes, if it is free
+213	Research and Pacify replace the whole turn. Only Passive abilities stay active.
+214	You have used your 3 Actions. A card lets you play another one "as a Free action". Is that possible?
+215	No, you need a token
+216	Yes, without an Action token
+217	Yes, by spending an Exhaust token
+218	A Free action uses no token and remains possible with no Action token available.
+220	Resolving a card
+221	Cards are read literally. Nine principles settle almost every case.
+222	Each sentence resolves separately, in order.
+223	Each sentence resolves
+224	as much as possible
+225	. Whatever follows the word "may" is optional; everything else is mandatory.
+226	If you can't resolve any part of the effect, you can't play the card.
+227	If the text doesn't say where the card goes next, it goes to your discard pile (except permanent cards).
+228	Whatever comes before the word "to" is a
+229	cost
+230	: "Do X to gain Y". You may pay a cost even if the result is uncertain or impossible.
+231	Paying or Moving resources is always a cost, even without "to".
+232	If a mandatory cost can't be paid in full, you can neither play the card nor trigger the effect.
+233	The cost is paid in full before the rest of the effect.
+234	If you pay a cost, you must resolve the result, as much as possible.
+236	When a card offers options separated by OR, you resolve only one. A full sentence placed after the list applies whatever you chose. If the chosen option requires a payment you can't make, you must choose another.
+237	All players.
+238	"All players" or "each player" includes you. "All other players" does not.
+240	A card marked with the Attack icon hits all other players, as much as possible. Some cards let a player ignore all or part of an Attack aimed at them.
+241	"Pay 2 Materials to Draw 2 cards." You only have 1 Material and no Progress. Can you play the card?
+242	Yes, I pay 1 and draw 1
+243	No: a mandatory cost must be payable in full
+244	Yes, the cost is optional
+245	A cost is never half-paid. If it is mandatory and unpayable, the card is unplayable.
+246	"Gain 2 Population. You may Discard a card to Draw a card." What is mandatory?
+248	Only gaining 2 Population
+249	Only the discard
+250	The text after "may" is optional; the first sentence is mandatory.
+251	A card says "All other players Recover an Unrest card". Are you affected?
+253	"All other players" excludes you.
+255	The Market: Acquire and Innovate
+256	Two verbs to take a card, and one big difference: the Unrest.
+257	Choose a visible Market card of the allowed category. Gain the resources placed on it. Take the card into your hand,
+258	with the Unrest card tucked under it
+259	. The Market is refilled at once, and an Unrest from the pile is tucked under the new card, unless it is a Region.
+260	Announce a category, then choose: either a visible Market card (you gain its resources, the Unrest under it
+261	goes back to the pile
+262	), or the top face-down card of the Region, Tradition or Civilised deck. "When you Acquire" effects do not trigger.
+263	Special cases of Innovate
+264	Tributaries have no deck of their own. To Innovate one blind, reveal cards from the Main deck one by one until the first Tributary, take it, then shuffle the other revealed cards back into the Main deck.
+265	Same procedure for a category whose deck is empty. As long as the Region, Tradition or Civilised deck has cards, you may not search the Main deck for that category.
+266	If the search finds nothing, you gain 2 Progress instead.
+267	With the Research order, you Innovate a Region, a Tradition, a Civilised or a Tributary, never a Fame card.
+268	Replacing a taken card
+269	A card taken from one of the first two slots is replaced from the Main deck. The others are replaced from their slot's deck, or from the Main deck if that one is empty. So a card sometimes ends up in a slot that doesn't match its category. If an effect makes you Acquire several cards, finish each acquisition, replacement included, before the next: you may take the card that just arrived.
+270	Hands-on: a small Market
+271	Select a card, then choose a verb. Watch the Unrest pile: it is deliberately small here so you can see the Collapse coming.
+272	Innovate this card
+273	Innovate blind (same category)
+274	Place 1 Progress (Cleanup)
+276	Unrest pile
+277	Unrest taken
+278	Cards gained
+279	Progress gained
+280	Select a Market card.
+281	Exile and Exchange
+283	a Market card sends it to the Exile pile, next to the Market. The Unrest under it goes back to its pile, and the card is replaced normally. A card carrying tokens can't be Exiled. Some cards let you Acquire or Innovate from the Exile pile: if you Acquire a card other than a Region there, you must also Recover an Unrest.
+284	Exchange
+285	replaces a Market card with another one from elsewhere (your hand, for example). Tokens stay on the slot, the old Unrest goes back to the pile and a new one is tucked under the incoming card, except a Region. If the exchange requires "the same category", both cards must share a category icon.
+286	You Acquire a Tradition carrying 2 Progress with an Unrest under it. What do you get?
+287	Only the card
+288	The card and the 2 Progress
+289	The card, the 2 Progress and the Unrest
+290	Acquiring gives you everything: resources to your reserve, card and Unrest to your hand.
+291	You Innovate the same card. What happens to the Unrest?
+292	I take it
+293	It goes back to the Unrest pile
+294	It goes to the Exile pile
+295	That is the whole point of Innovating: the card without the Unrest.
+296	The Civilised deck still has cards. Can you search the Main deck to Innovate a Civilised card?
+297	No, not until the Civilised deck is empty
+298	Searching the Main deck is only allowed for Tributaries or for a category whose deck is empty.
+300	Cleanup and reshuffling the deck
+301	It is the engine of the game, and the part of the rules people come back to most often at first.
+302	Cleanup, in four steps
+303	Add 1 Progress from the supply onto a Market card
+304	of your choice. From the supply, not from your reserve. It is the most common thing to forget.
+305	Take back your tokens
+306	: 3 Actions and 5 Exhaust tokens back on your State card.
+307	You may Discard
+308	as many cards from your hand as you like.
+310	up to your hand limit (5 by default). If you already have 5 or more cards, you don't draw, and you don't have to go back down to 5.
+311	As soon as you have finished step 1, the next player can start their turn while you finish.
+312	Rulebook tip.
+313	Discard generously. The faster your deck cycles, the sooner your Nation cards, your Accession and your Developments arrive.
+314	Shuffling your discard pile
+315	When you must Draw and your deck is empty, you shuffle immediately, even during someone else's turn. Before shuffling, you may add
+316	one card, only once per turn
+317	, and you need an available Exhaust token for this, which serves as a marker:
+318	There is a card left in your Nation deck
+319	(Accession included): put the top one into your discard pile and place an Exhaust token on the Nation deck. If it is the Accession, flip your State card: you are now an Empire.
+320	The Nation deck is empty
+321	: you may Pay the cost of a card in your Development area, whichever you want, to put it into your discard pile. Then place an Exhaust token on the area. If you can't pay for any card, you don't Develop.
+322	Shuffle your discard pile: it is your new deck.
+323	Resolve any "when you shuffle" effects.
+324	Keep Drawing up to your hand limit.
+325	During Cleanup you always have a token available, since you just took them back. Mid-turn however, if all your Exhaust tokens are used or a marker is already placed, you shuffle without adding anything.
+326	"Draw, if possible"
+327	: this kind of effect never causes a shuffle. Empty deck, no draw.
+328	Hands-on: cycle your deck
+329	Illustrative example: the quantities vary by nation. Each click plays a full turn where you discard your whole hand.
+332	Discard
+333	Nation deck
+334	Developments
+335	State
+336	Play a turn
+337	Play a turn acquiring a card
+338	I can pay for my Developments
+339	Notice two things: each acquired card comes with an Unrest and lengthens the cycle; and Developing your last card is what triggers the Countdown.
+340	Where does the Progress token you add to the Market during Cleanup come from?
+341	From my reserve
+342	From the supply
+343	From a neighbouring Market card
+344	Always from the supply. Your reserve isn't touched.
+345	Your deck runs out mid-turn, and your 5 Exhaust tokens are already on cards. What happens?
+346	I can't draw
+347	I shuffle my discard pile without adding a Nation card
+348	I add a Nation card anyway
+349	With no Exhaust token available to serve as a marker, nothing is added. The shuffle still happens.
+350	Your Accession card joins your discard pile. What is the immediate consequence?
+351	The game ends
+352	I flip my State card: I become an Empire
+353	I draw a Fame card
+354	The Accession flips your State card from Barbarian to Empire (the Vikings are an exception, see the Nations chapter).
+356	The Solstice
+357	The Solstice closes each round. When the last player has finished their turn, everyone resolves their Solstice effects.
+358	Each player resolves
+360	the Solstice effects in their play area, on their Power card and, if relevant, on their State card.
+361	They are mandatory, resolved as much as possible, unless they say "may".
+362	Everyone resolves at the same time. If order matters (often when a Collapse looms), resolve in turn order.
+363	When you have several effects, you decide their order.
+364	A Solstice effect that concerns "each other player" is resolved by each of them during their own Solstice, at the moment they choose among their effects.
+365	An effect marked
+366	End of Solstice
+367	(a keyword introduced with Horizons) resolves after all your other Solstice effects.
+368	During the Solstice, no Action and no Exhaust ability.
+369	Passive abilities stay active.
+370	Then a new round starts with the player to the left of the Solstice token.

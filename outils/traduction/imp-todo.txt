@@ -1,0 +1,2221 @@
+0	width=device-width, initial-scale=1
+1	Imperium Antique
+3	Jouer en solo
+4	À plusieurs
+5	Aide-mémoire
+6	Apprendre les règles
+7	Six étapes, d'après le livret Horizons
+8	Afficher le sommaire
+9	Nouvelle partie
+10	Expliquer le jeu
+11	Compagnon de partie
+13	Matériaux
+15	Progrès
+16	Région
+18	Civilisé
+20	Renommée
+21	Instabilités
+24	Découvrir
+25	Avant de jouer
+26	Ton livret est celui d'Imperium Horizons, ta boîte est Imperium Antique. Bonne nouvelle : les règles de base sont les mêmes, et le livret Horizons est la version la plus claire et la plus à jour. Ce tutoriel t'apprend tout ce qui sert avec Antique et te dit quoi laisser de côté.
+27	Le but du jeu
+28	Tu diriges une nation antique représentée par un paquet de cartes qui grossit et se transforme au fil de la partie. La partie se termine de deux façons :
+29	Décompte
+30	(le cas normal) : le joueur qui totalise le plus de points de victoire gagne.
+32	(plus rare) : la pile
+33	est vide, la partie s'arrête net et le joueur qui possède le moins de cartes
+35	Ce qui s'applique à ta boîte
+36	Tu utilises
+37	Tu ignores avec Antique seul
+38	Tout le déroulement du jeu : les trois ordres, le Nettoyage, le mélange de la défausse, le Solstice, la fin de partie.
+39	Les encadrés bleus du livret : extension Routes commerciales, ressource Biens, mots-clés Marchander, Commercer et Profit.
+40	Le chapitre Mots-clés, qui précise chaque terme écrit sur les cartes.
+41	Les 14 nations d'Horizons et leurs règles spéciales (Cultistes, Inuits, Martiens, etc.).
+42	Le mode Solo contre la C.I.V. et les variantes (encadrés roses et pages dédiées).
+43	Les 49 cartes de remplacement : elles se trouvent dans la boîte Horizons. Tes cartes d'origine restent jouables.
+44	Les 8 nations d'Antique : Carthaginois, Celtes, Grecs, Macédoniens, Perses, Romains, Scythes, Vikings.
+45	Les cartes marquées des icônes d'extension, les plateaux et jetons propres à Horizons si ta boîte n'en contient pas.
+47	Le livret Horizons appelle
+48	ordre Recherche
+49	ce que les règles d'Antique appelaient l'ordre Innovation. Le changement évite la confusion avec le mot-clé Innover. Les cartes Instabilités portent la référence TRO sur tes cartes : si ta boîte leur donne un autre nom, c'est bien la même catégorie. En cas de contradiction entre les deux livrets, c'est le livret Horizons qui l'emporte.
+50	Comment suivre ce tutoriel
+51	Six étapes, du plus fondamental au plus pointu. Chacune contient des ateliers à manipuler et se termine par des mises en situation. Ta progression est gardée dans ce navigateur. Après l'étape 5, tu sais jouer.
+52	Avec la boîte Antique seule, que fais-tu des encadrés bleus du livret Horizons ?
+53	Je les applique tous
+54	Je les ignore : ils concernent l\'extension Routes commerciales
+55	Je les applique seulement à deux joueurs
+56	Les encadrés bleus ne concernent que l\'extension Routes commerciales, dont le matériel est dans la boîte Horizons.
+57	Une partie se termine par un Effondrement. Qui gagne ?
+58	Le joueur qui a le plus de points
+59	Le joueur qui a le moins de cartes Instabilités
+60	Le joueur qui a déclenché l\'Effondrement
+61	On compte les Instabilités de chacun ; le plus petit total l\'emporte. Les points ne servent qu\'à départager une égalité.
+63	Les cinq idées du jeu
+64	Imperium repose sur cinq idées simples. Si tu les as en tête, le reste des règles se déduit presque tout seul.
+65	1. Ton deck tourne, et il grandit
+66	Tu commences avec une dizaine de cartes. À la fin de chaque tour tu refais ta main. Quand ton deck est vide, tu mélanges ta défausse pour en refaire un, et à ce moment-là une nouvelle carte de ta nation s'y ajoute : d'abord les cartes de ta
+67	pioche Nation
+68	, puis ta carte
+69	Avènement
+70	(qui te fait passer de Barbare à Empire), puis tes cartes
+71	Développement
+72	, que tu dois payer. Faire tourner ton deck vite, c'est faire évoluer ta nation.
+73	2. Trois ressources
+75	. Elles viennent surtout de tes cartes
+76	en jeu. Elles sont soit dans le stock commun, soit dans ta réserve, soit posées sur des cartes. Une ressource posée sur une carte ne peut ni être dépensée ni être déplacée, et ne compte pas au score, sauf si une carte dit le contraire. Les jetons ne sont pas limités.
+77	Atelier : puis-je payer ?
+78	Quand un effet dit Payer, le Progrès peut remplacer d'autres ressources : 1 Progrès vaut 1 Population, ou 2 Matériaux (sans rendu de monnaie). L'inverse n'existe pas. Règle ta réserve et le coût.
+79	Mes Matériaux
+80	Ma Population
+81	Mon Progrès
+82	Coût à payer
+84	3. Actions et jetons Épuisé
+85	À ton tour tu disposes en général de
+86	3 jetons Action
+87	et de
+88	5 jetons Épuisé
+89	, posés sur ta carte État. Une Action sert le plus souvent à jouer une carte de ta main. Un jeton Épuisé se pose sur une carte restée en jeu pour activer sa capacité Épuiser, une fois par tour et par carte. Tout revient sur ta carte État pendant ton Nettoyage.
+90	4. Gagner de nouvelles cartes
+91	Les nouvelles cartes arrivent presque toujours dans ta main.
+92	Acquérir
+93	une carte du Marché te donne aussi la carte
+94	glissée dessous.
+96	te donne la carte sans l'Instabilité. D'autres effets (Récupérer, Trouver) vont chercher des cartes ailleurs.
+97	5. Renommée et Gloire
+98	Les cartes
+99	sont les plus riches en points. On les obtient surtout avec la carte
+101	, qui oblige à Abandonner trois Régions en jeu. Rejouer ces Régions coûte des Actions : chaque Gloire se paie en tempo.
+102	Les zones d'un joueur
+103	Atelier : à quoi sert chaque zone ?
+104	Clique sur une zone.
+105	Choisis une zone pour lire son rôle.
+106	Tu dois Payer 4 Matériaux. Tu as 2 Matériaux et 1 Progrès. Peux-tu payer ?
+107	Non, il manque 2 Matériaux
+108	Oui : 2 Matériaux + 1 Progrès qui vaut 2 Matériaux
+109	Oui, mais seulement si j\'ai aussi de la Population
+110	Pour un coût en Matériaux, chaque Progrès dépensé compte comme 2 Matériaux.
+111	Deux jetons Progrès sont posés sur une de tes cartes en jeu. Peux-tu les dépenser ?
+112	Oui, librement
+113	Non : les ressources posées sur des cartes ne servent pas à payer
+114	Oui, mais uniquement pendant le Solstice
+115	Seules les ressources de ta réserve servent à Payer ou à être Déplacées.
+116	Quand une carte de ta nation s\'ajoute-t-elle à ton deck ?
+117	À chaque début de tour
+118	Quand je mélange ma défausse pour refaire mon deck
+119	Quand j\'achète une carte au Marché
+120	C\'est le mélange de la défausse qui fait entrer une carte Nation, puis l\'Avènement, puis les Développements.
+122	Lire une carte
+123	Tout ce qu'une carte fait est écrit dessus. Encore faut-il savoir où regarder. Clique sur les pastilles numérotées.
+124	Atelier : anatomie d'une carte
+125	Nom de la carte
+126	Épuiser :
+127	Payez 1 Population pour gagner 2 Matériaux.
+128	Coût de Développement : 3 Matériaux
+129	Treize éléments à découvrir.
+130	Les catégories
+131	Les territoires de ta nation. Une Région ne produit que lorsqu'elle est en jeu devant toi.
+132	Coutumes et savoir-faire anciens.
+133	Coutumes et techniques plus modernes.
+134	Peuples qui t'ont juré fidélité.
+135	Exploits mémorables, souvent 10 points ou plus.
+136	Désordre intérieur. Aucune utilité : elles encombrent ton deck.
+138	La carte unique qui définit ta nation. L'Histoire s'archive dessous.
+139	Les quatre sortes de points de victoire
+140	Valeur fixe
+141	: la carte vaut le nombre indiqué.
+142	Valeur conditionnelle
+143	(icône avec un point d'interrogation) : le nombre indiqué si la condition est remplie, sinon zéro.
+144	Valeur variable
+145	(icône avec une étoile) : dépend de ce que tu possèdes, avec un
+146	plafond de 10 points par carte
+147	, y compris pour ta carte Puissance.
+148	Valeur négative
+149	: la carte te retire des points.
+150	Icônes d'État.
+151	Une carte marquée Barbare ne se joue de ta main que si ta carte État montre la face Barbare ; même logique pour Empire. Mais tu peux l'Acquérir ou l'Innover quel que soit ton État, et si elle est déjà en jeu tu peux toujours utiliser sa capacité Épuiser.
+152	Une carte à valeur variable devrait te rapporter 14 points d\'après son texte. Combien marques-tu ?
+153	Une carte à points variables ne rapporte jamais plus de 10 points.
+154	Tu es Empire et une carte Barbare est restée dans ta zone de jeu. Sa capacité Épuiser est-elle utilisable ?
+156	Non, elle est bloquée
+157	Seulement une fois dans la partie
+158	L\'icône d\'État limite le fait de jouer la carte depuis ta main, pas l\'usage d\'une carte déjà en jeu.
+160	Mise en place
+161	Deux temps : chaque joueur prépare sa nation, puis on installe le Marché commun. Coche les étapes au fur et à mesure.
+162	Nombre de joueurs :
+163	Chaque joueur
+164	Le Marché et les pioches communes
+165	Le Marché, de gauche à droite.
+166	Deux emplacements alimentés par la pioche Principale, puis un emplacement Civilisé, un Tradition, un Région. Il contient toujours cinq cartes : tout emplacement vidé est rempli aussitôt.
+167	Sous quelles cartes du Marché glisse-t-on une carte Instabilités ?
+168	Sous toutes
+169	Sous toutes sauf les Régions
+170	Seulement sous les deux cartes de la pioche Principale
+171	Les Régions n\'ont jamais d\'Instabilité dessous ; toutes les autres cartes du Marché en ont une.
+172	Où se place ta carte Avènement ?
+173	Dans ta main de départ
+174	Tout en bas de ta pioche Nation, face visible
+175	Dans la zone de Développement
+176	La pioche Nation est posée en travers sur l\'Avènement, qui sera donc la dernière carte à en sortir.
+179	Ton tour : trois ordres
+180	À ton tour tu annonces un seul ordre parmi trois, tu le résous, puis tu fais ton Nettoyage. Le joueur à gauche du jeton Solstice ouvre la manche et on tourne dans le sens horaire.
+181	Atelier : les trois ordres
+182	Actions et capacités Épuiser en pratique
+183	Faire une Action
+184	: retire un jeton Action de ta carte État. Plus de jeton, plus d'Action, sauf Action gratuite.
+185	Jouer une carte
+186	: résous son texte autant que possible, puis mets-la dans ta défausse, sauf si elle dit d'aller ailleurs. Les cartes permanentes (icône en entête) restent en jeu devant toi.
+187	Une carte dont le texte commence par
+188	Épuiser
+192	ne fait rien au moment où tu la poses : c'est une carte permanente dont l'effet servira plus tard.
+193	: déplace un jeton Épuisé de ta carte État sur une carte en jeu (ou sur ta carte Puissance) qui n'en porte pas encore, puis résous le texte qui suit le mot Épuiser. Si la capacité a un coût que tu ne peux pas payer, tu ne peux pas l'utiliser.
+194	Certaines capacités Épuiser répondent à un événement (« lorsque… »). Elles se résolvent juste après la phrase qui les a déclenchées, avant la phrase suivante.
+195	Action gratuite
+196	: la carte se joue sans jeton Action, même s'il ne t'en reste plus. Une même carte ne peut être jouée ainsi qu'une fois par tour. Gratuit ne veut pas dire sans coût : les coûts écrits sur la carte restent dus.
+197	Gagner une Action
+198	: prends un jeton Action du stock, même si tu dépasses trois. Tu reviens à trois au Nettoyage.
+199	Atelier : compteur de jetons
+200	Simule un tour d'Activation et regarde ce que chaque geste consomme.
+201	Actions :
+202	&nbsp; Épuisé :
+203	Tu commences avec 3 Actions et 5 jetons Épuisé.
+204	Ta main ne contient que des Instabilités et des cartes injouables. Tu veux une bonne carte Tradition visible au Marché, sans prendre l\'Instabilité dessous. Quel ordre ?
+208	Recherche : tu défausses ta main et tu Innoves une carte, sans l\'Instabilité.
+209	Pendant un ordre Recherche, peux-tu utiliser une capacité Épuiser ?
+210	Oui, une seule
+211	Non, ni Action ni capacité Épuiser
+212	Oui, si elle est gratuite
+213	Recherche et Pacification remplacent tout le tour. Seules les capacités Passif restent actives.
+214	Tu as utilisé tes 3 Actions. Une carte te permet d\'en jouer une autre « en tant qu\'Action gratuite ». Est-ce possible ?
+215	Non, il faut un jeton
+216	Oui, sans jeton Action
+217	Oui, en dépensant un jeton Épuisé
+218	Une Action gratuite ne consomme aucun jeton et reste possible sans jeton Action disponible.
+220	Résoudre une carte
+221	Les cartes se lisent au pied de la lettre. Neuf principes suffisent à trancher presque tous les cas.
+222	Chaque phrase se résout séparément, dans l'ordre.
+223	Chaque phrase se résout
+224	autant que possible
+225	. Ce qui suit le verbe « pouvoir » est facultatif ; tout le reste est obligatoire.
+226	Si tu ne peux résoudre aucune partie de l'effet, tu ne peux pas jouer la carte.
+227	Si le texte ne dit pas où va la carte ensuite, elle va dans ta défausse (sauf carte permanente).
+228	Ce qui précède le mot « pour » est un
+229	coût
+230	: « Faites X pour gagner Y ». Tu as le droit de payer un coût même si le résultat est incertain ou impossible.
+231	Payer ou Déplacer des ressources est toujours un coût, même sans « pour ».
+232	Si un coût obligatoire ne peut pas être réglé en entier, tu ne peux ni jouer la carte ni déclencher l'effet.
+233	Le coût se règle entièrement avant le reste de l'effet.
+234	Si tu paies un coût, tu dois résoudre le résultat, autant que possible.
+236	Quand une carte propose des options séparées par OU, tu en résous une seule. Une phrase complète placée après la liste s'applique quel que soit ton choix. Si l'option retenue exige un paiement que tu ne peux pas faire, tu dois en choisir une autre.
+237	Tous les joueurs.
+238	« Tous les joueurs » ou « chaque joueur » t'inclut. « Tous les autres joueurs » ne t'inclut pas.
+240	Une carte marquée de l'icône d'Attaque touche tous les autres joueurs, autant que possible. Certaines cartes permettent à un joueur d'ignorer tout ou partie d'une Attaque qui le vise.
+241	« Payez 2 Matériaux pour Piocher 2 cartes. » Tu n\'as qu\'1 Matériau et aucun Progrès. Peux-tu jouer la carte ?
+242	Oui, je paie 1 et je pioche 1
+243	Non : un coût obligatoire doit pouvoir être réglé en entier
+244	Oui, le coût est facultatif
+245	Un coût ne se paie jamais à moitié. S\'il est obligatoire et impayable, la carte est injouable.
+246	« Gagnez 2 Population. Vous pouvez Défausser une carte pour Piocher une carte. » Qu\'est-ce qui est obligatoire ?
+248	Seulement gagner 2 Population
+249	Seulement la défausse
+250	Le texte qui suit « pouvez » est facultatif ; la première phrase est obligatoire.
+251	Une carte dit « Tous les autres joueurs Récupèrent une carte Instabilités ». Es-tu concerné ?
+253	« Tous les autres joueurs » t\'exclut.
+255	Le Marché : Acquérir et Innover
+256	Deux verbes pour prendre une carte, et une différence de taille : l'Instabilité.
+257	Choisis une carte visible du Marché de la catégorie autorisée. Gagne les ressources posées dessus. Prends la carte en main,
+258	avec la carte Instabilités glissée dessous
+259	. Le Marché est complété aussitôt, et une Instabilité de la pile se glisse sous la nouvelle carte, sauf si c'est une Région.
+260	Annonce une catégorie, puis choisis : soit une carte visible du Marché (tu gagnes ses ressources, l'Instabilité dessous
+261	retourne dans la pile
+262	), soit la première carte face cachée de la pioche Région, Tradition ou Civilisé. Les effets « lorsque vous Acquérez » ne se déclenchent pas.
+263	Cas particuliers d'Innover
+264	Les Vassaux n'ont pas de pioche à eux. Pour en Innover un à l'aveugle, révèle les cartes de la pioche Principale une à une jusqu'au premier Vassal, prends-le, puis mélange les autres cartes révélées dans la pioche Principale.
+265	Même procédure pour une catégorie dont la pioche est vide. Tant que la pioche Région, Tradition ou Civilisé contient des cartes, tu n'as pas le droit de fouiller la pioche Principale pour cette catégorie.
+266	Si la fouille ne trouve rien, tu gagnes 2 Progrès à la place.
+267	Avec l'ordre Recherche, tu Innoves une Région, une Tradition, un Civilisé ou un Vassal, jamais une Renommée.
+268	Remplacer une carte prise
+269	Une carte prise dans l'un des deux premiers emplacements est remplacée depuis la pioche Principale. Les autres le sont depuis la pioche de leur emplacement, ou depuis la pioche Principale si celle-là est vide. Il arrive donc qu'une carte se retrouve dans un emplacement qui ne correspond pas à sa catégorie. Si un effet te fait Acquérir plusieurs cartes, termine chaque acquisition, remplacement compris, avant la suivante : tu peux prendre la carte qui vient d'arriver.
+270	Atelier : un petit Marché
+271	Sélectionne une carte puis choisis un verbe. Surveille la pile Instabilités : volontairement petite ici pour que tu voies arriver l'Effondrement.
+272	Innover cette carte
+273	Innover à l'aveugle (même catégorie)
+274	Poser 1 Progrès (Nettoyage)
+276	Pile Instabilités
+277	Instabilités prises
+278	Cartes gagnées
+279	Progrès gagnés
+280	Sélectionne une carte du Marché.
+281	Exiler et Échanger
+283	une carte du Marché l'envoie dans la pile Exil, à côté du Marché. L'Instabilité dessous retourne dans sa pile, et la carte est remplacée normalement. Une carte qui porte des jetons ne peut pas être Exilée. Certaines cartes permettent d'Acquérir ou d'Innover dans la pile Exil : si tu y Acquiers une carte autre qu'une Région, tu dois aussi Récupérer une Instabilité.
+284	Échanger
+285	remplace une carte du Marché par une autre venue d'ailleurs (ta main par exemple). Les jetons restent sur l'emplacement, l'ancienne Instabilité retourne dans la pile et une nouvelle se glisse sous la carte arrivante, sauf Région. Si l'échange exige « la même catégorie », les deux cartes doivent partager une icône de catégorie.
+286	Tu Acquiers une Tradition qui porte 2 Progrès et une Instabilité dessous. Que reçois-tu ?
+287	La carte seulement
+288	La carte et les 2 Progrès
+289	La carte, les 2 Progrès et l\'Instabilité
+290	Acquérir te donne tout : ressources en réserve, carte et Instabilité en main.
+291	Tu Innoves la même carte. Que devient l\'Instabilité ?
+292	Je la prends
+293	Elle retourne dans la pile Instabilités
+294	Elle va dans la pile Exil
+295	C\'est tout l\'intérêt d\'Innover : la carte sans l\'Instabilité.
+296	La pioche Civilisé contient encore des cartes. Peux-tu fouiller la pioche Principale pour Innover un Civilisé ?
+297	Non, pas tant que la pioche Civilisé n\'est pas vide
+298	La fouille de la pioche Principale n\'est permise que pour les Vassaux ou pour une catégorie dont la pioche est vide.
+300	Nettoyage et mélange du deck
+301	C'est le moteur du jeu, et la partie des règles sur laquelle on revient le plus souvent au début.
+302	Le Nettoyage, en quatre étapes
+303	Ajoute 1 Progrès du stock sur une carte du Marché
+304	de ton choix. Du stock, pas de ta réserve. C'est l'oubli le plus courant.
+305	Récupère tes jetons
+306	: 3 Actions et 5 Épuisé de retour sur ta carte État.
+307	Tu peux Défausser
+308	autant de cartes de ta main que tu veux.
+310	jusqu'à ta limite de main (5 par défaut). Si tu as déjà 5 cartes ou plus, tu ne pioches pas, et tu n'es pas obligé de redescendre à 5.
+311	Dès que tu as fini l'étape 1, le joueur suivant peut commencer son tour pendant que tu termines.
+312	Conseil du livret.
+313	Défausse largement. Plus ton deck tourne vite, plus vite arrivent tes cartes Nation, ton Avènement et tes Développements.
+314	Mélanger ta défausse
+315	Quand tu dois Piocher et que ton deck est vide, tu mélanges tout de suite, même pendant le tour d'un autre. Avant de mélanger, tu peux ajouter
+316	une carte, une seule fois par tour
+317	, et il te faut pour cela un jeton Épuisé disponible, qui sert de témoin :
+318	Il reste une carte dans ta pioche Nation
+319	(Avènement compris) : mets la première dans ta défausse et pose un jeton Épuisé sur la pioche Nation. Si c'est l'Avènement, retourne ta carte État : te voilà Empire.
+320	La pioche Nation est vide
+321	: tu peux Payer le coût d'une carte de ta zone de Développement, celle que tu veux, pour la mettre dans ta défausse. Pose alors un jeton Épuisé sur la zone. Si tu ne peux payer aucune carte, tu ne Développes pas.
+322	Mélange ta défausse : c'est ton nouveau deck.
+323	Résous les éventuels effets « lorsque vous mélangez ».
+324	Continue à Piocher jusqu'à ta limite de main.
+325	Pendant le Nettoyage tu as toujours un jeton disponible, puisque tu viens de les récupérer. En plein tour en revanche, si tous tes jetons Épuisé sont utilisés ou qu'un témoin est déjà posé, tu mélanges sans rien ajouter.
+326	« Piochez, si possible »
+327	: ce type d'effet ne provoque jamais de mélange. Deck vide, tu ne pioches pas.
+328	Atelier : fais tourner ton deck
+329	Exemple illustratif : les quantités varient selon la nation. Chaque clic joue un tour complet où tu défausses toute ta main.
+332	Défausse
+333	Pioche Nation
+334	Développements
+335	État
+336	Jouer un tour
+337	Jouer un tour en acquérant une carte
+338	J'ai de quoi payer mes Développements
+339	Observe deux choses : chaque carte acquise arrive avec une Instabilité et allonge le cycle ; et c'est en Développant ta dernière carte que tu déclenches le Décompte.
+340	D\'où vient le jeton Progrès que tu ajoutes au Marché pendant ton Nettoyage ?
+341	De ma réserve
+342	Du stock
+343	D\'une carte du Marché voisine
+344	Toujours du stock. Ta réserve n\'est pas touchée.
+345	Ton deck se vide en plein tour, et tes 5 jetons Épuisé sont déjà sur des cartes. Que se passe-t-il ?
+346	Je ne peux pas piocher
+347	Je mélange ma défausse sans ajouter de carte Nation
+348	J\'ajoute quand même une carte Nation
+349	Sans jeton Épuisé disponible pour servir de témoin, pas d\'ajout. Le mélange a lieu quand même.
+350	Ta carte Avènement rejoint ta défausse. Quelle conséquence immédiate ?
+351	La partie se termine
+352	Je retourne ma carte État : je deviens Empire
+353	Je pioche une carte Renommée
+354	L\'Avènement fait basculer ta carte État de Barbare à Empire (les Vikings font exception, voir le chapitre Nations).
+356	Le Solstice
+357	Le Solstice ferme chaque manche. Quand le dernier joueur a fini son tour, tout le monde résout ses effets Solstice.
+358	Chaque joueur résout
+360	les effets Solstice de sa zone de jeu, de sa carte Puissance et, le cas échéant, de sa carte État.
+361	Ils sont obligatoires, à résoudre autant que possible, sauf mention « pouvez ».
+362	Tout le monde résout en même temps. Si l'ordre compte (souvent quand un Effondrement menace), on résout dans l'ordre du tour.
+363	Quand tu as plusieurs effets, c'est toi qui décides de leur ordre.
+364	Un effet Solstice qui concerne « chaque autre joueur » est résolu par chacun pendant son propre Solstice, au moment qu'il choisit parmi ses effets.
+365	Un effet marqué
+366	Fin du Solstice
+367	(mot-clé apparu avec Horizons) se résout après tous tes autres effets Solstice.
+368	Pendant le Solstice, ni Action ni capacité Épuiser.
+369	Les capacités Passif restent actives.
+370	Ensuite une nouvelle manche commence par le joueur à gauche du jeton Solstice.
+371	Les trois familles d'effets durables.
+372	: tu décides, pendant ton ordre Activation, en posant un jeton.
+373	: toujours actif tant que la carte est en jeu, y compris pendant une Recherche, une Pacification, le Solstice et le Décompte.
+374	: automatique en fin de manche.
+375	Pendant le Solstice, tu aimerais Épuiser une Région pour gagner des Matériaux. Possible ?
+376	Aucune Action ni capacité Épuiser pendant le Solstice.
+377	Tu as trois effets Solstice. Qui décide de l\'ordre ?
+378	Le premier joueur
+380	L\'ordre de pose des cartes
+381	Quand plusieurs de tes effets se résolvent en même temps, tu choisis leur ordre.
+383	Instabilités, Régions, Histoire et Gloire
+384	Quatre mécaniques qui donnent au jeu sa tension : ce qui t'encombre, ce qui produit, ce que tu archives, et ce qui rapporte gros.
+385	Les Instabilités
+386	Elles n'ont aucun effet utile et diluent ton deck. Si la pile commune se vide, c'est l'Effondrement. Trois façons de t'en défaire :
+387	La jouer comme une Action
+388	: dépense un jeton Action puis paie 3
+389	, ou 1
+390	, ou défausse 2 cartes. Elle retourne dans la pile.
+391	L'ordre Pacification
+392	: tout ton tour y passe, mais tu renvoies sans rien payer toutes les Instabilités que tu as en main.
+393	Un effet de carte
+394	qui dit « Renvoyez une carte Instabilités » : tu ignores alors le texte de l'Instabilité, donc pas de coût.
+395	Récupérer une Instabilité, c'est la prendre dans la pile commune. Prendre la dernière déclenche l'Effondrement.
+396	Les Régions et les cartes en jeu
+397	Une carte permanente reste dans ta zone de jeu jusqu'à ce qu'un effet la retire.
+399	une Région : elle va dans ta défausse.
+401	une Région : elle revient dans ta main. Seules les Régions peuvent être Abandonnées ou Rappelées.
+402	Dans les deux cas, les ressources posées dessus reviennent dans ta réserve, et les cartes Réservées dessous suivent la Région. Un jeton Épuisé posé dessus ne retourne pas sur ta carte État avant la fin du tour.
+403	Réserver
+404	: glisse une carte de ta main, face visible, sous la carte en jeu qui porte ce mot-clé. Une carte Réservée n'est plus en jeu : tu ne peux ni la jouer, ni la défausser, ni utiliser ses capacités. Elle compte pourtant au score. C'est un bon moyen d'alléger ton deck.
+405	L'Histoire
+406	Archiver une carte dans ton Histoire, c'est la glisser sous ta carte Puissance. Elle sort du jeu pour de bon, mais ses points comptent toujours. Tu peux consulter ton Histoire, pas celle des autres. Beaucoup de cartes fortes sont à usage unique et s'archivent après avoir été jouées.
+407	Gloire et Renommée
+408	La carte
+409	te fait Abandonner trois Régions en jeu pour gagner une carte
+410	. Il te faut donc trois Régions devant toi, et les rejouer te coûtera des Actions.
+411	La pioche Renommée et le Roi des rois
+412	La carte Roi des rois reste toujours tout en bas de la pioche Renommée. Tant qu'il reste des cartes face cachée, Regarder, gagner ou Piocher une Renommée ne concerne que celles-là.
+413	Une carte remise dans cette pioche se replace dessus, sans mélanger.
+414	Quand Roi des rois est la seule carte restante, tout effet qui te fait gagner ou Piocher une Renommée te fait
+415	résoudre Roi des rois
+416	à la place. La première fois dans la partie, on la retourne sur sa face B.
+417	Chaque joueur ne peut la résoudre qu'une seule fois par partie, quelle que soit la face.
+418	Quand la carte finit retournée face cachée, le Décompte est déclenché.
+419	Tu joues une Instabilité de ta main pour t\'en débarrasser. Que te coûte-t-elle ?
+421	Une Action, plus 3 Matériaux ou 1 Population ou 2 cartes défaussées
+422	Seulement 2 cartes défaussées
+423	Il faut l\'Action pour jouer la carte, puis le coût écrit dessus.
+424	Tu Abandonnes une Région qui porte 2 Matériaux et une carte Réservée dessous. Que deviennent-ils ?
+425	Tout est perdu
+426	Les Matériaux vont dans ma réserve, la carte Réservée est défaussée avec la Région
+427	Tout reste en jeu
+428	Les ressources reviennent en réserve et la carte Réservée subit le même sort que la Région.
+429	Une carte archivée dans ton Histoire compte-t-elle au score ?
+430	Elle n\'est plus en jeu, mais ses points de victoire comptent.
+432	Fin de partie et score
+433	Deux fins possibles, avec deux façons de désigner le vainqueur.
+434	Déclenché quand :
+435	la pioche Principale est vide ;
+436	un joueur Développe la dernière carte de sa zone de Développement, ou remplit la condition propre à sa nation ;
+437	la carte Roi des rois est retournée face cachée ;
+438	un effet dit qu'il déclenche la fin de partie.
+439	On termine la manche en cours, Solstice compris, puis on joue
+440	une dernière manche complète
+441	, Solstice compris. Ensuite on compte.
+442	Déclenché à l'instant où
+443	la pile Instabilités est vide
+444	, même si un Décompte était déjà lancé.
+445	La partie s'arrête immédiatement, l'Action en cours est interrompue. Chacun compte ses Instabilités dans sa main, sa zone de jeu, son deck, sa défausse et son Histoire. Le plus petit total gagne. Égalité : on départage aux points du Décompte.
+446	Compter ses points
+447	Laisse les cartes où elles sont : certaines valent des points différents selon leur emplacement. Une même icône ou un même jeton peut servir au calcul de plusieurs cartes. Chaque jeton
+448	de ta réserve vaut 1 point. Le plus grand total gagne ; en cas d'égalité, la victoire est partagée.
+449	Atelier : ça compte ou pas ?
+450	Pour chaque ligne, décide si cela entre dans ton score au Décompte, puis vérifie.
+451	Vérifier
+452	Atelier : feuille de score
+453	Points des cartes à valeur fixe
+454	Points des cartes variables (10 max chacune)
+455	Points négatifs
+456	Progrès en réserve
+457	Le Décompte vient d\'être déclenché au milieu d\'une manche. Combien de tours te reste-t-il au maximum ?
+459	La fin de cette manche, puis une manche complète
+460	Trois manches
+461	On finit la manche en cours avec son Solstice, puis une ultime manche avec son Solstice.
+462	Un Décompte est en cours, et la pile Instabilités se vide. Que se passe-t-il ?
+463	On finit le Décompte normalement
+464	Effondrement : la partie s\'arrête tout de suite
+465	On remélange les Instabilités
+466	L\'Effondrement prime, même sur un Décompte déjà déclenché.
+469	Tous les mots-clés
+470	Sur les cartes, chaque verbe a un sens précis. Cherche un terme pendant la partie.
+472	Rappeler, Trouver, Passif…
+473	Afficher aussi les termes réservés à Horizons
+474	« Trouvez » une carte : dans quel ordre fouilles-tu ?
+475	Deck, défausse, main
+476	Main, défausse, deck, pioche Nation
+477	Pioche Nation d\'abord
+478	Main, puis défausse, puis deck, puis pioche Nation (jamais l\'Avènement). Tu t\'arrêtes dès que tu trouves, et tu mélanges le deck ou la pioche Nation si tu les as fouillés.
+479	« Piochez 2 cartes, si possible. » Ton deck contient 1 carte. Que fais-tu ?
+480	Je pioche 1 carte, je mélange, je pioche la 2e
+481	Je pioche 1 carte et je m\'arrête
+482	Je ne pioche rien
+483	« Si possible » interdit le mélange de la défausse.
+485	Les huit nations d\'Antique
+486	Chaque deck se joue différemment. Les étoiles indiquent la complexité selon le livret : commence par une nation à une étoile.
+487	Précisions sur des cartes d'Antique
+488	Voie sacrée
+489	: tu ne peux pas t'en servir pour ajouter ta carte Avènement à ton deck.
+490	Sumériens
+491	: son effet de renvoi d'Instabilités s'applique quand un Décompte est déclenché, depuis n'importe quelle zone comptée au score. Il ne se déclenche pas si la partie finit par un Effondrement, et n'empêche pas celui-ci.
+492	Quelle particularité des Vikings met fin à la partie ?
+493	Atteindre l\'État Empire
+494	L\'ajout de leur carte Zénith à leur défausse
+495	Développer leur dernière carte
+496	Les Vikings ne deviennent jamais Empire et n\'ont pas de Développements. Leur carte du fond de pioche Nation, le Zénith, déclenche la fin de partie.
+499	Quatre réglages pour adapter la partie, et un mode d'apprentissage en solitaire.
+500	Mode Entraînement (seul, sans adversaire)
+501	Idéal pour une première prise en main ou pour découvrir une nation.
+502	Fais la mise en place comme pour 2 joueurs.
+503	Exile les 15 premières cartes de la pioche Principale.
+504	Mets 12 jetons Progrès près du Marché : c'est ton sablier.
+505	Joue tes tours normalement.
+506	Au Nettoyage, le Progrès posé sur le Marché vient de ce sablier. Ensuite tu peux Exiler une carte du Marché, pour simuler un adversaire qui se sert.
+507	Résous tes effets Solstice après chaque tour.
+508	La partie dure 12 tours, ou s'arrête si un effet déclenche la fin.
+509	Repères du livret : 50 points, tu maîtrises les bases ; 90 points, c'est un exploit.
+510	Variante Pacifiste
+511	Lors de la mise en place, mets de côté les cartes communes marquées de l'icône d'Attaque. Une fois le Marché formé, mélange-les dans la pioche Principale. Les Attaques arrivent ainsi plus tard.
+512	Variante Cartes précieuses
+513	Au Nettoyage, tu ne peux plus Défausser de cartes de ta main. La gestion des Instabilités devient bien plus serrée.
+514	Variante Partie rapide
+515	Environ 15 minutes de moins par joueur.
+516	Une fois le Marché en place, Exile les 10 premières cartes de la pioche Principale.
+517	Chaque joueur défausse les 2 premières cartes de sa pioche Nation : elles font donc partie de son deck dès le premier mélange.
+518	Quand tu ajoutes ton Avènement à ta défausse, choisis une de tes cartes Développement et retire-la de la partie.
+519	Au Décompte, on termine la manche en cours et son Solstice, sans manche supplémentaire.
+520	Variante Mise en place rapide
+521	Pour joueurs expérimentés : mélange toutes les cartes du Marché ensemble au lieu de les trier, forme les pioches au bon nombre de cartes et retourne une carte de chacune. Certaines nations auront du mal à trouver les catégories dont elles ont besoin.
+522	En mode Entraînement, quand la partie se termine-t-elle normalement ?
+523	Quand la pioche Principale est vide
+524	Après 12 tours, quand le sablier de 12 Progrès est épuisé
+525	Après 20 tours
+526	Un Progrès du sablier part au Marché à chaque Nettoyage : 12 jetons, 12 tours.
+528	Jouer seul contre la C.I.V.
+529	La C.I.V. (Civilisation Interactive Virtuelle) est un adversaire automatique. Elle ne lit pas le texte de ses cartes : c'est le tableau de sa carte État qui dit quoi faire.
+531	L'onglet Jouer en solo applique tout ce qui suit à ta place : tu n'as plus qu'à suivre ses consignes.
+532	Installe ta nation et le Marché comme pour 2 joueurs.
+533	Pose les marqueurs d'emplacement 1 à 5 sous les cinq cartes du Marché (voir les niveaux de difficulté).
+534	Choisis la nation de la C.I.V. Ses cartes Instabilités de départ rejoignent la pile commune. Sa carte Puissance ne sert qu'à abriter son Histoire.
+535	Forme sa
+536	pioche Dynastie
+537	: les Développements classés par valeur, les plus forts au-dessus ; par-dessus l'Avènement face visible ; par-dessus les cartes Nation mélangées, face cachée.
+538	Mélange ses cartes de départ, places-en une face cachée sous chaque marqueur. Le reste forme le deck C.I.V.
+539	Pose sa carte État du côté Barbare. La C.I.V. n'utilise ni jetons Action ni jetons Épuisé.
+540	Une manche
+541	Tu joues ton tour normalement, puis la C.I.V. joue le sien, puis tu résous tes effets Solstice. La C.I.V. ignore le Solstice.
+542	Le tour de la C.I.V.
+543	Lance le dé et pose-le sur la carte de l'emplacement correspondant : elle ne sera pas résolue ce tour. Si aucun emplacement ne correspond, toutes les cartes sont résolues.
+544	Résous les autres cartes dans l'ordre croissant des emplacements. Pour chacune : retourne-la, cherche dans le tableau la
+545	première ligne en partant du haut
+546	qui correspond à son nom, son type ou sa catégorie, et applique-la autant que possible. Le texte en gras te concerne, le reste concerne la C.I.V.
+547	Si rien de la ligne ne peut être résolu, passe à la ligne suivante qui correspond. Dès qu'une partie de l'effet se résout, c'est terminé pour cette carte : un seul effet par carte.
+548	La carte va ensuite dans la défausse de la C.I.V., sauf indication contraire. La première ligne concerne toujours les Instabilités : en général, retour dans la pile.
+549	Son Nettoyage
+550	Ajoute 1 Progrès sur la carte du Marché située au-dessus de la carte non résolue. Rien si le dé indiquait 6. Contre les Carthaginois, ce sont 2 Matériaux à la place.
+551	Glisse la carte non résolue à l'emplacement 1, face cachée, puis complète les autres emplacements depuis le deck C.I.V.
+552	Deck vide au moment de compléter : la première carte de la pioche Dynastie va dans sa défausse, qu'on mélange pour refaire le deck. Quand c'est l'Avènement, retourne sa carte État et utilise le nouveau tableau.
+553	Comment elle choisit
+554	Acquérir ou Innover
+555	: la carte du Marché qui vaut le plus de points ; à égalité celle qui porte le plus de jetons ; puis le plus petit numéro d'emplacement. Chaque Progrès posé sur une carte la fait valoir 1 point de plus à ses yeux.
+556	Les cartes qu'elle gagne vont
+557	sur son deck
+558	: la carte d'abord, l'Instabilité par-dessus.
+559	Si elle doit Innover sans carte valide, elle prend la première de la pioche concernée ; si c'est impossible, elle gagne 2 Progrès.
+560	: le plus petit emplacement sans jeton.
+561	Abandonner / Rappeler
+562	: sa Région jouée en dernier (vers sa défausse, ou sur son deck).
+563	Elle ne mélange sa défausse que pendant son Nettoyage.
+564	Elle ignore tes effets qui lui feraient Défausser ou Renvoyer une Instabilité. Tout effet de sa part qui te donne une Instabilité, te vole, te fait défausser, Abandonner ou Rappeler compte comme une Attaque : tes protections fonctionnent.
+565	Pour elle, une carte à points variables vaut 5, et une carte conditionnelle vaut son maximum.
+566	Fin de partie
+567	Mêmes déclencheurs qu'à plusieurs, plus deux : la pioche Dynastie est épuisée, ou la C.I.V. gagne Roi des rois.
+568	Si la partie finit par un Effondrement, tu perds.
+569	Au Décompte, la C.I.V. marque 1 point par Progrès, 1 point par groupe de 10 Matériaux et Population confondus, et les points de ses cartes (main, jeu, deck, défausse, Histoire ; pas la pioche Dynastie ni sa carte Puissance). Il te faut strictement plus de points qu'elle.
+570	Cinq niveaux de difficulté
+572	Réglage
+573	Chef de clan
+574	4 emplacements seulement ; un 5 ou un 6 au dé ne couvre rien. Conseillé pour débuter.
+575	Seigneur de guerre
+576	Comme Chef de clan, et à la fin de son tour la première carte du deck C.I.V. est défaussée.
+578	Les règles standard, 5 emplacements.
+580	La C.I.V. démarre avec 3 Matériaux, 2 Population, 1 Progrès et marque 1 point par groupe de 5 ressources.
+582	Comme Souverain, avec un 6e emplacement : 5 effets à chaque tour.
+584	: garde la même nation et monte d'un niveau à chaque victoire. Cinq victoires pour gagner, quatre défaites pour perdre. Après une victoire, ajoute à ton deck de départ une carte commune gagnée pendant la partie, ou retire une carte de ton deck de départ. Après une défaite, la partie suivante commence avec le double de ressources.
+585	Avec ta boîte.
+586	Utilise les cartes État de la C.I.V. fournies dans Antique pour tes huit nations. Le mot-clé Résoudre n'apparaît que sur des cartes État d'Horizons.
+587	Une carte de la C.I.V. correspond à deux lignes de son tableau. Laquelle appliques-tu ?
+588	Les deux
+589	La plus haute, et la suivante seulement si rien de la première ne peut être résolu
+590	Celle de ton choix
+591	Un seul effet par carte : la ligne la plus haute dont au moins une partie peut être résolue.
+592	En solo, la pile Instabilités se vide. Résultat ?
+593	On compare les Instabilités
+594	Je perds automatiquement
+595	Je gagne automatiquement
+596	Contre la C.I.V., un Effondrement est toujours une défaite pour toi.
+598	Bilan et aide-mémoire
+599	Dix questions pour vérifier que tout tient, puis les rappels à garder près de la table.
+600	1 Progrès paie 1 Population ou 2 Matériaux.
+601	Une même carte ne se joue qu'une fois par tour en Action gratuite.
+602	Chaque joueur ne résout Roi des rois qu'une fois par partie.
+603	Ni Action ni capacité Épuiser pendant le Solstice.
+604	Une carte à points variables plafonne à 10, carte Puissance comprise.
+605	Les effets Solstice se résolvent simultanément.
+606	Innover dans la pioche Principale : seulement pour un Vassal ou une catégorie dont la pioche est vide.
+607	Le Marché compte toujours 5 cartes, complétées aussitôt.
+608	Acquérir dans la pile Exil une carte autre qu'une Région fait aussi Récupérer une Instabilité.
+609	Une icône Considérée comme une autre n'est plus l'icône d'origine, jusqu'à la fin du tour.
+610	À la fin de ton tour : 1 Progrès du stock sur une carte du Marché.
+611	Seules les Régions peuvent être Rappelées ou Abandonnées.
+612	Le tour en une ligne
+613	Choisis Activation, Recherche ou Pacification. Puis Nettoyage : Progrès au Marché, jetons récupérés, défausse libre, pioche à 5. Fin de manche : Solstice.
+614	Combien de jetons as-tu en général au début de ton tour ?
+615	3 Actions et 5 Épuisé
+616	5 Actions et 3 Épuisé
+617	4 de chaque
+618	3 jetons Action et 5 jetons Épuisé sur ta carte État.
+619	Laquelle de ces actions n\'est pas un des trois ordres ?
+621	Les trois ordres sont Activation, Recherche et Pacification.
+622	Tu Acquiers une Région au Marché. Reçois-tu une Instabilité ?
+623	Non, les Régions n\'en ont pas dessous
+624	Aucune Instabilité n\'est glissée sous une Région.
+625	Quelle est ta limite de main par défaut ?
+626	Cinq cartes, sauf effet contraire.
+627	Ta pioche Nation est vide et tu mélanges ta défausse. Que peux-tu ajouter ?
+628	Une carte Développement, en payant son coût
+629	Une carte du Marché
+630	Tu choisis une carte de ta zone de Développement et tu en paies le coût.
+631	Que fait la carte Gloire ?
+632	Elle donne 3 Régions
+633	Elle fait Abandonner 3 Régions en jeu pour gagner une Renommée
+634	Elle retire 3 Instabilités
+635	Trois Régions en jeu partent en défausse en échange d\'une carte Renommée.
+636	Une carte Réservée sous une Région est-elle « en jeu » ?
+637	Non, mais elle compte au score
+638	Elle n\'est plus dans ta zone de jeu : ni capacité, ni défausse possible, mais ses points comptent.
+639	Les cartes restées dans ta pioche Nation à la fin comptent-elles au score ?
+640	Ni la pioche Nation ni la zone de Développement ne comptent.
+641	Quand le Solstice a-t-il lieu ?
+642	Au début de chaque tour
+643	À la fin de chaque manche, quand tous ont joué
+644	Une fois par partie
+645	C\'est la toute dernière étape de chaque manche.
+646	Combien vaut un jeton Progrès de ta réserve au Décompte ?
+647	0 point
+648	1 point
+649	2 points
+650	1 point par Progrès en réserve. Ceux posés sur des cartes ne comptent pas.
+651	Ta pioche personnelle, face cachée. Tu y pioches ta main. Vide au moment de piocher : tu mélanges ta défausse.
+652	5 cartes par défaut. Les cartes gagnées y arrivent presque toujours.
+653	Face visible. Les cartes jouées et défaussées y vont, ainsi que les Régions Abandonnées.
+654	Zone de jeu
+655	Tes cartes permanentes, surtout tes Régions. Elles y restent jusqu\'à ce qu\'un effet les retire.
+656	Cartes de ta nation, face cachée, posées en travers sur l\'Avènement. Une carte en sort à chaque mélange de ta défausse.
+657	Dernière carte de la pioche Nation. Quand elle rejoint ta défausse, ta carte État se retourne : Barbare devient Empire.
+658	Cartes face visible que tu ajoutes une par une, en payant leur coût, une fois la pioche Nation vide. Développer la dernière déclenche le Décompte.
+659	Carte État
+660	Barbare ou Empire. Elle porte tes jetons Action et Épuisé disponibles et détermine quelles cartes tu peux jouer de ta main.
+661	Carte Puissance
+662	Le pouvoir propre à ta nation. Elle peut souvent être Épuisée comme une carte en jeu.
+664	Les cartes archivées sous ta carte Puissance. Hors jeu, mais leurs points comptent.
+665	Réserve
+666	Tes jetons Matériaux, Population et Progrès disponibles. Départ : 3 Matériaux, 2 Population, 1 Progrès.
+667	Cartes Réservées
+668	Cartes glissées sous une carte en jeu. Inutilisables, mais comptées au score.
+669	Icône d\'entête
+670	Indique une carte permanente, qui reste en jeu une fois posée, ou une Attaque, qui touche les autres joueurs.
+672	L\'intitulé de la carte. Certaines cartes se désignent entre elles par leur nom.
+674	Sa couleur correspond à la catégorie. C\'est elle qui sert à trier les cartes à la mise en place. Les cartes sans catégorie ont un bandeau gris.
+675	Icône d\'État
+676	Barbare ou Empire. Tu ne joues la carte de ta main que si ta carte État correspond.
+677	Icônes de type
+678	Ville, Rivière, Océan, Terrain fertile, etc. Aucun effet propre, mais d\'autres cartes s\'y réfèrent.
+680	Ce que fait la carte et quand. Les mots-clés y sont en évidence.
+681	Coût de Développement
+682	Sur les cartes Développement : ce que tu paies pour l\'ajouter à ton deck.
+683	Couleur de nation
+684	Coin inférieur gauche coloré : la carte appartient à une nation. Sans couleur : carte commune.
+685	Emplacement de départ
+686	Icône qui dit où va la carte à la mise en place : en jeu, pioche Nation, Avènement, Développement ou pile Instabilités. Sans icône : deck de départ.
+687	Limite de joueurs
+688	Une carte marquée 3+ ne sert pas à deux joueurs ni en solo ; une carte marquée 4 ne sert qu\'à quatre.
+689	Numéro
+690	Référence de la carte. Le premier chiffre indique la boîte : 1 pour Antique.
+691	Catégorie
+692	Région, Tradition, Civilisé, Vassal, Renommée ou Instabilités. Détermine ce que tu peux Acquérir ou Innover.
+693	Points de victoire
+694	Valeur fixe, conditionnelle, variable (10 au plus) ou négative.
+695	Choisis une nation et prends toutes ses cartes (repère : la couleur du coin inférieur gauche).
+696	Pose ta carte Puissance devant toi. Si elle a deux faces, prends la face B pour débuter.
+697	Pose ta carte État face Barbare visible.
+698	Place 3 jetons Action et 5 jetons Épuisé sur ta carte État.
+699	Aligne tes cartes Développement face visible : c\'est ta zone de Développement.
+700	Pose ta carte Avènement face visible. Mélange tes cartes Nation et pose-les dessus, face cachée, en travers.
+701	Prends 3 Matériaux, 2 Population et 1 Progrès : c\'est ta réserve.
+702	Mets de côté les cartes Instabilités de départ de ta nation (Celtes, Vikings) : elles rejoindront la pile commune. Retire les cartes 3+ ou 4 qui ne correspondent pas au nombre de joueurs.
+703	Mélange les cartes qui restent : c\'est ton deck. Prévois la place de ta défausse et de ta zone de jeu à droite.
+704	Pioche 5 cartes.
+705	Forme le stock : tous les jetons à portée de main.
+706	Trie les cartes communes selon la couleur de leur bandeau.
+707	Retire les cartes communes marquées 4.
+708	Retire les cartes communes marquées 3+ et 4.
+709	À quatre joueurs, toutes les cartes communes servent.
+710	Pose toutes les Instabilités face visible, en pile, avec celles mises de côté par les joueurs. Laisse de la place à côté pour la pile Exil.
+711	Pose Roi des rois face A visible. Mélange les autres Renommées et pose dessus, en travers, une pile face cachée de
+712	cartes. Le surplus retourne dans la boîte sans être regardé.
+713	Forme trois pioches face cachée de
+714	cartes chacune : Région, Tradition, Civilisé.
+715	Mélange ensemble tous les Vassaux et le reste des Régions, Traditions et Civilisés : c\'est la pioche Principale, posée à l\'horizontale.
+716	Retourne une carte de chaque pioche Région, Tradition et Civilisé, et deux cartes de la pioche Principale : les cinq cartes du Marché.
+717	Glisse une Instabilité sous chaque carte du Marché qui n\'est pas une Région.
+718	Pose 1 Progrès sur chaque carte du Marché à bandeau blanc (les Civilisés).
+719	Tire au sort le premier joueur. Place le jeton Solstice entre lui et son voisin de droite.
+720	L\'ordre de presque tous tes tours.
+721	Tu fais des Actions et tu utilises des capacités Épuiser, dans l\'ordre et la combinaison que tu veux.
+722	Tu t\'arrêtes quand tu ne peux ou ne veux plus rien faire.
+723	Puis Nettoyage.
+724	À choisir quand
+725	tu as des cartes à jouer ou des capacités Épuiser utiles.
+726	Une carte choisie, sans Instabilité.
+727	Mets toute ta main dans ta défausse.
+728	Innove une Région, une Tradition, un Civilisé ou un Vassal. Pas une Renommée.
+729	Aucune Action, aucune capacité Épuiser. Les capacités Passif restent actives.
+730	ta main est faible et qu\'une carte du Marché te fait vraiment envie, ou que tu veux éviter une Instabilité. Dans Antique, cet ordre s\'appelait Innovation.
+731	Le grand ménage.
+732	Renvoie dans la pile autant de cartes Instabilités de ta main que tu veux, sans rien payer.
+733	Aucune Action, aucune capacité Épuiser. Les capacités Passif peuvent se déclencher.
+734	ta main est noyée sous les Instabilités, ou pour éloigner un Effondrement.
+735	Les cartes de ta main
+736	Les cartes de ta zone de jeu
+737	Les cartes de ton deck
+738	Les cartes de ta défausse
+739	Les cartes de ton Histoire
+740	Ta carte Puissance
+741	Les cartes Réservées sous tes cartes en jeu
+742	Les cartes encore dans ta pioche Nation
+743	Les cartes non Développées de ta zone de Développement
+744	Les jetons Progrès de ta réserve
+745	Les jetons Progrès posés sur tes cartes
+748	Expansion rapide : conquiers des Régions pour jouer Gloire et gagner de la Renommée. Tes Légions prolongent les conquêtes une fois Empire. Mets en jeu la Cité de Rome et fais-la évoluer. Quelques villes en plus aident à faire tourner le deck.
+750	Soumets les autres nations : accumule les Vassaux et étends tes territoires. Une fois Empire, attaque avec le Bélier et répands les Instabilités avec l\'Or des Perses, ou mise sur Satrape pour gagner des Actions, après avoir assuré tes Matériaux avec les Moulins à vent.
+751	Macédoniens
+752	Plutôt pacifiste
+753	La nation de l\'expansion : accumule les Régions et garde-les en jeu. Conquête reste utile une fois Empire grâce à Alexandre et sa Cavalerie. Joue Gloire tôt et souvent, en synergie avec les Phalanges, et Réserve des cartes sous tes Régions en trop.
+755	Contrôle le Marché et amasse les Matériaux avec Caravanes et Navires marchands. Une fois Empire : Éléphants menés par Hannibal, ou Monopole pour envoyer Instabilités et cartes gênantes chez les autres. Cherche les océans.
+756	Règle spéciale : au Nettoyage, tu ajoutes des Matériaux sur une carte du Marché à la place du Progrès. Le nombre dépend de ta carte Puissance.
+759	Jeu agressif : acquiers des cartes et distribue les Instabilités avec tes Druides. Sans Prospérité, tes ressources viennent de Vol de bétail et du Chaudron de Cerridwen. Tu cherches à allonger la partie pour Développer tes cinq cartes.
+760	Règle spéciale : l\'effet de la face A de ta carte Puissance gêne les autres, mais ce n\'est pas une Attaque : impossible de s\'en protéger.
+762	Nomades : étends ton territoire et exploite tes Régions avec Tentes et Archers montés. Deck léger et très rapide grâce à Tamga, mais pauvre en points : guette les cartes à points variables du Marché.
+764	Cités et technologie. Colons et Mercenaires grecs lancent ton expansion. Une fois Empire, Science te fait progresser et les Jeux olympiques t\'aident à gérer. Phare manipule la pile Exil : retiens ce que tu Exiles.
+766	Ta pioche Nation t\'offre des cartes gratuites, dans un ordre que tu ne maîtrises pas. Appuie-toi sur Gothja, et Réserve des cartes avec tes Régions et tes Sagas pour dompter ton deck.
+767	Règles spéciales : tu ne deviens jamais Empire, tu n\'as ni zone de Développement ni Histoire (une carte à archiver est Défaussée). Ta carte du fond de pioche Nation est ton Zénith : quand elle rejoint ta défausse, la fin de partie est déclenchée et ta carte État ne se retourne pas.
+768	Mets une Région en jeu dans ta défausse. Les ressources posées dessus reviennent dans ta réserve ; une carte Réservée dessous est défaussée aussi. Certains effets permettent d\'Abandonner seulement une carte Réservée.
+769	Prends une carte visible du Marché de la catégorie indiquée, avec ses ressources et l\'Instabilité dessous. Le Marché est complété aussitôt.
+770	Action (gagner, dépenser)
+771	Gagner : prends un jeton Action du stock, même au-delà de trois. Dépenser : retire le nombre de jetons demandé, sinon l\'effet est impossible.
+772	La carte se joue sans jeton Action. Une fois par tour au plus pour une même carte. Les coûts écrits sur la carte restent dus.
+773	Ajouter une ressource
+774	Prends la ressource dans le stock et pose-la dans la zone ou sur la carte indiquée.
+776	L\'effet touche tous les autres joueurs, autant que possible. Certaines cartes permettent de l\'ignorer.
+777	Barbare / Empire
+778	Faces de ta carte État. Une carte marquée d\'un État ne se joue de ta main que si tu es dans cet État. « Si vous êtes Barbare / Empire » : l\'effet ou l\'option n\'existe que dans cet État.
+779	Cartes en jeu
+780	Une carte permanente reste en jeu jusqu\'à ce qu\'un effet la retire. Ses ressources reviennent alors dans ta réserve ; un jeton Épuisé posé dessus ne revient qu\'à la fin du tour.
+782	Résous une seule des options séparées par OU. Une phrase complète après la liste s\'applique dans tous les cas.
+783	Considérer
+784	Traite une icône comme une autre jusqu\'à la fin du tour. L\'icône d\'origine ne compte plus pendant ce temps. L\'effet cesse toujours avant le Solstice ou le Décompte.
+785	Défausser
+786	Mets la carte dans ta défausse.
+787	Déplacer une ressource
+788	Fais passer la ressource de la réserve de son propriétaire à l\'endroit indiqué. Aucune conversion possible. Les ressources déjà posées sur des cartes ne se déplacent pas.
+789	Développer
+790	Paie le coût d\'une carte de ta zone de Développement, au choix, et mets-la dans ta défausse. Via un effet de carte, c\'est possible même si un témoin est déjà posé sur la zone, et sans en poser un. Les Vikings ne Développent jamais.
+791	Donner une carte
+792	Choisis une carte de ta main ; un adversaire la prend en main.
+793	Remplace une carte du Marché par une autre. Les jetons restent en place, l\'Instabilité est renouvelée (sauf Région), et la carte retirée va là d\'où venait l\'autre.
+794	Pendant ton ordre Activation, pose un jeton Épuisé sur la carte pour résoudre son effet. Une fois par tour et par carte. Poser une carte ne déclenche pas sa capacité Épuiser.
+795	Envoie la carte dans la pile Exil. Depuis le Marché : l\'Instabilité retourne dans la pile, la carte est remplacée. Impossible si la carte porte des jetons.
+796	Gagner des ressources grâce aux Régions
+797	Capacité qui se déclenche quand une Région en jeu portant l\'icône indiquée sert à te faire gagner cette ressource, par son propre effet ou par celui d\'une autre carte comme Prospérité.
+798	Les cartes archivées sous ta carte Puissance. Hors jeu, mais comptées au score. Toi seul peux les consulter. Les Vikings n\'en ont pas.
+799	Annonce une catégorie, puis prends soit une carte visible du Marché (sans l\'Instabilité, qui retourne dans la pile), soit la première carte face cachée de la pioche correspondante. Vassal ou pioche vide : fouille la pioche Principale ; rien trouvé : 2 Progrès.
+800	Effet actif en permanence tant que la carte est en jeu : pendant tous les ordres, le Solstice et le Décompte.
+802	Remets les jetons demandés dans le stock, depuis ta réserve. 1 Progrès peut remplacer 1 Population ou 2 Matériaux. Aucune autre conversion.
+803	Tes cartes Nation face cachée sur l\'Avènement. Quoi qu\'il arrive, l\'Avènement reste tout en bas et ne se mélange jamais avec elles.
+805	Prends des cartes de ton deck en main. Deck vide : mélange ta défausse et continue. On pioche toujours la première carte de la pile.
+806	Piocher, si possible
+807	Comme Piocher, mais sans jamais mélanger la défausse : deck vide, tu t\'arrêtes.
+808	Placer sur votre deck
+809	Pose la carte (de ta main, sauf mention contraire) face cachée sur ton deck.
+810	Reprends en main une Région en jeu, avec les cartes Réservées dessous. Les ressources reviennent dans ta réserve. Si tu la rejoues dans le tour, tu peux l\'Épuiser à nouveau avec un autre jeton.
+811	Récupérer
+812	Prends la carte indiquée en main, ou dans la zone précisée. Dans une zone face visible, tu choisis. Récupérer une Instabilité : dans la pile commune ; la dernière déclenche l\'Effondrement.
+814	Examine secrètement les cartes indiquées puis remets-les en place, dans l\'ordre de ton choix. Dans la pioche Renommée, ignore Roi des rois ; dans la pioche Nation, ignore l\'Avènement, sauf si c\'est la seule carte.
+815	Renvoyer une carte
+816	Remets une Instabilité dans la pile commune. En la jouant de ta main : une Action et son coût. Par l\'effet d\'une autre carte : sans coût.
+817	Renvoyer un jeton
+818	Reprends un jeton Épuisé posé sur une de tes cartes et remets-le sur ta carte État. Tu peux le réutiliser dans le tour.
+819	Glisse une carte de ta main, face visible, sous la carte en jeu concernée. Elle n\'est plus en jeu, mais compte au score et suit le sort de la carte qui l\'abrite.
+820	Retirer une ressource
+821	Remets la ressource indiquée dans le stock. Aucune conversion.
+822	Effet résolu automatiquement à la fin de chaque manche.
+823	Tous les joueurs / tous les autres joueurs
+824	Le premier t\'inclut, le second non.
+826	Cherche la carte dans ta main, puis ta défausse, puis ton deck, puis ta pioche Nation (hors Avènement). Arrête-toi dès qu\'elle est trouvée et révèle-la. Mélange le deck ou la pioche Nation si tu les as fouillés.
+827	Voler des ressources
+828	Prends les jetons indiqués dans la réserve des joueurs visés, autant que possible, sans conversion.
+830	Quatrième ressource, liée à l\'extension Routes commerciales.
+831	Marchander, Commercer, Profit
+832	Mots-clés de l\'extension Routes commerciales. Sans l\'extension, ignore toute mention de Marchander.
+833	Effet résolu après tous tes autres effets Solstice. Présent sur des cartes d\'Horizons.
+835	Découvrir le jeu
+837	Installer une partie
+838	Jouer son tour
+839	Le Marché et ton deck
+841	Manche, Gloire et fin de partie
+843	Variantes et solo
+844	Tu dois Payer 4 Matériaux. Ta réserve : 2 Matériaux, 3 Population, 1 Progrès.
+845	Comment règles-tu ce coût ?
+846	2 Matériaux et 2 Population
+847	La Population ne remplace jamais les Matériaux. Seul le Progrès se convertit.
+848	2 Matériaux et 1 Progrès
+849	1 Progrès vaut 2 Matériaux quand tu paies en Matériaux : le compte y est.
+850	Je ne peux pas payer
+851	Si : ton Progrès comble les 2 Matériaux manquants.
+852	Ta carte État montre Barbare. Tu as en main une carte marquée Empire. Au Marché, une autre carte Empire te fait envie.
+853	Que peux-tu faire ce tour-ci ?
+854	Jouer la carte Empire de ma main
+855	Impossible : une carte marquée Empire ne se joue de ta main que si ta carte État montre Empire.
+856	Acquérir la carte Empire du Marché pour plus tard
+857	Acquérir ou Innover est permis quel que soit ton État. Tu la joueras après ton Avènement.
+858	Ni l\'un ni l\'autre
+859	L\'icône d\'État limite seulement le fait de jouer la carte depuis ta main, pas de l\'obtenir.
+860	Décompte final. Une de tes cartes à étoile indique « 1 PV par Région ». Tu possèdes 13 Régions.
+861	Combien cette carte te rapporte-t-elle ?
+862	13 points
+863	Une carte à points variables est plafonnée.
+864	10 points
+865	Le plafond est de 10 points par carte à étoile, carte Puissance comprise.
+866	La carte rapporte bien des points, simplement plafonnés à 10.
+867	Tu remplis le Marché. La carte retournée dans l\'emplacement de droite est une Région.
+868	Glisses-tu une Instabilité dessous ?
+869	Oui, comme sous toutes les cartes
+870	Toutes les cartes du Marché en reçoivent une, sauf les Régions.
+871	Il n\'y a jamais d\'Instabilité sous une Région. C\'est ce qui rend les Régions peu risquées à acquérir.
+872	Tu prépares une partie solo, donc avec les quantités d\'une partie à 2 joueurs.
+873	Combien de cartes Renommée face cachée poses-tu sur Roi des rois ?
+874	À 2 joueurs ou en solo : 6 Renommées, et 6 cartes dans chacune des pioches Région, Tradition et Civilisé.
+875	8 est la quantité pour 4 joueurs.
+877	Le surplus retourne dans la boîte sans être regardé : tu ne sais pas quelles Renommées manquent.
+878	Deux cartes Instabilités de ta nation n\'ont aucune icône dans le coin inférieur gauche.
+879	Où vont-elles à la mise en place ?
+880	Dans mon deck de départ
+881	Une carte sans icône de départ fait partie du deck initial. Ta nation commence donc avec des troubles.
+882	Dans la pile Instabilités commune
+883	Seules les Instabilités portant l\'icône de la pile y vont.
+884	Dans la boîte
+885	On n\'écarte que les cartes marquées 3+ ou 4 quand le nombre de joueurs ne correspond pas.
+886	Ta main : quatre Instabilités et une carte Gloire injouable (tu n\'as qu\'une Région en jeu). Ta réserve est vide.
+887	Quel ordre annonces-tu ?
+888	Tu pourrais jouer une Instabilité en défaussant deux autres cartes, mais tu n\'en renverrais qu\'une et les autres reviendraient plus tard.
+889	Tu gagnerais une carte, mais tes quatre Instabilités partiraient en défausse et reviendraient au prochain mélange.
+890	Tu renvoies les quatre Instabilités dans la pile sans rien payer. C\'est exactement la situation prévue pour cet ordre.
+891	Tu n\'as plus de jeton Action. Une Région en jeu indique « Épuiser : gagnez 2 Matériaux » et ne porte pas de jeton. Il te reste 2 jetons Épuisé. Tu as en main une carte marquée Action gratuite.
+892	Que peux-tu encore faire ?
+893	Plus rien
+894	Les capacités Épuiser et les Actions gratuites ne consomment pas de jeton Action.
+895	Seulement épuiser la Région
+896	C\'est possible, mais l\'Action gratuite l\'est aussi.
+897	Épuiser la Région et jouer l\'Action gratuite
+898	Épuiser coûte un jeton Épuisé, et une Action gratuite se joue même sans jeton Action.
+899	Ta dernière carte en main indique : « Défaussez 1 carte pour gagner 2 Population. Vous POUVEZ acquérir une Région. »
+900	Peux-tu la jouer ?
+901	Oui, je gagne 2 Population
+902	Le coût passe avant le résultat, et tu n\'as aucune autre carte à défausser.
+903	Ce qui précède « pour » est un coût obligatoire. Sans autre carte à défausser, la carte est injouable.
+904	Oui, seulement pour acquérir la Région
+905	La première phrase est obligatoire et son coût impayable : la carte entière ne peut pas être jouée.
+906	Il reste une seule carte dans la pile Instabilités. Une Tradition du Marché t\'intéresse ; une Instabilité est glissée dessous.
+907	Comment la prendre ?
+908	L\'Acquérir
+909	Tu prends son Instabilité, puis la carte qui la remplace reçoit la dernière Instabilité de la pile : Effondrement immédiat.
+910	L\'Innover
+911	L\'Instabilité retourne dans la pile, qui remonte à deux cartes. La carte de remplacement en reprend une : il en reste une, la partie continue.
+912	Peu importe
+913	La différence est énorme : Acquérir vide la pile, Innover la regarnit.
+914	Nettoyage. Ta main : 2 Instabilités et 3 bonnes cartes que tu n\'as pas pu jouer. Ton deck contient 1 carte, ta pioche Nation 2.
+915	Que défausses-tu pour faire évoluer ta nation au plus vite ?
+916	Avec 5 cartes en main tu ne pioches pas : ton deck ne tourne pas et aucune carte Nation n\'entre.
+917	Toute ma main
+918	Tu pioches 5 cartes, ton deck se vide, et une carte Nation rejoint ta défausse avant le mélange. C\'est le conseil du livret.
+919	Seulement les Instabilités
+920	C\'est légal et tu déclenches aussi le mélange, mais les Instabilités reviendront : tu gardes trois cartes au prix d\'un cycle plus lent.
+921	En plein tour, un effet te fait Piocher 2 cartes. Ton deck est vide et tes 5 jetons Épuisé sont déjà posés sur des cartes.
+922	Que se passe-t-il ?
+923	J\'ajoute une carte Nation, puis je mélange
+924	Il faut un jeton Épuisé disponible pour servir de témoin : tu n\'en as plus.
+925	Je mélange ma défausse sans rien ajouter, puis je pioche
+926	Le mélange a lieu quand même, mais sans carte Nation ni Développement.
+927	Je ne pioche pas
+928	Seul un effet « si possible » t\'arrête. Ici tu dois mélanger et piocher.
+929	Tu joues Gloire : tu abandonnes trois Régions. Deux d\'entre elles abritent une carte Réservée.
+930	Que deviennent les cartes Réservées ?
+931	Elles restent en jeu
+932	Une carte Réservée suit toujours le sort de la carte qui l\'abrite.
+933	Elles partent en défausse avec leurs Régions
+934	Elles reviendront donc dans ton deck : pense-y avant de jouer Gloire.
+935	Elles reviennent dans ma main
+936	Ce serait le cas si les Régions étaient Rappelées, pas Abandonnées.
+937	Ton adversaire déclenche le Décompte pendant son tour. Tu joues après lui et tu es le dernier de la manche.
+938	Combien de tours te reste-t-il ?
+939	Un seul
+940	Tu finis d\'abord la manche en cours, puis vient une manche supplémentaire.
+942	Ton tour de cette manche, le Solstice, puis une ultime manche complète avec son Solstice.
+943	Le Décompte n\'arrête pas la partie sur-le-champ, contrairement à l\'Effondrement.
+944	Solstice. Une de tes cartes indique « Solstice : vous POUVEZ défausser 1 carte pour gagner 1 Population ». Tu aimerais aussi épuiser une Région.
+945	Que peux-tu faire ?
+946	Aucune capacité Épuiser pendant le Solstice.
+947	Seulement l\'effet Solstice, si je le souhaite
+948	L\'effet est facultatif grâce à « pouvez ». Les capacités Épuiser attendront ton prochain ordre Activation.
+949	L\'effet Solstice reste disponible.
+950	Tour de la C.I.V. La carte révélée correspond à deux lignes de son tableau. La première demande de dépenser 3 Population pour innover ; elle n\'en a qu\'une.
+951	Que fais-tu ?
+952	Elle dépense sa Population restante
+953	Un coût ne se paie jamais à moitié.
+954	Rien : la carte part en défausse
+955	Il faut d\'abord chercher une autre ligne applicable.
+956	Je passe à la ligne suivante qui correspond
+957	Si rien de la ligne ne peut être résolu, on descend à la prochaine ligne qui correspond à la carte.
+958	Partie solo. Il reste une Instabilité dans la pile. Une carte du Marché te ferait gagner beaucoup de points, avec une Instabilité dessous.
+959	L\'acquiers-tu ?
+960	Oui, les points d\'abord
+961	La carte de remplacement prendrait la dernière Instabilité : Effondrement, et en solo c\'est une défaite automatique.
+962	Contre la C.I.V., un Effondrement te fait perdre quelle que soit la répartition des Instabilités. Renvoie d\'abord des Instabilités, ou Innove.
+968	Bon choix.
+969	Pas le meilleur choix.
+975	Étape
+977	Un tour complet, guidé
+978	">Étape précédente
+979	" data-go="
+980	">J'ai compris, étape suivante
+981	">Terminer le tutoriel
+984	Les douze rappels
+986	[data-go],[data-done]
+990	Masquer le sommaire
+993	#toc a
+996	étape
+997	terminée
+1001	Tentes (en jeu)
+1002	Épuiser : quand vous jouez une Région, épuisez cette carte pour gagner 1 Population.
+1003	Carpates (Région)
+1004	Gagnez 1 Population. Vous POUVEZ réserver 1 carte.
+1005	Conquête
+1006	Choisir : payez 2 Population pour acquérir une Région ou un Vassal, OU payez 3 Population pour innover en Région ou Vassal.
+1007	Choisir : payez 3 Matériaux pour acquérir une Tradition ou un Civilisé, OU payez 5 Matériaux pour innover en Tradition ou Civilisé.
+1008	Choisir : payez 1 Population OU défaussez 2 cartes OU payez 3 Matériaux. Si vous le faites, renvoyez cette carte dans la pile Instabilités.
+1016	Tu joues les Scythes, encore Barbares. Les Tentes sont déjà en jeu. Commence par annoncer ton ordre.
+1021	Garde cette carte pour un prochain tour : son effet dépend de la carte réelle.
+1022	Tu n\'as plus de jeton Action : impossible de jouer une carte de ta main, sauf Action gratuite. Il te reste les capacités Épuiser, ou le Nettoyage.
+1023	entre en jeu et te rapporte 1 Population. Tu peux réserver une carte dessous.
+1024	Réserver une Instabilités dessous
+1025	Tu n\'as pas d\'Instabilités en main.
+1026	L\'Instabilités est glissée sous la Région : elle ne reviendra plus dans ta main. Elle compte toujours dans ton score, mais ton deck est allégé.
+1027	Ne rien réserver
+1028	Rien n\'est réservé. C\'est le moment de penser aux Tentes.
+1029	Conquête : quelle option choisis-tu ?
+1030	Payer 2 Population : acquérir la Région du Marché
+1031	Il te faut 2 Population. Le Progrès peut en remplacer, 1 pour 1.
+1032	Nouvelle Région
+1033	Tu paies 2 Population et prends la Région en main. Aucune Instabilité : il n\'y en a jamais sous une Région. Conquête part en défausse et le Marché est complété aussitôt.
+1034	Payer 2 Population : acquérir le Vassal
+1035	Tu paies 2 Population. Le Vassal arrive en main avec l\'Instabilités glissée dessous : c\'est le prix d\'Acquérir.
+1036	Payer 3 Population : innover une Région
+1037	Il te faut 3 Population, Progrès compris.
+1038	Tu paies 3 Population et prends une Région. Innover évite l\'Instabilité, mais une Région n\'en a jamais : ici, Acquérir aurait coûté 1 Population de moins pour le même résultat.
+1040	Conquête reste dans ta main.
+1041	Progrès : quelle option choisis-tu ?
+1042	Il te manque des Matériaux. Rappel : 1 Progrès vaut 2 Matériaux, la Population ne compte pas.
+1043	Payer 3 Matériaux : acquérir la Tradition
+1044	Tu paies 3 Matériaux. La Tradition arrive en main avec son Instabilités.
+1045	Payer 3 Matériaux : acquérir le Civilisé
+1046	Tu paies 3 Matériaux. Tu gagnes aussi
+1047	Progrès posé sur la carte, et le Civilisé arrive avec son Instabilités.
+1048	Payer 5 Matériaux : innover une Tradition
+1049	Tu règles 5 Matériaux, Progrès compris à raison de 2 Matériaux chacun. La Tradition arrive sans Instabilités, qui retourne dans la pile.
+1050	Progrès reste dans ta main.
+1051	Instabilités : comment paies-tu son renvoi ?
+1052	L\'Instabilités retourne dans la pile commune. Cela t\'a coûté une Action.
+1053	Payer 1 Population
+1054	Tu n\'as ni Population ni Progrès.
+1055	Tu paies 1 Population.
+1056	Payer 3 Matériaux
+1057	Il te faut 3 Matériaux, Progrès compris.
+1058	Tu paies 3 Matériaux.
+1059	Défausser 2 autres cartes
+1060	Il te faut deux autres cartes en main à défausser.
+1061	Tu défausses
+1062	L\'Instabilités reste dans ta main.
+1063	Les Tentes portent déjà un jeton Épuisé : une seule fois par tour et par carte.
+1064	Plus de jeton Épuisé disponible.
+1065	Les Tentes répondent à un événement : « quand vous jouez une Région ». Elles s\'épuisent juste après avoir joué une Région, pas avant, ni après avoir fait autre chose.
+1066	Tu poses un jeton Épuisé sur les Tentes : 1 Population de plus. La capacité répondait à la Région que tu viens de jouer.
+1067	Un vrai tour avec des cartes de départ des Scythes. Chaque geste est validé ou corrigé.
+1068	Jetons Épuisé :
+1069	Deck :
+1070	En jeu :
+1071	(Tentes épuisées)
+1072	En main :
+1073	aucune carte
+1074	Marché :
+1075	Vassal, Tradition, Civilisé (
+1076	Progrès dessus), Tradition, Région. Une Instabilités sous chaque carte sauf la Région.
+1077	Texte des cartes
+1078	" style="margin-top:10px">
+1081	Bon choix : tu as des cartes à jouer et une capacité Épuiser en jeu. Tu disposes de 3 Actions.
+1083	Tu défausserais une main pleine de cartes jouables pour une seule carte. La Recherche sert quand ta main est faible.
+1084	Tu ne renverrais que 2 Instabilités et tu perdrais tout le reste de ton tour. Garde cet ordre pour une main noyée sous les Instabilités.
+1085	Jouer :
+1086	Épuiser les Tentes
+1087	Terminer mes actions
+1088	Nettoyage, étape 1 : tu ajoutes 1 Progrès sur une carte du Marché. D\'où vient ce jeton ?
+1089	Exact, toujours du stock. Tu le poses sur le Civilisé. Étape 2 : tes jetons reviennent, 3 Actions et 5 Épuisé. Étape 3 : que défausses-tu ?
+1090	Non : ce Progrès vient du stock, ta réserve n\'est pas touchée. C\'est l\'oubli le plus courant.
+1092	Étape 4 : tu as déjà 5 cartes ou plus, donc tu ne pioches pas.
+1093	Étape 4 : tu pioches
+1095	. Ton deck suffit, pas de mélange.
+1096	Étape 4 : tu dois piocher
+1097	cartes et ton deck n\'en contient que
+1098	. Que se passe-t-il ?
+1099	Légal, et c\'est le conseil du livret : plus ton deck tourne, plus vite ta nation évolue.
+1100	Légal. Les Instabilités reviendront au prochain mélange, mais tu gardes tes autres cartes.
+1101	Légal aussi : rien ne t\'oblige à défausser.
+1102	La première carte de ma pioche Nation rejoint ma défausse, je pose un jeton Épuisé en témoin, je mélange, puis je finis de piocher
+1103	Exactement. Tu pioches d\'abord les
+1104	cartes restantes, puis la carte Nation entre dans ta défausse, tu mélanges et tu complètes ta main à 5.
+1105	Je mélange ma défausse telle quelle
+1106	Tu oublies la carte Nation : tu viens de récupérer tes jetons Épuisé, donc tu peux et dois en ajouter une avant de mélanger.
+1107	Je pioche ce qui reste et je m\'arrête
+1108	Seul un effet « si possible » s\'arrête à un deck vide. Au Nettoyage, tu mélanges et tu continues jusqu\'à 5 cartes.
+1110	Tour terminé.
+1112	validé
+1113	corrigé
+1114	. Le joueur suivant commence, puis viendra le Solstice, où les Tentes te laisseront rappeler une Région.
+1115	Rejouer ce tour autrement
+1122	Oui :
+1123	Progrès. Rien ne remplace le Progrès.
+1124	Non : il te manque
+1125	Progrès, et aucune autre ressource ne peut le remplacer.
+1126	Progrès (1 Progrès vaut 1 Population).
+1127	Non : Population et Progrès réunis ne font que
+1128	. Les Matériaux ne remplacent pas la Population.
+1129	Progrès (chacun vaut 2 Matériaux).
+1130	Tu paies 1 de trop : pas de rendu de monnaie.
+1131	Non : tu atteins seulement
+1132	(Matériaux + 2 par Progrès). La Population ne remplace pas les Matériaux.
+1147	% - 13px)
+1150	#np button
+1152	Solo :
+1153	prépare les pioches communes comme pour 2 joueurs, puis ouvre l’onglet Jouer en solo. Pioches Renommée, Région, Tradition et Civilisé : 6 cartes chacune.
+1154	joueurs :
+1155	cartes face cachée dans la pioche Renommée (en plus de Roi des rois) et
+1156	cartes dans chacune des pioches Région, Tradition et Civilisé.
+1167	Une Action dépensée : la carte est résolue puis défaussée, ou reste en jeu si elle est permanente.
+1168	Impossible : plus de jeton Action. Il te faudrait une Action gratuite.
+1169	Jouer en Action gratuite
+1170	Aucun jeton dépensé. Rappel : une même carte, une seule fois par tour de cette façon.
+1171	Épuiser une carte en jeu
+1172	Un jeton Épuisé posé sur la carte : son effet se résout. Cette carte ne pourra plus être Épuisée ce tour.
+1173	Impossible : plus de jeton Épuisé sur ta carte État.
+1174	Un jeton Action pris dans le stock. Tu peux dépasser trois jusqu\'au Nettoyage.
+1175	Mélanger ma défausse en plein tour
+1176	Tu mélanges, mais sans ajouter de carte : un témoin est déjà posé ce tour.
+1177	Tu ajoutes une carte Nation à ta défausse avant de mélanger. Un jeton Épuisé sert de témoin sur la pioche Nation : un de moins pour ce tour.
+1178	Tu mélanges sans ajouter de carte Nation : aucun jeton Épuisé disponible pour servir de témoin.
+1180	Tous les jetons reviennent : 3 Actions, 5 Épuisé.
+1189	" data-i="
+1191	Progrès posé
+1192	Aucun jeton
+1194	Instabilité dessous
+1195	Rien dessous
+1196	#mk button
+1205	Une nouvelle carte
+1206	arrive de la pioche
+1207	, avec une Instabilité de la pile glissée dessous.
+1208	, sans Instabilité puisque c\'est une Région.
+1209	La pile Instabilités est vide : Effondrement.
+1210	La partie s\'arrête sur-le-champ et le joueur qui possède le moins d\'Instabilités gagne. Ici tu en as
+1211	Sélectionne d\'abord une carte.
+1213	Tu Acquiers la carte
+1214	: elle va dans ta main.
+1215	Tu gagnes
+1216	Progrès.
+1217	L\'Instabilité dessous vient aussi dans ta main.
+1219	Tu Innoves la carte
+1220	. L'Instabilité reste simplement en place sous elle : c'est la même chose que la rendre à la pile puis en reprendre une, la pile ne bouge pas.
+1221	Une nouvelle carte Région arrive : aucune Instabilité sous une Région, donc celle d'avant retourne dans la pile.
+1223	Les Vassaux n\'ont pas de pioche : tu révèles les cartes de la pioche Principale une à une jusqu\'au premier Vassal, tu le prends, puis tu mélanges les autres cartes révélées dans la pioche Principale. Le Marché ne bouge pas.
+1224	Tu prends la première carte face cachée de la pioche
+1225	, sans la connaître d'avance. Le Marché ne bouge pas et aucune Instabilité n'est en jeu.
+1227	Un Progrès du stock est posé sur la carte. Elle devient plus tentante pour tout le monde, toi compris. Une carte qui porte des jetons ne peut plus être Exilée.
+1234	+ Av.
+1242	Tu acquiers une carte : elle arrive en main avec son Instabilité.
+1243	Deck vide : la première carte Nation rejoint ta défausse (témoin posé sur la pioche Nation), puis tu mélanges.
+1244	Deck vide : c\'est l\'
+1245	qui rejoint ta défausse. Ta carte État se retourne : te voilà Empire. Tu mélanges.
+1247	Deck vide, pioche Nation vide : tu paies et Développes une carte de ton choix, puis tu mélanges.
+1248	C\'était ta dernière carte Développement : le Décompte est déclenché.
+1249	On finit la manche, puis une dernière manche.
+1250	Deck vide : tu ne peux payer aucun Développement, tu mélanges sans rien ajouter.
+1251	Deck vide : tu mélanges.
+1252	Deck de nouveau vide dans le même tour : tu mélanges sans ajouter de carte.
+1253	Ton paquet compte maintenant
+1258	justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--line)
+1260	Ne compte pas
+1262	#cnt>div
+1264	. À retenir : pioche Nation, Développements non payés et ressources posées sur des cartes ne rapportent rien, sauf carte qui dit le contraire.
+1266	Total :
+1268	pour le Progrès). Matériaux et Population ne valent rien par eux-mêmes.
+1273	Aucun terme ne correspond. Essaie un autre mot.
+1276	sur 5">
+1277	Fin de partie normale. Déclenché quand la pioche Principale est vide, quand un joueur Développe sa dernière carte, quand Roi des rois est retournée face cachée ou par un effet de carte. En solo, aussi quand la pioche Dynastie de la C.I.V. est épuisée ou qu\'elle gagne Roi des rois. On termine la manche, on en joue une dernière, puis on compte les points.
+1278	Fin de partie immédiate dès que la pile Instabilités est vide. À plusieurs, le joueur qui possède le moins d\'Instabilités gagne. En solo, tu perds automatiquement.
+1279	Pioche Dynastie
+1280	La réserve de cartes de la C.I.V. : ses cartes Nation, puis son Avènement, puis ses Développements du plus fort au plus faible. Une carte en sort chaque fois que son deck est vide. Quand elle est épuisée, le Décompte est déclenché.
+1281	Roi des rois
+1282	Dernière carte de la pioche Renommée. Quand il ne reste qu\'elle, gagner une Renommée la fait résoudre à la place, une seule fois par joueur. La C.I.V. gagne 6 Progrès si elle est Barbare ; Empire, elle gagne 3 Progrès et une carte de sa pioche Dynastie, et la fin de partie est déclenchée.
+1283	exil[\\p{L}]*
+1284	innov[\\p{L}]*
+1285	acqui[\\p{L}]*|acquér[\\p{L}]*
+1286	abandonn[\\p{L}]*
+1287	rappel[\\p{L}]*
+1288	archiv[\\p{L}]*
+1289	renvoie[\\p{L}]*|renvoy[\\p{L}]*
+1290	récup[\\p{L}]*
+1300	button,input,label,select
+1306	header.top .tabs [data-tab="
+1308	header.top .tabs button
+1337	Prospérité
+1350	2 Matériaux
+1351	Didon, reine de Carthage
+1352	Marchands carthaginois
+1353	Îles Baléares
+1354	Maurétanie
+1356	Ibérie
+1357	Berbères
+1358	Cité de Carthage
+1359	Éléphants
+1360	Hégémonie
+1362	Navires marchands
+1365	Boadicée
+1366	Vol de bétail
+1367	Chaudron de Cerridwen
+1370	Gaule belge
+1373	Or des Celtes
+1374	Innovation celtique
+1375	Cotte de mailles
+1377	Écriture oghamique
+1378	Vercingétorix
+1380	Mercenaires grecs
+1381	Cité de Sparte
+1382	Péloponnèse
+1383	Forêt de Pholos
+1384	Cité d\'Athènes
+1385	Plaines de Thessalie
+1386	Jeux olympiques
+1387	Prospérité grecque
+1388	Périclès
+1389	Cité de Corinthe
+1391	Innovation grecque
+1392	Démocratie directe
+1395	Philippe II
+1397	Vallée de l\'Aliakmon
+1399	Pélagonie
+1402	Parménion
+1403	Cavalerie des Compagnons
+1404	Alexandre le Grand
+1405	Mosaïques
+1406	Alexandrie en Égypte
+1407	Alexandrie en Ariana
+1412	Plaine de Nisaean
+1413	Empire Mède
+1414	Cité de Persépolis
+1415	Bélier
+1416	Moulins à vent
+1418	Or des Perses
+1420	Darius I
+1422	Cité de Rome
+1424	Expansion romaine
+1425	Du pain et des jeux
+1426	Gaule Aquitaine
+1427	Rhétie
+1428	Jules César
+1429	Génie militaire
+1430	Invasion romaine
+1431	Légions
+1432	Le Sénat
+1433	Rome, la Cité éternelle
+1434	Empereur Trajan
+1436	Tian Shan
+1437	Archers montés
+1439	Steppe pontique
+1440	Bassin du Tarim
+1445	Cité de Gélonos
+1449	Erik le Rouge
+1455	Îles Féroé
+1458	Cité de Dubh Linn
+1461	Rollon le Marcheur
+1462	Raid viking
+1463	Harald Hardrada
+1464	4 emplacements. Conseillé pour débuter.
+1465	4 emplacements, et la C.I.V. défausse une carte de son deck à chaque fin de tour.
+1466	Règles standard, 5 emplacements.
+1467	La C.I.V. démarre avec 3 Matériaux, 2 Population, 1 Progrès et marque 1 point par 5 ressources.
+1468	Comme Souverain, avec un 6e emplacement.
+1469	Carte du Marché
+1470	une carte
+1471	du Marché
+1472	Matériau
+1473	Les Carthaginois
+1474	Les marchands de Carthage
+1475	Les navires puniques
+1476	comptent leurs cargaisons à quai
+1477	négocient dans leurs comptoirs sans faire de vagues
+1478	Les Celtes
+1479	Les tribus celtes
+1480	Les druides
+1481	festoient autour du chaudron
+1482	écoutent leurs bardes au coin du feu
+1483	Les Grecs
+1484	Les cités grecques
+1485	Les hoplites
+1486	débattent longuement sur l\'agora
+1487	s\'entraînent au gymnase
+1488	Les Macédoniens
+1489	Les phalanges macédoniennes
+1490	Les compagnons du roi
+1491	affûtent leurs sarisses
+1492	passent leurs troupes en revue
+1493	Les Perses
+1494	Les satrapes
+1495	Les armées du Grand Roi
+1496	tiennent conseil à la cour
+1497	lèvent le tribut dans leurs provinces
+1498	Les Romains
+1499	Les légions
+1500	Les sénateurs
+1501	renforcent leurs camps
+1502	palabrent au Sénat
+1503	Les Scythes
+1504	Les cavaliers des steppes
+1505	Les archers scythes
+1506	laissent paître leurs chevaux
+1507	lèvent le camp sans bruit
+1508	Les Vikings
+1509	Les jarls
+1510	Les guerriers du Nord
+1511	réparent leurs navires
+1512	se racontent leurs sagas
+1513	se proclament Rois des rois
+1514	couvrent leur nom de gloire avec
+1515	entrent dans la légende grâce à
+1516	mettent la main sur
+1517	acquièrent
+1519	découvrent
+1521	mettent au point
+1525	délaissent
+1526	Régions
+1527	une Région
+1529	écartent
+1530	font disparaître
+1531	inscrivent plusieurs hauts faits dans leur Histoire
+1532	gravent plusieurs exploits dans les mémoires
+1534	font entrer
+1535	dans leur Histoire
+1536	apaisent des troubles
+1537	ramènent le calme chez eux
+1538	matent une révolte
+1539	Désormais à la tête d\'un Empire,
+1540	Instabilités semées dans ton camp
+1541	Tu n\'es pas épargné :
+1542	Tu en fais les frais :
+1543	Leur ombre s\'étend jusqu\'à toi :
+1544	, pendant que leur trésor grossit de
+1545	, et leurs coffres se remplissent de
+1546	Tes défenses ont tenu bon
+1547	Tu as repoussé leur assaut
+1548	, mais
+1549	leur trésor grossit de
+1550	ils engrangent
+1551	Leur trésor grossit de
+1552	Leurs coffres se remplissent de
+1553	Ils engrangent
+1554	une Instabilité semée dans ton camp
+1561	% de victoires">
+1564	Elles apparaîtront après ta première partie terminée.
+1566	de victoires (
+1567	meilleur score
+1568	écart moyen avec la C.I.V.
+1573	Entraînement :
+1575	, meilleur score
+1577	Cartes du Marché connues (
+1578	Les cartes que tu as décrites. Touche ✕ pour en retirer une.
+1580	" aria-label="Retirer
+1581	Aucune pour l\'instant. Chaque carte que tu décris pendant une partie est retenue ici.
+1583	Tu joues les
+1585	défaite
+1586	sur 4 permises. Prochain niveau :
+1587	Ajoutées à ton deck de départ :
+1588	Retirées de ton deck de départ :
+1589	Aucune campagne en cours.
+1594	Résultat
+1595	Entraînement (
+1597	Aucune partie terminée pour l\'instant.
+1598	Bibliothèque
+1600	Entraînement ·
+1601	· tour
+1602	sur 12
+1603	Entraînement
+1604	, sans adversaire.
+1605	Sablier :
+1606	Progrès restants
+1607	jetons sur 12">
+1609	Repères
+1610	50 points : les bases sont acquises.
+1611	90 points : tes exploits marqueront l'Histoire.
+1612	À chaque tour
+1613	Joue ton tour normalement.
+1614	Au Nettoyage, le Progrès posé sur le Marché vient du sablier, pas du stock.
+1615	Ensuite, tu peux exiler une carte du Marché.
+1616	Résous tes effets Solstice.
+1619	Mise en place de l'entraînement
+1620	Installe ta nation (
+1621	) et le Marché exactement comme pour une partie à 2 joueurs.
+1622	Exile les
+1623	15 premières cartes
+1624	de la pioche Principale : pose-les face visible dans la pile Exil.
+1626	12 jetons Progrès
+1627	à côté du Marché : c'est ton sablier.
+1628	Pas de cartes C.I.V. : l'application compte simplement les tours.
+1629	Commencer l'entraînement
+1631	Joue ton tour normalement. Quand tu arrives au Nettoyage, touche le premier bouton.
+1632	J\'arrive au Nettoyage
+1634	Un effet de carte termine la partie
+1637	Abandonner l\'entraînement
+1639	Abandonner cet entraînement ? Il ne sera pas enregistré.
+1640	Oui, abandonner
+1641	Non, continuer
+1642	: la pile Instabilités est vide. La partie s\'arrête sur-le-champ.
+1643	Un effet de carte met fin à la partie : comptons tes points.
+1644	Nettoyage : pose
+1645	1 Progrès du sablier
+1646	(et non du stock) sur une carte du Marché. Il en restera
+1647	. Ensuite, tu peux exiler une carte du Marché, comme le ferait un second joueur.
+1649	Puis termine ton Nettoyage comme d\'habitude : jetons, défausse, pioche.
+1650	Fin du tour : résous maintenant tes effets Solstice.
+1651	Solstice résolu
+1652	Le sablier est vide
+1653	: douze tours sont passés.
+1654	Effondrement : compte quand même tes points pour mesurer tes progrès.
+1655	Fin de l\'entraînement : compte tes points.
+1657	Bases acquises
+1658	À retravailler
+1659	Tes exploits marqueront l'Histoire. La C.I.V. n'a qu'à bien se tenir.
+1660	Tu as assimilé les règles et les stratégies de base : tu es prêt à affronter la C.I.V.
+1661	Encore un peu d'entraînement : le livret fixe le premier palier à 50 points.
+1664	Points des cartes à étoile (10 au plus par carte)
+1665	Points des cartes à point d\'interrogation dont la condition est remplie
+1666	Nombre de cartes Instabilités (−2 chacune)
+1667	Autres points négatifs
+1668	Jetons Progrès dans ta réserve
+1669	Compte toutes tes cartes : main, zone de jeu, deck, défausse, Histoire, cartes réservées et carte Puissance. Laisse de côté la pioche Nation et les Développements non payés.
+1670	" min="0" value="0">
+1671	Valider mon score
+1676	Aucune carte.
+1677	· manche
+1682	Score actuel :
+1683	par les cartes,
+1684	par le Progrès,
+1685	par les ressources (1 par
+1686	Instabilité
+1687	en sa possession.
+1688	Régions en jeu (
+1689	Défausse (
+1690	Histoire (
+1693	Annuler ma dernière réponse
+1697	Carte test
+1698	Catégorie (couleur du bandeau)
+1700	Icônes en haut de la carte
+1701	Permanent (∞)
+1702	Attaque (épée)
+1703	Étoile : compte 5. Point d'interrogation : sa valeur maximale.
+1704	Progrès posés dessus
+1705	Matériaux dessus
+1706	Population dessus
+1707	Une Instabilité était glissée dessous
+1709	#fc button
+1713	Cartes déjà connues : touche un nom pour remplir la fiche.
+1719	#libbox .row
+1722	Choisis la catégorie de la carte.
+1723	La C.I.V. gagne
+1724	Décompte déclenché
+1725	. On termine cette manche, puis on joue une dernière manche complète.
+1726	La carte Avènement
+1727	rejoint la défausse :
+1728	la C.I.V. devient Empire
+1729	. Son nouveau tableau s'applique dès maintenant.
+1730	La première carte de son deck part en défausse :
+1731	Son deck est vide : rien de plus à défausser.
+1732	Sa pioche Dynastie est vide.
+1733	La première carte de la pioche Dynastie rejoint sa défausse :
+1734	la pioche Dynastie de la C.I.V. est épuisée
+1735	Prends une carte Instabilités dans la pile commune et pose-la sur le tas « Instabilités de la C.I.V. ». Si c\'était la dernière de la pile, déclare l\'Effondrement.
+1736	Prends celle qui vaut le plus de points (étoile = 5, point d\'interrogation = valeur maximale, +1 par Progrès posé dessus). Égalité : celle qui porte le plus de jetons, puis le plus petit emplacement.
+1737	La C.I.V.
+1738	. Y en a-t-il au moins une parmi les cinq cartes du Marché ?
+1739	Non, aucune
+1740	Décris la carte que la C.I.V. prend au Marché.
+1741	: la carte va sur son deck. Retire-la du Marché et mets-la sur le tas « cartes de la C.I.V. », rends ses jetons au stock, puis complète le Marché.
+1742	L\'Instabilité qui était dessous va sur le tas « Instabilités de la C.I.V. ».
+1743	L\'Instabilité qui était dessous retourne dans la pile commune.
+1744	La C.I.V. a déjà résolu Roi des rois : rien ne se passe.
+1745	Il ne reste que Roi des rois : en Barbare, la C.I.V. gagne 6 Progrès à la place. La carte reste où elle est.
+1746	Roi des rois : la C.I.V. gagne 3 Progrès et met
+1747	de sa pioche Dynastie sur son deck.
+1748	la C.I.V. gagne Roi des rois
+1749	La C.I.V. gagne une carte
+1750	. Que reste-t-il dans la pioche Renommée ?
+1751	Au moins une carte face cachée
+1752	Seulement Roi des rois
+1753	Prends la première carte de la pioche Renommée et décris-la.
+1755	est archivée dans l'Histoire de la C.I.V. Mets-la sur le tas « cartes de la C.I.V. ».
+1756	va sur le deck de la C.I.V. Mets-la sur le tas « cartes de la C.I.V. ».
+1757	La C.I.V. dépense
+1758	La C.I.V. abandonne
+1759	: la Région part dans sa défausse.
+1760	Tu récupères une carte Instabilités : prends-la dans la pile commune.
+1761	Tu abandonnes une de tes Régions en jeu.
+1762	Tu rappelles une de tes Régions en jeu dans ta main.
+1763	Tu rappelles dans ta main une de tes cartes permanentes en jeu.
+1764	Tu peux piocher 1 carte.
+1765	Es-tu en Empire ?
+1766	une Population versée en tribut
+1767	Tu donnes 1
+1768	à la C.I.V.
+1769	Donne 1 Population de ta réserve à la C.I.V. (remets-la au stock).
+1770	de ta main.
+1771	Annulé par une de mes cartes
+1773	Cet effet compte comme une Attaque : tes cartes de protection fonctionnent.
+1774	une Région abandonnée
+1775	une Région rappelée
+1776	une carte permanente rappelée
+1777	cartes défaussées
+1778	une carte défaussée
+1779	Annulé par ta protection.
+1780	Aucune Région en jeu : aucun gain.
+1781	La C.I.V. exile une carte du Marché : celle du plus petit emplacement qui ne porte aucun jeton.
+1782	Impossible : toutes portent des jetons
+1783	Mets-la dans la pile Exil, remets l\'Instabilité qui était dessous dans la pile commune, puis complète le Marché.
+1784	Une carte du Marché est exilée.
+1785	Aucune carte du Marché ne peut être exilée.
+1787	La C.I.V. acquiert une
+1788	de la pile Exil. Y en a-t-il une ?
+1789	S\'il y en a plusieurs, elle prend celle qui vaut le plus de points.
+1790	Décris la Région prise dans la pile Exil.
+1792	au Marché.
+1793	Prends la première carte face cachée de la pioche
+1794	. Si cette pioche est vide, révèle
+1795	Révèle
+1796	les cartes de la pioche Principale une à une jusqu'à la première
+1797	, puis remélange les autres dedans.
+1798	J\'ai une carte
+1799	Aucune carte de cette catégorie
+1800	Aucune carte disponible : la C.I.V. gagne 2 Progrès à la place.
+1801	Décris la carte obtenue.
+1802	La C.I.V. innove
+1803	: la carte va sur son deck. Mets-la sur le tas « cartes de la C.I.V. ».
+1804	La C.I.V. dépense ses
+1805	et gagne
+1806	La C.I.V. renvoie une Instabilité de sa défausse : remets une carte du tas « Instabilités de la C.I.V. » dans la pile commune.
+1807	La C.I.V. récupère
+1808	de sa défausse et la place sur son deck.
+1809	La C.I.V. met en jeu
+1810	depuis sa défausse.
+1811	donné
+1812	Rien (je n\'en ai pas, ou protection)
+1813	La C.I.V. te vole
+1814	. Combien lui en donnes-tu ?
+1815	C\'est une Attaque. Donne ce que tu peux, puis remets ces jetons au stock : l\'application les ajoute à la C.I.V.
+1816	Le vol ne rapporte rien à la C.I.V.
+1817	un vol de
+1818	icône Barbare
+1819	icône Empire
+1820	carte permanente
+1823	Instabilité : elle retourne dans la pile. Remets une carte du tas « Instabilités de la C.I.V. » dans la pile commune.
+1824	Ligne appliquée :
+1826	Rien de cette ligne ne peut être résolu : on passe à la ligne suivante qui correspond.
+1827	est archivée dans son Histoire.
+1828	entre en jeu chez la C.I.V.
+1829	retourne sur son deck.
+1830	va dans sa défausse.
+1831	Aucun effet possible :
+1832	La C.I.V. mélange sa défausse pour reformer son deck.
+1834	: tour de la C.I.V.
+1835	Dé :
+1836	La carte de l'emplacement
+1837	ne sera pas résolue ce tour.
+1838	Aucun emplacement ne correspond : toutes les cartes sont résolues.
+1839	Nettoyage de la C.I.V.
+1841	1 Progrès
+1842	du stock sur la carte du Marché de l'emplacement
+1843	Aucun jeton à ajouter au Marché ce tour.
+1844	Seigneur de guerre : la première carte de son deck part en défausse (
+1845	Ses emplacements sont de nouveau remplis.
+1847	Fin de la manche : résous maintenant tes effets Solstice. La C.I.V. n\'en a pas.
+1848	Intervention manuelle
+1849	Pour les effets de tes propres cartes qui touchent la C.I.V., ou pour corriger une erreur.
+1852	Elle récupère une Instabilité
+1853	Elle pioche (1re carte du deck en défausse)
+1854	Elle gagne une carte
+1855	Décris la carte que la C.I.V. gagne.
+1856	Elle abandonne une Région
+1857	Elle rappelle une Région
+1860	: ton tour
+1861	Dernière manche. Joue ton tour normalement, Nettoyage compris.
+1862	Le Décompte est déclenché. Termine ton tour, Nettoyage compris.
+1863	Joue ton tour normalement, Nettoyage compris. La C.I.V. jouera ensuite.
+1864	J\'ai terminé mon tour
+1866	Le Décompte est déclenché
+1868	Déclare le Décompte si la pioche Principale est vide, si tu Développes ta dernière carte ou si Roi des rois est retournée face cachée.
+1869	tu l\'as déclaré
+1870	La pile Instabilités est vide ?
+1871	Oui, Effondrement
+1872	Non, retour
+1873	Fin de la partie
+1875	En solo, la partie est perdue quelle que soit la répartition des Instabilités.
+1876	Score de la C.I.V. :
+1877	points de cartes (
+1878	cartes dans son deck, sa défausse, son Histoire, ses Régions en jeu et ses emplacements),
+1879	pour le Progrès,
+1880	pour ses
+1881	Matériaux et Population (1 point par
+1882	Ta feuille de score
+1883	La C.I.V. l'emporte
+1884	. Il te faut strictement plus de points qu'elle.
+1885	Défaite
+1886	Campagne gagnée.
+1887	Tu as vaincu la C.I.V. au niveau Suzerain.
+1888	Récompense de campagne : choisis l'une des deux options.
+1889	Ajouter cette carte commune gagnée à mon deck de départ
+1890	Retirer cette carte de mon deck de départ
+1891	Prochaine partie : niveau
+1894	rejoint ton deck de départ pour le reste de la campagne.
+1895	quitte ton deck de départ pour le reste de la campagne.
+1899	Campagne perdue
+1900	: quatre défaites.
+1901	Campagne :
+1902	sur 4 permises. Ta prochaine partie commence avec le double de ressources (6 Matériaux, 4 Population, 2 Progrès).
+1907	Métropole
+1911	Tous les joueurs PEUVENT piocher 1 carte. Choisir : gagnez 1 Matériau par icône Production OU gagnez 1 Population par Région que vous avez en jeu.
+1912	Cette carte ne peut pas être réservée. Abandonnez 3 Régions pour regarder jusqu\'à 2 Renommées. Gardez une de ces cartes et remettez l\'autre sur la pioche Renommée.
+1913	Choisir : payez 3 Matériaux pour acquérir une Tradition ou un Civilisé OU payez 5 Matériaux pour innover en Tradition ou Civilisé.
+1914	Choisir : payez 2 Population pour acquérir une Région ou un Vassal OU payez 3 Population pour innover en Région ou Vassal.
+1915	Passif : à chaque fois que vous regardez n\'importe quel nombre de cartes du deck Renommée, regardez 1 carte supplémentaire puis gagnez 1 Progrès.
+1916	1 PV par 4 Population
+1917	Innovez en Tradition. Archivez Triumvirat dans votre Histoire.
+1919	Solstice : vous POUVEZ défausser 1 carte pour Choisir : gagnez 1 Population OU gagnez 1 Matériau OU piochez 1 carte.
+1921	Acquérez une Région. Vous POUVEZ à nouveau acquérir une Région. Chaque autre joueur rappelle une Région. Archivez Expansion romaine dans votre Histoire.
+1922	Solstice : défaussez 1 carte. Vous POUVEZ renvoyer une Instabilités. Vous POUVEZ renvoyer une Instabilités de votre défausse.
+1924	Vous POUVEZ réserver 1 carte.
+1926	Gagnez 1 Matériau. Vous POUVEZ réserver 1 carte.
+1927	Action gratuite. Choisir : piochez 2 cartes OU vous POUVEZ acquérir une Région ou un Vassal. Archivez Jules César dans votre Histoire.
+1928	Chaque autre joueur défausse 2 cartes. Vous POUVEZ innover en Tradition.
+1929	Vous POUVEZ acquérir une Région ou un Vassal. Chaque autre joueur abandonne une Région.
+1930	Passif : augmentez de 1 la taille de votre main. Vos cartes Conquête perdent l\'icône Barbare.
+1931	Vous POUVEZ acquérir une Tradition. Vous POUVEZ archiver 1 carte de votre main dans votre Histoire.
+1933	Ne peut être joué que si Cité de Rome est en jeu. Archivez Cité de Rome dans votre Histoire. Solstice : Choisir : gagnez 1 Matériau OU gagnez 1 Population OU piochez 1 carte.
+1934	1 PV par 3 Population
+1935	Acquérez une Tradition, un Civilisé, une Région ou un Vassal. Archivez Empereur Trajan dans votre Histoire.
+1936	Passif : quand vous devez placer 1 Progrès sur une carte du Marché, placez à la place 2 Matériaux sur cette carte.
+1937	1 PV par 3 Matériaux
+1938	Gagnez 1 Population. Vous POUVEZ acquérir une Région et la jouer en Action gratuite. Archivez Didon dans votre Histoire.
+1939	Action gratuite. Ajoutez 1 Matériau sur une carte du Marché. Vous POUVEZ archiver 1 carte de votre main ou de votre défausse dans votre Histoire.
+1940	Gagnez 2 Matériaux. Vous POUVEZ réserver 1 carte.
+1941	Épuiser : payez 3 Matériaux et défaussez 1 carte pour acquérir 1 carte du Marché sur laquelle se trouvent des Matériaux.
+1942	Gagnez 2 Population.
+1943	Solstice : vous POUVEZ défausser 1 carte pour Choisir : gagnez 1 Matériau OU gagnez 1 Population OU piochez 1 carte.
+1944	Vous POUVEZ acquérir une Tradition, un Civilisé, une Région ou un Vassal. Vous POUVEZ piocher 1 carte. Vous POUVEZ récupérer 1 carte de votre Histoire. Archivez Hannibal dans votre Histoire.
+1945	Chaque autre joueur abandonne une Région. Vous POUVEZ innover en Région ou Vassal. Archivez ces Éléphants dans votre Histoire.
+1946	Épuiser : vous POUVEZ rappeler une Région Eau ou une Région Fertile pour acquérir 1 carte du Marché sur laquelle se trouvent des Matériaux.
+1947	1 PV par 5 Matériaux
+1948	Gagnez 2 Matériaux et piochez 1 carte. Donnez à chaque autre joueur 1 carte de votre main ou de votre défausse.
+1949	Payez 2 Matériaux pour acquérir une Tradition, un Civilisé, une Région ou un Vassal. Chaque joueur PEUT piocher 1 carte.
+1950	1 PV par Tradition
+1951	Épuiser : quand vous acquérez une Tradition ou que vous innovez en Tradition, épuisez Celtes, puis chaque autre joueur récupère une Instabilités.
+1952	Choisir : gagnez 1 Progrès OU payez 1 Population pour innover en Tradition OU renvoyez une Instabilités pour gagner 1 Population.
+1953	Gagnez 2 Matériaux. Volez 1 Matériau à chaque joueur ayant au moins une Région en jeu. Volez 1 Progrès à chaque joueur qui est Empire.
+1954	Vous POUVEZ récupérer 1 carte de votre défausse et la placer au-dessus de votre deck. Vous POUVEZ réserver 1 carte.
+1955	Gagnez 1 Progrès. Chaque autre joueur abandonne une Région. Archivez Boadicée dans votre Histoire.
+1956	Épuiser : payez 1 Progrès pour gagner 2 Population.
+1957	Vous POUVEZ piocher 1 carte. Vous POUVEZ réserver 1 carte.
+1958	Vous POUVEZ récupérer 1 carte de votre défausse. Vous POUVEZ réserver 1 carte.
+1959	Chaque autre joueur gagne 1 Matériau. Gagnez 4 Matériaux par icône Fertile dans votre zone de jeu.
+1960	Passif : gagnez 1 Progrès quand vous jouez une Attaque.
+1961	Vous POUVEZ acquérir une Tradition, un Civilisé, une Région ou un Vassal. Archivez Vercingétorix dans votre Histoire.
+1962	Vous POUVEZ acquérir une Tradition ou un Civilisé. Chaque autre joueur récupère une Instabilités.
+1963	Passif : augmentez de 1 la taille de votre main. Épuiser : vous POUVEZ archiver 1 carte de votre main dans votre Histoire. Vous POUVEZ archiver 1 carte de votre défausse dans votre Histoire.
+1964	Passif : vous pouvez acquérir une Région exilée. Vos cartes Conquête et vos Attaques perdent l\'icône Barbare.
+1965	1 PV par 7 cartes
+1966	Épuiser : dépensez 2 Actions pour innover en Tradition ou Civilisé.
+1967	Choisir : payez 1 Population pour acquérir une Région OU gagnez 1 Progrès OU renvoyez une Instabilités.
+1968	Gagnez 1 Progrès. Piochez 1 carte. Volez 2 Matériaux à chaque autre joueur. Chaque autre joueur gagne 1 Population.
+1969	Piochez 2 cartes. Archivez 1 carte de votre main dans votre Histoire.
+1970	Épuiser : Choisir : récupérez une Attaque de votre défausse et placez-la au-dessus de votre deck OU échangez 1 carte exilée avec 1 carte du Marché.
+1971	Passif : jouer vos Instabilités vous coûte 1 Matériau ou 1 carte à défausser de moins (minimum 1). Épuiser : jouez une Instabilités en Action gratuite.
+1972	Passif : augmentez la taille de votre main de 1. Vos cartes Progrès perdent l\'icône Barbare.
+1973	1 PV par 5 cartes
+1974	Abandonnez une carte permanente (qui ne soit pas une Région) pour innover en Tradition ou Civilisé.
+1975	Placez 2 cartes de votre main au-dessus de votre deck pour acquérir une Tradition, un Civilisé, une Région ou un Vassal. Chaque autre joueur rappelle une carte permanente.
+1976	Solstice : vous POUVEZ défausser 1 carte pour Choisir : gagnez 1 Population OU 1 Matériau OU piochez 1 carte.
+1977	Action gratuite. Acquérez une Tradition, un Civilisé, une Région ou un Vassal. Archivez Périclès dans votre Histoire.
+1978	Choisir : gagnez 1 Matériau par icône Production OU gagnez 1 Population par Région OU piochez une carte par icône Ville et Métropole que vous avez en jeu.
+1979	1 PV par 2 Régions
+1980	Passif : quand vous jouez une Région de votre défausse, gagnez 2 Matériaux.
+1981	Acquérez une Tradition, un Civilisé, une Région ou un Vassal. Archivez Philippe II dans votre Histoire.
+1982	Épuiser : dépensez 1 Action pour jouer une Région de votre défausse.
+1983	Volez 2 Matériaux à chaque autre joueur. Vous POUVEZ renvoyer 1 jeton Épuisé utilisé sur votre carte État.
+1984	Piochez 1 carte. Vous POUVEZ innover en Région ou Vassal. Archivez Alexandre dans votre Histoire.
+1985	Épuiser : payez 1 Matériau pour récupérer 1 carte de votre défausse.
+1986	Ne peut être jouée que si Alexandre est archivé dans votre Histoire. Action gratuite. Vous POUVEZ acquérir une Région deux fois, y compris parmi les cartes exilées. Archivez Alexandre le Grand dans votre Histoire.
+1987	Passif : vos cartes Conquête perdent l\'icône Barbare. Épuiser : quand vous jouez une Région, épuisez cette carte pour piocher 1 carte.
+1988	Choisir : développez 1 carte OU payez 2 Matériaux pour acquérir une Tradition ou un Civilisé.
+1989	Solstice : Choisir : gagnez 1 Population OU gagnez 1 Matériau OU piochez 1 carte.
+1990	Vous POUVEZ acquérir une Région ou un Vassal et la jouer en Action gratuite. Archivez Parménion dans votre Histoire.
+1991	1 PV par 3 Vassaux
+1992	Épuiser : dépensez 1 Action, placez 2 cartes de votre main au-dessus de votre deck et payez 1 Population pour innover en Vassal.
+1993	Gagnez 2 Population. Archivez Lydiens dans votre Histoire.
+1994	Gagnez 3 Matériaux. Vous POUVEZ réserver 1 carte.
+1995	Gagnez 4 Matériaux. Archivez Empire Mède dans votre Histoire.
+1996	Vous POUVEZ archiver 1 carte de votre défausse dans votre Histoire. Vous POUVEZ réserver 1 carte.
+1997	Tous les joueurs gagnent 2 Matériaux. Vous gagnez 1 Progrès. Chaque autre joueur récupère une Instabilités.
+1998	Action gratuite. Payez 3 Matériaux pour gagner 1 Action.
+1999	Action gratuite. Épuiser : pour le reste du tour, considérez 1 icône Fertile comme 3 icônes Eau.
+2000	1 PV par Vassal
+2001	Acquérez une Tradition, un Civilisé, une Région ou un Vassal. Archivez Darius I dans votre Histoire.
+2002	Action gratuite. Acquérez une Tradition, un Civilisé, une Région ou un Vassal. Archivez Babyloniens dans votre Histoire.
+2003	Chaque autre joueur abandonne une carte Ville. Vous POUVEZ innover en Région ou Vassal.
+2004	1 PV par 6 Population
+2005	Épuiser : dépensez 1 Action et récupérez une Instabilités pour innover en Région.
+2006	Tous les joueurs PEUVENT piocher 1 carte. Gagnez 1 Matériau par icône Production que vous avez en jeu.
+2007	Épuiser : vous POUVEZ épuiser cette carte pour éviter les effets d\'une Attaque jouée par un autre joueur (même au cours de son tour). Solstice : vous POUVEZ payer 1 Matériau pour gagner 1 Population.
+2008	Épuiser : quand vous jouez une Région, épuisez cette carte pour gagner 1 Population. Solstice : vous POUVEZ rappeler une Région.
+2009	Épuiser : défaussez 1 carte pour piocher 2 cartes.
+2010	Action gratuite. Piochez 2 cartes. Tous les autres joueurs rappellent une Région. Volez 1 Population à chaque joueur qui est Empire.
+2011	Passif : augmentez de 1 la taille de votre main. Épuiser : archivez 1 carte de votre défausse dans votre Histoire.
+2012	Vous POUVEZ acquérir une Région. Vous POUVEZ renvoyer une Instabilités. Archivez Ateas dans votre Histoire.
+2013	Cette carte ne peut pas être jouée, ni être réservée.
+2014	1 PV par carte à étoile
+2015	Passif : les cartes qui doivent être archivées dans votre Histoire sont défaussées. Quand vous récupérez une Instabilités, regardez la première carte de votre pioche Nation ; vous POUVEZ la placer au fond de la pioche Nation. Épuiser : quand vous renvoyez une Instabilités, épuisez Vikings pour piocher 2 cartes.
+2016	Volez 1 Matériau à chaque autre joueur. Choisir : gagnez 1 Progrès OU renvoyez une Instabilités.
+2017	Regardez la première carte de votre pioche Nation. Vous POUVEZ mélanger la pioche Nation et gagner 1 Population. Choisir : renvoyez une Instabilités OU piochez 2 cartes.
+2018	Payez 1 Population et 2 Matériaux pour acquérir une Région ou un Vassal. Chaque autre joueur défausse 1 carte.
+2019	Abandonnez la Scandinavie et payez 1 Population pour trouver une Région que vous ajoutez à votre main. Exilez Erik le Rouge.
+2020	Vous POUVEZ réserver 1 carte. Choisir : exilez 1 carte du Marché OU gagnez 1 Population.
+2021	1 PV par 8 Matériaux
+2022	Vous POUVEZ réserver 1 carte. Choisir : gagnez 1 Population OU regardez la première carte de votre pioche Nation, puis vous POUVEZ mélanger la pioche Nation.
+2023	Épuiser : ignorez l\'icône Empire sur la prochaine carte que vous jouez au cours de ce tour.
+2024	Vous POUVEZ réserver 1 carte. Choisir : gagnez 2 Matériaux OU regardez la première carte de votre pioche Nation, puis vous POUVEZ mélanger la pioche Nation.
+2025	Action gratuite. Volez 2 Matériaux à chaque autre joueur. Les joueurs qui ne peuvent pas payer récupèrent une Instabilités.
+2026	Épuiser : quand vous jouez une Région, épuisez Skis pour Choisir : piochez 1 carte OU gagnez 2 Matériaux.
+2027	Passif : vous POUVEZ acquérir des Régions exilées ; quand vous le faites, gagnez 1 Population. Épuiser : quand vous jouez une Attaque, épuisez Drakkars pour gagner 2 Matériaux.
+2028	Piochez une Renommée. Exilez Rollon le Marcheur.
+2029	1 PV par carte réservée ici
+2030	Solstice : vous POUVEZ réserver 1 carte.
+2031	6 PV si en jeu
+2032	Cette carte ne peut être jouée que si Drakkars ET Groenland sont en jeu. Choisir : renvoyez une Instabilités OU vous POUVEZ réserver 1 carte.
+2033	2 PV par carte à étoile
+2034	PLACER CETTE CARTE DANS LA DÉFAUSSE DÉCLENCHE LA FIN DE PARTIE. Piochez une Renommée. Vous POUVEZ innover en Région.
+2038	(démo)
+2039	Gagnez 2 Matériaux.
+2040	Piochez 2 cartes.
+2041	Gagnez 1 Action. Piochez 1 carte.
+2042	Épuiser : gagnez 1 Population.
+2043	Épuiser : gagnez 1 Matériau.
+2044	Gagnez 1 Progrès. Vous POUVEZ acquérir une Région.
+2045	Renvoyez une Instabilités de votre main ou de votre défausse. Gagnez 1 Population.
+2046	Acquérez une Région ou un Vassal.
+2047	Innovez en Civilisé.
+2048	Chaque autre joueur récupère une Instabilités. Gagnez 1 Matériau.
+2049	Passif : augmentez de 1 la taille de votre main.
+2050	Gagnez 2 Progrès.
+2051	Piochez 3 cartes. Défaussez 1 carte.
+2052	Épuiser : gagnez 1 Progrès.
+2053	Acquérez une Tradition ou un Civilisé.
+2054	Archivez 1 carte de votre main dans votre Histoire. Gagnez 2 Matériaux.
+2055	1 PV par Région que vous avez en jeu (10 max).
+2056	1 PV par Région en jeu
+2057	Gagnez 3 Population. Archivez cette carte dans votre Histoire.
+2058	Gagnez 3 Matériaux. Archivez cette carte dans votre Histoire.
+2059	Aucun effet.
+2060	Gagnez 3 Progrès. (texte de démonstration)
+2061	Gagnez 2 Progrès. (texte de démonstration)
+2062	Exilez 1 carte du Marché. Vous POUVEZ réserver 1 carte.
+2064	Payez 3 Matériaux pour innover en Vassal.
+2065	Cité
+2067	2 PV par icône Eau
+2068	Épuiser : quand vous gagnez des Matériaux grâce à une carte Eau en jeu, épuisez cette carte pour gagner 1 Progrès.
+2070	Action gratuite. Payez 1 Matériau et annoncez une catégorie : Tradition, Civilisé, Région ou Vassal. Révélez la première carte de la pioche Principale. Si elle correspond à la catégorie annoncée, ajoutez-la à votre main. Sinon exilez-la.
+2071	2 PV si dans votre Histoire
+2072	Épuiser : tous les joueurs PEUVENT gagner 2 Matériaux. Solstice : vous POUVEZ gagner 2 Progrès. Si vous le faites, Choisir : abandonnez cette Ville OU archivez-la dans votre Histoire.
+2074	Choisir : acquérez une Tradition OU innovez en Tradition et tous les autres joueurs gagnent 1 Progrès.
+2076	Action gratuite. Choisir : piochez 1 carte OU archivez 1 carte de votre main ou de votre défausse dans votre Histoire.
+2078	Épuiser : payez 1 Matériau pour piocher 1 carte. Solstice : vous POUVEZ défausser 1 carte pour renvoyer une Instabilités de votre défausse.
+2080	Payez 3 Matériaux. Tous les autres joueurs récupèrent une Instabilités. Choisir : innovez en Vassal OU innovez en Région et chaque autre joueur rappelle une Région.
+2082	1 PV par icône Eau et par icône Fertile
+2083	Épuiser : rappelez une Région Eau pour gagner 2 Matériaux et 1 Population OU rappelez une Région Fertile pour gagner 1 Action.
+2085	2 PV par icône Fertile
+2086	Épuiser : pour le reste du tour, considérez 1 icône Fertile comme 3 icônes Eau.
+2087	Masque de jade
+2089	1 PV si dans votre Histoire
+2090	Piochez jusqu\'à 3 cartes si possible. Puis placez 1 carte de votre main au-dessus de votre deck.
+2092	Épuiser : gagnez 1 Action. Solstice : Choisir : récupérez une Instabilités OU défaussez 2 cartes.
+2094	2 PV par Renommée
+2095	Action gratuite. Piochez 2 cartes et défaussez l\'une d\'entre elles.
+2097	Épuiser : gagnez 1 Matériau par icône Eau dans votre zone de jeu. Vous POUVEZ payer 3 Matériaux pour récupérer 1 carte de votre défausse.
+2100	Forêt
+2101	Rivière
+2102	Vous POUVEZ archiver 1 carte de votre défausse dans votre Histoire.
+2103	Plaine inondable
+2105	Gagnez 1 Population.
+2107	Région boisée
+2108	Vous POUVEZ récupérer 1 carte de votre défausse et la placer au-dessus de votre deck.
+2110	Passif : vous POUVEZ rappeler Cap pour éviter les effets d\'une Attaque.
+2111	Côte
+2112	Piochez 1 carte.
+2115	Gagnez 3 Matériaux.
+2116	Épuiser : vous POUVEZ regarder la première carte de votre pioche Nation. Puis vous POUVEZ abandonner Voie sacrée pour échanger cette carte avec une carte de votre main (jamais l\'Avènement).
+2118	Épuiser : piochez 1 carte. Solstice : gagnez 2 Matériaux.
+2120	1 PV par 10 cartes
+2121	Tous les joueurs gagnent 2 Matériaux. Donnez à chaque autre joueur 1 carte de votre main ou de votre défausse.
+2123	Solstice : Choisir : gagnez 1 Population OU payez 2 Population pour gagner 1 Progrès.
+2125	Tous les joueurs gagnent 2 Matériaux. Tous les autres joueurs récupèrent une Instabilités. Gagnez 1 Progrès.
+2127	Chaque autre joueur abandonne une carte Ville. Gagnez 2 Matériaux par carte Ville abandonnée. Vous POUVEZ acquérir une Région ou un Vassal.
+2128	Éducation
+2129	Action gratuite. Vous POUVEZ archiver 1 carte de votre main dans votre Histoire. Vous POUVEZ archiver 1 carte de votre défausse dans votre Histoire.
+2131	1 PV par 10 Matériaux
+2133	1 PV par 5 Progrès
+2134	Épuiser : défaussez 1 carte pour gagner 1 Progrès. Solstice : renvoyez une Instabilités de votre défausse.
+2137	Chaque autre joueur abandonne une Région. Vous POUVEZ acquérir une Région ou un Vassal. Vous POUVEZ réserver Cataphractaire sous une Région pour déclencher l\'effet de jeu de cette dernière.
+2138	Développement urbain
+2139	2 PV par icône Ville et par icône Métropole
+2140	Gagnez 1 Matériau et 1 Population par icône Ville et par icône Métropole dans votre zone de jeu.
+2142	Action gratuite. Payez 1 Population pour gagner 1 Action.
+2143	Arméniens
+2144	Acquérez une Tradition. Archivez Arméniens dans votre Histoire.
+2145	Cette carte ne peut pas être jouée. Renvoyez jusqu\'à 2 Instabilités avant le décompte des PV.
+2147	1 PV par 3 cartes permanentes en jeu, Régions exceptées
+2149	Action gratuite. Gagnez 1 Population.
+2150	Égyptiens
+2151	1 PV par Civilisé
+2152	Si vous êtes Barbare, placez la première carte de votre pioche Nation dans votre défausse. Si vous êtes Empire, développez 1 carte. Archivez Égyptiens dans votre Histoire.
+2154	Innovez en Région. Archivez Hittites dans votre Histoire.
+2156	Action gratuite. Renvoyez jusqu\'à 2 Instabilités de votre main ou de la défausse. Archivez Ioniens dans votre Histoire.
+2158	1 PV tous les 4 Progrès
+2159	Action gratuite. Placez 1 carte de votre main au-dessus de votre deck et gagnez 2 Progrès.
+2161	Gagnez 4 Matériaux.
+2165	Action gratuite. Piochez 1 carte si possible et Choisir : défaussez-la OU placez-la au-dessus de votre deck OU archivez-la dans votre Histoire.
+2167	Action gratuite. Si vous êtes Barbare, piochez jusqu\'à 4 cartes. Si vous êtes Empire, développez 1 carte sans payer son coût. Archivez Glorieux dans votre Histoire.
+2169	1 PV par Instabilités des autres joueurs
+2170	Action gratuite. Volez 1 Progrès à chaque autre joueur. Les joueurs qui ne peuvent pas payer récupèrent une Instabilités.
+2172	2 PV, ou 6 PV si dans votre Histoire
+2173	Action gratuite. Gagnez 1 Action. Vous POUVEZ archiver Grandeur dans votre Histoire.
+2174	Éloges
+2175	3 PV, ou 7 PV si dans votre Histoire
+2176	Choisir : archivez Éloges dans votre Histoire OU innovez en Tradition, Civilisé, Région ou Vassal.
+2177	Résolue quand il n\'y a plus de Renommée à piocher ou regarder, puis retournée sur sa face B. CELA DÉCLENCHE LA FIN DE PARTIE. Barbare : gagnez 6 Progrès. Empire : gagnez 3 Progrès et développez 1 carte sans payer son coût.
+2178	Résolvez-la et laissez-la en place ; plusieurs joueurs peuvent la résoudre. Barbare : gagnez 4 Progrès. Empire : développez 1 carte sans payer son coût.
+2181	la pioche Principale est vide
+2182	Aucune carte
+2184	) : la carte va sur son deck.
+2185	Elle prend aussi l\'Instabilité glissée dessous.
+2186	L\'Instabilité dessous retourne dans la pile.
+2187	est archivée dans l'Histoire de la C.I.V.
+2188	va sur le deck de la C.I.V.
+2189	Roi des rois (face A) est résolue
+2190	La C.I.V. prend une Instabilité dans la pile.
+2191	Je subis
+2192	Cet effet compte comme une Attaque : tes protections s\'appliquent.
+2193	Tu verses 1
+2194	Tu PEUX piocher 1 carte.
+2195	Piocher 1 carte
+2196	Non merci
+2197	Tu pioches 1 carte.
+2198	La C.I.V. te fait récupérer une Instabilités.
+2199	Une Instabilités arrive dans ta main.
+2200	La C.I.V. te fait défausser
+2202	à défausser.
+2204	rappeler dans ta main
+2205	La C.I.V. te fait
+2207	Choisis la carte à
+2208	La C.I.V. exile
+2209	La C.I.V. reprend
+2210	dans la pile Exil.
+2211	à l'aveugle : la carte va sur son deck.
+2212	Tu n\'as rien à te faire voler.
+2213	C\'est une Attaque.
+2214	Instabilité : elle retourne dans la pile commune.
+2219	n'ont pas d'Histoire :
+2220	est défaussée.
+2221	ton Zénith,
+2222	, rejoint ta défausse
+2223	Ton Avènement,
+2224	, rejoint ta défausse.
+2225	Te voilà Empire
+2226	: tes cartes Empire deviennent jouables.
+2227	est abandonnée.
+2228	revient dans ta main.
+2229	Mélange :
+2230	rejoint ta défausse depuis ta pioche Nation.
+2231	rejoint ta défausse.
+2233	Ta pioche Nation est vide : tu PEUX développer une carte avant de mélanger.
+2234	Ne rien développer
+2235	Tu développes
+2236	tu as développé ta dernière carte
+2237	Pioche Nation vide : tu ne peux payer aucun Développement.
+2238	Tu mélanges ta défausse pour refaire ton deck.
+2242	.pk input
+2247	∞ reste en jeu
+2249	" data-id="
+2251	Coût de développement :
+2252	épuisée
+2253	data-id="
+2255	class="
+2257	Marché
+2258	+ Vassal
+2259	retournée
+2264	Sur la carte :
+2270	Acquérir…
+2272	Innover…
+2274	Abandonner 3 Régions et regarder les Renommées
+2276	+1 Action
+2278	Exiler…
+2280	Renvoyer une Instabilités…
+2282	Développer gratuitement
+2287	: choisis ton ordre.
+2292	Terminer mes actions → Nettoyage
+2293	Annuler la dernière action
+2294	Solstice : applique les effets ci-dessous avec les outils, puis valide.
+2295	Aucun effet Solstice en jeu.
+2297	Carte en cours de résolution
+2299	Terminé : défausser
+2301	Archiver dans l\'Histoire
+2303	Laisser en jeu
+2304	Applique le texte avec les boutons rapides ou les outils, puis termine.
+2308	Sur le deck
+2310	Réserver sous…
+2312	Donner à la C.I.V.
+2314	Renvoyer (effet)
+2315	Main vide.
+2317	Reprendre en main
+2318	Réservées dessous :
+2319	Jetons :
+2320	Rien en jeu.
+2321	Développer (effet)
+2324	Épuisé
+2325	Main max
+2326	sm quit
+2327	Ma main
+2328	Ma zone de jeu
+2330	Boîte à outils
+2333	Piocher 1
+2335	Piocher 1, si possible
+2336	Gagner 1 Action
+2338	Récupérer une Instabilités
+2340	Trouver une carte
+2342	Gagner une Renommée
+2343	Regarder la pioche Renommée
+2345	Ajouter 1 Progrès sur une carte
+2346	Contre la C.I.V.
+2348	Elle récupère une Instabilités
+2352	Elle pioche 1 carte
+2354	Lui voler 1 Matériau
+2356	Lui voler 1 Progrès
+2357	« Défausser » est sans effet sur la C.I.V.
+2358	+ Avènement
+2359	Ma défausse
+2361	Mon Histoire
+2362	Mes Développements (
+2363	Tous développés.
+2366	#tab-solo section.panel
+2369	#tab-solo .wrap
+2376	Abandonner cette partie numérique ? Elle ne sera pas enregistrée.
+2377	: tu choisis l'Activation.
+2378	: tu choisis la Recherche. Tu défausses ta main.
+2379	Recherche : dans quelle catégorie innoves-tu ?
+2380	: tu choisis la Pacification.
+2381	Pacification : quelles Instabilités renvoies-tu dans la pile ?
+2382	Tu renvoies
+2383	Tu pioches
+2384	Tu gagnes 1 Action.
+2385	porte l'icône
+2386	: tu ne peux pas la jouer de ta main en étant
+2388	Une de mes cartes l\'autorise
+2389	Par exemple Peignes, qui fait ignorer l\'icône Empire.
+2390	ne peut pas être jouée.
+2391	Tu n\'as plus de jeton Action. Seule une Action gratuite reste possible.
+2392	Une même carte ne se joue qu\'une fois par tour en Action gratuite.
+2394	Choisis 2 cartes à défausser.
+2395	Tu renvoies une Instabilités dans la pile.
+2396	Tu joues
+2397	en Action gratuite
+2398	est défaussée (pas d'Histoire).
+2399	est archivée dans ton Histoire.
+2400	est placée sur ton deck.
+2401	Tu renvoies une Instabilités dans la pile (effet de carte).
+2402	Aucune carte en jeu pour la réserver dessous.
+2403	Sous quelle carte réserves-tu
+2404	est réservée sous
+2405	Tu donnes
+2406	à la C.I.V. : la carte va sur son deck.
+2407	Tu épuises
+2408	Appliquer avec les outils
+2409	Utilise les boutons rapides ou la boîte à outils pour appliquer l\'effet.
+2410	Tu épuises ta carte Puissance.
+2411	Ton deck est vide : tu ne pioches pas.
+2412	Aucune Instabilités dans ta main ni ta défausse.
+2413	Quelles Instabilités renvoies-tu dans la pile ?
+2414	Instabilités.
+2415	Tu récupères une Instabilités.
+2416	Trouver : quelle carte cherches-tu ? (main, défausse, deck, pioche Nation)
+2417	Tu trouves
+2418	Innover : quelle catégorie ?
+2419	Toutes les cartes du Marché portent des jetons : aucune ne peut être exilée.
+2420	Quelle carte du Marché exiles-tu ?
+2421	Tu exiles
+2422	Sur quelle carte du Marché poses-tu 1 Progrès du stock ?
+2423	La C.I.V. récupère une Instabilités : elle va sur son deck.
+2424	La C.I.V. n\'a aucune Région en jeu.
+2425	La C.I.V. rappelle
+2426	sur son deck.
+2427	Tu voles 1
+2428	Elle n\'en a pas.
+2429	: tu gagnes
+2430	: tu pioches 1 carte.
+2431	: tu PEUX archiver 1 carte de ta défausse dans ton Histoire.
+2432	: tu PEUX placer 1 carte de ta défausse sur ton deck.
+2433	: exile 1 carte du Marché (obligatoire). Une carte portant des jetons ne peut pas être exilée.
+2434	Toutes les cartes du Marché portent des jetons : rien à exiler.
+2435	: tu PEUX réserver 1 carte de ta main dessous.
+2436	+ Instabilité
+2437	Dans la pile Exil…
+2438	Acquérir : quelle carte prends-tu ? Respecte les catégories indiquées sur ta carte.
+2439	Quelle carte prends-tu dans la pile Exil ?
+2440	Tu acquiers
+2441	Tu récupères aussi une Instabilités.
+2442	et ses jetons
+2443	, avec l\'Instabilité glissée dessous
+2444	Fouiller la pioche Principale (ou un Vassal visible)
+2445	Prendre la 1re carte de la pioche
+2446	Innover en
+2447	: choisis.
+2449	Aucune carte de cette catégorie : tu gagnes 2 Progrès.
+2450	Tu innoves :
+2451	arrive dans ta main.
+2452	Tu innoves
+2453	: son Instabilité retourne dans la pile
+2454	Tu as déjà résolu Roi des rois : rien ne se passe.
+2455	Roi des rois, face
+2456	Résoudre
+2457	Chaque joueur ne résout Roi des rois qu\'une fois par partie.
+2458	Roi des rois (face
+2459	) : tu gagnes
+2460	Roi des rois (face A) : tu gagnes 3
+2461	tu as résolu Roi des rois (face A)
+2462	Plus aucune carte à développer.
+2463	Développe 1 carte sans payer son coût.
+2465	Il te faut 3 Régions en jeu pour jouer Gloire.
+2466	Choisis les 3 Régions à abandonner.
+2467	Pouvoir des Romains : tu regardes 1 carte de plus et gagnes 1
+2468	Tu regardes
+2469	Renommée. Laquelle gardes-tu ?
+2470	Tu gardes
+2471	; les autres retournent sur la pioche Renommée.
+2474	Nettoyage, étape 1 (pouvoir carthaginois) : sur quelle carte du Marché poses-tu 2 Matériaux du stock ?
+2475	Nettoyage, étape 1 : sur quelle carte du Marché poses-tu 1 Progrès du stock ?
+2476	Nettoyage, étape 3 : quelles cartes défausses-tu ?
+2477	Fin de ton tour : ta main compte
+2478	Tour de la C.I.V. · dé :
+2479	ne sera pas résolue.
+2480	Toutes ses cartes sont résolues.
+2481	La C.I.V. pose
+2482	: Solstice
+2483	(dernière manche)
+2484	(Décompte déclenché)
+2485	Nouvelle partie numérique : tes
+2486	contre la C.I.V.
+2487	). Tu commences.
+2488	: la pile d\'Instabilités est vide. En solo, la partie est perdue.
+2489	Fin de partie : indique la valeur de tes cartes à points variables.
+2490	(10 au plus)
+2491	" min="0" max="10" value="0">
+2494	Ton score :
+2495	points (cartes,
+2496	Progrès en réserve). C.I.V. :
+2497	Défaite.
+2498	(numérique)
+2499	Adversaire automatique pour le mode solo
+2500	Une partie contre les
+2501	est en cours (manche
+2502	). La reprendre au début de ton tour ?
+2504	Un entraînement avec les
+2505	est en cours (tour
+2506	sur 12). Le reprendre ?
+2507	">Ta nation
+2508	· complexité
+2509	Complexité d'après le livret : une étoile, c'est la plus simple à prendre en main.
+2510	Type de partie
+2511	Partie libre
+2512	Partie numérique
+2513	Quelle nation la C.I.V. joue-t-elle ?
+2514	Difficulté estimée de chaque C.I.V. d'après des centaines de parties simulées : ce n'est pas une donnée du livret. Elle s'ajoute au niveau choisi plus bas.
+2515	Niveau de difficulté
+2516	Préparer la partie
+2517	#mm button
+2521	Sans le jeu physique : l'application gère ton deck, ta main, le Marché, les jetons et la C.I.V. Tu lis tes cartes et appliques leurs effets avec des boutons.
+2523	Le Marché est préparé avec les cartes communes de ta boîte, comme pour 2 joueurs.
+2524	La variante d'apprentissage du livret : aucun adversaire, 12 tours rythmés par un sablier de 12 Progrès. Idéal pour découvrir une nation. Repères : 50 points, les bases sont acquises ; 90 points, c'est un exploit.
+2526	Campagne avec les
+2527	. Cette partie se joue au niveau
+2528	Abandonner cette campagne
+2529	Cinq victoires à difficulté croissante pour gagner, quatre défaites pour perdre. Tu gardes la même nation du début à la fin.
+2533	#nn button
+2535	#dd button
+2542	Ta nation
+2543	Carte Puissance, et carte État face Barbare avec 3 jetons Action et 5 jetons Épuisé.
+2544	Développements face visible. Avènement face visible, cartes Nation mélangées posées dessus en travers.
+2545	Réserve : 3 Matériaux, 2 Population, 1 Progrès.
+2546	Écarte tes cartes marquées 3+ ou 4, mélange le reste pour former ton deck, pioche 5 cartes.
+2547	Le Marché (comme à 2 joueurs)
+2548	Écarte les cartes communes marquées 3+ ou 4, puis trie par couleur de bandeau.
+2549	Pile Instabilités face visible.
+2550	Roi des rois face A, avec 6 Renommées face cachée dessus.
+2551	Pioches Région, Tradition et Civilisé : 6 cartes chacune.
+2552	Pioche Principale : les Vassaux et tout le reste, mélangés.
+2553	Marché : 2 cartes de la pioche Principale, puis 1 Civilisé, 1 Tradition, 1 Région.
+2554	Une Instabilité sous chaque carte du Marché sauf la Région, et 1 Progrès sur chaque carte à bandeau blanc.
+2555	Les emplacements du Marché sont numérotés de 1 à 5, de gauche à droite. Pose les marqueurs dessous si tu veux un repère.
+2556	Dans la boîte des
+2557	, prends
+2559	cartes Instabilités sans icône de nombre de joueurs et pose-les à part : c'est le tas « Instabilités de la C.I.V. »
+2560	leurs cartes Instabilités et ajoute-les à la pile commune
+2561	. Leurs autres cartes restent dans la boîte : l'application les gère.
+2562	Garde un coin de table pour un second tas, « cartes de la C.I.V. », où iront les cartes qu'elle prendra au Marché.
+2563	La C.I.V. démarre avec 3 Matériaux, 2 Population et 1 Progrès : c\'est déjà compté.
+2565	Tu commences avec 6 Matériaux, 4 Population et 2 Progrès.
+2566	Ressources de départ normales.
+2567	Ajoute à ton deck de départ :
+2568	Retire de ton deck de départ :
+2569	Tu joues en premier. Le dé, le deck, la défausse, l'Histoire et les ressources de la C.I.V. sont tenus ici.
+2570	Commencer la partie
+2571	Imperium en une phrase
+2572	Tu diriges une nation antique, représentée par un paquet de cartes qui grossit et se transforme au fil de la partie.
+2573	La fin normale. On compte les points de victoire : le plus haut total gagne.
+2574	La pile
+2575	est vide : la partie s'arrête net, et celui qui possède le moins d'Instabilités gagne.
+2576	Ton coin de table
+2577	à payer plus tard
+2578	sous la pioche Nation
+2579	Barbare puis Empire · tes jetons
+2580	ton pouvoir · ton Histoire dessous
+2581	tes Régions et cartes permanentes
+2582	Ta main : 5 cartes
+2583	Trois ressources
+2584	Construire, payer les cartes de développement.
+2585	Conquérir, acquérir des Vassaux.
+2586	La ressource joker, et 1 point de victoire par jeton à la fin.
+2587	Pour payer, 1 Progrès vaut
+2588	1 Population
+2589	. Les ressources posées sur des cartes ne servent à rien.
+2590	Ton tour : un seul ordre
+2591	Le tour normal : tu joues des cartes et tu épuises des capacités.
+2592	Tu défausses ta main et tu prends une carte choisie, sans son Instabilité.
+2593	Tu renvoies gratuitement toutes les Instabilités de ta main.
+2594	Puis, quel que soit l'ordre : le Nettoyage.
+2595	Activation : jetons Action et Épuisé
+2596	3 Actions
+2597	Une Action = jouer une carte de ta main. Résous son texte, puis défausse-la, sauf si elle reste en jeu.
+2598	Pose un jeton sur une carte en jeu pour utiliser sa capacité « Épuiser ». Une fois par tour et par carte.
+2599	Une carte marquée Barbare ou Empire ne se joue de ta main que si ta carte État montre la même face.
+2600	Le Marché
+2601	Cinq cartes visibles. Sous chacune, une
+2602	, sauf sous les Régions.
+2603	Tu prends la carte, ses ressources
+2604	et l'Instabilité
+2605	Tu prends la carte et ses ressources. L'Instabilité retourne dans la pile.
+2606	Le Nettoyage
+2607	1 Progrès du stock
+2608	sur une carte du Marché.
+2609	Tes jetons reviennent :
+2610	3 Actions, 5 Épuisé
+2611	Défausse autant de cartes de ta main que tu veux.
+2612	Pioche jusqu'à
+2613	5 cartes
+2614	Conseil : défausse large, ton deck tournera plus vite.
+2615	Ta nation évolue
+2616	Chaque fois que tu mélanges ta défausse pour refaire ton deck, une carte s'y ajoute :
+2617	Cartes Nation
+2618	une par mélange
+2619	tu deviens Empire
+2620	tu en paies le coût
+2621	Développer ta dernière carte déclenche le Décompte.
+2622	Instabilités et Gloire
+2623	−2 points chacune, et elles encombrent ta main. Pour t'en défaire : la jouer (une Action, puis 1 Population, 3 Matériaux ou 2 cartes défaussées), ou l'ordre Pacification.
+2624	Abandonne 3
+2625	en jeu pour gagner une
+2626	, la source de points la plus riche. Il faudra ensuite rejouer tes Régions.
+2627	Manches et fin de partie
+2628	Quand tout le monde a joué, chacun résout ses effets Solstice. Puis nouvelle manche.
+2629	Pioche Principale vide, dernier Développement payé ou Roi des rois retournée : on finit la manche, on en joue
+2630	une dernière
+2631	, puis on compte.
+2632	Score : points des cartes (10 au plus pour une carte à étoile) + 1 point par Progrès en réserve.
+2633	1 · Choisis un ordre
+2634	: 3 Actions, 5 jetons Épuisé
+2635	: défausse ta main, innove 1 carte
+2636	: renvoie tes Instabilités
+2637	2 · Nettoyage
+2638	du stock sur le Marché
+2639	Défausse ce que tu veux
+2640	Pioche jusqu'à 5
+2641	: avec l'Instabilité
+2642	: sans l'Instabilité
+2643	Deck vide
+2644	+1 carte Nation, puis Avènement, puis un Développement payé
+2645	1 seul ajout par tour
+2647	à chaque fin de manche
+2648	: finir la manche + 1 manche
+2649	: pile
+2651	Écran
+2652	Ton tour, en un coup d\'œil
+2653	>Précédent
+2654	Revenir au début
+2655	Afficher l\'aide-mémoire
+2657	Plein écran
+2658	Flèches du clavier pour avancer.
+2667	fullscreenchange
+2671	Dernière manche : le Décompte suit le Solstice.
+2672	Décompte déclenché : on termine cette manche, puis une dernière manche complète.
+2674	Pendant le tour
+2675	Annonce un ordre : Activation, Recherche ou Pacification.
+2677	sur une carte du Marché, au lieu du Progrès (nombre selon ta carte Puissance)
+2678	du stock
+2679	sur une carte du Marché
+2680	Jetons : 3 Actions, 5 Épuisé
+2681	Défausse libre
+2682	Tour terminé : Solstice
+2683	Tour terminé : joueur suivant
+2684	Fin de la manche
+2685	Chacun résout ses effets Solstice, en même temps. Ni Action ni capacité Épuiser.
+2686	Solstice résolu : compter les points
+2687	Solstice résolu : manche suivante
+2691	Une de moins
+2692	Une de plus
+2693	Pile vide : Effondrement.
+2694	Danger : l\'Effondrement est tout proche.
+2695	Attention : la pile s\'amenuise.
+2696	Ajuste à chaque carte prise ou rendue.
+2697	Ordre du tour
+2698	>Annuler la dernière étape
+2703	Confirmer : effacer cette partie
+2704	Cartes à valeur fixe
+2705	Cartes à étoile (10 max chacune)
+2706	Cartes à point d\'interrogation réussies
+2707	Nombre d\'Instabilités
+2708	Feuille de score
+2709	Chacun compte sa main, sa zone de jeu, son deck, sa défausse, son Histoire, ses cartes réservées et sa carte Puissance. La pioche Nation et les Développements non payés ne comptent pas.
+2710	(−2 chacune)
+2711	" data-k="
+2712	" value="
+2713	" aria-label="
+2718	Égalité
+2720	: la victoire est partagée.
+2721	l'emporte avec
+2722	.sheet input
+2723	La pile d'Instabilités est vide : la partie s'arrête immédiatement, l'action en cours est interrompue. Chacun compte ses Instabilités dans sa main, sa zone de jeu, son deck, sa défausse et son Histoire, pas dans sa pioche Nation.
+2724	" data-j="
+2725	Égalité : départager aux points
+2727	Saisis le nombre d\'Instabilités de chaque joueur.
+2728	chacun) : départagez-les aux points du Décompte.
+2729	#mp-comp [data-j]
+2731	Nouvelle partie à plusieurs
+2732	Le compagnon rythme la partie : à qui le tour, le rappel du Nettoyage, le Solstice, la pile d'Instabilités, puis la feuille de score.
+2733	Nombre de joueurs
+2734	" class="
+2736	Joueurs, dans l'ordre de jeu (sens horaire)
+2737	">Nom
+2739	">Nation
+2741	Nombre de cartes dans la pile après la mise en place
+2742	Compte la pile une fois le Marché installé. Les Instabilités de départ de certaines nations y sont déjà.
+2743	Tirer le premier joueur et commencer
+2744	#mpn button
+2749	#mpnav button
+2751	Ton tour
+2753	un seul ordre
+2754	, puis fais ton Nettoyage.
+2755	3 jetons Action, 5 jetons Épuisé.
+2756	1 Action = jouer 1 carte de ta main. Résous son texte, puis défausse-la, sauf si elle reste en jeu (∞).
+2757	Épuiser = poser 1 jeton Épuisé sur une carte en jeu sans jeton. Une fois par tour et par carte.
+2758	: sans jeton, mais une fois par tour pour une même carte. Les coûts écrits restent dus.
+2759	Carte Barbare ou Empire : jouable de ta main seulement si ta carte État montre la même face.
+2760	Défausse toute ta main, puis innove une Région, Tradition, Civilisé ou Vassal. Ni Action ni Épuiser.
+2761	Renvoie gratuitement autant d'Instabilités de ta main que tu veux. Ni Action ni Épuiser.
+2762	Chaque phrase se résout dans l'ordre,
+2763	Ce qui suit « pouvez » est facultatif ; le reste est obligatoire.
+2764	Ce qui précède « pour » est un
+2765	: il se paie en entier, avant le reste. Impayable : carte injouable.
+2766	Payer ou Déplacer des ressources est toujours un coût.
+2767	: une seule option parmi celles séparées par OU.
+2768	« Tous les joueurs » t'inclut ; « tous les autres joueurs » non.
+2769	Points variables (étoile) : 10 au plus par carte.
+2770	remplace 1
+2771	, ou 2
+2772	(sans rendu de monnaie). Rien d'autre ne se convertit. Les ressources posées sur des cartes ne servent pas.
+2773	: la carte, ses jetons,
+2774	et l'
+2775	glissée dessous
+2776	: la carte et ses jetons ; l'Instabilité retourne dans la pile. Ou la 1re carte face cachée de la pioche de la catégorie.
+2777	Vassal, ou pioche vide : fouille la pioche Principale jusqu'à la catégorie. Rien trouvé : 2
+2778	Jamais d'Instabilité sous une Région. Le Marché a toujours 5 cartes.
+2779	Emplacements 1 et 2 : remplacés depuis la pioche Principale.
+2780	: impossible si la carte porte des jetons.
+2781	sur une carte du Marché (Carthaginois : 2
+2782	Reprends tes jetons : 3 Actions, 5 Épuisé.
+2783	Défausse autant de cartes que tu veux.
+2784	Pioche jusqu'à ta taille de main (5 par défaut). Si tu en as déjà autant, tu ne pioches pas.
+2785	Deck vide : la nation évolue
+2786	Pioche Nation non vide : sa 1re carte rejoint ta défausse, un jeton Épuisé sert de témoin.
+2787	L'Avènement sort en dernier : tu deviens Empire.
+2788	Pioche Nation vide : tu peux payer un Développement.
+2789	Mélange, puis continue de piocher.
+2790	Un seul ajout par tour, et seulement avec un jeton Épuisé libre. « Si possible » : jamais de mélange.
+2791	: −2 points chacune. La jouer : 1 Action, puis 1
+2792	ou 2 cartes défaussées. Elle retourne dans la pile.
+2793	Renvoyer par un effet de carte : gratuit.
+2794	: abandonne 3 Régions en jeu, regarde 2 Renommées, garde-en une, remets l'autre sur la pioche.
+2795	une Région : en défausse.
+2796	: en main. Ses jetons reviennent en réserve, les cartes réservées dessous la suivent.
+2797	: glisser une carte de ta main sous une carte en jeu. Elle n'est plus jouable, mais compte au score.
+2798	: sous ta carte Puissance, hors jeu, comptée au score.
+2799	Quand il ne reste qu'elle dans la pioche Renommée, gagner une Renommée la fait résoudre à la place. Une fois par joueur. La face A déclenche la fin de partie.
+2800	Solstice et fin
+2801	À la fin de chaque manche, résous tous tes effets Solstice. Ni Action ni Épuiser. La C.I.V. n'en a pas.
+2802	Pioche Principale vide, dernier Développement payé, Roi des rois, pioche Dynastie de la C.I.V. épuisée ou effet de carte : finis la manche, joue
+2803	une dernière manche
+2804	, puis compte.
+2805	La pile d'Instabilités se vide : en solo,
+2806	défaite immédiate
+2808	Tes cartes (main, jeu, deck, défausse, Histoire, réservées, carte Puissance), +1 par
+2809	en réserve. Pas la pioche Nation ni les Développements non payés. Il faut
+2810	strictement plus
+2811	de points que la C.I.V.
+2812	Elle ne lit pas ses cartes : chaque carte révélée applique la
+2813	première ligne
+2814	de son tableau qui correspond. Si rien de la ligne n'est possible, elle passe à la suivante.
+2815	Dé : la carte de l'emplacement tiré n'est pas résolue ce tour.
+2816	Acquérir ou Innover : elle prend la carte qui vaut le plus de points (+1 par Progrès dessus), puis celle qui porte le plus de jetons, puis le plus petit emplacement.
+2817	Ses effets qui te volent, te font défausser, abandonner, rappeler ou récupérer une Instabilité sont des
+2818	: tes protections marchent.
+2819	Son score : ses cartes (étoile = 5), +1 par
+2820	, +1 par 10
+2821	(par 5 en Souverain et Suzerain).
+2822	Mots-clés
+2823	Rechercher : Rappeler, Trouver…
+2824	Rechercher un mot-clé
+2825	Fiches de règles
+2826	Fermer les fiches
+2829	.ftabs button
+2833	Aucun mot-clé ne correspond.
+2839	← Toutes les aides de jeu
+2840	☕ Cet outil vous a plu ? Offrez-moi un café
+2841	Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.
+2842	Retour à l'accueil des aides de jeu

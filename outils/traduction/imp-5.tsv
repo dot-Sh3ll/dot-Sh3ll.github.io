@@ -1,0 +1,251 @@
+888	You could play an Unrest by discarding two other cards, but you would only return one and the others would come back later.
+889	You would gain a card, but your four Unrest would go to the discard pile and come back at the next shuffle.
+890	You return all four Unrest to the pile without paying anything. This is exactly the situation this order is for.
+891	You have no Action token left. A Region in play says "Exhaust: gain 2 Materials" and carries no token. You have 2 Exhaust tokens left. You have a card marked Free action in hand.
+892	What can you still do?
+893	Nothing more
+894	Exhaust abilities and Free actions don't use Action tokens.
+895	Only exhaust the Region
+896	That is possible, but so is the Free action.
+897	Exhaust the Region and play the Free action
+898	Exhausting costs an Exhaust token, and a Free action can be played even without an Action token.
+899	The last card in your hand says: "Discard 1 card to gain 2 Population. You MAY acquire a Region."
+900	Can you play it?
+901	Yes, I gain 2 Population
+902	The cost comes before the result, and you have no other card to discard.
+903	What comes before "to" is a mandatory cost. With no other card to discard, the card is unplayable.
+904	Yes, only to acquire the Region
+905	The first sentence is mandatory and its cost unpayable: the whole card can't be played.
+906	There is only one card left in the Unrest pile. A Market Tradition interests you; an Unrest is tucked under it.
+907	How do you take it?
+908	Acquire it
+909	You take its Unrest, then the replacement card receives the last Unrest from the pile: immediate Collapse.
+910	Innovate it
+911	The Unrest goes back to the pile, which goes back up to two cards. The replacement card takes one: one is left, the game goes on.
+912	It doesn't matter
+913	The difference is huge: Acquiring empties the pile, Innovating refills it.
+914	Cleanup. Your hand: 2 Unrest and 3 good cards you couldn't play. Your deck holds 1 card, your Nation deck 2.
+915	What do you discard to evolve your nation as fast as possible?
+916	With 5 cards in hand you don't draw: your deck doesn't cycle and no Nation card comes in.
+917	My whole hand
+918	You draw 5 cards, your deck runs out, and a Nation card joins your discard pile before the shuffle. That is the rulebook's advice.
+919	Only the Unrest
+920	That is legal and you also trigger the shuffle, but the Unrest will come back: you keep three cards at the price of a slower cycle.
+921	Mid-turn, an effect makes you Draw 2 cards. Your deck is empty and your 5 Exhaust tokens are already placed on cards.
+922	What happens?
+923	I add a Nation card, then shuffle
+924	You need an available Exhaust token to serve as a marker: you have none left.
+925	I shuffle my discard pile without adding anything, then draw
+926	The shuffle still happens, but with no Nation or Development card.
+927	I don't draw
+928	Only an "if possible" effect stops you. Here you must shuffle and draw.
+929	You play Glory: you abandon three Regions. Two of them hold a Reserved card.
+930	What happens to the Reserved cards?
+931	They stay in play
+932	A Reserved card always shares the fate of the card holding it.
+933	They go to the discard pile with their Regions
+934	So they will come back into your deck: think about it before playing Glory.
+935	They return to my hand
+936	That would be the case if the Regions were Recalled, not Abandoned.
+937	Your opponent triggers the Countdown during their turn. You play after them and you are last in the round.
+938	How many turns do you have left?
+939	Just one
+940	You first finish the current round, then an extra round follows.
+942	Your turn this round, the Solstice, then one final full round with its Solstice.
+943	The Countdown doesn't stop the game on the spot, unlike the Collapse.
+944	Solstice. One of your cards says "Solstice: you MAY discard 1 card to gain 1 Population". You would also like to exhaust a Region.
+945	What can you do?
+946	No Exhaust ability during the Solstice.
+947	Only the Solstice effect, if I want
+948	The effect is optional thanks to "may". Exhaust abilities will wait for your next Activation order.
+949	The Solstice effect is still available.
+950	The Bot's turn. The revealed card matches two lines of its table. The first asks it to spend 3 Population to innovate; it only has one.
+951	What do you do?
+952	It spends its remaining Population
+953	A cost is never half-paid.
+954	Nothing: the card goes to the discard pile
+955	First look for another applicable line.
+956	I move to the next matching line
+957	If nothing in the line can be resolved, go down to the next line that matches the card.
+958	Solo game. There is one Unrest left in the pile. A Market card would earn you lots of points, with an Unrest under it.
+959	Do you acquire it?
+960	Yes, points first
+961	The replacement card would take the last Unrest: Collapse, and in solo that is an automatic loss.
+962	Against the Bot, a Collapse makes you lose whatever the Unrest split. Return some Unrest first, or Innovate.
+968	Good choice.
+969	Not the best choice.
+975	Step
+977	A full guided turn
+978	">Previous step
+979	" data-go="
+980	">Got it, next step
+981	">Finish the tutorial
+984	The twelve reminders
+990	Hide contents
+996	step
+997	completed
+1001	Tents (in play)
+1002	Exhaust: when you play a Region, exhaust this card to gain 1 Population.
+1003	Carpathians (Region)
+1004	Gain 1 Population. You MAY reserve 1 card.
+1005	Conquer
+1006	Choose: pay 2 Population to acquire a Region or a Tributary, OR pay 3 Population to innovate a Region or Tributary.
+1007	Choose: pay 3 Materials to acquire a Tradition or a Civilised, OR pay 5 Materials to innovate a Tradition or Civilised.
+1008	Choose: pay 1 Population OR discard 2 cards OR pay 3 Materials. If you do, return this card to the Unrest pile.
+1016	You play the Scythians, still Barbarians. The Tents are already in play. Start by announcing your order.
+1021	Keep this card for a later turn: its effect depends on the actual card.
+1022	You have no Action token left: you can't play a card from your hand, except a Free action. You still have Exhaust abilities, or Cleanup.
+1023	enters play and gives you 1 Population. You may reserve a card under it.
+1024	Reserve an Unrest under it
+1025	You have no Unrest in hand.
+1026	The Unrest is slid under the Region: it will never come back to your hand. It still counts in your score, but your deck is lighter.
+1027	Reserve nothing
+1028	Nothing is reserved. Time to think about the Tents.
+1029	Conquer: which option do you choose?
+1030	Pay 2 Population: acquire the Market Region
+1031	You need 2 Population. Progress can replace it, 1 for 1.
+1032	New Region
+1033	You pay 2 Population and take the Region into your hand. No Unrest: there is never one under a Region. Conquer goes to the discard pile and the Market is refilled at once.
+1034	Pay 2 Population: acquire the Tributary
+1035	You pay 2 Population. The Tributary comes into your hand with the Unrest tucked under it: that is the price of Acquiring.
+1036	Pay 3 Population: innovate a Region
+1037	You need 3 Population, Progress included.
+1038	You pay 3 Population and take a Region. Innovating avoids the Unrest, but a Region never has one: here, Acquiring would have cost 1 less Population for the same result.
+1040	Conquer stays in your hand.
+1041	Progress: which option do you choose?
+1042	You are short on Materials. Reminder: 1 Progress is worth 2 Materials, Population doesn't count.
+1043	Pay 3 Materials: acquire the Tradition
+1044	You pay 3 Materials. The Tradition comes into your hand with its Unrest.
+1045	Pay 3 Materials: acquire the Civilised card
+1046	You pay 3 Materials. You also gain
+1047	Progress placed on the card, and the Civilised card comes with its Unrest.
+1048	Pay 5 Materials: innovate a Tradition
+1049	You pay 5 Materials, counting Progress as 2 Materials each. The Tradition comes without the Unrest, which goes back to the pile.
+1050	Progress stays in your hand.
+1051	Unrest: how do you pay to return it?
+1052	The Unrest goes back to the common pile. It cost you an Action.
+1053	Pay 1 Population
+1054	You have neither Population nor Progress.
+1055	You pay 1 Population.
+1056	Pay 3 Materials
+1057	You need 3 Materials, Progress included.
+1058	You pay 3 Materials.
+1059	Discard 2 other cards
+1060	You need two other cards in hand to discard.
+1061	You discard
+1062	The Unrest stays in your hand.
+1063	The Tents already carry an Exhaust token: only once per turn per card.
+1064	No Exhaust token left.
+1065	The Tents respond to an event: "when you play a Region". They are exhausted right after playing a Region, not before, nor after doing something else.
+1066	You place an Exhaust token on the Tents: 1 more Population. The ability responded to the Region you just played.
+1067	A real turn with the Scythians' starting cards. Each move is approved or corrected.
+1068	Exhaust tokens:
+1069	Deck:
+1070	In play:
+1071	(Tents exhausted)
+1072	In hand:
+1073	no cards
+1074	Market:
+1075	Tributary, Tradition, Civilised (
+1076	Progress on it), Tradition, Region. An Unrest under each card except the Region.
+1077	Card text
+1081	Good choice: you have cards to play and an Exhaust ability in play. You have 3 Actions.
+1083	You would discard a hand full of playable cards for a single card. Research is for when your hand is weak.
+1084	You would only return 2 Unrest and lose the rest of your turn. Keep this order for a hand drowning in Unrest.
+1085	Play:
+1086	Exhaust the Tents
+1087	End my actions
+1088	Cleanup, step 1: you add 1 Progress onto a Market card. Where does this token come from?
+1089	Right, always from the supply. You place it on the Civilised card. Step 2: your tokens come back, 3 Actions and 5 Exhaust. Step 3: what do you discard?
+1090	No: this Progress comes from the supply, your reserve isn't touched. It is the most common thing to forget.
+1092	Step 4: you already have 5 cards or more, so you don't draw.
+1093	Step 4: you draw
+1095	. Your deck is enough, no shuffle.
+1096	Step 4: you must draw
+1097	cards and your deck only holds
+1098	. What happens?
+1099	Legal, and it is the rulebook's advice: the more your deck cycles, the faster your nation evolves.
+1100	Legal. The Unrest will come back at the next shuffle, but you keep your other cards.
+1101	Also legal: nothing forces you to discard.
+1102	The top card of my Nation deck joins my discard pile, I place an Exhaust token as a marker, I shuffle, then I finish drawing
+1103	Exactly. You first draw the
+1104	remaining cards, then the Nation card enters your discard pile, you shuffle and fill your hand up to 5.
+1105	I shuffle my discard pile as it is
+1106	You forget the Nation card: you just took back your Exhaust tokens, so you can and must add one before shuffling.
+1107	I draw what is left and stop
+1108	Only an "if possible" effect stops at an empty deck. At Cleanup, you shuffle and keep going up to 5 cards.
+1110	Turn over.
+1112	approved
+1113	corrected
+1114	. The next player starts, then comes the Solstice, where the Tents will let you recall a Region.
+1115	Replay this turn differently
+1122	Yes:
+1123	Progress. Nothing replaces Progress.
+1124	No: you are missing
+1125	Progress, and no other resource can replace it.
+1126	Progress (1 Progress is worth 1 Population).
+1127	No: Population and Progress together only make
+1128	. Materials don't replace Population.
+1129	Progress (each worth 2 Materials).
+1130	You pay 1 too many: no change given.
+1131	No: you only reach
+1132	(Materials + 2 per Progress). Population doesn't replace Materials.
+1152	Solo:
+1153	set up the common decks as for 2 players, then open the Play solo tab. Fame, Region, Tradition and Civilised decks: 6 cards each.
+1154	players:
+1155	face-down cards in the Fame deck (on top of King of Kings) and
+1156	cards in each of the Region, Tradition and Civilised decks.
+1167	One Action spent: the card is resolved then discarded, or stays in play if it is permanent.
+1168	Impossible: no Action token left. You would need a Free action.
+1169	Play as a Free action
+1170	No token spent. Reminder: the same card only once per turn this way.
+1171	Exhaust a card in play
+1172	An Exhaust token placed on the card: its effect resolves. This card can't be Exhausted again this turn.
+1173	Impossible: no Exhaust token left on your State card.
+1174	An Action token taken from the supply. You can go above three until Cleanup.
+1175	Shuffle my discard pile mid-turn
+1176	You shuffle, but without adding a card: a marker has already been placed this turn.
+1177	You add a Nation card to your discard pile before shuffling. An Exhaust token serves as a marker on the Nation deck: one less for this turn.
+1178	You shuffle without adding a Nation card: no Exhaust token available to serve as a marker.
+1180	All tokens come back: 3 Actions, 5 Exhaust.
+1191	Progress placed
+1192	No tokens
+1194	Unrest under it
+1195	Nothing under it
+1205	A new card
+1206	arrives from the deck
+1207	, with an Unrest from the pile tucked under it.
+1208	, with no Unrest since it is a Region.
+1209	The Unrest pile is empty: Collapse.
+1210	The game stops on the spot and the player with the fewest Unrest wins. Here you have
+1211	Select a card first.
+1213	You Acquire the card
+1214	: it goes into your hand.
+1215	You gain
+1216	Progress.
+1217	The Unrest under it also comes into your hand.
+1219	You Innovate the card
+1220	. The Unrest simply stays in place under it: it is the same as returning it to the pile and taking one again, the pile doesn't change.
+1221	A new Region card arrives: no Unrest under a Region, so the previous one goes back to the pile.
+1223	Tributaries have no deck: you reveal cards from the Main deck one by one until the first Tributary, take it, then shuffle the other revealed cards back into the Main deck. The Market doesn't change.
+1224	You take the top face-down card of the deck
+1225	, without knowing it in advance. The Market doesn't change and no Unrest is involved.
+1227	A Progress from the supply is placed on the card. It becomes more tempting for everyone, you included. A card carrying tokens can no longer be Exiled.
+1234	+ Acc.
+1242	You acquire a card: it comes into your hand with its Unrest.
+1243	Empty deck: the first Nation card joins your discard pile (marker placed on the Nation deck), then you shuffle.
+1244	Empty deck: it is the
+1245	that joins your discard pile. Your State card flips: you are now an Empire. You shuffle.
+1247	Empty deck, empty Nation deck: you pay and Develop a card of your choice, then you shuffle.
+1248	That was your last Development card: the Countdown is triggered.
+1249	Finish the round, then one last round.
+1250	Empty deck: you can't pay for any Development, you shuffle without adding anything.
+1251	Empty deck: you shuffle.
+1252	Deck empty again in the same turn: you shuffle without adding a card.
+1253	Your deck now holds
+1260	Doesn't count
+1264	. Remember: the Nation deck, unpaid Developments and resources placed on cards are worth nothing, unless a card says otherwise.
+1266	Total:
+1268	for Progress). Materials and Population are worth nothing by themselves.
+1273	No term matches. Try another word.
+1276	of 5">
