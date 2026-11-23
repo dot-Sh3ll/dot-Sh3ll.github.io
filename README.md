@@ -14,8 +14,9 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 ## Ajouter une nouvelle appli
 
-1. Créer un dossier (ex. `nouveau-jeu/`) et y déposer le fichier de l'appli renommé en `index.html`.
+1. Créer un dossier (ex. `nouveau-jeu/`) et y déposer la version française renommée en `index.html` (et la version anglaise en `en.html` si elle existe).
 2. Dans `index.html` à la racine, copier un bloc `<a class="card ...">` et l'adapter (titre, description, lien `nouveau-jeu/`).
+3. Renseigner `data-created` et `data-updated` (AAAA-MM-JJ) : les éléments récents (moins de 30 jours) reçoivent automatiquement un badge « Nouveau » ou « Mis à jour » et remontent en tête.
 
 ## Ajouter une fiche PDF
 

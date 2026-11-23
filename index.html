@@ -1,296 +1,1291 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>try{if(localStorage.getItem("site-lang")==="en"&&!/[?&]lang=fr/.test(location.search))location.replace("en.html"+location.hash)}catch(e){}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aides de jeu de Paul · Tutoriels et compagnons gratuits</title>
-<meta name="description" content="Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, compagnons solo et outils pour Mage Knight, Imperium et Aeon's End.">
-<meta property="og:title" content="Aides de jeu de Paul">
-<meta property="og:description" content="Tutoriels interactifs, compagnons solo et outils gratuits pour jeux de société experts.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+<title>Marché d'Aeon's End</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  color-scheme:dark;
-  --bg:#0d0f16; --surface:#161a25; --surface-2:#1d2230; --line:#2a3144;
-  --ink:#efe8d8; --muted:#a3a9b8; --gold:#ddb96a; --gold-ink:#17130a;
-  --display:"Marcellus","Palatino Linotype",Georgia,serif;
-  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  /* Layout : une colonne centrée ; la question du mode en haut, le marché en 3 rangées (gemmes / reliques / sorts). Un seul univers visuel, sombre, assumé. */
+  color-scheme: dark;
+  --bg:#15131f;
+  --surface:#211e31;
+  --surface-2:#2b2740;
+  --line:#3b3655;
+  --ink:#eee8da;
+  --muted:#a59fb8;
+  --gold:#e3c170;
+  --gem:#c495f5;
+  --relic:#6cc3d2;
+  --spell:#f2a45c;
+  --display:"Marcellus", "Iowan Old Style", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{
-  font-family:var(--body); color:var(--ink); line-height:1.55; min-height:100vh;
-  background:
-    radial-gradient(ellipse 90% 420px at 50% -120px, rgba(221,185,106,.16), transparent 75%) no-repeat,
-    var(--bg);
-}
-a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  background-image:radial-gradient(900px 420px at 50% -120px, #3a2f63 0%, transparent 70%);background-repeat:no-repeat}
+main{max-width:1040px;margin:0 auto;padding:28px 18px 60px;display:flex;flex-direction:column;gap:26px}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,5vw,40px);letter-spacing:.01em}
+h1 span{color:var(--gold)}
+header p{margin:6px 0 0;color:var(--muted);max-width:60ch}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
-header{padding:72px 0 40px;text-align:center}
-.kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 14px}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,5.5vw,3.6rem);line-height:1.1;margin:0 0 18px;letter-spacing:.01em}
-.lede{font-size:1.12rem;color:var(--muted);max-width:620px;margin:0 auto}
-.lede-en{font-size:.95rem;color:#7d8496;max-width:620px;margin:8px auto 0;font-style:italic}
+/* Question */
+.ask h2{font-size:24px;margin-bottom:14px}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mode{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 20px;text-align:left;display:flex;flex-direction:column;gap:8px;transition:transform .15s,border-color .15s,background .15s}
+.mode:hover{border-color:var(--gold);background:var(--surface-2);transform:translateY(-2px)}
+.mode .k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.mode .t{font-family:var(--display);font-size:22px}
+.mode .d{color:var(--muted);font-size:14.5px}
 
-.lang{display:inline-flex;gap:4px;margin-top:26px;padding:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px}
-.lang button{font:600 .85rem var(--body);color:var(--muted);background:none;border:0;padding:.4rem 1rem;border-radius:999px;cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--gold);color:var(--gold-ink)}
-.lang button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.dist{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px;border:0;padding:0}
+.dist legend{float:left;margin-right:6px;color:var(--muted);font-size:14.5px;padding:0}
+.dist label{position:relative}
+.dist input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.dist span{display:block;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;font-size:14px;font-variant-numeric:tabular-nums}
+.dist span i{font-style:normal;color:var(--muted)}
+.dist input:checked+span{border-color:var(--gold);color:var(--gold)}
+.dist input:checked+span i{color:var(--gold)}
+.dist input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+nav.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
+nav.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 14px 10px;font-weight:600;color:var(--muted);margin-bottom:-1px}
+nav.tabs button[aria-selected="true"]{color:var(--gold);border-bottom-color:var(--gold)}
+nav.tabs button:hover{color:var(--ink)}
+nav.tabs .n{font-variant-numeric:tabular-nums;font-weight:500;opacity:.8}
+.view{display:flex;flex-direction:column;gap:26px}
+.wins-head h2{font-size:24px}
+.wins-head p{margin:4px 0 0;color:var(--muted);max-width:65ch}
+.wins{display:flex;flex-direction:column;gap:16px}
+.win{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;grid-template-columns:minmax(190px,1fr) 3fr;gap:16px 26px}
+.win .who{display:flex;flex-direction:column;gap:8px;align-items:flex-start;min-width:0}
+.win .lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.win h3{font-size:25px;line-height:1.15;overflow-wrap:anywhere}
+.win .mages{font-size:15.5px}
+.win .mages span{color:var(--muted);font-size:13px;display:block}
+.win .rem{font-size:14px;color:var(--muted);border-left:2px solid var(--line);padding-left:10px}
+.win .mk{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 20px;min-width:0}
+.win .col h4{margin:0 0 6px;font-family:var(--body);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);font-weight:600}
+.win ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.win li{display:flex;gap:8px;align-items:baseline;font-size:15px}
+.win li .c{flex:none;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--c);color:var(--c);font-size:12.5px;font-weight:700;display:inline-grid;place-items:center;font-variant-numeric:tabular-nums;transform:translateY(2px)}
+.hunt h3{font-size:19px;margin-bottom:10px}
+.hunt .grp{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin-bottom:8px}
+.hunt .grp b{font-weight:600;font-size:13px;color:var(--muted);min-width:150px}
+.hunt .chip.done{color:#221a05;background:var(--gold);border-color:var(--gold);font-weight:600}
+@media (max-width:720px){.win{grid-template-columns:1fr}.win .mk{grid-template-columns:1fr}.hunt .grp b{min-width:100%}}
 
-h2{font-family:var(--display);font-weight:400;font-size:1.7rem;margin:0 0 6px}
-.section-sub{color:var(--muted);margin:0 0 24px}
+.fight{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px;margin:0 0 16px}
+.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fld>span{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+select,input[type=text],input[type=date]{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:8px 10px;width:100%;min-width:0}
+select:hover,input[type=text]:hover{border-color:var(--gold)}
+.opts{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:16px 0 0;color:var(--muted);font-size:14.5px}
+.opts label{display:flex;gap:8px;align-items:center}
+.opts select{width:auto}
+.btn.win-b{border-color:#5f9a6a;color:#a8e0b1}.btn.loss-b{border-color:#a8605a;color:#f0b0a8}
+.logform{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px 14px;align-items:end}
+.logform .wide{grid-column:1/-1}
+.logform .row{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.logform .msg{color:#ffb4a3;font-size:14px}
+.chip.adapt{color:var(--relic);border-color:#3c6f79}
+.win.loss{border-left:3px solid #a8605a}.win.vic{border-left:3px solid var(--gold)}
+.win .lbl.l{color:#f0b0a8}
+.win .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+.stat h4{margin:0 0 8px;font-family:var(--body);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.stat .big{font-family:var(--display);font-size:30px;line-height:1.1}
+.stat .sub{color:var(--muted);font-size:14px}
+.stat ol,.stat ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+.stat li{display:flex;justify-content:space-between;gap:10px}
+.stat li b{font-weight:600;font-variant-numeric:tabular-nums;color:var(--gold)}
+.stat details summary{cursor:pointer;color:var(--muted);font-size:14px}
+.stat details p{margin:8px 0 0;font-size:14px;color:var(--muted)}
+.hunt .chip.lost{border-color:#a8605a;color:#f0b0a8}
+.jmsg{color:var(--muted);font-size:15px}
+@media (max-width:720px){.fight{grid-template-columns:1fr}.logform{grid-template-columns:1fr 1fr}}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:64px}
-.card{
-  --accent:var(--gold);
-  position:relative;display:flex;flex-direction:column;
-  background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;
-  text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
-}
-.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 14px 40px -18px var(--accent)}
-.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.banner{height:132px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;
-  background:linear-gradient(135deg,var(--c1),var(--c2))}
-.banner .glyph{position:absolute;right:18px;top:12px;font-size:3.6rem;opacity:.9;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
-.banner h3{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.4);line-height:1.15}
-.body{padding:18px 22px 22px;display:flex;flex-direction:column;gap:14px;flex:1}
-.body p{margin:0;color:var(--muted);font-size:.98rem}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
-.tags li{font-size:.78rem;font-weight:600;padding:.25rem .6rem;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink)}
-.go{margin-top:auto;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:6px}
-.go::after{content:"→";transition:transform .18s ease}
-.card:hover .go::after{transform:translateX(4px)}
+.xhead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 16px;align-items:flex-end}
+.xhead h2{font-size:26px}.xhead .sub{color:var(--muted);font-size:14.5px}
+.xtrack{display:flex;flex-wrap:wrap;gap:8px}
+.xstep{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:7px 12px;font-size:13.5px;display:flex;flex-direction:column;min-width:96px}
+.xstep b{font-family:var(--display);font-weight:400;font-size:16px}
+.xstep.now{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.xstep.won{border-color:#5f9a6a}.xstep.won b{color:#a8e0b1}
+.xstep .m{color:var(--muted);font-size:12.5px;overflow-wrap:anywhere}
+.xgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+.xpanel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.xpanel h3{font-size:20px}
+.xpanel h4{margin:0;font-family:var(--body);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.xpanel p{margin:0}
+.xpanel .muted{color:var(--muted);font-size:14.5px}
+.xrows{display:flex;flex-direction:column;gap:4px}
+.xrow{display:flex;gap:9px;align-items:center;font-size:15px;padding:3px 0;min-width:0}
+.xrow .c{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--c);color:var(--c);font-size:12.5px;font-weight:700;display:inline-grid;place-items:center;font-variant-numeric:tabular-nums}
+.xrow .nm{flex:1;min-width:0;overflow-wrap:anywhere}
+.xrow .bx{color:var(--muted);font-size:12.5px;white-space:nowrap}
+.xrow input{flex:none}
+.xcount{font-variant-numeric:tabular-nums;font-size:14px;color:var(--muted)}
+.xcount b.ok{color:#a8e0b1}.xcount b.ko{color:#f0b0a8}
+.xbtns{display:flex;flex-wrap:wrap;gap:8px}
+.xlast{border-left:3px solid #5f9a6a}
+.xlast.loss{border-left-color:#a8605a}
+table.deck{border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+table.deck td,table.deck th{border:1px solid var(--line);padding:5px 10px;text-align:left}
+table.deck th{color:var(--muted);font-weight:600}
+.xmages{display:flex;flex-wrap:wrap;gap:6px 14px}
+.xmages label{display:flex;gap:7px;align-items:center;font-size:15px}
+.xform{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 14px;align-items:end}
+.xpast{display:flex;flex-direction:column;gap:6px}
+.xpast li{display:flex;justify-content:space-between;gap:10px;font-size:15px;border-bottom:1px solid var(--line);padding:6px 0}
+.addbox{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:14px}
+.photo{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
+.photo .st{color:var(--muted);font-size:14.5px;flex-basis:100%}
+.pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pick .col h4{margin:0 0 6px;font-family:var(--body);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);font-weight:600}
+.pchips{display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
+.pchip{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:9px;padding:4px 8px;font-size:14.5px}
+.pchip.doubt{border-color:#b08a3a;background:rgba(227,193,112,.08)}
+.pchip .nm{flex:1;min-width:0}
+.pchip button{background:none;border:0;color:var(--muted);font-size:16px;line-height:1;padding:0 2px}
+.pchip button:hover{color:var(--ink)}
+.resrow{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.resrow label{display:flex;gap:7px;align-items:center}
+@media (max-width:820px){.xgrid,.pick{grid-template-columns:1fr}.xform{grid-template-columns:1fr 1fr}}
+details.boxes{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 16px}
+details.boxes summary{cursor:pointer;color:var(--muted);font-size:14.5px}
+details.boxes summary b{color:var(--ink);font-weight:600}
+.boxlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px 18px;padding:12px 0 6px}
+.boxlist label{display:flex;gap:9px;align-items:baseline;font-size:15px}
+.boxlist small{color:var(--muted)}
+input[type=checkbox]{accent-color:var(--gold);width:16px;height:16px;transform:translateY(2px)}
+.warn{color:#ffb4a3;font-size:14.5px;margin:6px 0 0}
 
-.mk{--accent:#7db7ef;--c1:#1d3f73;--c2:#0b1830}
-.imp{--accent:#d9b25c;--c1:#7a2f2a;--c2:#2b1a3a}
-.ae{--accent:#c495f5;--c1:#4b2e7a;--c2:#171329}
+/* Résultat */
+.bar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px}
+.bar .what{display:flex;flex-direction:column}
+.bar .what .k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.bar .what .t{font-family:var(--display);font-size:26px}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.btn{background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:600;font-size:14.5px}
+.btn:hover{border-color:var(--gold)}
+.btn.primary{background:var(--gold);color:#221a05;border-color:var(--gold)}
+.btn.primary:hover{filter:brightness(1.08)}
+.note{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:12px 16px;font-size:15px;color:var(--ink)}
+.note p{margin:0 0 6px;max-width:75ch}
+.note p:last-child{margin:0}
+.note .muted{color:var(--muted)}
+.note .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 
-.pdfs{display:flex;flex-direction:column;gap:12px;margin-bottom:64px}
-.pdf{
-  display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;
-  background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent,var(--gold));
-  border-radius:14px;padding:16px 20px;
-}
-.pdf .ico{font-size:1.9rem;line-height:1}
-.pdf h3{font-family:var(--display);font-weight:400;font-size:1.2rem;margin:0 0 2px}
-.pdf p{margin:0;color:var(--muted);font-size:.92rem}
-.pdf .meta{font-size:.78rem;color:#7d8496;margin-top:4px}
-.dl{
-  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;font-weight:700;font-size:.92rem;
-  color:var(--accent,var(--gold));border:1px solid currentColor;border-radius:999px;padding:.55rem 1.1rem;
-  transition:background .15s ease,color .15s ease;
-}
-.dl:hover{background:var(--accent,var(--gold));color:var(--bg)}
-.dl:focus-visible{outline:2px solid var(--accent,var(--gold));outline-offset:3px}
-@media (max-width:640px){ .pdf{grid-template-columns:auto 1fr} .pdf .dl{grid-column:1/-1;justify-content:center} }
-
-.filters{position:sticky;top:0;z-index:5;margin:0 0 36px;padding:12px 0;background:rgba(13,15,22,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.filters-in{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
-.search{flex:1 1 240px;position:relative}
-.search input{width:100%;font:500 1rem var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.7rem 1rem .7rem 2.5rem}
-.search input::placeholder{color:#737a8c}
-.search input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(221,185,106,.2)}
-.search svg{position:absolute;left:.95rem;top:50%;transform:translateY(-50%);width:17px;height:17px;color:#7d8496;pointer-events:none}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font:600 .85rem var(--body);color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.5rem .95rem;cursor:pointer}
-.chip:hover{color:var(--ink)}
-.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
-.chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.empty{color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:18px 20px;margin:0 0 64px}
-.grid .empty{grid-column:1/-1;margin:0}
+.group{display:flex;flex-direction:column;gap:10px}
+.group h3{font-size:19px;display:flex;align-items:center;gap:10px}
+.group h3::before{content:"";width:10px;height:10px;transform:rotate(45deg);background:var(--c)}
+.group h3 small{font-family:var(--body);font-size:13px;color:var(--muted)}
+.g-Gem{--c:var(--gem)} .g-Relic{--c:var(--relic)} .g-Spell{--c:var(--spell)}
+.cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(225px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c);border-radius:12px;padding:12px 14px 12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card.key{box-shadow:0 0 0 2px var(--gold)}
+.card .top{display:flex;gap:10px;align-items:flex-start}
+.cost{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid var(--c);color:var(--c);display:grid;place-items:center;font-weight:700;font-variant-numeric:tabular-nums;font-size:17px}
+.card .name{font-family:var(--display);font-size:18.5px;line-height:1.2;overflow-wrap:anywhere}
+.card .en{color:var(--muted);font-size:13px}
+.card .fx{font-size:14.5px;line-height:1.45;flex:1}
+.card .fx b{color:var(--c);font-weight:600}
+.card .fx .or{display:block;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.14em;margin:3px 0}
+.card .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--muted);white-space:nowrap}
+.chip.role{color:var(--gold);border-color:#6b5a2d}
+.swap{background:none;border:none;color:var(--muted);font-size:13px;padding:2px 0;text-decoration:underline;text-underline-offset:3px}
+.swap:hover{color:var(--ink)}
+footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padding-top:14px;max-width:80ch}
 [hidden]{display:none!important}
-@media (max-width:640px){.chips{flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:none}}
-
-.support{
-  display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
-  background:linear-gradient(135deg,#1f1a12,#15131c);border:1px solid #4a3d22;border-radius:18px;padding:28px 30px;margin-bottom:56px;
-}
-.support h2{font-size:1.5rem}
-.support p{margin:0;color:var(--muted)}
-.kofi{
-  display:inline-flex;align-items:center;gap:10px;white-space:nowrap;
-  background:var(--gold);color:var(--gold-ink);text-decoration:none;font-weight:700;
-  padding:.85rem 1.4rem;border-radius:999px;transition:transform .15s ease,filter .15s ease;
-}
-.kofi:hover{transform:translateY(-2px);filter:brightness(1.08)}
-.kofi:focus-visible{outline:2px solid #fff;outline-offset:3px}
-
-.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:56px}
-.about div{border-top:1px solid var(--line);padding-top:16px}
-.about h3{font-family:var(--display);font-weight:400;font-size:1.15rem;margin:0 0 6px}
-.about p{margin:0;color:var(--muted);font-size:.95rem}
-
-footer{border-top:1px solid var(--line);padding:28px 0 40px;color:#7d8496;font-size:.85rem}
-footer p{margin:0 0 8px}
-
-@media (max-width:640px){
-  header{padding:48px 0 28px}
-  .support{grid-template-columns:1fr;text-align:left}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-
-[data-lang="en"] .fr{display:none}
-[data-lang="fr"] .en{display:none}
+@media (max-width:720px){.modes{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.mode{transition:none}.mode:hover{transform:none}}
+</style>
+<style id="sitebar-css">
+.sitebar{position:relative;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;height:40px;padding:0 14px;background:#0b0d14;color:#e9e3d5;border-bottom:1px solid rgba(221,185,106,.28);font:500 13.5px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;box-sizing:border-box}
+.sitebar a{color:inherit;text-decoration:none}
+.sitebar .sb-back{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 10px 0 6px;margin-left:-6px;border-radius:8px;font-weight:600}
+.sitebar .sb-back svg{width:16px;height:16px;flex:none}
+.sitebar .sb-back:hover{background:rgba(255,255,255,.08)}
+.sitebar .sb-lang{display:inline-flex;padding:2px;border:1px solid rgba(255,255,255,.16);border-radius:999px}
+.sitebar .sb-lang span,.sitebar .sb-lang a{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.04em}
+.sitebar .sb-lang span{background:#ddb96a;color:#17130a}
+.sitebar .sb-lang a{color:#a3a9b8}
+.sitebar .sb-lang a:hover{color:#fff}
+.sitebar a:focus-visible{outline:2px solid #ddb96a;outline-offset:2px}
+@media print{.sitebar{display:none}}
 </style>
 </head>
-<body data-lang="fr">
+<body>
+<div class="sitebar" role="navigation" aria-label="Navigation du site">
+<a class="sb-back" href="../"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Aides de jeu</a>
+<div class="sb-lang" role="group" aria-label="Langue / Language"><span aria-current="true">FR</span><a href="en.html?lang=en" hreflang="en" lang="en" aria-label="Switch to English" onclick="try{localStorage.setItem('site-lang','en')}catch(e){}">EN</a></div>
+</div><!--/sitebar-->
 
-<header class="wrap">
-  <p class="kicker"><span class="fr">Aides de jeu gratuites</span><span class="en">Free game aids</span></p>
-  <h1><span class="fr">Moins de règles,<br>plus de jeu.</span><span class="en">Less rulebook,<br>more playing.</span></h1>
-  <p class="lede">
-    <span class="fr">Tutoriels interactifs, compagnons solo et outils pour les jeux experts que j'aime. Tout est gratuit, et ça fonctionne directement dans le navigateur, sur ordinateur comme sur mobile.</span>
-    <span class="en">Interactive tutorials, solo companions and tools for the heavy games I love. Everything is free and runs right in your browser, on desktop or mobile.</span>
-  </p>
-  <p class="lede-en"><span class="fr">Les applis sont en français pour l'instant.</span><span class="en">The apps are in French for now — English versions are on the way.</span></p>
-  <div class="lang" role="group" aria-label="Langue / Language">
-    <button type="button" data-set="fr" aria-pressed="true">Français</button>
-    <button type="button" data-set="en" aria-pressed="false">English</button>
-  </div>
+<main>
+<header>
+  <h1>Marché d'<span>Aeon's End</span></h1>
+  <p>Neuf piles de gemmes, reliques et sorts tirées de tes 98 cartes. Choisis la répartition et le type de marché avant chaque combat.</p>
 </header>
 
-<div class="filters" role="search">
-  <div class="wrap filters-in">
-    <label class="search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" autocomplete="off" placeholder="Rechercher un jeu, une fiche…" aria-label="Rechercher">
-    </label>
-    <div class="chips" role="group" aria-label="Filtrer par jeu">
-      <button type="button" class="chip" data-g="all" aria-pressed="true"><span class="fr">Tous</span><span class="en">All</span></button>
-      <button type="button" class="chip" data-g="mk" aria-pressed="false">Mage Knight</button>
-      <button type="button" class="chip" data-g="imp" aria-pressed="false">Imperium</button>
-      <button type="button" class="chip" data-g="ae" aria-pressed="false">Aeon's End</button>
+<nav class="tabs" role="tablist" aria-label="Sections">
+  <button type="button" role="tab" id="tab-gen" aria-selected="true">Nouveau marché</button>
+  <button type="button" role="tab" id="tab-exp" aria-selected="false">Expédition</button>
+  <button type="button" role="tab" id="tab-wins" aria-selected="false">Journal <span class="n" id="nwins"></span></button>
+</nav>
+
+<div class="view" id="view-gen">
+<section class="ask" id="ask">
+  <h2>Quel marché pour ce combat&nbsp;?</h2>
+  <div class="fight">
+    <label class="fld"><span>Némésis (facultatif)</span><select id="f-nem"></select></label>
+    <label class="fld"><span>Mage 1</span><select id="f-m1"></select></label>
+    <label class="fld"><span>Mage 2</span><select id="f-m2"></select></label>
+  </div>
+  <fieldset class="dist" id="dist"><legend>Répartition des 9 piles</legend></fieldset>
+  <div class="modes">
+    <button class="mode" data-mode="opt" type="button">
+      <span class="k">Le plus facile</span><span class="t">Optimisé</span>
+      <span class="d">Les meilleures cartes à chaque poste : économie rapide, épuration du deck, sorts d'ouverture et finisseurs.</span>
+    </button>
+    <button class="mode" data-mode="combo" type="button">
+      <span class="k">À toi de trouver</span><span class="t">Original</span>
+      <span class="d">Un marché bâti autour d'une synergie cachée. L'indice reste masqué tant que tu ne le demandes pas.</span>
+    </button>
+    <button class="mode" data-mode="rand" type="button">
+      <span class="k">Au hasard</span><span class="t">Full random</span>
+      <span class="d">Neuf cartes tirées sans aucun filtre. Tu fais avec ce qui sort.</span>
+    </button>
+  </div>
+  <div class="opts">
+    <label for="f-theme">Thème du marché Original <select id="f-theme"></select></label>
+    <label><input type="checkbox" id="f-fresh" checked> Éviter les cartes des 3 derniers marchés</label>
+  </div>
+</section>
+
+<details class="boxes" id="boxes">
+  <summary><b>Boîtes utilisées</b> · <span id="boxsum"></span></summary>
+  <div class="boxlist" id="boxlist"></div>
+  <p class="warn" id="warn" hidden></p>
+</details>
+
+<section id="result" hidden>
+  <div class="bar">
+    <div class="what"><span class="k" id="rk"></span><span class="t" id="rt"></span></div>
+    <div class="actions">
+      <button class="btn primary" id="newfight" type="button">Nouveau combat</button>
+      <button class="btn" id="again" type="button">Relancer ce mode</button>
+      <button class="btn" id="copy" type="button">Copier la liste</button>
+      <button class="btn win-b" id="logwin" type="button">Victoire</button>
+      <button class="btn loss-b" id="logloss" type="button">Défaite</button>
     </div>
   </div>
+  <form class="logform" id="logform" hidden>
+    <label class="fld"><span>Némésis</span><select id="l-nem"></select></label>
+    <label class="fld"><span>Mage 1</span><select id="l-m1"></select></label>
+    <label class="fld"><span>Mage 2</span><select id="l-m2"></select></label>
+    <label class="fld"><span>Date</span><input type="date" id="l-date"></label>
+    <label class="fld wide"><span>Remarque (facultatif)</span><input type="text" id="l-note" maxlength="200"></label>
+    <div class="row"><button class="btn primary" type="submit" id="l-save">Enregistrer</button>
+      <button class="btn" type="button" id="l-cancel">Annuler</button><span class="msg" id="l-msg"></span></div>
+  </form>
+  <p class="jmsg" id="l-done" hidden></p>
+  <div id="note" class="note" style="margin-top:18px"></div>
+  <div id="market" style="display:flex;flex-direction:column;gap:22px;margin-top:22px"></div>
+</section>
 </div>
 
-<main class="wrap">
-  <h2><span class="fr">Les applis</span><span class="en">The apps</span></h2>
-  <p class="section-sub"><span class="fr">Votre progression est enregistrée dans votre navigateur.</span><span class="en">Your progress is saved in your browser.</span></p>
+<div class="view" id="view-exp" hidden>
+  <div id="exp"><p class="jmsg">Chargement de l'expédition…</p></div>
+</div>
 
-  <div class="grid">
-    <a class="card mk" data-game="mk" href="mage-knight/">
-      <div class="banner"><span class="glyph" aria-hidden="true">🗺️</span><h3>Mage Knight</h3></div>
-      <div class="body">
-        <p class="fr">Apprenez le jeu pas à pas avec des quiz et des cas pratiques, puis jouez avec le compagnon : outils de combat, Fantôme en solo, scénarios, score et carnet de campagne.</p>
-        <p class="en">Learn the game step by step with quizzes and hands-on cases, then play with the companion: combat tools, solo Dummy player, scenarios, scoring and campaign log.</p>
-        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Compagnon solo</li><li class="en">Solo companion</li><li class="fr">Module de quêtes</li><li class="en">Quest module</li></ul>
-        <span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span>
-      </div>
-    </a>
-
-    <a class="card imp" data-game="imp" href="imperium/">
-      <div class="banner"><span class="glyph" aria-hidden="true">🏛️</span><h3>Imperium Antique</h3></div>
-      <div class="body">
-        <p class="fr">Un tutoriel en quelques étapes avec un tour guidé, puis le mode solo : l'appli gère entièrement la C.I.V. et raconte chacun de ses tours. Avec aide-mémoire, campagne et historique.</p>
-        <p class="en">A short tutorial with a guided turn, then solo mode: the app fully runs the bot and narrates each of its turns. Includes a rules reference, campaign mode and game history.</p>
-        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Automa solo</li><li class="en">Solo bot</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li></ul>
-        <span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span>
-      </div>
-    </a>
-
-    <a class="card ae" data-game="ae" href="aeons-end/">
-      <div class="banner"><span class="glyph" aria-hidden="true">🔮</span><h3>Aeon's End</h3></div>
-      <div class="body">
-        <p class="fr">Générez un marché pour chaque combat (optimisé, original ou aléatoire) selon vos boîtes, notez victoires et défaites, et suivez vos expéditions.</p>
-        <p class="en">Generate a market for every fight (optimised, combo-seeking or random) from the boxes you own, log wins and losses, and track your expeditions.</p>
-        <ul class="tags"><li class="fr">Générateur de marché</li><li class="en">Market generator</li><li class="fr">Journal</li><li class="en">Game log</li><li class="fr">Expéditions</li><li class="en">Expeditions</li></ul>
-        <span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span>
-      </div>
-    </a>
-    <p class="empty" data-empty hidden><span class="fr">Aucune appli ne correspond à votre recherche.</span><span class="en">No app matches your search.</span></p>
+<div class="view" id="view-wins" hidden>
+  <div class="wins-head xhead">
+    <div><h2>Journal des combats</h2>
+    <p id="winsum">Chargement du journal…</p></div>
+    <button class="btn primary" type="button" id="a-open">Ajouter une partie</button>
   </div>
-
-  <h2 id="fiches"><span class="fr">Fiches à télécharger</span><span class="en">Printable sheets</span></h2>
-  <p class="section-sub"><span class="fr">Des aides de jeu en PDF, à imprimer et à garder à côté du plateau.</span><span class="en">PDF game aids to print and keep next to the board.</span></p>
-
-  <div class="pdfs">
-    <!-- Pour ajouter une fiche : déposer le PDF dans le dossier « fiches », puis copier ce bloc <article> et l'adapter. -->
-    <article class="pdf mk" data-game="mk">
-      <span class="ico" aria-hidden="true">🗺️</span>
-      <div>
-        <h3><span class="fr">Mage Knight · Aide de jeu et module de quêtes</span><span class="en">Mage Knight · Game aid and quest module</span></h3>
-        <p class="fr">Récapitulatifs du tour, du déplacement, du combat, des sites et des capacités, avec le module de quêtes maison.</p>
-        <p class="en">Summaries of the turn, movement, combat, sites and abilities, plus a homemade quest module.</p>
-        <p class="meta"><span class="fr">PDF · format A5 · en français</span><span class="en">PDF · A5 · in French</span></p>
-      </div>
-      <a class="dl" href="fiches/mage-knight-aide-de-jeu.pdf" download>⬇ <span class="fr">Télécharger</span><span class="en">Download</span></a>
-    </article>
-    <p class="empty" data-empty hidden style="margin:0"><span class="fr">Pas encore de fiche pour cette recherche.</span><span class="en">No sheet matches your search yet.</span></p>
-  </div>
-
-  <section class="support" aria-labelledby="support-title">
-    <div>
-      <h2 id="support-title"><span class="fr">Un outil vous a plu ?</span><span class="en">Enjoyed a tool?</span></h2>
-      <p class="fr">Tout est et restera gratuit. Si une de ces applis vous a sauvé une soirée, un café m'aide à créer les suivantes.</p>
-      <p class="en">Everything is and will stay free. If one of these apps saved your game night, a coffee helps me build the next ones.</p>
+  <form class="addbox" id="addform" hidden>
+    <div class="photo" id="a-photo-row">
+      <label class="btn" for="a-photo">Choisir des photos</label>
+      <input type="file" id="a-photo" multiple hidden>
+      <button class="btn primary" type="button" id="a-analyze" disabled>Analyser</button>
+      <button class="btn" type="button" id="a-stop" hidden>Arrêter</button>
+      <span class="st" id="a-st">Prends la table en photo (marché, et si possible la némésis et les plateaux des mages). Je reconnais les cartes et je remplis la fiche ; tu vérifies avant d'enregistrer. Chaque analyse utilise un peu de ton usage de Claude.</span>
     </div>
-    <a class="kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ <span class="fr">M'offrir un café</span><span class="en">Buy me a coffee</span></a>
-  </section>
+    <div class="resrow" role="radiogroup" aria-label="Résultat">
+      <label><input type="radio" name="a-res" id="a-res-v" value="V" checked> Victoire</label>
+      <label><input type="radio" name="a-res" id="a-res-d" value="D"> Défaite</label>
+    </div>
+    <div class="xform">
+      <label class="fld"><span>Némésis</span><select id="a-nem"></select></label>
+      <label class="fld"><span>Mage 1</span><select id="a-m1"></select></label>
+      <label class="fld"><span>Mage 2</span><select id="a-m2"></select></label>
+      <label class="fld"><span>Date</span><input type="date" id="a-date"></label>
+      <label class="fld" style="grid-column:1/-1"><span>Remarque (facultatif)</span><input type="text" id="a-note" maxlength="200"></label>
+    </div>
+    <div class="pick" id="a-pick"></div>
+    <div class="row xbtns"><button class="btn primary" type="submit" id="a-save">Enregistrer la partie</button>
+      <button class="btn" type="button" id="a-cancel">Annuler</button><span class="msg" id="a-msg" style="color:#ffb4a3;font-size:14px;align-self:center"></span></div>
+  </form>
+  <p class="jmsg" id="a-done" hidden></p>
+  <div class="stats" id="stats"></div>
+  <div class="hunt" id="hunt"></div>
+  <div class="wins" id="wins"></div>
+</div>
 
-  <section class="about">
-    <div>
-      <h3><span class="fr">Qui suis-je ?</span><span class="en">Who am I?</span></h3>
-      <p class="fr">Paul, président d'une association de jeux de société à Strasbourg. Je crée ces outils d'abord pour ma table de jeu, puis je les partage.</p>
-      <p class="en">Paul, president of a board game club in Strasbourg, France. I build these tools for my own table first, then share them.</p>
-    </div>
-    <div>
-      <h3><span class="fr">Une erreur, une idée ?</span><span class="en">Found a bug? Got an idea?</span></h3>
-      <p class="fr">Les retours sont les bienvenus : écrivez-moi via ma page Ko-fi.</p>
-      <p class="en">Feedback is very welcome: reach me through my Ko-fi page.</p>
-    </div>
-  </section>
+<footer>
+  Outil non officiel. Noms et coûts relevés sur tes cartes Tirage aléatoire. Les textes d'effet sont résumés : en cas de doute, la carte fait foi. Les notes de puissance et les profils de némésis et de mages sont une appréciation personnelle. Le mode Expédition suit un résumé des règles d'Une Ère Nouvelle.
+</footer>
 </main>
 
-<footer class="wrap">
-  <p class="fr">Créations de fan non officielles, gratuites et sans lien avec les éditeurs des jeux concernés. Mage Knight est une marque de WizKids ; Imperium et Aeon's End appartiennent à leurs éditeurs respectifs. Aucune approbation de leur part.</p>
-  <p class="en">Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium and Aeon's End belong to their respective publishers.</p>
-</footer>
-
 <script>
+/* Stockage local du journal (remplace la base de données de Claude hors de claude.ai).
+   Les parties et expéditions sont enregistrées dans le navigateur du visiteur. */
 (function(){
-  var b=document.body, btns=document.querySelectorAll(".lang button");
-  function set(l){ b.setAttribute("data-lang",l); document.documentElement.lang=l;
-    btns.forEach(function(x){ x.setAttribute("aria-pressed", String(x.dataset.set===l)); });
-    try{ localStorage.setItem("site-lang",l); }catch(e){} }
-  var saved=null; try{ saved=localStorage.getItem("site-lang"); }catch(e){}
-  set(saved || ((navigator.language||"fr").toLowerCase().indexOf("fr")===0 ? "fr" : "en"));
-  btns.forEach(function(x){ x.onclick=function(){ set(x.dataset.set); }; });
-})();
-</script>
-<script>
-(function(){
-  var q=document.getElementById("q"), chips=document.querySelectorAll(".chip"), game="all";
-  var norm=function(t){return (t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");};
-  var items=[].slice.call(document.querySelectorAll("[data-game]")).map(function(el){
-    var names={mk:"mage knight",imp:"imperium antique classiques",ae:"aeon's end aeons end"}[el.dataset.game]||"";
-    return {el:el, text:norm(el.textContent+" "+names)};
-  });
-  function apply(){
-    var terms=norm(q.value).split(/\s+/).filter(Boolean);
-    items.forEach(function(it){
-      var ok=(game==="all"||it.el.dataset.game===game)&&terms.every(function(t){return it.text.indexOf(t)>-1;});
-      it.el.hidden=!ok;
-    });
-    document.querySelectorAll("[data-empty]").forEach(function(m){
-      var box=m.parentNode, any=[].some.call(box.querySelectorAll("[data-game]"),function(e){return !e.hidden;});
-      m.hidden=any;
-    });
-    try{ var u=new URL(location.href); game==="all"?u.searchParams.delete("jeu"):u.searchParams.set("jeu",game); history.replaceState(null,"",u); }catch(e){}
+  if (window.claude && window.claude.use) return;
+  var KEY = "aeons-end-journal-v1", mem = null;
+  function load(){
+    if (mem) return mem;
+    try { mem = JSON.parse(localStorage.getItem(KEY) || "null"); } catch(e) { mem = null; }
+    if (!mem || typeof mem !== "object") mem = {};
+    return mem;
   }
-  function setGame(g){ game=g; chips.forEach(function(c){c.setAttribute("aria-pressed",String(c.dataset.g===g));}); apply(); }
-  chips.forEach(function(c){ c.onclick=function(){ setGame(c.dataset.g); }; });
-  q.addEventListener("input",apply);
-  var start="all"; try{ var j=new URL(location.href).searchParams.get("jeu"); if(["mk","imp","ae"].indexOf(j)>-1) start=j; }catch(e){}
-  setGame(start);
-  var ph={fr:"Rechercher un jeu, une fiche…",en:"Search a game or a sheet…"};
-  new MutationObserver(function(){ q.placeholder=ph[document.body.getAttribute("data-lang")]||ph.fr; }).observe(document.body,{attributes:true,attributeFilter:["data-lang"]});
-  q.placeholder=ph[document.body.getAttribute("data-lang")]||ph.fr;
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(mem)); } catch(e) {} }
+  var listeners = {};
+  function coll(name){ var s = load(); if (!s[name]) s[name] = {}; return s[name]; }
+  function snap(name){
+    var c = coll(name);
+    var docs = Object.keys(c).sort(function(a,b){ return (c[a].ts||0)-(c[b].ts||0); }).map(function(id){
+      return { id: id, data: function(){ return JSON.parse(JSON.stringify(c[id])); } };
+    });
+    return { docs: docs, metadata: { fromCache: false } };
+  }
+  function emit(name){ (listeners[name]||[]).forEach(function(cb){ setTimeout(function(){ cb(snap(name)); }, 0); }); }
+  function newId(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,8); }
+  var db = {
+    collection: function(name){
+      return {
+        add: function(data){ var id = newId(); coll(name)[id] = JSON.parse(JSON.stringify(data)); save(); emit(name); return Promise.resolve({ id: id }); },
+        onSnapshot: function(cb){ (listeners[name] = listeners[name] || []).push(cb); setTimeout(function(){ cb(snap(name)); }, 0);
+          return function(){ listeners[name] = (listeners[name]||[]).filter(function(f){ return f !== cb; }); }; }
+      };
+    },
+    doc: function(path){
+      var p = String(path).split("/"), name = p[0], id = p[1];
+      return {
+        set: function(data){ coll(name)[id] = JSON.parse(JSON.stringify(data)); save(); emit(name); return Promise.resolve(); },
+        delete: function(){ delete coll(name)[id]; save(); emit(name); return Promise.resolve(); }
+      };
+    }
+  };
+  window.claude = { use: function(cap){ return Promise.resolve(cap === "db" ? db : null); } };
 })();
 </script>
+<script>
+"use strict";
+/* [id, type, boîte, coût, nomFR|null, nomEN, effet, puissance 1-5, tags] */
+const RAW = [
+// Guerre Éternelle
+["ErraticIngot","Gem","WE",5,"Lingot erratique","Erratic Ingot","Gagnez 2 Æ.|Gagnez 2 Æ supplémentaires s'il y a au moins une carte Ordre du tour de la némésis dans la défausse de l'ordre du tour.",4,["turn"]],
+["VolcanicGlass","Gem","WE",3,"Verre pyroclastique","Volcanic Glass","Quand vous gagnez cette carte pendant votre tour, vous pouvez dépenser 2 Æ : un allié gagne alors aussi un Verre pyroclastique et le place sur sa pioche.|Gagnez 2 Æ.",3,["coop","sup"]],
+["BloodstoneJewel","Gem","WE",6,"Pierre de sang","Bloodstone Jewel","La première fois que vous gagnez une Pierre de sang pendant votre tour, gagnez 3 Æ.|Gagnez 3 Æ.",4,["sup"]],
+["DreadDiamond","Gem","WE",3,"Diamant inquiétant","Dread Diamond","Gagnez 2 Æ.|Vous pouvez défausser un sort préparé : gagnez alors 1 Æ supplémentaire.",2,[]],
+["ScoriaSlag","Gem","WE",4,"Bouquet de scories","Scoria Slag","Gagnez 2 Æ.|Si le palier de la némésis est 2 ou plus, gagnez 1 Æ supplémentaire.",3,[]],
+["BreachOre","Gem","WE",4,"Minerai de la brèche","Breach Ore","Gagnez 2 Æ.~Stabilisez votre brèche fermée au coût de stabilisation le plus bas.",3,["br"]],
+["FrozenMagmite","Gem","WE",3,"Magnétite congelée","Frozen Magmite","Gagnez 2 Æ.|Vous pouvez placer la prochaine carte que vous gagnez ce tour sur votre pioche.",3,["sup"]],
+["VortexGauntlet","Relic","WE",6,"Gantelet de vorticité","Vortex Gauntlet","Lancez un sort préparé de n'importe quel joueur.|Ce sort retourne dans la main de ce joueur.",4,["amp"]],
+["CairnCompass","Relic","WE",4,"Boussole de cairn","Cairn Compass","Un allié peut préparer un sort de sa défausse sur ses brèches ouvertes ou fermées.",3,["amp","coop"]],
+["FiendCatcher","Relic","WE",3,"Attrapeur de démons","Fiend Catcher","Vous pouvez détruire une carte de votre main ou de votre défausse.|Révélez la carte du dessus du deck Ordre du tour. Si c'est une carte de la némésis, vous pouvez la placer sous ce deck.",4,["thin","turn"]],
+["ConclaveScroll","Relic","WE",3,"Parchemin du conclave","Conclave Scroll","Gagnez 1 charge.|Si la pile de réserve de cette carte est vide, vous pouvez détruire la carte du dessus de la défausse d'un allié.",3,["ch","sup","thin"]],
+["PrimordialFetish","Relic","WE",4,"Fétiche primordial","Primordial Fetish","Stabilisez la brèche de n'importe quel joueur.~Détruisez cette carte. Gagnez 3 vies.",3,["br","surv"]],
+["MagesTotem","Relic","WE",2,"Totem de mage","Mage's Totem","Détruisez une gemme ou une relique que vous avez jouée ce tour.~Détruisez cette carte. Gravehold gagne 1 vie.",4,["thin","surv"]],
+["ReduceToAsh","Spell","WE",7,"Retour à la poussière","Reduce to Ash","Tant que ce sort est préparé, au début de votre phase d'incantation, révélez la carte du dessus de votre pioche. Vous pouvez la détruire.|Lancer : infligez 4 dégâts.",3,["thin"]],
+["Carbonize","Spell","WE",4,"Carbonisation","Carbonize","Lancer : infligez 3 dégâts.|Révélez la carte du dessus du deck Ordre du tour. Vous pouvez la placer sous ce deck.",4,["turn"]],
+["Equilibrium","Spell","WE",7,"Équilibre","Equilibrium","Tant que ce sort est préparé, quand vous subissez des dégâts, réduisez-les de 1 (minimum 1).|Lancer : infligez 4 dégâts.",3,["surv"]],
+["ConvectionField","Spell","WE",5,"Champ de convection","Convection Field","Lancer : infligez 4 dégâts.~Lancer : infligez 2 dégâts. Un allié peut détruire une carte de sa main.",4,["thin","coop"]],
+["JaggedLightning","Spell","WE",4,"Éclair déchirant","Jagged Lightning","Lancer : infligez 3 dégâts.|Vous pouvez défausser une carte de votre main : un joueur stabilise alors sa brèche fermée au coût de stabilisation le plus bas.",3,["br"]],
+["Kindle","Spell","WE",4,"Mèche","Kindle","Tant que ce sort est préparé, pendant votre phase principale, vous pouvez aussi préparer une Étincelle sur la même brèche.|Lancer : infligez 3 dégâts.",4,["zero","br","amp"]],
+["ThoughtformFamiliar","Spell","WE",3,"Familier imaginaire","Thoughtform Familiar","Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire pour chacun de vos autres sorts préparés.",4,["br"]],
+["Crystallize","Spell","WE",8,"Cristallisation","Crystallize","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : un allié révèle sa main. Infligez 2 dégâts par gemme dans la main de cet allié.",3,["br","coop"]],
+["FieryTorrent","Spell","WE",5,"Torrent ardent","Fiery Torrent","Lancer : infligez 2 dégâts.|Infligez 2 dégâts supplémentaires pour chaque autre Torrent ardent préparé par n'importe quel joueur.",3,["amp","coop"]],
+["CelestialSpire","Spell","WE",5,"Flèche céleste","Celestial Spire","Lancer : infligez 3 dégâts.|Si la pile de réserve de cette carte est vide, un allié pioche une carte.",3,["sup","coop"]],
+["ConjureTheLost","Spell","WE",6,"Conjuration des oubliés","Conjure the Lost","Lancer : infligez 5 dégâts.|Vous pouvez détruire cette carte : Gravehold gagne alors 4 vies.",4,["surv"]],
+["NovaForge","Spell","WE",6,"Forge Nova","Nova Forge","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 2 Æ utilisables uniquement pour gagner un sort.|Lancer : infligez 4 dégâts.",4,["sup"]],
+["PyrotechnicSurge","Spell","WE",4,"Afflux pyrotechnique","Pyrotechnic Surge","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : infligez 4 dégâts. Vous pouvez détruire une carte de votre défausse.",4,["br","thin"]],
+["Aurora","Spell","WE",5,"Aurore","Aurora","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 charge.|Lancer : infligez 3 dégâts.",4,["ch"]],
+// Ténèbres d'ailleurs
+["AlienElement","Gem","OD",4,"Élément Extraterrestre","Alien Element","Gagnez 1 Æ.|Gagnez 1 Æ supplémentaire pour chacune de vos brèches où un sort est préparé.",3,["br"]],
+["PainStone","Gem","OD",6,"Pierre de Douleur","Pain Stone","Gagnez 3 Æ.~Gagnez 2 Æ et infligez 1 dégât.",4,["min"]],
+["HauntedBerylite","Gem","OD",3,"Berylite Hantée","Haunted Berylite","Gagnez 2 Æ.~Défaussez une carte de votre main : gagnez alors 2 charges.",4,["ch"]],
+["AstralCube","Relic","OD",5,"Cube Astral","Astral Cube","Reprenez en main une gemme que vous avez jouée ce tour.|Révélez la carte du dessus du deck Ordre du tour. Si c'est la carte d'un joueur, ce joueur gagne 1 vie.",4,["turn","surv"]],
+["RiddleSphere","Relic","OD",3,"Sphère des Secrets","Riddlesphere","Gagnez 1 charge.~Vous pouvez perdre 2 charges : gagnez alors 5 Æ.",3,["ch"]],
+["Char","Spell","OD",8,"Carboniser","Char","Lancer : infligez 6 dégâts.|Si ces dégâts font défausser un serviteur, un joueur gagne 2 vies.",4,["min","surv"]],
+["Scorch","Spell","OD",5,"Calciner","Scorch","Lancer : infligez 4 dégâts.|Si ces dégâts font défausser un serviteur issu du deck Némésis, un allié gagne 2 charges.",4,["min","ch","coop"]],
+["Pyromancy","Spell","OD",7,"Pyromancie","Pyromancy","Lancer : infligez 1 dégât.|Les alliés peuvent défausser ensemble jusqu'à deux cartes de leur main. Infligez 3 dégâts supplémentaires par carte ainsi défaussée.",3,["coop"]],
+["FeedbackAura","Spell","OD",5,"Aura de Réaction","Feedback Aura","Lancer : infligez 3 dégâts.|Si vous avez 4 charges ou plus, infligez 3 dégâts supplémentaires.",3,["ch"]],
+["Catalyst","Spell","OD",6,"Catalyseur","Catalyst","Lancer : infligez 2 dégâts.|Si vous avez 2 vies ou moins, infligez 5 dégâts supplémentaires.",2,["surv"]],
+["NetherConduit","Spell","OD",7,"Conduit du Néant","Nether Conduit","Lancer : révélez une carte de votre main qui coûte 2 Æ ou plus. Infligez autant de dégâts qu'il manque de cartes dans sa pile de réserve. Un allié peut ensuite gagner une carte de cette pile.|(Piles de gemmes : 7 cartes au départ. Reliques et sorts : 5.)",2,["sup","coop"]],
+// Une Ère Nouvelle
+["LurkingSionite","Gem","NA",3,"Sionite de l'ombre","Lurking Sionite","Gagnez 2 Æ.|S'il y a une Sionite de l'ombre dans la défausse d'un allié, gagnez 1 Æ supplémentaire.",3,["coop"]],
+["UnrefinedBlaststone","Gem","NA",6,"Explosite brute","Unrefined Blaststone","Gagnez 3 Æ.~Détruisez une carte de la pile de réserve de cette carte : infligez alors 3 dégâts.",4,["sup"]],
+["Exogranite","Gem","NA",3,"Exogranite","Exogranite","Gagnez 2 Æ.~Détruisez cette carte. Gagnez 3 Æ.",3,["thin"]],
+["RecurringJasper","Gem","NA",4,"Jaspe périodique","Recurring Jasper","Gagnez 2 Æ.|Si la carte du dessus de votre défausse est un sort, vous pouvez placer cette gemme sur votre pioche.",3,[]],
+["EnergizedRubidium","Gem","NA",5,"Rubidium énergisé","Energized Rubidium","Gagnez 3 Æ.|Un allié peut défausser une carte de sa main : il gagne alors 1 charge.",4,["ch","coop"]],
+["ResonantPearl","Gem","NA",3,"Perle résonnante","Resonant Pearl","Gagnez 2 Æ.|Un allié peut défausser une Perle résonnante de sa main et piocher une carte : gagnez alors 1 Æ supplémentaire.",3,["coop"]],
+["CagedFire","Relic","NA",3,"Feu en cage","Caged Fire","Détruisez la carte du dessus de la défausse de n'importe quel joueur.~Détruisez cette carte. Gagnez 2 vies.",4,["thin","surv"]],
+["GalvanizedBauble","Relic","NA",3,"Babiole galvanisée","Galvanized Bauble","Stabilisez la brèche d'un allié.~Lancez un sort préparé de n'importe quel joueur. Vous pouvez le détruire.",4,["br","amp","coop","thin"]],
+["AetherConduit","Relic","NA",4,"Conduit d'éther","Aether Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, le joueur qui l'a lancé gagne 1 Æ.",3,["amp","br"]],
+["WellOfEnergy","Relic","NA",7,"Puits d'énergie","Well of Energy","Gravehold gagne 2 vies.~Un joueur gagne 2 vies.",3,["surv"]],
+["PainConduit","Relic","NA",3,"Conduit de douleur","Pain Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, il inflige 2 dégâts supplémentaires, puis défaussez cette carte.",3,["amp"]],
+["LinkConduit","Relic","NA",6,"Conduit de lien","Link Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Deux sorts peuvent être préparés sur cette brèche.",3,["amp","br"]],
+["MarbleGalaxy","Relic","NA",2,"Galaxie de poche","Marble Galaxy","Un allié peut défausser une Galaxie de poche de sa main et piocher une carte.|Gagnez 1 charge ou stabilisez votre brèche fermée au coût de stabilisation le plus bas. Si un allié a défaussé une Galaxie de poche, appliquez les deux effets.",3,["ch","br","coop"]],
+["DelugeOfPower","Spell","NA",6,"Déluge de puissance","Deluge of Power","Lancer : infligez 4 dégâts.|Un allié peut défausser jusqu'à deux cartes de sa main. Il pioche une carte par carte ainsi défaussée.",3,["coop","mem"]],
+["ReverberatingShock","Spell","NA",4,"Choc répercuté","Reverberating Shock","Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 1 dégât. Gagnez 1 Æ utilisable uniquement pour gagner des cartes.",3,["amp","sup"]],
+["FatalHarmony","Spell","NA",5,"Symbiose léthale","Fatal Harmony","Lancer : infligez 4 dégâts.|Un allié peut défausser une Symbiose léthale de sa main et piocher une carte : infligez alors 3 dégâts.|(Les bonus de dégâts s'appliquent aux deux.)",3,["coop","amp"]],
+["BouncingBoom","Spell","NA",6,"Rebonds explosifs","Bouncing Boom","Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 2 dégâts.",3,["amp"]],
+["SpiritLift","Spell","NA",8,"Ascension spirituelle","Spirit Lift","Tant que ce sort est préparé, une fois pendant votre tour, quand vous gagnez une charge, un allié gagne 2 charges.|Lancer : infligez 5 dégâts.",4,["ch","coop"]],
+["TetheredDarts","Spell","NA",3,"Épines en chaîne","Tethered Darts","Lancer : infligez 2 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, vous pouvez le placer dans la main d'un allié.",2,["br","coop"]],
+["ForceAmplifier","Spell","NA",4,"Décuple-force","Force Amplifier","Lancer : infligez 3 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, infligez 1 dégât supplémentaire.",4,["br"]],
+["ImbuedSmash","Spell","NA",5,"Impact concentré","Imbued Smash","Lancer : infligez 4 dégâts.|Vous pouvez défausser une carte de votre main : infligez alors 2 dégâts à la némésis.|(Les bonus de dégâts s'appliquent aux deux.)",4,["amp"]],
+["PatternStrike","Spell","NA",7,"Frappe calculée","Pattern Strike","Lancer : infligez 4 dégâts.|Vous pouvez reprendre en main jusqu'à deux cartes de votre défausse qui coûtent 0 Æ.",3,["zero"]],
+// De Vieux Souvenirs
+["ShiningFluorite","Gem","TA",7,"Fluorite lumineuse","Shining Fluorite","Gagnez 3 Æ.|Placez dans votre main le prochain sort que vous gagnez ce tour.",3,["sup"]],
+["PolyphaseTurbine","Relic","TA",3,"Turbine polyphasée","Polyphase Turbine","Si c'est la première Turbine polyphasée que vous jouez ce tour, gagnez 2 Æ. Sinon, gagnez 1 charge et 1 Æ.",4,["ch"]],
+["BreachExtractor","Relic","TA",5,"Extracteur de brèche","Breach Extractor","Un joueur détruit jusqu'à deux cartes de sa main.~Détruisez cette carte. Gravehold gagne 3 vies.",4,["thin","surv"]],
+["FocusingConduit","Relic","TA",5,"Conduit de stabilisation","Focusing Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|À la fin de la phase d'incantation de ce joueur, stabilisez cette brèche. Quand elle est ouverte, détruisez cette carte.",4,["br"]],
+["DualFlash","Spell","TA",3,"Double détonation","Dual Flash","Lancer : infligez 2 dégâts.|Si c'est la première Double détonation que vous lancez pendant cette phase d'incantation, vous pouvez lancer la Double détonation préparée d'un joueur sans le défausser.",3,["amp","coop"]],
+["DustCaller","Spell","TA",5,"Invoque-débris","Dust Caller","Lancer : infligez 4 dégâts.|Un allié reprend en main une carte de sa défausse qui coûte 0 Æ.",4,["zero","coop"]],
+["SymbioticSynapse","Spell","TA",7,"Synapse symbiotique","Symbiotic Synapse","S'il y a une autre Synapse symbiotique dans la défausse d'un joueur, ce sort gagne Écho.|Lancer : infligez 4 dégâts.",4,["amp"]],
+// Retour à Gravehold
+["GlassEyedOracle","Relic","RTG",1,"Oracle de verre","Glass-Eyed Oracle","Gagnez 1 Æ.~Détruisez cette carte et autant d'exemplaires que vous voulez dans votre main. Vous pouvez gagner une carte dont le coût ne dépasse pas trois fois le nombre d'exemplaires détruits.",3,["thin","sup"]],
+["Cleanse","Spell","RTG",4,"Purge","Cleanse","Lancer : infligez 3 dégâts.|Si vous avez 3 vies ou moins, gagnez 1 vie.",3,["surv"]],
+["MemoryBreak","Spell","RTG",6,"Brise-mémoire","Memory Break","Lancer : infligez 3 dégâts.|Vous pouvez détruire une carte de votre main : infligez alors des dégâts supplémentaires égaux à son coût.",4,["thin"]],
+// Cartes promo
+["FracturedQuartz","Gem","PR",4,"Quartz fracturé","","Gagnez 2 Æ.|Vous pouvez détruire deux cartes de la pile de réserve de cette carte : gagnez alors 1 Æ supplémentaire.",3,["sup"]],
+["CombustionAbacus","Relic","PR",4,"Boulier de combustion","","Vous pouvez lancer le sort préparé d'un allié.|Un allié pioche une carte.",4,["amp","coop"]],
+["GemSlingshot","Relic","PR",3,"Lance-pierres précieuses","","Défaussez ou détruisez une carte de votre main : infligez alors autant de dégâts que son coût.",4,["thin"]],
+["ThievingSpirit","Spell","PR",5,"Esprit voleur","","Lancer : infligez 4 dégâts.|Gagnez 1 Æ.",4,[]],
+["LightingFlame","Spell","PR",6,"Flamme éclairante","","Lancer : infligez 5 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, vous pouvez le détruire : gagnez alors 3 charges.",4,["br","ch"]],
+["TemporalArc","Spell","PR",7,"Arc temporel","","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : infligez 4 dégâts. Vous pouvez placer cette carte dans votre main.",3,["br","amp"]],
+// Boîte de base (amie)
+["DiamondCluster","Gem","BASE",4,"Agrégat de diamants","","Gagnez 2 Æ.|Si c'est le deuxième Agrégat de diamants que vous jouez ce tour, gagnez 2 Æ supplémentaires.",4,[]],
+["SearingRuby","Gem","BASE",4,"Rubis fulgurant","","Gagnez 2 Æ.|Gagnez 1 Æ supplémentaire utilisable uniquement pour gagner un sort.",3,["sup"]],
+["BurningOpal","Gem","BASE",5,"Opale brûlante","","Gagnez 3 Æ.|Vous pouvez défausser une carte de votre main : un allié pioche alors une carte.",4,["coop"]],
+["CloudedSapphire","Gem","BASE",6,"Saphir nuageux","","Gagnez 3 Æ.|Si c'est le premier Saphir nuageux que vous jouez ce tour, un allié gagne 1 charge.",4,["ch","coop"]],
+["Jade","Gem","BASE",2,"Jade","","Gagnez 2 Æ.",4,[]],
+["VriswoodAmber","Gem","BASE",3,"Ambre de V'risbois","","Quand vous gagnez cette carte, vous pouvez la placer sur votre pioche.|Gagnez 2 Æ.",3,["sup"]],
+["SiftersPearl","Gem","BASE",3,"Perle filtrante","","Gagnez 2 Æ.|Chaque joueur révèle la carte du dessus de sa pioche, puis la défausse ou la replace.",3,["coop"]],
+["UnstablePrism","Relic","BASE",3,"Prisme instable","","Jouez deux fois une gemme de votre main, puis détruisez-la.~Gagnez 2 Æ.",4,["thin"]],
+["MagesTalisman","Relic","BASE",5,"Talisman de mage","","Gagnez 1 charge.|Un allié gagne 1 charge.",3,["ch","coop"]],
+["FlexingDagger","Relic","BASE",2,"Dague fléchissante","","La prochaine fois que vous stabilisez ou ouvrez une brèche ce tour, cela coûte 3 Æ de moins.~Détruisez cette carte. Infligez 1 dégât.",3,["br"]],
+["BottledVortex","Relic","BASE",3,"Vortex en bouteille","","Détruisez cette carte. Détruisez jusqu'à deux cartes de votre main ou de votre défausse. Piochez une carte.",4,["thin"]],
+["BlastingStaff","Relic","BASE",4,"Bâton d'explosion","","Vous pouvez lancer un sort que vous avez préparé ce tour : il inflige alors 2 dégâts supplémentaires.",4,["amp"]],
+["FocusingOrb","Relic","BASE",4,"Orbe de stabilisation","","Stabilisez la brèche de n'importe quel joueur.~Détruisez cette carte. Gravehold gagne 3 vies.",3,["br","surv"]],
+["ChaosArc","Spell","BASE",6,"Arc chaotique","","Lancer : infligez 3 dégâts.|Infligez 2 dégâts supplémentaires pour chaque sort préparé sur une brèche adjacente.",4,["br"]],
+["Ignite","Spell","BASE",4,"Mise à feu","","Lancer : infligez 2 dégâts.|Un allié gagne 1 charge.",4,["ch","coop"]],
+["EssenceTheft","Spell","BASE",5,"Vol d'essence","","Lancer : infligez 3 dégâts.|Vous pouvez défausser une carte de votre main : un joueur gagne alors 1 vie.",3,["surv"]],
+["FeralLightning","Spell","BASE",5,"Éclair enragé","","Ce sort peut être préparé sur une brèche fermée sans la stabiliser.|Lancer : infligez 3 dégâts.",3,["br"]],
+["PlanarInsight","Spell","BASE",6,"Aperçu planaire","","Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire pour chacune de vos brèches ouvertes.",4,["br"]],
+["SpectralEcho","Spell","BASE",3,"Écho spectral","","Lancer : infligez 2 dégâts.|Vous pouvez détruire une carte de votre main.",4,["thin"]],
+["ConsumingVoid","Spell","BASE",7,"Vide dévorant","","Lancer : détruisez jusqu'à deux cartes de votre main. Infligez 3 dégâts par carte ainsi détruite.",3,["thin"]],
+["LavaTendril","Spell","BASE",4,"Tentacule de lave","","Tant que ce sort est préparé, à la fin de votre phase d'incantation, infligez 1 dégât.|Lancer : infligez 3 dégâts.",4,["min"]],
+["ArcaneNexus","Spell","BASE",7,"Nexus des arcanes","","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez reprendre en main une gemme jouée ce tour.|Lancer : infligez 4 dégâts.",4,[]],
+["DarkFire","Spell","BASE",5,"Feu obscur","","Lancer : défaussez jusqu'à deux cartes de votre main. Infligez 3 dégâts par carte ainsi défaussée.",4,[]],
+["PhoenixFlame","Spell","BASE",3,"Flamme du phénix","","Lancer : infligez 2 dégâts.|Vous pouvez perdre 1 charge pour infliger 2 dégâts supplémentaires.",3,["ch"]],
+["AmplifyVision","Spell","BASE",4,"Vision amplifiée","","Lancer : stabilisez votre brèche fermée au coût de stabilisation le plus bas. Infligez 2 dégâts. Si toutes vos brèches sont ouvertes, infligez 1 dégât supplémentaire.",4,["br"]],
+["WildfireWhip","Spell","BASE",6,"Fouet ardent","","Tant que ce sort est préparé, pendant votre phase principale, vous pouvez dépenser 2 Æ pour lancer le sort préparé de n'importe quel joueur.|Lancer : infligez 4 dégâts.",4,["amp"]],
+["OblivionSwell","Spell","BASE",5,"Vague d'oubli","","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 Æ.|Lancer : infligez 2 dégâts. Vous pouvez défausser une gemme : infligez alors des dégâts supplémentaires égaux à son coût.",3,[]],
+// Secrets enfouis
+["TripliteCore","Gem","BS",4,"Noyau de Triplite","Triplite Core","Gagnez 3 Æ utilisables uniquement pour gagner des cartes.",4,["sup"]],
+["ObliviumResin","Gem","BS",5,"Résine d'Oubli","Oblivium Resin","Gagnez 2 Æ.|Si vous avez en main trois cartes ou plus qui coûtent 0 Æ, gagnez 2 Æ supplémentaires.",3,["zero"]],
+["Summonite","Gem","BS",3,"Invoquine","Summonite","Gagnez 2 Æ.~Gagnez une Invoquine de la réserve et placez-la sur la défausse d'un allié.",3,["coop","sup"]],
+["JoltingCrust","Gem","BS",3,"Voltécorce","Jolting Crust","Gagnez 2 Æ. Gagnez 1 jeton Pulsation.~Gagnez 2 Æ. Perdez 1 jeton Pulsation : gagnez alors 1 charge.",3,["ch"]],
+["MentiteChunk","Gem","BS",5,"Fragment de Mentite","Mentite Chunk","Gagnez 3 Æ.|S'il y a sept cartes ou plus dans votre défausse, gagnez 1 Æ supplémentaire.",4,["mem"]],
+["VoidiumSpike","Gem","BS",3,"Pointe de Vide","Voidium Spike","Gagnez 2 Æ.|Chaque allié peut défausser une carte de sa main. Chaque allié qui le fait gagne 1 charge.",3,["ch","coop"]],
+["MutedLacosite","Gem","BS",5,"Lacosite Muette","Muted Lacosite","Quand vous gagnez cette carte, réduisez un serviteur au silence.|Gagnez 3 Æ.",4,["min"]],
+["ShiningTetrite","Gem","BS",6,"Tétrite Lumineuse","Shining Tetrite","Gagnez 4 Æ qui ne peuvent pas servir à gagner une carte.",2,["ch","br"]],
+["ManifoldContainer","Relic","BS",4,"Cube Sans Fond","Manifold Container","Gagnez 1 Æ.|La prochaine fois que vous gagnez une carte ce tour, vous pouvez aussi gagner une carte qui coûte moins cher.",4,["sup"]],
+["SoulCords","Relic","BS",5,"Filaments d'Âme","Soul Cords","Un joueur gagne 1 jeton Pulsation.|Chaque joueur qui a 2 jetons Pulsation ou plus gagne 1 charge.",2,["ch","coop"]],
+["ScholarsOpus","Relic","BS",3,"Œuvre de l'Érudit","Scholar's Opus","Gagnez 1 charge.|S'il y a sept cartes ou plus dans votre défausse, gagnez 1 charge supplémentaire.",3,["ch","mem"]],
+["BottledStar","Relic","BS",7,"Étoile Miniature","Bottled Star","Gagnez 3 charges.",3,["ch"]],
+["LivingGauntlet","Relic","BS",4,"Gantelet Vivant","Living Gauntlet","Révélez la carte du dessus de votre pioche. Vous pouvez la détruire ou la défausser.|Chaque allié peut piocher une carte. Chaque allié qui le fait défausse une carte de sa main.",3,["thin","coop","mem"]],
+["NerveJab","Spell","BS",2,"Frappe Audacieuse","Nerve Jab","Lancer : infligez 1 dégât.|Réduisez un serviteur au silence.",3,["min"]],
+["DoubleTap","Spell","BS",3,"Coup Double","Double Tap","Lancer : infligez 1 dégât. Infligez 1 dégât.|(Les bonus de dégâts s'appliquent aux deux.)",3,["amp","min"]],
+["DrainingTouch","Spell","BS",2,"Toucher Vampirique","Draining Touch","Lancer : infligez 1 dégât.|Gagnez 1 charge.",3,["ch"]],
+["PrecisionShot","Spell","BS",3,"Tir de Précision","Precision Shot","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 2 dégâts. S'il y a six autres cartes ou plus dans votre défausse, infligez 2 dégâts supplémentaires.",4,["mem","br"]],
+["BladeOfWisdom","Spell","BS",6,"Lame de Sagesse","Blade of Wisdom","Quand vous gagnez cette carte, s'il y a sept autres cartes ou plus dans votre défausse, gagnez 2 vies.|Lancer : infligez 5 dégâts.",4,["mem","surv"]],
+["StunningForce","Spell","BS",5,"Force Colossale","Stunning Force","Lancer : infligez 4 dégâts à la némésis.|Réduisez un serviteur au silence.",4,["min"]],
+["FlashOfIntellect","Spell","BS",4,"Éclair de Génie","Flash of Intellect","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 3 dégâts. S'il y a six autres cartes ou plus dans votre défausse, vous pouvez gagner un Éclair de Génie de la réserve et le placer sur votre pioche.",3,["mem","sup","br"]],
+["BurningCurrent","Spell","BS",3,"Courant Flamboyant","Burning Current","Tant que ce sort est préparé, pendant votre phase d'incantation, vous pouvez perdre 2 jetons Pulsation : les sorts que vous lancez ce tour infligent alors 1 dégât supplémentaire.|Lancer : infligez 1 dégât. Gagnez 1 jeton Pulsation.",3,["ch","amp"]],
+["PsychicEruption","Spell","BS",8,"Éruption Psychique","Psychic Eruption","Lancer : infligez autant de dégâts qu'il y a de cartes dans la défausse d'un joueur.",4,["mem"]]
+];
+const CARDS = RAW.map(r=>({id:r[0],type:r[1],box:r[2],cost:r[3],fr:r[4],en:r[5],fx:r[6],pow:r[7],tags:r[8]}));
+
+const BOXES = [
+  ["WE","Guerre Éternelle"],["NA","Une Ère Nouvelle"],["BS","Secrets enfouis"],
+  ["OD","Ténèbres d'ailleurs"],["TA","De Vieux Souvenirs"],["RTG","Retour à Gravehold"],["PR","Cartes promo"],["BASE","Le commencement"]
+];
+const BOXNAME = Object.fromEntries(BOXES);
+const TYPES = [["Gem","Gemmes"],["Relic","Reliques"],["Spell","Sorts"]];
+/* répartitions gemmes · reliques · sorts, toujours 9 piles */
+const DISTS = [
+  ["324","Classique",[3,2,4]],["315","Plus de sorts",[3,1,5]],["225","Tout pour l'attaque",[2,2,5]],
+  ["234","Plus de reliques",[2,3,4]],["333","Équilibrée",[3,3,3]],["any","Surprise",null]
+];
+let distChoice="324";
+try{ const d=localStorage.getItem("ae-dist"); if(DISTS.some(x=>x[0]===d)) distChoice=d; }catch(e){}
+function rollDist(){
+  let d=DISTS.find(x=>x[0]===distChoice);
+  if(!d[2]){ const ok=DISTS.filter(x=>x[2]&&fits(x[2])); d=ok.length?pick(ok):DISTS[0]; }
+  return {Gem:d[2][0],Relic:d[2][1],Spell:d[2][2]};
+}
+function fits(a){ return TYPES.every(([t],i)=>pool(t).length>=a[i]) }
+
+const THEMES = {
+  ch:{name:"Moteur à charges",hint:"Plusieurs cartes produisent ou dépensent des charges. Cherche comment déclencher la capacité d'un mage bien plus souvent que d'habitude."},
+  mem:{name:"Défausse bien remplie",hint:"Certaines cartes se renforcent quand ta défausse compte six ou sept cartes. Surveille le moment où elle redevient ta pioche."},
+  thin:{name:"Épuration",hint:"Ce marché détruit des cartes à tour de bras. Un deck de dix cartes qui ne contient plus aucun Cristal tourne très vite."},
+  br:{name:"Maîtres des brèches",hint:"Tout pousse à ouvrir tes brèches tôt et à garder plusieurs sorts préparés en même temps."},
+  amp:{name:"Sorts démultipliés",hint:"Des sorts lancés deux fois, relancés ou gonflés par un bonus. Un même bonus de dégâts peut s'appliquer à chaque impact."},
+  coop:{name:"Jeu d'équipe",hint:"Les meilleures cartes ici agissent sur un allié ou réclament la même carte chez deux mages. Répartissez les achats."},
+  sup:{name:"Ruée sur la réserve",hint:"Des cartes récompensent le fait de gagner beaucoup de cartes, ou de vider une pile de la réserve."},
+  min:{name:"Chasse aux serviteurs",hint:"Silence, petits dégâts répétés et bonus quand un serviteur tombe : garde ces cartes pour eux plutôt que pour la némésis."},
+  surv:{name:"Sur le fil",hint:"Des soins, des cartes à sacrifier pour Gravehold et des effets qui s'activent quand tes vies sont au plus bas."},
+  zero:{name:"Retour aux sources",hint:"Pour une fois, tes Cristaux et tes Étincelles de départ valent de l'or. Réfléchis avant de les détruire."},
+  turn:{name:"Maîtres du temps",hint:"Plusieurs cartes lisent ou manipulent le deck Ordre du tour. Compte les cartes déjà sorties."}
+};
+
+/* ---------- némésis et mages ----------
+   Profil : want = familles de cartes utiles, big = gros sorts, avoid = cartes à écarter.
+   Pas de profil = némésis que je ne connais pas assez pour orienter le tirage. */
+const NEM = [
+  ["Rage Incarnée","Le commencement",{want:["surv"]},"elle frappe les mages de plein fouet : soins et protections"],
+  ["Reine Carapace","Le commencement",{want:["min"]},"sa nuée de carapaces tombe sous les petits dégâts répétés"],
+  ["Prince des Gloutons","Le commencement",{avoid:["UnrefinedBlaststone","FracturedQuartz","NetherConduit"]},"il dévore la réserve : j'écarte les cartes qui vident vos propres piles"],
+  ["Masque Tordu","Le commencement",{want:["thin"]},"ses corruptions encombrent les decks : cartes de destruction"],
+  ["Titan de l'Ombre","Guerre Éternelle",{want:["surv"]},"il use Gravehold et les mages : soins"],
+  ["Couronne Creuse","Guerre Éternelle",{want:["min"]},"seuls ses acolytes comptent : cartes contre les serviteurs"],
+  ["Démon des Voiles","Guerre Éternelle",{big:true,avoid:["DoubleTap","NerveJab","DrainingTouch","BurningCurrent","ReverberatingShock","BouncingBoom"]},"ses voiles amortissent chaque coup : gros sorts plutôt que petits impacts"],
+  ["Sorcière du Portail","Guerre Éternelle",{want:["turn"]},"elle accélère le temps : cartes qui contrôlent l'ordre du tour"],
+  ["Maggoth","Une Ère Nouvelle",null,""],
+  ["Arachnos","Une Ère Nouvelle",{want:["min"]},"ses araignées pullulent : cartes contre les serviteurs"],
+  ["Marcheur éternel","Une Ère Nouvelle",null,""],
+  ["Fenrix","Une Ère Nouvelle",null,""],
+  ["Fouisseur","Retour à Gravehold",null,""],
+  ["Forteresse","Retour à Gravehold",null,""],
+  ["Prophète aux trois Trépas","Ténèbres d'ailleurs",null,""],
+  ["Maître des Spectres","Ténèbres d'ailleurs",{want:["min"]},"ses spectres s'accumulent : cartes contre les serviteurs"],
+  ["Le Vagabond","De Vieux Souvenirs",null,""],
+  ["L'Infecteur","Le Commencement",null,""],["Le Sabbat","Le Commencement",null,""],["Le Fléau","Le Commencement",null,""],
+  ["La Colère","Le Commencement",null,""],["La Désolation","Le Commencement",null,""]
+];
+const MAGES = [
+  ["Dezmodia","Guerre Éternelle",["br"],"ses brèches Sigil"],
+  ["Garu","Guerre Éternelle",["br"],"sa capacité défausse plusieurs sorts préparés"],
+  ["Gex","Guerre Éternelle",["ch"],"sa capacité épure et soigne, à recharger souvent"],
+  ["Mazahaedron","Guerre Éternelle",["ch"],"capacité à 4 charges, rentable en boucle"],
+  ["Mist","Guerre Éternelle",["br","amp"],"elle lance jusqu'à trois sorts préparés"],
+  ["Quilius","Guerre Éternelle",["min"],"ses trophées viennent des serviteurs tués"],
+  ["Ulgimor","Guerre Éternelle",["surv"],"il encaisse pour l'équipe"],
+  ["Yan Magda","Guerre Éternelle",["br"],"elle veut ses quatre brèches ouvertes"],
+  ["Indira","Ténèbres d'ailleurs",["amp"],"ses sorts lancés depuis la main gagnent des dégâts"],
+  ["Vestige","Ténèbres d'ailleurs",[],""],
+  ["Sahala","Une Ère Nouvelle",["br"],"sa brèche céleste accueille deux sorts"],
+  ["Gygar","Une Ère Nouvelle",["ch"],"sa capacité se recharge elle-même"],
+  ["Soskel","Une Ère Nouvelle",["br"],"ses jetons renforcent les brèches"],
+  ["Taqren","Une Ère Nouvelle",["br"],"il soigne selon ses brèches ouvertes"],
+  ["Talix","Une Ère Nouvelle",["zero"],"elle joue avec ses Étincelles"],
+  ["Rhia","Une Ère Nouvelle",["sup"],"elle échange ses cartes contre la réserve"],
+  ["Claudia","Une Ère Nouvelle",["sup","coop"],"elle copie les achats d'un allié"],
+  ["Lost","Une Ère Nouvelle",["zero"],"il reprend ses cartes à 0"],
+  ["Mazra","De Vieux Souvenirs",[],""],
+  ["Qu","De Vieux Souvenirs",["amp","br"],"elle relance des sorts préparés"],
+  ["Ohat et Ulgimor","Retour à Gravehold",[],""],
+  ["Cairna","Retour à Gravehold",["ch","sup"],"capacité à 3 charges qui gagne des sorts"],
+  ["Adelheim","Le commencement",["ch"],"sa capacité annule une carte némésis"],
+  ["Brama","Le commencement",["ch"],"sa capacité soigne 4 vies"],
+  ["Jian","Le commencement",["amp"],"elle lance deux fois le même sort"],
+  ["Kadir","Le commencement",["br","amp"],"elle prépare deux sorts par brèche"],
+  ["Lash","Le commencement",["turn"],"il manipule l'ordre du tour"],
+  ["Mist (boîte de base)","Le commencement",["coop"],"elle fait piocher un allié"],
+  ["Phaedraxa","Le commencement",["ch"],"sa capacité annule les dégâts d'un tour"],
+  ["Xaxos","Le commencement",["ch","turn"],"il distribue des charges et lit l'ordre du tour"],
+  ["Brama (Le Commencement)","Le Commencement",[],""],["Janti","Le Commencement",[],""],["Leisan","Le Commencement",[],""],
+  ["Mazahaedron (Le Commencement)","Le Commencement",[],""],["Raven","Le Commencement",[],""],["Thraxir","Le Commencement",[],""]
+];
+const NEMBY = Object.fromEntries(NEM.map(n=>[n[0],n])), MAGEBY = Object.fromEntries(MAGES.map(m=>[m[0],m]));
+let fight = {nem:"",mages:[]};
+function bonus(c){ // ce que le contexte du combat ajoute à la note d'une carte
+  let b=0; const why=[]; const N=NEMBY[fight.nem]; const p=N&&N[2];
+  if(p){
+    if((p.want||[]).some(t=>c.tags.includes(t)) || (p.big&&c.type==="Spell"&&c.cost>=6)){ b+=1; why.push("Contre "+N[0]); }
+    if((p.avoid||[]).includes(c.id)) b-=3;
+  }
+  let mb=0;
+  fight.mages.forEach(name=>{ const M=MAGEBY[name]; if(M&&M[2].some(t=>c.tags.includes(t))){ mb+=0.75; why.push("Pour "+name.replace(/ \(.*/,"")); } });
+  return {b:b+Math.min(mb,1),why};
+}
+const score = c=>c.pow+bonus(c).b;
+
+/* ---------- état ---------- *//* ---------- état ---------- */
+let owned = new Set(BOXES.map(b=>b[0]).filter(b=>b!=="BASE"));
+let current = null; // {mode, slots:[{card, type, test, role, key}], theme}
+try{ const s = JSON.parse(localStorage.getItem("ae-boxes2")||"null"); if(Array.isArray(s)&&s.length) owned = new Set(s.filter(x=>BOXNAME[x])); }catch(e){}
+
+const $ = id=>document.getElementById(id);
+const rnd = n=>Math.floor(Math.random()*n);
+const pick = a=>a[rnd(a.length)];
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
+function weighted(a){ // favorise les cartes les plus fortes, sans toujours sortir la même
+  const sc=a.map(score), top=Math.max(...sc), floor=Math.max(top-1,Math.min(4,top));
+  const keep=a.map((c,i)=>[c,sc[i]]).filter(x=>x[1]>=floor);
+  let t=keep.reduce((n,x)=>n+Math.pow(x[1]-top+2,2),0)*Math.random();
+  for(const [c,v] of keep){ t-=Math.pow(v-top+2,2); if(t<=0) return c } return keep[keep.length-1][0];
+}
+let restrict=null; // en expédition, le tirage se fait dans la caserne
+const avail = c=>restrict?restrict.has(c.id):owned.has(c.box);
+const pool = type=>CARDS.filter(c=>c.type===type && avail(c));
+function enough(){ const d=DISTS.find(x=>x[0]===distChoice); return d[2]?fits(d[2]):DISTS.some(x=>x[2]&&fits(x[2])) }
+
+/* ---------- générateurs ---------- */
+/* redites : les cartes des 3 derniers marchés générés sont écartées quand c'est possible */
+let avoidRecent=true, themeChoice="";
+function loadRecent(){ try{ const r=JSON.parse(localStorage.getItem("ae-recent")||"[]"); return Array.isArray(r)?r.slice(0,3):[] }catch(e){ return [] } }
+function recentIds(){ return avoidRecent?new Set(loadRecent().flat()):new Set() }
+function pushRecent(m){ try{ localStorage.setItem("ae-recent",JSON.stringify([m.slots.map(s=>s.card.id)].concat(loadRecent()).slice(0,3))) }catch(e){} }
+function fill(slots, chooser){
+  const used=new Set(), recent=recentIds();
+  for(const s of slots){
+    if(s.card){used.add(s.card.id);continue}
+  }
+  for(const s of slots){
+    if(s.card) continue;
+    let cand=pool(s.type).filter(c=>!used.has(c.id) && (!s.test||s.test(c)));
+    if(!cand.length){ s.test=null; s.role=s.fallbackRole||s.role; cand=pool(s.type).filter(c=>!used.has(c.id)); }
+    const fresh=cand.filter(c=>!recent.has(c.id)); if(fresh.length) cand=fresh;
+    s.card=chooser(cand); used.add(s.card.id);
+  }
+  return slots;
+}
+function genRandom(dist){
+  const slots=[]; TYPES.forEach(([t])=>{for(let i=0;i<dist[t];i++)slots.push({type:t})});
+  return {mode:"rand",dist,slots:fill(slots,pick)};
+}
+function genOpt(dist){
+  const has=t=>c=>c.tags.includes(t);
+  // postes par ordre de priorité : on garde les premiers selon le nombre de piles
+  const plan={
+    Gem:[{test:c=>c.cost<=4,role:"Économie rapide"},{test:c=>c.cost>=5,role:"Gros éther"},{test:null,role:"Éther d'appoint"}],
+    Relic:[{test:has("thin"),role:"Épuration du deck"},{test:c=>!c.tags.includes("thin"),role:"Soutien"},{test:c=>!c.tags.includes("thin"),role:"Soutien"}],
+    Spell:[{test:c=>c.cost<=4,role:"Sort d'ouverture"},{test:c=>c.cost>=6,role:"Finisseur"},{test:c=>c.cost===5,role:"Milieu de partie"},{test:c=>c.cost>=6,role:"Finisseur"},{test:c=>c.cost<=4,role:"Sort d'ouverture"}]
+  };
+  const slots=[]; TYPES.forEach(([t])=>plan[t].slice(0,dist[t]).forEach(p=>slots.push({type:t,...p})));
+  return {mode:"opt",dist,slots:fill(slots,weighted)};
+}
+function genCombo(dist){
+  // thèmes jouables avec les boîtes cochées : au moins 4 cartes, dont 2 sorts
+  const ok=Object.keys(THEMES).filter(k=>{
+    const c=CARDS.filter(x=>avail(x)&&x.tags.includes(k));
+    return c.length>=4 && c.filter(x=>x.type==="Spell").length>=2;
+  });
+  if(!ok.length) return genRandom(dist);
+  let k;
+  if(themeChoice&&ok.includes(themeChoice)) k=themeChoice;
+  else{ // sans choix : 6 fois sur 10, un thème qui sert la némésis ou les mages s'il en existe
+    const N=NEMBY[fight.nem], wants=new Set((N&&N[2]&&N[2].want)||[]);
+    fight.mages.forEach(n=>(MAGEBY[n]?MAGEBY[n][2]:[]).forEach(t=>wants.add(t)));
+    const fit=ok.filter(t=>wants.has(t));
+    k = fit.length&&Math.random()<0.6 ? pick(fit) : pick(ok);
+  }
+  const inT=c=>c.tags.includes(k);
+  const want={Gem:2,Relic:1+rnd(2),Spell:3};
+  const slots=[];
+  TYPES.forEach(([t])=>{
+    const n=dist[t], avail=pool(t).filter(inT).length, keyN=Math.min(want[t],avail,n);
+    for(let i=0;i<n;i++) slots.push(i<keyN?{type:t,test:inT,key:true}:{type:t,test:c=>!inT(c)&&c.pow>=3});
+  });
+  // un marché reste jouable : une gemme et un sort abordables
+  const g=slots.filter(s=>s.type==="Gem"), sp=slots.filter(s=>s.type==="Spell");
+  const res={mode:"combo",dist,theme:k,chosen:k===themeChoice,slots:fill(slots,pick)};
+  ensureCheap(res,g,"Gem"); ensureCheap(res,sp,"Spell");
+  return res;
+}
+function ensureCheap(res,group,type){
+  if(group.some(s=>s.card.cost<=4)) return;
+  const used=new Set(res.slots.map(s=>s.card.id));
+  const target=group.find(s=>!s.key)||group[group.length-1];
+  const inT=c=>res.theme&&c.tags.includes(res.theme);
+  let cand=pool(type).filter(c=>c.cost<=4&&!used.has(c.id)&&(target.key?inT(c):!inT(c)));
+  if(!cand.length) cand=pool(type).filter(c=>c.cost<=4&&!used.has(c.id));
+  if(cand.length){ target.card=pick(cand); if(target.key&&!inT(target.card)){ target.key=false; target.test=c=>!inT(c) } }
+}
+function swap(i){
+  const s=current.slots[i], used=new Set(current.slots.map(x=>x.card.id));
+  let cand=pool(s.type).filter(c=>!used.has(c.id)&&(!s.test||s.test(c)));
+  if(!cand.length) cand=pool(s.type).filter(c=>!used.has(c.id));
+  if(!cand.length) return;
+  s.card = current.mode==="opt" ? weighted(cand) : pick(cand);
+  if(s.key && !s.card.tags.includes(current.theme)) s.key=false;
+  render();
+}
+
+/* ---------- affichage ---------- */
+const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function fxHtml(fx){
+  return fx.split("~").map(part=>part.split("|").map(l=>esc(l).replace(/^(Lancer :|Écho|Lien|Connectez)/,"<b>$1</b>")).join("<br>")).join('<span class="or">OU</span>');
+}
+const MODES={opt:["Le plus facile","Marché optimisé"],combo:["À toi de trouver","Marché original"],rand:["Au hasard","Marché full random"],replay:["Déjà joué","Marché rejoué"]};
+let hintShown=false, keysShown=false;
+
+function fitsFight(t){
+  const N=NEMBY[fight.nem]; if(N&&N[2]&&(N[2].want||[]).includes(t)) return true;
+  return fight.mages.some(n=>MAGEBY[n]&&MAGEBY[n][2].includes(t));
+}
+function adaptText(){
+  const out=[]; const N=NEMBY[fight.nem];
+  if(N) out.push(N[2]?"<b>Contre "+esc(N[0])+"</b> : "+esc(N[3])+".":"<b>"+esc(N[0])+"</b> : je ne connais pas assez cette némésis pour orienter le tirage, il reste généraliste.");
+  fight.mages.forEach(n=>{ const M=MAGEBY[n]; if(M&&M[2].length) out.push("<b>Pour "+esc(n.replace(/ \(.*/,""))+"</b> : "+esc(M[3])+"."); });
+  return out.length?"<p>"+out.join(" ")+"</p>":"";
+}
+function render(){
+  const m=current; $("rk").textContent=MODES[m.mode][0]+" · "+distText(m.dist);
+  $("again").hidden=m.mode==="replay"; $("rt").textContent=MODES[m.mode][1];
+  const note=$("note");
+  if(m.mode==="opt"){
+    note.innerHTML="<p>Plan de jeu : achète la gemme bon marché dès les premiers tours, épure tes Cristaux et Étincelles avec la relique dédiée, puis empile les finisseurs.</p>"+adaptText()+"<p class='muted'>Chaque carte porte son rôle. Tu peux en changer une : la remplaçante tient le même poste.</p>";
+  }else if(m.mode==="replay"){
+    note.innerHTML="<p>"+esc(m.label)+"</p>"+(m.missing?"<p class='muted'>"+m.missing+" carte(s) de ce marché ne sont pas dans le générateur et manquent ici.</p>":"");
+  }else if(m.mode==="rand"){
+    note.innerHTML="<p>Tirage sans filtre : aucune garantie de coût ni d'équilibre. Bonne chance.</p>";
+  }else{
+    const th=THEMES[m.theme], nkey=m.slots.filter(s=>s.key).length;
+    note.innerHTML = (hintShown
+      ? "<p><b>"+esc(th.name)+".</b> "+esc(th.hint)+"</p>"
+      : "<p>Une synergie relie "+nkey+" de ces cartes. À toi de la trouver en jouant.</p>")
+      + (hintShown&&!m.chosen&&fitsFight(m.theme)?"<p class='muted'>Thème retenu parce qu'il sert ce combat.</p>":"")
+      + "<div class='row'>"
+      + (hintShown?"":"<button class='btn' id='bhint' type='button'>Révéler l'indice</button>")
+      + (keysShown?"":"<button class='btn' id='bkeys' type='button'>Montrer les cartes du combo</button>")
+      + "</div>";
+    const bh=$("bhint"), bk=$("bkeys");
+    if(bh) bh.onclick=()=>{hintShown=true;render()};
+    if(bk) bk.onclick=()=>{keysShown=true;hintShown=true;render()};
+  }
+  const mk=$("market"); mk.innerHTML="";
+  TYPES.forEach(([t,label])=>{
+    const n=m.dist[t];
+    const g=document.createElement("div"); g.className="group g-"+t;
+    g.innerHTML="<h3>"+label+" <small>"+n+(n>1?" piles":" pile")+"</small></h3>";
+    const wrap=document.createElement("div"); wrap.className="cards";
+    m.slots.map((s,i)=>({s,i})).filter(x=>x.s.type===t).sort((a,b)=>a.s.card.cost-b.s.card.cost||a.i-b.i).forEach(({s,i})=>{
+      const c=s.card, el=document.createElement("article");
+      el.className="card"+(m.mode==="combo"&&keysShown&&s.key?" key":"");
+      el.innerHTML='<div class="top"><span class="cost" title="Coût en éther">'+c.cost+'</span><div><div class="name">'+esc(c.fr||c.en)+'</div>'
+        +'</div></div>'
+        +'<div class="fx">'+fxHtml(c.fx)+'</div>'
+        +'<div class="foot"><span>'+(m.mode==="opt"&&s.role?'<span class="chip role">'+esc(s.role)+'</span> ':'')
+        +(m.mode==="opt"?bonus(c).why.map(w=>'<span class="chip adapt">'+esc(w)+'</span> ').join(""):'')
+        +'<span class="chip">'+esc(BOXNAME[c.box])+'</span></span>'
+        +'<button class="swap" type="button" data-i="'+i+'" aria-label="Changer '+esc(c.fr||c.en)+'">Changer</button></div>';
+      wrap.appendChild(el);
+    });
+    g.appendChild(wrap); mk.appendChild(g);
+  });
+  mk.querySelectorAll(".swap").forEach(b=>b.onclick=()=>swap(+b.dataset.i));
+}
+
+function generate(mode){
+  if(!enough()){ $("boxes").open=true; showWarn(); return; }
+  hintShown=false; keysShown=false;
+  fight={nem:$("f-nem").value,mages:[$("f-m1").value,$("f-m2").value].filter(Boolean)};
+  const dist=rollDist();
+  current = mode==="opt"?genOpt(dist):mode==="combo"?genCombo(dist):genRandom(dist);
+  if(current.chosen) hintShown=true;
+  pushRecent(current);
+  showResult();
+}
+function showResult(){
+  $("logform").hidden=true; $("l-done").hidden=true;
+  $("ask").hidden=true; $("boxes").hidden=true; $("result").hidden=false;
+  render(); window.scrollTo({top:0});
+}
+function showWarn(){
+  const w=$("warn");
+  if(enough()){w.hidden=true;return}
+  w.hidden=false; w.textContent="Pas assez de cartes pour cette répartition : coche une boîte de plus ou choisis-en une autre.";
+}
+function distText(d){ return d.Gem+(d.Gem>1?" gemmes, ":" gemme, ")+d.Relic+(d.Relic>1?" reliques, ":" relique, ")+d.Spell+" sorts" }
+function renderDist(){
+  const f=$("dist");
+  DISTS.forEach(([k,name,a])=>{
+    const l=document.createElement("label");
+    l.innerHTML='<input type="radio" name="dist" id="dist-'+k+'" value="'+k+'"'+(k===distChoice?" checked":"")+'><span>'+esc(name)+(a?' <i>'+a.join(" · ")+'</i>':'')+'</span>';
+    l.querySelector("input").onchange=()=>{ distChoice=k; try{localStorage.setItem("ae-dist",k)}catch(e){} showWarn(); };
+    f.appendChild(l);
+  });
+}
+function renderBoxes(){
+  const bl=$("boxlist"); bl.innerHTML="";
+  BOXES.forEach(([k,name])=>{
+    const cs=CARDS.filter(c=>c.box===k), n=t=>cs.filter(c=>c.type===t).length;
+    const l=document.createElement("label");
+    l.innerHTML='<input type="checkbox" id="box-'+k+'"'+(owned.has(k)?" checked":"")+'><span>'+esc(name)+' <small>'+n("Gem")+' gemmes · '+n("Relic")+' reliques · '+n("Spell")+' sorts</small></span>';
+    l.querySelector("input").onchange=e=>{
+      e.target.checked?owned.add(k):owned.delete(k);
+      try{localStorage.setItem("ae-boxes2",JSON.stringify([...owned]))}catch(err){}
+      boxSum(); showWarn(); renderJournal();
+    };
+    bl.appendChild(l);
+  });
+  boxSum();
+}
+function boxSum(){
+  const n=CARDS.filter(c=>owned.has(c.box)).length;
+  $("boxsum").textContent=owned.size+" sur "+BOXES.length+" · "+n+" cartes";
+}
+
+document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>generate(b.dataset.mode));
+$("again").onclick=()=>generate(current.mode);
+$("newfight").onclick=()=>{ $("result").hidden=true; $("ask").hidden=false; $("boxes").hidden=false; window.scrollTo({top:0}); };
+$("copy").onclick=()=>{
+  const lines=[MODES[current.mode][1]];
+  TYPES.forEach(([t,label])=>{
+    lines.push("",label+" :");
+    current.slots.filter(s=>s.type===t).sort((a,b)=>a.card.cost-b.card.cost).forEach(s=>{
+      const c=s.card; lines.push("- "+c.fr+" ("+c.cost+" Æ, "+BOXNAME[c.box]+")");
+    });
+  });
+  const b=$("copy");
+  const done=ok=>{b.textContent=ok?"Liste copiée":"Copie impossible ici"; setTimeout(()=>b.textContent="Copier la liste",1800)};
+  try{ navigator.clipboard.writeText(lines.join("\n")).then(()=>done(true),()=>done(false)); }catch(e){ done(false); }
+};
+/* ---------- journal : parties gardées dans la base de l'artefact ---------- */
+let db=null, games=[], jstate="loading";
+const byId=()=>Object.fromEntries(CARDS.map(c=>[c.id,c]));
+function optionsHtml(list,sel,empty){
+  const groups={}; list.forEach(x=>(groups[x[1]]=groups[x[1]]||[]).push(x[0]));
+  return '<option value="">'+empty+'</option>'+Object.entries(groups).map(([g,ns])=>'<optgroup label="'+esc(g)+'">'
+    +ns.map(n=>'<option'+(n===sel?' selected':'')+'>'+esc(n)+'</option>').join("")+'</optgroup>').join("");
+}
+function fillSelects(){
+  $("f-nem").innerHTML=optionsHtml(NEM,"","Pas encore choisie");
+  $("f-m1").innerHTML=optionsHtml(MAGES,"","Pas encore choisi"); $("f-m2").innerHTML=optionsHtml(MAGES,"","Pas encore choisi");
+  $("f-theme").innerHTML='<option value="">Surprise (caché)</option>'+Object.entries(THEMES).map(([k,t])=>'<option value="'+k+'">'+esc(t.name)+'</option>').join("");
+}
+function sortedGames(){ return games.slice().sort((a,b)=>String(b.date||"").localeCompare(String(a.date||""))||(b.ts||0)-(a.ts||0)) }
+function renderJournal(){
+  const cards=byId();
+  if(jstate!=="ok"){
+    $("winsum").textContent = jstate==="loading" ? "Chargement du journal…" : jstate==="slow" ? "Le journal ne répond pas encore. Il s'affichera dès que la connexion revient." : "Le journal n'est pas disponible dans ce navigateur.";
+    if(!games.length){ $("stats").innerHTML=""; $("wins").innerHTML=""; $("hunt").innerHTML=""; $("nwins").textContent=""; return; }
+  }
+  const item=x=>{ const c=typeof x==="string"?cards[x]:null; return c?[c.fr,c.cost,c.fx.replace(/[|~]/g," ")]:[String(x&&x.n||x),+(x&&x.c)||0,""] };
+  const col=(cls,label,list)=>'<div class="col '+cls+'"><h4>'+label+'</h4><ul>'+(list||[]).map(item).sort((a,b)=>a[1]-b[1]).map(([n,c,fx])=>
+    '<li'+(fx?' title="'+esc(fx).replace(/"/g,"&quot;")+'"':'')+'><span class="c">'+c+'</span><span>'+esc(n)+'</span></li>').join("")+'</ul></div>';
+  const ids=g=>[].concat(g.gems||[],g.relics||[],g.spells||[]).filter(x=>typeof x==="string"&&cards[x]);
+  const fmt=d=>{ const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(d||""); return m?m[3]+"/"+m[2]+"/"+m[1]:"" };
+  const list=sortedGames(), wins=list.filter(g=>g.res==="V"), losses=list.filter(g=>g.res==="D");
+  $("wins").innerHTML=list.map(g=>{ const v=g.res==="V", N=NEMBY[g.nem];
+    return '<article class="win '+(v?"vic":"loss")+'"><div class="who"><span class="lbl'+(v?"":" l")+'">'+(v?"Victoire":"Défaite")+(fmt(g.date)?" · "+fmt(g.date):"")+'</span><h3>'+esc(g.nem||"Némésis inconnue")+'</h3>'
+    +(N?'<span class="chip">'+esc(N[1])+'</span>':'')
+    +'<div class="mages"><span>Mages</span>'+((g.mages||[]).map(esc).join(" et ")||"non notés")+'</div>'
+    +(g.note?'<div class="rem">'+esc(g.note)+'</div>':'')
+    +'<div class="acts">'+(ids(g).length?'<button class="swap" type="button" data-replay="'+esc(g.id)+'">Rejouer ce marché</button>':'')
+    +'<button class="swap" type="button" data-del="'+esc(g.id)+'">Supprimer</button></div></div>'
+    +'<div class="mk">'+col("g-Gem","Gemmes",g.gems)+col("g-Relic","Reliques",g.relics)+col("g-Spell","Sorts",g.spells)+'</div></article>'; }).join("")
+    || '<p class="jmsg">Aucune partie notée. Génère un marché, joue, puis clique sur Victoire ou Défaite.</p>';
+  document.querySelectorAll("[data-replay]").forEach(b=>b.onclick=()=>replay(b.dataset.replay));
+  document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{
+    if(b.dataset.sure){ db&&db.doc("parties/"+b.dataset.del).delete().catch(()=>{ b.textContent="Suppression impossible" }); }
+    else{ b.dataset.sure="1"; b.textContent="Confirmer la suppression"; }
+  });
+  // statistiques
+  const beaten=new Set(wins.map(g=>g.nem)), lostTo=new Set(losses.map(g=>g.nem));
+  $("nwins").textContent=list.length||"";
+  if(jstate==="ok") $("winsum").textContent=list.length?wins.length+" victoire"+(wins.length>1?"s":"")+" et "+losses.length+" défaite"+(losses.length>1?"s":"")+" notées. "+beaten.size+" némésis sur "+NEM.length+" déjà tombées.":"Le journal est vide pour l'instant.";
+  const count=(arr)=>{ const m=new Map(); arr.forEach(k=>m.set(k,(m.get(k)||0)+1)); return [...m.entries()].sort((a,b)=>b[1]-a[1]||String(a[0]).localeCompare(String(b[0]))) };
+  const topCards=count(wins.flatMap(ids)).slice(0,8);
+  const duos=count(wins.filter(g=>(g.mages||[]).length).map(g=>g.mages.slice().sort().join(" et "))).slice(0,5);
+  const played=new Set(list.flatMap(ids)), never=CARDS.filter(c=>owned.has(c.box)&&!played.has(c.id));
+  const perNem=NEM.map(n=>[n[0],wins.filter(g=>g.nem===n[0]).length,losses.filter(g=>g.nem===n[0]).length]).filter(x=>x[1]+x[2]).sort((a,b)=>(b[1]+b[2])-(a[1]+a[2]));
+  const rate=list.length?Math.round(100*wins.length/list.length):0;
+  const li=(a,b)=>'<li><span>'+esc(a)+'</span><b>'+b+'</b></li>';
+  $("stats").innerHTML=!list.length?"":
+    '<div class="stat"><h4>Bilan</h4><div class="big">'+rate+' %</div><div class="sub">de victoires sur '+list.length+' partie'+(list.length>1?"s":"")+'</div></div>'
+    +'<div class="stat"><h4>Par némésis</h4><ul>'+perNem.map(x=>li(x[0],x[1]+" V · "+x[2]+" D")).join("")+'</ul></div>'
+    +'<div class="stat"><h4>Cartes des victoires</h4><ol>'+(topCards.map(x=>li(cards[x[0]].fr,x[1]+" ×")).join("")||'<li><span>Pas encore de données</span></li>')+'</ol></div>'
+    +'<div class="stat"><h4>Duos gagnants</h4><ul>'+(duos.map(x=>li(x[0],x[1]+" ×")).join("")||'<li><span>Pas encore de données</span></li>')+'</ul></div>'
+    +'<div class="stat"><h4>Jamais jouées</h4><div class="big">'+never.length+'</div><div class="sub">cartes sur '+CARDS.filter(c=>owned.has(c.box)).length+' dans les boîtes cochées</div>'
+    +'<details><summary>Voir la liste</summary><p>'+never.map(c=>esc(c.fr)).join(", ")+'</p></details></div>';
+  const groups={}; NEM.forEach(n=>(groups[n[1]]=groups[n[1]]||[]).push(n[0]));
+  $("hunt").innerHTML='<h3>Tableau de chasse</h3>'+Object.entries(groups).map(([box,ns])=>'<div class="grp"><b>'+esc(box)+'</b>'
+    +ns.map(n=>'<span class="chip'+(beaten.has(n)?' done':lostTo.has(n)?' lost':'')+'"'+(lostTo.has(n)&&!beaten.has(n)?' title="Affrontée, pas encore vaincue"':'')+'>'+esc(n)+'</span>').join("")+'</div>').join("");
+}
+function replay(id){
+  const g=games.find(x=>x.id===id); if(!g) return;
+  const cards=byId(), slots=[]; let missing=0;
+  [["Gem",g.gems],["Relic",g.relics],["Spell",g.spells]].forEach(([t,l])=>(l||[]).forEach(x=>{ const c=typeof x==="string"&&cards[x]; c?slots.push({type:t,card:c}):missing++ }));
+  if(!slots.length) return;
+  const n=t=>slots.filter(s=>s.type===t).length;
+  fight={nem:g.nem||"",mages:(g.mages||[]).slice(0,2)};
+  $("f-nem").value=fight.nem; $("f-m1").value=fight.mages[0]||""; $("f-m2").value=fight.mages[1]||"";
+  current={mode:"replay",dist:{Gem:n("Gem"),Relic:n("Relic"),Spell:n("Spell")},slots,missing,
+    label:"Marché "+(g.res==="V"?"de la victoire":"de la défaite")+" contre "+(g.nem||"une némésis")+((g.mages||[]).length?", avec "+g.mages.join(" et "):"")+"."};
+  location.hash="marche"; showView(); showResult();
+}
+let logRes="V";
+function openLog(res){
+  logRes=res; const f=$("logform");
+  $("l-nem").innerHTML=optionsHtml(NEM,fight.nem,"À choisir");
+  $("l-m1").innerHTML=optionsHtml(MAGES,fight.mages[0]||"","Non noté"); $("l-m2").innerHTML=optionsHtml(MAGES,fight.mages[1]||"","Non noté");
+  const d=new Date(); $("l-date").value=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  $("l-note").value=""; $("l-msg").textContent=db?"":"Le journal n'est pas disponible dans cette vue.";
+  $("l-save").textContent="Enregistrer la "+(res==="V"?"victoire":"défaite"); $("l-save").disabled=!db;
+  $("l-done").hidden=true; f.hidden=false;
+}
+$("logwin").onclick=()=>openLog("V"); $("logloss").onclick=()=>openLog("D");
+$("l-cancel").onclick=()=>{ $("logform").hidden=true };
+$("logform").onsubmit=e=>{
+  e.preventDefault(); if(!db||!current) return;
+  const nem=$("l-nem").value; if(!nem){ $("l-msg").textContent="Choisis la némésis affrontée."; return; }
+  const of=t=>current.slots.filter(s=>s.type===t).map(s=>s.card.id);
+  const doc={res:logRes,nem,mages:[$("l-m1").value,$("l-m2").value].filter(Boolean),gems:of("Gem"),relics:of("Relic"),spells:of("Spell"),
+    note:$("l-note").value.trim(),date:$("l-date").value||"",mode:current.mode,ts:Date.now()};
+  $("l-save").disabled=true; $("l-msg").textContent="";
+  db.collection("parties").add(doc).then(()=>{
+    $("logform").hidden=true; const p=$("l-done"); p.hidden=false;
+    p.textContent=(logRes==="V"?"Victoire":"Défaite")+" contre "+nem+" enregistrée dans le journal.";
+  },()=>{ $("l-save").disabled=false; $("l-msg").textContent="Enregistrement impossible pour l'instant. Réessaie dans un instant."; });
+};
+(async()=>{
+  await Promise.resolve();
+  let d=null; try{ d=window.claude&&window.claude.use?await window.claude.use("db"):null }catch(e){}
+  if(!d){ jstate="off"; xstate="off"; renderJournal(); renderExp(); return; }
+  db=d; const slow=setTimeout(()=>{ if(jstate==="loading"){ jstate="slow"; renderJournal(); } },10000);
+  db.collection("parties").onSnapshot(snap=>{
+    games=snap.docs.map(x=>Object.assign({id:x.id},x.data()));
+    if(!snap.metadata||!snap.metadata.fromCache||games.length){ clearTimeout(slow); jstate="ok"; }
+    renderJournal();
+  },()=>{ clearTimeout(slow); jstate="off"; renderJournal(); });
+  const xslow=setTimeout(()=>{ if(xstate==="loading"){ xstate="slow"; renderExp(); } },10000);
+  db.collection("expeditions").onSnapshot(snap=>{
+    const remote=snap.docs.map(x=>Object.assign({id:x.id},JSON.parse(JSON.stringify(x.data()||{})))).filter(e=>XVAR[e.variant]&&e.barracks&&e.cur&&Array.isArray(e.history));
+    const ids=new Set(remote.map(e=>e.id)); exps=remote.concat(exps.filter(e=>!ids.has(e.id)&&e._local));
+    if(!snap.metadata||!snap.metadata.fromCache||remote.length){ clearTimeout(xslow); xstate="ok"; }
+    renderExp();
+  },()=>{ clearTimeout(xslow); xstate="off"; renderExp(); });
+})();
+/* ---------- expédition (règles d'Une Ère Nouvelle) ---------- */
+const BOXKEY={"Le commencement":"BASE","Guerre Éternelle":"WE","Une Ère Nouvelle":"NA","Retour à Gravehold":"RTG","Ténèbres d'ailleurs":"OD","De Vieux Souvenirs":"TA","Secrets enfouis":"BS"};
+const NEMLVL={"Rage Incarnée":1,"Reine Carapace":1,"Titan de l'Ombre":1,"Maggoth":1,"Masque Tordu":2,"Prince des Gloutons":2,"Arachnos":2,"Forteresse":2,"Prophète aux trois Trépas":2,
+  "Couronne Creuse":3,"Démon des Voiles":3,"Marcheur éternel":3,"Le Vagabond":3,"Sorcière du Portail":4,"Fenrix":4,"Fouisseur":4,"Maître des Spectres":4};
+const DECK={2:[["3A","5A","7A"],["1V + 2A","3V + 2A","3V + 4A"],["2V + 1A","4V + 1A","5V + 2A"],["3V","5V","7V"]],
+  3:[["5A","6A","7A"],["1V + 4A","3V + 3A","3V + 4A"],["2V + 3A","4V + 2A","5V + 2A"],["3V + 2A","5V + 1A","7V"]],
+  4:[["8A","7A","7A"],["1V + 7A","3V + 4A","3V + 4A"],["2V + 6A","4V + 3A","5V + 2A"],["3V + 5A","5V + 2A","7V"]]};
+const XVAR={std:{name:"Standard",first:1,last:4},short:{name:"Courte",first:2,last:4},long:{name:"Longue",first:1,last:8}};
+const ROMAN=["","I","II","III"], TYPEFR={Gem:"Gemme",Relic:"Relique",Spell:"Sort"};
+const XNEED={Gem:3,Relic:2,Spell:4};
+const xlevel=(E,b)=>E.variant==="long"?Math.ceil(b/2):b;
+function xgather(E,b){ // trésors gagnés après une victoire au combat b
+  const t = E.variant==="long" ? {2:1,4:2,6:3}[b] : {1:1,2:2,3:3}[b];
+  return t?{tier:t,n:t===2?3:5}:null;
+}
+const mageOwned=m=>owned.has(BOXKEY[m[1]]), nemOwned=n=>owned.has(BOXKEY[n[1]]);
+let exps=[], xstate="loading", xd=null, xkey="", xbusy=false, xconfirm="";
+let xq=Promise.resolve();
+function xsave(E){ const data=JSON.parse(JSON.stringify(E)); delete data.id;
+  xq=xq.then(()=>db.doc("expeditions/"+E.id).set(data)).catch(()=>{ xmsg="Sauvegarde impossible pour l'instant. Réessaie dans un instant."; renderExp(); });
+  return xq; }
+let xmsg="";
+function rollCard(type,used){ const c=CARDS.filter(x=>x.type===type&&owned.has(x.box)&&!used.has(x.id)); return c.length?pick(c).id:null }
+function rollMage(used){ const c=MAGES.filter(m=>mageOwned(m)&&!used.has(m[0])); return c.length?pick(c)[0]:null }
+const cardName=id=>{ const c=CARDS.find(x=>x.id===id); return c?c.fr:id };
+const today=()=>{ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0") };
+function addSupplies(E){ // une gemme, une relique, un sort nouveaux
+  const used=new Set(E.used), got=[];
+  ["Gem","Relic","Spell"].forEach(t=>{ const id=rollCard(t,used); if(id){ used.add(id); got.push(id); } });
+  E.used=[...used]; E.barracks.cards=E.barracks.cards.concat(got); return got;
+}
+function createExp(){
+  if(!db) return;
+  const variant=$("x-var").value, players=+$("x-pl").value;
+  const E={name:$("x-name").value.trim()||("Expédition du "+today().split("-").reverse().join("/")),variant,players,endless:$("x-endless").checked,
+    status:"active",created:today(),ts:Date.now(),battle:XVAR[variant].first,phase:"prep",score:0,
+    barracks:{cards:[],mages:[]},used:[],usedMages:[],treasures:{1:0,2:0,3:0},cur:{tries:0},history:[],last:null};
+  const used=new Set();
+  Object.entries(XNEED).forEach(([t,n])=>{ for(let i=0;i<n;i++){ const id=rollCard(t,used); if(id){ used.add(id); E.barracks.cards.push(id); } } });
+  E.used=[...used];
+  const um=new Set(); for(let i=0;i<4;i++){ const m=rollMage(um); if(m){ um.add(m); E.barracks.mages.push(m); } }
+  E.usedMages=[...um];
+  if(variant==="short"){ const got=addSupplies(E); E.treasures[1]+=5;
+    E.last={kind:"start",cards:got,text:"Expédition courte : le combat 1 compte comme gagné. Ajoute ces cartes à ta caserne et pioche 5 trésors de niveau I."}; }
+  if(E.barracks.cards.length<9||E.barracks.mages.length<players){ xmsg="Pas assez de cartes ou de mages dans les boîtes cochées pour lancer une expédition."; renderExp(); return; }
+  E.id="x"+Date.now().toString(36); xmsg="";
+  exps=exps.concat([E]); renderExp(); xsave(E);
+}
+function logBattle(E,res){
+  if(!db) return;
+  const of=t=>E.cur.market.filter(id=>{ const c=CARDS.find(x=>x.id===id); return c&&c.type===t });
+  db.collection("parties").add({res,nem:E.cur.nem,mages:E.cur.mages,gems:of("Gem"),relics:of("Relic"),spells:of("Spell"),
+    note:"Expédition « "+E.name+" », combat "+E.battle+(E.cur.tries>1?", essai "+E.cur.tries:""),date:today(),mode:"expedition",ts:Date.now()}).catch(()=>{});
+}
+function xstart(E){
+  const m=[...xd.market], cnt=t=>m.filter(id=>CARDS.find(c=>c.id===id).type===t).length;
+  if(!xd.nem){ xmsg="Choisis la némésis du combat."; return renderExp(); }
+  if(xd.mages.length!==E.players){ xmsg="Choisis "+E.players+" mage"+(E.players>1?"s":"")+" dans la caserne."; return renderExp(); }
+  if(Object.entries(XNEED).some(([t,n])=>cnt(t)!==n)){ xmsg="Le marché doit compter exactement 3 gemmes, 2 reliques et 4 sorts."; return renderExp(); }
+  xmsg="";
+  E.cur={nem:xd.nem,mages:xd.mages.slice(),market:m,tries:E.cur.tries||0};
+  if(!E.endless){ const gone=E.barracks.cards.filter(id=>!xd.market.has(id)); E.barracks.cards=m; E.banished=(E.banished||[]).concat(gone); }
+  E.phase="fight"; E.last=null; xsave(E); renderExp();
+}
+function xwin(E){
+  E.cur.tries=(E.cur.tries||0)+1; const pts=[0,6,4,2][E.cur.tries]||0;
+  logBattle(E,"V");
+  const got=addSupplies(E), g=xgather(E,E.battle);
+  if(g) E.treasures[g.tier]+=g.n;
+  E.score+=pts;
+  E.history.push({b:E.battle,nem:E.cur.nem,mages:E.cur.mages,market:E.cur.market,tries:E.cur.tries,res:"V",pts,rewards:got,treasure:g});
+  E.last={kind:"win",nem:E.cur.nem,pts,cards:got,text:g?"Pioche "+g.n+" trésors de niveau "+ROMAN[g.tier]+" et ajoute-les à ta caserne.":""};
+  if(E.battle>=XVAR[E.variant].last){ E.status="done"; E.phase="done"; }
+  else{ E.battle++; E.phase="prep"; E.cur={tries:0}; }
+  xsave(E); renderExp();
+}
+function xloss(E){
+  E.cur.tries=(E.cur.tries||0)+1; logBattle(E,"D");
+  E.history.push({b:E.battle,nem:E.cur.nem,mages:E.cur.mages,market:E.cur.market,tries:E.cur.tries,res:"D",pts:0});
+  E.phase="support"; E.last=null; xsave(E); renderExp();
+}
+function xsupport(E,kind){
+  let text="";
+  if(kind in XNEED){ const used=new Set(E.used), id=rollCard(kind,used);
+    if(id){ E.used.push(id); E.barracks.cards.push(id); text=TYPEFR[kind]+(kind==="Spell"?" ajouté":" ajoutée")+" à la caserne : "+cardName(id)+"."; } else text="Plus aucune carte de ce type disponible."; }
+  else if(kind==="mage"){ const m=rollMage(new Set(E.usedMages)); if(m){ E.usedMages.push(m); E.barracks.mages.push(m); text="Nouveau mage dans la caserne : "+m+"."; } else text="Plus aucun mage disponible."; }
+  else { const t=+kind.slice(1); E.treasures[t]++; text="Pioche 1 trésor de niveau "+ROMAN[t]+" et ajoute-le à ta caserne."; }
+  E.last={kind:"support",cards:[],text:"Soutien après la défaite. "+text+" Tu affrontes à nouveau "+E.cur.nem+"."};
+  E.phase="prep"; xsave(E); renderExp();
+}
+function xpropose(E,mode){
+  restrict=new Set(E.barracks.cards);
+  const saveF=fight, saveR=avoidRecent, saveT=themeChoice;
+  fight={nem:xd.nem,mages:xd.mages.slice()}; avoidRecent=false; if(mode!=="combo") themeChoice="";
+  const dist={Gem:3,Relic:2,Spell:4};
+  const r = mode==="opt"?genOpt(dist):mode==="combo"?genCombo(dist):genRandom(dist);
+  restrict=null; fight=saveF; avoidRecent=saveR; themeChoice=saveT;
+  xd.market=new Set(r.slots.map(s=>s.card.id)); xd.theme=r.mode==="combo"?r.theme:""; xd.hint=false; xd.mode=mode;
+  renderExp();
+}
+function xrow(id,opts){
+  const c=CARDS.find(x=>x.id===id); if(!c) return "";
+  return '<div class="xrow g-'+c.type+'" title="'+esc(c.fx.replace(/[|~]/g," ")).replace(/"/g,"&quot;")+'">'
+    +(opts&&opts.check?'<input type="checkbox" data-xc="'+c.id+'"'+(xd.market.has(c.id)?" checked":"")+' aria-label="Mettre '+esc(c.fr)+' au marché">':'')
+    +'<span class="c">'+c.cost+'</span><span class="nm">'+esc(c.fr)+'</span><span class="bx">'+esc(BOXNAME[c.box])+'</span></div>';
+}
+function xlist(ids,check){
+  return TYPES.map(([t,label])=>{ const l=ids.map(id=>CARDS.find(c=>c.id===id)).filter(c=>c&&c.type===t).sort((a,b)=>a.cost-b.cost);
+    return l.length?'<div class="xrows"><h4 class="g-'+t+'" style="color:var(--c)">'+label+'</h4>'+l.map(c=>xrow(c.id,{check})).join("")+'</div>':""; }).join("");
+}
+function renderExp(){
+  const box=$("exp");
+  if(xstate!=="ok"){ box.innerHTML='<p class="jmsg">'+(xstate==="loading"?"Chargement de l'expédition…":xstate==="slow"?"L'expédition ne répond pas encore. Elle s'affichera dès que la connexion revient.":"Le mode Expédition a besoin du journal, qui n'est pas disponible dans cette vue. Ouvre la page connecté à ton compte.")+'</p>'; return; }
+  const E=exps.find(e=>e.status==="active");
+  const msg=xmsg?'<p class="msg" style="color:#ffb4a3">'+esc(xmsg)+'</p>':"";
+  if(!E){
+    const past=exps.filter(e=>e.status!=="active").sort((a,b)=>(b.ts||0)-(a.ts||0));
+    box.innerHTML='<div class="xhead"><div><h2>Expédition</h2><p class="sub">Une campagne de plusieurs combats selon les règles d\'Une Ère Nouvelle : une caserne de cartes et de mages qui grossit après chaque combat, des némésis de plus en plus fortes, un score.</p></div></div>'
+      +'<div class="xpanel"><h3>Nouvelle expédition</h3><div class="xform">'
+      +'<label class="fld" style="grid-column:span 2"><span>Nom</span><input type="text" id="x-name" maxlength="60" placeholder="Expédition du '+today().split("-").reverse().join("/")+'"></label>'
+      +'<label class="fld"><span>Durée</span><select id="x-var"><option value="std">Standard, 4 combats</option><option value="short">Courte, 3 combats</option><option value="long">Longue, 8 combats</option></select></label>'
+      +'<label class="fld"><span>Joueurs</span><select id="x-pl"><option>2</option><option>3</option><option>4</option></select></label></div>'
+      +'<div class="xmages"><label><input type="checkbox" id="x-endless"> Réserve sans fin : les cartes non choisies restent dans la caserne au lieu d\'être bannies</label></div>'
+      +'<p class="muted">La caserne de départ est tirée dans les boîtes cochées de l\'onglet Nouveau marché : 3 gemmes, 2 reliques, 4 sorts et 4 mages. Les trésors restent des cartes physiques : l\'appli te dit combien en piocher.</p>'
+      +msg+'<div class="xbtns"><button class="btn primary" type="button" id="x-create">Lancer l\'expédition</button></div></div>'
+      +(past.length?'<div class="xpanel"><h3>Expéditions passées</h3><ul class="xpast" style="list-style:none;margin:0;padding:0">'+past.map(e=>'<li><span>'+esc(e.name)+' · '+esc(XVAR[e.variant].name)+(e.status==="abandoned"?" · abandonnée au combat "+e.battle:"")+'</span><b style="color:var(--gold)">'+(e.score||0)+' pts</b></li>').join("")+'</ul></div>':"");
+    const b=$("x-create"); if(b) b.onclick=createExp;
+    return;
+  }
+  const V=XVAR[E.variant], L=xlevel(E,E.battle);
+  const key=E.id+":"+E.battle+":"+(E.cur.tries||0)+":"+E.phase;
+  if(xkey!==key){ xkey=key; xd={nem:E.cur.nem||"",mages:[],market:new Set(),theme:"",hint:false,mode:""}; xconfirm=""; }
+  const steps=[]; for(let b=V.first;b<=V.last;b++){
+    const h=E.history.filter(x=>x.b===b), w=h.find(x=>x.res==="V");
+    steps.push('<div class="xstep'+(b===E.battle&&E.status==="active"?" now":"")+(w?" won":"")+'"><b>Combat '+b+'</b><span class="m">Niveau '+xlevel(E,b)+(w?' · '+esc(w.nem)+' · +'+w.pts:b===E.battle&&h.length?' · '+h.length+' défaite'+(h.length>1?"s":""):'')+'</span></div>'); }
+  const tr=[1,2,3].filter(t=>E.treasures[t]).map(t=>E.treasures[t]+" de niveau "+ROMAN[t]).join(", ");
+  let last="";
+  if(E.last){ const L2=E.last;
+    last='<div class="xpanel xlast'+(L2.kind==="support"?" loss":"")+'"><h4>'+(L2.kind==="win"?"Victoire contre "+esc(L2.nem)+" · +"+L2.pts+" points":L2.kind==="start"?"Départ":"Soutien")+'</h4>'
+      +(L2.cards&&L2.cards.length?'<p>Nouvelles cartes dans la caserne : '+L2.cards.map(id=>"<b>"+esc(cardName(id))+"</b>").join(", ")+'.</p>':"")
+      +(L2.text?'<p>'+esc(L2.text)+'</p>':"")+'</div>'; }
+  // panneau d'action
+  let act="";
+  const lvlNem=NEM.filter(n=>nemOwned(n)&&NEMLVL[n[0]]===L), faced=new Set(E.history.map(h=>h.nem));
+  if(E.phase==="prep"){
+    const nemSel = E.cur.nem ? '<p><b>'+esc(E.cur.nem)+'</b> <span class="muted">· revanche après la défaite</span></p>'
+      : '<div class="xbtns" style="align-items:end"><label class="fld" style="flex:1;min-width:180px"><span>Némésis de niveau '+L+'</span><select id="x-nem">'
+        +'<option value="">À tirer</option>'+lvlNem.map(n=>'<option'+(n[0]===xd.nem?" selected":"")+'>'+esc(n[0])+'</option>').join("")
+        +'<optgroup label="Autres niveaux">'+NEM.filter(n=>nemOwned(n)&&NEMLVL[n[0]]&&NEMLVL[n[0]]!==L).map(n=>'<option'+(n[0]===xd.nem?" selected":"")+'>'+esc(n[0])+'</option>').join("")+'</optgroup></select></label>'
+        +'<button class="btn" type="button" id="x-rollnem">Tirer au hasard</button></div>';
+    const cnt=t=>[...xd.market].filter(id=>{const c=CARDS.find(x=>x.id===id);return c&&c.type===t}).length;
+    const counter='<p class="xcount">'+TYPES.map(([t,lab])=>{ const n=cnt(t); return lab+' <b class="'+(n===XNEED[t]?"ok":"ko")+'">'+n+'/'+XNEED[t]+'</b>'; }).join(" · ")+'</p>';
+    const hint = xd.theme ? (xd.hint?'<p class="muted"><b>'+esc(THEMES[xd.theme].name)+'.</b> '+esc(THEMES[xd.theme].hint)+'</p>':'<p class="muted">Ce marché cache une synergie. <button class="swap" type="button" id="x-hint">Révéler l\'indice</button></p>') : "";
+    act='<div class="xpanel"><h3>Préparer le combat '+E.battle+'</h3>'
+      +'<h4>1. Némésis</h4>'+nemSel
+      +'<h4>2. Mages ('+E.players+')</h4><div class="xmages">'+E.barracks.mages.map(m=>'<label><input type="checkbox" data-xm="'+esc(m)+'"'+(xd.mages.includes(m)?" checked":"")+'> '+esc(m)+'</label>').join("")+'</div>'
+      +'<h4>3. Marché : coche 3 gemmes, 2 reliques et 4 sorts</h4>'
+      +'<div class="xbtns"><button class="btn" type="button" data-xp="opt">Proposer : optimisé</button><button class="btn" type="button" data-xp="combo">Original</button><button class="btn" type="button" data-xp="rand">Au hasard</button></div>'
+      +counter+hint+xlist(E.barracks.cards,true)
+      +'<p class="muted">'+(E.endless?"Réserve sans fin : les cartes non cochées restent dans la caserne.":"Les cartes non cochées seront bannies de l'expédition au début du combat.")+'</p>'
+      +msg+'<div class="xbtns"><button class="btn primary" type="button" id="x-start">Commencer le combat</button></div></div>';
+  }else if(E.phase==="fight"){
+    act='<div class="xpanel"><h3>Combat '+E.battle+' contre '+esc(E.cur.nem)+'</h3>'
+      +'<p class="muted">Mages : '+E.cur.mages.map(esc).join(" et ")+(E.cur.tries?' · essai '+(E.cur.tries+1):'')+'</p>'
+      +xlist(E.cur.market,false)
+      +'<div class="xbtns">'+(xconfirm==="V"?'<button class="btn win-b" type="button" id="x-win">Confirmer la victoire</button><button class="btn" type="button" id="x-cancel">Annuler</button>'
+        :xconfirm==="D"?'<button class="btn loss-b" type="button" id="x-loss">Confirmer la défaite</button><button class="btn" type="button" id="x-cancel">Annuler</button>'
+        :'<button class="btn win-b" type="button" id="x-askwin">Victoire</button><button class="btn loss-b" type="button" id="x-askloss">Défaite</button>')+'</div></div>';
+  }else if(E.phase==="support"){
+    const tiers=[1,2,3].filter(t=>E.treasures[t]>0);
+    act='<div class="xpanel"><h3>Défaite contre '+esc(E.cur.nem)+'</h3><p>Choisis un soutien pour la revanche :</p><div class="xbtns">'
+      +'<button class="btn" type="button" data-xs="Gem">Une gemme</button><button class="btn" type="button" data-xs="Relic">Une relique</button><button class="btn" type="button" data-xs="Spell">Un sort</button>'
+      +'<button class="btn" type="button" data-xs="mage">Un mage</button>'
+      +tiers.map(t=>'<button class="btn" type="button" data-xs="T'+t+'">Un trésor de niveau '+ROMAN[t]+'</button>').join("")+'</div></div>';
+  }
+  // panneau rappels
+  const deck=DECK[E.players]&&DECK[E.players][Math.min(L,4)-1];
+  const side='<div class="xpanel"><h3>Caserne</h3>'
+    +'<p><b>Mages</b> : '+E.barracks.mages.map(esc).join(", ")+'</p>'
+    +'<p><b>Trésors</b> : '+(tr||"aucun pour l'instant")+'</p>'
+    +(E.phase!=="prep"?xlist(E.barracks.cards,false):'<p class="muted">'+E.barracks.cards.length+' cartes, listées à gauche.</p>')
+    +'</div><div class="xpanel"><h3>Rappels du combat '+E.battle+'</h3>'
+    +'<p><b>Trésors utilisables</b> : '+(tr?"ceux de la caserne (niveaux "+[1,2,3].filter(t=>E.treasures[t]).map(t=>ROMAN[t]).join(", ")+")":"aucun")+'.</p>'
+    +'<p class="muted">Niveau I : chaque joueur en choisit un et remplace une carte de départ du même type (gemme ou sort) dans son deck. Niveau II : le groupe en choisit un seul, qui s\'applique à tous. Niveau III : chaque joueur en pose un sur son plateau.</p>'
+    +(deck?'<h4>Deck Némésis à '+E.players+' joueurs</h4><table class="deck"><tr><th>Palier 1</th><th>Palier 2</th><th>Palier 3</th></tr><tr><td>'+deck.join("</td><td>")+'</td></tr></table>'
+      +'<p class="muted">En plus des cartes propres à la némésis. V : cartes de base améliorées, A : cartes de base générales.'+(E.variant==="long"?" Pour l'expédition longue, j'utilise la colonne du niveau du combat : la règle ne le précise pas.":"")+'</p>':"")
+    +'</div>';
+  box.innerHTML='<div class="xhead"><div><h2>'+esc(E.name)+'</h2><p class="sub">Expédition '+esc(V.name.toLowerCase())+' · '+E.players+' joueurs'+(E.endless?" · réserve sans fin":"")+' · '+E.score+' points</p></div>'
+    +'<button class="swap" type="button" id="x-abandon">'+(xconfirm==="abandon"?"Confirmer l'abandon":"Abandonner l'expédition")+'</button></div>'
+    +'<div class="xtrack">'+steps.join("")+'</div>'+last
+    +'<div class="xgrid"><div style="display:flex;flex-direction:column;gap:18px">'+act+'</div><div style="display:flex;flex-direction:column;gap:18px">'+side+'</div></div>';
+  // évènements
+  const on=(id,f)=>{ const el=$(id); if(el) el.onclick=f; };
+  on("x-abandon",()=>{ if(xconfirm==="abandon"){ E.status="abandoned"; xconfirm=""; xsave(E); renderExp(); } else { xconfirm="abandon"; renderExp(); } });
+  const ns=$("x-nem"); if(ns) ns.onchange=e=>{ xd.nem=e.target.value; };
+  on("x-rollnem",()=>{ const fresh=lvlNem.filter(n=>!faced.has(n[0])); const l=fresh.length?fresh:lvlNem; if(l.length){ xd.nem=pick(l)[0]; renderExp(); } });
+  box.querySelectorAll("[data-xm]").forEach(i=>i.onchange=()=>{ const m=i.dataset.xm; xd.mages=i.checked?xd.mages.concat([m]):xd.mages.filter(x=>x!==m); });
+  box.querySelectorAll("[data-xc]").forEach(i=>i.onchange=()=>{ i.checked?xd.market.add(i.dataset.xc):xd.market.delete(i.dataset.xc); xd.theme=""; renderExp(); });
+  box.querySelectorAll("[data-xp]").forEach(b=>b.onclick=()=>xpropose(E,b.dataset.xp));
+  on("x-hint",()=>{ xd.hint=true; renderExp(); });
+  on("x-start",()=>xstart(E));
+  on("x-askwin",()=>{ xconfirm="V"; renderExp(); }); on("x-askloss",()=>{ xconfirm="D"; renderExp(); }); on("x-cancel",()=>{ xconfirm=""; renderExp(); });
+  on("x-win",()=>{ xconfirm=""; xwin(E); }); on("x-loss",()=>{ xconfirm=""; xloss(E); });
+  box.querySelectorAll("[data-xs]").forEach(b=>b.onclick=()=>xsupport(E,b.dataset.xs));
+}
+
+/* ---------- ajout d'une partie au journal, avec analyse de photo ---------- */
+let picked={Gem:[],Relic:[],Spell:[]}, doubt=new Set(), sampleFn=null, imgLim=null, actl=null;
+function renderPick(){
+  $("a-pick").innerHTML=TYPES.map(([t,label])=>'<div class="col g-'+t+'"><h4>'+label+'</h4><div class="pchips">'
+    +picked[t].map(id=>{ const c=CARDS.find(x=>x.id===id); return '<div class="pchip'+(doubt.has(id)?" doubt":"")+'"'+(doubt.has(id)?' title="Pas sûr de cette carte : vérifie-la"':'')+'><span class="nm">'+esc(c.fr)+' <span class="muted" style="color:var(--muted)">· '+c.cost+'</span>'+(doubt.has(id)?' <span style="color:var(--gold);font-size:12.5px">à vérifier</span>':'')+'</span><button type="button" data-rm="'+id+'" aria-label="Retirer '+esc(c.fr)+'">×</button></div>'; }).join("")
+    +'</div><select data-add="'+t+'" aria-label="Ajouter : '+label.toLowerCase()+'"><option value="">Ajouter…</option>'
+    +BOXES.map(([k,n])=>{ const l=CARDS.filter(c=>c.type===t&&c.box===k&&!picked[t].includes(c.id)).sort((a,b)=>a.fr.localeCompare(b.fr)); return l.length?'<optgroup label="'+esc(n)+'">'+l.map(c=>'<option value="'+c.id+'">'+esc(c.fr)+' ('+c.cost+')</option>').join("")+'</optgroup>':""; }).join("")
+    +'</select></div>').join("");
+  $("a-pick").querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ const id=b.dataset.rm, t=CARDS.find(c=>c.id===id).type; picked[t]=picked[t].filter(x=>x!==id); doubt.delete(id); renderPick(); });
+  $("a-pick").querySelectorAll("[data-add]").forEach(sel=>sel.onchange=()=>{ if(sel.value){ picked[sel.dataset.add].push(sel.value); renderPick(); } });
+}
+function openAdd(){
+  picked={Gem:[],Relic:[],Spell:[]}; doubt=new Set();
+  $("a-nem").innerHTML=optionsHtml(NEM,"","À choisir");
+  $("a-m1").innerHTML=optionsHtml(MAGES,"","Non noté"); $("a-m2").innerHTML=optionsHtml(MAGES,"","Non noté");
+  $("a-date").value=today(); $("a-note").value=""; $("a-msg").textContent=""; $("a-res-v").checked=true;
+  $("a-photo").value=""; $("a-analyze").disabled=true;
+  $("a-photo-row").hidden=!(sampleFn&&imgLim);
+  if(imgLim) $("a-photo").accept=imgLim.mediaTypes.join(",");
+  $("a-done").hidden=true; $("addform").hidden=false; renderPick();
+}
+$("a-open").onclick=openAdd;
+$("a-cancel").onclick=()=>{ if(actl) actl.abort(); $("addform").hidden=true; };
+$("a-photo").onchange=()=>{ const n=$("a-photo").files.length; $("a-analyze").disabled=!n;
+  if(n) $("a-st").textContent=n+" photo"+(n>1?"s":"")+" choisie"+(n>1?"s":"")+(imgLim&&n>imgLim.maxCount?" : seules les "+imgLim.maxCount+" premières seront analysées.":". Clique sur Analyser."); };
+async function analyze(){
+  const files=[...$("a-photo").files].slice(0,imgLim?imgLim.maxCount:1); if(!files.length||!sampleFn) return;
+  const list=CARDS.map(c=>c.id+" | "+TYPEFR[c.type]+" | "+c.cost+" | "+c.fr).join("\n");
+  const prompt="Tu regardes "+(files.length>1?files.length+" photos":"une photo")+" d'une partie du jeu de cartes coopératif Aeon's End, édition française.\n"
+    +"Repère les cartes du marché (la réserve) : des piles de gemmes, reliques et sorts posées face visible, chacune avec son nom en haut du cadre de texte et son coût dans un hexagone en haut à droite. Il y en a en général 9 (3 gemmes, 2 reliques, 4 sorts), mais ce nombre peut varier.\n"
+    +"Ignore les cartes de départ (Cristal, Éclat, Étincelle), les cartes en main ou dans les pioches, les trésors et les cartes de la némésis.\n"
+    +"Si tu vois le plateau de la némésis ou les plateaux des mages, donne leurs noms.\n\n"
+    +"Cartes possibles (id | type | coût | nom) :\n"+list+"\n\nNémésis possibles : "+NEM.map(n=>n[0]).join(", ")+"\nMages possibles : "+MAGES.map(m=>m[0]).join(", ")+"\n\n"
+    +'Réponds uniquement avec un objet JSON de cette forme : {"cards":["id",...],"doubtful":["id",...],"nemesis":"nom exact ou null","mages":["nom exact",...],"comment":"une phrase courte en français"}. '
+    +"N'utilise que des id de la liste. Mets dans doubtful les cartes que tu as identifiées sans en être sûr (elles figurent aussi dans cards). N'invente aucune carte : si un nom est illisible, laisse-la de côté et signale-le dans comment.";
+  const btn=$("a-analyze"), st=$("a-st"); btn.disabled=true; $("a-stop").hidden=false; st.textContent="Analyse en cours… cela peut prendre une minute.";
+  actl=new AbortController();
+  try{
+    const r=await sampleFn.json(prompt,{images:files,signal:actl.signal,cache:false});
+    const ids=new Set(CARDS.map(c=>c.id)), got=(Array.isArray(r&&r.cards)?r.cards:[]).map(String).filter(id=>ids.has(id));
+    picked={Gem:[],Relic:[],Spell:[]}; [...new Set(got)].forEach(id=>picked[CARDS.find(c=>c.id===id).type].push(id));
+    doubt=new Set((Array.isArray(r.doubtful)?r.doubtful:[]).map(String).filter(id=>got.includes(id)));
+    if(r.nemesis&&NEMBY[r.nemesis]) $("a-nem").value=r.nemesis;
+    const ms=(Array.isArray(r.mages)?r.mages:[]).map(String).filter(m=>MAGEBY[m]);
+    if(ms[0]) $("a-m1").value=ms[0]; if(ms[1]) $("a-m2").value=ms[1];
+    renderPick();
+    st.textContent=got.length?(got.length+" carte"+(got.length>1?"s":"")+" reconnue"+(got.length>1?"s":"")+(doubt.size?", dont "+doubt.size+" à vérifier (encadrées en doré)":"")+". "+(r.comment?String(r.comment):"")+" Vérifie et complète avant d'enregistrer."):"Aucune carte reconnue. "+(r&&r.comment?String(r.comment)+" ":"")+"Essaie une photo plus nette et plus proche, ou ajoute les cartes à la main.";
+  }catch(e){
+    const c=e&&e.code;
+    st.textContent = c==="cancelled"?"Analyse arrêtée."
+      : c==="not_granted"||c==="sampling_disabled"||c==="images_unavailable"||c==="not_declared"?"L'analyse de photo n'est pas autorisée dans cette vue. Tu peux remplir la fiche à la main."
+      : c==="rate_limited"?"Trop d'analyses d'un coup ou limite d'usage atteinte. Réessaie plus tard."
+      : c==="image_rejected"?"Cette photo n'est pas acceptée (format ou taille). Essaie une autre photo."
+      : c==="invalid_json"||c==="empty_completion"?"La réponse n'était pas exploitable. Réessaie, ou remplis la fiche à la main."
+      : c==="session_expired"?"Ta session a expiré : reconnecte-toi puis réessaie."
+      : "L'analyse a échoué. Réessaie dans un instant.";
+    if(c==="not_granted"||c==="sampling_disabled") $("a-photo-row").hidden=true;
+  }finally{ btn.disabled=!$("a-photo").files.length; $("a-stop").hidden=true; actl=null; }
+}
+$("a-analyze").onclick=analyze;
+$("a-stop").onclick=()=>{ if(actl) actl.abort(); };
+$("addform").onsubmit=e=>{
+  e.preventDefault(); if(!db){ $("a-msg").textContent="Le journal n'est pas disponible dans cette vue."; return; }
+  const nem=$("a-nem").value; if(!nem){ $("a-msg").textContent="Choisis la némésis affrontée."; return; }
+  if(!picked.Gem.length&&!picked.Relic.length&&!picked.Spell.length){ $("a-msg").textContent="Ajoute au moins une carte du marché."; return; }
+  const res=$("a-res-d").checked?"D":"V";
+  const doc={res,nem,mages:[$("a-m1").value,$("a-m2").value].filter(Boolean),gems:picked.Gem,relics:picked.Relic,spells:picked.Spell,
+    note:$("a-note").value.trim(),date:$("a-date").value||"",mode:"saisie",ts:Date.now()};
+  $("a-save").disabled=true;
+  db.collection("parties").add(doc).then(()=>{ $("addform").hidden=true; $("a-save").disabled=false;
+    const p=$("a-done"); p.hidden=false; p.textContent=(res==="V"?"Victoire":"Défaite")+" contre "+nem+" ajoutée au journal."; },
+    ()=>{ $("a-save").disabled=false; $("a-msg").textContent="Enregistrement impossible pour l'instant. Réessaie dans un instant."; });
+};
+(async()=>{
+  try{ sampleFn=window.claude&&window.claude.use?await window.claude.use("sample"):null }catch(e){ sampleFn=null }
+  if(sampleFn){ try{ const l=await sampleFn.limits(); imgLim=l&&l.images||null }catch(e){ imgLim=null } }
+  if(!$("addform").hidden) $("a-photo-row").hidden=!(sampleFn&&imgLim);
+})();
+
+function showView(){
+  const v=location.hash==="#victoires"?"wins":location.hash==="#expedition"?"exp":"gen";
+  ["gen","exp","wins"].forEach(k=>{ $("view-"+k).hidden=k!==v; $("tab-"+k).setAttribute("aria-selected",String(k===v)); });
+}
+$("tab-gen").onclick=()=>{ location.hash="marche"; showView(); };
+$("tab-wins").onclick=()=>{ location.hash="victoires"; showView(); };
+$("tab-exp").onclick=()=>{ location.hash="expedition"; showView(); };
+window.addEventListener("hashchange",showView);
+$("f-theme").onchange=e=>{ themeChoice=e.target.value };
+$("f-fresh").onchange=e=>{ avoidRecent=e.target.checked };
+fillSelects(); renderBoxes(); renderDist(); renderJournal(); renderExp(); showView();
+</script>
+<footer style="max-width:1100px;margin:48px auto 0;padding:20px 16px 32px;border-top:1px solid rgba(128,128,128,.3);font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.85;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between">
+<a href="../" style="color:inherit;font-weight:600">← Toutes les aides de jeu</a>
+<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" style="color:inherit;font-weight:600">☕ Cet outil vous a plu ? Offrez-moi un café</a>
+<span style="width:100%;font-size:12px;opacity:.8">Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</span>
+</footer>
 </body>
 </html>
