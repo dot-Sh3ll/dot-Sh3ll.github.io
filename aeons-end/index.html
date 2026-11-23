@@ -163,7 +163,12 @@ table.deck th{color:var(--muted);font-weight:600}
 details.boxes{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 16px}
 details.boxes summary{cursor:pointer;color:var(--muted);font-size:14.5px}
 details.boxes summary b{color:var(--ink);font-weight:600}
-.boxlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px 18px;padding:12px 0 6px}
+.boxlist{padding:10px 0 6px}
+.boxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px 18px;padding:4px 0 10px}
+.boxlist h4.wave{margin:10px 0 2px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.boxtools{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;padding:2px 0 6px}
+.boxtools .linkbtn{background:none;border:0;padding:4px 0;color:var(--accent,inherit);text-decoration:underline;cursor:pointer;font:inherit;font-size:14px}
+.boxtools .spoil{display:flex;gap:8px;align-items:baseline;font-size:14px;color:var(--muted);flex-basis:100%}
 .boxlist label{display:flex;gap:9px;align-items:baseline;font-size:15px}
 .boxlist small{color:var(--muted)}
 input[type=checkbox]{accent-color:var(--gold);width:16px;height:16px;transform:translateY(2px)}
@@ -261,7 +266,7 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 <main>
 <header>
   <h1>Marché d'<span>Aeon's End</span></h1>
-  <p>Neuf piles de gemmes, reliques et sorts tirées de tes 98 cartes. Choisis la répartition et le type de marché avant chaque combat.</p>
+  <p>Neuf piles de gemmes, reliques et sorts tirées des boîtes que tu possèdes. Choisis la répartition et le type de marché avant chaque combat.</p>
 </header>
 
 <nav class="tabs" role="tablist" aria-label="Sections">
@@ -371,7 +376,7 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 </div>
 
 <footer>
-  Outil non officiel. Noms et coûts relevés sur tes cartes Tirage aléatoire. Les textes d'effet sont résumés : en cas de doute, la carte fait foi. Les notes de puissance et les profils de némésis et de mages sont une appréciation personnelle. Le mode Expédition suit un résumé des règles d'Une Ère Nouvelle.
+  Outil non officiel. Les textes d'effet sont résumés : en cas de doute, la carte fait foi. Pour les boîtes jamais sorties en français, noms et effets sont des traductions maison. Les notes de puissance des cartes ajoutées avec ces boîtes sont estimées automatiquement. Les notes de puissance et les profils de némésis et de mages sont une appréciation personnelle. Le mode Expédition suit un résumé des règles d'Une Ère Nouvelle.
 </footer>
 </main>
 
@@ -422,69 +427,199 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 "use strict";
 /* [id, type, boîte, coût, nomFR|null, nomEN, effet, puissance 1-5, tags] */
 const RAW = [
+// Aeon's End (boîte de base)
+["Jade","Gem","BASE",2,"Jade","Jade","Gagnez 2 Æ.",4,[]],
+["VriswoodAmber","Gem","BASE",3,"Ambre de V'risbois","Vriswood Amber","Quand vous gagnez cette carte, vous pouvez la placer sur votre pioche.|Gagnez 2 Æ.",3,["sup"]],
+["SiftersPearl","Gem","BASE",3,"Perle filtrante","Sifters Pearl","Gagnez 2 Æ.|Chaque joueur révèle la carte du dessus de sa pioche, puis la défausse ou la replace.",3,["coop"]],
+["DiamondCluster","Gem","BASE",4,"Agrégat de diamants","Diamond Cluster","Gagnez 2 Æ.|Si c'est le deuxième Agrégat de diamants que vous jouez ce tour, gagnez 2 Æ supplémentaires.",4,[]],
+["SearingRuby","Gem","BASE",4,"Rubis fulgurant","Searing Ruby","Gagnez 2 Æ.|Gagnez 1 Æ supplémentaire utilisable uniquement pour gagner un sort.",3,["sup"]],
+["BurningOpal","Gem","BASE",5,"Opale brûlante","Burning Opal","Gagnez 3 Æ.|Vous pouvez défausser une carte de votre main : un allié pioche alors une carte.",4,["coop"]],
+["CloudedSapphire","Gem","BASE",6,"Saphir nuageux","Clouded Sapphire","Gagnez 3 Æ.|Si c'est le premier Saphir nuageux que vous jouez ce tour, un allié gagne 1 charge.",4,["ch","coop"]],
+["FlexingDagger","Relic","BASE",2,"Dague fléchissante","Flexing Dagger","La prochaine fois que vous stabilisez ou ouvrez une brèche ce tour, cela coûte 3 Æ de moins.~Détruisez cette carte. Infligez 1 dégât.",3,["br"]],
+["UnstablePrism","Relic","BASE",3,"Prisme instable","Unstable Prism","Jouez deux fois une gemme de votre main, puis détruisez-la.~Gagnez 2 Æ.",4,["thin"]],
+["BottledVortex","Relic","BASE",3,"Vortex en bouteille","Bottled Vortex","Détruisez cette carte. Détruisez jusqu'à deux cartes de votre main ou de votre défausse. Piochez une carte.",4,["thin"]],
+["BlastingStaff","Relic","BASE",4,"Bâton d'explosion","Blasting Staff","Vous pouvez lancer un sort que vous avez préparé ce tour : il inflige alors 2 dégâts supplémentaires.",4,["amp"]],
+["FocusingOrb","Relic","BASE",4,"Orbe de stabilisation","Focusing Orb","Stabilisez la brèche de n'importe quel joueur.~Détruisez cette carte. Gravehold gagne 3 vies.",3,["br","surv"]],
+["MagesTalisman","Relic","BASE",5,"Talisman de mage","Mage's Talisman","Gagnez 1 charge.|Un allié gagne 1 charge.",3,["ch","coop"]],
+["SpectralEcho","Spell","BASE",3,"Écho spectral","Spectral Echo","Lancer : infligez 2 dégâts.|Vous pouvez détruire une carte de votre main.",4,["thin"]],
+["PhoenixFlame","Spell","BASE",3,"Flamme du phénix","Phoenix Flame","Lancer : infligez 2 dégâts.|Vous pouvez perdre 1 charge pour infliger 2 dégâts supplémentaires.",3,["ch"]],
+["Ignite","Spell","BASE",4,"Mise à feu","Ignite","Lancer : infligez 2 dégâts.|Un allié gagne 1 charge.",4,["ch","coop"]],
+["LavaTendril","Spell","BASE",4,"Tentacule de lave","Lava Tendril","Tant que ce sort est préparé, à la fin de votre phase d'incantation, infligez 1 dégât.|Lancer : infligez 3 dégâts.",4,["min"]],
+["AmplifyVision","Spell","BASE",4,"Vision amplifiée","Amplify Vision","Lancer : stabilisez votre brèche fermée au coût de stabilisation le plus bas. Infligez 2 dégâts. Si toutes vos brèches sont ouvertes, infligez 1 dégât supplémentaire.",4,["br"]],
+["EssenceTheft","Spell","BASE",5,"Vol d'essence","Essence Theft","Lancer : infligez 3 dégâts.|Vous pouvez défausser une carte de votre main : un joueur gagne alors 1 vie.",3,["surv"]],
+["FeralLightning","Spell","BASE",5,"Éclair enragé","Feral Lightning","Ce sort peut être préparé sur une brèche fermée sans la stabiliser.|Lancer : infligez 3 dégâts.",3,["br"]],
+["DarkFire","Spell","BASE",5,"Feu obscur","Dark Fire","Lancer : défaussez jusqu'à deux cartes de votre main. Infligez 3 dégâts par carte ainsi défaussée.",4,[]],
+["OblivionSwell","Spell","BASE",5,"Vague d'oubli","Oblivion Swell","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 Æ.|Lancer : infligez 2 dégâts. Vous pouvez défausser une gemme : infligez alors des dégâts supplémentaires égaux à son coût.",3,[]],
+["ChaosArc","Spell","BASE",6,"Arc chaotique","Chaos Arc","Lancer : infligez 3 dégâts.|Infligez 2 dégâts supplémentaires pour chaque sort préparé sur une brèche adjacente.",4,["br"]],
+["PlanarInsight","Spell","BASE",6,"Aperçu planaire","Planar Insight","Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire pour chacune de vos brèches ouvertes.",4,["br"]],
+["WildfireWhip","Spell","BASE",6,"Fouet ardent","Wildfire Whip","Tant que ce sort est préparé, pendant votre phase principale, vous pouvez dépenser 2 Æ pour lancer le sort préparé de n'importe quel joueur.|Lancer : infligez 4 dégâts.",4,["amp"]],
+["ConsumingVoid","Spell","BASE",7,"Vide dévorant","Consuming Void","Lancer : détruisez jusqu'à deux cartes de votre main. Infligez 3 dégâts par carte ainsi détruite.",3,["thin"]],
+["ArcaneNexus","Spell","BASE",7,"Nexus des arcanes","Arcane Nexus","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez reprendre en main une gemme jouée ce tour.|Lancer : infligez 4 dégâts.",4,[]],
+// Les Profondeurs
+["BanishingTopaz","Gem","DE",5,"Topaze de bannissement","Banishing Topaz","Gagnez 2 Æ.|Vous pouvez placer une carte de votre main sur votre pioche : gagnez alors 2 Æ supplémentaires.",3,[]],
+["VimDynamo","Relic","DE",4,"Dynamo de vigueur","Vim Dynamo","Subissez 1 dégât. Un joueur pioche deux cartes.~Détruisez cette carte. Un joueur gagne 2 vies et 1 charge.",3,["ch","coop","surv"]],
+["Transmogrifier","Relic","DE",4,"Transmogriffeur","Transmogrifier","Détruisez une carte de votre main.|Vous pouvez gagner une carte de n'importe quelle pile de réserve qui coûte jusqu'à 3 Æ de plus que la carte détruite.",3,["thin","sup"]],
+["VoidBond","Spell","DE",4,"Lien du vide","Void Bond","Lancer : infligez 3 dégâts.|Vous pouvez lancer le sort préparé de n'importe quel joueur.",4,["coop","amp"]],
+["Combustion","Spell","DE",5,"Combustion","Combustion","Lancer : infligez 2 dégâts à un serviteur.|Infligez 2 dégâts à un autre serviteur ou à la némésis.|(Les bonus de dégâts s'appliquent aux deux.)",3,["min"]],
+["DevouringShadow","Spell","DE",6,"Ombre dévorante","Devouring Shadow","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez détruire une carte de votre main.|Lancer : infligez 3 dégâts.",3,["thin"]],
+["DisintegratingScythe","Spell","DE",7,"Faux de désintégration","Disintegrating Scythe","Lancer : infligez 8 dégâts.|Subissez 1 dégât. Au lieu de défausser cette carte, détruisez-la ou placez-la sur la défausse de n'importe quel joueur.",4,["coop"]],
+["MonstrousInferno","Spell","DE",8,"Brasier monstrueux","Monstrous Inferno","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : infligez 7 dégâts, répartis comme vous voulez entre la némésis et des serviteurs.",4,["br","min"]],
+// Les Sans Nom
+["LeechingAgate","Gem","NL",3,"Agate sangsue","Leeching Agate","Quand vous gagnez cette carte, gagnez 1 charge.|Gagnez 2 Æ.",4,["ch"]],
+["MoltenHammer","Relic","NL",5,"Marteau en fusion","Molten Hammer","Gagnez 1 charge.|Vous pouvez détruire une carte de votre main ou la carte du dessus de la défausse de n'importe quel joueur.",3,["ch","thin","coop"]],
+["TemporalHelix","Relic","NL",7,"Spirale temporelle","Temporal Helix","Lancez le sort préparé de n'importe quel joueur sans le défausser.",3,["coop","amp"]],
+["Blaze","Spell","NL",4,"Flamber","Blaze","Quand vous gagnez cette carte, vous pouvez la placer sur la défausse de n'importe quel joueur.|Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire pour chaque autre Flamber lancé ce tour et pour chaque autre Flamber que vous avez préparé.",3,["coop","amp"]],
+["ScryingBolt","Spell","NL",6,"Éclair de prophétie","Scrying Bolt","Lancer : infligez 5 dégâts.|Vous pouvez perdre 1 charge : révélez alors les deux cartes du dessus du deck Némésis et replacez-les dans l'ordre de votre choix.",4,["ch"]],
+["SagesBrand","Spell","NL",7,"La marque du sage","Sages Brand","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Tant que ce sort est préparé, piochez une carte supplémentaire pendant votre phase de pioche.|Lancer : infligez 6 dégâts.",4,["br"]],
+["Radiance","Spell","NL",8,"Radiance","Radiance","Lancer : infligez 5 dégâts.|Chaque allié pioche une carte.",4,["coop"]],
 // Guerre Éternelle
-["ErraticIngot","Gem","WE",5,"Lingot erratique","Erratic Ingot","Gagnez 2 Æ.|Gagnez 2 Æ supplémentaires s'il y a au moins une carte Ordre du tour de la némésis dans la défausse de l'ordre du tour.",4,["turn"]],
 ["VolcanicGlass","Gem","WE",3,"Verre pyroclastique","Volcanic Glass","Quand vous gagnez cette carte pendant votre tour, vous pouvez dépenser 2 Æ : un allié gagne alors aussi un Verre pyroclastique et le place sur sa pioche.|Gagnez 2 Æ.",3,["coop","sup"]],
-["BloodstoneJewel","Gem","WE",6,"Pierre de sang","Bloodstone Jewel","La première fois que vous gagnez une Pierre de sang pendant votre tour, gagnez 3 Æ.|Gagnez 3 Æ.",4,["sup"]],
 ["DreadDiamond","Gem","WE",3,"Diamant inquiétant","Dread Diamond","Gagnez 2 Æ.|Vous pouvez défausser un sort préparé : gagnez alors 1 Æ supplémentaire.",2,[]],
+["FrozenMagmite","Gem","WE",3,"Magnétite congelée","Frozen Magmite","Gagnez 2 Æ.|Vous pouvez placer la prochaine carte que vous gagnez ce tour sur votre pioche.",3,["sup"]],
 ["ScoriaSlag","Gem","WE",4,"Bouquet de scories","Scoria Slag","Gagnez 2 Æ.|Si le palier de la némésis est 2 ou plus, gagnez 1 Æ supplémentaire.",3,[]],
 ["BreachOre","Gem","WE",4,"Minerai de la brèche","Breach Ore","Gagnez 2 Æ.~Stabilisez votre brèche fermée au coût de stabilisation le plus bas.",3,["br"]],
-["FrozenMagmite","Gem","WE",3,"Magnétite congelée","Frozen Magmite","Gagnez 2 Æ.|Vous pouvez placer la prochaine carte que vous gagnez ce tour sur votre pioche.",3,["sup"]],
-["VortexGauntlet","Relic","WE",6,"Gantelet de vorticité","Vortex Gauntlet","Lancez un sort préparé de n'importe quel joueur.|Ce sort retourne dans la main de ce joueur.",4,["amp"]],
-["CairnCompass","Relic","WE",4,"Boussole de cairn","Cairn Compass","Un allié peut préparer un sort de sa défausse sur ses brèches ouvertes ou fermées.",3,["amp","coop"]],
+["ErraticIngot","Gem","WE",5,"Lingot erratique","Erratic Ingot","Gagnez 2 Æ.|Gagnez 2 Æ supplémentaires s'il y a au moins une carte Ordre du tour de la némésis dans la défausse de l'ordre du tour.",4,["turn"]],
+["BloodstoneJewel","Gem","WE",6,"Pierre de sang","Bloodstone Jewel","La première fois que vous gagnez une Pierre de sang pendant votre tour, gagnez 3 Æ.|Gagnez 3 Æ.",4,["sup"]],
+["MagesTotem","Relic","WE",2,"Totem de mage","Mage's Totem","Détruisez une gemme ou une relique que vous avez jouée ce tour.~Détruisez cette carte. Gravehold gagne 1 vie.",4,["thin","surv"]],
 ["FiendCatcher","Relic","WE",3,"Attrapeur de démons","Fiend Catcher","Vous pouvez détruire une carte de votre main ou de votre défausse.|Révélez la carte du dessus du deck Ordre du tour. Si c'est une carte de la némésis, vous pouvez la placer sous ce deck.",4,["thin","turn"]],
 ["ConclaveScroll","Relic","WE",3,"Parchemin du conclave","Conclave Scroll","Gagnez 1 charge.|Si la pile de réserve de cette carte est vide, vous pouvez détruire la carte du dessus de la défausse d'un allié.",3,["ch","sup","thin"]],
+["CairnCompass","Relic","WE",4,"Boussole de cairn","Cairn Compass","Un allié peut préparer un sort de sa défausse sur ses brèches ouvertes ou fermées.",3,["amp","coop"]],
 ["PrimordialFetish","Relic","WE",4,"Fétiche primordial","Primordial Fetish","Stabilisez la brèche de n'importe quel joueur.~Détruisez cette carte. Gagnez 3 vies.",3,["br","surv"]],
-["MagesTotem","Relic","WE",2,"Totem de mage","Mage's Totem","Détruisez une gemme ou une relique que vous avez jouée ce tour.~Détruisez cette carte. Gravehold gagne 1 vie.",4,["thin","surv"]],
-["ReduceToAsh","Spell","WE",7,"Retour à la poussière","Reduce to Ash","Tant que ce sort est préparé, au début de votre phase d'incantation, révélez la carte du dessus de votre pioche. Vous pouvez la détruire.|Lancer : infligez 4 dégâts.",3,["thin"]],
+["VortexGauntlet","Relic","WE",6,"Gantelet de vorticité","Vortex Gauntlet","Lancez un sort préparé de n'importe quel joueur.|Ce sort retourne dans la main de ce joueur.",4,["amp"]],
+["ThoughtformFamiliar","Spell","WE",3,"Familier imaginaire","Thoughtform Familiar","Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire pour chacun de vos autres sorts préparés.",4,["br"]],
 ["Carbonize","Spell","WE",4,"Carbonisation","Carbonize","Lancer : infligez 3 dégâts.|Révélez la carte du dessus du deck Ordre du tour. Vous pouvez la placer sous ce deck.",4,["turn"]],
-["Equilibrium","Spell","WE",7,"Équilibre","Equilibrium","Tant que ce sort est préparé, quand vous subissez des dégâts, réduisez-les de 1 (minimum 1).|Lancer : infligez 4 dégâts.",3,["surv"]],
-["ConvectionField","Spell","WE",5,"Champ de convection","Convection Field","Lancer : infligez 4 dégâts.~Lancer : infligez 2 dégâts. Un allié peut détruire une carte de sa main.",4,["thin","coop"]],
 ["JaggedLightning","Spell","WE",4,"Éclair déchirant","Jagged Lightning","Lancer : infligez 3 dégâts.|Vous pouvez défausser une carte de votre main : un joueur stabilise alors sa brèche fermée au coût de stabilisation le plus bas.",3,["br"]],
 ["Kindle","Spell","WE",4,"Mèche","Kindle","Tant que ce sort est préparé, pendant votre phase principale, vous pouvez aussi préparer une Étincelle sur la même brèche.|Lancer : infligez 3 dégâts.",4,["zero","br","amp"]],
-["ThoughtformFamiliar","Spell","WE",3,"Familier imaginaire","Thoughtform Familiar","Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire pour chacun de vos autres sorts préparés.",4,["br"]],
-["Crystallize","Spell","WE",8,"Cristallisation","Crystallize","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : un allié révèle sa main. Infligez 2 dégâts par gemme dans la main de cet allié.",3,["br","coop"]],
+["PyrotechnicSurge","Spell","WE",4,"Afflux pyrotechnique","Pyrotechnic Surge","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : infligez 4 dégâts. Vous pouvez détruire une carte de votre défausse.",4,["br","thin"]],
+["ConvectionField","Spell","WE",5,"Champ de convection","Convection Field","Lancer : infligez 4 dégâts.~Lancer : infligez 2 dégâts. Un allié peut détruire une carte de sa main.",4,["thin","coop"]],
 ["FieryTorrent","Spell","WE",5,"Torrent ardent","Fiery Torrent","Lancer : infligez 2 dégâts.|Infligez 2 dégâts supplémentaires pour chaque autre Torrent ardent préparé par n'importe quel joueur.",3,["amp","coop"]],
 ["CelestialSpire","Spell","WE",5,"Flèche céleste","Celestial Spire","Lancer : infligez 3 dégâts.|Si la pile de réserve de cette carte est vide, un allié pioche une carte.",3,["sup","coop"]],
+["Aurora","Spell","WE",5,"Aurore","Aurora","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 charge.|Lancer : infligez 3 dégâts.",4,["ch"]],
 ["ConjureTheLost","Spell","WE",6,"Conjuration des oubliés","Conjure the Lost","Lancer : infligez 5 dégâts.|Vous pouvez détruire cette carte : Gravehold gagne alors 4 vies.",4,["surv"]],
 ["NovaForge","Spell","WE",6,"Forge Nova","Nova Forge","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 2 Æ utilisables uniquement pour gagner un sort.|Lancer : infligez 4 dégâts.",4,["sup"]],
-["PyrotechnicSurge","Spell","WE",4,"Afflux pyrotechnique","Pyrotechnic Surge","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : infligez 4 dégâts. Vous pouvez détruire une carte de votre défausse.",4,["br","thin"]],
-["Aurora","Spell","WE",5,"Aurore","Aurora","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 charge.|Lancer : infligez 3 dégâts.",4,["ch"]],
+["ReduceToAsh","Spell","WE",7,"Retour à la poussière","Reduce to Ash","Tant que ce sort est préparé, au début de votre phase d'incantation, révélez la carte du dessus de votre pioche. Vous pouvez la détruire.|Lancer : infligez 4 dégâts.",3,["thin"]],
+["Equilibrium","Spell","WE",7,"Équilibre","Equilibrium","Tant que ce sort est préparé, quand vous subissez des dégâts, réduisez-les de 1 (minimum 1).|Lancer : infligez 4 dégâts.",3,["surv"]],
+["Crystallize","Spell","WE",8,"Cristallisation","Crystallize","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : un allié révèle sa main. Infligez 2 dégâts par gemme dans la main de cet allié.",3,["br","coop"]],
+// Le Vide
+["FossilizedScarab","Gem","TV",3,"Scarabée fossilisé","Fossilized Scarab","Gagnez 2 Æ.~Détruisez une carte de votre main.",4,["thin"]],
+["EternityCharm","Relic","TV",3,"Cachet de l'Éternité","Eternity Charm","Stabilisez votre brèche fermée au coût de stabilisation le plus bas. Révélez les trois cartes du dessus de votre pioche. Vous pouvez préparer l'une d'elles.",3,["br"]],
+["DimensionalKey","Relic","TV",8,"Clé dimensionnelle","Dimensional Key","Un allié pioche deux cartes.~Détruisez cette carte. Subissez 1 dégât. Placez une carte en jeu du deck Némésis sur le dessus du deck Némésis.",3,["thin","coop"]],
+["InnerFire","Spell","TV",2,"Feu intérieur","Inner Fire","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 1 dégât.|Si le palier de la némésis est 2 ou plus, infligez 1 dégât supplémentaire.",4,["br","amp"]],
+["Conflagration","Spell","TV",3,"Embrasement","Conflagration","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 2 dégâts.|Gagnez 1 Æ.",4,["br","amp"]],
+["ThermalDart","Spell","TV",4,"Fléchette thermique","Thermal Dart","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 3 dégâts.|Si ce n'est pas la première Fléchette thermique que vous lancez ce tour, gagnez 1 charge.",4,["ch","br","amp"]],
+["Fulminate","Spell","TV",5,"Fulminer","Fulminate","Tant que ce sort est préparé, les autres sorts que vous lancez infligent 1 dégât supplémentaire.|Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 3 dégâts.",3,["br","amp"]],
+["Resonate","Spell","TV",6,"Résonance","Resonate","Lancer : infligez 4 dégâts.|S'il y a six autres cartes ou plus dans votre défausse, infligez 3 dégâts supplémentaires.",4,["mem"]],
 // Ténèbres d'ailleurs
+["HauntedBerylite","Gem","OD",3,"Berylite Hantée","Haunted Berylite","Gagnez 2 Æ.~Défaussez une carte de votre main : gagnez alors 2 charges.",4,["ch"]],
 ["AlienElement","Gem","OD",4,"Élément Extraterrestre","Alien Element","Gagnez 1 Æ.|Gagnez 1 Æ supplémentaire pour chacune de vos brèches où un sort est préparé.",3,["br"]],
 ["PainStone","Gem","OD",6,"Pierre de Douleur","Pain Stone","Gagnez 3 Æ.~Gagnez 2 Æ et infligez 1 dégât.",4,["min"]],
-["HauntedBerylite","Gem","OD",3,"Berylite Hantée","Haunted Berylite","Gagnez 2 Æ.~Défaussez une carte de votre main : gagnez alors 2 charges.",4,["ch"]],
-["AstralCube","Relic","OD",5,"Cube Astral","Astral Cube","Reprenez en main une gemme que vous avez jouée ce tour.|Révélez la carte du dessus du deck Ordre du tour. Si c'est la carte d'un joueur, ce joueur gagne 1 vie.",4,["turn","surv"]],
 ["RiddleSphere","Relic","OD",3,"Sphère des Secrets","Riddlesphere","Gagnez 1 charge.~Vous pouvez perdre 2 charges : gagnez alors 5 Æ.",3,["ch"]],
-["Char","Spell","OD",8,"Carboniser","Char","Lancer : infligez 6 dégâts.|Si ces dégâts font défausser un serviteur, un joueur gagne 2 vies.",4,["min","surv"]],
+["AstralCube","Relic","OD",5,"Cube Astral","Astral Cube","Reprenez en main une gemme que vous avez jouée ce tour.|Révélez la carte du dessus du deck Ordre du tour. Si c'est la carte d'un joueur, ce joueur gagne 1 vie.",4,["turn","surv"]],
 ["Scorch","Spell","OD",5,"Calciner","Scorch","Lancer : infligez 4 dégâts.|Si ces dégâts font défausser un serviteur issu du deck Némésis, un allié gagne 2 charges.",4,["min","ch","coop"]],
-["Pyromancy","Spell","OD",7,"Pyromancie","Pyromancy","Lancer : infligez 1 dégât.|Les alliés peuvent défausser ensemble jusqu'à deux cartes de leur main. Infligez 3 dégâts supplémentaires par carte ainsi défaussée.",3,["coop"]],
 ["FeedbackAura","Spell","OD",5,"Aura de Réaction","Feedback Aura","Lancer : infligez 3 dégâts.|Si vous avez 4 charges ou plus, infligez 3 dégâts supplémentaires.",3,["ch"]],
 ["Catalyst","Spell","OD",6,"Catalyseur","Catalyst","Lancer : infligez 2 dégâts.|Si vous avez 2 vies ou moins, infligez 5 dégâts supplémentaires.",2,["surv"]],
+["Pyromancy","Spell","OD",7,"Pyromancie","Pyromancy","Lancer : infligez 1 dégât.|Les alliés peuvent défausser ensemble jusqu'à deux cartes de leur main. Infligez 3 dégâts supplémentaires par carte ainsi défaussée.",3,["coop"]],
 ["NetherConduit","Spell","OD",7,"Conduit du Néant","Nether Conduit","Lancer : révélez une carte de votre main qui coûte 2 Æ ou plus. Infligez autant de dégâts qu'il manque de cartes dans sa pile de réserve. Un allié peut ensuite gagner une carte de cette pile.|(Piles de gemmes : 7 cartes au départ. Reliques et sorts : 5.)",2,["sup","coop"]],
+["Char","Spell","OD",8,"Carboniser","Char","Lancer : infligez 6 dégâts.|Si ces dégâts font défausser un serviteur, un joueur gagne 2 vies.",4,["min","surv"]],
+// Aeon's End Legacy
+["ConductiveGrit","Gem","LE",3,"Poussière conductrice","Conductive Grit","Gagnez 2 Æ. Gagnez 1 jeton Pulsation.~Vous pouvez perdre 1 jeton Pulsation : gagnez alors 3 Æ.",4,[]],
+["AncientCyanolith","Gem","LE",3,"Cyanolithe ancien","Ancient Cyanolith","Gagnez 2 Æ.",3,[]],
+["SoothingTorporene","Gem","LE",3,"Torporène apaisante","Soothing Torporene","Gagnez 2 Æ.~Réduisez un serviteur au silence.",4,["min"]],
+["BranchingRadite","Gem","LE",4,"Radite ramifiée","Branching Radite","Gagnez 2 Æ.|Si vous avez au moins deux sorts préparés, gagnez 1 Æ supplémentaire.",3,[]],
+["EntangledShard","Gem","LE",4,"Orgues cristallins","Entangled Shard","Gagnez 2 Æ.|Si vous avez 3 charges ou plus, gagnez 1 Æ supplémentaire.",2,["ch"]],
+["PhasedPortalite","Gem","LE",4,"Portalithe cristallisée","Phased Portalite","Gagnez 2 Æ.|Si votre brèche III est ouverte, gagnez 1 Æ supplémentaire.",2,["br"]],
+["ArcingSilicate","Gem","LE",4,"Silicate électrostatique","Arcing Silicate","Gagnez 2 Æ. Gagnez 1 jeton Pulsation.|Vous pouvez perdre autant de jetons Pulsation que vous voulez : infligez alors autant de dégâts.",3,[]],
+["CrumblingCompound","Gem","LE",5,"Composé friable","Crumbling Compound","Gagnez 2 Æ.|Vous pouvez défausser une gemme de votre main : gagnez alors 2 Æ supplémentaires.",2,[]],
+["RefinedLumenium","Gem","LE",5,"Luménium raffiné","Refined Lumenium","Gagnez 2 Æ.|Un allié pioche une carte.",3,["coop"]],
+["FulmiteSlab","Gem","LE",6,"Bloc de fulminate","Fulmite Slab","Gagnez 1 Æ. Gagnez 2 jetons Pulsation.|Jusqu'à la fin du tour, vous pouvez perdre 1 jeton Pulsation pour gagner 1 Æ, autant de fois que vous voulez.",2,[]],
+["GildedMarble","Gem","LE",6,"Marbre doré","Gilded Marble","Gagnez 3 Æ.",2,[]],
+["BraneKnife","Relic","LE",3,"Lame de Brane","Brane Knife","Gagnez 1 charge.|Un allié stabilise sa brèche fermée au coût de stabilisation le plus bas.",3,["ch","br","coop"]],
+["Geophage","Relic","LE",3,"Gemmophage","Geophage","Gagnez 1 Æ.|Vous pouvez détruire une gemme de votre main.",3,["thin"]],
+["VoltaicRelay","Relic","LE",4,"Relais voltaïque","Voltaic Relay","Un joueur gagne 3 jetons Pulsation.|Ce joueur peut perdre 1 jeton Pulsation : il détruit alors une carte de sa main.",3,["thin","coop"]],
+["PropheticLens","Relic","LE",4,"Jumelles de prophétie","Prophetic Lens","Gagnez 1 charge.|Révélez la carte du dessus de votre pioche. Vous pouvez la détruire. Sinon, gagnez 1 Æ.",3,["ch"]],
+["NeuralWreath","Relic","LE",4,"Couronne neurale","Neural Wreath","Stabilisez la brèche de n'importe quel joueur.|Un joueur peut préparer un sort de sa main.",3,["br","coop"]],
+["InfernalMirror","Relic","LE",5,"Miroir infernal","Infernal Mirror","Un allié gagne 1 charge. Un joueur gagne 2 jetons Pulsation.|Vous pouvez perdre 2 jetons Pulsation : lancez alors le sort préparé de n'importe quel joueur. Ce sort inflige 1 dégât supplémentaire.",3,["ch","coop","amp"]],
+["VoidMill","Relic","LE",5,"Moulin du néant","Void Mill","Stabilisez la brèche de n'importe quel joueur.|Deux joueurs différents peuvent détruire la carte du dessus de leur défausse.",3,["br","thin","coop"]],
+["EtherealHand","Relic","LE",6,"Main éthérée","Ethereal Hand","Un allié pioche deux cartes.",3,["coop"]],
+["RealityStabilizer","Relic","LE",6,"Stabilisateur de réalité","Reality Stabilizer","Gagnez 2 charges.|Réduisez un serviteur au silence.",3,["ch","min"]],
+["AdrenalBatteries","Relic","LE",7,"Batteries surrénales","Adrenal Batteries","Gagnez 2 jetons Pulsation.|Vous pouvez perdre 4 jetons Pulsation : ouvrez alors une brèche fermée de n'importe quel joueur, puis gagnez un sort de 5 Æ ou moins de n'importe quelle pile de réserve et préparez-le sur une brèche ouverte de n'importe quel joueur.",3,["br","coop","sup"]],
+["FireChakram","Spell","LE",2,"Chakra de feu","Fire Chakram","Lancer : infligez 2 dégâts.",4,[]],
+["SparkingSiphon","Spell","LE",3,"Siphon étincelant","Sparking Siphon","Quand vous gagnez cette carte, gagnez 2 jetons Pulsation.|Lancer : infligez 2 dégâts.|Vous pouvez perdre 1 jeton Pulsation : un joueur gagne alors 1 vie.",4,["coop","surv"]],
+["BreachFlare","Spell","LE",3,"Flamboiement de brèche","Breach Flare","Lancer : infligez 2 dégâts.|Stabilisez la brèche III de n'importe quel joueur.",4,["br","coop"]],
+["WarpingHaze","Spell","LE",3,"Brouillard déformant","Warping Haze","Lancer : infligez 2 dégâts.|Si vous avez au moins deux autres sorts préparés, infligez 1 dégât supplémentaire.",4,[]],
+["BreachCommunion","Spell","LE",4,"Communion des brèches","Breach Communion","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 jeton Pulsation.|Lancer : infligez 2 dégâts.|Vous pouvez perdre 2 jetons Pulsation : infligez alors 3 dégâts supplémentaires.",3,[]],
+["ForceTransfusion","Spell","LE",4,"Transfusion de force","Force Transfusion","Lancer : infligez 3 dégâts.|Si vous avez 3 charges ou plus, gagnez 1 charge.",4,["ch"]],
+["IncineratingFist","Spell","LE",4,"Poing incinérateur","Incinerating Fist","Lancer : infligez 3 dégâts.",3,[]],
+["BendingBeam","Spell","LE",5,"Rayon courbé","Bending Beam","Lancer : infligez 2 dégâts.|Si ce sort a été lancé depuis une brèche III ouverte, infligez 3 dégâts supplémentaires.",2,["br"]],
+["ArcaneSalvo","Spell","LE",5,"Salve des arcanes","Arcane Salvo","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez placer sur votre pioche une relique jouée ce tour ou une relique de votre défausse.|Lancer : infligez 4 dégâts.",4,[]],
+["FieryConclusion","Spell","LE",5,"Conclusion ardente","Fiery Conclusion","Lancer : infligez 4 dégâts.|S'il y a au moins trois piles de réserve vides, infligez 3 dégâts supplémentaires.",4,["sup"]],
+["GravityNode","Spell","LE",5,"Nœud gravitationnel","Gravity Node","Lancer : un joueur défausse une carte de sa main. S'il le fait, infligez 4 dégâts.",4,["coop"]],
+["PyroGeist","Spell","LE",6,"Double de feu","Pyro Geist","Quand vous préparez ce sort, infligez 1 dégât.|Lancer : infligez 1 dégât. Infligez 2 dégâts.",2,[]],
+["StarfireFrenzy","Spell","LE",6,"Frénésie stellaire","Starfire Frenzy","Lancer : infligez 4 dégâts.|Vous pouvez défausser un sort de votre main : infligez alors 1 dégât supplémentaire et gagnez 1 charge.",4,["ch"]],
+["BreachCollision","Spell","LE",7,"Collision de brèches","Breach Collision","Quand vous gagnez cette carte, vous pouvez la placer sur la défausse de n'importe quel joueur.|Lancer : infligez 5 dégâts.|Gravehold gagne 1 vie.",4,["coop","surv"]],
+["ThunderousOath","Spell","LE",8,"Serment implacable","Thunderous Oath","Lancer : infligez 6 dégâts.|Gagnez 1 jeton Pulsation.|Vous pouvez perdre autant de jetons Pulsation que vous voulez : un allié pioche alors autant de cartes.",4,["coop"]],
+["SphereOfInversion","Spell","LE",9,"Sphère d'inversion","Sphere Of Inversion","Lancer : infligez 7 dégâts.|Un allié peut détruire une carte de sa main : il gagne alors 2 vies.",4,["thin","coop","surv"]],
+// Secrets enfouis
+["Summonite","Gem","BS",3,"Invoquine","Summonite","Gagnez 2 Æ.~Gagnez une Invoquine de la réserve et placez-la sur la défausse d'un allié.",3,["coop","sup"]],
+["JoltingCrust","Gem","BS",3,"Voltécorce","Jolting Crust","Gagnez 2 Æ. Gagnez 1 jeton Pulsation.~Gagnez 2 Æ. Perdez 1 jeton Pulsation : gagnez alors 1 charge.",3,["ch"]],
+["VoidiumSpike","Gem","BS",3,"Pointe de Vide","Voidium Spike","Gagnez 2 Æ.|Chaque allié peut défausser une carte de sa main. Chaque allié qui le fait gagne 1 charge.",3,["ch","coop"]],
+["TripliteCore","Gem","BS",4,"Noyau de Triplite","Triplite Core","Gagnez 3 Æ utilisables uniquement pour gagner des cartes.",4,["sup"]],
+["ObliviumResin","Gem","BS",5,"Résine d'Oubli","Oblivium Resin","Gagnez 2 Æ.|Si vous avez en main trois cartes ou plus qui coûtent 0 Æ, gagnez 2 Æ supplémentaires.",3,["zero"]],
+["MentiteChunk","Gem","BS",5,"Fragment de Mentite","Mentite Chunk","Gagnez 3 Æ.|S'il y a sept cartes ou plus dans votre défausse, gagnez 1 Æ supplémentaire.",4,["mem"]],
+["MutedLacosite","Gem","BS",5,"Lacosite Muette","Muted Lacosite","Quand vous gagnez cette carte, réduisez un serviteur au silence.|Gagnez 3 Æ.",4,["min"]],
+["ShiningTetrite","Gem","BS",6,"Tétrite Lumineuse","Shining Tetrite","Gagnez 4 Æ qui ne peuvent pas servir à gagner une carte.",2,["ch","br"]],
+["ScholarsOpus","Relic","BS",3,"Œuvre de l'Érudit","Scholar's Opus","Gagnez 1 charge.|S'il y a sept cartes ou plus dans votre défausse, gagnez 1 charge supplémentaire.",3,["ch","mem"]],
+["ManifoldContainer","Relic","BS",4,"Cube Sans Fond","Manifold Container","Gagnez 1 Æ.|La prochaine fois que vous gagnez une carte ce tour, vous pouvez aussi gagner une carte qui coûte moins cher.",4,["sup"]],
+["LivingGauntlet","Relic","BS",4,"Gantelet Vivant","Living Gauntlet","Révélez la carte du dessus de votre pioche. Vous pouvez la détruire ou la défausser.|Chaque allié peut piocher une carte. Chaque allié qui le fait défausse une carte de sa main.",3,["thin","coop","mem"]],
+["SoulCords","Relic","BS",5,"Filaments d'Âme","Soul Cords","Un joueur gagne 1 jeton Pulsation.|Chaque joueur qui a 2 jetons Pulsation ou plus gagne 1 charge.",2,["ch","coop"]],
+["BottledStar","Relic","BS",7,"Étoile Miniature","Bottled Star","Gagnez 3 charges.",3,["ch"]],
+["NerveJab","Spell","BS",2,"Frappe Audacieuse","Nerve Jab","Lancer : infligez 1 dégât.|Réduisez un serviteur au silence.",3,["min"]],
+["DrainingTouch","Spell","BS",2,"Toucher Vampirique","Draining Touch","Lancer : infligez 1 dégât.|Gagnez 1 charge.",3,["ch"]],
+["DoubleTap","Spell","BS",3,"Coup Double","Double Tap","Lancer : infligez 1 dégât. Infligez 1 dégât.|(Les bonus de dégâts s'appliquent aux deux.)",3,["amp","min"]],
+["PrecisionShot","Spell","BS",3,"Tir de Précision","Precision Shot","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 2 dégâts. S'il y a six autres cartes ou plus dans votre défausse, infligez 2 dégâts supplémentaires.",4,["mem","br"]],
+["BurningCurrent","Spell","BS",3,"Courant Flamboyant","Burning Current","Tant que ce sort est préparé, pendant votre phase d'incantation, vous pouvez perdre 2 jetons Pulsation : les sorts que vous lancez ce tour infligent alors 1 dégât supplémentaire.|Lancer : infligez 1 dégât. Gagnez 1 jeton Pulsation.",3,["ch","amp"]],
+["FlashOfIntellect","Spell","BS",4,"Éclair de Génie","Flash of Intellect","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 3 dégâts. S'il y a six autres cartes ou plus dans votre défausse, vous pouvez gagner un Éclair de Génie de la réserve et le placer sur votre pioche.",3,["mem","sup","br"]],
+["StunningForce","Spell","BS",5,"Force Colossale","Stunning Force","Lancer : infligez 4 dégâts à la némésis.|Réduisez un serviteur au silence.",4,["min"]],
+["BladeOfWisdom","Spell","BS",6,"Lame de Sagesse","Blade of Wisdom","Quand vous gagnez cette carte, s'il y a sept autres cartes ou plus dans votre défausse, gagnez 2 vies.|Lancer : infligez 5 dégâts.",4,["mem","surv"]],
+["PsychicEruption","Spell","BS",8,"Éruption Psychique","Psychic Eruption","Lancer : infligez autant de dégâts qu'il y a de cartes dans la défausse d'un joueur.",4,["mem"]],
 // Une Ère Nouvelle
 ["LurkingSionite","Gem","NA",3,"Sionite de l'ombre","Lurking Sionite","Gagnez 2 Æ.|S'il y a une Sionite de l'ombre dans la défausse d'un allié, gagnez 1 Æ supplémentaire.",3,["coop"]],
-["UnrefinedBlaststone","Gem","NA",6,"Explosite brute","Unrefined Blaststone","Gagnez 3 Æ.~Détruisez une carte de la pile de réserve de cette carte : infligez alors 3 dégâts.",4,["sup"]],
 ["Exogranite","Gem","NA",3,"Exogranite","Exogranite","Gagnez 2 Æ.~Détruisez cette carte. Gagnez 3 Æ.",3,["thin"]],
+["ResonantPearl","Gem","NA",3,"Perle résonnante","Resonant Pearl","Gagnez 2 Æ.|Un allié peut défausser une Perle résonnante de sa main et piocher une carte : gagnez alors 1 Æ supplémentaire.",3,["coop"]],
 ["RecurringJasper","Gem","NA",4,"Jaspe périodique","Recurring Jasper","Gagnez 2 Æ.|Si la carte du dessus de votre défausse est un sort, vous pouvez placer cette gemme sur votre pioche.",3,[]],
 ["EnergizedRubidium","Gem","NA",5,"Rubidium énergisé","Energized Rubidium","Gagnez 3 Æ.|Un allié peut défausser une carte de sa main : il gagne alors 1 charge.",4,["ch","coop"]],
-["ResonantPearl","Gem","NA",3,"Perle résonnante","Resonant Pearl","Gagnez 2 Æ.|Un allié peut défausser une Perle résonnante de sa main et piocher une carte : gagnez alors 1 Æ supplémentaire.",3,["coop"]],
+["UnrefinedBlaststone","Gem","NA",6,"Explosite brute","Unrefined Blaststone","Gagnez 3 Æ.~Détruisez une carte de la pile de réserve de cette carte : infligez alors 3 dégâts.",4,["sup"]],
+["MarbleGalaxy","Relic","NA",2,"Galaxie de poche","Marble Galaxy","Un allié peut défausser une Galaxie de poche de sa main et piocher une carte.|Gagnez 1 charge ou stabilisez votre brèche fermée au coût de stabilisation le plus bas. Si un allié a défaussé une Galaxie de poche, appliquez les deux effets.",3,["ch","br","coop"]],
 ["CagedFire","Relic","NA",3,"Feu en cage","Caged Fire","Détruisez la carte du dessus de la défausse de n'importe quel joueur.~Détruisez cette carte. Gagnez 2 vies.",4,["thin","surv"]],
 ["GalvanizedBauble","Relic","NA",3,"Babiole galvanisée","Galvanized Bauble","Stabilisez la brèche d'un allié.~Lancez un sort préparé de n'importe quel joueur. Vous pouvez le détruire.",4,["br","amp","coop","thin"]],
-["AetherConduit","Relic","NA",4,"Conduit d'éther","Aether Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, le joueur qui l'a lancé gagne 1 Æ.",3,["amp","br"]],
-["WellOfEnergy","Relic","NA",7,"Puits d'énergie","Well of Energy","Gravehold gagne 2 vies.~Un joueur gagne 2 vies.",3,["surv"]],
 ["PainConduit","Relic","NA",3,"Conduit de douleur","Pain Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, il inflige 2 dégâts supplémentaires, puis défaussez cette carte.",3,["amp"]],
+["AetherConduit","Relic","NA",4,"Conduit d'éther","Aether Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, le joueur qui l'a lancé gagne 1 Æ.",3,["amp","br"]],
 ["LinkConduit","Relic","NA",6,"Conduit de lien","Link Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Deux sorts peuvent être préparés sur cette brèche.",3,["amp","br"]],
-["MarbleGalaxy","Relic","NA",2,"Galaxie de poche","Marble Galaxy","Un allié peut défausser une Galaxie de poche de sa main et piocher une carte.|Gagnez 1 charge ou stabilisez votre brèche fermée au coût de stabilisation le plus bas. Si un allié a défaussé une Galaxie de poche, appliquez les deux effets.",3,["ch","br","coop"]],
-["DelugeOfPower","Spell","NA",6,"Déluge de puissance","Deluge of Power","Lancer : infligez 4 dégâts.|Un allié peut défausser jusqu'à deux cartes de sa main. Il pioche une carte par carte ainsi défaussée.",3,["coop","mem"]],
-["ReverberatingShock","Spell","NA",4,"Choc répercuté","Reverberating Shock","Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 1 dégât. Gagnez 1 Æ utilisable uniquement pour gagner des cartes.",3,["amp","sup"]],
-["FatalHarmony","Spell","NA",5,"Symbiose léthale","Fatal Harmony","Lancer : infligez 4 dégâts.|Un allié peut défausser une Symbiose léthale de sa main et piocher une carte : infligez alors 3 dégâts.|(Les bonus de dégâts s'appliquent aux deux.)",3,["coop","amp"]],
-["BouncingBoom","Spell","NA",6,"Rebonds explosifs","Bouncing Boom","Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 2 dégâts.",3,["amp"]],
-["SpiritLift","Spell","NA",8,"Ascension spirituelle","Spirit Lift","Tant que ce sort est préparé, une fois pendant votre tour, quand vous gagnez une charge, un allié gagne 2 charges.|Lancer : infligez 5 dégâts.",4,["ch","coop"]],
+["WellOfEnergy","Relic","NA",7,"Puits d'énergie","Well of Energy","Gravehold gagne 2 vies.~Un joueur gagne 2 vies.",3,["surv"]],
 ["TetheredDarts","Spell","NA",3,"Épines en chaîne","Tethered Darts","Lancer : infligez 2 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, vous pouvez le placer dans la main d'un allié.",2,["br","coop"]],
+["ReverberatingShock","Spell","NA",4,"Choc répercuté","Reverberating Shock","Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 1 dégât. Gagnez 1 Æ utilisable uniquement pour gagner des cartes.",3,["amp","sup"]],
 ["ForceAmplifier","Spell","NA",4,"Décuple-force","Force Amplifier","Lancer : infligez 3 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, infligez 1 dégât supplémentaire.",4,["br"]],
+["FatalHarmony","Spell","NA",5,"Symbiose léthale","Fatal Harmony","Lancer : infligez 4 dégâts.|Un allié peut défausser une Symbiose léthale de sa main et piocher une carte : infligez alors 3 dégâts.|(Les bonus de dégâts s'appliquent aux deux.)",3,["coop","amp"]],
 ["ImbuedSmash","Spell","NA",5,"Impact concentré","Imbued Smash","Lancer : infligez 4 dégâts.|Vous pouvez défausser une carte de votre main : infligez alors 2 dégâts à la némésis.|(Les bonus de dégâts s'appliquent aux deux.)",4,["amp"]],
+["DelugeOfPower","Spell","NA",6,"Déluge de puissance","Deluge of Power","Lancer : infligez 4 dégâts.|Un allié peut défausser jusqu'à deux cartes de sa main. Il pioche une carte par carte ainsi défaussée.",3,["coop","mem"]],
+["BouncingBoom","Spell","NA",6,"Rebonds explosifs","Bouncing Boom","Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 2 dégâts.",3,["amp"]],
 ["PatternStrike","Spell","NA",7,"Frappe calculée","Pattern Strike","Lancer : infligez 4 dégâts.|Vous pouvez reprendre en main jusqu'à deux cartes de votre défausse qui coûtent 0 Æ.",3,["zero"]],
+["SpiritLift","Spell","NA",8,"Ascension spirituelle","Spirit Lift","Tant que ce sort est préparé, une fois pendant votre tour, quand vous gagnez une charge, un allié gagne 2 charges.|Lancer : infligez 5 dégâts.",4,["ch","coop"]],
+// À l'état sauvage
+["JeweledBrain","Gem","IW",3,"Cerveau serti","Jeweled Brain","Gagnez 2 Æ.~Gagnez 1 Æ. Reprenez en main une carte de votre défausse qui coûte 0 Æ.",4,["zero"]],
+["BlastSphere","Relic","IW",8,"Sphère de déflagration","Blast Sphere","Lancez trois fois le sort préparé de n'importe quel joueur sans le défausser, puis détruisez-le.",3,["coop","amp"]],
+["WoundMender","Spell","IW",8,"Panse-plaies","Wound Mender","Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 2 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, gagnez 1 vie.",2,["br","surv","amp"]],
+// Rêves brisés
+["Olivinite","Gem","SD",3,"Olivinite","Olivinite","Gagnez 2 Æ.~Infligez 1 dégât à un serviteur.",4,["min"]],
+["CacheGlass","Gem","SD",4,"Verre à facettes","Cache Glass","Gagnez 2 Æ.|S'il y a un Verre à facettes dans votre défausse, vous pouvez détruire une carte de votre défausse.",3,["thin"]],
+["ReflectiveConduit","Relic","SD",3,"Conduit de réflexion","Reflective Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, le joueur qui l'a lancé peut le reprendre en main au lieu de le défausser : défaussez alors cette carte.",3,["br","coop"]],
+["WillWeaver","Relic","SD",7,"Tisse-volonté","Will Weaver","Gagnez 2 charges.|La prochaine fois que vous activez votre capacité ce tour, infligez ensuite 3 dégâts.",3,["ch"]],
+["MantraOfStrength","Spell","SD",3,"Mantra de force","Mantra of Strength","Lancer : un joueur stabilise sa brèche fermée au coût de stabilisation le plus élevé.|Infligez 1 dégât.|Vous pouvez détruire cette carte : infligez alors 2 dégâts supplémentaires.",3,["br","coop"]],
+["CrescendoRay","Spell","SD",4,"Rayon crescendo","Crescendo Ray","Lancer : infligez 3 dégâts.|Gagnez 1 Æ pour chacun de vos autres sorts préparés.",4,[]],
+["StormVapors","Spell","SD",4,"Vapeur d'orage","Storm Vapors","Lancer : infligez 3 dégâts.|S'il y a une autre Vapeur d'orage dans la défausse de n'importe quel joueur, stabilisez la brèche de n'importe quel joueur.",4,["br","coop"]],
+["BreachSeeker","Spell","SD",5,"Cherche-brèche","Breach Seeker","Écho (l'effet Lancer s'applique deux fois).|Lancer : infligez 1 dégât.|Stabilisez la brèche d'un allié.",2,["br","coop","amp"]],
+["SnapRitual","Spell","SD",6,"Rituel éclair","Snap Ritual","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez défausser une carte de votre main pour infliger 2 dégâts.|Lancer : infligez 3 dégâts.",3,[]],
+["EmbodyFlame","Spell","SD",7,"Flamme incarnée","Embody Flame","Lancer : infligez 5 dégâts.|Vous pouvez détruire une carte de la pile de réserve de cette carte : infligez alors 3 dégâts supplémentaires.",4,["thin","sup"]],
 // De Vieux Souvenirs
 ["ShiningFluorite","Gem","TA",7,"Fluorite lumineuse","Shining Fluorite","Gagnez 3 Æ.|Placez dans votre main le prochain sort que vous gagnez ce tour.",3,["sup"]],
 ["PolyphaseTurbine","Relic","TA",3,"Turbine polyphasée","Polyphase Turbine","Si c'est la première Turbine polyphasée que vous jouez ce tour, gagnez 2 Æ. Sinon, gagnez 1 charge et 1 Æ.",4,["ch"]],
@@ -493,76 +628,251 @@ const RAW = [
 ["DualFlash","Spell","TA",3,"Double détonation","Dual Flash","Lancer : infligez 2 dégâts.|Si c'est la première Double détonation que vous lancez pendant cette phase d'incantation, vous pouvez lancer la Double détonation préparée d'un joueur sans le défausser.",3,["amp","coop"]],
 ["DustCaller","Spell","TA",5,"Invoque-débris","Dust Caller","Lancer : infligez 4 dégâts.|Un allié reprend en main une carte de sa défausse qui coûte 0 Æ.",4,["zero","coop"]],
 ["SymbioticSynapse","Spell","TA",7,"Synapse symbiotique","Symbiotic Synapse","S'il y a une autre Synapse symbiotique dans la défausse d'un joueur, ce sort gagne Écho.|Lancer : infligez 4 dégâts.",4,["amp"]],
+// Les Parias
+["UnstablePyrite","Gem","OC",2,"Pyrite instable","Unstable Pyrite","Gagnez 1 Æ.|Vous pouvez détruire cette carte : gagnez alors 2 Æ supplémentaires.",3,[]],
+["MoltenPeridot","Gem","OC",3,"Péridot en fusion","Molten Peridot","Gagnez 2 Æ.|Si c'est le deuxième Péridot en fusion que vous jouez ce tour, vous pouvez détruire cette carte : gagnez alors une carte de 4 Æ ou moins de n'importe quelle pile de réserve.",4,["sup"]],
+["HelixOfAmber","Gem","OC",3,"Spirale d'ambre","Helix Of Amber","Gagnez 2 Æ.|Vous pouvez subir 1 dégât : détruisez alors une carte de votre main qui coûte 0 Æ.",4,["thin","zero"]],
+["PetrifiedPhoenixium","Gem","OC",4,"Phénixium fossilisé","Petrified Phoenixium","Gagnez 2 Æ.|La prochaine fois que vous gagnez une carte ce tour, vous pouvez lancer le sort préparé de n'importe quel joueur.",3,["coop","sup","amp"]],
+["GalvanizedSapphire","Gem","OC",4,"Saphir galvanisé","Galvanized Sapphire","Gagnez 2 Æ.|Xaxos : Paria gagne 1 charge.",3,["ch"]],
+["ElongatedLooq","Gem","OC",4,"Cyclite oblongue","Elongated Looq","Gagnez 2 Æ.|La prochaine fois que vous stabilisez ou ouvrez une brèche ce tour, gagnez 1 charge.",3,["ch","br"]],
+["VigorousSunstone","Gem","OC",5,"Héliolite intense","Vigorous Sunstone","Quand vous gagnez cette carte, si c'est la deuxième carte que vous gagnez ce tour, placez-la dans votre main.|Gagnez 3 Æ.",4,[]],
+["DuplicatingSazite","Gem","OC",6,"Sazite de duplication","Duplicating Sazite","Gagnez 3 Æ.|La prochaine fois que vous gagnez une carte ce tour, vous pouvez défausser un sort préparé qui coûte 1 Æ ou plus : un allié gagne alors une carte de la réserve qui ne coûte pas plus que la carte gagnée.",3,["coop","sup"]],
+["OrbOfTheDeep","Relic","OC",2,"Orbe des profondeurs","Orb Of The Deep","Stabilisez votre brèche fermée au coût de stabilisation le plus bas.~Détruisez cette carte. Gagnez 1 charge.",3,["ch","br"]],
+["CarnivorousRoox","Relic","OC",3,"Racive carnivore","Carnivorous Roox","Gagnez 1 Æ. Vous pouvez détruire une carte de votre main pour gagner autant d'Æ que son coût.~Détruisez cette carte. Stabilisez deux fois votre brèche fermée au coût de stabilisation le plus bas.",3,["br","thin"]],
+["RiftDagger","Relic","OC",3,"Dague de faille","Rift Dagger","Gagnez une carte de 3 Æ ou moins d'une autre pile de réserve. Vous pouvez détruire cette carte pour gagner à la place une carte de 4 Æ ou moins.|Vous pouvez dépenser 1 Æ : placez alors cette carte dans votre main.",3,["thin","sup"]],
+["ReconstitutingCircuit","Relic","OC",3,"Circuit de reconstitution","Reconstituting Circuit","Xaxos : Paria gagne 1 charge.|Vous pouvez détruire une carte de votre main.",3,["ch","thin"]],
+["DestinyForger","Relic","OC",4,"Altérateur de destin","Destiny Forger","Un allié peut détruire une carte de sa main. Il peut alors gagner une carte qui coûte jusqu'à 2 Æ de plus et la placer dans sa main.~Détruisez cette carte. Gagnez 2 charges.",3,["ch","thin","coop","sup"]],
+["ChainOfRetrieval","Relic","OC",4,"Chaîne de restitution","Chain Of Retrieval","Stabilisez la brèche d'un allié.~Reprenez en main une carte de votre défausse qui coûte 6 Æ ou moins.",3,["br","coop"]],
+["TransmutersLens","Relic","OC",5,"Réflecteur de transmutation","Transmuter's Lens","Détruisez cette carte.|Vous pouvez détruire une carte de votre main ou de votre défausse.|Gagnez une carte de 6 Æ ou moins de n'importe quelle pile de réserve.",3,["thin","sup"]],
+["BottledSun","Relic","OC",6,"Soleil en bouteille","Bottled Sun","Xaxos : Paria gagne 3 charges.",3,["ch"]],
+["UnhingedVortex","Relic","OC",7,"Vortex déséquilibré","Unhinged Vortex","Un allié pioche trois cartes, puis défausse une carte de sa main.~Vous pouvez stabiliser la brèche d'un allié. Un allié peut reprendre en main une carte de sa défausse.",3,["br","coop"]],
+["FortifiedFrost","Spell","OC",2,"Givre renforcé","Fortified Frost","Lancer : infligez 2 dégâts.|Vous pouvez défausser une carte de votre main : infligez alors 1 dégât supplémentaire.",4,[]],
+["PairedStorm","Spell","OC",3,"Orage jumelé","Paired Storm","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 2 dégâts.|Si c'est le deuxième Orage jumelé que vous lancez ce tour, infligez 2 dégâts supplémentaires.",4,["br","amp"]],
+["TwistedFang","Spell","OC",4,"Morsure ingénieuse","Twisted Fang","Lancer : infligez 3 dégâts.|Si la pile de réserve de cette carte est vide, infligez 1 dégât supplémentaire.",4,["sup"]],
+["ShatteringBolt","Spell","OC",4,"Éclair destructeur","Shattering Bolt","Lancer : infligez 2 dégâts. Vous pouvez détruire une carte de votre main.~Lancer : défaussez une gemme de votre main. Si vous le faites, infligez 4 dégâts.",4,["thin"]],
+["InfusedIgnition","Spell","OC",4,"Combustion enrichie","Infused Ignition","Lancer : infligez 3 dégâts.|Si Xaxos : Paria a 4 charges ou moins, il gagne 1 charge.",4,["ch"]],
+["LightningArrow","Spell","OC",5,"Flèche éclair","Lightning Arrow","Lancer : infligez 3 dégâts.|Vous pouvez défausser une carte de votre main : Gravehold gagne alors 1 vie.",3,["surv"]],
+["RadiantConflux","Spell","OC",5,"Confluence de radiance","Radiant Conflux","Lancer : infligez 3 dégâts.|Un allié peut piocher une carte, puis défausser une carte de sa main.",3,["coop"]],
+["UnstableRift","Spell","OC",5,"Faille instable","Unstable Rift","Tant que ce sort est préparé, à la fin de votre phase d'incantation, infligez 1 dégât et gagnez 1 Æ.|Lancer : infligez 4 dégâts.",4,[]],
+["GatheredWill","Spell","OC",5,"Afflux de volonté","Gathered Will","Lancer : infligez 2 dégâts.|Vous pouvez gagner un sort de 4 Æ ou moins de n'importe quelle pile de réserve et le placer sur votre pioche.",2,["sup"]],
+["TornadoOfInsight","Spell","OC",6,"Tornade de lucidité","Tornado Of Insight","Lancer : infligez 5 dégâts.|Si vous n'avez aucune brèche fermée, gagnez 1 charge.",4,["ch","br"]],
+["HastedIntellect","Spell","OC",6,"Vivacité d'esprit","Hasted Intellect","Tant que ce sort est préparé, quand vous gagnez une carte, vous pouvez la placer sur votre pioche.|Lancer : infligez 4 dégâts.",4,["sup"]],
+["SwarmOfFlame","Spell","OC",6,"Effusion de flammes","Swarm Of Flame","Lancer : infligez 5 dégâts.|Vous pouvez lancer le sort préparé de n'importe quel joueur qui coûte 5 Æ ou moins.",4,["coop","amp"]],
+["ArcaneRelay","Spell","OC",8,"Relais arcanique","Arcane Relay","Lancer : un allié pioche une carte puis révèle sa main.|Infligez 4 dégâts, plus 1 dégât supplémentaire par carte de 1 Æ ou plus dans la main de cet allié.",3,["coop","amp"]],
+["DizzyingBurst","Spell","OC",8,"Explosion étourdissante","Dizzying Burst","Lancer : infligez 6 dégâts.|Révélez le deck Ordre du tour et replacez-le dans l'ordre de votre choix.",4,["turn"]],
 // Retour à Gravehold
 ["GlassEyedOracle","Relic","RTG",1,"Oracle de verre","Glass-Eyed Oracle","Gagnez 1 Æ.~Détruisez cette carte et autant d'exemplaires que vous voulez dans votre main. Vous pouvez gagner une carte dont le coût ne dépasse pas trois fois le nombre d'exemplaires détruits.",3,["thin","sup"]],
 ["Cleanse","Spell","RTG",4,"Purge","Cleanse","Lancer : infligez 3 dégâts.|Si vous avez 3 vies ou moins, gagnez 1 vie.",3,["surv"]],
 ["MemoryBreak","Spell","RTG",6,"Brise-mémoire","Memory Break","Lancer : infligez 3 dégâts.|Vous pouvez détruire une carte de votre main : infligez alors des dégâts supplémentaires égaux à son coût.",4,["thin"]],
+// Le Village du Sud
+["QuickeningQitite","Gem","SV",3,"Qitite vivifiante","Quickening Qitite","Gagnez 2 Æ.|Vous pouvez défausser une carte de votre main : stabilisez alors la brèche II de n'importe quel joueur.",4,["br","coop"]],
+["JeweledUrup","Gem","SV",5,"Urup serti","Jeweled Urup","Gagnez 3 Æ.~Si c'est le deuxième Urup serti que vous jouez ce tour, vous pouvez détruire cette carte : gagnez alors une carte de 7 Æ ou moins de n'importe quelle pile de réserve.",4,["sup"]],
+["CatsEye","Relic","SV",1,"Œil-de-chat","Cat's Eye","Vous ne pouvez pas gagner cette carte si vous avez déjà gagné une carte ce tour, ni gagner d'autre carte le tour où vous la gagnez.|Gagnez 1 charge. Vous pouvez détruire cette carte : gagnez alors 1 Æ.",3,["ch"]],
+["VoltReplicator","Relic","SV",4,"Réplicateur voltaïque","Volt Replicator","Un allié gagne une carte de 5 Æ ou moins. S'il reste deux Réplicateurs voltaïques ou moins dans la réserve, vous pouvez détruire cette carte : placez alors la carte gagnée dans la main de cet allié.",3,["thin","coop","sup"]],
+["EnergizedConduit","Relic","SV",7,"Conduit énergisé","Energized Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, le joueur qui l'a lancé gagne 1 charge.",3,["ch","br","coop"]],
+["FlameJab","Spell","SV",1,"Jab de flamme","Flame Jab","Lancer : infligez 2 dégâts à un serviteur.|Vous pouvez détruire cette carte : gagnez alors 1 Æ.",4,["min"]],
+["GatheringWinds","Spell","SV",3,"Vents rassemblés","Gathering Winds","Lancer : infligez 2 dégâts.|S'il y a six autres cartes ou plus dans votre défausse, stabilisez la brèche de n'importe quel joueur.",4,["br","coop","mem"]],
+["CinderShower","Spell","SV",5,"Pluie de cendres","Cinder Shower","Tant que ce sort est préparé, quand vous gagnez une carte, infligez 1 dégât.|Lancer : infligez 3 dégâts.",3,["sup"]],
+["ReapersFlame","Spell","SV",7,"Flamme du faucheur","Reaper's Flame","Tant que ce sort est préparé, une fois par tour, quand vous lancez un autre sort, vous pouvez gagner une carte de 5 Æ ou moins de n'importe quelle pile de réserve.|Lancer : infligez 5 dégâts.",4,["sup"]],
+["ErasureOfMind","Spell","SV",7,"Effacement de l'esprit","Erasure Of Mind","Lancer : détruisez une carte de votre main qui coûte 3 Æ ou plus. Si vous le faites, infligez 10 dégâts.~Lancer : infligez 5 dégâts. Révélez les deux cartes du dessus de votre pioche et placez-en autant que vous voulez sur votre défausse.",4,["thin"]],
+// Legacy of Gravehold
+["DarkliteSample","Gem","LOG",3,"Échantillon de darklite","Darklite Sample","Gagnez 2 Æ.|Vous pouvez placer votre pioche sur votre défausse sans changer l'ordre des cartes.",4,[]],
+["NebulaShard","Gem","LOG",3,"Éclat de nébuleuse","Nebula Shard","Gagnez 2 Æ.~Gagnez 1 Æ par sort lancé pendant votre phase d'incantation ce tour.",4,[]],
+["ScryingSugilite","Gem","LOG",3,"Sugilite divinatoire","Scrying Sugilite","Gagnez 2 Æ.|Vous pouvez révéler la carte du dessus de votre pioche. Si c'est un sort, gagnez 1 Æ supplémentaire.",4,[]],
+["Starglass","Gem","LOG",3,"Verre stellaire","Starglass","Gagnez 2 Æ.~Conjurez.",4,[]],
+["SunkenOnyx","Gem","LOG",3,"Onyx englouti","Sunken Onyx","Gagnez 2 Æ.|Vous pouvez défausser cette carte après qu'un allié a stabilisé une brèche : il stabilise alors cette brèche une deuxième fois.",4,["br","coop"]],
+["CobaltClump","Gem","LOG",4,"Amas de cobalt","Cobalt Clump","Gagnez 2 Æ.|La prochaine fois que vous gagnez une carte de 5 Æ ou plus ce tour, réduisez un serviteur au silence.",3,["sup","min"]],
+["GlintSplinter","Gem","LOG",4,"Écharde scintillante","Glint Splinter","Gagnez 2 Æ.|Rappel : vous pouvez défausser un sort préparé. Si vous le faites, gagnez 1 Æ et vous pouvez placer sur votre pioche la prochaine carte que vous gagnez ce tour.",3,[]],
+["VoidsteelVein","Gem","LOG",4,"Veine d'acier du vide","Voidsteel Vein","Gagnez 2 Æ.|Vous pouvez défausser cette carte quand un allié lance un sort qui coûte 1 Æ ou plus : ce sort inflige alors 2 dégâts supplémentaires.",3,["coop"]],
+["AetherDust","Gem","LOG",5,"Poussière d'éther","Aether Dust","Gagnez 2 Æ.|Chaque allié gagne un jeton Æ.",3,["coop"]],
+["FrozenLight","Gem","LOG",5,"Lumière gelée","Frozen Light","Gagnez 3 Æ.|Vous pouvez défausser cette carte pendant le tour d'un allié : cet allié et vous gagnez alors 1 charge chacun.",4,["ch","coop"]],
+["ShatteredRupix","Gem","LOG",5,"Rupix brisé","Shattered Rupix","Gagnez 3 Æ.|Quand une autre carte ou un autre effet vous ferait défausser ou détruire cette carte, vous pouvez la reprendre en main. (Ignorez cet effet tant que la carte est dans la réserve.)",4,["sup"]],
+// The Ruins
+["Witchglass","Gem","RU",2,"Verre de sorcière","Witchglass","Gagnez 1 Æ. Un allié gagne un jeton Æ.|Vous pouvez défausser cette carte pendant la phase principale d'un allié : ce joueur peut alors Conjurer.",3,["coop"]],
+["Shimmerbead","Gem","RU",3,"Perle chatoyante","Shimmerbead","Gagnez 2 Æ.|Rappel : si vous avez activé votre capacité ce tour, gagnez 1 vie.",4,["surv"]],
+["AllayingShell","Gem","RU",5,"Coquille apaisante","Allaying Shell","Gagnez 2 Æ.|Réduisez un serviteur au silence.",3,["min"]],
+["PulsyriumGlobe","Gem","RU",5,"Globe de pulsyrium","Pulsyrium Globe","Gagnez 3 Æ.|Rappel : défaussez une carte de votre main. Si vous le faites, un joueur gagne un jeton Æ.",4,["coop"]],
+["RainbowFluorite","Gem","RU",6,"Fluorite arc-en-ciel","Rainbow Fluorite","Gagnez 3 Æ.~Gagnez 2 charges.",3,["ch"]],
+["AetherWidget","Relic","RU",2,"Gadget d'éther","Aether Widget","Un allié peut préparer un sort de sa main sur l'une de ses brèches ouvertes ou fermées.|Vous pouvez défausser cette carte pendant la phase principale d'un allié : cet allié peut alors lancer l'un de ses sorts préparés.",3,["br","coop","amp"]],
+["VimInfusor","Relic","RU",3,"Infuseur de vigueur","Vim Infusor","Gagnez 1 charge.|Si vous avez 2 vies ou moins, répétez cet effet.",3,["ch","surv"]],
+["ContingencyKit","Relic","RU",4,"Trousse de secours","Contingency Kit","Un allié pioche deux cartes, puis défausse une carte.~Stabilisez la brèche de n'importe quel joueur. Si vous avez 2 vies ou moins, appliquez les deux effets.",3,["br","coop","surv"]],
+["GhostHarness","Relic","RU",6,"Harnais spectral","Ghost Harness","Chaque joueur stabilise sa brèche fermée au coût le plus bas.~Chaque joueur peut Conjurer.",3,["br","coop"]],
+["ElementConvertor","Relic","RU",6,"Convertisseur d'éléments","Element Convertor","Les joueurs détruisent ensemble jusqu'à deux gemmes de leurs mains ou de leurs défausses.|Révélez la carte du dessus du deck Ordre du tour. Si c'est la carte d'un joueur, ce joueur gagne un jeton Æ.",3,["thin","turn"]],
+["Magnify","Spell","RU",2,"Amplification","Magnify","Tant que ce sort est préparé, un autre sort de 2 Æ ou moins peut être préparé sur cette brèche.|Lancer : infligez 1 dégât.",3,["br"]],
+["DawnBarrage","Spell","RU",3,"Barrage de l'aube","Dawn Barrage","Lancer : infligez 1 dégât.|Les autres sorts que vous lancez pendant votre phase d'incantation ce tour infligent 1 dégât supplémentaire.",3,[]],
+["Stupefy","Spell","RU",3,"Stupéfaction","Stupefy","Lancer : infligez 2 dégâts.|Rappel : vous pouvez défausser une carte pour réduire un serviteur au silence.",4,["min"]],
+["ForceBubble","Spell","RU",4,"Bulle de force","Force Bubble","Lancer : infligez 2 dégâts.~Lancer : reprenez cette carte en main. Vous pouvez préparer un sort de votre main qui ne s'appelle pas Bulle de force.",3,[]],
+["AcceleratingField","Spell","RU",5,"Champ d'accélération","Accelerating Field","Lancer : infligez 3 dégâts.|Si c'est le premier Champ d'accélération que vous lancez ce tour, vous pouvez révéler les quatre cartes du dessus de votre pioche et placer dans votre main les Champs d'accélération ainsi révélés.",3,[]],
+["Harmonize","Spell","RU",5,"Harmonisation","Harmonize","Vous pouvez défausser cette carte de votre main quand un allié lance un sort : ce sort inflige alors 2 dégâts supplémentaires.|Lancer : infligez 4 dégâts.",4,["coop"]],
+["Phantasmagoria","Spell","RU",5,"Fantasmagorie","Phantasmagoria","Lancer : infligez 3 dégâts.|Rappel : Conjurez.",3,[]],
+["RuneTutor","Spell","RU",5,"Rune tutélaire","Rune Tutor","Lancer : gagnez une carte de 6 Æ ou moins de n'importe quelle pile de réserve et placez-la sur votre pioche.~Lancer : infligez 4 dégâts.",4,["sup"]],
+["BestowingLight","Spell","RU",6,"Lumière bienfaitrice","Bestowing Light","Lancer : infligez 5 dégâts.|Un allié gagne un jeton Æ par sort préparé sur une brèche adjacente.",4,["br","coop"]],
+["ReverseGravity","Spell","RU",7,"Gravité inversée","Reverse Gravity","Lancer : infligez 6 dégâts.|Quand cette carte va dans votre défausse, vous pouvez la placer sous votre défausse.",4,[]],
+// Past and Future
+["Glowstone","Gem","PAF",3,"Pierre luisante","Glowstone","Gagnez 2 Æ. Échangez cette carte contre Illuminite.",3,[]],
+["AmplifyingCalcite","Gem","PAF",3,"Calcite amplificatrice","Amplifying Calcite","Gagnez 2 Æ.~Gagnez 3 Æ utilisables uniquement pour Développer des cartes.",4,["sup"]],
+["EncasedFossil","Gem","PAF",4,"Fossile enchâssé","Encased Fossil","Gagnez 2 Æ.|Vous pouvez dépenser 6 Æ pour échanger cette carte contre Diamin.",3,[]],
+["MicaShard","Gem","PAF",4,"Éclat de mica","Mica Shard","Quand vous gagnez cette carte, vous pouvez Conjurer sur l'une de vos brèches ouvertes ou fermées.|Gagnez 2 Æ.",3,["br"]],
+["FoolsGold","Gem","PAF",5,"Or des fous","Fool's Gold","Gagnez 3 Æ.|Vous pouvez échanger cette carte contre Châtiment.",4,[]],
+["SplinteredGarnet","Gem","PAF",5,"Grenat éclaté","Splintered Garnet","Quand vous Développez cette carte, détruisez une gemme jouée ce tour.|Gagnez 3 Æ.",3,["thin","sup"]],
+["TomeOfTheAncients","Relic","PAF",2,"Tome des Anciens","Tome Of The Ancients","Si toutes vos brèches sont ouvertes, détruisez cette carte puis détruisez jusqu'à deux cartes de votre main ou de votre défausse. Sinon, stabilisez votre brèche fermée au coût de stabilisation le plus bas.",3,["br","thin"]],
+["ImbuedPocketwatch","Relic","PAF",2,"Montre à gousset imprégnée","Imbued Pocketwatch","Un joueur gagne 1 charge. S'il y a au moins deux Montres à gousset imprégnées dans la zone Développement, un joueur gagne 1 vie.",3,["ch","coop","sup","surv"]],
+["InscrutableArtifact","Relic","PAF",6,"Artefact insondable","Inscrutable Artifact","Lancez le sort préparé de n'importe quel joueur qui coûte 5 Æ ou moins, sans le défausser. Si vous avez 3 vies ou moins, échangez cette carte contre Æthérune.",3,["coop","surv","amp"]],
+["TalunaBranch","Relic","PAF",6,"Branche de Taluna","Taluna Branch","Quand vous Développez cette carte, un allié gagne un jeton Æ. Stabilisez la brèche de n'importe quel joueur.|Un joueur peut détruire une carte de sa main ou de sa défausse.",3,["br","thin","coop","sup"]],
+["CavernousMaw","Spell","PAF",3,"Gueule caverneuse","Cavernous Maw","Lancer : infligez 2 dégâts.|Vous pouvez détruire une carte de 4 Æ ou plus de votre défausse : échangez alors cette carte contre Flamme du dragon et placez-la sur votre pioche.",4,["thin"]],
+["ConsumeMagic","Spell","PAF",4,"Dévore-magie","Consume Magic","Lancer : infligez 3 dégâts.|Si ces dégâts éliminent un serviteur du deck Némésis, échangez cette carte contre Détonation.",4,["min"]],
+["BuildingStorm","Spell","PAF",4,"Tempête montante","Building Storm","Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire par exemplaire de cette carte dans la zone Développement.",3,["sup"]],
+["PrismaticFlare","Spell","PAF",5,"Éclat prismatique","Prismatic Flare","Quand vous préparez ce sort, stabilisez votre brèche III.|Lancer : infligez 3 dégâts.",4,["br"]],
+["SeersWrath","Spell","PAF",5,"Colère du voyant","Seer's Wrath","Quand vous Développez cette carte, regardez la carte du dessus du deck Ordre du tour. Vous pouvez la placer sous ce deck ou la laisser dessus.|Lancer : infligez 3 dégâts.",3,["sup","turn"]],
+["TetheredSmite","Spell","PAF",7,"Frappe enchaînée","Tethered Smite","Lancer : infligez 5 dégâts, répartis comme vous voulez entre la némésis et des serviteurs.",4,["min"]],
+["HarbingerDescent","Spell","PAF",8,"Venue du héraut","Harbinger Descent","Lancer : infligez 6 dégâts.|Vous pouvez défausser trois de vos autres sorts préparés pour échanger cette carte contre Apocalypse.",4,[]],
+["ThistleSpear","Spell","PAF",8,"Lance-chardon","Thistle Spear","Lancer : infligez 5 dégâts.|Un allié peut gagner une carte de la zone Développement et la placer dans sa main.",4,["coop","sup"]],
+// Evolution
+["FeedingLichen","Gem","EVO",5,"Lichen vorace","Feeding Lichen","Gagnez 2 Æ.|Si le palier de la némésis est 2 ou plus, piochez une carte supplémentaire à la fin de ce tour.",3,[]],
+["FallLantern","Relic","EVO",5,"Lanterne d'automne","Fall Lantern","Quand vous Développez cette carte, infligez 2 dégâts.|Connectez cette carte à la brèche de n'importe quel joueur. Quand un sort est lancé depuis cette brèche, un allié peut préparer un sort sur l'une de ses brèches ouvertes ou fermées.",3,["br","coop","sup"]],
+["CrescentGreave","Relic","EVO",8,"Jambière croissant","Crescent Greave","Quand vous Développez cette carte, piochez une carte supplémentaire à la fin de ce tour.|Gagnez 2 charges.|Piochez une carte supplémentaire à la fin de ce tour.",3,["ch","sup"]],
+["ReflectingCurrent","Spell","EVO",6,"Courant réfléchissant","Reflecting Current","Tant que ce sort est préparé, quand vous préparez un autre sort, gagnez 1 Æ.|Lancer : infligez 4 dégâts.",4,[]],
+// Origins
+["Rhodonix","Gem","ORI",6,"Rhodonix","Rhodonix","Gagnez 3 Æ.|Si c'est le premier Rhodonix que vous jouez ce tour, piochez une carte supplémentaire à la fin de ce tour.",3,[]],
+["LashingSinew","Spell","ORI",5,"Tendon cinglant","Lashing Sinew","Quand vous préparez ce sort, piochez une carte supplémentaire à la fin de ce tour.|Lancer : infligez 2 dégâts.",2,[]],
+["Propel","Spell","ORI",5,"Propulsion","Propel","Lancer : infligez 4 dégâts.|Si vous placez cette carte dans votre défausse, échangez-la contre Rassemblement de force.",4,[]],
+["Starfall","Spell","ORI",6,"Chute d'étoiles","Starfall","Lancer : infligez 3 dégâts.|Révélez les trois cartes du dessus de votre pioche. Vous pouvez préparer un sort ainsi révélé qui ne s'appelle pas Chute d'étoiles.",3,[]],
+// Le Commencement
+["Flamium","Gem","ATD",3,"Flamium","Flamium","Gagnez 2 Æ.~Placez un jeton Immolation sur un ennemi.",4,[]],
+["InfusedGalvite","Gem","ATD",3,"Galvite imprégnée","Infused Galvite","Gagnez 2 Æ.~Gagnez 1 Æ. Placez un jeton Électrisation sur n'importe quel ennemi.",4,[]],
+["Washium","Gem","ATD",4,"Washium","Washium","Gagnez 2 Æ.|Vous pouvez dépenser 1 Æ pour stabiliser votre brèche fermée au coût de stabilisation le plus bas.",3,["br"]],
+["AcidicFlomite","Gem","ATD",5,"Flomite acide","Acidic Flomite","Gagnez 3 Æ.|Vous pouvez perdre 1 charge : placez alors un jeton Immolation sur un ennemi.",4,["ch"]],
+["HungryAvite","Gem","ATD",6,"Avite affamée","Hungry Avite","Si vous avez 2 charges ou plus, vous pouvez gagner ou Développer cette carte pour 1 Æ de moins.|Quand vous Développez cette carte, stabilisez une brèche.|Gagnez 3 Æ.",2,["ch","br","sup"]],
+["CoruscatingMirror","Relic","ATD",3,"Miroir scintillant","Coruscating Mirror","Quand un serviteur est pioché du deck Némésis, vous pouvez révéler cette carte de votre main pour placer un jeton Électrisation sur ce serviteur. Un allié pioche une carte et gagne un jeton Æ.",3,["coop","min"]],
+["Redistributor","Relic","ATD",4,"Redistributeur","Redistributor","Gagnez 1 charge.|Un allié gagne un jeton Æ. Si vous avez 3 charges ou plus, cet allié gagne un jeton Æ supplémentaire.",3,["ch","coop"]],
+["TunedReconstructor","Relic","ATD",4,"Reconstructeur accordé","Tuned Reconstructor","Un allié révèle la carte du dessus de sa pioche. Si c'est un sort, vous pouvez le lancer. Sinon, il peut la détruire, gagner une carte qui coûte jusqu'à 3 Æ de plus et la placer sur sa pioche.",3,["coop","sup"]],
+["DefensiveDome","Relic","ATD",7,"Dôme défensif","Defensive Dome","Quand une attaque est piochée du deck Némésis, vous pouvez révéler et détruire cette carte pour défausser cette attaque sans la résoudre. Un joueur gagne 2 vies.",3,["coop","surv"]],
+["SilentSting","Spell","ATD",3,"Dard silencieux","Silent Sting","Lancer : placez un jeton Venin sur n'importe quel ennemi et infligez-lui 1 dégât.",2,[]],
+["LegacySlayer","Spell","ATD",4,"Tueur d'héritage","Legacy Slayer","Tant que ce sort est préparé, quand un joueur gagne une relique, gagnez 1 charge.|Lancer : infligez 3 dégâts.",4,["ch","coop"]],
+["EndlessWeave","Spell","ATD",5,"Trame infinie","Endless Weave","Tant que ce sort est préparé, quand vous utilisez votre capacité, un allié peut piocher une carte et préparer un sort de sa main sur une brèche ouverte ou fermée.|Lancer : infligez 4 dégâts.",4,["br","coop"]],
+["FlameGeyser","Spell","ATD",5,"Geyser de flammes","Flame Geyser","Quand vous Développez cette carte, placez un jeton Immolation sur n'importe quel ennemi.|Lancer : placez un jeton Venin sur un ennemi et infligez-lui 2 dégâts.",2,["sup"]],
+["TimeRift","Spell","ATD",5,"Faille temporelle","Time Rift","Lancer : infligez 4 dégâts.|Chaque joueur peut révéler la carte du dessus de sa pioche, puis la défausser ou la replacer.",4,["coop"]],
+["BoundlessEngulf","Spell","ATD",6,"Engloutissement sans fin","Boundless Engulf","Lancer : infligez 4 dégâts. Si votre défausse compte huit cartes ou plus, celle-ci comprise, vous pouvez reprendre cette carte en main.",3,[]],
+["FountainOfElements","Spell","ATD",6,"Fontaine des éléments","Fountain of Elements","Tant que ce sort est préparé, une fois par tour, quand un joueur Développe une carte, il place un jeton élémentaire sur n'importe quel ennemi.|Lancer : infligez 4 dégâts.",4,["coop","sup"]],
+["RestorationSiphon","Spell","ATD",7,"Siphon de restauration","Restoration Siphon","Lancer : infligez 6 dégâts.~Lancer : infligez 1 dégât. Gravehold gagne 3 vies.",4,["surv"]],
+["AlchemicalIgnition","Spell","ATD",8,"Ignition alchimique","Alchemical Ignition","Tant que ce sort est préparé, une fois par tour, quand un joueur place un jeton élémentaire, il place un jeton élémentaire supplémentaire du même type sur cet ennemi.|Lancer : placez 2 jetons Venin sur un ennemi et infligez-lui 2 dégâts.",2,["coop"]],
+// Les Abysses
+["SpiritJewel","Gem","AB",4,"Joyau d'esprit","Spirit Jewel","Gagnez 2 Æ. Vous pouvez faire subir 1 dégât à Gravehold : gagnez alors 1 Æ supplémentaire.",2,[]],
+["PulsingGarnet","Gem","AB",5,"Grenat pulsant","Pulsing Garnet","Gagnez 3 Æ.|Vous pouvez faire gagner 2 vies à un ennemi : un allié pioche alors une carte.",4,["coop","surv"]],
+["WhisperofAmethyst","Gem","AB",6,"Murmure d'améthyste","Whisper of Amethyst","Gagnez 3 Æ.|Vous pouvez défausser la carte du dessus du deck Némésis : un allié gagne alors 2 jetons Æ.",3,["coop"]],
+["BottledDemon","Relic","AB",2,"Démon en bouteille","Bottled Demon","Gagnez 1 charge. Vous pouvez faire gagner 2 vies à un ennemi : gagnez alors 1 charge supplémentaire.",3,["ch","surv"]],
+["FatesEdge","Relic","AB",6,"Fil du destin","Fate's Edge","Un joueur et Gravehold gagnent chacun 1 vie.~Détruisez cette carte. Placez les deux cartes du dessous du deck Némésis sur le dessus de ce deck. Puis mélangez la carte Ordre du tour d'un joueur dans le deck Ordre du tour.",3,["thin","coop","surv","turn"]],
+["VoidGrasp","Spell","AB",4,"Étreinte du vide","Void Grasp","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez donner un jeton Bouclier à un serviteur du deck Némésis : gagnez alors 3 Æ.|Lancer : infligez 3 dégâts.",4,["min"]],
+["AllOutBarrage","Spell","AB",5,"Barrage total","All-Out Barrage","Lancer : infligez 4 dégâts. Vous pouvez placer la carte du dessous du deck Némésis sur le dessus de ce deck : infligez alors 3 dégâts supplémentaires.",4,[]],
+// Les Cavernes
+["Electinium","Gem","TC",3,"Électinium","Electinium","Quand vous gagnez cette carte, placez un jeton Électrisation sur n'importe quel ennemi.|Gagnez 2 Æ.",4,[]],
+["MagneticConduit","Relic","TC",6,"Conduit magnétique","Magnetic Conduit","Connectez cette carte à une brèche ouverte de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, ne le défaussez pas. Vous ne pouvez plus lancer ce sort pendant cette phase d'incantation.",3,["br","coop"]],
+["ElementalConduit","Relic","TC",8,"Conduit élémentaire","Elemental Conduit","Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, placez un jeton élémentaire sur n'importe quel ennemi avant de résoudre l'effet du sort.",3,["br","coop"]],
+["CombustLegend","Spell","TC",4,"Légende consumée","Combust Legend","Tant que ce sort est préparé, après qu'un joueur a joué une relique, placez un jeton Æ sur ce sort.|Lancer : infligez 3 dégâts. Gagnez tous les jetons Æ placés sur ce sort.",4,["coop"]],
+["ExpungeEssence","Spell","TC",5,"Purge d'essence","Expunge Essence","Lancer : retirez un jeton élémentaire d'un ennemi. Si vous le faites, infligez-lui 6 dégâts.~Lancer : placez un jeton Immolation sur un ennemi et infligez-lui 2 dégâts.",4,[]],
+["ArchaicDischarge","Spell","TC",6,"Décharge archaïque","Archaic Discharge","Tant que ce sort est préparé, après avoir joué une relique, placez un jeton Charge sur ce sort.|Lancer : infligez 4 dégâts, plus 2 dégâts par jeton Charge sur ce sort. Puis défaussez tous les jetons de ce sort.",4,["ch"]],
+["MemoryAllocator","Spell","TC",8,"Allocateur de mémoire","Memory Allocator","Lancer : infligez 6 dégâts. Mettez de côté autant de cartes de votre main que vous voulez. Après avoir pioché pendant votre phase de pioche, reprenez-les en main.",4,[]],
+// Tales of Old Gravehold
+["BlackenedOrb","Relic","TOG",4,"Orbe noirci","Blackened Orb","Lancez le sort préparé de n'importe quel joueur sans le défausser. Ce sort inflige 2 dégâts de moins (minimum 0).~Lancez le sort préparé de n'importe quel joueur et détruisez-le. Ce sort inflige 1 dégât supplémentaire.",3,["coop","amp"]],
+["SpiritualInfusion","Spell","TOG",4,"Infusion spirituelle","Spiritual Infusion","Lancer : infligez 3 dégâts. Si vous avez infligé 7 dégâts ou plus ce tour, Gravehold gagne 1 vie.",3,["surv"]],
+// Beyond the Breach
+["HewnGravitite","Gem","BTB",3,"Gravitite taillée","Hewn Gravitite","Gagnez 2 Æ. Vous pouvez perdre 2 jetons Pulsation : lancez alors le sort préparé de n'importe quel joueur.|Rappel : gagnez 1 jeton Pulsation.",4,["coop","amp"]],
+["LuminousFacet","Gem","BTB",4,"Facette lumineuse","Luminous Facet","Gagnez 3 Æ.|Gagnez une babiole.",4,[]],
+["PhosphorNugget","Gem","BTB",4,"Pépite de phosphore","Phosphor Nugget","Gagnez 2 Æ.|Rappel : un allié gagne un jeton Æ.",3,["coop"]],
+["AtomizedAsh","Gem","BTB",5,"Cendre atomisée","Atomized Ash","Quand vous gagnez cette carte, gagnez 1 jeton Pulsation.|Gagnez 2 Æ.|Rappel : perdez 1 jeton Pulsation pour infliger 1 dégât.",3,[]],
+["IrradiaxLump","Gem","BTB",6,"Bloc d'irradiax","Irradiax Lump","Gagnez 3 Æ.|Gagnez deux babioles et placez-en une dans votre main.",3,["sup"]],
+["OmenLoop","Relic","BTB",3,"Boucle de présage","Omen Loop","Quand vous Développez cette carte, gagnez 2 jetons Pulsation.|Détruisez cette carte. Révélez le deck Ordre du tour et replacez-le dans l'ordre de votre choix. Vous pouvez perdre 1 jeton Pulsation : un allié pioche alors une carte.",3,["coop","sup","turn"]],
+["TearstoneAmulet","Relic","BTB",4,"Amulette de larmepierre","Tearstone Amulet","Quand vous Développez cette carte, gagnez 1 charge.|Connectez cette carte à la brèche de n'importe quel joueur.|Quand un joueur lance un sort depuis cette brèche, un allié peut Conjurer.",3,["ch","br","coop","sup"]],
+["Chronoid","Relic","BTB",5,"Chronoïde","Chronoid","Un allié gagne 3 jetons Æ.|Rappel : regardez la carte du dessus du deck Ordre du tour. Vous pouvez la placer sous ce deck ou la laisser dessus.",3,["coop","turn"]],
+["RiftRing","Relic","BTB",5,"Anneau de faille","Rift Ring","Gagnez 2 charges. Gagnez deux babioles et placez-les sur votre pioche.~Détruisez cette carte. Gagnez 2 vies.",3,["ch","sup","surv"]],
+["ThoughtTotem","Relic","BTB",7,"Totem de pensée","Thought Totem","Quand vous Développez cette carte, un allié gagne 2 jetons Æ.|Gagnez 2 charges. Révélez les trois cartes du dessus de votre pioche. Défaussez-en autant que vous voulez et replacez les autres dans l'ordre de votre choix.",3,["ch","coop","sup"]],
+["DeadlyAccord","Spell","BTB",3,"Accord mortel","Deadly Accord","Lancer : infligez 2 dégâts.|Un allié peut défausser un Accord mortel de sa main et piocher une carte : infligez alors 1 dégât supplémentaire et vous pouvez détruire une carte de votre main.",4,["thin","coop"]],
+["FrostfireMaelstrom","Spell","BTB",4,"Maelström de givre ardent","Frostfire Maelstrom","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, gagnez 1 jeton Pulsation.|Lancer : infligez 2 dégâts, répartis comme vous voulez entre les ennemis. Perdez autant de jetons Pulsation que vous voulez : infligez 1 dégât supplémentaire par jeton perdu.",3,["amp"]],
+["JeweledShrapnel","Spell","BTB",4,"Éclats sertis","Jeweled Shrapnel","Lancer : infligez 4 dégâts.|Gagnez deux babioles et placez-les sur votre pioche. Vous pouvez détruire une carte de votre main.",4,["thin","sup"]],
+["MegafluxSlice","Spell","BTB",4,"Tranche de mégaflux","Megaflux Slice","Lancer : infligez 2 dégâts. Gagnez 1 jeton Pulsation.~Vous pouvez perdre 3 jetons Pulsation : infligez alors 7 dégâts.",4,[]],
+["EmberGale","Spell","BTB",5,"Bourrasque de braises","Ember Gale","Lancer : infligez 4 dégâts.|Chaque allié qui a six cartes ou plus dans sa défausse stabilise l'une de ses brèches.",4,["br","coop","mem"]],
+["StonefuryEruption","Spell","BTB",5,"Éruption de pierrefureur","Stonefury Eruption","Lancer : infligez 4 dégâts.|Chaque allié qui a une Éruption de pierrefureur dans sa défausse gagne 1 charge.",4,["ch","coop"]],
+["Vitrification","Spell","BTB",6,"Vitrification","Vitrification","Lancer : infligez 8 dégâts.|Gagnez trois babioles et placez-les sur votre pioche.",4,[]],
+["Worldshift","Spell","BTB",6,"Basculement du monde","Worldshift","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 jeton Pulsation.|Lancer : infligez 5 dégâts. Vous pouvez perdre 2 jetons Pulsation : stabilisez alors la brèche d'un allié.",4,["br","coop"]],
+["EternitysEcho","Spell","BTB",7,"Écho de l'éternité","Eternity's Echo","Lancer : infligez 3 dégâts.|Rappel : vous pouvez lancer l'un de vos sorts préparés. Conjurez.",2,["amp"]],
+["DescentOfDestruction","Spell","BTB",8,"Descente destructrice","Descent of Destruction","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez Conjurer sur une brèche ouverte ou fermée.|Lancer : infligez 4 dégâts. Les sorts de 2 Æ ou moins que vous lancez ce tour infligent 2 dégâts supplémentaires.",3,["br"]],
+["Inundate","Spell","BTB",8,"Inondation","Inundate","Lancer : infligez 6 dégâts.|Un allié peut défausser une carte de 4 Æ ou plus de sa main et piocher une carte : infligez alors 4 dégâts.",4,["coop"]],
+// The Returned
+["IceDustedJewel","Gem","TR",3,"Joyau givré","Ice-Dusted Jewel","Gagnez 2 Æ et 1 jeton Pulsation.~Vous pouvez perdre 5 jetons Pulsation pour lancer le sort préparé de n'importe quel joueur sans le défausser.",4,["coop","amp"]],
+["CoiledTrillium","Gem","TR",4,"Trillium enroulé","Coiled Trillium","Gagnez 2 Æ.|Un allié peut défausser un Trillium enroulé de sa main : il gagne alors 2 jetons Æ et 1 charge.",3,["ch","coop"]],
+["PactPrism","Relic","TR",3,"Prisme du pacte","Pact Prism","Gagnez 2 jetons Æ à la fin de votre tour.|Un allié peut défausser un Prisme du pacte de sa main et piocher une carte : vous gagnez alors 1 vie.",3,["coop","surv"]],
+["VisionaryStaff","Relic","TR",5,"Bâton visionnaire","Visionary Staff","Un allié pioche trois cartes et défausse deux cartes de sa main.~Résolvez deux fois un effet Rappel d'une carte dans la défausse de n'importe quel joueur.|Rappel : gagnez 1 charge.",3,["ch","coop"]],
+["BookOfBefore","Relic","TR",6,"Livre d'avant","Book of Before","Connectez cette carte à la brèche de n'importe quel joueur.|Quand un sort est lancé depuis cette brèche, Gravehold gagne 1 vie.",3,["br","coop","surv"]],
+["TorrentialSpike","Spell","TR",4,"Pointe torrentielle","Torrential Spike","Lancer : infligez 3 dégâts.|Un allié peut révéler la carte du dessus de sa pioche. Si c'est un sort, il la place dans sa main.",4,["coop"]],
+["InfernalCascade","Spell","TR",5,"Cascade infernale","Infernal Cascade","Lancer : infligez 2 dégâts. Vous pouvez lancer le sort préparé de n'importe quel joueur qui coûte 2 Æ ou moins, sans le défausser, puis le lancer une deuxième fois.",2,["coop","amp"]],
+// The Surface
+["NebulaeFragment","Gem","TS",3,"Fragment de nébuleuse","Nebulae Fragment","Gagnez 2 Æ.|Un allié peut défausser un Fragment de nébuleuse de sa main : il gagne alors un jeton Æ et peut Conjurer sur une brèche ouverte ou fermée.",4,["br","coop"]],
+["ChromiaSphere","Gem","TS",5,"Sphère de chromia","Chromia Sphere","Gagnez 2 Æ.|S'il y a au moins deux exemplaires de cette carte dans la zone Développement, gagnez 2 Æ supplémentaires.",3,["sup"]],
+["DreamersCrown","Relic","TS",3,"Couronne du rêveur","Dreamer's Crown","Gagnez 1 charge et 2 jetons Pulsation.~Vous pouvez perdre 4 jetons Pulsation pour infliger autant de dégâts que votre Æ non dépensé. Perdez ensuite tout votre Æ non dépensé.",3,["ch"]],
+["StormspinnerWand","Relic","TS",8,"Baguette tisse-tempête","Stormspinner Wand","Quand vous Développez cette carte, un allié peut détruire une carte de sa main ou de sa défausse.|Cet allié et vous gagnez chacun 1 charge par carte de 2 Æ ou plus dans la main de cet allié.",3,["ch","thin","coop","sup"]],
+["BoundlessFire","Spell","TS",3,"Feu sans limite","Boundless Fire","Lancer : infligez 2 dégâts.|Rappel : perdez 1 charge pour reprendre cette carte en main.",4,["ch"]],
+["CosmicPulse","Spell","TS",6,"Pulsation cosmique","Cosmic Pulse","Tant que ce sort est préparé, autant de sorts que vous voulez peuvent être conjurés sur cette brèche.|Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez Conjurer.|Lancer : infligez 3 dégâts.",3,["br"]],
+["ObliteratingArc","Spell","TS",7,"Arc d'oblitération","Obliterating Arc","Lancer : infligez 7 dégâts.|Détruisez une carte de la pile de réserve d'Arc d'oblitération. Si vous ne pouvez pas, subissez 2 dégâts.",4,["thin","sup"]],
 // Cartes promo
-["FracturedQuartz","Gem","PR",4,"Quartz fracturé","","Gagnez 2 Æ.|Vous pouvez détruire deux cartes de la pile de réserve de cette carte : gagnez alors 1 Æ supplémentaire.",3,["sup"]],
-["CombustionAbacus","Relic","PR",4,"Boulier de combustion","","Vous pouvez lancer le sort préparé d'un allié.|Un allié pioche une carte.",4,["amp","coop"]],
-["GemSlingshot","Relic","PR",3,"Lance-pierres précieuses","","Défaussez ou détruisez une carte de votre main : infligez alors autant de dégâts que son coût.",4,["thin"]],
-["ThievingSpirit","Spell","PR",5,"Esprit voleur","","Lancer : infligez 4 dégâts.|Gagnez 1 Æ.",4,[]],
-["LightingFlame","Spell","PR",6,"Flamme éclairante","","Lancer : infligez 5 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, vous pouvez le détruire : gagnez alors 3 charges.",4,["br","ch"]],
-["TemporalArc","Spell","PR",7,"Arc temporel","","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : infligez 4 dégâts. Vous pouvez placer cette carte dans votre main.",3,["br","amp"]],
-// Boîte de base (amie)
-["DiamondCluster","Gem","BASE",4,"Agrégat de diamants","","Gagnez 2 Æ.|Si c'est le deuxième Agrégat de diamants que vous jouez ce tour, gagnez 2 Æ supplémentaires.",4,[]],
-["SearingRuby","Gem","BASE",4,"Rubis fulgurant","","Gagnez 2 Æ.|Gagnez 1 Æ supplémentaire utilisable uniquement pour gagner un sort.",3,["sup"]],
-["BurningOpal","Gem","BASE",5,"Opale brûlante","","Gagnez 3 Æ.|Vous pouvez défausser une carte de votre main : un allié pioche alors une carte.",4,["coop"]],
-["CloudedSapphire","Gem","BASE",6,"Saphir nuageux","","Gagnez 3 Æ.|Si c'est le premier Saphir nuageux que vous jouez ce tour, un allié gagne 1 charge.",4,["ch","coop"]],
-["Jade","Gem","BASE",2,"Jade","","Gagnez 2 Æ.",4,[]],
-["VriswoodAmber","Gem","BASE",3,"Ambre de V'risbois","","Quand vous gagnez cette carte, vous pouvez la placer sur votre pioche.|Gagnez 2 Æ.",3,["sup"]],
-["SiftersPearl","Gem","BASE",3,"Perle filtrante","","Gagnez 2 Æ.|Chaque joueur révèle la carte du dessus de sa pioche, puis la défausse ou la replace.",3,["coop"]],
-["UnstablePrism","Relic","BASE",3,"Prisme instable","","Jouez deux fois une gemme de votre main, puis détruisez-la.~Gagnez 2 Æ.",4,["thin"]],
-["MagesTalisman","Relic","BASE",5,"Talisman de mage","","Gagnez 1 charge.|Un allié gagne 1 charge.",3,["ch","coop"]],
-["FlexingDagger","Relic","BASE",2,"Dague fléchissante","","La prochaine fois que vous stabilisez ou ouvrez une brèche ce tour, cela coûte 3 Æ de moins.~Détruisez cette carte. Infligez 1 dégât.",3,["br"]],
-["BottledVortex","Relic","BASE",3,"Vortex en bouteille","","Détruisez cette carte. Détruisez jusqu'à deux cartes de votre main ou de votre défausse. Piochez une carte.",4,["thin"]],
-["BlastingStaff","Relic","BASE",4,"Bâton d'explosion","","Vous pouvez lancer un sort que vous avez préparé ce tour : il inflige alors 2 dégâts supplémentaires.",4,["amp"]],
-["FocusingOrb","Relic","BASE",4,"Orbe de stabilisation","","Stabilisez la brèche de n'importe quel joueur.~Détruisez cette carte. Gravehold gagne 3 vies.",3,["br","surv"]],
-["ChaosArc","Spell","BASE",6,"Arc chaotique","","Lancer : infligez 3 dégâts.|Infligez 2 dégâts supplémentaires pour chaque sort préparé sur une brèche adjacente.",4,["br"]],
-["Ignite","Spell","BASE",4,"Mise à feu","","Lancer : infligez 2 dégâts.|Un allié gagne 1 charge.",4,["ch","coop"]],
-["EssenceTheft","Spell","BASE",5,"Vol d'essence","","Lancer : infligez 3 dégâts.|Vous pouvez défausser une carte de votre main : un joueur gagne alors 1 vie.",3,["surv"]],
-["FeralLightning","Spell","BASE",5,"Éclair enragé","","Ce sort peut être préparé sur une brèche fermée sans la stabiliser.|Lancer : infligez 3 dégâts.",3,["br"]],
-["PlanarInsight","Spell","BASE",6,"Aperçu planaire","","Lancer : infligez 2 dégâts.|Infligez 1 dégât supplémentaire pour chacune de vos brèches ouvertes.",4,["br"]],
-["SpectralEcho","Spell","BASE",3,"Écho spectral","","Lancer : infligez 2 dégâts.|Vous pouvez détruire une carte de votre main.",4,["thin"]],
-["ConsumingVoid","Spell","BASE",7,"Vide dévorant","","Lancer : détruisez jusqu'à deux cartes de votre main. Infligez 3 dégâts par carte ainsi détruite.",3,["thin"]],
-["LavaTendril","Spell","BASE",4,"Tentacule de lave","","Tant que ce sort est préparé, à la fin de votre phase d'incantation, infligez 1 dégât.|Lancer : infligez 3 dégâts.",4,["min"]],
-["ArcaneNexus","Spell","BASE",7,"Nexus des arcanes","","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez reprendre en main une gemme jouée ce tour.|Lancer : infligez 4 dégâts.",4,[]],
-["DarkFire","Spell","BASE",5,"Feu obscur","","Lancer : défaussez jusqu'à deux cartes de votre main. Infligez 3 dégâts par carte ainsi défaussée.",4,[]],
-["PhoenixFlame","Spell","BASE",3,"Flamme du phénix","","Lancer : infligez 2 dégâts.|Vous pouvez perdre 1 charge pour infliger 2 dégâts supplémentaires.",3,["ch"]],
-["AmplifyVision","Spell","BASE",4,"Vision amplifiée","","Lancer : stabilisez votre brèche fermée au coût de stabilisation le plus bas. Infligez 2 dégâts. Si toutes vos brèches sont ouvertes, infligez 1 dégât supplémentaire.",4,["br"]],
-["WildfireWhip","Spell","BASE",6,"Fouet ardent","","Tant que ce sort est préparé, pendant votre phase principale, vous pouvez dépenser 2 Æ pour lancer le sort préparé de n'importe quel joueur.|Lancer : infligez 4 dégâts.",4,["amp"]],
-["OblivionSwell","Spell","BASE",5,"Vague d'oubli","","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner 1 Æ.|Lancer : infligez 2 dégâts. Vous pouvez défausser une gemme : infligez alors des dégâts supplémentaires égaux à son coût.",3,[]],
-// Secrets enfouis
-["TripliteCore","Gem","BS",4,"Noyau de Triplite","Triplite Core","Gagnez 3 Æ utilisables uniquement pour gagner des cartes.",4,["sup"]],
-["ObliviumResin","Gem","BS",5,"Résine d'Oubli","Oblivium Resin","Gagnez 2 Æ.|Si vous avez en main trois cartes ou plus qui coûtent 0 Æ, gagnez 2 Æ supplémentaires.",3,["zero"]],
-["Summonite","Gem","BS",3,"Invoquine","Summonite","Gagnez 2 Æ.~Gagnez une Invoquine de la réserve et placez-la sur la défausse d'un allié.",3,["coop","sup"]],
-["JoltingCrust","Gem","BS",3,"Voltécorce","Jolting Crust","Gagnez 2 Æ. Gagnez 1 jeton Pulsation.~Gagnez 2 Æ. Perdez 1 jeton Pulsation : gagnez alors 1 charge.",3,["ch"]],
-["MentiteChunk","Gem","BS",5,"Fragment de Mentite","Mentite Chunk","Gagnez 3 Æ.|S'il y a sept cartes ou plus dans votre défausse, gagnez 1 Æ supplémentaire.",4,["mem"]],
-["VoidiumSpike","Gem","BS",3,"Pointe de Vide","Voidium Spike","Gagnez 2 Æ.|Chaque allié peut défausser une carte de sa main. Chaque allié qui le fait gagne 1 charge.",3,["ch","coop"]],
-["MutedLacosite","Gem","BS",5,"Lacosite Muette","Muted Lacosite","Quand vous gagnez cette carte, réduisez un serviteur au silence.|Gagnez 3 Æ.",4,["min"]],
-["ShiningTetrite","Gem","BS",6,"Tétrite Lumineuse","Shining Tetrite","Gagnez 4 Æ qui ne peuvent pas servir à gagner une carte.",2,["ch","br"]],
-["ManifoldContainer","Relic","BS",4,"Cube Sans Fond","Manifold Container","Gagnez 1 Æ.|La prochaine fois que vous gagnez une carte ce tour, vous pouvez aussi gagner une carte qui coûte moins cher.",4,["sup"]],
-["SoulCords","Relic","BS",5,"Filaments d'Âme","Soul Cords","Un joueur gagne 1 jeton Pulsation.|Chaque joueur qui a 2 jetons Pulsation ou plus gagne 1 charge.",2,["ch","coop"]],
-["ScholarsOpus","Relic","BS",3,"Œuvre de l'Érudit","Scholar's Opus","Gagnez 1 charge.|S'il y a sept cartes ou plus dans votre défausse, gagnez 1 charge supplémentaire.",3,["ch","mem"]],
-["BottledStar","Relic","BS",7,"Étoile Miniature","Bottled Star","Gagnez 3 charges.",3,["ch"]],
-["LivingGauntlet","Relic","BS",4,"Gantelet Vivant","Living Gauntlet","Révélez la carte du dessus de votre pioche. Vous pouvez la détruire ou la défausser.|Chaque allié peut piocher une carte. Chaque allié qui le fait défausse une carte de sa main.",3,["thin","coop","mem"]],
-["NerveJab","Spell","BS",2,"Frappe Audacieuse","Nerve Jab","Lancer : infligez 1 dégât.|Réduisez un serviteur au silence.",3,["min"]],
-["DoubleTap","Spell","BS",3,"Coup Double","Double Tap","Lancer : infligez 1 dégât. Infligez 1 dégât.|(Les bonus de dégâts s'appliquent aux deux.)",3,["amp","min"]],
-["DrainingTouch","Spell","BS",2,"Toucher Vampirique","Draining Touch","Lancer : infligez 1 dégât.|Gagnez 1 charge.",3,["ch"]],
-["PrecisionShot","Spell","BS",3,"Tir de Précision","Precision Shot","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 2 dégâts. S'il y a six autres cartes ou plus dans votre défausse, infligez 2 dégâts supplémentaires.",4,["mem","br"]],
-["BladeOfWisdom","Spell","BS",6,"Lame de Sagesse","Blade of Wisdom","Quand vous gagnez cette carte, s'il y a sept autres cartes ou plus dans votre défausse, gagnez 2 vies.|Lancer : infligez 5 dégâts.",4,["mem","surv"]],
-["StunningForce","Spell","BS",5,"Force Colossale","Stunning Force","Lancer : infligez 4 dégâts à la némésis.|Réduisez un serviteur au silence.",4,["min"]],
-["FlashOfIntellect","Spell","BS",4,"Éclair de Génie","Flash of Intellect","Lien (deux sorts avec Lien peuvent être préparés sur la même brèche).|Lancer : infligez 3 dégâts. S'il y a six autres cartes ou plus dans votre défausse, vous pouvez gagner un Éclair de Génie de la réserve et le placer sur votre pioche.",3,["mem","sup","br"]],
-["BurningCurrent","Spell","BS",3,"Courant Flamboyant","Burning Current","Tant que ce sort est préparé, pendant votre phase d'incantation, vous pouvez perdre 2 jetons Pulsation : les sorts que vous lancez ce tour infligent alors 1 dégât supplémentaire.|Lancer : infligez 1 dégât. Gagnez 1 jeton Pulsation.",3,["ch","amp"]],
-["PsychicEruption","Spell","BS",8,"Éruption Psychique","Psychic Eruption","Lancer : infligez autant de dégâts qu'il y a de cartes dans la défausse d'un joueur.",4,["mem"]]
+["CitrineShrapnel","Gem","PR",3,"Éclats de citrine","Citrine Shrapnel","Gagnez 1 Æ par exemplaire de cette carte dans la zone Développement.~Développez un Éclats de citrine.",3,["sup"]],
+["EchoStone","Gem","PR",4,"Pierre d'écho","Echo Stone","Gagnez 2 Æ.|Si vous avez déjà joué une autre Pierre d'écho ce tour, gagnez 1 Æ supplémentaire.",3,["amp"]],
+["FracturedQuartz","Gem","PR",4,"Quartz fracturé","Fractured Quartz","Gagnez 2 Æ.|Vous pouvez détruire deux cartes de la pile de réserve de cette carte : gagnez alors 1 Æ supplémentaire.",3,["sup"]],
+["CoruscatingSapal","Gem","PR",4,"Sapal scintillant","Coruscating Sapal","Gagnez 2 Æ.|Vous pouvez perdre 1 charge : gagnez alors 2 Æ supplémentaires.",3,["ch"]],
+["TalusoidClod","Gem","PR",4,"Motte de talusoïde","Talusoid Clod","Gagnez 2 Æ.|Rappel : vous pouvez subir 2 dégâts pour reprendre cette carte en main.",3,[]],
+["CometScrap","Gem","PR",4,"Débris de comète","Comet Scrap","Gagnez 2 Æ.|Un allié peut placer une carte de sa main sur votre pioche : gagnez alors 1 Æ supplémentaire.",3,["coop"]],
+["GluttonsJewel","Gem","PR",6,"Joyau du glouton","Glutton's Jewel","Gagnez 3 Æ.|Si votre pioche et votre défausse comptent ensemble 15 cartes ou plus, placez sur votre pioche autant de cartes que vous voulez d'une pile de réserve autre que Joyau du glouton.",3,["sup"]],
+["GemSlingshot","Relic","PR",3,"Lance-pierres précieuses","Rock Launcher","Défaussez ou détruisez une carte de votre main : infligez alors autant de dégâts que son coût.",4,["thin"]],
+["CombustionAbacus","Relic","PR",4,"Boulier de combustion","Abacus of Ignition","Vous pouvez lancer le sort préparé d'un allié.|Un allié pioche une carte.",4,["amp","coop"]],
+["ReboundSpike","Relic","PR",5,"Pointe de rebond","Rebound Spike","Mettez de côté deux gemmes ou reliques jouées ce tour, hors cette carte. À la fin de votre tour, après avoir complété votre main, placez-les dans votre main.",3,[]],
+["BellOfGravehold","Relic","PR",6,"Cloche de Gravehold","Bell of Gravehold","Un joueur détruit autant de cartes de sa main qu'il veut et gagne un jeton Æ par carte ainsi détruite.|Rappel : défaussez une carte de votre main. Si vous le faites, un allié gagne 1 charge.",3,["ch","coop"]],
+["HummingShell","Relic","PR",7,"Coquille bourdonnante","Humming Shell","Détruisez jusqu'à deux cartes de votre main ou de votre défausse.~Gagnez 2 charges.",3,["ch","thin"]],
+["CataclysmSeed","Relic","PR",7,"Graine de cataclysme","Cataclysm Seed","Gagnez 1 charge.~Détruisez cette carte. Chaque joueur peut détruire autant de cartes de sa main qu'il veut.",3,["ch","thin","coop"]],
+["ChronophageCoil","Relic","PR",8,"Bobine chronophage","Chronophage Coil","Détruisez cette carte.|Mélangez la carte Ordre du tour d'un joueur dans le deck Ordre du tour.",3,["thin","coop","turn"]],
+["FleetingVision","Spell","PR",3,"Vision fugace","Fleeting Vision","Lancer : infligez 2 dégâts.|Chaque joueur peut révéler les deux cartes du dessus de sa pioche et défausser celles qu'il veut.",4,["coop"]],
+["ForceCatalyst","Spell","PR",4,"Catalyseur de force","Force Catalyst","Tant que ce sort est préparé, pendant votre phase principale, vous pouvez dépenser 3 Æ pour lancer le sort préparé de n'importe quel joueur.|Lancer : infligez 3 dégâts.",4,["coop","amp"]],
+["SplinterMissile","Spell","PR",5,"Missile éclaté","Splinter Missile","Lancer : infligez 4 dégâts.|Un allié peut défausser une carte de sa main : répartissez alors ces dégâts comme vous voulez entre la némésis et des serviteurs.",4,["coop","min"]],
+["ThievingSpirit","Spell","PR",5,"Esprit voleur","Thieving Spirit","Lancer : infligez 4 dégâts.|Gagnez 1 Æ.",4,[]],
+["DrownInFlames","Spell","PR",6,"Noyade dans les flammes","Drown in Flames","Lancer : infligez 4 dégâts à un serviteur ou à la némésis.|Vous pouvez perdre 2 charges : répétez alors cet effet.|(Les bonus de dégâts s'appliquent à chaque fois.)",4,["ch","min"]],
+["LightingFlame","Spell","PR",6,"Flamme éclairante","Illuminating Flame","Lancer : infligez 5 dégâts.|Si ce sort a été lancé depuis une brèche III ou IV ouverte, vous pouvez le détruire : gagnez alors 3 charges.",4,["br","ch"]],
+["TemporalArc","Spell","PR",7,"Arc temporel","Chronal Arc","Ce sort se prépare sur deux brèches adjacentes et les occupe entièrement.|Lancer : infligez 4 dégâts. Vous pouvez placer cette carte dans votre main.",3,["br","amp"]],
+["UnveilPotential","Spell","PR",7,"Révéler le potentiel","Unveil Potential","Tant que ce sort est préparé, vos autres sorts gagnent le texte « OU Lancer : infligez autant de dégâts que le coût de cette carte ».|Lancer : infligez 5 dégâts.",4,[]],
+["ParasiticForce","Spell","PR",8,"Force parasite","Parasitic Force","Vous pouvez préparer ce sort sur la brèche ouverte de n'importe quel joueur.|Lancer : infligez 6 dégâts.|Vous pouvez détruire jusqu'à deux cartes de votre main ou de votre défausse.",4,["br","thin","coop"]],
+["Obsolescence","Spell","PR",8,"Obsolescence","Obsolescence","Tant que ce sort est préparé, une fois par tour pendant votre phase principale, vous pouvez gagner une babiole.|Lancer : infligez 1 dégât. Détruisez toutes les autres cartes de votre défausse et de votre pioche. Infligez 2 dégâts supplémentaires par carte ainsi détruite.",2,["thin"]]
 ];
 const CARDS = RAW.map(r=>({id:r[0],type:r[1],box:r[2],cost:r[3],fr:r[4],en:r[5],fx:r[6],pow:r[7],tags:r[8]}));
 
+/* [clé, nom, vague, boîte Legacy (contenu à débloquer, masqué par défaut)] */
 const BOXES = [
-  ["WE","Guerre Éternelle"],["NA","Une Ère Nouvelle"],["BS","Secrets enfouis"],
-  ["OD","Ténèbres d'ailleurs"],["TA","De Vieux Souvenirs"],["RTG","Retour à Gravehold"],["PR","Cartes promo"],["BASE","Le commencement"]
+  ["BASE","Aeon's End (boîte de base)",1,false],
+  ["DE","Les Profondeurs",1,false],
+  ["NL","Les Sans Nom",1,false],
+  ["WE","Guerre Éternelle",2,false],
+  ["TV","Le Vide",2,false],
+  ["OD","Ténèbres d'ailleurs",2,false],
+  ["LE","Aeon's End Legacy",3,true],
+  ["BS","Secrets enfouis",3,false],
+  ["NA","Une Ère Nouvelle",4,false],
+  ["IW","À l'état sauvage",4,false],
+  ["SD","Rêves brisés",4,false],
+  ["TA","De Vieux Souvenirs",4,false],
+  ["OC","Les Parias",5,false],
+  ["RTG","Retour à Gravehold",5,false],
+  ["SV","Le Village du Sud",5,false],
+  ["LOG","Legacy of Gravehold",6,true],
+  ["RU","The Ruins",6,true],
+  ["PAF","Past and Future",7,false],
+  ["EVO","Evolution",7,false],
+  ["ORI","Origins",7,false],
+  ["ATD","Le Commencement",8,false],
+  ["AB","Les Abysses",8,false],
+  ["TC","Les Cavernes",8,false],
+  ["TOG","Tales of Old Gravehold",8,false],
+  ["BTB","Beyond the Breach",9,false],
+  ["TR","The Returned",9,false],
+  ["TS","The Surface",9,false],
+  ["PR","Cartes promo",0,false]
 ];
-const BOXNAME = Object.fromEntries(BOXES);
+const BOXNAME = Object.fromEntries(BOXES.map(b=>[b[0],b[1]])), BOXLEG = new Set(BOXES.filter(b=>b[3]).map(b=>b[0]));
 const TYPES = [["Gem","Gemmes"],["Relic","Reliques"],["Spell","Sorts"]];
 /* répartitions gemmes · reliques · sorts, toujours 9 piles */
 const DISTS = [
@@ -596,59 +906,181 @@ const THEMES = {
    Profil : want = familles de cartes utiles, big = gros sorts, avoid = cartes à écarter.
    Pas de profil = némésis que je ne connais pas assez pour orienter le tirage. */
 const NEM = [
-  ["Rage Incarnée","Le commencement",{want:["surv"]},"elle frappe les mages de plein fouet : soins et protections"],
-  ["Reine Carapace","Le commencement",{want:["min"]},"sa nuée de carapaces tombe sous les petits dégâts répétés"],
-  ["Prince des Gloutons","Le commencement",{avoid:["UnrefinedBlaststone","FracturedQuartz","NetherConduit"]},"il dévore la réserve : j'écarte les cartes qui vident vos propres piles"],
-  ["Masque Tordu","Le commencement",{want:["thin"]},"ses corruptions encombrent les decks : cartes de destruction"],
-  ["Titan de l'Ombre","Guerre Éternelle",{want:["surv"]},"il use Gravehold et les mages : soins"],
-  ["Couronne Creuse","Guerre Éternelle",{want:["min"]},"seuls ses acolytes comptent : cartes contre les serviteurs"],
-  ["Démon des Voiles","Guerre Éternelle",{big:true,avoid:["DoubleTap","NerveJab","DrainingTouch","BurningCurrent","ReverberatingShock","BouncingBoom"]},"ses voiles amortissent chaque coup : gros sorts plutôt que petits impacts"],
-  ["Sorcière du Portail","Guerre Éternelle",{want:["turn"]},"elle accélère le temps : cartes qui contrôlent l'ordre du tour"],
-  ["Maggoth","Une Ère Nouvelle",null,""],
-  ["Arachnos","Une Ère Nouvelle",{want:["min"]},"ses araignées pullulent : cartes contre les serviteurs"],
-  ["Marcheur éternel","Une Ère Nouvelle",null,""],
-  ["Fenrix","Une Ère Nouvelle",null,""],
-  ["Fouisseur","Retour à Gravehold",null,""],
-  ["Forteresse","Retour à Gravehold",null,""],
-  ["Prophète aux trois Trépas","Ténèbres d'ailleurs",null,""],
-  ["Maître des Spectres","Ténèbres d'ailleurs",{want:["min"]},"ses spectres s'accumulent : cartes contre les serviteurs"],
-  ["Le Vagabond","De Vieux Souvenirs",null,""],
-  ["L'Infecteur","Le Commencement",null,""],["Le Sabbat","Le Commencement",null,""],["Le Fléau","Le Commencement",null,""],
-  ["La Colère","Le Commencement",null,""],["La Désolation","Le Commencement",null,""]
+  ["Reine Carapace","BASE",{want:["min"]},"sa nuée de carapaces tombe sous les petits dégâts répétés"],
+  ["Masque Tordu","BASE",{want:["thin"]},"ses corruptions encombrent les decks : cartes de destruction"],
+  ["Prince des Gloutons","BASE",{avoid:["UnrefinedBlaststone","FracturedQuartz","NetherConduit"]},"il dévore la réserve : j'écarte les cartes qui vident vos propres piles"],
+  ["Rage Incarnée","BASE",{want:["surv"]},"elle frappe les mages de plein fouet : soins et protections"],
+  ["La Mégère","DE",null,""],
+  ["Seigneur de la Désolation","NL",null,""],
+  ["L'Égaré","NL",null,""],
+  ["Sorcière du Portail","WE",{want:["turn"]},"elle accélère le temps : cartes qui contrôlent l'ordre du tour"],
+  ["Couronne Creuse","WE",{want:["min"]},"seuls ses acolytes comptent : cartes contre les serviteurs"],
+  ["Démon des Voiles","WE",{big:true,avoid:["DoubleTap","NerveJab","DrainingTouch","BurningCurrent","ReverberatingShock","BouncingBoom"]},"ses voiles amortissent chaque coup : gros sorts plutôt que petits impacts"],
+  ["Titan de l'Ombre","WE",{want:["surv"]},"il use Gravehold et les mages : soins"],
+  ["Chevalier des Entraves","TV",null,""],
+  ["Demoiselle des Épines","TV",null,""],
+  ["Prophète aux trois Trépas","OD",null,""],
+  ["Maître des Spectres","OD",{want:["min"]},"ses spectres s'accumulent : cartes contre les serviteurs"],
+  ["Bladius","LE",null,""],
+  ["Esprit de la Mort","LE",null,""],
+  ["Moisissure Rampante","LE",null,""],
+  ["Maelstrom: Évolué","LE",null,""],
+  ["Horreur Pondeuse","LE",null,""],
+  ["Xaxos: Élevé","LE",null,""],
+  ["Maggoth","NA",null,""],
+  ["Arachnos","NA",{want:["min"]},"ses araignées pullulent : cartes contre les serviteurs"],
+  ["Marcheur éternel","NA",null,""],
+  ["Fenrix","NA",null,""],
+  ["Nécro-essaim","IW",null,""],
+  ["La Lamentation","SD",null,""],
+  ["Le Vagabond","TA",null,""],
+  ["Expérience 153","OC",null,""],
+  ["Voleur de Rêves","OC",null,""],
+  ["Serf Ressuscité","OC",null,""],
+  ["Fontaine des Âmes","OC",null,""],
+  ["Fouisseur","RTG",null,""],
+  ["Forteresse","RTG",null,""],
+  ["Kor l'Ardent","SV",null,""],
+  ["Évêque des Parchemins","LOG",null,""],
+  ["Évêque : Revenu","LOG",null,""],
+  ["Berger du Destin","LOG",null,""],
+  ["Tisse-Chagrin","LOG",null,""],
+  ["Mist Révélée","LOG",null,""],
+  ["Mère de la Rouille","LOG",null,""],
+  ["Paradoxe d'Os","LOG",null,""],
+  ["Paradoxe du Mythe","LOG",null,""],
+  ["Paradoxe du Mythe et de l'Os","LOG",null,""],
+  ["Amalgame de Rouille","LOG",null,""],
+  ["Superion de Rouille","LOG",null,""],
+  ["Maître des Pierres","PAF",null,""],
+  ["Mutation infestée","PAF",null,""],
+  ["Erythiza la Consumée","PAF",null,""],
+  ["Héraut de la Fin","PAF",null,""],
+  ["Le Nid des Changeformes","PAF",null,""],
+  ["Cœur de la Corruption","PAF",null,""],
+  ["Hypnotiseur voilé","EVO",null,""],
+  ["La Décrépitude sans fin","ORI",null,""],
+  ["L'Infecteur","ATD",null,""],
+  ["Le Sabbat","ATD",null,""],
+  ["Le Fléau","ATD",null,""],
+  ["La Colère","ATD",null,""],
+  ["Le Reliquaire","AB",null,""],
+  ["Spectre absorbant","TC",null,""],
+  ["La Terreur d'airain","BTB",null,""],
+  ["Prophète aux deux Trépas","BTB",null,""],
+  ["Oracle de la Fange","BTB",null,""],
+  ["Reflet de l'Égaré","BTB",null,""],
+  ["Masque Tordu (Beyond the Breach)","BTB",null,""],
+  ["Vin le Ravageur","TR",null,""],
+  ["L'Intemporel","TS",null,""]
 ];
 const MAGES = [
-  ["Dezmodia","Guerre Éternelle",["br"],"ses brèches Sigil"],
-  ["Garu","Guerre Éternelle",["br"],"sa capacité défausse plusieurs sorts préparés"],
-  ["Gex","Guerre Éternelle",["ch"],"sa capacité épure et soigne, à recharger souvent"],
-  ["Mazahaedron","Guerre Éternelle",["ch"],"capacité à 4 charges, rentable en boucle"],
-  ["Mist","Guerre Éternelle",["br","amp"],"elle lance jusqu'à trois sorts préparés"],
-  ["Quilius","Guerre Éternelle",["min"],"ses trophées viennent des serviteurs tués"],
-  ["Ulgimor","Guerre Éternelle",["surv"],"il encaisse pour l'équipe"],
-  ["Yan Magda","Guerre Éternelle",["br"],"elle veut ses quatre brèches ouvertes"],
-  ["Indira","Ténèbres d'ailleurs",["amp"],"ses sorts lancés depuis la main gagnent des dégâts"],
-  ["Vestige","Ténèbres d'ailleurs",[],""],
-  ["Sahala","Une Ère Nouvelle",["br"],"sa brèche céleste accueille deux sorts"],
-  ["Gygar","Une Ère Nouvelle",["ch"],"sa capacité se recharge elle-même"],
-  ["Soskel","Une Ère Nouvelle",["br"],"ses jetons renforcent les brèches"],
-  ["Taqren","Une Ère Nouvelle",["br"],"il soigne selon ses brèches ouvertes"],
-  ["Talix","Une Ère Nouvelle",["zero"],"elle joue avec ses Étincelles"],
-  ["Rhia","Une Ère Nouvelle",["sup"],"elle échange ses cartes contre la réserve"],
-  ["Claudia","Une Ère Nouvelle",["sup","coop"],"elle copie les achats d'un allié"],
-  ["Lost","Une Ère Nouvelle",["zero"],"il reprend ses cartes à 0"],
-  ["Mazra","De Vieux Souvenirs",[],""],
-  ["Qu","De Vieux Souvenirs",["amp","br"],"elle relance des sorts préparés"],
-  ["Ohat et Ulgimor","Retour à Gravehold",[],""],
-  ["Cairna","Retour à Gravehold",["ch","sup"],"capacité à 3 charges qui gagne des sorts"],
-  ["Adelheim","Le commencement",["ch"],"sa capacité annule une carte némésis"],
-  ["Brama","Le commencement",["ch"],"sa capacité soigne 4 vies"],
-  ["Jian","Le commencement",["amp"],"elle lance deux fois le même sort"],
-  ["Kadir","Le commencement",["br","amp"],"elle prépare deux sorts par brèche"],
-  ["Lash","Le commencement",["turn"],"il manipule l'ordre du tour"],
-  ["Mist (boîte de base)","Le commencement",["coop"],"elle fait piocher un allié"],
-  ["Phaedraxa","Le commencement",["ch"],"sa capacité annule les dégâts d'un tour"],
-  ["Xaxos","Le commencement",["ch","turn"],"il distribue des charges et lit l'ordre du tour"],
-  ["Brama (Le Commencement)","Le Commencement",[],""],["Janti","Le Commencement",[],""],["Leisan","Le Commencement",[],""],
-  ["Mazahaedron (Le Commencement)","Le Commencement",[],""],["Raven","Le Commencement",[],""],["Thraxir","Le Commencement",[],""]
+  ["Adelheim","BASE",["ch"],"sa capacité annule une carte némésis"],
+  ["Brama","BASE",["ch"],"sa capacité soigne 4 vies"],
+  ["Jian","BASE",["amp"],"elle lance deux fois le même sort"],
+  ["Kadir","BASE",["br","amp"],"elle prépare deux sorts par brèche"],
+  ["Lash","BASE",["turn"],"il manipule l'ordre du tour"],
+  ["Mist (boîte de base)","BASE",["coop"],"elle fait piocher un allié"],
+  ["Phaedraxa","BASE",["ch"],"sa capacité annule les dégâts d'un tour"],
+  ["Xaxos","BASE",["ch","turn"],"il distribue des charges et lit l'ordre du tour"],
+  ["Nym","DE",[],""],
+  ["Reeve","DE",[],""],
+  ["Z'hana","DE",[],""],
+  ["Malastar","NL",[],""],
+  ["Dezmodia","WE",["br"],"ses brèches Sigil"],
+  ["Garu","WE",["br"],"sa capacité défausse plusieurs sorts préparés"],
+  ["Gex","WE",["ch"],"sa capacité épure et soigne, à recharger souvent"],
+  ["Mazahaedron","WE",["ch"],"capacité à 4 charges, rentable en boucle"],
+  ["Mist","WE",["br","amp"],"elle lance jusqu'à trois sorts préparés"],
+  ["Quilius","WE",["min"],"ses trophées viennent des serviteurs tués"],
+  ["Ulgimor","WE",["surv"],"il encaisse pour l'équipe"],
+  ["Yan Magda","WE",["br"],"elle veut ses quatre brèches ouvertes"],
+  ["Moineau","TV",[],""],
+  ["Xaxos (Le Vide)","TV",[],""],
+  ["Indira","OD",["amp"],"ses sorts lancés depuis la main gagnent des dégâts"],
+  ["Vestige","OD",[],""],
+  ["Vert Legacy","LE",[],""],
+  ["Jaune Legacy","LE",[],""],
+  ["Orange Legacy","LE",[],""],
+  ["Bleu Legacy","LE",[],""],
+  ["Sahala","NA",["br"],"sa brèche céleste accueille deux sorts"],
+  ["Gygar","NA",["ch"],"sa capacité se recharge elle-même"],
+  ["Soskel","NA",["br"],"ses jetons renforcent les brèches"],
+  ["Taqren","NA",["br"],"il soigne selon ses brèches ouvertes"],
+  ["Talix","NA",["zero"],"elle joue avec ses Étincelles"],
+  ["Rhia","NA",["sup"],"elle échange ses cartes contre la réserve"],
+  ["Claudia","NA",["sup","coop"],"elle copie les achats d'un allié"],
+  ["Lost","NA",["zero"],"il reprend ses cartes à 0"],
+  ["Inco","IW",[],""],
+  ["Razra","IW",[],""],
+  ["Nook","SD",[],""],
+  ["Mazra","TA",[],""],
+  ["Qu","TA",["amp","br"],"elle relance des sorts préparés"],
+  ["Ilya","OC",[],""],
+  ["Kel","OC",[],""],
+  ["Z'hana (Les Parias)","OC",[],""],
+  ["Taqren (Les Parias)","OC",[],""],
+  ["Qu (Les Parias)","OC",[],""],
+  ["Thraxir (Les Parias)","OC",[],""],
+  ["Dezmodia (Les Parias)","OC",[],""],
+  ["Arachnos","OC",[],""],
+  ["Ohat et Ulgimor","RTG",[],""],
+  ["Cairna","RTG",["ch","sup"],"capacité à 3 charges qui gagne des sorts"],
+  ["Lucien","SV",[],""],
+  ["Reth","SV",[],""],
+  ["Arachnos (Legacy of Gravehold)","LOG",[],""],
+  ["Claudia (Legacy of Gravehold)","LOG",[],""],
+  ["Dezmodia (Legacy of Gravehold)","LOG",[],""],
+  ["Gygar (Legacy of Gravehold)","LOG",[],""],
+  ["Ilya (Legacy of Gravehold)","LOG",[],""],
+  ["Inco (Legacy of Gravehold)","LOG",[],""],
+  ["Indira (Legacy of Gravehold)","LOG",[],""],
+  ["Kadir (Legacy of Gravehold)","LOG",[],""],
+  ["Kel (Legacy of Gravehold)","LOG",[],""],
+  ["Lost (Legacy of Gravehold)","LOG",[],""],
+  ["Malastar (Legacy of Gravehold)","LOG",[],""],
+  ["Mazra (Legacy of Gravehold)","LOG",[],""],
+  ["Nook (Legacy of Gravehold)","LOG",[],""],
+  ["Qu (Legacy of Gravehold)","LOG",[],""],
+  ["Razra (Legacy of Gravehold)","LOG",[],""],
+  ["Soskel (Legacy of Gravehold)","LOG",[],""],
+  ["Talix (Legacy of Gravehold)","LOG",[],""],
+  ["Taqren (Legacy of Gravehold)","LOG",[],""],
+  ["Thraxir (Legacy of Gravehold)","LOG",[],""],
+  ["Xaxos (Legacy of Gravehold)","LOG",[],""],
+  ["Yan Magda (Legacy of Gravehold)","LOG",[],""],
+  ["Auren","PAF",[],""],
+  ["Willow","PAF",[],""],
+  ["Ona","PAF",[],""],
+  ["Nadea","PAF",[],""],
+  ["Kavoc","PAF",[],""],
+  ["Bayli","PAF",[],""],
+  ["Shoshana","PAF",[],""],
+  ["Rhys","PAF",[],""],
+  ["Naftir","PAF",[],""],
+  ["Lilly","PAF",[],""],
+  ["Dorian","EVO",[],""],
+  ["Kiri et Phénix","ORI",[],""],
+  ["Brama (Le Commencement)","ATD",[],""],
+  ["Janti","ATD",[],""],
+  ["Leisan","ATD",[],""],
+  ["Mazahaedron (Le Commencement)","ATD",[],""],
+  ["Raven","ATD",[],""],
+  ["Thraxir","ATD",[],""],
+  ["Xaxos (Les Abysses)","AB",[],""],
+  ["Quilius (Les Cavernes)","TC",[],""],
+  ["Alcheia","TC",[],""],
+  ["Kain","TOG",[],""],
+  ["Indira (Beyond the Breach)","BTB",[],""],
+  ["Nook (Beyond the Breach)","BTB",[],""],
+  ["Stake","BTB",[],""],
+  ["Wolf","BTB",[],""],
+  ["Dezmodia (Beyond the Breach)","BTB",[],""],
+  ["Remnant","BTB",[],""],
+  ["Yan Magda (The Returned)","TR",[],""],
+  ["Tressa","TR",[],""],
+  ["Inco (The Surface)","TS",[],""],
+  ["Qu (The Surface)","TS",[],""]
 ];
 const NEMBY = Object.fromEntries(NEM.map(n=>[n[0],n])), MAGEBY = Object.fromEntries(MAGES.map(m=>[m[0],m]));
 let fight = {nem:"",mages:[]};
@@ -665,9 +1097,11 @@ function bonus(c){ // ce que le contexte du combat ajoute à la note d'une carte
 const score = c=>c.pow+bonus(c).b;
 
 /* ---------- état ---------- *//* ---------- état ---------- */
-let owned = new Set(BOXES.map(b=>b[0]).filter(b=>b!=="BASE"));
+let owned = new Set(BOXES.filter(b=>!b[3]).map(b=>b[0]));
+let spoil = false; try{ spoil = localStorage.getItem("ae-spoil")==="1"; }catch(e){}
+const shown = k=>spoil||!BOXLEG.has(k);
 let current = null; // {mode, slots:[{card, type, test, role, key}], theme}
-try{ const s = JSON.parse(localStorage.getItem("ae-boxes2")||"null"); if(Array.isArray(s)&&s.length) owned = new Set(s.filter(x=>BOXNAME[x])); }catch(e){}
+try{ const s = JSON.parse(localStorage.getItem("ae-boxes2")||"null"); if(Array.isArray(s)) owned = new Set(s.filter(x=>BOXNAME[x]&&shown(x))); }catch(e){}
 
 const $ = id=>document.getElementById(id);
 const rnd = n=>Math.floor(Math.random()*n);
@@ -863,22 +1297,38 @@ function renderDist(){
 }
 function renderBoxes(){
   const bl=$("boxlist"); bl.innerHTML="";
-  BOXES.forEach(([k,name])=>{
+  const tools=document.createElement("div"); tools.className="boxtools";
+  tools.innerHTML='<button type="button" class="linkbtn" data-all="1">Tout cocher</button><button type="button" class="linkbtn" data-all="0">Tout décocher</button>'
+    +'<label class="spoil"><input type="checkbox"'+(spoil?" checked":"")+'> <span>Afficher les boîtes Legacy (spoilers : leurs cartes, mages et némésis se débloquent pendant la campagne)</span></label>';
+  tools.querySelectorAll("[data-all]").forEach(b=>b.onclick=()=>{
+    owned=new Set(b.dataset.all==="1"?BOXES.filter(x=>shown(x[0])).map(x=>x[0]):[]); saveBoxes(); renderBoxes(); });
+  tools.querySelector(".spoil input").onchange=e=>{
+    spoil=e.target.checked; try{localStorage.setItem("ae-spoil",spoil?"1":"0")}catch(err){}
+    if(!spoil) BOXLEG.forEach(k=>owned.delete(k));
+    saveBoxes(); renderBoxes(); fillSelects();
+  };
+  bl.appendChild(tools);
+  let wave=-1, grid=null;
+  BOXES.filter(b=>!b[3]||spoil).sort((a,b)=>(a[3]-b[3])||((a[2]||99)-(b[2]||99))).forEach(([k,name,w,leg])=>{
+    const g=leg?-2:w;
+    if(g!==wave){ wave=g; const h=document.createElement("h4"); h.className="wave";
+      h.textContent=leg?"Boîtes Legacy":w?"Vague "+w:"Promos"; bl.appendChild(h);
+      grid=document.createElement("div"); grid.className="boxgrid"; bl.appendChild(grid); }
     const cs=CARDS.filter(c=>c.box===k), n=t=>cs.filter(c=>c.type===t).length;
     const l=document.createElement("label");
-    l.innerHTML='<input type="checkbox" id="box-'+k+'"'+(owned.has(k)?" checked":"")+'><span>'+esc(name)+' <small>'+n("Gem")+' gemmes · '+n("Relic")+' reliques · '+n("Spell")+' sorts</small></span>';
-    l.querySelector("input").onchange=e=>{
-      e.target.checked?owned.add(k):owned.delete(k);
-      try{localStorage.setItem("ae-boxes2",JSON.stringify([...owned]))}catch(err){}
-      boxSum(); showWarn(); renderJournal();
-    };
-    bl.appendChild(l);
+    l.innerHTML='<input type="checkbox" id="box-'+k+'"'+(owned.has(k)?" checked":"")+'><span>'+esc(name)+' <small>'+[["Gem","gemme"],["Relic","relique"],["Spell","sort"]].filter(x=>n(x[0])).map(x=>n(x[0])+" "+x[1]+(n(x[0])>1?"s":"")).join(" · ")+'</small></span>';
+    l.querySelector("input").onchange=e=>{ e.target.checked?owned.add(k):owned.delete(k); saveBoxes(); };
+    grid.appendChild(l);
   });
   boxSum();
 }
+function saveBoxes(){
+  try{localStorage.setItem("ae-boxes2",JSON.stringify([...owned]))}catch(err){}
+  boxSum(); showWarn(); renderJournal(); fillSelects();
+}
 function boxSum(){
   const n=CARDS.filter(c=>owned.has(c.box)).length;
-  $("boxsum").textContent=owned.size+" sur "+BOXES.length+" · "+n+" cartes";
+  $("boxsum").textContent=owned.size+" sur "+BOXES.filter(b=>shown(b[0])).length+" · "+n+" cartes";
 }
 
 document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>generate(b.dataset.mode));
@@ -900,14 +1350,17 @@ $("copy").onclick=()=>{
 let db=null, games=[], jstate="loading";
 const byId=()=>Object.fromEntries(CARDS.map(c=>[c.id,c]));
 function optionsHtml(list,sel,empty){
-  const groups={}; list.forEach(x=>(groups[x[1]]=groups[x[1]]||[]).push(x[0]));
-  return '<option value="">'+empty+'</option>'+Object.entries(groups).map(([g,ns])=>'<optgroup label="'+esc(g)+'">'
-    +ns.map(n=>'<option'+(n===sel?' selected':'')+'>'+esc(n)+'</option>').join("")+'</optgroup>').join("");
+  const groups={}; list.forEach(x=>{ if(shown(x[1])||x[0]===sel) (groups[x[1]]=groups[x[1]]||[]).push(x[0]) });
+  const keys=BOXES.map(b=>b[0]).filter(k=>groups[k]), ord=keys.filter(k=>owned.has(k)).concat(keys.filter(k=>!owned.has(k)));
+  return '<option value="">'+empty+'</option>'+ord.map(g=>'<optgroup label="'+esc(BOXNAME[g])+'">'
+    +groups[g].map(n=>'<option'+(n===sel?' selected':'')+'>'+esc(n)+'</option>').join("")+'</optgroup>').join("");
 }
 function fillSelects(){
+  const keep={}; ["f-nem","f-m1","f-m2","f-theme"].forEach(id=>{ const e=$(id); if(e) keep[id]=e.value });
   $("f-nem").innerHTML=optionsHtml(NEM,"","Pas encore choisie");
   $("f-m1").innerHTML=optionsHtml(MAGES,"","Pas encore choisi"); $("f-m2").innerHTML=optionsHtml(MAGES,"","Pas encore choisi");
   $("f-theme").innerHTML='<option value="">Surprise (caché)</option>'+Object.entries(THEMES).map(([k,t])=>'<option value="'+k+'">'+esc(t.name)+'</option>').join("");
+  Object.entries(keep).forEach(([id,v])=>{ if(v) $(id).value=v });
 }
 function sortedGames(){ return games.slice().sort((a,b)=>String(b.date||"").localeCompare(String(a.date||""))||(b.ts||0)-(a.ts||0)) }
 function renderJournal(){
@@ -939,7 +1392,7 @@ function renderJournal(){
   // statistiques
   const beaten=new Set(wins.map(g=>g.nem)), lostTo=new Set(losses.map(g=>g.nem));
   $("nwins").textContent=list.length||"";
-  if(jstate==="ok") $("winsum").textContent=list.length?wins.length+" victoire"+(wins.length>1?"s":"")+" et "+losses.length+" défaite"+(losses.length>1?"s":"")+" notées. "+beaten.size+" némésis sur "+NEM.length+" déjà tombées.":"Le journal est vide pour l'instant.";
+  if(jstate==="ok") $("winsum").textContent=list.length?wins.length+" victoire"+(wins.length>1?"s":"")+" et "+losses.length+" défaite"+(losses.length>1?"s":"")+" notées. "+beaten.size+" némésis sur "+NEM.filter(n=>owned.has(n[1])).length+" déjà tombées.":"Le journal est vide pour l'instant.";
   const count=(arr)=>{ const m=new Map(); arr.forEach(k=>m.set(k,(m.get(k)||0)+1)); return [...m.entries()].sort((a,b)=>b[1]-a[1]||String(a[0]).localeCompare(String(b[0]))) };
   const topCards=count(wins.flatMap(ids)).slice(0,8);
   const duos=count(wins.filter(g=>(g.mages||[]).length).map(g=>g.mages.slice().sort().join(" et "))).slice(0,5);
@@ -954,8 +1407,8 @@ function renderJournal(){
     +'<div class="stat"><h4>Duos gagnants</h4><ul>'+(duos.map(x=>li(x[0],x[1]+" ×")).join("")||'<li><span>Pas encore de données</span></li>')+'</ul></div>'
     +'<div class="stat"><h4>Jamais jouées</h4><div class="big">'+never.length+'</div><div class="sub">cartes sur '+CARDS.filter(c=>owned.has(c.box)).length+' dans les boîtes cochées</div>'
     +'<details><summary>Voir la liste</summary><p>'+never.map(c=>esc(c.fr)).join(", ")+'</p></details></div>';
-  const groups={}; NEM.forEach(n=>(groups[n[1]]=groups[n[1]]||[]).push(n[0]));
-  $("hunt").innerHTML='<h3>Tableau de chasse</h3>'+Object.entries(groups).map(([box,ns])=>'<div class="grp"><b>'+esc(box)+'</b>'
+  const groups={}; NEM.forEach(n=>{ if((owned.has(n[1])&&shown(n[1]))||beaten.has(n[0])||lostTo.has(n[0])) (groups[n[1]]=groups[n[1]]||[]).push(n[0]) });
+  $("hunt").innerHTML='<h3>Tableau de chasse</h3>'+Object.entries(groups).map(([box,ns])=>'<div class="grp"><b>'+esc(BOXNAME[box])+'</b>'
     +ns.map(n=>'<span class="chip'+(beaten.has(n)?' done':lostTo.has(n)?' lost':'')+'"'+(lostTo.has(n)&&!beaten.has(n)?' title="Affrontée, pas encore vaincue"':'')+'>'+esc(n)+'</span>').join("")+'</div>').join("");
 }
 function replay(id){
@@ -1013,9 +1466,7 @@ $("logform").onsubmit=e=>{
   },()=>{ clearTimeout(xslow); xstate="off"; renderExp(); });
 })();
 /* ---------- expédition (règles d'Une Ère Nouvelle) ---------- */
-const BOXKEY={"Le commencement":"BASE","Guerre Éternelle":"WE","Une Ère Nouvelle":"NA","Retour à Gravehold":"RTG","Ténèbres d'ailleurs":"OD","De Vieux Souvenirs":"TA","Secrets enfouis":"BS"};
-const NEMLVL={"Rage Incarnée":1,"Reine Carapace":1,"Titan de l'Ombre":1,"Maggoth":1,"Masque Tordu":2,"Prince des Gloutons":2,"Arachnos":2,"Forteresse":2,"Prophète aux trois Trépas":2,
-  "Couronne Creuse":3,"Démon des Voiles":3,"Marcheur éternel":3,"Le Vagabond":3,"Sorcière du Portail":4,"Fenrix":4,"Fouisseur":4,"Maître des Spectres":4};
+const NEMLVL={"Reine Carapace":1,"Masque Tordu":2,"Prince des Gloutons":2,"Rage Incarnée":1,"La Mégère":2,"Seigneur de la Désolation":2,"L'Égaré":3,"Sorcière du Portail":4,"Couronne Creuse":3,"Démon des Voiles":3,"Titan de l'Ombre":1,"Chevalier des Entraves":1,"Demoiselle des Épines":3,"Prophète aux trois Trépas":2,"Maître des Spectres":4,"Bladius":1,"Esprit de la Mort":4,"Moisissure Rampante":2,"Maelstrom: Évolué":4,"Horreur Pondeuse":1,"Xaxos: Élevé":4,"Maggoth":1,"Arachnos":2,"Marcheur éternel":3,"Fenrix":4,"Nécro-essaim":4,"La Lamentation":3,"Le Vagabond":3,"Expérience 153":1,"Voleur de Rêves":2,"Serf Ressuscité":3,"Fontaine des Âmes":4,"Fouisseur":4,"Forteresse":2,"Kor l'Ardent":4,"Évêque des Parchemins":1,"Évêque : Revenu":3,"Berger du Destin":1,"Tisse-Chagrin":4,"Mist Révélée":4,"Mère de la Rouille":2,"Paradoxe d'Os":4,"Paradoxe du Mythe":4,"Paradoxe du Mythe et de l'Os":3,"Amalgame de Rouille":3,"Superion de Rouille":2,"Maître des Pierres":2,"Mutation infestée":3,"Erythiza la Consumée":4,"Héraut de la Fin":2,"Le Nid des Changeformes":3,"Cœur de la Corruption":4,"Hypnotiseur voilé":4,"La Décrépitude sans fin":3,"L'Infecteur":1,"Le Sabbat":2,"Le Fléau":3,"La Colère":4,"Le Reliquaire":3,"Spectre absorbant":4,"La Terreur d'airain":1,"Prophète aux deux Trépas":3,"Oracle de la Fange":2,"Reflet de l'Égaré":4,"Masque Tordu (Beyond the Breach)":2,"Vin le Ravageur":4,"L'Intemporel":3};
 const DECK={2:[["3A","5A","7A"],["1V + 2A","3V + 2A","3V + 4A"],["2V + 1A","4V + 1A","5V + 2A"],["3V","5V","7V"]],
   3:[["5A","6A","7A"],["1V + 4A","3V + 3A","3V + 4A"],["2V + 3A","4V + 2A","5V + 2A"],["3V + 2A","5V + 1A","7V"]],
   4:[["8A","7A","7A"],["1V + 7A","3V + 4A","3V + 4A"],["2V + 6A","4V + 3A","5V + 2A"],["3V + 5A","5V + 2A","7V"]]};
@@ -1027,7 +1478,7 @@ function xgather(E,b){ // trésors gagnés après une victoire au combat b
   const t = E.variant==="long" ? {2:1,4:2,6:3}[b] : {1:1,2:2,3:3}[b];
   return t?{tier:t,n:t===2?3:5}:null;
 }
-const mageOwned=m=>owned.has(BOXKEY[m[1]]), nemOwned=n=>owned.has(BOXKEY[n[1]]);
+const mageOwned=m=>owned.has(m[1]), nemOwned=n=>owned.has(n[1]);
 let exps=[], xstate="loading", xd=null, xkey="", xbusy=false, xconfirm="";
 let xq=Promise.resolve();
 function xsave(E){ const data=JSON.parse(JSON.stringify(E)); delete data.id;
@@ -1224,7 +1675,7 @@ function renderPick(){
   $("a-pick").innerHTML=TYPES.map(([t,label])=>'<div class="col g-'+t+'"><h4>'+label+'</h4><div class="pchips">'
     +picked[t].map(id=>{ const c=CARDS.find(x=>x.id===id); return '<div class="pchip'+(doubt.has(id)?" doubt":"")+'"'+(doubt.has(id)?' title="Pas sûr de cette carte : vérifie-la"':'')+'><span class="nm">'+esc(c.fr)+' <span class="muted" style="color:var(--muted)">· '+c.cost+'</span>'+(doubt.has(id)?' <span style="color:var(--gold);font-size:12.5px">à vérifier</span>':'')+'</span><button type="button" data-rm="'+id+'" aria-label="Retirer '+esc(c.fr)+'">×</button></div>'; }).join("")
     +'</div><select data-add="'+t+'" aria-label="Ajouter : '+label.toLowerCase()+'"><option value="">Ajouter…</option>'
-    +BOXES.map(([k,n])=>{ const l=CARDS.filter(c=>c.type===t&&c.box===k&&!picked[t].includes(c.id)).sort((a,b)=>a.fr.localeCompare(b.fr)); return l.length?'<optgroup label="'+esc(n)+'">'+l.map(c=>'<option value="'+c.id+'">'+esc(c.fr)+' ('+c.cost+')</option>').join("")+'</optgroup>':""; }).join("")
+    +BOXES.filter(b=>shown(b[0])).map(([k,n])=>{ const l=CARDS.filter(c=>c.type===t&&c.box===k&&!picked[t].includes(c.id)).sort((a,b)=>a.fr.localeCompare(b.fr)); return l.length?'<optgroup label="'+esc(n)+'">'+l.map(c=>'<option value="'+c.id+'">'+esc(c.fr)+' ('+c.cost+')</option>').join("")+'</optgroup>':""; }).join("")
     +'</select></div>').join("");
   $("a-pick").querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ const id=b.dataset.rm, t=CARDS.find(c=>c.id===id).type; picked[t]=picked[t].filter(x=>x!==id); doubt.delete(id); renderPick(); });
   $("a-pick").querySelectorAll("[data-add]").forEach(sel=>sel.onchange=()=>{ if(sel.value){ picked[sel.dataset.add].push(sel.value); renderPick(); } });
@@ -1245,12 +1696,12 @@ $("a-photo").onchange=()=>{ const n=$("a-photo").files.length; $("a-analyze").di
   if(n) $("a-st").textContent=n+" photo"+(n>1?"s":"")+" choisie"+(n>1?"s":"")+(imgLim&&n>imgLim.maxCount?" : seules les "+imgLim.maxCount+" premières seront analysées.":". Clique sur Analyser."); };
 async function analyze(){
   const files=[...$("a-photo").files].slice(0,imgLim?imgLim.maxCount:1); if(!files.length||!sampleFn) return;
-  const list=CARDS.map(c=>c.id+" | "+TYPEFR[c.type]+" | "+c.cost+" | "+c.fr).join("\n");
+  const list=CARDS.filter(c=>owned.has(c.box)).map(c=>c.id+" | "+TYPEFR[c.type]+" | "+c.cost+" | "+c.fr).join("\n");
   const prompt="Tu regardes "+(files.length>1?files.length+" photos":"une photo")+" d'une partie du jeu de cartes coopératif Aeon's End, édition française.\n"
     +"Repère les cartes du marché (la réserve) : des piles de gemmes, reliques et sorts posées face visible, chacune avec son nom en haut du cadre de texte et son coût dans un hexagone en haut à droite. Il y en a en général 9 (3 gemmes, 2 reliques, 4 sorts), mais ce nombre peut varier.\n"
     +"Ignore les cartes de départ (Cristal, Éclat, Étincelle), les cartes en main ou dans les pioches, les trésors et les cartes de la némésis.\n"
     +"Si tu vois le plateau de la némésis ou les plateaux des mages, donne leurs noms.\n\n"
-    +"Cartes possibles (id | type | coût | nom) :\n"+list+"\n\nNémésis possibles : "+NEM.map(n=>n[0]).join(", ")+"\nMages possibles : "+MAGES.map(m=>m[0]).join(", ")+"\n\n"
+    +"Cartes possibles (id | type | coût | nom) :\n"+list+"\n\nNémésis possibles : "+NEM.filter(nemOwned).map(n=>n[0]).join(", ")+"\nMages possibles : "+MAGES.filter(mageOwned).map(m=>m[0]).join(", ")+"\n\n"
     +'Réponds uniquement avec un objet JSON de cette forme : {"cards":["id",...],"doubtful":["id",...],"nemesis":"nom exact ou null","mages":["nom exact",...],"comment":"une phrase courte en français"}. '
     +"N'utilise que des id de la liste. Mets dans doubtful les cartes que tu as identifiées sans en être sûr (elles figurent aussi dans cards). N'invente aucune carte : si un nom est illisible, laisse-la de côté et signale-le dans comment.";
   const btn=$("a-analyze"), st=$("a-st"); btn.disabled=true; $("a-stop").hidden=false; st.textContent="Analyse en cours… cela peut prendre une minute.";
