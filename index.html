@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aides de jeu de Paul · Tutoriels et compagnons gratuits</title>
+<meta name="description" content="Aides de jeu gratuites, en français et en anglais, pour jeux de société experts : tutoriels interactifs, compagnons solo et fiches à imprimer pour Mage Knight, Imperium et Aeon's End.">
+<meta property="og:title" content="Aides de jeu de Paul · Free board game aids">
+<meta property="og:description" content="Tutoriels interactifs, compagnons solo et fiches à imprimer. Interactive tutorials, solo companions and printable sheets.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0d0f16; --surface:#161a25; --surface-2:#1d2230; --line:#2a3144;
+  --ink:#efe8d8; --muted:#a3a9b8; --faint:#7d8496; --gold:#ddb96a; --gold-ink:#17130a;
+  --new:#6fd3a0; --upd:#7db7ef;
+  --display:"Marcellus","Palatino Linotype",Georgia,serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--body);color:var(--ink);line-height:1.55;min-height:100vh;
+  background:radial-gradient(ellipse 80% 300px at 50% -80px,rgba(221,185,106,.13),transparent 75%) no-repeat,var(--bg)}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+[hidden]{display:none!important}
+[data-lang="en"] .fr{display:none}
+[data-lang="fr"] .en{display:none}
+
+/* --- barre du haut --- */
+.topbar{border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-size:1.2rem;letter-spacing:.01em;white-space:nowrap}
+.brand-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--surface-2);border:1px solid var(--line);font-size:16px}
+.top-actions{display:flex;align-items:center;gap:10px}
+.lang{display:inline-flex;padding:3px;background:var(--surface);border:1px solid var(--line);border-radius:999px}
+.lang button{font:700 .78rem var(--body);letter-spacing:.04em;color:var(--muted);background:none;border:0;height:28px;padding:0 11px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--gold);color:var(--gold-ink)}
+.kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:var(--gold);color:var(--gold-ink);text-decoration:none;font-weight:700;font-size:.9rem;white-space:nowrap;transition:filter .15s ease,transform .15s ease}
+.kofi:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* --- en-tête compact --- */
+.hero{padding-top:30px;padding-bottom:22px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 8px}
+.hero p{margin:0;color:var(--muted);max-width:640px}
+
+/* --- recherche et filtres --- */
+.filters{position:sticky;top:0;z-index:5;margin:0 0 30px;padding:10px 0;background:rgba(13,15,22,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.filters-in{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+.search{flex:1 1 240px;position:relative}
+.search input{width:100%;font:500 .98rem var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.62rem 1rem .62rem 2.4rem}
+.search input::placeholder{color:#737a8c}
+.search input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(221,185,106,.2)}
+.search svg{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--faint);pointer-events:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:600 .84rem var(--body);color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.46rem .9rem;cursor:pointer}
+.chip:hover{color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
+
+/* --- sections --- */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 16px}
+h2{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0}
+.sec-sub{color:var(--faint);font-size:.88rem;margin:0}
+
+.badge{display:inline-flex;align-items:center;gap:5px;font:700 .7rem var(--body);letter-spacing:.06em;text-transform:uppercase;padding:.28rem .55rem;border-radius:999px;background:rgba(13,15,22,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.badge.new{color:var(--new)}
+.badge.upd{color:var(--upd)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:52px}
+.card{--accent:var(--gold);position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 14px 40px -18px var(--accent)}
+.banner{height:120px;position:relative;display:flex;align-items:flex-end;padding:16px 22px;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.banner .badge{position:absolute;left:16px;top:14px}
+.banner .glyph{position:absolute;right:18px;top:12px;font-size:3.3rem;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
+.banner h3{font-family:var(--display);font-weight:400;font-size:1.55rem;margin:0;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.4);line-height:1.15}
+.body{padding:16px 22px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.body p{margin:0;color:var(--muted);font-size:.96rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.tags li{font-size:.76rem;font-weight:600;padding:.24rem .58rem;border-radius:999px;background:var(--surface-2);border:1px solid var(--line)}
+.foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.go{font-weight:700;color:var(--accent);display:flex;align-items:center;gap:6px}
+.go::after{content:"→";transition:transform .18s ease}
+.card:hover .go::after{transform:translateX(4px)}
+.date{font-size:.78rem;color:var(--faint)}
+.mk{--accent:#7db7ef;--c1:#1d3f73;--c2:#0b1830}
+.imp{--accent:#d9b25c;--c1:#7a2f2a;--c2:#2b1a3a}
+.ae{--accent:#c495f5;--c1:#4b2e7a;--c2:#171329}
+
+.pdfs{display:flex;flex-direction:column;gap:12px;margin-bottom:52px}
+.pdf{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent,var(--gold));border-radius:14px;padding:16px 20px}
+.pdf .ico{font-size:1.9rem;line-height:1}
+.pdf h3{font-family:var(--display);font-weight:400;font-size:1.18rem;margin:0 0 2px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.pdf h3 .badge{background:var(--surface-2)}
+.pdf p{margin:0;color:var(--muted);font-size:.92rem}
+.pdf .meta{font-size:.78rem;color:var(--faint);margin-top:4px}
+.dl{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;font-weight:700;font-size:.9rem;color:var(--accent,var(--gold));border:1px solid currentColor;border-radius:999px;padding:.5rem 1.05rem;transition:background .15s ease,color .15s ease}
+.dl:hover{background:var(--accent,var(--gold));color:var(--bg)}
+.empty{color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:16px 20px;margin:0}
+.grid .empty{grid-column:1/-1}
+
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:44px}
+.about div{border-top:1px solid var(--line);padding-top:14px}
+.about h3{font-family:var(--display);font-weight:400;font-size:1.12rem;margin:0 0 6px}
+.about p{margin:0;color:var(--muted);font-size:.94rem}
+footer{border-top:1px solid var(--line);padding:22px 0 36px;color:var(--faint);font-size:.84rem}
+footer p{margin:0 0 6px}
+
+@media (max-width:640px){
+  .brand-text{display:none}
+  .kofi .kofi-text{display:none}
+  .kofi{width:36px;padding:0;justify-content:center}
+  .pdf{grid-template-columns:auto 1fr}.pdf .dl{grid-column:1/-1;justify-content:center}
+  .chips{flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}.chip{flex:none}
+  .sec-head{flex-direction:column;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-lang="fr">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Aides de jeu de Paul"><span class="brand-mark" aria-hidden="true">🎲</span><span class="brand-text"><span class="fr">Aides de jeu de Paul</span><span class="en">Paul's Game Aids</span></span></a>
+    <div class="top-actions">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" data-set="fr" aria-pressed="true">FR</button>
+        <button type="button" data-set="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" aria-label="Ko-fi"><span aria-hidden="true">☕</span><span class="kofi-text"><span class="fr">Offrir un café</span><span class="en">Buy me a coffee</span></span></a>
+    </div>
+  </div>
+</header>
+
+<section class="wrap hero">
+  <h1><span class="fr">Moins de règles, plus de jeu.</span><span class="en">Less rulebook, more playing.</span></h1>
+  <p><span class="fr">Tutoriels interactifs, compagnons solo et fiches à imprimer pour les jeux experts. Gratuit, en français et en anglais, directement dans le navigateur.</span><span class="en">Interactive tutorials, solo companions and printable sheets for heavy games. Free, in English and French, right in your browser.</span></p>
+</section>
+
+<div class="filters" role="search">
+  <div class="wrap filters-in">
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" autocomplete="off" placeholder="Rechercher un jeu, une fiche…" aria-label="Rechercher">
+    </label>
+    <div class="chips" role="group" aria-label="Filtrer par jeu">
+      <button type="button" class="chip" data-g="all" aria-pressed="true"><span class="fr">Tous</span><span class="en">All</span></button>
+      <button type="button" class="chip" data-g="mk" aria-pressed="false">Mage Knight</button>
+      <button type="button" class="chip" data-g="imp" aria-pressed="false">Imperium</button>
+      <button type="button" class="chip" data-g="ae" aria-pressed="false">Aeon's End</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="sec-head">
+    <h2><span class="fr">Applis à la une</span><span class="en">Featured apps</span></h2>
+    <p class="sec-sub"><span class="fr">Les plus récentes ou mises à jour en premier</span><span class="en">Newest and recently updated first</span></p>
+  </div>
+
+  <!-- Pour ajouter une appli : copier un bloc <a class="card ...">, l'adapter, et mettre à jour data-created / data-updated (AAAA-MM-JJ). -->
+  <div class="grid" data-sort>
+    <a class="card mk" data-game="mk" data-created="2026-11-22" data-updated="2026-11-23" href="mage-knight/">
+      <div class="banner"><span class="glyph" aria-hidden="true">🗺️</span><h3>Mage Knight</h3></div>
+      <div class="body">
+        <p class="fr">Apprenez le jeu pas à pas avec des quiz et des cas pratiques, puis jouez avec le compagnon : outils de combat, Fantôme en solo, scénarios, score et carnet de campagne.</p>
+        <p class="en">Learn the game step by step with quizzes and hands-on cases, then play with the companion: combat tools, solo Dummy player, scenarios, scoring and campaign log.</p>
+        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Compagnon solo</li><li class="en">Solo companion</li><li class="fr">Module de quêtes</li><li class="en">Quest module</li><li>FR · EN</li></ul>
+        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span><span class="date"></span></div>
+      </div>
+    </a>
+
+    <a class="card imp" data-game="imp" data-created="2026-11-16" data-updated="2026-11-23" href="imperium/">
+      <div class="banner"><span class="glyph" aria-hidden="true">🏛️</span><h3><span class="fr">Imperium Antique</span><span class="en">Imperium: Classics</span></h3></div>
+      <div class="body">
+        <p class="fr">Un tutoriel en six étapes avec un tour guidé, puis le mode solo : l'appli gère entièrement la C.I.V. et raconte chacun de ses tours. Avec aide-mémoire, campagne et historique.</p>
+        <p class="en">A six-step tutorial with a guided turn, then solo mode: the app fully runs the Bot and narrates each of its turns. Includes a rules reference, campaign mode and game history.</p>
+        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Automa solo</li><li class="en">Solo bot</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li><li>FR · EN</li></ul>
+        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span><span class="date"></span></div>
+      </div>
+    </a>
+
+    <a class="card ae" data-game="ae" data-created="2026-11-14" data-updated="2026-11-23" href="aeons-end/">
+      <div class="banner"><span class="glyph" aria-hidden="true">🔮</span><h3>Aeon's End</h3></div>
+      <div class="body">
+        <p class="fr">Générez un marché pour chaque combat (optimisé, original ou aléatoire) selon vos boîtes, notez victoires et défaites, et suivez vos expéditions.</p>
+        <p class="en">Generate a market for every fight (optimised, combo-seeking or random) from the boxes you own, log wins and losses, and track your expeditions.</p>
+        <ul class="tags"><li class="fr">Générateur de marché</li><li class="en">Market generator</li><li class="fr">Journal</li><li class="en">Game log</li><li class="fr">Expéditions</li><li class="en">Expeditions</li><li>FR · EN</li></ul>
+        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span><span class="date"></span></div>
+      </div>
+    </a>
+    <p class="empty" data-empty hidden><span class="fr">Aucune appli ne correspond à votre recherche.</span><span class="en">No app matches your search.</span></p>
+  </div>
+
+  <div class="sec-head" id="fiches">
+    <h2><span class="fr">Fiches à la une</span><span class="en">Featured printables</span></h2>
+    <p class="sec-sub"><span class="fr">PDF à imprimer et garder près du plateau</span><span class="en">PDFs to print and keep by the board</span></p>
+  </div>
+
+  <!-- Pour ajouter une fiche : déposer le PDF dans le dossier « fiches », copier ce bloc <article> et l'adapter (dates comprises). -->
+  <div class="pdfs" data-sort>
+    <article class="pdf mk" data-game="mk" data-created="2026-11-23" data-updated="2026-11-23">
+      <span class="ico" aria-hidden="true">🗺️</span>
+      <div>
+        <h3><span class="fr">Mage Knight · Aide de jeu et module de quêtes</span><span class="en">Mage Knight · Game aid and quest module</span></h3>
+        <p class="fr">Récapitulatifs du tour, du déplacement, du combat, des sites et des capacités, avec le module de quêtes maison.</p>
+        <p class="en">Summaries of the turn, movement, combat, sites and abilities, plus a homemade quest module.</p>
+        <p class="meta"><span class="fr">PDF · format A5 · en français</span><span class="en">PDF · A5 · in French</span> · <span class="date"></span></p>
+      </div>
+      <a class="dl" href="fiches/mage-knight-aide-de-jeu.pdf" download>⬇ <span class="fr">Télécharger</span><span class="en">Download</span></a>
+    </article>
+    <p class="empty" data-empty hidden><span class="fr">Pas encore de fiche pour cette recherche.</span><span class="en">No printable matches your search yet.</span></p>
+  </div>
+
+  <section class="about">
+    <div>
+      <h3><span class="fr">Qui suis-je ?</span><span class="en">Who am I?</span></h3>
+      <p class="fr">Paul, président d'une association de jeux de société à Strasbourg. Je crée ces outils d'abord pour ma table de jeu, puis je les partage.</p>
+      <p class="en">Paul, president of a board game club in Strasbourg, France. I build these tools for my own table first, then share them.</p>
+    </div>
+    <div>
+      <h3><span class="fr">Une erreur, une idée ?</span><span class="en">Found a bug? Got an idea?</span></h3>
+      <p class="fr">Les retours sont les bienvenus : écrivez-moi via ma page <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Ko-fi</a>.</p>
+      <p class="en">Feedback is very welcome: reach me through my <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Ko-fi</a> page.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p class="fr">Tout est et restera gratuit. ☕ Un outil vous a plu ? <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Offrez-moi un café</a>.</p>
+  <p class="en">Everything is and will stay free. ☕ Enjoyed a tool? <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
+  <p class="fr">Créations de fan non officielles, gratuites et sans lien avec les éditeurs des jeux concernés. Mage Knight est une marque de WizKids ; Imperium et Aeon's End appartiennent à leurs éditeurs respectifs.</p>
+  <p class="en">Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium and Aeon's End belong to their respective publishers.</p>
+</footer>
+
+<script>
+(function(){
+  var body=document.body, langBtns=document.querySelectorAll(".lang button"), q=document.getElementById("q"),
+      chips=document.querySelectorAll(".chip"), game="all", lang="fr", DAY=864e5, NOW=Date.now(), FRESH=30;
+
+  /* --- dates, badges et tri « à la une » --- */
+  function fmt(d){ try{ return new Date(d+"T12:00:00").toLocaleDateString(lang==="fr"?"fr-FR":"en-GB",{day:"numeric",month:"short",year:"numeric"}) }catch(e){ return d } }
+  function decorate(){
+    document.querySelectorAll("[data-created]").forEach(function(el){
+      var c=el.dataset.created, u=el.dataset.updated||c, isNew=(NOW-new Date(c+"T12:00:00"))/DAY<=FRESH,
+          isUpd=!isNew&&u!==c&&(NOW-new Date(u+"T12:00:00"))/DAY<=FRESH;
+      var old=el.querySelector(".badge"); if(old) old.remove();
+      if(isNew||isUpd){
+        var b=document.createElement("span"); b.className="badge "+(isNew?"new":"upd");
+        b.textContent=isNew?(lang==="fr"?"Nouveau":"New"):(lang==="fr"?"Mis à jour":"Updated");
+        var spot=el.querySelector(".banner")||el.querySelector("h3"); spot.appendChild(b);
+      }
+      var dt=el.querySelector(".date");
+      if(dt) dt.textContent=(u!==c?(lang==="fr"?"Mis à jour le ":"Updated "):(lang==="fr"?"Ajouté le ":"Added "))+fmt(u);
+    });
+  }
+  document.querySelectorAll("[data-sort]").forEach(function(box){
+    var items=[].slice.call(box.querySelectorAll("[data-created]")), empty=box.querySelector("[data-empty]");
+    items.sort(function(a,b){ return (b.dataset.updated||b.dataset.created).localeCompare(a.dataset.updated||a.dataset.created) });
+    items.forEach(function(it){ box.insertBefore(it, empty) });
+  });
+
+  /* --- recherche et filtre --- */
+  var norm=function(t){return (t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");};
+  var NAMES={mk:"mage knight",imp:"imperium antique classics horizons",ae:"aeon's end aeons end"};
+  var items=[].slice.call(document.querySelectorAll("[data-game]")).map(function(el){ return {el:el,text:norm(el.textContent+" "+(NAMES[el.dataset.game]||""))} });
+  function apply(){
+    var terms=norm(q.value).split(/\s+/).filter(Boolean);
+    items.forEach(function(it){ it.el.hidden=!((game==="all"||it.el.dataset.game===game)&&terms.every(function(t){return it.text.indexOf(t)>-1})) });
+    document.querySelectorAll("[data-empty]").forEach(function(m){ m.hidden=[].some.call(m.parentNode.querySelectorAll("[data-game]"),function(e){return !e.hidden}) });
+    try{ var u=new URL(location.href); game==="all"?u.searchParams.delete("jeu"):u.searchParams.set("jeu",game); history.replaceState(null,"",u) }catch(e){}
+  }
+  function setGame(g){ game=g; chips.forEach(function(c){c.setAttribute("aria-pressed",String(c.dataset.g===g))}); apply() }
+  chips.forEach(function(c){ c.onclick=function(){ setGame(c.dataset.g) } });
+  q.addEventListener("input",apply);
+
+  /* --- langue --- */
+  function setLang(l){
+    lang=l; body.setAttribute("data-lang",l); document.documentElement.lang=l;
+    langBtns.forEach(function(x){ x.setAttribute("aria-pressed",String(x.dataset.set===l)) });
+    q.placeholder=l==="fr"?"Rechercher un jeu, une fiche…":"Search a game or a printable…";
+    q.setAttribute("aria-label",l==="fr"?"Rechercher":"Search");
+    try{ localStorage.setItem("site-lang",l) }catch(e){}
+    decorate();
+  }
+  var saved=null; try{ saved=localStorage.getItem("site-lang") }catch(e){}
+  var urlLang=null; try{ urlLang=new URL(location.href).searchParams.get("lang") }catch(e){}
+  setLang(urlLang==="en"||urlLang==="fr"?urlLang:(saved||((navigator.language||"fr").toLowerCase().indexOf("fr")===0?"fr":"en")));
+  langBtns.forEach(function(x){ x.onclick=function(){ setLang(x.dataset.set) } });
+
+  var start="all"; try{ var j=new URL(location.href).searchParams.get("jeu"); if(NAMES[j]) start=j }catch(e){}
+  setGame(start);
+})();
+</script>
+</body>
+</html>
