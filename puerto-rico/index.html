@@ -323,7 +323,7 @@ const B=[
  {id:'byd',fr:'Dépôt de Matériaux',en:'Builders Yard',cost:2,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Paysan',fx:'Phase Paysan : tu peux prendre une Carrière au lieu d\'une plantation.'},
  {id:'hac',fr:'Hacienda',en:'Hacienda',cost:2,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Paysan',fx:'Phase Paysan : avant ton action normale, prends en plus la plantation du dessus d\'une pile face cachée et pose-la aussitôt.'},
  {id:'swh',fr:'Petit Entrepôt',en:'Small Warehouse',cost:3,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Capitaine',fx:'Fin de la phase du Capitaine : garde tous les barils d\'1 type, en plus du baril que tout le monde garde.'},
- {id:'hos',fr:'Hôpital',en:'Hospital',cost:4,vp:2,slots:1,row:2,kind:'small',set:'base',ph:'Paysan',fx:'Phase Paysan : quand tu poses une plantation ou une Carrière, prends 1 ouvrier de la réserve et pose-le dessus (pas sur la plantation de l\'Hacienda).'},
+ {id:'hos',fr:'Hôpital',en:'Hospital',cost:4,vp:2,slots:1,row:2,kind:'small',set:'base',ph:'Paysan',fx:'Phase Paysan : quand tu poses une plantation ou une Carrière, prends 1 ouvrier de la réserve et pose-le dessus (avec l\'Hacienda : sur l\'une des deux tuiles).'},
  {id:'off',fr:'Comptoir',en:'Office',cost:5,vp:2,slots:1,row:2,kind:'small',set:'base',ph:'Marchand',fx:'Tu peux vendre un type de marchandise déjà présent dans la Maison de Commerce (toujours 1 baril, et pas si elle est pleine).'},
  {id:'lmk',fr:'Grand Marché',en:'Large Market',cost:5,vp:2,slots:1,row:2,kind:'small',set:'base',ph:'Marchand',fx:'Quand tu vends à la Maison de Commerce : +2 Pesos (+3 avec un Petit Marché occupé).'},
  {id:'lwh',fr:'Grand Entrepôt',en:'Large Warehouse',cost:6,vp:2,slots:1,row:2,kind:'small',set:'base',ph:'Capitaine',fx:'Fin de la phase du Capitaine : garde tous les barils de 2 types (3 types avec un Petit Entrepôt occupé), plus le baril habituel.'},
@@ -568,7 +568,7 @@ rules:[
 `Le Capitaine charge en premier, puis chacun dans le sens horaire, et <b>ça tourne plusieurs fois</b> jusqu'à ce que plus personne ne puisse charger.`,
 `À ton tour, si tu peux charger, <b>tu dois charger</b>. Tu choisis librement le type, mais <b>un seul type</b> par tour.`,
 `Un navire ne transporte <b>qu'un type</b> de marchandise, et <b>deux navires ne transportent jamais le même type</b>.`,
-`Si tu charges un type qui n'est sur aucun navire et que plusieurs navires sont vides, tu dois prendre <b>celui qui a la plus grande capacité</b> et le charger au maximum.`,
+`Si tu charges un type qui n'est sur aucun navire et que plusieurs navires sont vides, tu dois prendre <b>celui qui te permet de charger le plus de barils</b>. Si plusieurs navires vides permettent le même chargement, tu choisis.`,
 `Tu charges <b>le maximum possible</b> de ce type : pas question de garder des barils s'il reste de la place.`,
 `Un navire plein n'accepte plus rien.`,
 `<b>1 PV par baril chargé.</b> Privilège : le Capitaine gagne <b>1 PV de plus, une seule fois</b> dans la phase, s'il a chargé au moins 1 baril.`,
@@ -576,8 +576,8 @@ rules:[
 ],
 lab:'ship',
 cas:[
-{q:`Navires de 5 et 7 cales vides, celui de 6 porte 3 Maïs. Tu as 2 Maïs et 6 Sucre. Où peut aller ton Sucre ?`,o:[`Sur le navire de 5 ou de 7, au choix`,`Sur le navire de 7 : c'est le plus grand navire vide`,`Sur le navire de 6`],a:1,w:`Exemple du livret : parmi les navires vides, Anne doit prendre le plus grand et y charge ses 6 Sucres.`},
-{q:`Navires de 5 et 7 vides. Tu as 2 Café. Où les charges-tu ?`,o:[`Obligatoirement sur le 7`,`Sur l'un ou l'autre : tu charges 2 barils dans les deux cas`],a:0,w:`Ton livret est formel : parmi les navires vides, celui qui a la plus grande capacité. (Le livret anglais laisse le choix quand les deux navires accueillent tous tes barils : à trancher avant la partie si un joueur le connaît.)`},
+{q:`Navires de 5 et 7 cales vides, celui de 6 porte 3 Maïs. Tu as 2 Maïs et 6 Sucre. Où peut aller ton Sucre ?`,o:[`Sur le navire de 5 ou de 7, au choix`,`Sur le navire de 7 : c'est là qu'elle charge le plus de barils`,`Sur le navire de 6`],a:1,w:`Exemple du livret : sur le 7, Anne charge ses 6 Sucres, sur le 5 seulement 5. Le plus gros chargement est obligatoire.`},
+{q:`Navires de 5 et 7 vides. Tu as 2 Café. Où les charges-tu ?`,o:[`Obligatoirement sur le 7`,`Sur l'un ou l'autre : tu charges 2 barils dans les deux cas`],a:1,w:`La règle impose le navire qui permet de charger le plus. Ici les deux en prennent 2 : choix libre. (Le livret français dit « le plus grand navire » : à trancher avant la partie si un joueur a appris cette version.)`},
 {q:`Le navire de Tabac est plein. Le navire de 5 est vide. Tu n'as que du Tabac.`,o:[`Tu le charges sur le navire de 5`,`Tu ne peux pas charger : le Tabac a déjà son navire`],a:1,w:`Deux navires ne peuvent pas porter le même type, même si le premier est plein.`},
 {q:`Tu préférerais garder ton Café pour le vendre. Le navire de Café a 2 places libres.`,o:[`Tu peux passer ton tour`,`Si c'est ta seule marchandise chargeable, tu dois charger`],a:1,w:`Le chargement est obligatoire. Tu peux seulement choisir un autre type si tu en as un qui peut aussi être chargé.`}
 ],
@@ -655,7 +655,7 @@ rules:[
 `${bn('byd')} <span class="en">Builders Yard</span> : en phase du Paysan, Carrière au lieu d'une plantation. Ne donne pas de seconde Carrière au Paysan, ni via l'Hacienda.`,
 `${bn('hac')} <span class="en">Hacienda</span> : en phase du Paysan, <b>avant</b> ton action normale, prends la plantation du dessus d'une pile face cachée et pose-la aussitôt (pas de défausse possible). Puis action normale.`,
 `${bn('swh')} <span class="en">Small Warehouse</span> : garde tous les barils d'1 type en fin de phase du Capitaine, en plus du baril habituel.`,
-`${bn('hos')} <span class="en">Hospital</span> : quand tu poses une plantation ou une Carrière, 1 ouvrier de la réserve dessus (du Registre si la réserve est vide). Avec l'Hacienda : pas d'ouvrier sur la plantation reçue grâce à l'Hacienda. Si la réserve et le Registre sont vides, l'Hôpital est sans effet.`,
+`${bn('hos')} <span class="en">Hospital</span> : quand tu poses une plantation ou une Carrière, 1 ouvrier de la réserve dessus (du Registre si la réserve est vide). Avec l'Hacienda : sur l'une ou l'autre des deux tuiles, mais un seul ouvrier. Si la réserve et le Registre sont vides, l'Hôpital est sans effet.`,
 `${bn('off')} <span class="en">Office</span> : vends un type déjà présent dans la Maison. Toujours 1 baril, et rien si la Maison est pleine.`,
 `${bn('lmk')} <span class="en">Large Market</span> : +2 Pesos à la vente, +3 avec un Petit Marché occupé.`,
 `${bn('lwh')} <span class="en">Large Warehouse</span> : garde 2 types complets (3 avec le Petit Entrepôt), plus le baril habituel.`,
@@ -965,7 +965,7 @@ init(r){let H;
  $('#st-new',r).onclick=reset;$$('#st-sw,#st-lw',r).forEach(i=>i.onchange=()=>{$('#st-out',r).textContent=''});reset()}};
 
 /* --- fiches des petits bâtiments --- */
-const CARDNOTE={smk:'Avec un Grand Marché occupé : +3 au total. Même un Maïs vendu rapporte alors des Pesos.',byd:'Le Paysan qui a un Dépôt de Matériaux ne prend pas deux Carrières. Avec l\'Hacienda, la tuile face cachée reste une plantation.',hac:'La tuile tirée se pose aussitôt, sans possibilité de la refuser. Ton action normale suit.',swh:'Tu dois quand même charger tout ce que tu peux pendant la phase.',hos:'L\'ouvrier ne peut aller que sur la tuile que tu viens de poser.',off:'Un autre joueur avec un Comptoir peut aussi doubler le même type, s\'il reste de la place.',lmk:'S\'applique à chaque vente à la Maison de Commerce, privilège ou non.',lwh:'Avec le Petit Entrepôt : 3 types complets + 1 baril.',fac:'Seul compte le nombre de types différents, pas les quantités.',sch:'Un seul ouvrier, même pour un bâtiment à 3 emplacements.',har:'Chaque chargement compte : plusieurs tours de chargement = plusieurs PV.',wha:'Le navire privé n\'a pas de limite, accepte un type déjà présent sur un cargo, et tous les barils de ce type doivent partir.'};
+const CARDNOTE={smk:'Avec un Grand Marché occupé : +3 au total. Même un Maïs vendu rapporte alors des Pesos.',byd:'Le Paysan qui a un Dépôt de Matériaux ne prend pas deux Carrières. Avec l\'Hacienda, la tuile face cachée reste une plantation.',hac:'La tuile tirée se pose aussitôt, sans possibilité de la refuser. Ton action normale suit.',swh:'Tu dois quand même charger tout ce que tu peux pendant la phase.',hos:'L\'ouvrier ne peut aller que sur la tuile que tu viens de poser (avec l\'Hacienda, sur l\'une des deux).',off:'Un autre joueur avec un Comptoir peut aussi doubler le même type, s\'il reste de la place.',lmk:'S\'applique à chaque vente à la Maison de Commerce, privilège ou non.',lwh:'Avec le Petit Entrepôt : 3 types complets + 1 baril.',fac:'Seul compte le nombre de types différents, pas les quantités.',sch:'Un seul ouvrier, même pour un bâtiment à 3 emplacements.',har:'Chaque chargement compte : plusieurs tours de chargement = plusieurs PV.',wha:'Le navire privé n\'a pas de limite, accepte un type déjà présent sur un cargo, et tous les barils de ce type doivent partir.'};
 LABS.cards={html:()=>`<div class="lab"><h3>Atelier : fiches des petits bâtiments</h3><p class="hint">Clique sur un bâtiment.</p><div class="row" id="cd-l">${['smk','byd','hac','swh','hos','off','lmk','lwh','fac','sch','har','wha'].map(i=>`<button type="button" data-b="${i}">${BI[i].fr}</button>`).join('')}</div><div class="out" id="cd-o">Choisis un bâtiment.</div></div>`,
 init(r){$$('#cd-l button',r).forEach(b=>b.onclick=()=>{$$('#cd-l button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');const d=BI[b.dataset.b];
  $('#cd-o',r).innerHTML=`<b>${d.fr}</b> <span class="en">${d.en}</span><br>Coût ${d.cost} · ${d.vp} PV · rangée ${d.row} · phase : ${d.ph}<br>${d.fx}<br><span class="muted">À savoir : ${CARDNOTE[d.id]}</span>`})}};
@@ -1012,9 +1012,9 @@ init(r){let S,sc=0;
   S={ships:D.ships.map(([cap,type,n])=>({cap,type,n})),pl:D.pl.map(p=>({n:p.n,cap:!!p.cap,har:!!p.har,wha:!!p.wha,whaUsed:false,g:Object.assign({c:0,f:0,s:0,t:0,k:0},p.g),vp:0,capBonus:false})),cur:0,sel:null,idle:0,log:[],over:false};
   $('#sh-d',r).textContent=SHIPSC[sc].d;advance(true)};
  const full=s=>s.n>=s.cap;
- /* chargements légaux d'un type pour un joueur : liste de navires */
+ /* chargements légaux d'un type pour un joueur : liste de navires (navire vide qui permet de charger le plus de barils) */
  const legal=(p,g)=>{if(!p.g[g])return [];const own=S.ships.find(s=>s.type===g);if(own)return full(own)?[]:[own];
-  const em=S.ships.filter(s=>!s.type);if(!em.length)return [];const big=Math.max(...em.map(s=>s.cap));return em.filter(s=>s.cap===big)};
+  const em=S.ships.filter(s=>!s.type);if(!em.length)return [];const best=Math.max(...em.map(s=>Math.min(p.g[g],s.cap)));return em.filter(s=>Math.min(p.g[g],s.cap)===best)};
  const canCargo=p=>GOODS.some(g=>legal(p,g).length);
  const canWharf=p=>p.wha&&!p.whaUsed&&GOODS.some(g=>p.g[g]);
  const log=(t,c)=>S.log.unshift({t,c});
@@ -1032,7 +1032,7 @@ init(r){let S,sc=0;
   if(s.type&&s.type!==g){log(`Refusé : ce navire transporte déjà du ${GN1[s.type]}. Un navire ne prend qu'un type.`,'err');return draw()}
   const own=S.ships.find(x=>x.type===g);
   if(!s.type&&own){log(`Refusé : le ${GN1[g]} voyage déjà sur le navire de ${own.cap} cales. Deux navires ne portent jamais le même type${full(own)?', même si celui-ci est plein':''}.`,'err');return draw()}
-  const L=legal(p,g);if(!L.includes(s)){const b=L[0];log(`Refusé : parmi les navires vides, tu dois prendre celui qui a la plus grande capacité (${b.cap} cales).`,'err');return draw()}
+  const L=legal(p,g);if(!L.includes(s)){const b=L[0];log(`Refusé : sur le navire de ${b.cap} cales tu chargerais ${Math.min(p.g[g],b.cap)} barils, contre ${Math.min(p.g[g],s.cap)} ici. Parmi les navires vides, tu dois prendre celui qui te permet de charger le plus.`,'err');return draw()}
   const n=Math.min(p.g[g],s.cap-s.n);s.type=g;s.n+=n;p.g[g]-=n;S.idle=0;
   log(`${p.n} charge ${n} ${GN1[g]} sur le navire de ${s.cap} cales${p.g[g]?` (il lui en reste ${p.g[g]}, le navire est plein)`:''}. ${score(p,n,'Gain')}`,'okk');advance()};
  const useWharf=()=>{const p=S.pl[S.cur],g=S.sel;if(!g||!p.g[g]){log('Choisis d\'abord la marchandise à embarquer sur le navire privé.','err');return draw()}

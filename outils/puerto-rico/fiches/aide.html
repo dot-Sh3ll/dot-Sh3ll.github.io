@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><style>
+@page{margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:"Fira Sans",sans-serif;color:#2b2016;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg{position:relative;overflow:hidden;background:#fff;page-break-after:always;padding:7mm 7.5mm 6mm}
+.pg:last-child{page-break-after:auto}
+.pg::before{content:"";position:absolute;inset:3mm;border:.3mm solid #b9a58a;border-radius:2.5mm;pointer-events:none}
+.p{width:148mm;height:210mm}.l{width:210mm;height:148mm}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin:0 0 2.5mm}
+.top .g{font-family:"Cardo",serif;font-size:9pt;letter-spacing:.12em;text-transform:uppercase;color:#a0471f;font-weight:700}
+.top .n{font-size:7pt;color:#8a7558}
+h1{font-family:"Cardo",serif;font-weight:700;font-size:15pt;margin:0 0 3mm;padding:0 0 1mm;color:#6b3d1f;border-bottom:.6mm solid #6b3d1f;letter-spacing:.04em;text-transform:uppercase}
+h2{font-family:"Cardo",serif;font-weight:700;font-size:10.5pt;color:#7a4a2a;margin:3mm 0 1.2mm;border-bottom:.3mm solid #c9ab82;padding-bottom:.5mm}
+p,li{font-size:8.6pt;line-height:1.32;margin:0 0 1.3mm}
+ol,ul{margin:0 0 1.5mm;padding-left:4.6mm}
+b{color:#5a2f15}
+.box{background:#fff;border:.3mm solid #c9ab82;border-radius:1.6mm;padding:2mm 2.6mm;margin:2mm 0}
+.box.red{border-color:#b4532a;border-width:.5mm;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:8pt;background:#fff}
+th,td{border:.25mm solid #c9ab82;padding:1mm 1.4mm;text-align:left;vertical-align:top}
+th{background:#fff;font-weight:700;color:#4a2a14}
+td.c,th.c{text-align:center}
+.bl{display:inline-block;width:3mm;height:3.6mm;border-radius:.7mm;border:.25mm solid rgba(0,0,0,.45);vertical-align:-.7mm;margin-right:1mm}
+.coin{display:inline-grid;place-items:center;width:4.6mm;height:4.6mm;border-radius:50%;background:#e6bf4a;border:.25mm solid #9b7419;font-size:7pt;font-weight:700;color:#3b2a08}
+.vp{display:inline-grid;place-items:center;min-width:4.8mm;height:4.4mm;padding:0 .6mm;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);background:#2b2b2b;color:#fff;font-size:7pt;font-weight:700}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
+.role{background:#fff;border:.3mm solid #c9ab82;border-radius:1.6mm;padding:1.6mm 2.2mm}
+.role h3{font-family:"Cardo",serif;font-size:10.5pt;margin:0 0 .6mm;color:#7a4a2a;text-transform:uppercase;letter-spacing:.04em}
+.role p{font-size:7.8pt;margin:0 0 .7mm}
+.role .k{font-weight:600;color:#a0471f}
+.foot{position:absolute;left:7.5mm;right:7.5mm;bottom:4.2mm;font-size:6pt;color:#8a7558;display:flex;justify-content:space-between}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+/* bâtiments */
+.band{display:grid;grid-template-columns:15mm 1fr;gap:1.6mm;margin-bottom:2mm}
+.lab{background:#fff;color:#6b3d1f;border:.5mm solid #6b3d1f;border-radius:1.4mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:"Cardo",serif;font-size:8pt;font-weight:700;line-height:1.15;padding:1mm}
+.lab small{font-family:"Fira Sans";font-weight:400;font-size:6.3pt;opacity:.9;margin-top:.8mm}
+.lines{display:flex;flex-direction:column;gap:1.4mm}
+.line{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4mm}
+.line.six{grid-template-columns:repeat(6,1fr)}
+.bc{background:#fff;border:.3mm solid #c9ab82;border-radius:1.4mm;padding:1mm 1.3mm 1.1mm;border-top:1.3mm solid var(--bc,#c9ab82);min-height:21mm;display:flex;flex-direction:column;gap:.5mm}
+.bc.e2{background:#fff;border-color:#d79a7c}
+.bc .hd{display:flex;justify-content:space-between;gap:1mm;align-items:flex-start}
+.bc .nm{font-weight:700;font-size:7.4pt;line-height:1.12;color:#3a2412}
+.bc.e2 .nm{color:#b3261e}
+.bc .mt{display:flex;gap:.6mm;flex:none}
+.bc .fx{font-size:6.5pt;line-height:1.22}
+.bc .ph{font-size:5.6pt;letter-spacing:.05em;text-transform:uppercase;color:#a0471f;font-weight:600}
+.bc .sl{color:#7a4a2a;letter-spacing:.3mm;font-size:6.5pt}
+.empty{border:.3mm dashed #d6c09b;border-radius:1.4mm}
+.legend{font-size:6.6pt;color:#6d5a42;margin-top:1mm}
+</style></head><body><section class="pg p"><div class="top"><span class="g">Puerto Rico 1897</span><span class="n">1 / 4</span></div><h1>Un tour de jeu</h1>
+<p>Une partie dure une quinzaine de tours. Chaque tour se joue de la même façon :</p>
+<ol>
+<li>Le <b>Gouverneur</b> choisit une carte Personnage, la pose devant lui et fait l'action <b>avec le privilège</b>.</li>
+<li>Chaque autre joueur, en sens horaire, fait la même action <b>sans le privilège</b> (une seule fois chacun).</li>
+<li>Le joueur à gauche du Gouverneur choisit un des Personnages restants, et ainsi de suite jusqu'à ce que <b>chacun ait choisi un Personnage</b>.</li>
+<li><b>Fin du tour</b> : 1 Peso de la Banque sur chaque Personnage non choisi ; les cartes reviennent à côté du plateau ; la carte Gouverneur passe à gauche.</li>
+</ol>
+<h2>Règles de tous les Personnages</h2>
+<ul>
+<li>Prendre un Personnage est <b>obligatoire</b> ; faire l'action ou utiliser le privilège est facultatif, <b>sauf pour le Capitaine</b>.</li>
+<li>Celui qui prend la carte agit <b>toujours en premier</b>, puis les autres en sens horaire.</li>
+<li>Les Pesos posés sur une carte vont à celui qui la prend, en plus du privilège.</li>
+<li>Une carte prise reste devant son joueur jusqu'à la fin du tour : personne d'autre ne peut la prendre.</li>
+<li>Seules les tuiles <b>occupées</b> (au moins 1 ouvrier) ont un effet. Les ouvriers ne se posent et ne se déplacent qu'en phase du Recruteur.</li>
+</ul>
+<div class="box red"><h2 style="margin-top:0">Fin du jeu</h2>
+<p>La partie se termine <b>à la fin du tour</b> où l'une de ces conditions est remplie :</p>
+<ul><li>fin de phase du Recruteur : plus assez d'ouvriers pour remplir le Registre du Personnel ;</li>
+<li>phase du Bâtisseur : un joueur a recouvert la 12<sup>e</sup> case de sa ville ;</li>
+<li>phase du Capitaine : le dernier jeton PV est pris (noter la suite par écrit).</li></ul>
+<p><b>Score</b> = jetons PV + PV de tous ses bâtiments (occupés ou non) + bonus des grands bâtiments <b>occupés</b>.<br><b>Égalité</b> : le plus de Pesos et de marchandises.</p></div>
+<div class="box"><p style="margin:0"><b>À deux joueurs</b> : chaque joueur choisit <b>3 Personnages</b> par tour, en alternance (Gouverneur, autre, Gouverneur…). Le Gouverneur pose 1 Peso sur le seul Personnage restant.</p></div>
+<div class="foot"><span>Less Rules, More Play · paulmoussard.com</span><span></span></div></section><section class="pg p"><div class="top"><span class="g">Puerto Rico 1897</span><span class="n">2 / 4</span></div><h1>Les Personnages</h1><div class="roles"><div class="role"><h3>Paysan</h3><p><span class="k">Action :</span> Chacun prend <b>1 Plantation</b> face visible et la pose sur une case Parcelle libre (ou passe).</p><p><span class="k">Privilège :</span> Une <b>Carrière</b> au lieu d'une Plantation.</p><p><span class="k">Fin de phase :</span> Le Paysan défausse les Plantations restantes et en révèle <b>joueurs + 1</b>.</p><p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : Hacienda, Dépôt de Matériaux, Hôpital</i></p></div><div class="role"><h3>Recruteur</h3><p><span class="k">Action :</span> Chacun prend <b>1 ouvrier</b> du Registre à tour de rôle jusqu'à le vider, puis place et réagence <b>tous</b> ses ouvriers.</p><p><span class="k">Privilège :</span> <b>+1 ouvrier</b> de la réserve (avant la distribution).</p><p><span class="k">Fin de phase :</span> Le Recruteur remplit le Registre : 1 ouvrier par <b>emplacement d'ouvrier libre sur les bâtiments</b> de tous, <b>au moins le nombre de joueurs</b>.</p><p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : Portrait seulement si plus aucun emplacement d'ouvrier libre</i></p></div><div class="role"><h3>Bâtisseur</h3><p><span class="k">Action :</span> Chacun peut construire <b>1 bâtiment</b> au prix indiqué, sur une case libre de sa ville (grand = 2 cases).</p><p><span class="k">Privilège :</span> <b>−1 Peso</b> (seulement s'il construit).</p><p><span class="k">Fin de phase :</span> Carrière occupée : −1 Peso chacune, plafond 1 / 2 / 3 / 4 selon la rangée. Jamais deux fois le même bâtiment.</p><p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : École</i></p></div><div class="role"><h3>Producteur</h3><p><span class="k">Action :</span> Chacun produit : Maïs = Plantation occupée ; autres = Plantation occupée <b>et</b> emplacement d'ouvrier occupé du bâtiment industriel.</p><p><span class="k">Privilège :</span> <b>+1 marchandise</b> d'un type qu'il vient de produire.</p><p><span class="k">Fin de phase :</span> Réserve épuisée : on repart les mains vides. Le Personnage le plus risqué !</p><p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : Usine</i></p></div><div class="role"><h3>Marchand</h3><p><span class="k">Action :</span> Chacun peut vendre <b>1 marchandise</b> à la Maison de Commerce (prix 0 à 4 Pesos).</p><p><span class="k">Privilège :</span> <b>+1 Peso</b> (seulement s'il vend).</p><p><span class="k">Fin de phase :</span> 4 places, pas de doublon (sauf Comptoir). Pleine : on la vide à la fin de la phase.</p><p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : Petit Marché, Grand Marché, Comptoir</i></p></div><div class="role"><h3>Capitaine</h3><p><span class="k">Action :</span> <b>Obligatoire</b> : en rotation, chacun charge <b>un type</b> de marchandise, au maximum, jusqu'à ce que plus personne ne puisse charger. 1 PV par baril.</p><p><span class="k">Privilège :</span> <b>+1 PV</b> une seule fois, s'il charge.</p><p><span class="k">Fin de phase :</span> Chacun garde <b>1 baril</b> (+ Entrepôts). Les navires <b>pleins</b> sont vidés.</p><p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : Entrepôts, Port, Chantier Naval</i></p></div><div class="role"><h3>Aventurier</h3><p><span class="k">Action :</span> <b>Aucune action</b> pour les autres joueurs.</p><p><span class="k">Privilège :</span> <b>+1 Peso</b> de la Banque.</p><p><span class="k">Fin de phase :</span> Absent à 3 joueurs ; 1 carte à 2 et 4 joueurs ; 2 cartes à 5 joueurs.</p></div>
+<div class="role" style="border:.5mm solid #b4532a"><h3>À retenir</h3><p>Un Personnage non choisi gagne 1 Peso par tour : il devient de plus en plus intéressant.</p><p>Prendre un Personnage, c'est aussi offrir sa phase aux autres : regarde ce qu'ils y gagnent.</p></div></div>
+<div class="foot"><span>Less Rules, More Play · paulmoussard.com</span><span></span></div></section><section class="pg p"><div class="top"><span class="g">Puerto Rico 1897</span><span class="n">3 / 4</span></div><h1>Mise en place</h1>
+<table><tr><th></th><th class="c">2 joueurs</th><th class="c">3</th><th class="c">4</th><th class="c">5</th></tr><tr><th>Pesos par joueur</th><td class="c">3</td><td class="c">2</td><td class="c">3</td><td class="c">4</td></tr><tr><th>Plantation de départ<br><small>(depuis le Gouverneur)</small></th><td class="c">Fruits · Maïs</td><td class="c">F · F · M</td><td class="c">F · F · M · M</td><td class="c">F · F · F · M · M</td></tr><tr><th>Jetons PV</th><td class="c">65</td><td class="c">75</td><td class="c">100</td><td class="c">126</td></tr><tr><th>Cartes Personnage</th><td class="c">7<br><small>(1 Aventurier)</small></td><td class="c">6<br><small>(sans Aventurier)</small></td><td class="c">7<br><small>(1 Aventurier)</small></td><td class="c">8</td></tr><tr><th>Navires de Transport</th><td class="c">4 · 6</td><td class="c">4 · 5 · 6</td><td class="c">5 · 6 · 7</td><td class="c">6 · 7 · 8</td></tr><tr><th>Plantations face visible</th><td class="c">3</td><td class="c">4</td><td class="c">5</td><td class="c">6</td></tr><tr><th>Registre du Personnel</th><td class="c">2</td><td class="c">3</td><td class="c">4</td><td class="c">5</td></tr><tr><th>Réserve d'ouvriers</th><td class="c">40</td><td class="c">55</td><td class="c">75</td><td class="c">95</td></tr><tr><th>Carrières</th><td class="c">5</td><td class="c">8</td><td class="c">8</td><td class="c">8</td></tr></table>
+<p style="font-size:7pt;margin-top:1mm">F = Fruits, M = Maïs. La Plantation de départ se pose face visible sur une case Parcelle, sans ouvrier.</p>
+<h2>Pour toutes les parties</h2>
+<ul>
+<li>Plateau de jeu au centre, chaque bâtiment sur son emplacement ; les 51 Pesos forment la <b>Banque</b>.</li>
+<li>Chaque joueur : 1 plateau Domaine, ses Pesos <b>visibles</b> sur le portrait, 1 Plantation.</li>
+<li>Les 8 Carrières en pile face visible ; les Plantations restantes mélangées face cachée, en <b>une pile de plus que de joueurs</b>.</li>
+<li>Marchandises triées par type en 5 réserves ; Maison de Commerce vide.</li>
+<li>Le matériel non utilisé retourne dans la boîte.</li>
+</ul>
+<div class="box"><h2 style="margin-top:0">En plus, à deux joueurs</h2><ul style="margin:0">
+<li>Sur le plateau : <b>1</b> bâtiment beige de chaque type (grands compris), <b>2</b> bâtiments industriels de chaque type.</li>
+<li>Retirer <b>3 tuiles Terrain de chaque type</b> (Maïs, Fruits, Sucre, Tabac, Café, Carrière).</li>
+<li>Retirer <b>2 marchandises de chaque type</b>.</li></ul></div>
+<div class="foot"><span>Less Rules, More Play · paulmoussard.com</span><span></span></div></section><section class="pg p"><div class="top"><span class="g">Puerto Rico 1897</span><span class="n">4 / 4</span></div><h1>Vendre ou expédier ?</h1>
+<table><tr><th>Marchandise</th><th class="c">Vente au Marchand</th><th class="c">Expédition</th><th>Bâtiment industriel</th></tr><tr><td><span class="bl" style="background:#e2b52a"></span><b>Maïs</b></td><td class="c"><b>0</b> Peso</td><td class="c"><b>1 PV</b> par baril</td><td>Aucun bâtiment</td></tr><tr><td><span class="bl" style="background:#3f9343"></span><b>Fruits</b></td><td class="c"><b>1</b> Peso</td><td class="c"><b>1 PV</b> par baril</td><td>Exploitation de Fruits</td></tr><tr><td><span class="bl" style="background:#f6f3ea"></span><b>Sucre</b></td><td class="c"><b>2</b> Pesos</td><td class="c"><b>1 PV</b> par baril</td><td>Raffinerie de Sucre</td></tr><tr><td><span class="bl" style="background:#8b5a2b"></span><b>Tabac</b></td><td class="c"><b>3</b> Pesos</td><td class="c"><b>1 PV</b> par baril</td><td>Séchoir à Tabac</td></tr><tr><td><span class="bl" style="background:#2e231c"></span><b>Café</b></td><td class="c"><b>4</b> Pesos</td><td class="c"><b>1 PV</b> par baril</td><td>Brûlerie de Café</td></tr></table>
+<p style="font-size:7.4pt;margin-top:1mm">La vente rapporte des <b>Pesos</b> selon le type ; l'expédition rapporte des <b>PV</b>, et tous les barils se valent.</p>
+<div class="two">
+<div><h2>Vente (Marchand)</h2><ul>
+<li>1 marchandise par joueur et par phase.</li>
+<li>Marchand : <b>+1 Peso</b>.</li>
+<li>Petit Marché <b>+1</b>, Grand Marché <b>+2</b>, les deux <b>+3</b>.</li>
+<li>4 places, une seule par type (sauf Comptoir).</li>
+<li>Vendre 1 Maïs pour 0 Peso est permis.</li></ul></div>
+<div><h2>Expédition (Capitaine)</h2><ul>
+<li>Capitaine : <b>+1 PV</b> une fois par phase.</li>
+<li>Port : <b>+1 PV</b> à chaque chargement.</li>
+<li>Chantier Naval : 1 fois par phase, tous les barils d'un type sur un navire privé, 1 PV chacun.</li></ul></div></div>
+<h2>Charger un navire</h2><ul>
+<li>Un navire = <b>un seul type</b> ; jamais le même type sur deux navires (même si l'un est plein).</li>
+<li>À son tour, on <b>doit</b> charger si on peut, <b>un seul type</b>, mais le type de son choix.</li>
+<li>On charge <b>autant que possible</b> ; entre plusieurs navires vides, on prend <b>celui où l'on charge le plus</b>.</li></ul>
+<div class="box red"><h2 style="margin-top:0">Fin de la phase du Capitaine</h2>
+<p>Chacun ne garde qu'<b>un seul baril</b> sur son portrait, plus : Petit Entrepôt = tous les barils de <b>1 type</b>, Grand Entrepôt = <b>2 types</b>, les deux = <b>3 types</b>. Le reste retourne à la réserve.</p>
+<p style="margin:0">Les navires <b>pleins</b> sont vidés ; les autres gardent leur cargaison.</p></div>
+<div class="foot"><span>Less Rules, More Play · paulmoussard.com</span><span></span></div></section></body></html>

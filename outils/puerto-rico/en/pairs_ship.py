@@ -13,9 +13,9 @@ PAIRS = [
 (r"""<h3>Atelier : simulateur de chargement</h3>""", r"""<h3>Lab: loading simulator</h3>"""),
 (r"""id="sh-wharf" hidden>Navire privé (Chantier Naval)</button><button type="button" id="sh-pass">Passer</button><button type="button" id="sh-reset">Recommencer</button>""",
  r"""id="sh-wharf" hidden>Chartered Ship (Wharf)</button><button type="button" id="sh-pass">Pass</button><button type="button" id="sh-reset">Start again</button>"""),
-(r"""/* chargements légaux d'un type pour un joueur : liste de navires */
+(r"""/* chargements légaux d'un type pour un joueur : liste de navires (navire vide qui permet de charger le plus de barils) */
  const legal=(p,g)=>{if(!p.g[g])return [];const own=S.ships.find(s=>s.type===g);if(own)return full(own)?[]:[own];
-  const em=S.ships.filter(s=>!s.type);if(!em.length)return [];const big=Math.max(...em.map(s=>s.cap));return em.filter(s=>s.cap===big)};""",
+  const em=S.ships.filter(s=>!s.type);if(!em.length)return [];const best=Math.max(...em.map(s=>Math.min(p.g[g],s.cap)));return em.filter(s=>Math.min(p.g[g],s.cap)===best)};""",
  r"""/* legal loads of a type for a player: list of ships (English rulebook: the empty ship that takes the most barrels) */
  const legal=(p,g)=>{if(!p.g[g])return [];const own=S.ships.find(s=>s.type===g);if(own)return full(own)?[]:[own];
   const em=S.ships.filter(s=>!s.type);if(!em.length)return [];const best=Math.max(...em.map(s=>Math.min(p.g[g],s.cap)));return em.filter(s=>Math.min(p.g[g],s.cap)===best)};"""),
@@ -28,7 +28,7 @@ PAIRS = [
 (r"""log(`Refusé : ce navire transporte déjà du ${GN1[s.type]}. Un navire ne prend qu'un type.`,'err')""", r"""log(`Refused: this ship already carries ${GN1[s.type]}. A ship takes only one type.`,'err')"""),
 (r"""log(`Refusé : le ${GN1[g]} voyage déjà sur le navire de ${own.cap} cales. Deux navires ne portent jamais le même type${full(own)?', même si celui-ci est plein':''}.`,'err')""",
  r"""log(`Refused: ${GN1[g]} already sails on the ${own.cap}-hold ship. No two ships ever carry the same type${full(own)?', even when that one is full':''}.`,'err')"""),
-(r"""log(`Refusé : parmi les navires vides, tu dois prendre celui qui a la plus grande capacité (${b.cap} cales).`,'err')""",
+(r"""log(`Refusé : sur le navire de ${b.cap} cales tu chargerais ${Math.min(p.g[g],b.cap)} barils, contre ${Math.min(p.g[g],s.cap)} ici. Parmi les navires vides, tu dois prendre celui qui te permet de charger le plus.`,'err')""",
  r"""log(`Refused: on the ${b.cap}-hold ship you would load ${Math.min(p.g[g],b.cap)} barrels, against ${Math.min(p.g[g],s.cap)} here. You must choose the empty ship that lets you load the most.`,'err')"""),
 (r"""log(`${p.n} charge ${n} ${GN1[g]} sur le navire de ${s.cap} cales${p.g[g]?` (il lui en reste ${p.g[g]}, le navire est plein)`:''}. ${score(p,n,'Gain')}`,'okk')""",
  r"""log(`${p.n} loads ${n} ${GN1[g]} onto the ${s.cap}-hold ship${p.g[g]?` (${p.g[g]} left over, the ship is full)`:''}. ${score(p,n,'Gain')}`,'okk')"""),

@@ -24,9 +24,9 @@ init(r){let S,sc=0;
   S={ships:D.ships.map(([cap,type,n])=>({cap,type,n})),pl:D.pl.map(p=>({n:p.n,cap:!!p.cap,har:!!p.har,wha:!!p.wha,whaUsed:false,g:Object.assign({c:0,f:0,s:0,t:0,k:0},p.g),vp:0,capBonus:false})),cur:0,sel:null,idle:0,log:[],over:false};
   $('#sh-d',r).textContent=SHIPSC[sc].d;advance(true)};
  const full=s=>s.n>=s.cap;
- /* chargements légaux d'un type pour un joueur : liste de navires */
+ /* chargements légaux d'un type pour un joueur : liste de navires (navire vide qui permet de charger le plus de barils) */
  const legal=(p,g)=>{if(!p.g[g])return [];const own=S.ships.find(s=>s.type===g);if(own)return full(own)?[]:[own];
-  const em=S.ships.filter(s=>!s.type);if(!em.length)return [];const big=Math.max(...em.map(s=>s.cap));return em.filter(s=>s.cap===big)};
+  const em=S.ships.filter(s=>!s.type);if(!em.length)return [];const best=Math.max(...em.map(s=>Math.min(p.g[g],s.cap)));return em.filter(s=>Math.min(p.g[g],s.cap)===best)};
  const canCargo=p=>GOODS.some(g=>legal(p,g).length);
  const canWharf=p=>p.wha&&!p.whaUsed&&GOODS.some(g=>p.g[g]);
  const log=(t,c)=>S.log.unshift({t,c});
@@ -44,7 +44,7 @@ init(r){let S,sc=0;
   if(s.type&&s.type!==g){log(`Refusé : ce navire transporte déjà du ${GN1[s.type]}. Un navire ne prend qu'un type.`,'err');return draw()}
   const own=S.ships.find(x=>x.type===g);
   if(!s.type&&own){log(`Refusé : le ${GN1[g]} voyage déjà sur le navire de ${own.cap} cales. Deux navires ne portent jamais le même type${full(own)?', même si celui-ci est plein':''}.`,'err');return draw()}
-  const L=legal(p,g);if(!L.includes(s)){const b=L[0];log(`Refusé : parmi les navires vides, tu dois prendre celui qui a la plus grande capacité (${b.cap} cales).`,'err');return draw()}
+  const L=legal(p,g);if(!L.includes(s)){const b=L[0];log(`Refusé : sur le navire de ${b.cap} cales tu chargerais ${Math.min(p.g[g],b.cap)} barils, contre ${Math.min(p.g[g],s.cap)} ici. Parmi les navires vides, tu dois prendre celui qui te permet de charger le plus.`,'err');return draw()}
   const n=Math.min(p.g[g],s.cap-s.n);s.type=g;s.n+=n;p.g[g]-=n;S.idle=0;
   log(`${p.n} charge ${n} ${GN1[g]} sur le navire de ${s.cap} cales${p.g[g]?` (il lui en reste ${p.g[g]}, le navire est plein)`:''}. ${score(p,n,'Gain')}`,'okk');advance()};
  const useWharf=()=>{const p=S.pl[S.cur],g=S.sel;if(!g||!p.g[g]){log('Choisis d\'abord la marchandise à embarquer sur le navire privé.','err');return draw()}

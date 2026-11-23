@@ -178,7 +178,7 @@ P4 = f"""<section class="pg p">{top("Vendre ou expédier ?","4 / 4")}
 <h2>Charger un navire</h2><ul>
 <li>Un navire = <b>un seul type</b> ; jamais le même type sur deux navires (même si l'un est plein).</li>
 <li>À son tour, on <b>doit</b> charger si on peut, <b>un seul type</b>, mais le type de son choix.</li>
-<li>On charge <b>autant que possible</b> ; entre plusieurs navires vides, on prend <b>le plus grand</b>.</li></ul>
+<li>On charge <b>autant que possible</b> ; entre plusieurs navires vides, on prend <b>celui où l'on charge le plus</b>.</li></ul>
 <div class="box red"><h2 style="margin-top:0">Fin de la phase du Capitaine</h2>
 <p>Chacun ne garde qu'<b>un seul baril</b> sur son portrait, plus : Petit Entrepôt = tous les barils de <b>1 type</b>, Grand Entrepôt = <b>2 types</b>, les deux = <b>3 types</b>. Le reste retourne à la réserve.</p>
 <p style="margin:0">Les navires <b>pleins</b> sont vidés ; les autres gardent leur cargaison.</p></div>
@@ -189,7 +189,7 @@ SHORT = {
  "sfw": "1 Fruit au plus.", "ssm": "1 Sucre au plus.", "lfw": "3 Fruits au plus.", "lsm": "3 Sucres au plus.", "tob": "3 Tabacs au plus.", "cof": "2 Cafés au plus.",
  "smk": "+1 Peso à chaque vente à la Maison de Commerce.", "byd": "Carrière au lieu d'une Plantation (pas de 2e Carrière pour le Paysan).",
  "hac": "Avant de choisir : +1 Plantation tirée face cachée, à poser obligatoirement.", "swh": "Fin du Capitaine : garde tous les barils d'1 type en plus.",
- "hos": "Plantation ou Carrière posée : +1 ouvrier de la réserve dessus (pas sur celle de l'Hacienda).", "off": "Vendre un type déjà présent à la Maison de Commerce.",
+ "hos": "Plantation ou Carrière posée : +1 ouvrier de la réserve dessus (avec l'Hacienda : sur l'une des deux).", "off": "Vendre un type déjà présent à la Maison de Commerce.",
  "lmk": "+2 Pesos à chaque vente (+3 avec le Petit Marché).", "lwh": "Fin du Capitaine : garde tous les barils de 2 types (3 avec le Petit Entrepôt).",
  "fac": "Phase du Producteur : 2 / 3 / 4 / 5 types produits → 1 / 2 / 3 / 5 Pesos.", "sch": "Construction : +1 ouvrier de la réserve sur le nouveau bâtiment.",
  "har": "+1 PV à chaque chargement.", "wha": "1 fois par phase : tous les barils d'1 type sur un navire privé (1 PV chacun).",

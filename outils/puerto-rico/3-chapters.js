@@ -197,7 +197,7 @@ rules:[
 `Le Capitaine charge en premier, puis chacun dans le sens horaire, et <b>ça tourne plusieurs fois</b> jusqu'à ce que plus personne ne puisse charger.`,
 `À ton tour, si tu peux charger, <b>tu dois charger</b>. Tu choisis librement le type, mais <b>un seul type</b> par tour.`,
 `Un navire ne transporte <b>qu'un type</b> de marchandise, et <b>deux navires ne transportent jamais le même type</b>.`,
-`Si tu charges un type qui n'est sur aucun navire et que plusieurs navires sont vides, tu dois prendre <b>celui qui a la plus grande capacité</b> et le charger au maximum.`,
+`Si tu charges un type qui n'est sur aucun navire et que plusieurs navires sont vides, tu dois prendre <b>celui qui te permet de charger le plus de barils</b>. Si plusieurs navires vides permettent le même chargement, tu choisis.`,
 `Tu charges <b>le maximum possible</b> de ce type : pas question de garder des barils s'il reste de la place.`,
 `Un navire plein n'accepte plus rien.`,
 `<b>1 PV par baril chargé.</b> Privilège : le Capitaine gagne <b>1 PV de plus, une seule fois</b> dans la phase, s'il a chargé au moins 1 baril.`,
@@ -205,8 +205,8 @@ rules:[
 ],
 lab:'ship',
 cas:[
-{q:`Navires de 5 et 7 cales vides, celui de 6 porte 3 Maïs. Tu as 2 Maïs et 6 Sucre. Où peut aller ton Sucre ?`,o:[`Sur le navire de 5 ou de 7, au choix`,`Sur le navire de 7 : c'est le plus grand navire vide`,`Sur le navire de 6`],a:1,w:`Exemple du livret : parmi les navires vides, Anne doit prendre le plus grand et y charge ses 6 Sucres.`},
-{q:`Navires de 5 et 7 vides. Tu as 2 Café. Où les charges-tu ?`,o:[`Obligatoirement sur le 7`,`Sur l'un ou l'autre : tu charges 2 barils dans les deux cas`],a:0,w:`Ton livret est formel : parmi les navires vides, celui qui a la plus grande capacité. (Le livret anglais laisse le choix quand les deux navires accueillent tous tes barils : à trancher avant la partie si un joueur le connaît.)`},
+{q:`Navires de 5 et 7 cales vides, celui de 6 porte 3 Maïs. Tu as 2 Maïs et 6 Sucre. Où peut aller ton Sucre ?`,o:[`Sur le navire de 5 ou de 7, au choix`,`Sur le navire de 7 : c'est là qu'elle charge le plus de barils`,`Sur le navire de 6`],a:1,w:`Exemple du livret : sur le 7, Anne charge ses 6 Sucres, sur le 5 seulement 5. Le plus gros chargement est obligatoire.`},
+{q:`Navires de 5 et 7 vides. Tu as 2 Café. Où les charges-tu ?`,o:[`Obligatoirement sur le 7`,`Sur l'un ou l'autre : tu charges 2 barils dans les deux cas`],a:1,w:`La règle impose le navire qui permet de charger le plus. Ici les deux en prennent 2 : choix libre. (Le livret français dit « le plus grand navire » : à trancher avant la partie si un joueur a appris cette version.)`},
 {q:`Le navire de Tabac est plein. Le navire de 5 est vide. Tu n'as que du Tabac.`,o:[`Tu le charges sur le navire de 5`,`Tu ne peux pas charger : le Tabac a déjà son navire`],a:1,w:`Deux navires ne peuvent pas porter le même type, même si le premier est plein.`},
 {q:`Tu préférerais garder ton Café pour le vendre. Le navire de Café a 2 places libres.`,o:[`Tu peux passer ton tour`,`Si c'est ta seule marchandise chargeable, tu dois charger`],a:1,w:`Le chargement est obligatoire. Tu peux seulement choisir un autre type si tu en as un qui peut aussi être chargé.`}
 ],
@@ -284,7 +284,7 @@ rules:[
 `${bn('byd')} <span class="en">Builders Yard</span> : en phase du Paysan, Carrière au lieu d'une plantation. Ne donne pas de seconde Carrière au Paysan, ni via l'Hacienda.`,
 `${bn('hac')} <span class="en">Hacienda</span> : en phase du Paysan, <b>avant</b> ton action normale, prends la plantation du dessus d'une pile face cachée et pose-la aussitôt (pas de défausse possible). Puis action normale.`,
 `${bn('swh')} <span class="en">Small Warehouse</span> : garde tous les barils d'1 type en fin de phase du Capitaine, en plus du baril habituel.`,
-`${bn('hos')} <span class="en">Hospital</span> : quand tu poses une plantation ou une Carrière, 1 ouvrier de la réserve dessus (du Registre si la réserve est vide). Avec l'Hacienda : pas d'ouvrier sur la plantation reçue grâce à l'Hacienda. Si la réserve et le Registre sont vides, l'Hôpital est sans effet.`,
+`${bn('hos')} <span class="en">Hospital</span> : quand tu poses une plantation ou une Carrière, 1 ouvrier de la réserve dessus (du Registre si la réserve est vide). Avec l'Hacienda : sur l'une ou l'autre des deux tuiles, mais un seul ouvrier. Si la réserve et le Registre sont vides, l'Hôpital est sans effet.`,
 `${bn('off')} <span class="en">Office</span> : vends un type déjà présent dans la Maison. Toujours 1 baril, et rien si la Maison est pleine.`,
 `${bn('lmk')} <span class="en">Large Market</span> : +2 Pesos à la vente, +3 avec un Petit Marché occupé.`,
 `${bn('lwh')} <span class="en">Large Warehouse</span> : garde 2 types complets (3 avec le Petit Entrepôt), plus le baril habituel.`,
