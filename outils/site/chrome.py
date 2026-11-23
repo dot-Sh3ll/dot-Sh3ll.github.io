@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Put the site header (same as the home page) at the top of an app page, sticky.
 usage: chrome.py fr|en <file>"""
-import re, sys
+import os, re, sys
 mode, path = sys.argv[1], sys.argv[2]
+# page française sans version anglaise : le bouton EN est affiché grisé
+NO_EN = mode == "fr" and not os.path.exists(os.path.join(os.path.dirname(path) or ".", "en.html"))
 s = open(path, encoding="utf-8").read()
 
 # remove every previous version of the site chrome
@@ -23,7 +25,7 @@ other_l = "en" if FR else "fr"
 sw_aria = "Switch to English" if FR else "Passer en français"
 
 fr_item = '<span aria-current="true">FR</span>' if FR else f'<a href="{other_href}" hreflang="fr" lang="fr" aria-label="{sw_aria}" onclick="try{{localStorage.setItem(\'site-lang\',\'fr\')}}catch(e){{}}">FR</a>'
-en_item = f'<a href="{other_href}" hreflang="en" lang="en" aria-label="{sw_aria}" onclick="try{{localStorage.setItem(\'site-lang\',\'en\')}}catch(e){{}}">EN</a>' if FR else '<span aria-current="true">EN</span>'
+en_item = '<span class="sh-off" title="English version coming soon" aria-disabled="true">EN</span>' if NO_EN else f'<a href="{other_href}" hreflang="en" lang="en" aria-label="{sw_aria}" onclick="try{{localStorage.setItem(\'site-lang\',\'en\')}}catch(e){{}}">EN</a>' if FR else '<span aria-current="true">EN</span>'
 
 css = """<style id="sitehead-css">
 @font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
@@ -40,6 +42,7 @@ css = """<style id="sitehead-css">
 .sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;font-weight:700;font-size:12.5px;letter-spacing:.04em}
 .sitehead .sh-lang span{background:#ddb96a;color:#17130a}
 .sitehead .sh-lang a{color:#a3a9b8}
+.sitehead .sh-lang span.sh-off{background:none;color:#5d6475;cursor:not-allowed}
 .sitehead .sh-lang a:hover{color:#fff}
 .sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:#ddb96a;color:#17130a;font-weight:700;font-size:14.5px;white-space:nowrap}
 .sitehead .sh-kofi:hover{filter:brightness(1.08)}

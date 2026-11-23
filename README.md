@@ -7,6 +7,7 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 - Mage Knight — tutoriel et compagnon
 - Imperium Antique — tutoriel, solo contre la C.I.V., aide-mémoire
 - Aeon's End — générateur de marché, journal, expéditions
+- Puerto Rico 1897 — tutoriel règle par règle, aide-mémoire, décompte (FR)
 
 ☕ Soutenir : https://ko-fi.com/paulmoussard
 

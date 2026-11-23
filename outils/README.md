@@ -38,3 +38,7 @@ cd /home/claude/ae && npm install     # installe typescript (pour extract.js)
 - `gen.py` : construit les blocs de données FR et EN en gardant les cartes, profils et noms déjà présents dans les pages.
 - `patch.py` : a appliqué ces blocs et les changements de code aux deux pages (à adapter avant de le relancer : les motifs qu'il cherche ont changé).
 - `verify.py index.html|en.html` : vérifie que chaque boîte contient exactement les bonnes cartes, mages et némésis.
+
+## `puerto-rico/` : appli Puerto Rico 1897
+
+La page est découpée en morceaux (`1-head.html` : styles et structure, `2-data.js` : bâtiments, `3-chapters.js` : contenu du tutoriel, `4-labs.js` et `5-ship.js` : ateliers, `6-app.js` : rendu, aide-mémoire, décompte). Modifier les morceaux puis lancer `sh outils/puerto-rico/build.sh` depuis la racine. Pas encore de version anglaise : `chrome.py` grise alors le bouton EN.

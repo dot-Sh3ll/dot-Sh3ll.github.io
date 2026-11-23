@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puerto Rico 1897 · Apprendre les règles</title>
+<meta name="description" content="Apprendre Puerto Rico 1897 point de règle par point de règle : ateliers interactifs, cas pratiques, quiz, aide-mémoire des bâtiments et calculateur de score.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* Plan : barre d'onglets collante, sommaire à gauche avec progression, colonne de lecture à droite.
+   Couleurs : sable, mer des Caraïbes, terre cuite. Les cinq marchandises gardent les couleurs des tonneaux. */
+:root{
+  --bg:#f4efe4; --surface:#fffdf8; --sunk:#ebe3d3; --ink:#2a2118; --muted:#6f6252; --line:#dccfb8;
+  --accent:#0f6b6b; --accent-ink:#ffffff; --terra:#b4532a; --terra-soft:#f6e2d6;
+  --ok:#2c7a3f; --ok-soft:#e1f1e3; --bad:#b3372f; --bad-soft:#f8e1dd;
+  --corn:#e2b52a; --fruit:#3f9343; --sugar:#f3efe6; --tob:#8b5a2b; --cof:#2e231c;
+  --display:"Fraunces","Palatino Linotype",Georgia,serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --top:0px;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#141210; --surface:#1e1b17; --sunk:#171511; --ink:#efe6d6; --muted:#b0a28d; --line:#3a332a;
+  --accent:#4fc0b8; --accent-ink:#0b1a19; --terra:#e58a5f; --terra-soft:#3a241a;
+  --ok:#6fcf8a; --ok-soft:#16301d; --bad:#f08a80; --bad-soft:#3b1a17;
+  --sugar:#e9e4d8; --cof:#4a3a2e;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#141210; --surface:#1e1b17; --sunk:#171511; --ink:#efe6d6; --muted:#b0a28d; --line:#3a332a;
+    --accent:#4fc0b8; --accent-ink:#0b1a19; --terra:#e58a5f; --terra-soft:#3a241a;
+    --ok:#6fcf8a; --ok-soft:#16301d; --bad:#f08a80; --bad-soft:#3b1a17;
+    --sugar:#e9e4d8; --cof:#4a3a2e;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:7px}
+button:hover{border-color:var(--accent)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+button.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+button.ghost{background:transparent}
+button[disabled]{opacity:.45;cursor:not-allowed}
+button.sel{border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+input,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:6px 8px}
+input[type=number]{width:74px}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);vertical-align:-3px}
+
+/* ---------- en-tête de l'appli ---------- */
+.apphead{position:sticky;top:var(--sitehead-h,0px);z-index:8;background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.apphead .in{max-width:var(--site-w,1080px);margin:0 auto;padding:10px var(--site-pad,20px);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.apphead .title{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.1;margin:0;display:flex;align-items:baseline;gap:8px}
+.apphead .title small{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+.tabs{display:flex;gap:4px;background:var(--sunk);padding:4px;border-radius:999px;margin-left:auto}
+.tabs button{border:0;background:transparent;border-radius:999px;padding:6px 14px;font-weight:600;font-size:15px;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+.themebtn{border-radius:999px;width:36px;height:36px;padding:0;display:grid;place-items:center}
+@media (max-width:640px){.apphead .title{font-size:18px}.apphead .title small{display:none}.apphead .in{gap:8px;padding-top:8px;padding-bottom:8px}.themebtn{margin-left:auto;width:32px;height:32px}.tabs{order:3;margin-left:0;width:100%;justify-content:space-between}.tabs button{padding:6px 10px;font-size:14px}}
+
+.tab{display:none}.tab.on{display:block}
+
+/* ---------- tutoriel : sommaire + lecture ---------- */
+.learn{max-width:var(--site-w,1080px);margin:0 auto;padding:0 var(--site-pad,20px);display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(16px,3vw,40px)}
+nav.toc{position:sticky;top:calc(var(--sitehead-h,0px) + 64px);align-self:start;max-height:calc(100vh - var(--sitehead-h,0px) - 76px);overflow:auto;padding:22px 4px 20px 0}
+.toc .brand{font-family:var(--display);font-size:19px;font-weight:600;margin:0 6px 2px}
+.toc .brand small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+.bar{height:6px;background:var(--sunk);border-radius:3px;margin:12px 6px 4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--terra);width:0;transition:width .3s}
+.barlabel{font-size:13px;color:var(--muted);margin:0 6px 10px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+.toc a{display:flex;gap:9px;align-items:baseline;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:15px;line-height:1.3}
+.toc a:hover{background:var(--sunk)}
+.toc a.on{background:var(--accent);color:var(--accent-ink)}
+.toc a .n{font-variant-numeric:tabular-nums;font-size:12px;width:18px;color:var(--muted);flex:none}
+.toc a.on .n{color:inherit}
+.toc a .tick{margin-left:auto;font-size:12px;font-weight:700;color:var(--ok)}
+.toc a.on .tick{color:inherit}
+.toc .part{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--terra);font-weight:700;margin:14px 8px 3px}
+.tocbtn{display:none;width:100%;margin:10px 0 0}
+@media (max-width:860px){
+  .learn{grid-template-columns:1fr}
+  nav.toc{position:static;max-height:none;padding:16px 0 0}
+  .toc ol{display:none}.toc.open ol{display:flex}
+  .tocbtn{display:block}
+}
+main.read{padding:26px 0 90px;min-width:0}
+section.ch{display:none;max-width:760px}
+section.ch.on{display:block}
+.eyebrow{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);font-weight:700}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,38px);line-height:1.12;margin:4px 0 10px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:600;font-size:23px;margin:34px 0 10px;text-wrap:balance}
+h3{font-size:17px;margin:18px 0 4px}
+p{margin:0 0 12px}
+.lead{font-size:19px;color:var(--muted)}
+ul,ol{padding-left:22px;margin:0 0 12px}
+li{margin-bottom:5px}
+ol.rules{list-style:none;padding:0;counter-reset:r;display:flex;flex-direction:column;gap:8px}
+ol.rules>li{counter-increment:r;position:relative;padding:10px 14px 10px 50px;background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:0}
+ol.rules>li::before{content:counter(r);position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--sunk);color:var(--terra);font-weight:700;font-size:14px;display:grid;place-items:center}
+.note{border-left:4px solid var(--terra);background:var(--terra-soft);padding:10px 14px;border-radius:0 7px 7px 0;margin:14px 0}
+.note b:first-child{color:var(--terra)}
+.ex{border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 9%,var(--surface));padding:10px 14px;border-radius:0 7px 7px 0;margin:14px 0}
+.ex b:first-child{color:var(--accent)}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--sunk);font-weight:700}
+td.c,th.c{text-align:center}
+.en{color:var(--muted);font-size:.86em;font-style:italic}
+
+/* atelier */
+.lab{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:9px;padding:16px 18px;margin:20px 0}
+.lab>h3:first-child{margin-top:0;font-family:var(--display);font-weight:600;font-size:20px}
+.lab .hint{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.f{display:flex;flex-direction:column;gap:3px;font-size:13.5px;color:var(--muted);font-weight:600}
+.f input,.f select{color:var(--ink);font-weight:400}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:15px;padding:4px 2px}
+.out{margin-top:12px;padding:10px 12px;background:var(--sunk);border-radius:7px;min-height:22px}
+.out.ok{background:var(--ok-soft)} .out.bad{background:var(--bad-soft)}
+.big{font-family:var(--display);font-size:26px;font-weight:600}
+.seg{display:inline-flex;background:var(--sunk);border-radius:999px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;border-radius:999px;padding:4px 12px;font-weight:600}
+.seg button.sel{background:var(--accent);color:var(--accent-ink);box-shadow:none}
+
+/* marchandises */
+.g{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font-weight:600}
+.g::before{content:"";width:13px;height:13px;border-radius:3px;border:1px solid rgba(0,0,0,.35);background:var(--gc);flex:none}
+.g-c{--gc:var(--corn)}.g-f{--gc:var(--fruit)}.g-s{--gc:var(--sugar)}.g-t{--gc:var(--tob)}.g-k{--gc:var(--cof)}
+.bl{display:inline-block;width:18px;height:22px;border-radius:5px;border:1px solid rgba(0,0,0,.4);background:var(--gc);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18),inset 0 3px 0 rgba(255,255,255,.18);vertical-align:middle}
+.coin{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#d8d2c4;border:1px solid #9b937f;color:#3b3427;font-size:12px;font-weight:700;vertical-align:middle}
+.coin.gold{background:#e6bf4a;border-color:#a7801c}
+.vp{display:inline-grid;place-items:center;min-width:24px;height:22px;padding:0 4px;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);background:#6c8fb8;color:#fff;font-size:12px;font-weight:700;vertical-align:middle}
+
+/* cas pratiques et quiz */
+.qs{display:flex;flex-direction:column;gap:12px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.q .qt{font-weight:600;margin-bottom:8px}
+.q.case{border-left:4px solid var(--terra)}
+.q .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);margin-bottom:3px}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opts button{text-align:left;padding:8px 12px}
+.opts button.right{border-color:var(--ok);background:var(--ok-soft)}
+.opts button.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.why{margin-top:9px;font-size:15.5px;padding:8px 11px;border-radius:7px;background:var(--sunk)}
+.score{margin-top:12px;font-weight:600}
+.done-banner{margin-top:14px;padding:10px 14px;border-radius:8px;background:var(--ok-soft);color:var(--ok);font-weight:700}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:34px;padding-top:16px;border-top:1px solid var(--line);flex-wrap:wrap}
+
+/* simulateur de navires */
+.ships{display:flex;flex-direction:column;gap:9px;margin:10px 0}
+.ship{display:flex;align-items:center;gap:10px;padding:8px 10px;border:2px solid var(--line);border-radius:10px 40px 40px 10px;background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 14%,var(--surface)),var(--surface));cursor:pointer;text-align:left;width:100%}
+.ship:hover{border-color:var(--accent)}
+.ship .cap{font-weight:700;min-width:72px;font-size:14px}
+.ship .holds{display:flex;gap:4px;flex-wrap:wrap}
+.hold{width:18px;height:22px;border-radius:5px;border:1px dashed var(--muted);background:transparent}
+.ship.full{opacity:.75}
+.ship.charter{border-style:dashed}
+.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin:10px 0}
+.pl{border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:var(--surface)}
+.pl.cur{border-color:var(--terra);box-shadow:0 0 0 2px var(--terra)}
+.pl .nm{font-weight:700;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.pl .badge{font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--sunk);color:var(--muted)}
+.pl .badge.cap{background:var(--terra);color:#fff}
+.pl .goods{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.gbtn{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;font-weight:700}
+.gbtn.sel{box-shadow:inset 0 0 0 2px var(--terra);border-color:var(--terra)}
+.log{list-style:none;padding:0;margin:10px 0 0;max-height:220px;overflow:auto;font-size:14.5px;display:flex;flex-direction:column;gap:3px}
+.log li{padding:4px 8px;border-radius:5px;background:var(--sunk);margin:0}
+.log li.err{background:var(--bad-soft)}
+.log li.okk{background:var(--ok-soft)}
+
+/* maison de commerce */
+.house{display:grid;grid-template-columns:repeat(4,58px);gap:6px;margin:8px 0}
+.slot{height:58px;border:2px dashed var(--line);border-radius:8px;display:grid;place-items:center}
+.slot .bl{width:28px;height:34px}
+
+/* rôles (atelier manche) */
+.roles{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.role{width:118px;border:1px solid var(--line);border-radius:9px;padding:8px;background:var(--surface);text-align:left;display:flex;flex-direction:column;gap:3px}
+.role b{font-size:15px}
+.role small{font-size:12px;color:var(--muted);line-height:1.25}
+.role.taken{opacity:.45}
+.role .coins{min-height:22px}
+
+/* aide-mémoire et décompte */
+.page{max-width:var(--site-w,1080px);margin:0 auto;padding:22px var(--site-pad,20px) 90px}
+.page h1{margin-top:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.bcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;border-top:5px solid var(--bc,var(--line))}
+.bcard .hd{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.bcard .nm{font-weight:700;line-height:1.2}
+.bcard .meta{display:flex;gap:5px;align-items:center;flex:none}
+.bcard .fx{font-size:14.5px}
+.bcard .set{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.slots{font-size:12.5px;color:var(--muted)}
+.filters2{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 14px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.pcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px}
+.pcard .tot{font-family:var(--display);font-size:30px;font-weight:600;color:var(--accent)}
+.bchips{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+.bchips button{font-size:12.5px;padding:3px 8px;border-radius:999px}
+.bchips button.sel{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);box-shadow:none}
+details.grp{margin:6px 0}
+details.grp summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--muted)}
+.rank{list-style:none;padding:0;margin:10px 0;display:flex;flex-direction:column;gap:6px}
+.rank li{display:flex;gap:10px;align-items:center;padding:8px 12px;background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:0}
+.rank li:first-child{border-color:var(--terra);box-shadow:0 0 0 2px var(--terra)}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media print{.apphead,nav.toc,.pager,.lab button{display:none}}
+</style>
+</head>
+<body>
+<header class="apphead"><div class="in">
+  <p class="title">Puerto Rico 1897 <small>Less Rules, More Play</small></p>
+  <div class="tabs" role="tablist" aria-label="Sections">
+    <button type="button" role="tab" data-tab="learn" aria-selected="true">Apprendre</button>
+    <button type="button" role="tab" data-tab="aide" aria-selected="false">Aide-mémoire</button>
+    <button type="button" role="tab" data-tab="score" aria-selected="false">Décompte</button>
+  </div>
+  <button type="button" class="themebtn ghost" id="theme" aria-label="Changer de thème (clair / sombre)">◐</button>
+</div></header>
+
+<div class="tab on" id="tab-learn"><div class="learn">
+  <nav class="toc" id="toc" aria-label="Sommaire du tutoriel">
+    <p class="brand">Apprendre les règles<small>D'après le livret de règles de Puerto Rico 1897</small></p>
+    <div class="bar"><i id="bar"></i></div>
+    <p class="barlabel" id="barlabel"></p>
+    <button type="button" class="tocbtn" id="tocbtn" aria-expanded="false">Afficher le sommaire</button>
+    <ol id="toclist"></ol>
+  </nav>
+  <main class="read" id="read"></main>
+</div></div>
+
+<div class="tab" id="tab-aide"><div class="page" id="aide"></div></div>
+<div class="tab" id="tab-score"><div class="page" id="score"></div></div>

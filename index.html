@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Less Rules, More Play · Aides de jeu gratuites pour jeux de société</title>
-<meta name="description" content="Aides de jeu gratuites, en français et en anglais, pour jeux de société experts : tutoriels interactifs, compagnons solo et fiches à imprimer pour Mage Knight, Imperium et Aeon's End.">
+<meta name="description" content="Aides de jeu gratuites, en français et en anglais, pour jeux de société experts : tutoriels interactifs, compagnons solo et fiches à imprimer pour Mage Knight, Imperium, Aeon's End et Puerto Rico 1897.">
 <meta property="og:title" content="Less Rules, More Play · Free board game aids">
 <meta property="og:description" content="Tutoriels interactifs, compagnons solo et fiches à imprimer. Interactive tutorials, solo companions and printable sheets.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,6 +91,7 @@ h2{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0}
 .mk{--accent:#7db7ef;--c1:#1d3f73;--c2:#0b1830}
 .imp{--accent:#d9b25c;--c1:#7a2f2a;--c2:#2b1a3a}
 .ae{--accent:#c495f5;--c1:#4b2e7a;--c2:#171329}
+.pr{--accent:#4fc0b8;--c1:#0f6b6b;--c2:#3a1f14}
 
 .pdfs{display:flex;flex-direction:column;gap:12px;margin-bottom:52px}
 .pdf{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent,var(--gold));border-radius:14px;padding:16px 20px}
@@ -180,6 +181,7 @@ footer p{margin:0 0 6px}
       <button type="button" class="chip" data-g="mk" aria-pressed="false">Mage Knight</button>
       <button type="button" class="chip" data-g="imp" aria-pressed="false">Imperium</button>
       <button type="button" class="chip" data-g="ae" aria-pressed="false">Aeon's End</button>
+      <button type="button" class="chip" data-g="pr" aria-pressed="false">Puerto Rico</button>
     </div>
   </div>
 </div>
@@ -192,6 +194,16 @@ footer p{margin:0 0 6px}
 
   <!-- Pour ajouter une appli : copier un bloc <a class="card ...">, l'adapter, et mettre à jour data-created / data-updated (AAAA-MM-JJ). -->
   <div class="grid" data-sort>
+    <a class="card pr" data-game="pr" data-created="2026-11-23" data-updated="2026-11-23" href="puerto-rico/">
+      <div class="banner"><span class="glyph" aria-hidden="true">⛵</span><h3>Puerto Rico 1897</h3></div>
+      <div class="body">
+        <p class="fr">Apprenez chaque point de règle avec des ateliers interactifs (simulateur de chargement des navires, Maison de commerce, coûts de construction), des cas pratiques et des quiz. Avec aide-mémoire des bâtiments et calculateur de score.</p>
+        <p class="en">Learn every rule with interactive labs (ship-loading simulator, Trading House, building costs), hands-on cases and quizzes. Includes a building reference and a score calculator. French only for now.</p>
+        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li><li class="fr">Décompte</li><li class="en">Scoring</li><li>FR</li></ul>
+        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span><span class="date"></span></div>
+      </div>
+    </a>
+
     <a class="card mk" data-game="mk" data-created="2026-11-22" data-updated="2026-11-23" href="mage-knight/">
       <div class="banner"><span class="glyph" aria-hidden="true">🗺️</span><h3>Mage Knight</h3></div>
       <div class="body">
@@ -302,8 +314,8 @@ footer p{margin:0 0 6px}
 <footer class="wrap">
   <p class="fr">Tout est et restera gratuit. ☕ Un outil vous a plu ? <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Offrez-moi un café</a>.</p>
   <p class="en">Everything is and will stay free. ☕ Enjoyed a tool? <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">Buy me a coffee</a>.</p>
-  <p class="fr">Créations de fan non officielles, gratuites et sans lien avec les éditeurs des jeux concernés. Mage Knight est une marque de WizKids ; Imperium et Aeon's End appartiennent à leurs éditeurs respectifs.</p>
-  <p class="en">Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium and Aeon's End belong to their respective publishers.</p>
+  <p class="fr">Créations de fan non officielles, gratuites et sans lien avec les éditeurs des jeux concernés. Mage Knight est une marque de WizKids ; Imperium, Aeon's End et Puerto Rico 1897 appartiennent à leurs éditeurs respectifs.</p>
+  <p class="en">Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium, Aeon's End and Puerto Rico 1897 belong to their respective publishers.</p>
 </footer>
 
 <script>
@@ -335,7 +347,7 @@ footer p{margin:0 0 6px}
 
   /* --- recherche et filtre --- */
   var norm=function(t){return (t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");};
-  var NAMES={mk:"mage knight",imp:"imperium antique classics horizons",ae:"aeon's end aeons end"};
+  var NAMES={mk:"mage knight",imp:"imperium antique classics horizons",ae:"aeon's end aeons end",pr:"puerto rico 1897"};
   var items=[].slice.call(document.querySelectorAll("[data-game]")).map(function(el){ return {el:el,text:norm(el.textContent+" "+(NAMES[el.dataset.game]||""))} });
   function apply(){
     var terms=norm(q.value).split(/\s+/).filter(Boolean);
