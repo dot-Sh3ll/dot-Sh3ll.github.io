@@ -490,6 +490,7 @@ button.natb.sel small{color:inherit}
 .sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;font-weight:700;font-size:12.5px;letter-spacing:.04em}
 .sitehead .sh-lang span{background:#ddb96a;color:#17130a}
 .sitehead .sh-lang a{color:#a3a9b8}
+.sitehead .sh-lang span.sh-off{background:none;color:#5d6475;cursor:not-allowed}
 .sitehead .sh-lang a:hover{color:#fff}
 .sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:#ddb96a;color:#17130a;font-weight:700;font-size:14.5px;white-space:nowrap}
 .sitehead .sh-kofi:hover{filter:brightness(1.08)}
@@ -502,7 +503,7 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 <style id="sitehead-css-imp">
 html{scroll-padding-top:calc(var(--sitehead-h) + 84px)!important}
 header.top{top:var(--sitehead-h)!important}
-nav{top:var(--sitehead-h)!important;height:calc(100vh - var(--sitehead-h))!important}
+@media (min-width:861px){nav{top:var(--sitehead-h)!important;height:calc(100vh - var(--sitehead-h))!important}}
 .fpanel{top:calc(62px + var(--sitehead-h))!important}
 .app{max-width:var(--site-w);margin:0 auto;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
 main{padding-left:clamp(16px,3vw,32px)!important;padding-right:0!important}
@@ -523,6 +524,7 @@ header.top{padding-left:max(var(--site-pad),calc((100% - var(--site-w))/2 + var(
 </div>
 </div>
 </header><!--/sitehead-->
+
 
 
 

@@ -70,7 +70,7 @@ if "imperium" in path:
     extra = """<style id="sitehead-css-imp">
 html{scroll-padding-top:calc(var(--sitehead-h) + 84px)!important}
 header.top{top:var(--sitehead-h)!important}
-nav{top:var(--sitehead-h)!important;height:calc(100vh - var(--sitehead-h))!important}
+@media (min-width:861px){nav{top:var(--sitehead-h)!important;height:calc(100vh - var(--sitehead-h))!important}}
 .fpanel{top:calc(62px + var(--sitehead-h))!important}
 .app{max-width:var(--site-w);margin:0 auto;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
 main{padding-left:clamp(16px,3vw,32px)!important;padding-right:0!important}
