@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aides de jeu de Paul · Tutoriels et compagnons gratuits</title>
+<meta name="description" content="Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, compagnons solo et outils pour Mage Knight, Imperium et Aeon's End.">
+<meta property="og:title" content="Aides de jeu de Paul">
+<meta property="og:description" content="Tutoriels interactifs, compagnons solo et outils gratuits pour jeux de société experts.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0d0f16; --surface:#161a25; --surface-2:#1d2230; --line:#2a3144;
+  --ink:#efe8d8; --muted:#a3a9b8; --gold:#ddb96a; --gold-ink:#17130a;
+  --display:"Marcellus","Palatino Linotype",Georgia,serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:var(--body); color:var(--ink); line-height:1.55; min-height:100vh;
+  background:
+    radial-gradient(ellipse 90% 420px at 50% -120px, rgba(221,185,106,.16), transparent 75%) no-repeat,
+    var(--bg);
+}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+header{padding:72px 0 40px;text-align:center}
+.kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 14px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,5.5vw,3.6rem);line-height:1.1;margin:0 0 18px;letter-spacing:.01em}
+.lede{font-size:1.12rem;color:var(--muted);max-width:620px;margin:0 auto}
+.lede-en{font-size:.95rem;color:#7d8496;max-width:620px;margin:8px auto 0;font-style:italic}
+
+.lang{display:inline-flex;gap:4px;margin-top:26px;padding:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px}
+.lang button{font:600 .85rem var(--body);color:var(--muted);background:none;border:0;padding:.4rem 1rem;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--gold);color:var(--gold-ink)}
+.lang button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+h2{font-family:var(--display);font-weight:400;font-size:1.7rem;margin:0 0 6px}
+.section-sub{color:var(--muted);margin:0 0 24px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:64px}
+.card{
+  --accent:var(--gold);
+  position:relative;display:flex;flex-direction:column;
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 14px 40px -18px var(--accent)}
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.banner{height:132px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;
+  background:linear-gradient(135deg,var(--c1),var(--c2))}
+.banner .glyph{position:absolute;right:18px;top:12px;font-size:3.6rem;opacity:.9;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
+.banner h3{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.4);line-height:1.15}
+.body{padding:18px 22px 22px;display:flex;flex-direction:column;gap:14px;flex:1}
+.body p{margin:0;color:var(--muted);font-size:.98rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.tags li{font-size:.78rem;font-weight:600;padding:.25rem .6rem;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink)}
+.go{margin-top:auto;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:6px}
+.go::after{content:"→";transition:transform .18s ease}
+.card:hover .go::after{transform:translateX(4px)}
+
+.mk{--accent:#7db7ef;--c1:#1d3f73;--c2:#0b1830}
+.imp{--accent:#d9b25c;--c1:#7a2f2a;--c2:#2b1a3a}
+.ae{--accent:#c495f5;--c1:#4b2e7a;--c2:#171329}
+
+.support{
+  display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+  background:linear-gradient(135deg,#1f1a12,#15131c);border:1px solid #4a3d22;border-radius:18px;padding:28px 30px;margin-bottom:56px;
+}
+.support h2{font-size:1.5rem}
+.support p{margin:0;color:var(--muted)}
+.kofi{
+  display:inline-flex;align-items:center;gap:10px;white-space:nowrap;
+  background:var(--gold);color:var(--gold-ink);text-decoration:none;font-weight:700;
+  padding:.85rem 1.4rem;border-radius:999px;transition:transform .15s ease,filter .15s ease;
+}
+.kofi:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.kofi:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:56px}
+.about div{border-top:1px solid var(--line);padding-top:16px}
+.about h3{font-family:var(--display);font-weight:400;font-size:1.15rem;margin:0 0 6px}
+.about p{margin:0;color:var(--muted);font-size:.95rem}
+
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:#7d8496;font-size:.85rem}
+footer p{margin:0 0 8px}
+
+@media (max-width:640px){
+  header{padding:48px 0 28px}
+  .support{grid-template-columns:1fr;text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+[data-lang="en"] .fr{display:none}
+[data-lang="fr"] .en{display:none}
+</style>
+</head>
+<body data-lang="fr">
+
+<header class="wrap">
+  <p class="kicker"><span class="fr">Aides de jeu gratuites</span><span class="en">Free game aids</span></p>
+  <h1><span class="fr">Moins de règles,<br>plus de jeu.</span><span class="en">Less rulebook,<br>more playing.</span></h1>
+  <p class="lede">
+    <span class="fr">Tutoriels interactifs, compagnons solo et outils pour les jeux experts que j'aime. Tout est gratuit, et ça fonctionne directement dans le navigateur, sur ordinateur comme sur mobile.</span>
+    <span class="en">Interactive tutorials, solo companions and tools for the heavy games I love. Everything is free and runs right in your browser, on desktop or mobile.</span>
+  </p>
+  <p class="lede-en"><span class="fr">Les applis sont en français pour l'instant.</span><span class="en">The apps are in French for now — English versions are on the way.</span></p>
+  <div class="lang" role="group" aria-label="Langue / Language">
+    <button type="button" data-set="fr" aria-pressed="true">Français</button>
+    <button type="button" data-set="en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2><span class="fr">Les applis</span><span class="en">The apps</span></h2>
+  <p class="section-sub"><span class="fr">Votre progression est enregistrée dans votre navigateur.</span><span class="en">Your progress is saved in your browser.</span></p>
+
+  <div class="grid">
+    <a class="card mk" href="mage-knight/">
+      <div class="banner"><span class="glyph" aria-hidden="true">🗺️</span><h3>Mage Knight</h3></div>
+      <div class="body">
+        <p class="fr">Apprenez le jeu pas à pas avec des quiz et des cas pratiques, puis jouez avec le compagnon : outils de combat, Fantôme en solo, scénarios, score et carnet de campagne.</p>
+        <p class="en">Learn the game step by step with quizzes and hands-on cases, then play with the companion: combat tools, solo Dummy player, scenarios, scoring and campaign log.</p>
+        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Compagnon solo</li><li class="en">Solo companion</li><li class="fr">Module de quêtes</li><li class="en">Quest module</li></ul>
+        <span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span>
+      </div>
+    </a>
+
+    <a class="card imp" href="imperium/">
+      <div class="banner"><span class="glyph" aria-hidden="true">🏛️</span><h3>Imperium Antique</h3></div>
+      <div class="body">
+        <p class="fr">Un tutoriel en quelques étapes avec un tour guidé, puis le mode solo : l'appli gère entièrement la C.I.V. et raconte chacun de ses tours. Avec aide-mémoire, campagne et historique.</p>
+        <p class="en">A short tutorial with a guided turn, then solo mode: the app fully runs the bot and narrates each of its turns. Includes a rules reference, campaign mode and game history.</p>
+        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Automa solo</li><li class="en">Solo bot</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li></ul>
+        <span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span>
+      </div>
+    </a>
+
+    <a class="card ae" href="aeons-end/">
+      <div class="banner"><span class="glyph" aria-hidden="true">🔮</span><h3>Aeon's End</h3></div>
+      <div class="body">
+        <p class="fr">Générez un marché pour chaque combat (optimisé, original ou aléatoire) selon vos boîtes, notez victoires et défaites, et suivez vos expéditions.</p>
+        <p class="en">Generate a market for every fight (optimised, combo-seeking or random) from the boxes you own, log wins and losses, and track your expeditions.</p>
+        <ul class="tags"><li class="fr">Générateur de marché</li><li class="en">Market generator</li><li class="fr">Journal</li><li class="en">Game log</li><li class="fr">Expéditions</li><li class="en">Expeditions</li></ul>
+        <span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span>
+      </div>
+    </a>
+  </div>
+
+  <section class="support" aria-labelledby="support-title">
+    <div>
+      <h2 id="support-title"><span class="fr">Un outil vous a plu ?</span><span class="en">Enjoyed a tool?</span></h2>
+      <p class="fr">Tout est et restera gratuit. Si une de ces applis vous a sauvé une soirée, un café m'aide à créer les suivantes.</p>
+      <p class="en">Everything is and will stay free. If one of these apps saved your game night, a coffee helps me build the next ones.</p>
+    </div>
+    <a class="kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ <span class="fr">M'offrir un café</span><span class="en">Buy me a coffee</span></a>
+  </section>
+
+  <section class="about">
+    <div>
+      <h3><span class="fr">Qui suis-je ?</span><span class="en">Who am I?</span></h3>
+      <p class="fr">Paul, président d'une association de jeux de société à Strasbourg. Je crée ces outils d'abord pour ma table de jeu, puis je les partage.</p>
+      <p class="en">Paul, president of a board game club in Strasbourg, France. I build these tools for my own table first, then share them.</p>
+    </div>
+    <div>
+      <h3><span class="fr">Une erreur, une idée ?</span><span class="en">Found a bug? Got an idea?</span></h3>
+      <p class="fr">Les retours sont les bienvenus : écrivez-moi via ma page Ko-fi.</p>
+      <p class="en">Feedback is very welcome: reach me through my Ko-fi page.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p class="fr">Créations de fan non officielles, gratuites et sans lien avec les éditeurs des jeux concernés. Mage Knight est une marque de WizKids ; Imperium et Aeon's End appartiennent à leurs éditeurs respectifs. Aucune approbation de leur part.</p>
+  <p class="en">Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium and Aeon's End belong to their respective publishers.</p>
+</footer>
+
+<script>
+(function(){
+  var b=document.body, btns=document.querySelectorAll(".lang button");
+  function set(l){ b.setAttribute("data-lang",l); document.documentElement.lang=l;
+    btns.forEach(function(x){ x.setAttribute("aria-pressed", String(x.dataset.set===l)); });
+    try{ localStorage.setItem("site-lang",l); }catch(e){} }
+  var saved=null; try{ saved=localStorage.getItem("site-lang"); }catch(e){}
+  set(saved || ((navigator.language||"fr").toLowerCase().indexOf("fr")===0 ? "fr" : "en"));
+  btns.forEach(function(x){ x.onclick=function(){ set(x.dataset.set); }; });
+})();
+</script>
+</body>
+</html>
