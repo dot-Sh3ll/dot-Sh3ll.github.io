@@ -32,8 +32,8 @@ th,td{border:.25mm solid #c9ab82;padding:1mm 1.4mm;text-align:left;vertical-alig
 th{background:#fff;font-weight:700;color:#4a2a14}
 td.c,th.c{text-align:center}
 .bl{display:inline-block;width:3mm;height:3.6mm;border-radius:.7mm;border:.25mm solid rgba(0,0,0,.45);vertical-align:-.7mm;margin-right:1mm}
-.coin{display:inline-grid;place-items:center;width:4.6mm;height:4.6mm;border-radius:50%;background:#fff;border:.35mm solid #9b7419;font-size:7pt;font-weight:700;color:#3b2a08}
-.vp{display:inline-grid;place-items:center;min-width:4.6mm;height:4.6mm;padding:0 .5mm;border:.35mm solid #222;border-radius:1mm;background:#fff;color:#222;font-size:7pt;font-weight:700}
+.coin{display:inline-grid;place-items:center;width:4.6mm;height:4.6mm;border-radius:50%;background:#e6bf4a;border:.25mm solid #9b7419;font-size:7pt;font-weight:700;color:#3b2a08}
+.vp{display:inline-grid;place-items:center;min-width:4.8mm;height:4.4mm;padding:0 .6mm;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);background:#2b2b2b;color:#fff;font-size:7pt;font-weight:700}
 .roles{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
 .role{background:#fff;border:.3mm solid #c9ab82;border-radius:1.6mm;padding:1.6mm 2.2mm}
 .role h3{font-family:"Cardo",serif;font-size:10.5pt;margin:0 0 .6mm;color:#7a4a2a;text-transform:uppercase;letter-spacing:.04em}
