@@ -313,12 +313,12 @@ const vp=n=>`<span class="vp">${n}</span>`;
    row : rangée du plateau (1 à 3 petits, 4 grands) qui plafonne la réduction des Carrières.
    kind : prod (production), small (petit commercial), large (grand). set : base, e1, e2. */
 const B=[
- {id:'sfw',fr:'Petite Exploitation de Fruits',en:'Small Fruit Warehouse',cost:1,vp:1,slots:1,row:1,kind:'prod',good:'f',sz:'s',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 1 baril de Fruits (1 emplacement).'},
- {id:'ssm',fr:'Petite Raffinerie de Sucre',en:'Small Sugar Mill',cost:2,vp:1,slots:1,row:1,kind:'prod',good:'s',sz:'s',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 1 baril de Sucre (1 emplacement).'},
- {id:'lfw',fr:'Grande Exploitation de Fruits',en:'Large Fruit Warehouse',cost:3,vp:2,slots:3,row:2,kind:'prod',good:'f',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Fruits (3 emplacements).'},
- {id:'lsm',fr:'Grande Raffinerie de Sucre',en:'Large Sugar Mill',cost:4,vp:2,slots:3,row:2,kind:'prod',good:'s',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Sucre (3 emplacements).'},
- {id:'tob',fr:'Séchoir à Tabac',en:'Tobacco Storage',cost:5,vp:3,slots:3,row:3,kind:'prod',good:'t',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Tabac (3 emplacements).'},
- {id:'cof',fr:'Brûlerie de Café',en:'Coffee Roaster',cost:6,vp:3,slots:2,row:3,kind:'prod',good:'k',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 2 barils de Café (2 emplacements).'},
+ {id:'sfw',fr:'Petite Exploitation de Fruits',en:'Small Fruit Warehouse',cost:1,vp:1,slots:1,row:1,kind:'prod',good:'f',sz:'s',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 1 baril de Fruits (1 demi-cercle).'},
+ {id:'ssm',fr:'Petite Raffinerie de Sucre',en:'Small Sugar Mill',cost:2,vp:1,slots:1,row:1,kind:'prod',good:'s',sz:'s',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 1 baril de Sucre (1 demi-cercle).'},
+ {id:'lfw',fr:'Grande Exploitation de Fruits',en:'Large Fruit Warehouse',cost:3,vp:2,slots:3,row:2,kind:'prod',good:'f',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Fruits (3 demi-cercles).'},
+ {id:'lsm',fr:'Grande Raffinerie de Sucre',en:'Large Sugar Mill',cost:4,vp:2,slots:3,row:2,kind:'prod',good:'s',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Sucre (3 demi-cercles).'},
+ {id:'tob',fr:'Séchoir à Tabac',en:'Tobacco Storage',cost:5,vp:3,slots:3,row:3,kind:'prod',good:'t',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Tabac (3 demi-cercles).'},
+ {id:'cof',fr:'Brûlerie de Café',en:'Coffee Roaster',cost:6,vp:3,slots:2,row:3,kind:'prod',good:'k',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 2 barils de Café (2 demi-cercles).'},
 
  {id:'smk',fr:'Petit Marché',en:'Small Market',cost:1,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Marchand',fx:'Quand tu vends à la Maison de Commerce : +1 Peso.'},
  {id:'byd',fr:'Dépôt de Matériaux',en:'Builders Yard',cost:2,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Paysan',fx:'Phase Paysan : tu peux prendre une Carrière au lieu d\'une plantation.'},
@@ -383,7 +383,7 @@ rules:[
 `Les PV viennent de trois sources : les <b>jetons PV</b> gagnés en expédiant des marchandises, les <b>PV imprimés sur tes bâtiments</b>, et les <b>bonus des grands bâtiments</b> occupés.`,
 `Ton <b>plateau Domaine</b> a 12 cases <b>Parcelles</b> en haut (plantations et Carrières) et 12 cases <b>Ville</b> en bas (bâtiments). Le <b>Portrait</b> accueille tes Pesos, tes barils et les ouvriers qui n'ont pas de place.`,
 `Pesos et barils restent visibles de tous. Les jetons PV peuvent être posés face cachée.`,
-`Chaque tuile porte 1 à 3 <b>emplacements d'ouvrier</b>. Un emplacement accueille exactement 1 ouvrier. Une tuile avec au moins 1 ouvrier est <b>occupée</b>, et seules les tuiles occupées fonctionnent.`
+`Chaque tuile porte 1 à 3 <b>demi-cercles</b>. Un demi-cercle accueille exactement 1 ouvrier. Une tuile avec au moins 1 ouvrier est <b>occupée</b>, et seules les tuiles occupées fonctionnent.`
 ],
 html:`<h2>Les cinq marchandises</h2>
 <div class="tw"><table><tr><th>Marchandise</th><th>Pour la produire</th><th class="c">Prix de vente</th></tr>
@@ -399,7 +399,7 @@ cas:[
 ],
 quiz:[
 {q:`Quand tu choisis un personnage, qui profite de son privilège ?`,o:[`Tous les joueurs`,`Toi seul`,`Le Gouverneur`],a:1,w:`Tout le monde fait l'action, seul celui qui a pris la carte reçoit le privilège.`},
-{q:`Combien d'ouvriers peut-on poser sur un emplacement d'ouvrier ?`,o:[`1`,`2`,`Autant qu'on veut`],a:0,w:`Exactement 1 ouvrier par emplacement.`},
+{q:`Combien d'ouvriers peut-on poser sur un demi-cercle ?`,o:[`1`,`2`,`Autant qu'on veut`],a:0,w:`Exactement 1 ouvrier par demi-cercle.`},
 {q:`Quelle marchandise se produit sans bâtiment ?`,o:[`Le Fruit`,`Le Maïs`,`Le Café`],a:1,w:`Chaque plantation de Maïs occupée donne directement 1 baril.`}
 ]},
 
@@ -476,22 +476,22 @@ lead:`Recruter des ouvriers, puis les poser ou les réorganiser. C'est le seul m
 rules:[
 `Le Recruteur prend d'abord <b>1 ouvrier de la réserve</b> (privilège ; pas du Registre).`,
 `Puis, en partant du Recruteur et dans le sens horaire, chacun prend <b>1 ouvrier du Registre à tour de rôle</b>, jusqu'à ce qu'il soit vide. Les joueurs peuvent donc en recevoir des nombres différents.`,
-`Chacun pose ses ouvriers (nouveaux ou anciens) sur des emplacements vides de plantations, Carrières ou bâtiments. Tu peux aussi <b>déplacer librement</b> les ouvriers déjà posés.`,
-`Un ouvrier ne va sur le Portrait <b>que si plus aucun emplacement n'est libre</b> sur ton domaine. Il attendra la prochaine phase du Recruteur.`,
+`Chacun pose ses ouvriers (nouveaux ou anciens) sur des demi-cercles vides de plantations, Carrières ou bâtiments. Tu peux aussi <b>déplacer librement</b> les ouvriers déjà posés.`,
+`Un ouvrier ne va sur le Portrait <b>que si plus aucun demi-cercle n'est libre</b> sur ton domaine. Il attendra la prochaine phase du Recruteur.`,
 `On place dans le sens horaire à partir du Recruteur, ou tous en même temps si tout le monde est d'accord.`,
-`Fin de phase : le Recruteur remplit le Registre avec autant d'ouvriers qu'il y a d'<b>emplacements vides sur les bâtiments</b> de tous les joueurs (pas sur les plantations ni les Carrières), avec <b>au minimum le nombre de joueurs</b>.`,
+`Fin de phase : le Recruteur remplit le Registre avec autant d'ouvriers qu'il y a de <b>demi-cercles vides sur les bâtiments</b> de tous les joueurs (pas sur les plantations ni les Carrières), avec <b>au minimum le nombre de joueurs</b>.`,
 `Si la réserve ne suffit pas à remplir le Registre, la partie s'achèvera à la fin du tour. Si la réserve est vide, le Recruteur perd son privilège.`
 ],
 html:`<div class="ex"><b>Exemple du livret (4 joueurs).</b> 6 ouvriers sur le Registre. Le Recruteur prend 1 ouvrier de la réserve, puis le Registre se distribue : Recruteur, 2e, 3e, 4e, Recruteur, 2e. Bilan : 3 ouvriers pour le Recruteur (dont celui de la réserve), 2 pour le 2e joueur, 1 pour le 3e et le 4e.</div>`,
 lab:'recruit',
 cas:[
-{q:`Tu as 2 ouvriers à poser. Il te reste un emplacement libre sur ta plantation de Maïs et aucun autre. Où va le second ?`,o:[`Sur le Portrait`,`Tu dois libérer un emplacement en déplaçant un ouvrier`,`Il retourne à la réserve`],a:0,w:`Le Portrait sert quand toutes les places sont prises. Tu pourrais aussi déplacer d'autres ouvriers, mais ça ne crée pas de place en plus.`},
+{q:`Tu as 2 ouvriers à poser. Il te reste un demi-cercle libre sur ta plantation de Maïs et aucun autre. Où va le second ?`,o:[`Sur le Portrait`,`Tu dois libérer un demi-cercle en déplaçant un ouvrier`,`Il retourne à la réserve`],a:0,w:`Le Portrait sert quand tous les demi-cercles sont pris. Tu pourrais aussi déplacer d'autres ouvriers, mais ça ne crée pas de place en plus.`},
 {q:`En pleine phase du Producteur, tu voudrais déplacer un ouvrier de ta plantation de Maïs vers ta Brûlerie de Café.`,o:[`Permis à tout moment`,`Interdit : les ouvriers ne bougent qu'en phase du Recruteur`],a:1,w:`Exception : le Bohio de l'extension I.`},
-{q:`Fin de la phase, 4 joueurs. Il n'y a que 2 emplacements vides sur tous les bâtiments réunis. Combien d'ouvriers vont sur le Registre ?`,o:[`2`,`4`,`0`],a:1,w:`Au minimum autant que de joueurs.`}
+{q:`Fin de la phase, 4 joueurs. Il n'y a que 2 demi-cercles vides sur tous les bâtiments réunis. Combien d'ouvriers vont sur le Registre ?`,o:[`2`,`4`,`0`],a:1,w:`Au minimum autant que de joueurs.`}
 ],
 quiz:[
 {q:`D'où vient l'ouvrier du privilège du Recruteur ?`,o:[`Du Registre`,`De la réserve`],a:1,w:`Il est pris dans la réserve, avant la distribution du Registre.`},
-{q:`Que compte-t-on pour remplir le Registre ?`,o:[`Les emplacements vides sur les bâtiments`,`Les emplacements vides partout`,`Les ouvriers sur les Portraits`],a:0,w:`Seuls les bâtiments, pas les plantations ni les Carrières.`}
+{q:`Que compte-t-on pour remplir le Registre ?`,o:[`Les demi-cercles vides sur les bâtiments`,`Les demi-cercles vides partout`,`Les ouvriers sur les Portraits`],a:0,w:`Seuls les bâtiments, pas les plantations ni les Carrières.`}
 ]},
 
 {id:'batisseur',part:'Les personnages',t:'Le Bâtisseur',
@@ -524,7 +524,7 @@ rules:[
 `Le Producteur produit en premier, puis chacun dans le sens horaire. Les barils vont sur le Portrait.`,
 `${G.c} : 1 baril par plantation de Maïs <b>occupée</b>.`,
 `${G.f}, ${G.s}, ${G.t}, ${G.k} : 1 baril par plantation occupée qui a un <b>ouvrier correspondant dans un bâtiment industriel</b> du même type. En pratique : le plus petit des deux nombres.`,
-`Chaque emplacement de bâtiment industriel traite 1 baril : Petite Exploitation de Fruits et Petite Raffinerie de Sucre 1, Grande Exploitation de Fruits et Grande Raffinerie de Sucre 3, Séchoir 3, Brûlerie de Café 2.`,
+`Chaque demi-cercle de bâtiment industriel traite 1 baril : Petite Exploitation de Fruits et Petite Raffinerie de Sucre 1, Grande Exploitation de Fruits et Grande Raffinerie de Sucre 3, Séchoir 3, Brûlerie de Café 2.`,
 `Privilège : une fois que tout le monde a produit, le Producteur prend <b>1 baril de plus</b> d'une marchandise qu'il a produite pendant cette phase. S'il n'a rien produit, pas de privilège.`,
 `Si la réserve d'une marchandise est épuisée, les joueurs suivants n'en reçoivent plus. L'ordre de production compte donc.`,
 `Bâtiment lié : ${bn('fac')}, qui rapporte des Pesos selon le nombre de types produits.`
@@ -532,7 +532,7 @@ rules:[
 html:`<div class="ex"><b>Exemple du livret.</b> 3 plantations de Maïs dont 2 occupées : 2 Maïs. Séchoir avec 1 ouvrier sur 2 placés pour 2 plantations de Tabac occupées : 1 Tabac. 4 plantations de Sucre dont 3 occupées, Grande Raffinerie de Sucre pleine : 3 Sucre.</div>`,
 lab:'prod',
 cas:[
-{q:`Tu as 3 plantations de Fruits occupées et une Petite Exploitation de Fruits occupée. Combien de Fruits ?`,o:[`3`,`1`,`0`],a:1,w:`La Petite Exploitation de Fruits n'a qu'un emplacement : 1 baril au plus.`},
+{q:`Tu as 3 plantations de Fruits occupées et une Petite Exploitation de Fruits occupée. Combien de Fruits ?`,o:[`3`,`1`,`0`],a:1,w:`La Petite Exploitation de Fruits n'a qu'un demi-cercle : 1 baril au plus.`},
 {q:`Tu produirais 1 Maïs, tes adversaires 3 Café et 4 Sucre. Le Capitaine et le Marchand sont encore libres. Prends-tu le Producteur ?`,o:[`Oui, la production c'est toujours bon`,`Plutôt non : tu donnerais beaucoup plus aux autres qu'à toi`],a:1,w:`Le livret le rappelle : le Producteur est le personnage le plus risqué.`},
 {q:`Tu es le Producteur et tu as produit 2 Maïs et 1 Tabac. Quel baril bonus prends-tu ?`,o:[`Un Café, le plus cher`,`Un Maïs ou un Tabac, au choix`,`Aucun : il faut avoir produit 3 types`],a:1,w:`Le baril bonus est d'une marchandise produite pendant la phase.`}
 ],
@@ -629,14 +629,14 @@ quiz:[
 lead:`Quelques règles valent pour tous les bâtiments. Les bâtiments industriels, eux, transforment les récoltes.`,
 rules:[
 `Chaque bâtiment ne peut être construit <b>qu'une fois par joueur</b>.`,
-`Un bâtiment est occupé dès qu'un ouvrier est sur un de ses emplacements. Seuls les bâtiments occupés donnent leur fonction.`,
+`Un bâtiment est occupé dès qu'un ouvrier est sur un de ses demi-cercles. Seuls les bâtiments occupés donnent leur fonction.`,
 `Le nombre en haut à droite donne les <b>PV de fin de partie</b>, que le bâtiment soit occupé ou non.`,
-`Le nombre dans le premier emplacement est le <b>coût</b>. Une fois construit, il ne sert plus.`,
+`Le nombre dans le premier demi-cercle est le <b>coût</b>. Une fois construit, il ne sert plus.`,
 `Les fonctions des bâtiments beiges sont <b>facultatives</b>. Leur icône indique la phase où elles servent.`,
 `On peut réarranger ses bâtiments pour faire de la place à un grand, mais jamais en retirer.`,
 `Bâtiments industriels : il faut la plantation occupée <b>et</b> une place occupée dans le bâtiment du même type. Le Maïs n'a pas de bâtiment.`
 ],
-html:`<h2>Les six bâtiments industriels</h2><div class="tw"><table><tr><th>Bâtiment</th><th>Marchandise</th><th class="c">Coût</th><th class="c">PV</th><th class="c">Emplacements</th></tr>
+html:`<h2>Les six bâtiments industriels</h2><div class="tw"><table><tr><th>Bâtiment</th><th>Marchandise</th><th class="c">Coût</th><th class="c">PV</th><th class="c">Demi-cercles</th></tr>
 ${['sfw','lfw','ssm','lsm','tob','cof'].map(i=>{const b=BI[i];return `<tr><td><b>${b.fr}</b> <span class="en">${b.en}</span></td><td>${G[b.good]}</td><td class="c">${b.cost}</td><td class="c">${b.vp}</td><td class="c">${b.slots}</td></tr>`}).join('')}
 </table></div>
 <div class="note"><b>Petit + grand du même type ?</b> C'est permis : ce sont deux bâtiments différents. Une Petite et une Grande Exploitation de Fruits occupées au complet traitent jusqu'à 4 Fruits.</div>`,
@@ -645,7 +645,7 @@ cas:[
 {q:`Tu as 2 plantations de Café occupées et une Brûlerie de Café avec 1 ouvrier sur 2. Que produis-tu ?`,o:[`2 Café`,`1 Café`],a:1,w:`Un ouvrier dans la Brûlerie de Café = 1 baril traité.`}
 ],
 quiz:[
-{q:`Combien d'emplacements a la Brûlerie de Café ?`,o:[`1`,`2`,`3`],a:1,w:`2 emplacements, alors que le Séchoir à Tabac en a 3.`},
+{q:`Combien de demi-cercles a la Brûlerie de Café ?`,o:[`1`,`2`,`3`],a:1,w:`2 demi-cercles, alors que le Séchoir à Tabac en a 3.`},
 {q:`Un bâtiment beige occupé t'oblige-t-il à utiliser sa fonction ?`,o:[`Oui`,`Non`],a:1,w:`C'est toujours facultatif, ce qui compte surtout pour le Chantier Naval.`}
 ]},
 
@@ -661,7 +661,7 @@ rules:[
 `${bn('lmk')} <span class="en">Large Market</span> : +2 Pesos à la vente, +3 avec un Petit Marché occupé.`,
 `${bn('lwh')} <span class="en">Large Warehouse</span> : garde 2 types complets (3 avec le Petit Entrepôt), plus le baril habituel.`,
 `${bn('fac')} <span class="en">Factory</span> : en phase du Producteur, selon le nombre de types produits : 2 → 1 Peso, 3 → 2, 4 → 3, 5 → 5. Le nombre de barils par type ne compte pas.`,
-`${bn('sch')} <span class="en">School</span> : quand tu construis, 1 ouvrier de la réserve sur le nouveau bâtiment (du Registre si la réserve est vide). Un seul, même si le bâtiment a plusieurs emplacements.`,
+`${bn('sch')} <span class="en">School</span> : quand tu construis, 1 ouvrier de la réserve sur le nouveau bâtiment (du Registre si la réserve est vide). Un seul, même si le bâtiment a plusieurs demi-cercles.`,
 `${bn('har')} <span class="en">Harbor</span> : +1 PV à chaque chargement (y compris avec le Chantier Naval).`,
 `${bn('wha')} <span class="en">Wharf</span> : une fois par phase du Capitaine, au moment que tu choisis à ton tour, tous les barils d'1 type sur un navire privé. Facultatif.`
 ],
@@ -669,7 +669,7 @@ lab:'cards',
 cas:[
 {q:`Tu as Hacienda et Dépôt de Matériaux occupés. En phase du Paysan, que peux-tu faire ?`,o:[`Prendre 2 Carrières`,`Plantation face cachée (Hacienda), puis une Carrière comme action normale`,`Une Carrière à la place de la plantation face cachée`],a:1,w:`L'Hacienda donne toujours une plantation face cachée. Le Dépôt de Matériaux ne s'applique qu'à l'action normale.`},
 {q:`Usine occupée. Tu produis 3 Maïs, 1 Café, 2 Fruits. Combien de Pesos ?`,o:[`2`,`3`,`6`],a:0,w:`3 types différents : 2 Pesos (exemple du livret).`},
-{q:`École occupée, tu construis la Grande Exploitation de Fruits (3 emplacements).`,o:[`1 ouvrier offert dessus`,`3 ouvriers offerts`,`1 ouvrier, à poser où tu veux`],a:0,w:`Un seul ouvrier, et seulement sur le bâtiment construit.`},
+{q:`École occupée, tu construis la Grande Exploitation de Fruits (3 demi-cercles).`,o:[`1 ouvrier offert dessus`,`3 ouvriers offerts`,`1 ouvrier, à poser où tu veux`],a:0,w:`Un seul ouvrier, et seulement sur le bâtiment construit.`},
 {q:`Tu as Petit et Grand Marché occupés, tu vends 1 Maïs sans être Marchand.`,o:[`0`,`3`,`4`],a:1,w:`0 + 3.`}
 ],
 quiz:[
@@ -796,7 +796,7 @@ rules:[
 `Ajoute la carte Contrebandier aux personnages habituels. Qui la choisit prend aussi la tuile <b>Avis de recherche</b>, puis fait <b>une</b> des 4 actions. Les autres ne font rien.`,
 `<b>Attaque</b> : vide un navire de transport ; garde jusqu'à 3 de ses barils, le reste retourne à la réserve.`,
 `<b>Pillage</b> : vide la Maison de Commerce et gagne 1 PV par baril retiré.`,
-`<b>Débauchage</b> : réduis le Registre au nombre de joueurs ; garde jusqu'à 3 des ouvriers retirés et pose-les aussitôt sur des emplacements vides (pas sur le Portrait).`,
+`<b>Débauchage</b> : réduis le Registre au nombre de joueurs ; garde jusqu'à 3 des ouvriers retirés et pose-les aussitôt sur des demi-cercles vides (pas sur le Portrait).`,
 `<b>Changement de rôle</b> : prends devant toi un personnage non choisi, avec ses Pesos. Si un adversaire le choisit dans le tour, tu reçois 3 Pesos de la Banque. S'il n'est pas choisi, tu le joues en fin de tour avec son privilège, et les autres font l'action.`,
 `Pas de Peso sur le Contrebandier s'il n'est pas choisi. Le détenteur de l'Avis de recherche ne peut pas reprendre le Contrebandier tant qu'un autre ne l'a pas joué.`
 ],
@@ -804,7 +804,7 @@ cas:[
 {q:`La Maison contient 3 barils. Tu prends le Contrebandier et fais un Pillage.`,o:[`3 PV`,`3 Pesos`,`Les 3 barils`],a:0,w:`1 PV par baril retiré, et les barils retournent à la réserve.`}
 ],
 quiz:[
-{q:`Débauchage : où vont les ouvriers récupérés ?`,o:[`Sur le Portrait`,`Aussitôt sur des emplacements vides de ton domaine`],a:1,w:`Ils ne peuvent pas être stockés sur le Portrait.`}
+{q:`Débauchage : où vont les ouvriers récupérés ?`,o:[`Sur le Portrait`,`Aussitôt sur des demi-cercles vides de ton domaine`],a:1,w:`Ils ne peuvent pas être stockés sur le Portrait.`}
 ]},
 
 {id:'ext4',part:'Extensions',t:'Extension IV : Le Festival',
@@ -896,12 +896,12 @@ init(r){let S;const PL=['Ana','Bruno','Carla','Diego'];
 /* --- Recruteur --- */
 LABS.recruit={html:()=>`<div class="lab"><h3>Atelier : distribuer et remplir le Registre</h3><p class="hint">Règle le nombre de joueurs et d'ouvriers sur le Registre. Le Recruteur est le premier de la liste.</p>
 <div class="row"><label class="f">Joueurs${numIn('rc-n',4,2,5)}</label><label class="f">Ouvriers sur le Registre${numIn('rc-w',6,0,30)}</label></div><div class="out" id="rc-out"></div>
-<h3>Remplir le Registre en fin de phase</h3><div class="row"><label class="f">Emplacements vides sur les bâtiments (tous joueurs)${numIn('rc-e',2,0,60)}</label><label class="f">Ouvriers restant dans la réserve${numIn('rc-s',20,0,95)}</label></div><div class="out" id="rc-out2"></div></div>`,
+<h3>Remplir le Registre en fin de phase</h3><div class="row"><label class="f">Demi-cercles vides sur les bâtiments (tous joueurs)${numIn('rc-e',2,0,60)}</label><label class="f">Ouvriers restant dans la réserve${numIn('rc-s',20,0,95)}</label></div><div class="out" id="rc-out2"></div></div>`,
 init(r){const go=()=>{const n=Math.min(5,Math.max(2,num(r,'rc-n'))),w=num(r,'rc-w'),get=Array(n).fill(0);for(let i=0;i<w;i++)get[i%n]++;get[0]++;
  $('#rc-out',r).innerHTML=`<table><tr><th>Joueur</th><th class="c">Ouvriers reçus</th></tr>${get.map((g,i)=>`<tr><td>${NAMES[i]}${i===0?' (Recruteur : 1 de la réserve + Registre)':''}</td><td class="c">${g}</td></tr>`).join('')}</table>`;
  const e=num(r,'rc-e'),s=num(r,'rc-s'),need=Math.max(n,e),o=$('#rc-out2',r);
  o.className='out '+(s<need?'bad':'ok');
- o.innerHTML=`Le Recruteur doit poser <b>${need}</b> ouvrier${need>1?'s':''} (${e} emplacement${e>1?'s':''} vide${e>1?'s':''}, minimum ${n}).`+(s<need?` <b>La réserve n'en a que ${s} : la partie s'achèvera à la fin de ce tour.</b>`:` La réserve suffit (${s}).`)};
+ o.innerHTML=`Le Recruteur doit poser <b>${need}</b> ouvrier${need>1?'s':''} (${e} demi-cercle${e>1?'s':''} vide${e>1?'s':''}, minimum ${n}).`+(s<need?` <b>La réserve n'en a que ${s} : la partie s'achèvera à la fin de ce tour.</b>`:` La réserve suffit (${s}).`)};
  $$('input',r).forEach(i=>i.oninput=go);go()}};
 
 /* --- Bâtisseur --- */
@@ -966,7 +966,7 @@ init(r){let H;
  $('#st-new',r).onclick=reset;$$('#st-sw,#st-lw',r).forEach(i=>i.onchange=()=>{$('#st-out',r).textContent=''});reset()}};
 
 /* --- fiches des petits bâtiments --- */
-const CARDNOTE={smk:'Avec un Grand Marché occupé : +3 au total. Même un Maïs vendu rapporte alors des Pesos.',byd:'Le Paysan qui a un Dépôt de Matériaux ne prend pas deux Carrières. Avec l\'Hacienda, la tuile face cachée reste une plantation.',hac:'La tuile tirée se pose aussitôt, sans possibilité de la refuser. Ton action normale suit.',swh:'Tu dois quand même charger tout ce que tu peux pendant la phase.',hos:'L\'ouvrier ne peut aller que sur la tuile que tu viens de poser (avec l\'Hacienda, sur l\'une des deux).',off:'Un autre joueur avec un Comptoir peut aussi doubler le même type, s\'il reste de la place.',lmk:'S\'applique à chaque vente à la Maison de Commerce, privilège ou non.',lwh:'Avec le Petit Entrepôt : 3 types complets + 1 baril.',fac:'Seul compte le nombre de types différents, pas les quantités.',sch:'Un seul ouvrier, même pour un bâtiment à 3 emplacements.',har:'Chaque chargement compte : plusieurs tours de chargement = plusieurs PV.',wha:'Le navire privé n\'a pas de limite, accepte un type déjà présent sur un cargo, et tous les barils de ce type doivent partir.'};
+const CARDNOTE={smk:'Avec un Grand Marché occupé : +3 au total. Même un Maïs vendu rapporte alors des Pesos.',byd:'Le Paysan qui a un Dépôt de Matériaux ne prend pas deux Carrières. Avec l\'Hacienda, la tuile face cachée reste une plantation.',hac:'La tuile tirée se pose aussitôt, sans possibilité de la refuser. Ton action normale suit.',swh:'Tu dois quand même charger tout ce que tu peux pendant la phase.',hos:'L\'ouvrier ne peut aller que sur la tuile que tu viens de poser (avec l\'Hacienda, sur l\'une des deux).',off:'Un autre joueur avec un Comptoir peut aussi doubler le même type, s\'il reste de la place.',lmk:'S\'applique à chaque vente à la Maison de Commerce, privilège ou non.',lwh:'Avec le Petit Entrepôt : 3 types complets + 1 baril.',fac:'Seul compte le nombre de types différents, pas les quantités.',sch:'Un seul ouvrier, même pour un bâtiment à 3 demi-cercles.',har:'Chaque chargement compte : plusieurs tours de chargement = plusieurs PV.',wha:'Le navire privé n\'a pas de limite, accepte un type déjà présent sur un cargo, et tous les barils de ce type doivent partir.'};
 LABS.cards={html:()=>`<div class="lab"><h3>Atelier : fiches des petits bâtiments</h3><p class="hint">Clique sur un bâtiment.</p><div class="row" id="cd-l">${['smk','byd','hac','swh','hos','off','lmk','lwh','fac','sch','har','wha'].map(i=>`<button type="button" data-b="${i}">${BI[i].fr}</button>`).join('')}</div><div class="out" id="cd-o">Choisis un bâtiment.</div></div>`,
 init(r){$$('#cd-l button',r).forEach(b=>b.onclick=()=>{$$('#cd-l button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');const d=BI[b.dataset.b];
  $('#cd-o',r).innerHTML=`<b>${d.fr}</b> <span class="en">${d.en}</span><br>Coût ${d.cost} · ${d.vp} PV · rangée ${d.row} · phase : ${d.ph}<br>${d.fx}<br><span class="muted">À savoir : ${CARDNOTE[d.id]}</span>`})}};
@@ -1085,7 +1085,7 @@ window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(CH.
 
 /* ---------- aide-mémoire ---------- */
 function aide(){const roles=[['Paysan','Chacun prend 1 plantation face visible.','Carrière au lieu d\'une plantation.','Fin : défausser et révéler joueurs + 1.'],
- ['Recruteur','Le Registre se distribue 1 par 1 depuis le Recruteur ; on pose et réorganise les ouvriers.','+1 ouvrier de la réserve.','Fin : Registre = emplacements vides des bâtiments, min. le nombre de joueurs.'],
+ ['Recruteur','Le Registre se distribue 1 par 1 depuis le Recruteur ; on pose et réorganise les ouvriers.','+1 ouvrier de la réserve.','Fin : Registre = demi-cercles vides des bâtiments, min. le nombre de joueurs.'],
  ['Bâtisseur','Chacun peut acheter 1 bâtiment.','−1 Peso.','Carrières occupées : −1 chacune, plafond 1/2/3/4 selon la rangée.'],
  ['Producteur','Chacun produit.','+1 baril d\'une marchandise produite.','Maïs : plantation seule. Autres : plantation + bâtiment.'],
  ['Marchand','Chacun peut vendre 1 baril.','+1 Peso.','4 places, pas de doublon (sauf Comptoir) ; vidée si pleine.'],
@@ -1103,7 +1103,7 @@ function aide(){const roles=[['Paysan','Chacun prend 1 plantation face visible.'
  <h2 id="am-fin">Fin de partie</h2><p>À la fin du tour où : la réserve ne peut plus remplir le Registre, <b>ou</b> un joueur a rempli ses 12 cases Ville, <b>ou</b> le dernier jeton PV est pris. Score = jetons PV + PV des bâtiments + bonus des grands bâtiments occupés. Égalité : Pesos + barils.</p>
  <h2 id="am-bat">Bâtiments</h2><p class="small muted">Dans l'ordre du plateau, rangée par rangée ; l'extension I à la fin, par coût.</p><div class="filters2"><div class="seg" id="am-set"><button type="button" data-v="all" class="sel">Tous</button><button type="button" data-v="base">Jeu de base</button><button type="button" data-v="e1">Extension I</button><button type="button" data-v="e2">Extension II</button></div><input type="search" id="am-q" placeholder="Chercher un bâtiment…" aria-label="Chercher un bâtiment"></div><div class="cards" id="am-cards"></div>`;
  let set='all';const norm=t=>t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
- const draw=()=>{const q=norm($('#am-q').value||'');$('#am-cards').innerHTML=B.filter(b=>(set==='all'||b.set===set)&&(!q||norm(b.fr+' '+b.en+' '+b.fx).includes(q))).sort((a,b)=>BOARDORD.indexOf(a.id)-BOARDORD.indexOf(b.id)).map(b=>`<div class="bcard" style="--bc:${b.kind==='prod'?`var(--${{f:'fruit',s:'sugar',t:'tob',k:'cof'}[b.good]})`:KC[b.kind]}"><div class="hd"><div><div class="nm">${b.fr}</div><div class="en">${b.en}</div></div><div class="meta"><span class="coin gold" title="Coût">${b.cost}</span>${vp(b.vp)}</div></div><div class="set">${SETN[b.set]} · ${b.kind==='large'?'grand bâtiment':`rangée ${b.row}`} · ${b.ph}</div><div class="fx">${b.fx}</div><div class="slots">${b.slots?`${b.slots} emplacement${b.slots>1?'s':''}`:'aucun emplacement'}</div></div>`).join('')||'<p class="muted">Aucun bâtiment trouvé.</p>'};
+ const draw=()=>{const q=norm($('#am-q').value||'');$('#am-cards').innerHTML=B.filter(b=>(set==='all'||b.set===set)&&(!q||norm(b.fr+' '+b.en+' '+b.fx).includes(q))).sort((a,b)=>BOARDORD.indexOf(a.id)-BOARDORD.indexOf(b.id)).map(b=>`<div class="bcard" style="--bc:${b.kind==='prod'?`var(--${{f:'fruit',s:'sugar',t:'tob',k:'cof'}[b.good]})`:KC[b.kind]}"><div class="hd"><div><div class="nm">${b.fr}</div><div class="en">${b.en}</div></div><div class="meta"><span class="coin gold" title="Coût">${b.cost}</span>${vp(b.vp)}</div></div><div class="set">${SETN[b.set]} · ${b.kind==='large'?'grand bâtiment':`rangée ${b.row}`} · ${b.ph}</div><div class="fx">${b.fx}</div><div class="slots">${b.slots?`${b.slots} demi-cercle${b.slots>1?'s':''}`:'aucun demi-cercle'}</div></div>`).join('')||'<p class="muted">Aucun bâtiment trouvé.</p>'};
  $$('#am-set button').forEach(b=>b.onclick=()=>{$$('#am-set button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');set=b.dataset.v;draw()});$('#am-q').oninput=draw;draw();
  $$('#aide .toolbar a').forEach(a=>a.onclick=e=>{e.preventDefault();const t=$(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})}
 

@@ -103,13 +103,13 @@ roles = [
   "Hacienda, Dépôt de Matériaux, Hôpital"),
  ("Recruteur", "Chacun prend <b>1 ouvrier</b> du Registre à tour de rôle jusqu'à le vider, puis place et réagence <b>tous</b> ses ouvriers.",
   "<b>+1 ouvrier</b> de la réserve (avant la distribution).",
-  "Le Recruteur remplit le Registre : 1 ouvrier par <b>emplacement d'ouvrier libre sur les bâtiments</b> de tous, <b>au moins le nombre de joueurs</b>.",
-  "Portrait seulement si plus aucun emplacement d'ouvrier libre"),
+  "Le Recruteur remplit le Registre : 1 ouvrier par <b>demi-cercle libre sur les bâtiments</b> de tous, <b>au moins le nombre de joueurs</b>.",
+  "Portrait seulement si plus aucun demi-cercle libre"),
  ("Bâtisseur", "Chacun peut construire <b>1 bâtiment</b> au prix indiqué, sur une case libre de sa ville (grand = 2 cases).",
   "<b>−1 Peso</b> (seulement s'il construit).",
   "Carrière occupée : −1 Peso chacune, plafond 1 / 2 / 3 / 4 selon la rangée. Jamais deux fois le même bâtiment.",
   "École"),
- ("Producteur", "Chacun produit : Maïs = Plantation occupée ; autres = Plantation occupée <b>et</b> emplacement d'ouvrier occupé du bâtiment industriel.",
+ ("Producteur", "Chacun produit : Maïs = Plantation occupée ; autres = Plantation occupée <b>et</b> demi-cercle occupé du bâtiment industriel.",
   "<b>+1 marchandise</b> d'un type qu'il vient de produire.",
   "Réserve épuisée : on repart les mains vides. Le Personnage le plus risqué !",
   "Usine"),
@@ -233,7 +233,7 @@ def band(name, q, lines):
 
 LEG = '<p class="legend"><span class="coin">2</span> coût en Pesos · <span class="vp">1</span> PV en fin de partie · ● nombre maximal d\'ouvriers · <b style="color:#b3261e">noms en rouge</b> : extension 2 (Les Bourgeois). Réduction des Carrières occupées : 1 / 2 / 3 / 4 selon la rangée.</p>'
 Q1 = f'<section class="pg l">{top("Les bâtiments · ordre du plateau","1 / 3")}{band(*BOARD[0])}{band(*BOARD[1])}{LEG}{foot("Seuls les bâtiments occupés ont un effet")}</section>'
-Q2 = f'<section class="pg l">{top("Les bâtiments · ordre du plateau","2 / 3")}{band(*BOARD[2])}{band(*BOARD[3])}<div class="box" style="margin-top:1mm"><p style="margin:0;font-size:7.6pt">Les 5 grands bâtiments valent <b>4 PV</b> même inoccupés ; leur bonus ne compte que s\'ils sont <b>occupés</b> en fin de partie. Ils occupent 2 cases de la ville mais comptent comme <b>un seul</b> bâtiment. Bâtiments industriels : 1 marchandise par emplacement d\'ouvrier occupé, s\'il y a autant de Plantations occupées.</p></div>{LEG}{foot("Seuls les bâtiments occupés ont un effet")}</section>'
+Q2 = f'<section class="pg l">{top("Les bâtiments · ordre du plateau","2 / 3")}{band(*BOARD[2])}{band(*BOARD[3])}<div class="box" style="margin-top:1mm"><p style="margin:0;font-size:7.6pt">Les 5 grands bâtiments valent <b>4 PV</b> même inoccupés ; leur bonus ne compte que s\'ils sont <b>occupés</b> en fin de partie. Ils occupent 2 cases de la ville mais comptent comme <b>un seul</b> bâtiment. Bâtiments industriels : 1 marchandise par demi-cercle occupé, s\'il y a autant de Plantations occupées.</p></div>{LEG}{foot("Seuls les bâtiments occupés ont un effet")}</section>'
 e1 = sorted([b for b in B.values() if b["set"] == "e1"], key=lambda b: (b["cost"], b["fr"]))
 e1ids = [b["id"] for b in e1]
 e1band = '<div class="lines">' + "".join('<div class="line">' + "".join(card(i) for i in e1ids[k:k + 5]) + "".join('<div class="empty"></div>' for _ in range(5 - len(e1ids[k:k + 5]))) + "</div>" for k in range(0, len(e1ids), 5)) + "</div>"

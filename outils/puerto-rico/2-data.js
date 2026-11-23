@@ -20,12 +20,12 @@ const vp=n=>`<span class="vp">${n}</span>`;
    row : rangée du plateau (1 à 3 petits, 4 grands) qui plafonne la réduction des Carrières.
    kind : prod (production), small (petit commercial), large (grand). set : base, e1, e2. */
 const B=[
- {id:'sfw',fr:'Petite Exploitation de Fruits',en:'Small Fruit Warehouse',cost:1,vp:1,slots:1,row:1,kind:'prod',good:'f',sz:'s',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 1 baril de Fruits (1 emplacement).'},
- {id:'ssm',fr:'Petite Raffinerie de Sucre',en:'Small Sugar Mill',cost:2,vp:1,slots:1,row:1,kind:'prod',good:'s',sz:'s',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 1 baril de Sucre (1 emplacement).'},
- {id:'lfw',fr:'Grande Exploitation de Fruits',en:'Large Fruit Warehouse',cost:3,vp:2,slots:3,row:2,kind:'prod',good:'f',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Fruits (3 emplacements).'},
- {id:'lsm',fr:'Grande Raffinerie de Sucre',en:'Large Sugar Mill',cost:4,vp:2,slots:3,row:2,kind:'prod',good:'s',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Sucre (3 emplacements).'},
- {id:'tob',fr:'Séchoir à Tabac',en:'Tobacco Storage',cost:5,vp:3,slots:3,row:3,kind:'prod',good:'t',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Tabac (3 emplacements).'},
- {id:'cof',fr:'Brûlerie de Café',en:'Coffee Roaster',cost:6,vp:3,slots:2,row:3,kind:'prod',good:'k',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 2 barils de Café (2 emplacements).'},
+ {id:'sfw',fr:'Petite Exploitation de Fruits',en:'Small Fruit Warehouse',cost:1,vp:1,slots:1,row:1,kind:'prod',good:'f',sz:'s',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 1 baril de Fruits (1 demi-cercle).'},
+ {id:'ssm',fr:'Petite Raffinerie de Sucre',en:'Small Sugar Mill',cost:2,vp:1,slots:1,row:1,kind:'prod',good:'s',sz:'s',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 1 baril de Sucre (1 demi-cercle).'},
+ {id:'lfw',fr:'Grande Exploitation de Fruits',en:'Large Fruit Warehouse',cost:3,vp:2,slots:3,row:2,kind:'prod',good:'f',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Fruits (3 demi-cercles).'},
+ {id:'lsm',fr:'Grande Raffinerie de Sucre',en:'Large Sugar Mill',cost:4,vp:2,slots:3,row:2,kind:'prod',good:'s',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Sucre (3 demi-cercles).'},
+ {id:'tob',fr:'Séchoir à Tabac',en:'Tobacco Storage',cost:5,vp:3,slots:3,row:3,kind:'prod',good:'t',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 3 barils de Tabac (3 demi-cercles).'},
+ {id:'cof',fr:'Brûlerie de Café',en:'Coffee Roaster',cost:6,vp:3,slots:2,row:3,kind:'prod',good:'k',sz:'l',set:'base',ph:'Producteur',fx:'Produit jusqu\'à 2 barils de Café (2 demi-cercles).'},
 
  {id:'smk',fr:'Petit Marché',en:'Small Market',cost:1,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Marchand',fx:'Quand tu vends à la Maison de Commerce : +1 Peso.'},
  {id:'byd',fr:'Dépôt de Matériaux',en:'Builders Yard',cost:2,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Paysan',fx:'Phase Paysan : tu peux prendre une Carrière au lieu d\'une plantation.'},

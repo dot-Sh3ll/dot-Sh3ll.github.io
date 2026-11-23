@@ -20,12 +20,12 @@ const vp=n=>`<span class="vp">${n}</span>`;
    row: board section (1 to 3 small, 4 large), which caps the Quarry discount.
    kind: prod (production), small, large. set: base, e1, e2. The display name is in "fr" (shared field name with the French page). */
 const B=[
- {id:'sfw',fr:'Small Fruit Warehouse',en:'',cost:1,vp:1,slots:1,row:1,kind:'prod',good:'f',sz:'s',set:'base',ph:'Craftsman',fx:'Produces up to 1 barrel of Fruit (1 worker space).'},
- {id:'ssm',fr:'Small Sugar Mill',en:'',cost:2,vp:1,slots:1,row:1,kind:'prod',good:'s',sz:'s',set:'base',ph:'Craftsman',fx:'Produces up to 1 barrel of Sugar (1 worker space).'},
- {id:'lfw',fr:'Large Fruit Warehouse',en:'',cost:3,vp:2,slots:3,row:2,kind:'prod',good:'f',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 3 barrels of Fruit (3 worker spaces).'},
- {id:'lsm',fr:'Large Sugar Mill',en:'',cost:4,vp:2,slots:3,row:2,kind:'prod',good:'s',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 3 barrels of Sugar (3 worker spaces).'},
- {id:'tob',fr:'Tobacco Storage',en:'',cost:5,vp:3,slots:3,row:3,kind:'prod',good:'t',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 3 barrels of Tobacco (3 worker spaces).'},
- {id:'cof',fr:'Coffee Roaster',en:'',cost:6,vp:3,slots:2,row:3,kind:'prod',good:'k',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 2 barrels of Coffee (2 worker spaces).'},
+ {id:'sfw',fr:'Small Fruit Warehouse',en:'',cost:1,vp:1,slots:1,row:1,kind:'prod',good:'f',sz:'s',set:'base',ph:'Craftsman',fx:'Produces up to 1 barrel of Fruit (1 semicircle).'},
+ {id:'ssm',fr:'Small Sugar Mill',en:'',cost:2,vp:1,slots:1,row:1,kind:'prod',good:'s',sz:'s',set:'base',ph:'Craftsman',fx:'Produces up to 1 barrel of Sugar (1 semicircle).'},
+ {id:'lfw',fr:'Large Fruit Warehouse',en:'',cost:3,vp:2,slots:3,row:2,kind:'prod',good:'f',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 3 barrels of Fruit (3 semicircles).'},
+ {id:'lsm',fr:'Large Sugar Mill',en:'',cost:4,vp:2,slots:3,row:2,kind:'prod',good:'s',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 3 barrels of Sugar (3 semicircles).'},
+ {id:'tob',fr:'Tobacco Storage',en:'',cost:5,vp:3,slots:3,row:3,kind:'prod',good:'t',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 3 barrels of Tobacco (3 semicircles).'},
+ {id:'cof',fr:'Coffee Roaster',en:'',cost:6,vp:3,slots:2,row:3,kind:'prod',good:'k',sz:'l',set:'base',ph:'Craftsman',fx:'Produces up to 2 barrels of Coffee (2 semicircles).'},
 
  {id:'smk',fr:'Small Market',en:'',cost:1,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Trader',fx:'When you sell to the Trading House: +1 coin.'},
  {id:'byd',fr:'Builders Yard',en:'',cost:2,vp:1,slots:1,row:1,kind:'small',set:'base',ph:'Planter',fx:'Planting phase: you may take a Quarry instead of an Estate.'},

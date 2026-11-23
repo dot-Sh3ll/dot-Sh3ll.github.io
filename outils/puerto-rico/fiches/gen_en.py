@@ -42,13 +42,13 @@ roles = [
   "Hacienda, Builders Yard, Hospital"),
  ("Recruiter", "Players take <b>1 worker</b> from the Work Register in turn until it is empty, then place and rearrange <b>all</b> their workers.",
   "<b>+1 worker</b> from the supply (before sharing out).",
-  "The Recruiter refills the Register: 1 worker per <b>empty worker space on Buildings</b> of all players, <b>at least the number of players</b>.",
-  "Portrait only if no worker space is left"),
+  "The Recruiter refills the Register: 1 worker per <b>empty semicircle on Buildings</b> of all players, <b>at least the number of players</b>.",
+  "Portrait only if no semicircle is left"),
  ("Builder", "Each player may build <b>1 Building</b> at the printed price, on an empty City space (Large = 2 spaces).",
   "<b>−1 coin</b> (only if they build).",
   "Occupied Quarry: −1 coin each, capped at 1 / 2 / 3 / 4 by section. Never the same Building twice.",
   "School"),
- ("Craftsman", "Everyone produces: Corn = occupied Estate; others = occupied Estate <b>and</b> occupied worker space in the Production Building.",
+ ("Craftsman", "Everyone produces: Corn = occupied Estate; others = occupied Estate <b>and</b> occupied semicircle in the Production Building.",
   "<b>+1 barrel</b> of a type they just produced.",
   "Supply used up: no Goods. The riskiest role!",
   "Factory"),
@@ -171,7 +171,7 @@ def band(name, q, lines):
 
 LEG = '<p class="legend"><span class="coin">2</span> cost in coins · <span class="vp">1</span> VP at game end · ● maximum number of workers · <b style="color:#b3261e">names in red</b>: Expansion II (The Citizens). Discount from occupied Quarries: 1 / 2 / 3 / 4 by section.</p>'
 Q1 = f'<section class="pg l">{top("Buildings · board order","1 / 3")}{band(*BOARD[0])}{band(*BOARD[1])}{LEG}{foot("Only occupied Buildings have an effect")}</section>'
-Q2 = f'<section class="pg l">{top("Buildings · board order","2 / 3")}{band(*BOARD[2])}{band(*BOARD[3])}<div class="box" style="margin-top:1mm"><p style="margin:0;font-size:7.6pt">The 5 Large Buildings are worth <b>4 VP</b> even when unoccupied; their bonus only counts if they are <b>occupied</b> at the end of the game. They take 2 City spaces but count as <b>a single</b> Building. Production Buildings: 1 Good per occupied worker space, if you have as many occupied Estates.</p></div>{LEG}{foot("Only occupied Buildings have an effect")}</section>'
+Q2 = f'<section class="pg l">{top("Buildings · board order","2 / 3")}{band(*BOARD[2])}{band(*BOARD[3])}<div class="box" style="margin-top:1mm"><p style="margin:0;font-size:7.6pt">The 5 Large Buildings are worth <b>4 VP</b> even when unoccupied; their bonus only counts if they are <b>occupied</b> at the end of the game. They take 2 City spaces but count as <b>a single</b> Building. Production Buildings: 1 Good per occupied semicircle, if you have as many occupied Estates.</p></div>{LEG}{foot("Only occupied Buildings have an effect")}</section>'
 e1ids = [b["id"] for b in sorted([b for b in B.values() if b["set"] == "e1"], key=lambda b: (b["cost"], b["fr"]))]
 e1band = '<div class="lines">' + "".join('<div class="line">' + "".join(card(i) for i in e1ids[k:k + 5]) + "".join('<div class="empty"></div>' for _ in range(5 - len(e1ids[k:k + 5]))) + "</div>" for k in range(0, len(e1ids), 5)) + "</div>"
 Q3 = f'<section class="pg l">{top("Expansion I · New Buildings","3 / 3")}<p style="font-size:7.6pt">These Buildings are not printed on the board: during setup, players take turns choosing Commercial Buildings (base + Expansion I) and place each on a space of the <b>same cost</b>. Sorted here by cost.</p>{e1band}{LEG.replace("· <b style=\"color:#b3261e\">names in red</b>: Expansion II (The Citizens). ", "· ")}{foot("Names from the English rulebook")}</section>'

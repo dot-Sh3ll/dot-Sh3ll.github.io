@@ -11,15 +11,15 @@ rules:[
 `VP come from three sources: <b>VP chips</b> earned by shipping Goods, the <b>VP printed on your Buildings</b>, and the <b>bonuses of occupied Large Buildings</b>.`,
 `Your <b>Island board</b> has 12 <b>Countryside</b> spaces at the top (Estates and Quarries) and 12 <b>City</b> spaces at the bottom (Buildings). The <b>Portrait</b> holds your coins, your barrels and the workers who have no room.`,
 `Coins and barrels stay visible to all. VP chips may be placed face down.`,
-`Each tile has 1 to 3 <b>worker spaces</b> (semicircles). A worker space holds exactly 1 worker. A tile with at least 1 worker is <b>occupied</b>, and only occupied tiles work.`
+`Each tile has 1 to 3 <b>semicircles</b>. A semicircle holds exactly 1 worker. A tile with at least 1 worker is <b>occupied</b>, and only occupied tiles work.`
 ],
 html:`<h2>The five Goods</h2>
 <div class="tw"><table><tr><th>Good</th><th>To produce it</th><th class="c">Sale price</th></tr>
 <tr><td>${G.c}</td><td>An occupied Corn Estate is enough, no Building needed.</td><td class="c">0</td></tr>
-<tr><td>${G.f}</td><td>Occupied Fruit Estate + occupied space in a Fruit Warehouse.</td><td class="c">1</td></tr>
-<tr><td>${G.s}</td><td>Occupied Sugar Estate + occupied space in a Sugar Mill.</td><td class="c">2</td></tr>
-<tr><td>${G.t}</td><td>Occupied Tobacco Estate + occupied space in the Tobacco Storage.</td><td class="c">3</td></tr>
-<tr><td>${G.k}</td><td>Occupied Coffee Estate + occupied space in the Coffee Roaster.</td><td class="c">4</td></tr></table></div>
+<tr><td>${G.f}</td><td>Occupied Fruit Estate + occupied semicircle in a Fruit Warehouse.</td><td class="c">1</td></tr>
+<tr><td>${G.s}</td><td>Occupied Sugar Estate + occupied semicircle in a Sugar Mill.</td><td class="c">2</td></tr>
+<tr><td>${G.t}</td><td>Occupied Tobacco Estate + occupied semicircle in the Tobacco Storage.</td><td class="c">3</td></tr>
+<tr><td>${G.k}</td><td>Occupied Coffee Estate + occupied semicircle in the Coffee Roaster.</td><td class="c">4</td></tr></table></div>
 <div class="note"><b>Names.</b> This tutorial uses the terms of the English Puerto Rico 1897 rulebook. The 2002 Puerto Rico used other names (colonists, indigo, mayor…): the rules are the same.</div>`,
 cas:[
 {q:`Your Tobacco Storage is built but nobody works there. Your Tobacco Estate does have its worker. How much Tobacco do you produce?`,o:[`1 barrel: the Estate is occupied`,`None: the Storage is not occupied, so it doesn't work`,`1 barrel, but only if you are the Craftsman`],a:1,w:`A tile only works when occupied. For Tobacco you need both the occupied Estate and a worker in the Tobacco Storage.`},
@@ -27,7 +27,7 @@ cas:[
 ],
 quiz:[
 {q:`When you choose a role, who gets its advantage?`,o:[`All players`,`Only you`,`The Governor`],a:1,w:`Everyone performs the action; only the player who took the card gets the advantage.`},
-{q:`How many workers fit on one worker space?`,o:[`1`,`2`,`As many as you like`],a:0,w:`Exactly 1 worker per worker space.`},
+{q:`How many workers fit on one semicircle?`,o:[`1`,`2`,`As many as you like`],a:0,w:`Exactly 1 worker per semicircle.`},
 {q:`Which Good is produced without a Building?`,o:[`Fruit`,`Corn`,`Coffee`],a:1,w:`Each occupied Corn Estate yields 1 barrel directly.`}
 ]},
 
@@ -104,22 +104,22 @@ lead:`Recruit workers, then place or rearrange them. It is the only time workers
 rules:[
 `The Recruiter first takes <b>1 worker from the supply</b> (advantage; not from the Work Register).`,
 `Then, starting with the Recruiter and going clockwise, players take <b>1 worker from the Work Register in turn</b> until it is empty. Players may therefore receive different numbers of workers.`,
-`Everyone places their workers (new or old) on empty spaces of Estates, Quarries or Buildings. You may also <b>freely move</b> workers placed earlier.`,
-`A worker goes onto the Portrait <b>only if there is no empty worker space left</b> on your Island. It will wait for the next Recruitment phase.`,
+`Everyone places their workers (new or old) on empty semicircles of Estates, Quarries or Buildings. You may also <b>freely move</b> workers placed earlier.`,
+`A worker goes onto the Portrait <b>only if there is no empty semicircle left</b> on your Island. It will wait for the next Recruitment phase.`,
 `Players place clockwise from the Recruiter, or simultaneously if everyone agrees.`,
-`End of the phase: the Recruiter refills the Work Register with as many workers as there are <b>empty worker spaces on Buildings</b> across all players (not on Estates or Quarries), with <b>at least the number of players</b>.`,
+`End of the phase: the Recruiter refills the Work Register with as many workers as there are <b>empty semicircles on Buildings</b> across all players (not on Estates or Quarries), with <b>at least the number of players</b>.`,
 `If the supply cannot refill the Work Register, the game will end at the end of the round. If the supply is empty, the Recruiter loses the advantage.`
 ],
 html:`<div class="ex"><b>Rulebook example (4 players).</b> 6 workers on the Work Register. The Recruiter takes 1 worker from the supply, then the Register is shared out: Recruiter, 2nd, 3rd, 4th, Recruiter, 2nd. Result: 3 workers for the Recruiter (including the one from the supply), 2 for the 2nd player, 1 each for the 3rd and 4th.</div>`,
 lab:'recruit',
 cas:[
-{q:`You have 2 workers to place. One space is left on your Corn Estate and none elsewhere. Where does the second one go?`,o:[`Onto the Portrait`,`You must free a space by moving a worker`,`It goes back to the supply`],a:0,w:`The Portrait is for when every space is taken. You could also move other workers, but that creates no extra room.`},
+{q:`You have 2 workers to place. One semicircle is left on your Corn Estate and none elsewhere. Where does the second one go?`,o:[`Onto the Portrait`,`You must free a semicircle by moving a worker`,`It goes back to the supply`],a:0,w:`The Portrait is for when every semicircle is taken. You could also move other workers, but that creates no extra room.`},
 {q:`During a Production phase, you would like to move a worker from your Corn Estate to your Coffee Roaster.`,o:[`Allowed at any time`,`Not allowed: workers only move in the Recruitment phase`],a:1,w:`Exception: the Bohio from Expansion I.`},
-{q:`End of the phase, 4 players. There are only 2 empty worker spaces on all Buildings combined. How many workers go onto the Register?`,o:[`2`,`4`,`0`],a:1,w:`At least as many as there are players.`}
+{q:`End of the phase, 4 players. There are only 2 empty semicircles on all Buildings combined. How many workers go onto the Register?`,o:[`2`,`4`,`0`],a:1,w:`At least as many as there are players.`}
 ],
 quiz:[
 {q:`Where does the Recruiter's advantage worker come from?`,o:[`The Work Register`,`The supply`],a:1,w:`It is taken from the supply, before the Register is shared out.`},
-{q:`What do you count to refill the Work Register?`,o:[`Empty worker spaces on Buildings`,`Empty worker spaces everywhere`,`Workers on Portraits`],a:0,w:`Buildings only, not Estates or Quarries.`}
+{q:`What do you count to refill the Work Register?`,o:[`Empty semicircles on Buildings`,`Empty semicircles everywhere`,`Workers on Portraits`],a:0,w:`Buildings only, not Estates or Quarries.`}
 ]},
 
 {id:'batisseur',part:'The roles',t:'The Builder',
@@ -152,15 +152,15 @@ rules:[
 `The Craftsman produces first, then each player clockwise. Barrels go onto the Portrait.`,
 `${G.c}: 1 barrel per <b>occupied</b> Corn Estate.`,
 `${G.f}, ${G.s}, ${G.t}, ${G.k}: 1 barrel per occupied Estate that has a <b>matching worker in a Production Building</b> of the same type. In practice: the smaller of the two numbers.`,
-`Each Production Building space handles 1 barrel: Small Fruit Warehouse and Small Sugar Mill 1, Large Fruit Warehouse and Large Sugar Mill 3, Tobacco Storage 3, Coffee Roaster 2.`,
+`Each Production Building semicircle handles 1 barrel: Small Fruit Warehouse and Small Sugar Mill 1, Large Fruit Warehouse and Large Sugar Mill 3, Tobacco Storage 3, Coffee Roaster 2.`,
 `Advantage: once everyone has produced, the Craftsman takes <b>1 more barrel</b> of a Good they produced this phase. Nothing produced, no advantage.`,
 `If the supply of a Good runs out, later players get none of it. Production order matters.`,
 `Related Building: ${bn('fac')}, which pays coins by the number of types produced.`
 ],
-html:`<div class="ex"><b>Rulebook example.</b> 3 Corn Estates, 2 of them occupied: 2 Corn. Tobacco Storage with 1 of 2 spaces occupied for 2 occupied Tobacco Estates: 1 Tobacco. 4 Sugar Estates, 3 occupied, full Large Sugar Mill: 3 Sugar.</div>`,
+html:`<div class="ex"><b>Rulebook example.</b> 3 Corn Estates, 2 of them occupied: 2 Corn. Tobacco Storage with 1 of 2 semicircles occupied for 2 occupied Tobacco Estates: 1 Tobacco. 4 Sugar Estates, 3 occupied, full Large Sugar Mill: 3 Sugar.</div>`,
 lab:'prod',
 cas:[
-{q:`You have 3 occupied Fruit Estates and an occupied Small Fruit Warehouse. How much Fruit?`,o:[`3`,`1`,`0`],a:1,w:`The Small Fruit Warehouse has a single space: 1 barrel at most.`},
+{q:`You have 3 occupied Fruit Estates and an occupied Small Fruit Warehouse. How much Fruit?`,o:[`3`,`1`,`0`],a:1,w:`The Small Fruit Warehouse has a single semicircle: 1 barrel at most.`},
 {q:`You would produce 1 Corn, your opponents 3 Coffee and 4 Sugar. Captain and Trader are still free. Do you take the Craftsman?`,o:[`Yes, production is always good`,`Rather not: you'd give the others far more than yourself`],a:1,w:`The rulebook warns: the Craftsman is the riskiest role.`},
 {q:`You are the Craftsman and produced 2 Corn and 1 Tobacco. Which bonus barrel do you take?`,o:[`A Coffee, the most valuable`,`A Corn or a Tobacco, your choice`,`None: you need 3 types`],a:1,w:`The bonus barrel must be a Good produced during the phase.`}
 ],
@@ -257,23 +257,23 @@ quiz:[
 lead:`A few rules apply to all Buildings. Production Buildings turn crops into Goods.`,
 rules:[
 `Each Building may only be built <b>once per player</b>.`,
-`A Building is occupied as soon as a worker is on one of its spaces. Only occupied Buildings give their function.`,
+`A Building is occupied as soon as a worker is on one of its semicircles. Only occupied Buildings give their function.`,
 `The number at the top right gives the <b>end-game VP</b>, whether the Building is occupied or not.`,
-`The number in the first space is the <b>cost</b>. Once built, it no longer matters.`,
+`The number in the first semicircle is the <b>cost</b>. Once built, it no longer matters.`,
 `Commercial Building functions are <b>optional</b>. Their icon shows the phase in which they work.`,
 `You may rearrange your Buildings to make room for a Large one, but never remove one.`,
-`Production Buildings: you need the occupied Estate <b>and</b> an occupied space in the Building of the same type. Corn has no Building.`
+`Production Buildings: you need the occupied Estate <b>and</b> an occupied semicircle in the Building of the same type. Corn has no Building.`
 ],
-html:`<h2>The six Production Buildings</h2><div class="tw"><table><tr><th>Building</th><th>Good</th><th class="c">Cost</th><th class="c">VP</th><th class="c">Worker spaces</th></tr>
+html:`<h2>The six Production Buildings</h2><div class="tw"><table><tr><th>Building</th><th>Good</th><th class="c">Cost</th><th class="c">VP</th><th class="c">Semicircles</th></tr>
 ${['sfw','lfw','ssm','lsm','tob','cof'].map(i=>{const b=BI[i];return `<tr><td><b>${b.fr}</b></td><td>${G[b.good]}</td><td class="c">${b.cost}</td><td class="c">${b.vp}</td><td class="c">${b.slots}</td></tr>`}).join('')}
 </table></div>
 <div class="note"><b>Small + Large of the same type?</b> Allowed: they are two different Buildings. A fully occupied Small and Large Fruit Warehouse handle up to 4 Fruit.</div>`,
 cas:[
 {q:`End of the game: your Harbor (3 VP) has no worker. Does it count?`,o:[`Yes, 3 VP`,`No, it must be occupied`],a:0,w:`Printed VP always count. Only Large Building bonuses require occupation.`},
-{q:`You have 2 occupied Coffee Estates and a Coffee Roaster with 1 of 2 spaces occupied. What do you produce?`,o:[`2 Coffee`,`1 Coffee`],a:1,w:`One worker in the Coffee Roaster = 1 barrel handled.`}
+{q:`You have 2 occupied Coffee Estates and a Coffee Roaster with 1 of 2 semicircles occupied. What do you produce?`,o:[`2 Coffee`,`1 Coffee`],a:1,w:`One worker in the Coffee Roaster = 1 barrel handled.`}
 ],
 quiz:[
-{q:`How many worker spaces does the Coffee Roaster have?`,o:[`1`,`2`,`3`],a:1,w:`2 spaces, whereas the Tobacco Storage has 3.`},
+{q:`How many semicircles does the Coffee Roaster have?`,o:[`1`,`2`,`3`],a:1,w:`2 semicircles, whereas the Tobacco Storage has 3.`},
 {q:`Does an occupied Commercial Building force you to use its function?`,o:[`Yes`,`No`],a:1,w:`It is always optional, which matters most for the Wharf.`}
 ]},
 
@@ -289,7 +289,7 @@ rules:[
 `${bn('lmk')}: +2 coins per sale, +3 with an occupied Small Market.`,
 `${bn('lwh')}: keep 2 whole types (3 with the Small Warehouse), plus the usual barrel.`,
 `${bn('fac')}: in the Production phase, by number of types produced: 2 → 1 coin, 3 → 2, 4 → 3, 5 → 5. The number of barrels per type doesn't matter.`,
-`${bn('sch')}: when you build, 1 worker from the supply goes on the new Building (from the Register if the supply is empty). Just one, even if the Building has several spaces.`,
+`${bn('sch')}: when you build, 1 worker from the supply goes on the new Building (from the Register if the supply is empty). Just one, even if the Building has several semicircles.`,
 `${bn('har')}: +1 VP each time you load (Wharf included).`,
 `${bn('wha')}: once per Shipment phase, at a moment you choose on your turn, all barrels of 1 type onto a Chartered Ship. Optional.`
 ],
@@ -297,7 +297,7 @@ lab:'cards',
 cas:[
 {q:`You have an occupied Hacienda and Builders Yard. What can you do in the Planting phase?`,o:[`Take 2 Quarries`,`Face-down Estate (Hacienda), then a Quarry as your normal action`,`A Quarry instead of the face-down Estate`],a:1,w:`The Hacienda always gives a face-down Estate. The Builders Yard only applies to the normal action.`},
 {q:`Occupied Factory. You produce 3 Corn, 1 Coffee, 2 Fruit. How many coins?`,o:[`2`,`3`,`6`],a:0,w:`3 different types: 2 coins (rulebook example).`},
-{q:`Occupied School, you build the Large Fruit Warehouse (3 spaces).`,o:[`1 free worker on it`,`3 free workers`,`1 worker, placed anywhere`],a:0,w:`A single worker, and only on the new Building.`},
+{q:`Occupied School, you build the Large Fruit Warehouse (3 semicircles).`,o:[`1 free worker on it`,`3 free workers`,`1 worker, placed anywhere`],a:0,w:`A single worker, and only on the new Building.`},
 {q:`You have an occupied Small and Large Market and sell 1 Corn without being the Trader.`,o:[`0`,`3`,`4`],a:1,w:`0 + 3.`}
 ],
 quiz:[
@@ -424,7 +424,7 @@ rules:[
 `Add the Smuggler card to the usual roles. Whoever chooses it also takes the <b>Smuggler player tile</b>, then performs <b>one</b> of the 4 actions. The other players do nothing.`,
 `<b>Raid</b>: remove all Goods from one Cargo Ship; keep up to 3 of them, the rest go back to the supply.`,
 `<b>Plunder</b>: remove all Goods from the Trading House and earn 1 VP per barrel removed.`,
-`<b>Poach</b>: reduce the Work Register to the number of players; keep up to 3 of the removed workers and place them at once on empty worker spaces (not on the Portrait).`,
+`<b>Poach</b>: reduce the Work Register to the number of players; keep up to 3 of the removed workers and place them at once on empty semicircles (not on the Portrait).`,
 `<b>Capture</b>: take an unused role in front of you, with its coins. If an opponent chooses it this round, take 3 coins from the Bank. If nobody does, play it at the end of the round with its advantage, and the others perform the action.`,
 `No coin is placed on the Smuggler if it isn't chosen. The holder of the player tile cannot choose the Smuggler again until someone else has played it.`
 ],
@@ -432,7 +432,7 @@ cas:[
 {q:`The Trading House holds 3 barrels. You take the Smuggler and Plunder.`,o:[`3 VP`,`3 coins`,`The 3 barrels`],a:0,w:`1 VP per barrel removed, and the barrels go back to the supply.`}
 ],
 quiz:[
-{q:`Poach: where do the captured workers go?`,o:[`Onto the Portrait`,`At once onto empty worker spaces of your Island`],a:1,w:`They cannot be stored on the Portrait.`}
+{q:`Poach: where do the captured workers go?`,o:[`Onto the Portrait`,`At once onto empty semicircles of your Island`],a:1,w:`They cannot be stored on the Portrait.`}
 ]},
 
 {id:'ext4',part:'Expansions',t:'Expansion IV: The Festival',
