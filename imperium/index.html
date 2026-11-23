@@ -463,6 +463,18 @@ button.natb.sel small{color:inherit}
 @media (max-width:1000px){#tab-solo.fon #dg-market{margin-right:clamp(16px,4vw,32px)}}
 #tab-solo.fon .fopen{display:none}
 </style>
+<!--pwa-->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/favicon-32.png" type="image/png">
+<meta name="theme-color" content="#0d0f16">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Less Rules">
+<script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
+<script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<!--/pwa-->
 <style id="sitehead-css">
 @font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
 .sitehead{position:sticky;top:0;z-index:9;background:#0d0f16;border-bottom:1px solid #2a3144;color:#efe8d8;font:500 15px/1.2 "Figtree","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
@@ -490,19 +502,8 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 84px)!important}
 header.top{top:var(--sitehead-h)!important}
 nav{top:var(--sitehead-h)!important;height:calc(100vh - var(--sitehead-h))!important}
 .fpanel{top:calc(62px + var(--sitehead-h))!important}
+.sitehead .sh-in{max-width:none;padding:0 clamp(12px,3vw,28px)}
 </style>
-<!--pwa-->
-<link rel="manifest" href="../manifest.webmanifest">
-<link rel="icon" href="../icons/favicon-32.png" type="image/png">
-<meta name="theme-color" content="#0d0f16">
-<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Less Rules">
-<script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
-<script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<!--/pwa-->
 </head>
 <body>
 <header class="sitehead">
@@ -514,6 +515,7 @@ nav{top:var(--sitehead-h)!important;height:calc(100vh - var(--sitehead-h))!impor
 </div>
 </div>
 </header><!--/sitehead-->
+
 
 
 
