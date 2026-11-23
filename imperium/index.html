@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>try{if(localStorage.getItem("site-lang")==="en"&&!/[?&]lang=fr/.test(location.search))location.replace("en.html"+location.hash)}catch(e){}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Imperium Antique</title>
@@ -462,8 +463,27 @@ button.natb.sel small{color:inherit}
 @media (max-width:1000px){#tab-solo.fon #dg-market{margin-right:clamp(16px,4vw,32px)}}
 #tab-solo.fon .fopen{display:none}
 </style>
+<style id="sitebar-css">
+.sitebar{position:relative;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;height:40px;padding:0 14px;background:#0b0d14;color:#e9e3d5;border-bottom:1px solid rgba(221,185,106,.28);font:500 13.5px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;box-sizing:border-box}
+.sitebar a{color:inherit;text-decoration:none}
+.sitebar .sb-back{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 10px 0 6px;margin-left:-6px;border-radius:8px;font-weight:600}
+.sitebar .sb-back svg{width:16px;height:16px;flex:none}
+.sitebar .sb-back:hover{background:rgba(255,255,255,.08)}
+.sitebar .sb-lang{display:inline-flex;padding:2px;border:1px solid rgba(255,255,255,.16);border-radius:999px}
+.sitebar .sb-lang span,.sitebar .sb-lang a{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.04em}
+.sitebar .sb-lang span{background:#ddb96a;color:#17130a}
+.sitebar .sb-lang a{color:#a3a9b8}
+.sitebar .sb-lang a:hover{color:#fff}
+.sitebar a:focus-visible{outline:2px solid #ddb96a;outline-offset:2px}
+@media print{.sitebar{display:none}}
+</style>
 </head>
 <body>
+<div class="sitebar" role="navigation" aria-label="Navigation du site">
+<a class="sb-back" href="../"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Aides de jeu</a>
+<div class="sb-lang" role="group" aria-label="Langue / Language"><span aria-current="true">FR</span><a href="en.html?lang=en" hreflang="en" lang="en" aria-label="Switch to English" onclick="try{localStorage.setItem('site-lang','en')}catch(e){}">EN</a></div>
+</div><!--/sitebar-->
+
 <header class="top"><div class="logo"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22V6M13 22c-4 0-7-3-8-7 3 0 6 2 8 5M13 22c4 0 7-3 8-7-3 0-6 2-8 5M13 14c-3 0-5-2-6-5 3 0 5 2 6 4M13 14c3 0 5-2 6-5-3 0-5 2-6 4M13 7c-1.5-1-2-3-1.5-4.5C13 3.5 13.5 5 13 7z" fill="none" stroke="#c9a24e" stroke-width="1.5" stroke-linecap="round"/></svg>Imperium Antique</div><div class="tabs"><button type="button" data-tab="apprendre">Apprendre</button><button type="button" data-tab="solo">Jouer en solo</button><button type="button" data-tab="plusieurs">À plusieurs</button><button type="button" data-tab="aide">Aide-mémoire</button></div></header>
 <div class="tab" id="tab-apprendre"><div class="app">
 <nav id="nav">
@@ -2514,15 +2534,5 @@ document.querySelectorAll('.ftabs button').forEach(b=>b.onclick=()=>show(+b.data
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" style="color:inherit;font-weight:600">☕ Cet outil vous a plu ? Offrez-moi un café</a>
 <span style="width:100%;font-size:12px;opacity:.8">Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</span>
 </footer>
-<a href="../" class="site-home" aria-label="Retour à l'accueil des aides de jeu" style="position:fixed;left:14px;bottom:14px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 14px 8px 11px;border-radius:999px;background:rgba(14,16,24,.88);color:#efe8d8;border:1px solid rgba(221,185,106,.55);font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)"><span aria-hidden="true" style="font-size:15px">⌂</span><span class="sh-t">Accueil</span></a>
-<style>
-.site-home{transition:transform .25s ease,opacity .25s ease}
-.site-home.away{transform:translateY(140%);opacity:0;pointer-events:none}
-@media (max-width:640px){.site-home{padding:10px!important;bottom:12px!important;left:12px!important}.site-home .sh-t{display:none}}
-</style>
-<script>
-(function(){var a=document.querySelector(".site-home");if(!a)return;var y=window.scrollY;
-window.addEventListener("scroll",function(){var n=window.scrollY;if(n>y+8&&n>120)a.classList.add("away");else if(n<y-8||n<120)a.classList.remove("away");y=n;},{passive:true});})();
-</script>
 </body>
 </html>
