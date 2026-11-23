@@ -66,10 +66,6 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 16px}
 h2{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0}
 .sec-sub{color:var(--faint);font-size:.88rem;margin:0}
-.more{display:flex;justify-content:center;margin:14px 0 0}
-.more button{font:600 .9rem var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 18px;cursor:pointer}
-.more button:hover{border-color:var(--gold);color:var(--gold)}
-.more button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 .badge{display:inline-flex;align-items:center;gap:5px;font:700 .7rem var(--body);letter-spacing:.06em;text-transform:uppercase;padding:.28rem .55rem;border-radius:999px;background:rgba(13,15,22,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
@@ -368,8 +364,7 @@ footer p{margin:0 0 6px}
     /* applis : dernière mise à jour d'abord ; fiches : date de parution */
     var byUpd=!box.classList.contains("pdfs"), key=function(e){ return byUpd?(e.dataset.updated||e.dataset.created):e.dataset.created };
     items.sort(function(a,b){ return key(b).localeCompare(key(a))||b.dataset.created.localeCompare(a.dataset.created) });
-    /* bouton « Tout afficher » : seules les 3 dernières parutions sont visibles par défaut */
-    if(items.length>3){ var m=document.createElement("div"); m.className="more"; m.innerHTML='<button type="button" aria-expanded="false"></button>'; box.parentNode.insertBefore(m,box.nextSibling); box._more=m; box._n=items.length }
+    box._limit=true;
     items.forEach(function(it){ box.insertBefore(it, empty) });
   });
 
@@ -380,16 +375,9 @@ footer p{margin:0 0 6px}
   function apply(){
     var terms=norm(q.value).split(/\s+/).filter(Boolean);
     items.forEach(function(it){ it.el.hidden=!((game==="all"||it.el.dataset.game===game)&&terms.every(function(t){return it.text.indexOf(t)>-1})) });
-    /* sans filtre ni recherche : 3 dernières parutions par section, sauf si « Tout afficher » */
-    var all=game==="all"&&!terms.length;
-    document.querySelectorAll("[data-sort]").forEach(function(box){
-      if(!box._more) return;
-      var open=box._open, btn=box._more.firstChild;
-      if(all&&!open) [].slice.call(box.querySelectorAll("[data-created]")).slice(3).forEach(function(e){ e.hidden=true });
-      box._more.hidden=!all;
-      btn.setAttribute("aria-expanded",String(!!open));
-      btn.innerHTML=open?'<span class="fr">Afficher moins</span><span class="en">Show less</span>':'<span class="fr">Tout afficher ('+box._n+')</span><span class="en">Show all ('+box._n+')</span>';
-      btn.onclick=function(){ box._open=!box._open; apply() };
+    /* sans filtre ni recherche : seulement les 3 premières de chaque section */
+    if(game==="all"&&!terms.length) document.querySelectorAll("[data-sort]").forEach(function(box){
+      [].slice.call(box.querySelectorAll("[data-created]")).slice(3).forEach(function(e){ e.hidden=true });
     });
     document.querySelectorAll("[data-empty]").forEach(function(m){ m.hidden=[].some.call(m.parentNode.querySelectorAll("[data-game]"),function(e){return !e.hidden}) });
     try{ var u=new URL(location.href); game==="all"?u.searchParams.delete("jeu"):u.searchParams.set("jeu",game); history.replaceState(null,"",u) }catch(e){}
