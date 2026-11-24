@@ -158,8 +158,8 @@ def main():
                     {"@type": "ListItem", "position": 2, "name": jeu, "item": url}]}]}
             path = os.path.join(dossier, page_file(c))
             poser(path, c, titre, bloc(c, titre, desc, url, alts, f"img/og/{dossier}.jpg", f"{jeu} · {MARQUE}", ld))
-            plan.append((path, alts[:-1], url))
             print("ok", path)
+        plan.append((os.path.join(dossier, page_file("fr")), alts[:-1], None))
         applis_ld.append({"@type": "ListItem", "position": len(applis_ld) + 1, "url": url_page(dossier, "fr"), "name": cfg["jeu"]["fr"]})
 
     # ---- accueil : une seule page HTML, la langue suit ?lang= ; le script ajuste titre, description et canonical
