@@ -2,13 +2,13 @@
    Pages : réseau d'abord (toujours la dernière version), copie locale si pas de réseau.
    Polices, icônes, PDF : copie locale d'abord, mise à jour en arrière-plan.
    Changer VERSION à chaque grosse mise à jour pour vider l'ancien cache. */
-const VERSION = "v15";
+const VERSION = "v16";
 const CACHE = "aides-de-jeu-" + VERSION;
 const PRECACHE = [
   "./", "index.html", "manifest.webmanifest",
   "mage-knight/", "mage-knight/en.html",
   "imperium/", "imperium/en.html",
-  "aeons-end/", "aeons-end/en.html",
+  "aeons-end/", "aeons-end/en.html", "aeons-end/de.html",
   "puerto-rico/", "puerto-rico/en.html",
   "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "icons/favicon-32.png"
 ];

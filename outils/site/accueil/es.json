@@ -1,10 +1,14 @@
 {
  "_name": "ES",
  "_locale": "es-ES",
- "_apps": "en",
+ "_apps": {
+  "*": "en"
+ },
  "_soon": "🇬🇧 De momento, los tutoriales y las hojas están en inglés. La traducción al español llegará pronto.",
  "_k": {
-  "dl": "Descargar (EN)"
+  "dl": "Descargar (EN)",
+  "open": "Abrir",
+  "open_en": "Abrir (EN)"
  },
  "_words": {
   "new": "Nuevo",

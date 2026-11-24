@@ -1,10 +1,22 @@
 #!/usr/bin/env python3
 """Put the site header (same as the home page) at the top of an app page, sticky.
-usage: chrome.py fr|en <file>"""
+usage: chrome.py <code> <file>     (code = fr, en, de… ; ex. chrome.py de aeons-end/de.html)
+       chrome.py <dossier>         toutes les pages d'une appli (ex. chrome.py aeons-end)
+Le bouton de langue montre toutes les langues dont la page existe dans le dossier (voir langs.py) ;
+sur la page française, EN reste affiché grisé tant que en.html n'existe pas."""
 import os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from langs import LABELS, ORDER, available, page_href
+
+if len(sys.argv) == 2 and os.path.isdir(sys.argv[1]):
+    folder = sys.argv[1]
+    for c in available(folder):
+        os.system(f'{sys.executable} "{os.path.abspath(__file__)}" {c} "{os.path.join(folder, "index.html" if c == "fr" else c + ".html")}"')
+    sys.exit()
 mode, path = sys.argv[1], sys.argv[2]
-# page française sans version anglaise : le bouton EN est affiché grisé
-NO_EN = mode == "fr" and not os.path.exists(os.path.join(os.path.dirname(path) or ".", "en.html"))
+langs = available(os.path.dirname(path))
+if mode not in langs:
+    langs.append(mode)
 s = open(path, encoding="utf-8").read()
 
 # remove every previous version of the site chrome
@@ -12,20 +24,29 @@ s = re.sub(r'<a href="\.\./" class="site-home".*?</a>\n?', '', s, flags=re.S)
 s = re.sub(r'<style>\n?\.site-home\{.*?</style>\n?<script>\n?\(function\(\)\{var a=document\.querySelector\("\.site-home"\).*?</script>\n?', '', s, flags=re.S)
 s = re.sub(r'<a href="[^"]*" class="site-lang".*?</a>\n<style>\.site-lang.*?</style>\n<script>.*?</script>\n?', '', s, flags=re.S)
 s = re.sub(r'<div class="sitebar".*?<!--/sitebar-->\n?', '', s, flags=re.S)
-s = re.sub(r'<header class="sitehead".*?<!--/sitehead-->\n?', '', s, flags=re.S)
+s = re.sub(r'\n?<header class="sitehead".*?<!--/sitehead-->\n?', '\n', s, flags=re.S)
 s = re.sub(r'<style id="sitebar-css">.*?</style>\n?', '', s, flags=re.S)
 s = re.sub(r'<style id="sitehead-css">.*?</style>\n?', '', s, flags=re.S)
 
-FR = mode == "fr"
+L = LABELS.get(mode, LABELS["en"])
 brand = "Less Rules, More Play"
-home_aria = "Retour à l'accueil des aides de jeu" if FR else "Back to the game aids home page"
-kofi = "Offrir un café" if FR else "Buy me a coffee"
-other_href = "en.html?lang=en" if FR else "./?lang=fr"
-other_l = "en" if FR else "fr"
-sw_aria = "Switch to English" if FR else "Passer en français"
+home_aria = L["home"]
+kofi = L["kofi"]
 
-fr_item = '<span aria-current="true">FR</span>' if FR else f'<a href="{other_href}" hreflang="fr" lang="fr" aria-label="{sw_aria}" onclick="try{{localStorage.setItem(\'site-lang\',\'fr\')}}catch(e){{}}">FR</a>'
-en_item = '<span class="sh-off" title="English version coming soon" aria-disabled="true">EN</span>' if NO_EN else f'<a href="{other_href}" hreflang="en" lang="en" aria-label="{sw_aria}" onclick="try{{localStorage.setItem(\'site-lang\',\'en\')}}catch(e){{}}">EN</a>' if FR else '<span aria-current="true">EN</span>'
+
+def item(c):
+    if c == mode:
+        return f'<span aria-current="true">{c.upper()}</span>'
+    if c not in langs:
+        # page française sans version anglaise : le bouton EN est affiché grisé
+        return f'<span class="sh-off" title="{LABELS[c]["soon"]}" aria-disabled="true">{c.upper()}</span>'
+    href = page_href(c) + f"?lang={c}"
+    return (f'<a href="{href}" hreflang="{c}" lang="{c}" aria-label="{LABELS[c]["switch"]}" '
+            f'onclick="try{{localStorage.setItem(\'site-lang\',\'{c}\')}}catch(e){{}}">{c.upper()}</a>')
+
+
+shown = [c for c in ORDER if c in langs or c in ("fr", "en")]
+lang_items = "".join(item(c) for c in shown)
 
 css = """<style id="sitehead-css">
 @font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
@@ -57,7 +78,7 @@ bar = f"""<header class="sitehead">
 <div class="sh-in">
 <a class="sh-brand" href="../" aria-label="{home_aria}"><span class="sh-mark" aria-hidden="true">🎲</span><span class="sh-text">{brand}</span></a>
 <div class="sh-act">
-<div class="sh-lang" role="group" aria-label="Langue / Language">{fr_item}{en_item}</div>
+<div class="sh-lang" role="group" aria-label="Langue / Language">{lang_items}</div>
 <a class="sh-kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" aria-label="Ko-fi"><span aria-hidden="true">☕</span><span class="sh-kofi-t">{kofi}</span></a>
 </div>
 </div>
@@ -96,6 +117,6 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
 """
 s = re.sub(r'<style id="sitehead-css-(imp|mk|ae)">.*?</style>\n?', '', s, flags=re.S)
 s = s.replace("</head>", css + extra + "</head>", 1)
-s = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + bar, s, count=1)
+s = re.sub(r"(<body[^>]*>)\n?", lambda m: m.group(1) + "\n" + bar, s, count=1)
 open(path, "w", encoding="utf-8").write(s)
 print("ok", mode, path)

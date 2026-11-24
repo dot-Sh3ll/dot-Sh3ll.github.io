@@ -1,10 +1,15 @@
 {
  "_name": "DE",
  "_locale": "de-DE",
- "_apps": "en",
- "_soon": "🇬🇧 Die Tutorials und Spielhilfen gibt es vorerst auf Englisch. Die deutsche Übersetzung folgt.",
+ "_apps": {
+  "*": "en",
+  "ae": "de"
+ },
+ "_soon": "🇩🇪 Aeon's End gibt es jetzt auf Deutsch. Die anderen Tutorials und Spielhilfen sind vorerst auf Englisch; die deutsche Übersetzung folgt.",
  "_k": {
-  "dl": "Herunterladen (EN)"
+  "dl": "Herunterladen (EN)",
+  "open": "Öffnen",
+  "open_en": "Öffnen (EN)"
  },
  "_words": {
   "new": "Neu",

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>(function(){try{var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:"en:"+x};
-P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))};
-if(localStorage.getItem("site-lang")==="fr"&&!/[?&]lang=en/.test(location.search))location.replace("./"+location.hash)}catch(e){}})();</script>
+<script id="site-lang-js">(function(){try{var C="en",A=["fr", "en"],F={"fr":"./","en":"en.html"},B="en",ls=localStorage;if(C!=="fr"){var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;var sl=ls.getItem("site-lang"),t=null;if(sl)t=sl;else{var n=(navigator.language||"").slice(0,2).toLowerCase();if(n!=="fr"&&n!=="en"&&A.indexOf(n)>-1)t=n}if(t&&A.indexOf(t)<0)t=A.indexOf(B)>-1?B:null;if(t&&t!==C)location.replace(F[t]+location.hash)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Imperium: Classics</title>

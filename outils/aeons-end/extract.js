@@ -33,7 +33,7 @@ function exportsOf(file) {
   return res;
 }
 const out = {};
-for (const lang of ['ENG', 'FR']) {
+for (const lang of (process.env.AER_LANGS || 'ENG,FR').split(',')) {  // ex. AER_LANGS=ENG,FR,DE
   out[lang] = {};
   for (const d of fs.readdirSync(path.join(ROOT, lang))) {
     const dir = path.join(ROOT, lang, d);
@@ -46,5 +46,5 @@ for (const lang of ['ENG', 'FR']) {
 fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
 for (const [d, e] of Object.entries(out.ENG)) {
   const f = out.FR[d];
-  console.log(d.padEnd(22), e.id, e.type, 'cards', e.cards.length, 'mages', e.mages.length, 'nem', e.nemeses.length, f ? `FR(${f.cards.length},${f.mages.length},${f.nemeses.length})` : '');
+  console.log(d.padEnd(22), e.id, e.type, 'cards', e.cards.length, 'mages', e.mages.length, 'nem', e.nemeses.length, Object.keys(out).filter(l => l !== 'ENG' && out[l][d]).map(l => `${l}(${out[l][d].cards.length})`).join(' '));
 }
