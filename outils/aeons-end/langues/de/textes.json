@@ -319,6 +319,10 @@
   [
    "\" title=\"Cost required by the market setup\">Cost '+esc(s.req.label)",
    "\" title=\"Vom Marktaufbau vorgegebene Kosten\">Kosten '+esc(s.req.label)"
+  ],
+  [
+   "return r?esc(r.label):\"any\"; }).join(\" · \")",
+   "return r?esc(r.label):\"beliebig\"; }).join(\" · \")"
   ]
  ],
  "Aeon's End (base game)": "Aeon's End (Grundspiel)",

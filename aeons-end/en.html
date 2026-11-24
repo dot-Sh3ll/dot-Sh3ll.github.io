@@ -54,6 +54,11 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
 .dist span i{font-style:normal;color:var(--muted)}
 .dist input:checked+span{border-color:var(--gold);color:var(--gold)}
 .dist input:checked+span i{color:var(--gold)}
+.dist label.setup-l{flex:1 1 290px;max-width:340px;align-self:stretch}
+.dist span.setup{border-radius:12px;padding:9px 13px;display:flex;flex-direction:column;gap:3px;height:100%}
+.dist span.setup b{font-weight:600;margin-bottom:2px}
+.dist span.setup i{display:block;font-size:13px}
+.dist span.setup em{font-style:normal;display:inline-block;min-width:64px;opacity:.85}
 .dist .dist-sub{flex-basis:100%;color:var(--muted);font-size:13.5px;margin-top:4px}
 .chip.req{color:var(--ink);border-color:var(--gold)}
 .chip.req.off{text-decoration:line-through;opacity:.7}
@@ -907,10 +912,13 @@ const setupOn=()=>!restrict&&SETUPS[distChoice]?distChoice:"";
 function reqOf(code){
   if(code==="*") return null;
   const m=/^([<>=])(\d+)$/.exec(code);
-  if(m){ const n=+m[2]; return {label:(m[1]==="="?"":m[1]+" ")+n, test:m[1]==="<"?c=>c.cost<n:m[1]===">"?c=>c.cost>n:c=>c.cost===n}; }
+  if(m){ const n=+m[2]; return {label:(m[1]==="="?"":m[1]+"\u00a0")+n, test:m[1]==="<"?c=>c.cost<n:m[1]===">"?c=>c.cost>n:c=>c.cost===n}; }
   const v=code.split("/").map(Number); return {label:v.join("/"), test:c=>v.includes(c.cost)};
 }
 function setupText(k){ return TYPES.map(([t,label])=>label+": "+SETUPS[k][t].map(x=>{ const r=reqOf(x); return r?r.label:"any cost"; }).join(", ")).join(" · ") }
+function setupLines(k){ // une ligne par type : coûts des piles, lisibles sans survol
+  return TYPES.map(([t,label])=>'<i><em>'+esc(label)+'</em> '+SETUPS[k][t].map(x=>{ const r=reqOf(x); return r?esc(r.label):"any"; }).join(" · ")+'</i>').join("");
+}
 function perms(a){ return a.length<=1?[a]:a.flatMap((x,i)=>perms(a.slice(0,i).concat(a.slice(i+1))).map(r=>[x].concat(r))) }
 function applySetup(slots){ // donne à chaque pile sa contrainte de coût, en gardant au mieux les rôles ou le thème
   const k=setupOn(); if(!k) return slots;
@@ -1343,8 +1351,10 @@ function renderDist(){
   const f=$("dist");
   DISTS.forEach(([k,name,a])=>{
     if(k==="m1"){ const h=document.createElement("div"); h.className="dist-sub"; h.textContent="Official setups (Market Setup cards):"; f.appendChild(h); }
-    const l=document.createElement("label"); if(SETUPS[k]) l.title=setupText(k);
-    l.innerHTML='<input type="radio" name="dist" id="dist-'+k+'" value="'+k+'"'+(k===distChoice?" checked":"")+'><span>'+esc(name)+(a?' <i>'+a.join(" · ")+'</i>':'')+'</span>';
+    const l=document.createElement("label"); if(SETUPS[k]) l.className="setup-l";
+    l.innerHTML='<input type="radio" name="dist" id="dist-'+k+'" value="'+k+'"'+(k===distChoice?" checked":"")+'>'+(SETUPS[k]
+      ? '<span class="setup"><b>'+esc(name)+'</b>'+setupLines(k)+'</span>'
+      : '<span>'+esc(name)+(a?' <i>'+a.join(" · ")+'</i>':'')+'</span>');
     l.querySelector("input").onchange=()=>{ distChoice=k; try{localStorage.setItem("ae-dist",k)}catch(e){} showWarn(); };
     f.appendChild(l);
   });
