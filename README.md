@@ -2,7 +2,7 @@
 
 Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, compagnons solo et outils.
 
-**Site :** https://dot-sh3ll.github.io/
+**Site :** paulmoussard.com
 
 - Mage Knight — tutoriel et compagnon
 - Imperium Antique — tutoriel, solo contre la C.I.V., aide-mémoire
