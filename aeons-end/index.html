@@ -218,6 +218,19 @@ input[type=checkbox]{accent-color:var(--gold);width:16px;height:16px;transform:t
 .chip.role{color:var(--gold);border-color:#6b5a2d}
 .swap{background:none;border:none;color:var(--muted);font-size:13px;padding:2px 0;text-decoration:underline;text-underline-offset:3px}
 .swap:hover{color:var(--ink)}
+.card.free{border-style:dashed;border-top-style:dashed;min-height:150px}
+.addbtn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:none;border:none;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;padding:10px}
+.addbtn .plus{width:48px;height:48px;border-radius:50%;border:2px dashed var(--c);color:var(--c);display:grid;place-items:center;font-size:30px;line-height:1}
+.addbtn b{font-family:var(--display);font-weight:400;font-size:17px;color:var(--ink)}
+.addbtn:hover .plus,.addbtn:focus-visible .plus{border-style:solid}
+.picker{display:flex;flex-direction:column;gap:8px;min-width:0}
+.picker .q{font-family:var(--display);font-size:16px}
+.picker input{width:100%;box-sizing:border-box;background:transparent;border:1px solid var(--line);border-radius:8px;padding:7px 10px;color:var(--ink);font:inherit;font-size:14px}
+.picker ul{list-style:none;margin:0;padding:0;max-height:270px;overflow:auto;display:flex;flex-direction:column;gap:2px}
+.picker li button{width:100%;display:flex;gap:8px;align-items:center;background:none;border:1px solid transparent;border-radius:8px;padding:5px 6px;color:var(--ink);font:inherit;font-size:14px;text-align:left;cursor:pointer}
+.picker li button:hover,.picker li button:focus-visible{border-color:var(--line);background:rgba(255,255,255,.05)}
+.picker .pc{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--c);color:var(--c);display:grid;place-items:center;font-size:12.5px;font-weight:700}
+.picker .row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
 footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padding-top:14px;max-width:80ch}
 [hidden]{display:none!important}
 @media (max-width:720px){.modes{grid-template-columns:1fr}}
@@ -926,9 +939,9 @@ function applySetup(slots){ // donne à chaque pile sa contrainte de coût, en g
     const ss=slots.filter(s=>s.type===t), reqs=SETUPS[k][t].map(reqOf), p=pool(t);
     let best=null, bs=-1;
     perms(reqs.map((_,i)=>i)).forEach(o=>{ let sc=0;
-      ss.forEach((s,j)=>{ const r=reqs[o[j]]; if(p.some(c=>(!r||r.test(c))&&(!s.test||s.test(c)))) sc+=2; else if(!r||p.some(r.test)) sc+=1; });
+      ss.forEach((s,j)=>{ const r=reqs[o[j]]; if(!r&&s.key) sc-=1; if(p.some(c=>(!r||r.test(c))&&(!s.test||s.test(c)))) sc+=2; else if(!r||p.some(r.test)) sc+=1; });
       if(sc>bs){ bs=sc; best=o; } });
-    ss.forEach((s,j)=>{ s.req=reqs[best[j]]; });
+    ss.forEach((s,j)=>{ s.req=reqs[best[j]]; s.free=!s.req; if(s.free){ s.test=null; s.role=""; s.key=false; } });
   });
   return slots;
 }
@@ -1174,14 +1187,14 @@ function enough(){ const d=DISTS.find(x=>x[0]===distChoice); return d[2]?fits(d[
 let avoidRecent=true, themeChoice="";
 function loadRecent(){ try{ const r=JSON.parse(localStorage.getItem("ae-recent")||"[]"); return Array.isArray(r)?r.slice(0,3):[] }catch(e){ return [] } }
 function recentIds(){ return avoidRecent?new Set(loadRecent().flat()):new Set() }
-function pushRecent(m){ try{ localStorage.setItem("ae-recent",JSON.stringify([m.slots.map(s=>s.card.id)].concat(loadRecent()).slice(0,3))) }catch(e){} }
+function pushRecent(m){ try{ localStorage.setItem("ae-recent",JSON.stringify([m.slots.filter(s=>s.card).map(s=>s.card.id)].concat(loadRecent()).slice(0,3))) }catch(e){} }
 function fill(slots, chooser){
   const used=new Set(), recent=recentIds();
   for(const s of slots){
     if(s.card){used.add(s.card.id);continue}
   }
   for(const s of slots){
-    if(s.card) continue;
+    if(s.card||s.free) continue;
     const ok=c=>!used.has(c.id)&&(!s.req||s.req.test(c));
     let cand=pool(s.type).filter(c=>ok(c) && (!s.test||s.test(c)));
     if(!cand.length){ s.test=null; s.role=s.fallbackRole||(s.req?"":s.role); cand=pool(s.type).filter(ok); } // rôle impossible avec le coût imposé : pas d'étiquette
@@ -1231,7 +1244,7 @@ function genCombo(dist){
   // un marché reste jouable : une gemme et un sort abordables
   const g=slots.filter(s=>s.type==="Gem"), sp=slots.filter(s=>s.type==="Spell");
   const res={mode:"combo",dist,theme:k,chosen:k===themeChoice,slots:fill(applySetup(slots),pick)};
-  res.slots.forEach(s=>{ if(s.key&&!inT(s.card)) s.key=false; });
+  res.slots.forEach(s=>{ if(s.key&&(!s.card||!inT(s.card))) s.key=false; });
   ensureCheap(res,g,"Gem"); ensureCheap(res,sp,"Spell");
   return res;
 }
@@ -1246,7 +1259,8 @@ function ensureCheap(res,group,type){
   if(cand.length){ target.card=pick(cand); if(target.key&&!inT(target.card)){ target.key=false; target.test=c=>!inT(c) } }
 }
 function swap(i){
-  const s=current.slots[i], used=new Set(current.slots.map(x=>x.card.id));
+  const s=current.slots[i]; if(s.free){ picking=i; render(); return; }
+  const used=new Set(current.slots.filter(x=>x.card).map(x=>x.card.id));
   const ok=c=>!used.has(c.id)&&(!s.req||s.req.test(c));
   let cand=pool(s.type).filter(c=>ok(c)&&(!s.test||s.test(c)));
   if(!cand.length) cand=pool(s.type).filter(ok);
@@ -1263,7 +1277,7 @@ function fxHtml(fx){
   return fx.split("~").map(part=>part.split("|").map(l=>esc(l).replace(/^(Lancer :|Écho|Lien|Connectez)/,"<b>$1</b>")).join("<br>")).join('<span class="or">OU</span>');
 }
 const MODES={opt:["Le plus facile","Marché optimisé"],combo:["À vous de trouver","Marché original"],rand:["Au hasard","Marché full random"],replay:["Déjà joué","Marché rejoué"]};
-let hintShown=false, keysShown=false;
+let hintShown=false, keysShown=false, picking=-1;
 
 function fitsFight(t){
   const N=NEMBY[fight.nem]; if(N&&N[2]&&(N[2].want||[]).includes(t)) return true;
@@ -1301,14 +1315,21 @@ function render(){
   }
   const um=m.slots.filter(s=>s.unmet).length;
   if(um) note.innerHTML+="<p class='muted'>"+um+" pile(s) tirée(s) sans tenir compte du coût : pas assez de cartes au bon coût dans les boîtes cochées.</p>";
+  const nf=m.slots.filter(s=>s.free&&!s.card).length;
+  if(nf) note.innerHTML+="<p>"+nf+" pile(s) au choix : touchez le + pour indiquer la carte que vous avez choisie.</p>";
   const mk=$("market"); mk.innerHTML="";
   TYPES.forEach(([t,label])=>{
     const n=m.dist[t];
     const g=document.createElement("div"); g.className="group g-"+t;
     g.innerHTML="<h3>"+label+" <small>"+n+(n>1?" piles":" pile")+"</small></h3>";
     const wrap=document.createElement("div"); wrap.className="cards";
-    m.slots.map((s,i)=>({s,i})).filter(x=>x.s.type===t).sort((a,b)=>a.s.card.cost-b.s.card.cost||a.i-b.i).forEach(({s,i})=>{
+    m.slots.map((s,i)=>({s,i})).filter(x=>x.s.type===t).sort((a,b)=>(a.s.card?a.s.card.cost:99)-(b.s.card?b.s.card.cost:99)||a.i-b.i).forEach(({s,i})=>{
       const c=s.card, el=document.createElement("article");
+      if(picking===i){ el.className="card free"; el.appendChild(pickerEl(s,i)); wrap.appendChild(el); return; }
+      if(!c){ el.className="card free";
+        el.innerHTML='<button class="addbtn" type="button" data-pick="'+i+'" aria-label="Choisir la carte au choix"><span class="plus" aria-hidden="true">+</span><b>Carte au choix</b><span>Choisir la carte</span></button>'
+          +'<div class="foot"><span><span class="chip req" title="Pile au choix dans la mise en place">Au choix</span></span></div>';
+        wrap.appendChild(el); return; }
       el.className="card"+(m.mode==="combo"&&keysShown&&s.key?" key":"");
       el.innerHTML='<div class="top"><span class="cost" title="Coût en éther">'+c.cost+'</span><div><div class="name">'+esc(c.fr||c.en)+'</div>'
         +'</div></div>'
@@ -1316,13 +1337,35 @@ function render(){
         +'<div class="foot"><span>'+(m.mode==="opt"&&s.role?'<span class="chip role">'+esc(s.role)+'</span> ':'')
         +(m.mode==="opt"?bonus(c).why.map(w=>'<span class="chip adapt">'+esc(w)+'</span> ').join(""):'')
         +(s.req?'<span class="chip req'+(s.unmet?' off':'')+'" title="Coût imposé par la mise en place">Coût '+esc(s.req.label)+'</span> ':'')
+        +(s.free?'<span class="chip req" title="Pile au choix dans la mise en place">Au choix</span> ':'')
         +'<span class="chip">'+esc(BOXNAME[c.box])+'</span></span>'
         +'<button class="swap" type="button" data-i="'+i+'" aria-label="Changer '+esc(c.fr||c.en)+'">Changer</button></div>';
       wrap.appendChild(el);
     });
     g.appendChild(wrap); mk.appendChild(g);
   });
-  mk.querySelectorAll(".swap").forEach(b=>b.onclick=()=>swap(+b.dataset.i));
+  mk.querySelectorAll(".swap[data-i]").forEach(b=>b.onclick=()=>swap(+b.dataset.i));
+  mk.querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>{ picking=+b.dataset.pick; render(); });
+  const pi=mk.querySelector(".picker input"); if(pi) pi.focus({preventScroll:true});
+}
+function pickerEl(s,i){ // choix de la carte d'une pile « au choix »
+  const used=new Set(current.slots.filter((x,j)=>x.card&&j!==i).map(x=>x.card.id));
+  const cand=pool(s.type).filter(c=>!used.has(c.id)).sort((a,b)=>a.cost-b.cost||String(a.fr||a.en).localeCompare(String(b.fr||b.en)));
+  const box=document.createElement("div"); box.className="picker";
+  box.innerHTML='<div class="q">Quelle carte avez-vous choisie ?</div>'
+    +(cand.length?'<input type="search" placeholder="Chercher une carte" aria-label="Chercher une carte"><ul>'
+      +cand.map(c=>'<li><button type="button" data-id="'+esc(c.id)+'" title="'+esc(BOXNAME[c.box])+'"><span class="pc">'+c.cost+'</span><span>'+esc(c.fr||c.en)+'</span></button></li>').join("")+'</ul>'
+      :'<p class="muted">Aucune carte disponible dans les boîtes cochées.</p>')
+    +'<div class="row">'+(cand.length?'<button class="swap" type="button" data-r>Tirer au hasard</button>':'')+'<button class="swap" type="button" data-x>Annuler</button></div>';
+  const set=c=>{ s.card=c; picking=-1; render(); };
+  box.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>set(cand.find(c=>c.id===b.dataset.id)));
+  const r=box.querySelector("[data-r]"); if(r) r.onclick=()=>set(pick(cand));
+  box.querySelector("[data-x]").onclick=()=>{ picking=-1; render(); };
+  const inp=box.querySelector("input");
+  if(inp){ const norm=x=>String(x||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+    inp.oninput=()=>{ const q=norm(inp.value); box.querySelectorAll("li").forEach(li=>{ li.hidden=!!q&&!norm(li.textContent).includes(q); }); };
+    inp.onkeydown=e=>{ if(e.key==="Enter"){ const b=box.querySelector("li:not([hidden]) button"); if(b){ e.preventDefault(); b.click(); } } else if(e.key==="Escape"){ picking=-1; render(); } }; }
+  return box;
 }
 
 function generate(mode){
@@ -1337,6 +1380,7 @@ function generate(mode){
   showResult();
 }
 function showResult(){
+  picking=-1;
   $("logform").hidden=true; $("l-done").hidden=true;
   $("ask").hidden=true; $("boxes").hidden=true; $("result").hidden=false;
   render(); window.scrollTo({top:0});
@@ -1402,8 +1446,8 @@ $("copy").onclick=()=>{
   const lines=[MODES[current.mode][1]];
   TYPES.forEach(([t,label])=>{
     lines.push("",label+" :");
-    current.slots.filter(s=>s.type===t).sort((a,b)=>a.card.cost-b.card.cost).forEach(s=>{
-      const c=s.card; lines.push("- "+c.fr+" ("+c.cost+" Æ, "+BOXNAME[c.box]+")");
+    current.slots.filter(s=>s.type===t).sort((a,b)=>(a.card?a.card.cost:99)-(b.card?b.card.cost:99)).forEach(s=>{
+      const c=s.card; if(!c){ lines.push("- au choix, à compléter"); return; } lines.push("- "+c.fr+" ("+c.cost+" Æ, "+BOXNAME[c.box]+")");
     });
   });
   const b=$("copy");
@@ -1505,7 +1549,7 @@ $("l-cancel").onclick=()=>{ $("logform").hidden=true };
 $("logform").onsubmit=e=>{
   e.preventDefault(); if(!db||!current) return;
   const nem=$("l-nem").value; if(!nem){ $("l-msg").textContent="Choisissez la némésis affrontée."; return; }
-  const of=t=>current.slots.filter(s=>s.type===t).map(s=>s.card.id);
+  const of=t=>current.slots.filter(s=>s.type===t&&s.card).map(s=>s.card.id);
   const doc={res:logRes,nem,mages:[$("l-m1").value,$("l-m2").value].filter(Boolean),gems:of("Gem"),relics:of("Relic"),spells:of("Spell"),
     note:$("l-note").value.trim(),date:$("l-date").value||"",mode:current.mode,ts:Date.now()};
   $("l-save").disabled=true; $("l-msg").textContent="";
@@ -1627,7 +1671,7 @@ function xpropose(E,mode){
   const dist={Gem:3,Relic:2,Spell:4};
   const r = mode==="opt"?genOpt(dist):mode==="combo"?genCombo(dist):genRandom(dist);
   restrict=null; fight=saveF; avoidRecent=saveR; themeChoice=saveT;
-  xd.market=new Set(r.slots.map(s=>s.card.id)); xd.theme=r.mode==="combo"?r.theme:""; xd.hint=false; xd.mode=mode;
+  xd.market=new Set(r.slots.filter(s=>s.card).map(s=>s.card.id)); xd.theme=r.mode==="combo"?r.theme:""; xd.hint=false; xd.mode=mode;
   renderExp();
 }
 function xrow(id,opts){

@@ -193,7 +193,12 @@
   "Inco (The Surface)",
   "Qu (The Surface)",
   "Auf Deutsch wechseln",
-  "Switch to English"
+  "Switch to English",
+  "card free",
+  ".picker input",
+  "Enter",
+  "li:not([hidden]) button",
+  "Escape"
  ],
  "_patches": [
   [
@@ -323,6 +328,10 @@
   [
    "return r?esc(r.label):\"any\"; }).join(\" · \")",
    "return r?esc(r.label):\"beliebig\"; }).join(\" · \")"
+  ],
+  [
+   "aria-label=\"Pick the card of your choice\"",
+   "aria-label=\"Karte nach Wahl auswählen\""
   ]
  ],
  "Aeon's End (base game)": "Aeon's End (Grundspiel)",
@@ -665,5 +674,14 @@
  "Official setups (Market Setup cards):": "Offizielle Aufbauten (Karten „Marktaufbau“):",
  "any cost": "beliebig",
  "pile(s) drawn without the cost limit: not enough cards at the right cost in the ticked boxes.": "Stapel ohne Kostenvorgabe gezogen: nicht genug Karten mit passenden Kosten in den angekreuzten Schachteln.",
- "Your session has expired: sign in again, then try again.": "Ihre Sitzung ist abgelaufen: Melden Sie sich erneut an und versuchen Sie es noch einmal."
+ "Your session has expired: sign in again, then try again.": "Ihre Sitzung ist abgelaufen: Melden Sie sich erneut an und versuchen Sie es noch einmal.",
+ "free pile(s): tap the + to enter the card you chose.": "Stapel nach Wahl: Tippen Sie auf das +, um die gewählte Karte einzutragen.",
+ "Card of your choice": "Karte nach Wahl",
+ "Pick the card": "Karte auswählen",
+ "Free pile in the market setup": "Stapel nach Wahl im Marktaufbau",
+ "Your choice": "Nach Wahl",
+ "Which card did you choose?": "Welche Karte haben Sie gewählt?",
+ "Search for a card": "Karte suchen",
+ "No card available in the ticked boxes.": "Keine Karte in den angekreuzten Boxen verfügbar.",
+ "- your choice, to fill in": "- nach Wahl, noch einzutragen"
 }
