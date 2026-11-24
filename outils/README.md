@@ -64,9 +64,9 @@ La page est découpée en morceaux (`1-head.html` : styles et structure, `2-data
 
 Fiches A5 : `outils/puerto-rico/fiches/gen.py` (lit `b.json`, la liste des bâtiments extraite de `2-data.js`) produit `puerto-rico-aide-de-jeu.pdf` et `puerto-rico-batiments.pdf`, à copier dans `fiches/`.
 
-## `imperium-fiches/` : fiches A5 Imperium Antique (FR)
+## `imperium-fiches/` : fiches A5 Imperium Antique (FR et EN)
 
-Les 4 pages viennent de l'artefact Design « Aide de jeu Imperium Antique » (`A5Tour`, `A5Deck` : aide de jeu ; `A5MotsCles1`, `A5MotsCles2` : mots-clés), copiées telles quelles dans `fr/`. `python3 outils/imperium-fiches/pdf.py` imprime `fiches/imperium-aide-de-jeu.pdf` et `fiches/imperium-mots-cles.pdf` (A5, 2 pages chacun). Après une modification dans l'artefact : recopier les pages dans `fr/`, relancer, puis `accueil.py fiche` avec `fiche-aide-de-jeu.json` ou `fiche-mots-cles.json` (dans ce dossier) pour dater la mise à jour sur l'accueil. Polices : `npm install @fontsource/marcellus @fontsource/source-sans-3` dans `outils/imperium-fiches/`.
+Les 4 pages viennent de l'artefact Design « Aide de jeu Imperium Antique » (`A5Tour`, `A5Deck` : aide de jeu ; `A5MotsCles1`, `A5MotsCles2` : mots-clés), copiées telles quelles dans `fr/`. `python3 outils/imperium-fiches/pdf.py` imprime `fiches/imperium-aide-de-jeu.pdf` et `fiches/imperium-mots-cles.pdf` (A5, 2 pages chacun). Après une modification dans l'artefact : recopier les pages dans `fr/`, relancer, puis `accueil.py fiche` avec `fiche-aide-de-jeu.json` ou `fiche-mots-cles.json` (dans ce dossier) pour dater la mise à jour sur l'accueil. Anglais : `python3 outils/imperium-fiches/en.py` écrit `en/` (aide de jeu par la table `PAIRES`, phrase française → anglaise ; mots-clés reconstruits depuis `MOTS`, triés en anglais) et signale toute phrase française sans traduction ; `pdf.py` imprime alors aussi `imperium-game-aid.pdf` et `imperium-keywords.pdf`. Polices : `npm install @fontsource/marcellus @fontsource/source-sans-3` dans `outils/imperium-fiches/`.
 
 ## `mage-knight-fiches/` : aide de jeu Mage Knight en anglais
 
