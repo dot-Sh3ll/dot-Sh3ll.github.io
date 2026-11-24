@@ -1,5 +1,5 @@
 #!/bin/sh
-# Reconstruit puerto-rico/index.html (FR) et puerto-rico/en.html (EN), puis pose la bascule de langue, l'en-tête du site et le bloc PWA.
+# Reconstruit puerto-rico/index.html (FR) et puerto-rico/en.html (EN), puis pose la bascule de langue, l'en-tête du site, le pied de page (Signaler un problème) et le bloc PWA.
 # usage (depuis la racine du dépôt) : sh outils/puerto-rico/build.sh
 set -e
 D=outils/puerto-rico
@@ -11,3 +11,4 @@ python3 outils/site/chrome.py fr puerto-rico/index.html
 python3 outils/site/chrome.py en puerto-rico/en.html
 python3 outils/site/pwa.py ../ puerto-rico/index.html
 python3 outils/site/pwa.py ../ puerto-rico/en.html
+python3 outils/site/pied.py puerto-rico "Puerto Rico"

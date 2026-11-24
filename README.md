@@ -21,7 +21,8 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 1. Créer un dossier (ex. `nouveau-jeu/`) et y déposer la version française renommée en `index.html` (et la version anglaise en `en.html` si elle existe).
 2. Décrire la carte dans un petit JSON (modèle : `outils/site/accueil/exemples/exemple-appli.json`), puis `python3 outils/site/accueil.py appli carte.json`. Un jeu pas encore présent sur le site se déclare dans le même fichier (`nouveau_jeu` : couleurs, bouton de filtre).
-3. Après une mise à jour d'appli : `python3 outils/site/accueil.py maj nouveau-jeu`. Les éléments récents (moins de 30 jours) reçoivent un badge « Nouveau » ou « Mis à jour » et remontent en tête.
+3. Formulaire « Votre avis » et pied de page : un nouveau jeu (`nouveau_jeu`) reçoit automatiquement son option dans le formulaire de l'accueil (valeur = `chip`) ; poser ensuite le pied de page sur l'appli (retour, « Signaler un problème » qui ouvre le formulaire avec le jeu choisi, Ko-fi) : `python3 outils/site/pied.py nouveau-jeu "Nom du jeu"` (le nom doit être celui de l'option).
+4. Après une mise à jour d'appli : `python3 outils/site/accueil.py maj nouveau-jeu`. Les éléments récents (moins de 30 jours) reçoivent un badge « Nouveau » ou « Mis à jour » et remontent en tête.
 
 ## Ajouter une fiche PDF
 
