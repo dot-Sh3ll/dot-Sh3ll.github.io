@@ -106,7 +106,7 @@ body:not(.filtre) .tout,body.filtre .une,body:not(.parjeu) .tout.jeu{display:non
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:52px}
 .card{--accent:var(--gold);position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
-.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 14px 40px -18px var(--accent)}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 14px 40px -18px var(--glow,var(--accent))}
 .banner{height:120px;position:relative;display:flex;align-items:flex-end;padding:16px 22px;background:linear-gradient(135deg,var(--c1),var(--c2))}
 .banner .badge{position:absolute;left:16px;top:14px}
 .banner .glyph{position:absolute;right:18px;top:12px;font-size:3.3rem;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
@@ -121,7 +121,7 @@ body:not(.filtre) .tout,body.filtre .une,body:not(.parjeu) .tout.jeu{display:non
 .card:hover .go::after{transform:translateX(4px)}
 .date{font-size:.78rem;color:var(--faint)}
 .mk{--accent:#7db7ef;--c1:#1d3f73;--c2:#0b1830}
-.imp{--accent:#d9b25c;--c1:#7a2f2a;--c2:#2b1a3a}
+.imp{--accent:#d9b25c;--glow:#d4483a;--c1:#7a2f2a;--c2:#2b1a3a}
 .ae{--accent:#c495f5;--c1:#4b2e7a;--c2:#171329}
 .pr{--accent:#e2cc9f;--c1:#8a6a43;--c2:#2b1f14}
 
