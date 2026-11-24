@@ -10040,7 +10040,7 @@
 "ctx": " Core tile with a City and 2 without.`,`"
 },
 {
-"t": "Guardians: each completed Errand earns +1 Reputation for both Heroes.",
+"t": "Guardians: each completed Race earns +1 Reputation for both Heroes.",
 "n": 1,
 "ctx": ".`],  rules:[FW_COOP,QRULE,QONCE,QHELP,`"
 },
