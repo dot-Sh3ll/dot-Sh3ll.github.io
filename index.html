@@ -71,6 +71,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 16px}
 h2{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0}
 .sec-sub{color:var(--faint);font-size:.88rem;margin:0}
+body:not(.filtre) .tout,body.filtre .une,body:not(.parjeu) .tout.jeu{display:none}
 
 .badge{display:inline-flex;align-items:center;gap:5px;font:700 .7rem var(--body);letter-spacing:.06em;text-transform:uppercase;padding:.28rem .55rem;border-radius:999px;background:rgba(13,15,22,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
@@ -203,8 +204,8 @@ footer p{margin:0 0 6px}
 
 <main class="wrap">
   <div class="sec-head">
-    <h2><span class="fr">Applis à la une</span><span class="en">Featured apps</span><span class="de" data-gen>Aktuelle Apps</span><span class="es" data-gen>Apps destacadas</span></h2>
-    <p class="sec-sub"><span class="fr">Les 3 plus récemment mises à jour</span><span class="en">The 3 most recently updated</span><span class="de" data-gen>Die 3 zuletzt aktualisierten</span><span class="es" data-gen>Las 3 actualizadas más recientemente</span></p>
+    <h2><span class="une"><span class="fr">Applis à la une</span><span class="en">Featured apps</span><span class="de" data-gen>Aktuelle Apps</span><span class="es" data-gen>Apps destacadas</span></span><span class="tout"><span class="fr">Applis</span><span class="en">Apps</span><span class="de" data-gen>Apps</span><span class="es" data-gen>Apps</span></span></h2>
+    <p class="sec-sub"><span class="une"><span class="fr">Les 3 plus récemment mises à jour</span><span class="en">The 3 most recently updated</span><span class="de" data-gen>Die 3 zuletzt aktualisierten</span><span class="es" data-gen>Las 3 actualizadas más recientemente</span></span><span class="tout jeu"><span class="fr">Toutes les applis pour ce jeu</span><span class="en">All the apps for this game</span><span class="de" data-gen>Alle Apps für dieses Spiel</span><span class="es" data-gen>Todas las apps de este juego</span></span></p>
   </div>
 
   <!-- Pour ajouter une appli : copier un bloc <a class="card ...">, l'adapter, et mettre à jour data-created / data-updated (AAAA-MM-JJ). -->
@@ -252,8 +253,8 @@ footer p{margin:0 0 6px}
   </div>
 
   <div class="sec-head" id="fiches">
-    <h2><span class="fr">Fiches à la une</span><span class="en">Featured printables</span><span class="de" data-gen>Aktuelle Spielhilfen</span><span class="es" data-gen>Hojas destacadas</span></h2>
-    <p class="sec-sub"><span class="fr">Les 3 dernières parues, à imprimer et garder près du plateau</span><span class="en">The 3 latest, to print and keep by the board</span><span class="de" data-gen>Die 3 neuesten, zum Ausdrucken und für neben das Spielbrett</span><span class="es" data-gen>Las 3 más recientes, para imprimir y tener junto al tablero</span></p>
+    <h2><span class="une"><span class="fr">Fiches à la une</span><span class="en">Featured printables</span><span class="de" data-gen>Aktuelle Spielhilfen</span><span class="es" data-gen>Hojas destacadas</span></span><span class="tout"><span class="fr">Fiches</span><span class="en">Printables</span><span class="de" data-gen>Spielhilfen</span><span class="es" data-gen>Hojas</span></span></h2>
+    <p class="sec-sub"><span class="une"><span class="fr">Les 3 dernières parues, à imprimer et garder près du plateau</span><span class="en">The 3 latest, to print and keep by the board</span><span class="de" data-gen>Die 3 neuesten, zum Ausdrucken und für neben das Spielbrett</span><span class="es" data-gen>Las 3 más recientes, para imprimir y tener junto al tablero</span></span><span class="tout jeu"><span class="fr">Toutes les fiches pour ce jeu, à imprimer et garder près du plateau</span><span class="en">All the printables for this game, to print and keep by the board</span><span class="de" data-gen>Alle Spielhilfen für dieses Spiel, zum Ausdrucken und für neben das Spielbrett</span><span class="es" data-gen>Todas las hojas de este juego, para imprimir y tener junto al tablero</span></span></p>
   </div>
 
   <!-- Pour ajouter une fiche : déposer le PDF dans le dossier « fiches », copier ce bloc <article> et l'adapter (dates comprises). -->
@@ -421,6 +422,7 @@ footer p{margin:0 0 6px}
     if(game==="all"&&!terms.length) document.querySelectorAll("[data-sort]").forEach(function(box){
       [].slice.call(box.querySelectorAll("[data-created]")).slice(3).forEach(function(e){ e.hidden=true });
     });
+    body.classList.toggle("filtre",game!=="all"||terms.length>0); body.classList.toggle("parjeu",game!=="all");
     document.querySelectorAll("[data-empty]").forEach(function(m){ m.hidden=[].some.call(m.parentNode.querySelectorAll("[data-game]"),function(e){return !e.hidden}) });
     try{ var u=new URL(location.href); game==="all"?u.searchParams.delete("jeu"):u.searchParams.set("jeu",game); history.replaceState(null,"",u) }catch(e){}
   }
