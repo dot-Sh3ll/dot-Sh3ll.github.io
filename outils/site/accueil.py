@@ -15,7 +15,7 @@ appli.json (exemple dans accueil/exemples/exemple-appli.json) :
    "nom": {"fr": "Puerto Rico 1897"},                    une seule langue = même nom partout
    "texte": {"fr": "...", "en": "...", "de": "...", "es": "..."},
    "tags": [{"fr": "Tutoriel", "en": "Tutorial", "de": "Tutorial"}],
-   "langues": "FR · EN",
+   "langues": "FR · EN",                                   langues de l'appli (ex. "FR · EN · DE")
    "nouveau_jeu": {"chip": "Puerto Rico", "recherche": "puerto rico 1897",
                    "accent": "#e2cc9f", "c1": "#8a6a43", "c2": "#2b1f14"}}   seulement si le jeu n'est pas encore sur le site
 fiche.json (exemple dans accueil/exemples/exemple-fiche.json) :
@@ -111,7 +111,7 @@ def appli(s, j):
         <p class="fr">{tx["fr"]}</p>
         <p class="en">{tx["en"]}</p>
         <ul class="tags">{tags}</ul>
-        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en">Open</span></span><span class="date"></span></div>
+        <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en" data-k="open-{j["jeu"]}">Open</span></span><span class="date"></span></div>
       </div>
     </a>'''
     if old:

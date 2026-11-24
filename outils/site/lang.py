@@ -1,36 +1,77 @@
 #!/usr/bin/env python3
-"""Add the FR/EN switch to an app pair.
-Any site language other than fr (en, de, es…) opens en.html until the app has its own translation.
-usage: lang.py fr <file>      -> patch the French file in place (redirect + switch)
-       lang.py en <file>      -> patch the English file in place (storage prefix + redirect + switch)
+"""Langue d'une appli : redirection vers la bonne page et sauvegardes séparées par langue.
+
+usage : python3 outils/site/lang.py <dossier>          toutes les pages d'une appli (ex. aeons-end)
+        python3 outils/site/lang.py --site             toutes les applis du site
+        python3 outils/site/lang.py <code> <page>      une seule page (ancienne forme : lang.py en aeons-end/en.html)
+
+Les langues d'une appli se déduisent des fichiers présents (index.html = fr, en.html, de.html…, voir langs.py).
+À relancer sur le dossier entier dès qu'une langue est ajoutée à une appli : chaque page connaît la liste.
+
+Ce que fait le script posé en tête de page :
+  - sauvegardes : sur une page autre que française, chaque clé du stockage local est préfixée par la langue
+    (« en: », « de: »…), sauf « site-lang » ; chaque langue garde donc ses propres parties ;
+  - redirection : « site-lang » (choisi sur l'accueil ou avec le bouton de langue) décide de la page ;
+    une langue sans page dans l'appli ouvre la page anglaise (langs.FALLBACK) ;
+    sans choix enregistré, un navigateur en allemand (ou toute langue autre que fr/en qui a sa page) y est envoyé ;
+    ?lang=<code> dans l'adresse empêche la redirection vers une autre langue.
 """
-import re, sys
+import json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from langs import FALLBACK, available, code_of, page_href
 
-mode, path = sys.argv[1], sys.argv[2]
-s = open(path, encoding="utf-8").read()
+APPS = ["mage-knight", "imperium", "aeons-end", "puerto-rico"]
 
-HEAD_FR = """<script>try{var sl=localStorage.getItem("site-lang");if(sl&&sl!=="fr"&&!/[?&]lang=fr/.test(location.search))location.replace("en.html"+location.hash)}catch(e){}</script>"""
-HEAD_EN = """<script>(function(){try{var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:"en:"+x};
-P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))};
-if(localStorage.getItem("site-lang")==="fr"&&!/[?&]lang=en/.test(location.search))location.replace("./"+location.hash)}catch(e){}})();</script>"""
+OLD = [
+    r'<script>try\{var sl=localStorage\.getItem\("site-lang"\).*?</script>\n?',
+    r'<script>\(function\(\)\{try\{var P=Storage\.prototype.*?\}\)\(\);</script>\n?',
+    r'<script id="site-lang-js">.*?</script>\n?',
+]
 
-SWITCH = """<a href="{href}" class="site-lang" hreflang="{hl}" lang="{hl}" aria-label="{aria}" onclick="try{{localStorage.setItem('site-lang','{hl}')}}catch(e){{}}" style="position:fixed;bottom:14px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:999px;background:rgba(14,16,24,.88);color:#efe8d8;border:1px solid rgba(221,185,106,.55);font:600 13px/1 system-ui,-apple-system,'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)"><span style="opacity:.55">{cur}</span><span aria-hidden="true" style="opacity:.4">|</span><span>{other}</span></a>
-<style>.site-lang{{left:118px;transition:transform .25s ease,opacity .25s ease}}.site-lang.away{{transform:translateY(140%);opacity:0;pointer-events:none}}@media (max-width:640px){{.site-lang{{left:64px;bottom:12px!important;padding:10px 12px!important}}}}</style>
-<script>(function(){{var a=document.querySelector(".site-lang"),h=document.querySelector(".site-home");if(!a||!h)return;new MutationObserver(function(){{a.classList.toggle("away",h.classList.contains("away"))}}).observe(h,{{attributes:true,attributeFilter:["class"]}});}})();</script>
-"""
 
-if "site-lang" in s and 'class="site-lang"' in s:
-    print("already patched"); sys.exit()
+def head_script(code, langs):
+    hrefs = {c: page_href(c) for c in langs}
+    js = ('(function(){try{var C=%s,A=%s,F=%s,B=%s,ls=localStorage;'
+          'if(C!=="fr"){var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};'
+          'P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}'
+          'var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;'
+          'var sl=ls.getItem("site-lang"),t=null;'
+          'if(sl)t=sl;else{var n=(navigator.language||"").slice(0,2).toLowerCase();if(n!=="fr"&&n!=="en"&&A.indexOf(n)>-1)t=n}'
+          'if(t&&A.indexOf(t)<0)t=A.indexOf(B)>-1?B:null;'
+          'if(t&&t!==C)location.replace(F[t]+location.hash)}catch(e){}})();') % (
+        json.dumps(code), json.dumps(langs), json.dumps(hrefs, separators=(",", ":")), json.dumps(FALLBACK))
+    return f'<script id="site-lang-js">{js}</script>'
 
-if mode == "fr":
-    s = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + HEAD_FR, s, count=1)
-    sw = SWITCH.format(href="en.html?lang=en", hl="en", aria="Switch to English", cur="FR", other="EN")
-else:
-    s = re.sub(r'<html lang="fr"', '<html lang="en"', s, count=1)
-    s = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + HEAD_EN, s, count=1)
-    sw = SWITCH.format(href="./?lang=fr", hl="fr", aria="Passer en français", cur="EN", other="FR")
-    s = s.replace('<a href="../" style="color:inherit;font-weight:600">', '<a href="../" style="color:inherit;font-weight:600">', 1)
-i = s.rindex("</body>")
-s = s[:i] + sw + s[i:]
-open(path, "w", encoding="utf-8").write(s)
-print("ok", mode, path)
+
+def patch(path, code=None):
+    code = code or code_of(path)
+    langs = available(os.path.dirname(path))
+    if code not in langs:
+        langs.append(code)
+    s = open(path, encoding="utf-8").read()
+    for p in OLD:
+        s = re.sub(p, "", s, flags=re.S)
+    s = re.sub(r'<html lang="[^"]*"', f'<html lang="{code}"', s, count=1)
+    s = re.sub(r"(<head[^>]*>)", lambda m: m.group(1) + "\n" + head_script(code, langs), s, count=1)
+    open(path, "w", encoding="utf-8").write(s)
+    print("ok", code, path, "langues :", " ".join(langs))
+
+
+def patch_folder(folder):
+    for c in available(folder):
+        patch(os.path.join(folder, "index.html" if c == "fr" else f"{c}.html"), c)
+
+
+if __name__ == "__main__":
+    a = sys.argv[1:]
+    if not a:
+        sys.exit(__doc__)
+    if a[0] == "--site":
+        for f in APPS:
+            patch_folder(f)
+    elif len(a) == 2:
+        patch(a[1], a[0])
+    elif os.path.isdir(a[0]):
+        patch_folder(a[0])
+    else:
+        sys.exit(__doc__)

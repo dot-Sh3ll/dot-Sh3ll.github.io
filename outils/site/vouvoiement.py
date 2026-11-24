@@ -7,7 +7,7 @@ usage (depuis la racine du dépôt) :
   python3 outils/site/vouvoiement.py verbes               affiche la table de conjugaison utilisée
 
 La conversion ne touche que des formes reconnues (table VERBES, liste IMPERATIFS) ; ce qui reste
-est listé par « scan » et doit être corrigé à la main. Relire toujours la sortie d'« apply ».
+est listé par « scan » et doit être corrigé à la main. Pour l'allemand (Sie), voir sie.py. Relire toujours la sortie d'« apply ».
 Les impératifs qui sont aussi des noms (Défausse, Pioche, Garde…) ne sont convertis qu'en début
 de phrase ou d'élément suivis d'un mot qui n'est pas « : » (« Défausse : 3 » reste un nom).
 """

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>(function(){try{var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:"en:"+x};
-P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))};
-if(localStorage.getItem("site-lang")==="fr"&&!/[?&]lang=en/.test(location.search))location.replace("./"+location.hash)}catch(e){}})();</script>
+<script id="site-lang-js">(function(){try{var C="en",A=["fr", "en", "de"],F={"fr":"./","en":"en.html","de":"de.html"},B="en",ls=localStorage;if(C!=="fr"){var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;var sl=ls.getItem("site-lang"),t=null;if(sl)t=sl;else{var n=(navigator.language||"").slice(0,2).toLowerCase();if(n!=="fr"&&n!=="en"&&A.indexOf(n)>-1)t=n}if(t&&A.indexOf(t)<0)t=A.indexOf(B)>-1?B:null;if(t&&t!==C)location.replace(F[t]+location.hash)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aeon's End Market</title>
@@ -56,6 +54,9 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
 .dist span i{font-style:normal;color:var(--muted)}
 .dist input:checked+span{border-color:var(--gold);color:var(--gold)}
 .dist input:checked+span i{color:var(--gold)}
+.dist .dist-sub{flex-basis:100%;color:var(--muted);font-size:13.5px;margin-top:4px}
+.chip.req{color:var(--ink);border-color:var(--gold)}
+.chip.req.off{text-decoration:line-through;opacity:.7}
 .dist input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
 nav.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
 nav.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 14px 10px;font-weight:600;color:var(--muted);margin-bottom:-1px}
@@ -244,6 +245,7 @@ footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padd
 .sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;font-weight:700;font-size:12.5px;letter-spacing:.04em}
 .sitehead .sh-lang span{background:#ddb96a;color:#17130a}
 .sitehead .sh-lang a{color:#a3a9b8}
+.sitehead .sh-lang span.sh-off{background:none;color:#5d6475;cursor:not-allowed}
 .sitehead .sh-lang a:hover{color:#fff}
 .sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:#ddb96a;color:#17130a;font-weight:700;font-size:14.5px;white-space:nowrap}
 .sitehead .sh-kofi:hover{filter:brightness(1.08)}
@@ -262,7 +264,7 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
 <div class="sh-in">
 <a class="sh-brand" href="../" aria-label="Back to the game aids home page"><span class="sh-mark" aria-hidden="true">🎲</span><span class="sh-text">Less Rules, More Play</span></a>
 <div class="sh-act">
-<div class="sh-lang" role="group" aria-label="Langue / Language"><a href="./?lang=fr" hreflang="fr" lang="fr" aria-label="Passer en français" onclick="try{localStorage.setItem('site-lang','fr')}catch(e){}">FR</a><span aria-current="true">EN</span></div>
+<div class="sh-lang" role="group" aria-label="Langue / Language"><a href="./?lang=fr" hreflang="fr" lang="fr" aria-label="Passer en français" onclick="try{localStorage.setItem('site-lang','fr')}catch(e){}">FR</a><span aria-current="true">EN</span><a href="de.html?lang=de" hreflang="de" lang="de" aria-label="Auf Deutsch wechseln" onclick="try{localStorage.setItem('site-lang','de')}catch(e){}">DE</a></div>
 <a class="sh-kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" aria-label="Ko-fi"><span aria-hidden="true">☕</span><span class="sh-kofi-t">Buy me a coffee</span></a>
 </div>
 </div>
@@ -886,13 +888,45 @@ const TYPES = [["Gem","Gems"],["Relic","Relics"],["Spell","Spells"]];
 /* répartitions gemmes · reliques · sorts, toujours 9 piles */
 const DISTS = [
   ["324","Classic",[3,2,4]],["315","More spells",[3,1,5]],["225","All-out attack",[2,2,5]],
-  ["234","More relics",[2,3,4]],["333","Balanced",[3,3,3]],["any","Surprise",null]
+  ["234","More relics",[2,3,4]],["333","Balanced",[3,3,3]],["any","Surprise",null],
+  ["m1","Market setup 1",[3,2,4]],["m2","Market setup 2",[3,2,4]],["m3","Market setup 3",[3,1,5]],["m4","Market setup 4",[3,3,3]],["m5","Market setup 5",[4,1,4]],["m6","Market setup 6",[2,3,4]]
 ];
 let distChoice="324";
 try{ const d=localStorage.getItem("ae-dist"); if(DISTS.some(x=>x[0]===d)) distChoice=d; }catch(e){}
+/* mises en place officielles (cartes « Mise en place du marché ») : coût imposé pour chaque pile.
+   <4 = moins de 4, >5 = plus de 5, =4 = exactement 4, 4/5 = 4 ou 5, * = au choix */
+const SETUPS = {
+  m1:{Gem:["<4","=4","*"],Relic:["*","*"],Spell:["<5","<5",">5",">5"]},
+  m2:{Gem:[">3",">3",">3"],Relic:[">4","*"],Spell:["<6","<6","<6",">6"]},
+  m3:{Gem:["<4","4/5","4/5"],Relic:["*"],Spell:["=3","=4",">5",">5",">5"]},
+  m4:{Gem:[">4","*","*"],Relic:["<4",">4","*"],Spell:["<5",">5","*"]},
+  m5:{Gem:["=2","=3","=4","=5"],Relic:["*"],Spell:["=4","=5","=6",">6"]},
+  m6:{Gem:["=3","=4"],Relic:["<4",">4","*"],Spell:["3/4","5/6","5/6",">6"]}
+};
+const setupOn=()=>!restrict&&SETUPS[distChoice]?distChoice:"";
+function reqOf(code){
+  if(code==="*") return null;
+  const m=/^([<>=])(\d+)$/.exec(code);
+  if(m){ const n=+m[2]; return {label:(m[1]==="="?"":m[1]+" ")+n, test:m[1]==="<"?c=>c.cost<n:m[1]===">"?c=>c.cost>n:c=>c.cost===n}; }
+  const v=code.split("/").map(Number); return {label:v.join("/"), test:c=>v.includes(c.cost)};
+}
+function setupText(k){ return TYPES.map(([t,label])=>label+": "+SETUPS[k][t].map(x=>{ const r=reqOf(x); return r?r.label:"any cost"; }).join(", ")).join(" · ") }
+function perms(a){ return a.length<=1?[a]:a.flatMap((x,i)=>perms(a.slice(0,i).concat(a.slice(i+1))).map(r=>[x].concat(r))) }
+function applySetup(slots){ // donne à chaque pile sa contrainte de coût, en gardant au mieux les rôles ou le thème
+  const k=setupOn(); if(!k) return slots;
+  TYPES.forEach(([t])=>{
+    const ss=slots.filter(s=>s.type===t), reqs=SETUPS[k][t].map(reqOf), p=pool(t);
+    let best=null, bs=-1;
+    perms(reqs.map((_,i)=>i)).forEach(o=>{ let sc=0;
+      ss.forEach((s,j)=>{ const r=reqs[o[j]]; if(p.some(c=>(!r||r.test(c))&&(!s.test||s.test(c)))) sc+=2; else if(!r||p.some(r.test)) sc+=1; });
+      if(sc>bs){ bs=sc; best=o; } });
+    ss.forEach((s,j)=>{ s.req=reqs[best[j]]; });
+  });
+  return slots;
+}
 function rollDist(){
   let d=DISTS.find(x=>x[0]===distChoice);
-  if(!d[2]){ const ok=DISTS.filter(x=>x[2]&&fits(x[2])); d=ok.length?pick(ok):DISTS[0]; }
+  if(!d[2]){ const ok=DISTS.filter(x=>x[2]&&!SETUPS[x[0]]&&fits(x[2])); d=ok.length?pick(ok):DISTS[0]; }
   return {Gem:d[2][0],Relic:d[2][1],Spell:d[2][2]};
 }
 function fits(a){ return TYPES.every(([t],i)=>pool(t).length>=a[i]) }
@@ -1125,7 +1159,7 @@ function weighted(a){ // favorise les cartes les plus fortes, sans toujours sort
 let restrict=null; // en expédition, le tirage se fait dans la caserne
 const avail = c=>restrict?restrict.has(c.id):owned.has(c.box);
 const pool = type=>CARDS.filter(c=>c.type===type && avail(c));
-function enough(){ const d=DISTS.find(x=>x[0]===distChoice); return d[2]?fits(d[2]):DISTS.some(x=>x[2]&&fits(x[2])) }
+function enough(){ const d=DISTS.find(x=>x[0]===distChoice); return d[2]?fits(d[2]):DISTS.some(x=>x[2]&&!SETUPS[x[0]]&&fits(x[2])) }
 
 /* ---------- générateurs ---------- */
 /* redites : les cartes des 3 derniers marchés générés sont écartées quand c'est possible */
@@ -1140,8 +1174,10 @@ function fill(slots, chooser){
   }
   for(const s of slots){
     if(s.card) continue;
-    let cand=pool(s.type).filter(c=>!used.has(c.id) && (!s.test||s.test(c)));
-    if(!cand.length){ s.test=null; s.role=s.fallbackRole||s.role; cand=pool(s.type).filter(c=>!used.has(c.id)); }
+    const ok=c=>!used.has(c.id)&&(!s.req||s.req.test(c));
+    let cand=pool(s.type).filter(c=>ok(c) && (!s.test||s.test(c)));
+    if(!cand.length){ s.test=null; s.role=s.fallbackRole||(s.req?"":s.role); cand=pool(s.type).filter(ok); } // rôle impossible avec le coût imposé : pas d'étiquette
+    if(!cand.length&&s.req){ s.unmet=true; cand=pool(s.type).filter(c=>!used.has(c.id)); }
     const fresh=cand.filter(c=>!recent.has(c.id)); if(fresh.length) cand=fresh;
     s.card=chooser(cand); used.add(s.card.id);
   }
@@ -1149,7 +1185,7 @@ function fill(slots, chooser){
 }
 function genRandom(dist){
   const slots=[]; TYPES.forEach(([t])=>{for(let i=0;i<dist[t];i++)slots.push({type:t})});
-  return {mode:"rand",dist,slots:fill(slots,pick)};
+  return {mode:"rand",dist,slots:fill(applySetup(slots),pick)};
 }
 function genOpt(dist){
   const has=t=>c=>c.tags.includes(t);
@@ -1159,8 +1195,8 @@ function genOpt(dist){
     Relic:[{test:has("thin"),role:"Deck thinning"},{test:c=>!c.tags.includes("thin"),role:"Support"},{test:c=>!c.tags.includes("thin"),role:"Support"}],
     Spell:[{test:c=>c.cost<=4,role:"Opening spell"},{test:c=>c.cost>=6,role:"Finisher"},{test:c=>c.cost===5,role:"Mid-game"},{test:c=>c.cost>=6,role:"Finisher"},{test:c=>c.cost<=4,role:"Opening spell"}]
   };
-  const slots=[]; TYPES.forEach(([t])=>plan[t].slice(0,dist[t]).forEach(p=>slots.push({type:t,...p})));
-  return {mode:"opt",dist,slots:fill(slots,weighted)};
+  const slots=[]; TYPES.forEach(([t])=>{ for(let i=0;i<dist[t];i++) slots.push({type:t,...(plan[t][i]||{test:null,role:plan[t][plan[t].length-1].role})}); });
+  return {mode:"opt",dist,slots:fill(applySetup(slots),weighted)};
 }
 function genCombo(dist){
   // thèmes jouables avec les boîtes cochées : au moins 4 cartes, dont 2 sorts
@@ -1186,11 +1222,13 @@ function genCombo(dist){
   });
   // un marché reste jouable : une gemme et un sort abordables
   const g=slots.filter(s=>s.type==="Gem"), sp=slots.filter(s=>s.type==="Spell");
-  const res={mode:"combo",dist,theme:k,chosen:k===themeChoice,slots:fill(slots,pick)};
+  const res={mode:"combo",dist,theme:k,chosen:k===themeChoice,slots:fill(applySetup(slots),pick)};
+  res.slots.forEach(s=>{ if(s.key&&!inT(s.card)) s.key=false; });
   ensureCheap(res,g,"Gem"); ensureCheap(res,sp,"Spell");
   return res;
 }
 function ensureCheap(res,group,type){
+  if(setupOn()) return; // la mise en place fixe déjà les coûts
   if(group.some(s=>s.card.cost<=4)) return;
   const used=new Set(res.slots.map(s=>s.card.id));
   const target=group.find(s=>!s.key)||group[group.length-1];
@@ -1201,8 +1239,10 @@ function ensureCheap(res,group,type){
 }
 function swap(i){
   const s=current.slots[i], used=new Set(current.slots.map(x=>x.card.id));
-  let cand=pool(s.type).filter(c=>!used.has(c.id)&&(!s.test||s.test(c)));
-  if(!cand.length) cand=pool(s.type).filter(c=>!used.has(c.id));
+  const ok=c=>!used.has(c.id)&&(!s.req||s.req.test(c));
+  let cand=pool(s.type).filter(c=>ok(c)&&(!s.test||s.test(c)));
+  if(!cand.length) cand=pool(s.type).filter(ok);
+  if(!cand.length&&s.unmet) cand=pool(s.type).filter(c=>!used.has(c.id));
   if(!cand.length) return;
   s.card = current.mode==="opt" ? weighted(cand) : pick(cand);
   if(s.key && !s.card.tags.includes(current.theme)) s.key=false;
@@ -1228,7 +1268,7 @@ function adaptText(){
   return out.length?"<p>"+out.join(" ")+"</p>":"";
 }
 function render(){
-  const m=current; $("rk").textContent=MODES[m.mode][0]+" · "+distText(m.dist);
+  const m=current; $("rk").textContent=MODES[m.mode][0]+" · "+(m.setup?DISTS.find(x=>x[0]===m.setup)[1]+" · ":"")+distText(m.dist);
   $("again").hidden=m.mode==="replay"; $("rt").textContent=MODES[m.mode][1];
   const note=$("note");
   if(m.mode==="opt"){
@@ -1251,6 +1291,8 @@ function render(){
     if(bh) bh.onclick=()=>{hintShown=true;render()};
     if(bk) bk.onclick=()=>{keysShown=true;hintShown=true;render()};
   }
+  const um=m.slots.filter(s=>s.unmet).length;
+  if(um) note.innerHTML+="<p class='muted'>"+um+" pile(s) drawn without the cost limit: not enough cards at the right cost in the ticked boxes.</p>";
   const mk=$("market"); mk.innerHTML="";
   TYPES.forEach(([t,label])=>{
     const n=m.dist[t];
@@ -1265,6 +1307,7 @@ function render(){
         +'<div class="fx">'+fxHtml(c.fx)+'</div>'
         +'<div class="foot"><span>'+(m.mode==="opt"&&s.role?'<span class="chip role">'+esc(s.role)+'</span> ':'')
         +(m.mode==="opt"?bonus(c).why.map(w=>'<span class="chip adapt">'+esc(w)+'</span> ').join(""):'')
+        +(s.req?'<span class="chip req'+(s.unmet?' off':'')+'" title="Cost required by the market setup">Cost '+esc(s.req.label)+'</span> ':'')
         +'<span class="chip">'+esc(BOXNAME[c.box])+'</span></span>'
         +'<button class="swap" type="button" data-i="'+i+'" aria-label="Swap '+esc(c.fr||c.en)+'">Swap</button></div>';
       wrap.appendChild(el);
@@ -1281,6 +1324,7 @@ function generate(mode){
   const dist=rollDist();
   current = mode==="opt"?genOpt(dist):mode==="combo"?genCombo(dist):genRandom(dist);
   if(current.chosen) hintShown=true;
+  current.setup=setupOn();
   pushRecent(current);
   showResult();
 }
@@ -1298,7 +1342,8 @@ function distText(d){ return d.Gem+(d.Gem>1?" gems, ":" gem, ")+d.Relic+(d.Relic
 function renderDist(){
   const f=$("dist");
   DISTS.forEach(([k,name,a])=>{
-    const l=document.createElement("label");
+    if(k==="m1"){ const h=document.createElement("div"); h.className="dist-sub"; h.textContent="Official setups (Market Setup cards):"; f.appendChild(h); }
+    const l=document.createElement("label"); if(SETUPS[k]) l.title=setupText(k);
     l.innerHTML='<input type="radio" name="dist" id="dist-'+k+'" value="'+k+'"'+(k===distChoice?" checked":"")+'><span>'+esc(name)+(a?' <i>'+a.join(" · ")+'</i>':'')+'</span>';
     l.querySelector("input").onchange=()=>{ distChoice=k; try{localStorage.setItem("ae-dist",k)}catch(e){} showWarn(); };
     f.appendChild(l);
@@ -1705,7 +1750,7 @@ function openAdd(){
 $("a-open").onclick=openAdd;
 $("a-cancel").onclick=()=>{ if(actl) actl.abort(); $("addform").hidden=true; };
 $("a-photo").onchange=()=>{ const n=$("a-photo").files.length; $("a-analyze").disabled=!n;
-  if(n) $("a-st").textContent=n+" photo"+(n>1?"s":"")+" choisie"+(n>1?"s":"")+(imgLim&&n>imgLim.maxCount?" : seules les "+imgLim.maxCount+" premières seront analysées.":". Clique sur Analyser."); };
+  if(n) $("a-st").textContent=n+" photo"+(n>1?"s":"")+" selected"+(imgLim&&n>imgLim.maxCount?": only the first "+imgLim.maxCount+" will be analysed.":". Click Analyse."); };
 async function analyze(){
   const files=[...$("a-photo").files].slice(0,imgLim?imgLim.maxCount:1); if(!files.length||!sampleFn) return;
   const list=CARDS.filter(c=>owned.has(c.box)).map(c=>c.id+" | "+TYPEFR[c.type]+" | "+c.cost+" | "+c.fr).join("\n");
@@ -1735,7 +1780,7 @@ async function analyze(){
       : c==="rate_limited"?"Too many analyses at once or usage limit reached. Try again later."
       : c==="image_rejected"?"This photo isn't accepted (format or size). Try another one."
       : c==="invalid_json"||c==="empty_completion"?"The answer wasn't usable. Try again, or fill in the form by hand."
-      : c==="session_expired"?"Ta session a expiré : reconnecte-toi puis réessaie."
+      : c==="session_expired"?"Your session has expired: sign in again, then try again."
       : "The analysis failed. Try again in a moment.";
     if(c==="not_granted"||c==="sampling_disabled") $("a-photo-row").hidden=true;
   }finally{ btn.disabled=!$("a-photo").files.length; $("a-stop").hidden=true; actl=null; }

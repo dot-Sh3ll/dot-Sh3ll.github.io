@@ -6,7 +6,7 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 - Mage Knight — tutoriel et compagnon
 - Imperium Antique — tutoriel, solo contre la C.I.V., aide-mémoire
-- Aeon's End — générateur de marché, journal, expéditions
+- Aeon's End — générateur de marché (dont les mises en place officielles), journal, expéditions (FR, EN, DE)
 - Puerto Rico 1897 — tutoriel règle par règle, aide-mémoire, décompte
 
 ☕ Soutenir : https://ko-fi.com/paulmoussard
@@ -30,4 +30,4 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 ## Langues
 
-Le site est en français, anglais, allemand et espagnol. En allemand et en espagnol, seule la page d'accueil est traduite pour l'instant : les applis et les fiches s'ouvrent en anglais. Voir « Langues du site » dans `outils/README.md`.
+Le site est en français, anglais, allemand et espagnol. Aeon's End existe aussi en allemand (`aeons-end/de.html`, générée depuis la page anglaise). Les autres applis et les fiches s'ouvrent en anglais pour les visiteurs allemands et espagnols. Voir « Langues du site » dans `outils/README.md`.

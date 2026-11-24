@@ -17,7 +17,11 @@ Ce que le script génère (et regénère sans doublon à chaque lancement) :
 Champs de chaque fichier :
   _name    libellé du bouton (DE)          _locale  format des dates (de-DE)
   _base    true pour fr et en : langues écrites à la main dans la page, rien n'est généré
-  _apps    langue des applis et fiches ouvertes depuis cette langue ("en" tant qu'elles ne sont pas traduites)
+  _apps    langue des applis et fiches ouvertes depuis cette langue, appli par appli :
+           {"*": "en", "ae": "de"} = Aeon's End (data-game="ae") en allemand, les autres applis et les fiches en anglais.
+           (Une simple chaîne, ex. "en", vaut pour toutes les applis.) Sur les cartes des applis qui s'ouvrent en anglais,
+           le bouton prend le texte _k.open_en (« Öffnen (EN) ») au lieu de _k.open. L'appli elle-même choisit sa page
+           (lang.py) : son dossier doit contenir <code>.html pour que les visiteurs y arrivent.
   _words   textes de l'interface           _form    messages du formulaire
   _soon    bandeau sous le titre (facultatif)
   _k       textes repérés par data-k="..." (ex. dl : bouton Télécharger d'une fiche en anglais)
@@ -31,6 +35,14 @@ for f in sorted(os.listdir(D)):
     if f.endswith(".json") and not f.endswith(".todo.json"):
         LANGS[f[:-5]] = json.load(open(os.path.join(D, f), encoding="utf-8"))
 codes = ORDER + [c for c in LANGS if c not in ORDER]
+
+
+def app_lang(c, game="*"):
+    """langue dans laquelle les visiteurs de la langue c ouvrent l'appli game"""
+    a = LANGS[c].get("_apps", c)
+    if isinstance(a, str):
+        return a
+    return a.get(game, a.get("*", c))
 extra = [c for c in codes if not LANGS[c].get("_base")]
 
 if len(sys.argv) > 2 and sys.argv[1] == "--todo":
@@ -50,13 +62,21 @@ def block(s, a, b, new):
     i = s.index(a) + len(a); j = s.index(b, i); return s[:i] + new + s[j:]
 
 # 2. éléments traduits
+# bouton « Ouvrir » de chaque carte d'appli : marqué data-k="open-<jeu>" pour choisir open / open_en selon _apps
+def mark_open(m):
+    g = m.group(1)
+    return re.sub(r'<span class="en"(?: data-k="open[^"]*")?>Open</span>', f'<span class="en" data-k="open-{g}">Open</span>', m.group(0))
+s = re.sub(r'<a class="card [^"]*" data-game="([^"]+)".*?</a>', mark_open, s, flags=re.S)
 missing = {c: set() for c in extra}
 def sub(m):
     tag, k, txt = m.group(1), m.group(2), m.group(3)
     out = m.group(0)
     for c in extra:
         L = LANGS[c]
-        if k: tr = L.get("_k", {}).get(k)
+        if k and k.startswith("open-"):
+            K = L.get("_k", {})
+            tr = K.get("open") if app_lang(c, k[5:]) == c else K.get("open_en", K.get("open"))
+        elif k: tr = L.get("_k", {}).get(k)
         else: tr = L.get(txt)
         if tr is None: missing[c].add(txt); tr = txt
         out += f'<{tag} class="{c}" data-gen>{tr}</{tag}>'
@@ -79,7 +99,7 @@ for c in codes:
     others = [o for o in codes if o != c]
     sel = []
     for o in others:
-        if o == "en" and LANGS[c].get("_apps") == "en": sel.append(f'[data-lang="{c}"] .en:not(.dl)')
+        if o == "en" and app_lang(c) == "en": sel.append(f'[data-lang="{c}"] .en:not(.dl)')
         else: sel.append(f'[data-lang="{c}"] .{o}')
     css.append(",".join(sel) + "{display:none}")
 css.append(".soon{margin:14px 0 0;max-width:640px;font-size:.92rem;color:var(--muted);border:1px dashed var(--line);border-radius:12px;padding:10px 14px}")
