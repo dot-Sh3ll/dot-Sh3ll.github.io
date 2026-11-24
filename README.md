@@ -15,7 +15,7 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 ## Règles de rédaction
 
-- On **vouvoie** toujours le lecteur, dans les applis, les fiches et la page d'accueil (jamais de tutoiement). `python3 outils/site/vouvoiement.py scan <fichier>` vérifie qu'il ne reste rien au tutoiement.
+- On **vouvoie** toujours le lecteur, dans les applis, les fiches et la page d'accueil (jamais de tutoiement), dans toutes les langues : « vous » en français, « Sie » en allemand, « usted » en espagnol. `python3 outils/site/vouvoiement.py scan <fichier>` vérifie qu'il ne reste rien au tutoiement.
 
 ## Ajouter une nouvelle appli
 
