@@ -6,8 +6,8 @@ PAIRS = [
  r"""const ROLEDEF={pla:{n:'Planter',a:'One Estate each',p:'Quarry allowed'},bat:{n:'Builder',a:'One Building each',p:'−1 coin'},rec:{n:'Recruiter',a:'Workers from the Register',p:'+1 worker'},
  art:{n:'Craftsman',a:'Production',p:'+1 barrel'},neg:{n:'Trader',a:'Sell 1 barrel',p:'+1 coin'},cap:{n:'Captain',a:'Mandatory loading',p:'+1 VP'},av1:{n:'Adventurer',a:'No action',p:'+1 coin'},av2:{n:'Adventurer',a:'No action',p:'+1 coin'}};"""),
 # mise en place
-(r"""<h3>Atelier : la mise en place de ta table</h3><p class="hint">Choisis le nombre de joueurs.</p>""", r"""<h3>Lab: setting up your table</h3><p class="hint">Choose the number of players.</p>"""),
-(r"""2:{co:3,pl:'Gouverneur : Fruits ; autre joueur : Maïs',vp:65,qu:'5 (on en retire 3)',vis:3,ro:'7 (un seul Aventurier)',sh:'4 et 6',reg:2,sup:40,ba:'1 de chaque bâtiment beige, 2 de chaque bâtiment industriel',ex:'Retire 3 tuiles de chaque type de Terrain (Maïs, Fruits, Sucre, Tabac, Café, Carrière) et 2 barils de chaque marchandise.'},
+(r"""<h3>Atelier : la mise en place de votre table</h3><p class="hint">Choisissez le nombre de joueurs.</p>""", r"""<h3>Lab: setting up your table</h3><p class="hint">Choose the number of players.</p>"""),
+(r"""2:{co:3,pl:'Gouverneur : Fruits ; autre joueur : Maïs',vp:65,qu:'5 (on en retire 3)',vis:3,ro:'7 (un seul Aventurier)',sh:'4 et 6',reg:2,sup:40,ba:'1 de chaque bâtiment beige, 2 de chaque bâtiment industriel',ex:'Retirez 3 tuiles de chaque type de Terrain (Maïs, Fruits, Sucre, Tabac, Café, Carrière) et 2 barils de chaque marchandise.'},
  3:{co:2,pl:'Fruits, Fruits, Maïs',vp:75,qu:8,vis:4,ro:'6 (sans Aventurier)',sh:'4, 5 et 6',reg:3,sup:55,ba:'Les 49 bâtiments'},
  4:{co:3,pl:'Fruits, Fruits, Maïs, Maïs',vp:100,qu:8,vis:5,ro:'7 (un seul Aventurier)',sh:'5, 6 et 7',reg:4,sup:75,ba:'Les 49 bâtiments'},
  5:{co:4,pl:'Fruits, Fruits, Fruits, Maïs, Maïs',vp:126,qu:8,vis:6,ro:'8 (les deux Aventuriers)',sh:'6, 7 et 8',reg:5,sup:95,ba:'Les 49 bâtiments'}}[n];""",
@@ -27,7 +27,7 @@ PAIRS = [
  <tr><td>Workers in the supply</td><td>${D.sup}</td></tr><tr><td>Buildings</td><td>${D.ba}</td></tr>${D.ex?`<tr><td>Remove</td><td>${D.ex}</td></tr>`:''}</table>"""),
 # un tour
 (r"""/* --- un tour --- */""", r"""/* --- a round --- */"""),
-(r"""<h3>Atelier : joue un tour</h3><p class="hint">Chaque joueur choisit un personnage à son tour : clique sur une carte. Observe l'ordre d'action de chaque phase, puis les Pesos posés en fin de tour.</p>""",
+(r"""<h3>Atelier : jouez un tour</h3><p class="hint">Chaque joueur choisit un personnage à son tour : cliquez sur une carte. Observez l'ordre d'action de chaque phase, puis les Pesos posés en fin de tour.</p>""",
  r"""<h3>Lab: play a round</h3><p class="hint">Each player chooses a role in turn: click a card. Watch the order of play in each phase, then the coins placed at the end of the round.</p>"""),
 (r""">Recommencer</button></div>
 <p id="ro-who" """, r""">Start again</button></div>
@@ -45,7 +45,7 @@ PAIRS = [
  r"""t:`End of the round: ${NAMES[S.gov]} places 1 coin on ${left.map(x=>ROLEDEF[x].n).join(', ')}. The Governor card passes to ${NAMES[(S.gov+1)%S.n]}.`"""),
 # Paysan
 (r"""/* --- Paysan --- */""", r"""/* --- Planter --- */"""),
-(r"""<h3>Atelier : une phase du Paysan</h3><p class="hint">4 joueurs. Ana est le Paysan, Carla a un Dépôt de Matériaux occupé. Fais jouer chaque joueur à son tour : clique sur une tuile ou passe. Le simulateur refuse les choix interdits.</p>""",
+(r"""<h3>Atelier : une phase du Paysan</h3><p class="hint">4 joueurs. Ana est le Paysan, Carla a un Dépôt de Matériaux occupé. Faites jouer chaque joueur à son tour : cliquez sur une tuile ou passez. Le simulateur refuse les choix interdits.</p>""",
  r"""<h3>Lab: a Planting phase</h3><p class="hint">4 players. Ana is the Planter, Carla has an occupied Builders Yard. Play each player in turn: click a tile or pass. The simulator refuses illegal choices.</p>"""),
 (r"""id="pl-pass">Passer</button><button type="button" id="pl-new">Nouvelle situation</button>""", r"""id="pl-pass">Pass</button><button type="button" id="pl-new">New situation</button>"""),
 (r"""Carrière (${S.q})</button>""", r"""Quarry (${S.q})</button>"""),
@@ -62,7 +62,7 @@ PAIRS = [
 (r"""S.log.push({t:`${PL[S.turn]} passe.`})""", r"""S.log.push({t:`${PL[S.turn]} passes.`})"""),
 # Recruteur
 (r"""/* --- Recruteur --- */""", r"""/* --- Recruiter --- */"""),
-(r"""<h3>Atelier : distribuer et remplir le Registre</h3><p class="hint">Règle le nombre de joueurs et d'ouvriers sur le Registre. Le Recruteur est le premier de la liste.</p>
+(r"""<h3>Atelier : distribuer et remplir le Registre</h3><p class="hint">Réglez le nombre de joueurs et d'ouvriers sur le Registre. Le Recruteur est le premier de la liste.</p>
 <div class="row"><label class="f">Joueurs${numIn('rc-n',4,2,5)}</label><label class="f">Ouvriers sur le Registre${numIn('rc-w',6,0,30)}</label></div><div class="out" id="rc-out"></div>
 <h3>Remplir le Registre en fin de phase</h3><div class="row"><label class="f">Demi-cercles vides sur les bâtiments (tous joueurs)${numIn('rc-e',2,0,60)}</label><label class="f">Ouvriers restant dans la réserve${numIn('rc-s',20,0,95)}</label></div>""",
  r"""<h3>Lab: sharing out and refilling the Register</h3><p class="hint">Set the number of players and workers on the Work Register. The Recruiter is first in the list.</p>
@@ -74,7 +74,7 @@ PAIRS = [
  r"""o.innerHTML=`The Recruiter must place <b>${need}</b> worker${need>1?'s':''} (${e} empty semicircle${e>1?'s':''}, minimum ${n}).`+(s<need?` <b>The supply only has ${s}: the game will end at the end of this round.</b>`:` The supply is enough (${s}).`)"""),
 # Bâtisseur
 (r"""/* --- Bâtisseur --- */""", r"""/* --- Builder --- */"""),
-(r"""<h3>Atelier : combien coûte ce bâtiment ?</h3><p class="hint">Choisis un bâtiment et ta situation.</p>
+(r"""<h3>Atelier : combien coûte ce bâtiment ?</h3><p class="hint">Choisissez un bâtiment et votre situation.</p>
 <div class="row"><label class="f">Bâtiment<select""", r"""<h3>Lab: what does this Building cost?</h3><p class="hint">Choose a Building and your situation.</p>
 <div class="row"><label class="f">Building<select"""),
 (r"""<label class="f">Carrières occupées${numIn('bd-q',2,0,8)}</label><label class="f">Cases Ville libres${numIn('bd-free',6,0,12)}</label></div>
@@ -82,9 +82,9 @@ PAIRS = [
  r"""<label class="f">Occupied Quarries${numIn('bd-q',2,0,8)}</label><label class="f">Empty City spaces${numIn('bd-free',6,0,12)}</label></div>
 <div class="row" style="margin-top:6px"><label class="chk"><input type="checkbox" id="bd-pri" checked> I am the Builder</label><label class="chk"><input type="checkbox" id="bd-own"> I already own it</label></div>"""),
 (r"""o.innerHTML='Impossible : on ne construit jamais deux fois le même bâtiment.'""", r"""o.innerHTML='Impossible: you never build the same Building twice.'"""),
-(r"""o.innerHTML='Impossible : ta Ville est pleine, tu ne peux plus faire l\'action Bâtisseur.'""", r"""o.innerHTML='Impossible: your City is full, you can no longer take the Builder action.'"""),
+(r"""o.innerHTML='Impossible : votre Ville est pleine, vous ne pouvez plus faire l\'action Bâtisseur.'""", r"""o.innerHTML='Impossible: your City is full, you can no longer take the Builder action.'"""),
 (r"""o.innerHTML='Impossible : un grand bâtiment occupe 2 cases adjacentes.'""", r"""o.innerHTML='Impossible: a Large Building takes 2 adjacent spaces.'"""),
-(r"""`<span class="big">${p} Peso${p>1?'s':''}</span><br>Coût ${b.cost} − ${qq} Carrière${qq>1?'s':''} (plafond ${cap} : ${b.kind==='large'?'grand bâtiment':`rangée ${b.row}`})${pri?' − 1 (privilège)':''}${b.cost-qq-(pri?1:0)<0?' → ramené à 0':''}.${q>cap?` <span class="muted">Tes ${q-cap} autres Carrières ne servent pas ici.</span>`:''}${free-(b.kind==='large'?2:1)===0?' <b>Ce bâtiment remplit ta Ville : la partie s\'achèvera à la fin du tour.</b>':''}`""",
+(r"""`<span class="big">${p} Peso${p>1?'s':''}</span><br>Coût ${b.cost} − ${qq} Carrière${qq>1?'s':''} (plafond ${cap} : ${b.kind==='large'?'grand bâtiment':`rangée ${b.row}`})${pri?' − 1 (privilège)':''}${b.cost-qq-(pri?1:0)<0?' → ramené à 0':''}.${q>cap?` <span class="muted">Vos ${q-cap} autres Carrières ne servent pas ici.</span>`:''}${free-(b.kind==='large'?2:1)===0?' <b>Ce bâtiment remplit votre Ville : la partie s\'achèvera à la fin du tour.</b>':''}`""",
  r"""`<span class="big">${p} coin${p>1?'s':''}</span><br>Cost ${b.cost} − ${qq} Quarr${qq>1?'ies':'y'} (cap ${cap}: ${b.kind==='large'?'Large Building':`section ${b.row}`})${pri?' − 1 (advantage)':''}${b.cost-qq-(pri?1:0)<0?' → raised to 0':''}.${q>cap?` <span class="muted">Your other ${q-cap} Quarries don't help here.</span>`:''}${free-(b.kind==='large'?2:1)===0?' <b>This Building fills your City: the game will end at the end of the round.</b>':''}`"""),
 # Producteur
 (r"""/* --- Producteur --- */""", r"""/* --- Craftsman --- */"""),
@@ -95,7 +95,7 @@ PAIRS = [
 (r"""'<span class="muted">aucun bâtiment</span>'""", r"""'<span class="muted">no Building</span>'"""),
 (r"""<label class="chk"><input type="checkbox" id="pd-fac"> Usine occupée</label><label class="chk"><input type="checkbox" id="pd-art" checked> Je suis le Producteur</label>""",
  r"""<label class="chk"><input type="checkbox" id="pd-fac"> Occupied Factory</label><label class="chk"><input type="checkbox" id="pd-art" checked> I am the Craftsman</label>"""),
-(r"""let t=`Tu produis <b>${tot}</b> baril${tot>1?'s':''} de ${types} type${types>1?'s':''}.`;
+(r"""let t=`Vous produisez <b>${tot}</b> baril${tot>1?'s':''} de ${types} type${types>1?'s':''}.`;
  if(art)t+=made.length?` Privilège : à la fin de la phase, 1 baril de plus parmi ${made.map(g=>GN1[g]).join(', ')}.`:` Rien produit : pas de baril bonus.`;
  if(fac)t+=` Usine : <b>${fc}</b> Peso${fc>1?'s':''}.`;""",
  r"""let t=`You produce <b>${tot}</b> barrel${tot>1?'s':''} of ${types} type${types>1?'s':''}.`;
@@ -103,7 +103,7 @@ PAIRS = [
  if(fac)t+=` Factory: <b>${fc}</b> coin${fc>1?'s':''}.`;"""),
 # Marchand
 (r"""/* --- Marchand --- */""", r"""/* --- Trader --- */"""),
-(r"""<h3>Atelier : la Maison de Commerce</h3><p class="hint">Choisis tes bâtiments, puis clique sur un baril à vendre. Chaque clic est un joueur différent qui vend 1 baril.</p>""",
+(r"""<h3>Atelier : la Maison de Commerce</h3><p class="hint">Choisissez vos bâtiments, puis cliquez sur un baril à vendre. Chaque clic est un joueur différent qui vend 1 baril.</p>""",
  r"""<h3>Lab: the Trading House</h3><p class="hint">Choose your Buildings, then click a barrel to sell. Each click is a different player selling 1 barrel.</p>"""),
 (r"""<label class="chk"><input type="checkbox" id="tr-pri"> Marchand (privilège)</label><label class="chk"><input type="checkbox" id="tr-off"> Comptoir</label><label class="chk"><input type="checkbox" id="tr-sm"> Petit Marché</label><label class="chk"><input type="checkbox" id="tr-lm"> Grand Marché</label>""",
  r"""<label class="chk"><input type="checkbox" id="tr-pri"> Trader (advantage)</label><label class="chk"><input type="checkbox" id="tr-off"> Office</label><label class="chk"><input type="checkbox" id="tr-sm"> Small Market</label><label class="chk"><input type="checkbox" id="tr-lm"> Large Market</label>"""),
@@ -122,22 +122,22 @@ PAIRS = [
 (r"""t:`Fin de phase : la Maison n'est pas pleine (${H.length}/4), ses barils restent pour la prochaine fois.`""", r"""t:`End of the phase: the Trading House is not full (${H.length}/4), its barrels stay for next time.`"""),
 # stockage
 (r"""/* --- stockage --- */""", r"""/* --- storage --- */"""),
-(r"""<h3>Atelier : qu'ai-je le droit de garder ?</h3><p class="hint">Fin de la phase du Capitaine. Indique combien de barils tu gardes de chaque type, puis vérifie.</p>
+(r"""<h3>Atelier : qu'ai-je le droit de garder ?</h3><p class="hint">Fin de la phase du Capitaine. Indiquez combien de barils vous gardez de chaque type, puis vérifiez.</p>
 <div class="row"><label class="chk"><input type="checkbox" id="st-sw"> Petit Entrepôt occupé</label><label class="chk"><input type="checkbox" id="st-lw"> Grand Entrepôt occupé</label><button type="button" id="st-new">Nouvelle situation</button></div>""",
  r"""<h3>Lab: what may I keep?</h3><p class="hint">End of the Shipment phase. Enter how many barrels of each type you keep, then check.</p>
 <div class="row"><label class="chk"><input type="checkbox" id="st-sw"> Occupied Small Warehouse</label><label class="chk"><input type="checkbox" id="st-lw"> Occupied Large Warehouse</label><button type="button" id="st-new">New situation</button></div>"""),
 (r"""id="st-ok">Vérifier</button>""", r"""id="st-ok">Check</button>"""),
-(r"""`<tr><th>Marchandise</th><th class="c">Il te reste</th><th class="c">Tu gardes</th></tr>`""", r"""`<tr><th>Good</th><th class="c">You have</th><th class="c">You keep</th></tr>`"""),
-(r"""o.innerHTML=`Interdit. ${w?`Tes entrepôts couvrent ${w} type${w>1?'s':''} complet${w>1?'s':''}, et`:'Sans entrepôt,'} tu ne gardes qu'1 baril en plus. Exemple légal : ${b.full.map(g=>`tous les ${GN1[g]} (${H[g]})`).concat(b.one?[`1 ${GN1[b.one]}`]:[]).join(' + ')}.`""",
+(r"""`<tr><th>Marchandise</th><th class="c">Il vous reste</th><th class="c">Vous gardez</th></tr>`""", r"""`<tr><th>Good</th><th class="c">You have</th><th class="c">You keep</th></tr>`"""),
+(r"""o.innerHTML=`Interdit. ${w?`Vos entrepôts couvrent ${w} type${w>1?'s':''} complet${w>1?'s':''}, et`:'Sans entrepôt,'} vous ne gardez qu'1 baril en plus. Exemple légal : ${b.full.map(g=>`tous les ${GN1[g]} (${H[g]})`).concat(b.one?[`1 ${GN1[b.one]}`]:[]).join(' + ')}.`""",
  r"""o.innerHTML=`Not allowed. ${w?`Your Warehouses cover ${w} whole type${w>1?'s':''}, and`:'Without a Warehouse,'} you only keep 1 more barrel. A legal example: ${b.full.map(g=>`all the ${GN1[g]} (${H[g]})`).concat(b.one?[`1 ${GN1[b.one]}`]:[]).join(' + ')}.`"""),
-(r"""o.innerHTML=`Légal : tu gardes ${tot} baril${tot>1?'s':''} et en rends ${lost} à la réserve.${tot<b.n?` Tu aurais pu en garder jusqu'à ${b.n}.`:''}`""",
+(r"""o.innerHTML=`Légal : vous gardez ${tot} baril${tot>1?'s':''} et en rendez ${lost} à la réserve.${tot<b.n?` Vous auriez pu en garder jusqu'à ${b.n}.`:''}`""",
  r"""o.innerHTML=`Legal: you keep ${tot} barrel${tot>1?'s':''} and return ${lost} to the supply.${tot<b.n?` You could have kept up to ${b.n}.`:''}`"""),
 # fiches
 (r"""/* --- fiches des petits bâtiments --- */""", r"""/* --- small building cards --- */"""),
-(r"""const CARDNOTE={smk:'Avec un Grand Marché occupé : +3 au total. Même un Maïs vendu rapporte alors des Pesos.',byd:'Le Paysan qui a un Dépôt de Matériaux ne prend pas deux Carrières. Avec l\'Hacienda, la tuile face cachée reste une plantation.',hac:'La tuile tirée se pose aussitôt, sans possibilité de la refuser. Ton action normale suit.',swh:'Tu dois quand même charger tout ce que tu peux pendant la phase.',hos:'L\'ouvrier ne peut aller que sur la tuile que tu viens de poser (avec l\'Hacienda, sur l\'une des deux).',off:'Un autre joueur avec un Comptoir peut aussi doubler le même type, s\'il reste de la place.',lmk:'S\'applique à chaque vente à la Maison de Commerce, privilège ou non.',lwh:'Avec le Petit Entrepôt : 3 types complets + 1 baril.',fac:'Seul compte le nombre de types différents, pas les quantités.',sch:'Un seul ouvrier, même pour un bâtiment à 3 demi-cercles.',har:'Chaque chargement compte : plusieurs tours de chargement = plusieurs PV.',wha:'Le navire privé n\'a pas de limite, accepte un type déjà présent sur un cargo, et tous les barils de ce type doivent partir.'};""",
+(r"""const CARDNOTE={smk:'Avec un Grand Marché occupé : +3 au total. Même un Maïs vendu rapporte alors des Pesos.',byd:'Le Paysan qui a un Dépôt de Matériaux ne prend pas deux Carrières. Avec l\'Hacienda, la tuile face cachée reste une plantation.',hac:'La tuile tirée se pose aussitôt, sans possibilité de la refuser. Votre action normale suit.',swh:'Vous devez quand même charger tout ce que vous pouvez pendant la phase.',hos:'L\'ouvrier ne peut aller que sur la tuile que vous venez de poser (avec l\'Hacienda, sur l\'une des deux).',off:'Un autre joueur avec un Comptoir peut aussi doubler le même type, s\'il reste de la place.',lmk:'S\'applique à chaque vente à la Maison de Commerce, privilège ou non.',lwh:'Avec le Petit Entrepôt : 3 types complets + 1 baril.',fac:'Seul compte le nombre de types différents, pas les quantités.',sch:'Un seul ouvrier, même pour un bâtiment à 3 demi-cercles.',har:'Chaque chargement compte : plusieurs tours de chargement = plusieurs PV.',wha:'Le navire privé n\'a pas de limite, accepte un type déjà présent sur un cargo, et tous les barils de ce type doivent partir.'};""",
  r"""const CARDNOTE={smk:'With an occupied Large Market: +3 in total. Even a sold Corn then earns coins.',byd:'A Planter with a Builders Yard does not take two Quarries. With the Hacienda, the face-down tile stays an Estate.',hac:'The drawn tile is placed at once and cannot be refused. Your normal action follows.',swh:'You must still load everything you can during the phase.',hos:'The worker can only go on the tile you just placed (with the Hacienda, either of the two).',off:'Another player with an Office may also add the same type, if there is room.',lmk:'Applies to every sale to the Trading House, advantage or not.',lwh:'With the Small Warehouse: 3 whole types + 1 barrel.',fac:'Only the number of different types counts, not the quantities.',sch:'A single worker, even for a Building with 3 semicircles.',har:'Every load counts: several loading turns = several VP.',wha:'The Chartered Ship has no limit, accepts a type already on a Cargo Ship, and all barrels of that type must go.'};"""),
-(r"""<h3>Atelier : fiches des petits bâtiments</h3><p class="hint">Clique sur un bâtiment.</p>""", r"""<h3>Lab: Small Building cards</h3><p class="hint">Click a Building.</p>"""),
-(r"""id="cd-o">Choisis un bâtiment.</div>""", r"""id="cd-o">Choose a Building.</div>"""),
+(r"""<h3>Atelier : fiches des petits bâtiments</h3><p class="hint">Cliquez sur un bâtiment.</p>""", r"""<h3>Lab: Small Building cards</h3><p class="hint">Click a Building.</p>"""),
+(r"""id="cd-o">Choisissez un bâtiment.</div>""", r"""id="cd-o">Choose a Building.</div>"""),
 (r"""`<b>${d.fr}</b> <span class="en">${d.en}</span><br>Coût ${d.cost} · ${d.vp} PV · rangée ${d.row} · phase : ${d.ph}<br>${d.fx}<br><span class="muted">À savoir : ${CARDNOTE[d.id]}</span>`""",
  r"""`<b>${d.fr}</b><br>Cost ${d.cost} · ${d.vp} VP · section ${d.row} · phase: ${d.ph}<br>${d.fx}<br><span class="muted">Good to know: ${CARDNOTE[d.id]}</span>`"""),
 # grands
@@ -145,7 +145,7 @@ PAIRS = [
 (r"""<h3>Atelier : bonus d'un grand bâtiment</h3><p class="hint">Le grand bâtiment est supposé occupé. Il rapporte 4 PV + ce bonus.</p>
 <div class="row"><label class="f">Bâtiment<select""", r"""<h3>Lab: a Large Building's bonus</h3><p class="hint">The Large Building is assumed to be occupied. It scores 4 VP + this bonus.</p>
 <div class="row"><label class="f">Building<select"""),
-(r"""const IN={fst:`<label class="f">Petits bâtiments industriels${numIn('lg-a',1,0,4)}</label><label class="f">Grands bâtiments industriels${numIn('lg-c',3,0,4)}</label>`,res:`<label class="f">Cases Parcelle remplies${numIn('lg-a',10,0,12)}</label>`,frt:`<label class="f">Ouvriers sur ton domaine${numIn('lg-a',22,0,99)}</label>`,cus:`<label class="f">PV en jetons${numIn('lg-a',30,0,200)}</label>`,cth:`<label class="f">Bâtiments beiges (Palais du Gouverneur compris)${numIn('lg-a',7,1,12)}</label>`};""",
+(r"""const IN={fst:`<label class="f">Petits bâtiments industriels${numIn('lg-a',1,0,4)}</label><label class="f">Grands bâtiments industriels${numIn('lg-c',3,0,4)}</label>`,res:`<label class="f">Cases Parcelle remplies${numIn('lg-a',10,0,12)}</label>`,frt:`<label class="f">Ouvriers sur votre domaine${numIn('lg-a',22,0,99)}</label>`,cus:`<label class="f">PV en jetons${numIn('lg-a',30,0,200)}</label>`,cth:`<label class="f">Bâtiments beiges (Palais du Gouverneur compris)${numIn('lg-a',7,1,12)}</label>`};""",
  r"""const IN={fst:`<label class="f">Small Production Buildings${numIn('lg-a',1,0,4)}</label><label class="f">Large Production Buildings${numIn('lg-c',3,0,4)}</label>`,res:`<label class="f">Filled Countryside spaces${numIn('lg-a',10,0,12)}</label>`,frt:`<label class="f">Workers on your Island${numIn('lg-a',22,0,99)}</label>`,cus:`<label class="f">VP in chips${numIn('lg-a',30,0,200)}</label>`,cth:`<label class="f">Commercial Buildings (City Hall included)${numIn('lg-a',7,1,12)}</label>`};"""),
 (r"""`Bonus : <b>${v} PV</b>, soit <span class="big">${v+4} PV</span> au total pour ce bâtiment.`""", r"""`Bonus: <b>${v} VP</b>, that is <span class="big">${v+4} VP</span> in total for this Building.`"""),
 # fin

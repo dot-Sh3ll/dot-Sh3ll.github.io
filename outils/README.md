@@ -26,6 +26,7 @@ cd /home/claude/ae && npm install     # installe typescript (pour extract.js)
 | `lang.py fr\|en <page>` | Redirection de langue ; sur une page EN, sauvegardes séparées (préfixe `en:`). Toute langue du site autre que le français (en, de, es…) ouvre `en.html`. |
 | `i18n.py extract\|apply` | Extraction des textes d'une page et application d'une table de traduction. |
 | `pdf_footer.py <source.pdf> <sortie.pdf>` | Ajoute le pied de page « Less Rules, More Play · paulmoussard.com » à un PDF existant (à partir d’un PDF sans pied de page). |
+| `vouvoiement.py scan\|apply <fichiers>` | Consigne du site : on vouvoie le lecteur. `scan` liste ce qui reste au tutoiement (tu, ton, ta, tes, toi, te, -tu) et les verbes après « puis / et » à vérifier ; `apply` convertit sur place les formes reconnues (table de conjugaison, impératifs connus) et affiche chaque phrase modifiée. Relire la sortie : les impératifs qui sont aussi des noms (« Défausse », « Pioche Nation ») et les verbes coordonnés à la 3e personne restent à vérifier à la main. Si le texte français d'une appli change, penser aux tables de traduction (`puerto-rico/en/pairs_*.py`, `traduction/imp-map.json`), dont les clés sont les phrases françaises. |
 | `test_clics.py` | Test de clics au hasard (Playwright), serveur local `python3 -m http.server 8766` lancé depuis la racine du dépôt. |
 
 ## `traduction/` : versions anglaises

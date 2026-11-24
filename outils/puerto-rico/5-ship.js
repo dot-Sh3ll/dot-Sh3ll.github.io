@@ -1,12 +1,12 @@
 
 /* --- simulateur de la phase du Capitaine --- */
 const SHIPSC=[
- {id:'livret',t:'Exemple du livret',d:'4 joueurs. Anne est Capitaine. Le navire de 6 cales porte déjà 3 Maïs. Rejoue la phase de l\'exemple : à chaque tour, choisis une marchandise puis un navire.',
+ {id:'livret',t:'Exemple du livret',d:'4 joueurs. Anne est Capitaine. Le navire de 6 cales porte déjà 3 Maïs. Rejouez la phase de l\'exemple : à chaque tour, choisissez une marchandise puis un navire.',
   ships:[[5,null,0],[6,'c',3],[7,null,0]],pl:[{n:'Anne',cap:1,g:{c:2,s:6}},{n:'Bernie',g:{s:2,t:3}},{n:'Christine',g:{c:2,t:1}},{n:'David',g:{c:1,f:5}}]},
- {id:'port',t:'Port et Chantier Naval',d:'3 joueurs. Rosa est Capitaine et possède un Port et un Chantier Naval occupés. Le Chantier Naval s\'utilise une fois, au moment de ton choix pendant ton tour.',
+ {id:'port',t:'Port et Chantier Naval',d:'3 joueurs. Rosa est Capitaine et possède un Port et un Chantier Naval occupés. Le Chantier Naval s\'utilise une fois, au moment de votre choix pendant votre tour.',
   ships:[[4,'t',1],[5,'s',2],[6,null,0]],pl:[{n:'Rosa',cap:1,har:1,wha:1,g:{t:5,s:2,c:1}},{n:'Tomás',g:{c:4,k:2}},{n:'Inés',g:{s:1,f:3}}]},
  {id:'bloque',t:'Navires encombrés',d:'4 joueurs. Le navire de Maïs est plein, celui de Café presque. Qui peut encore charger quoi ?',
-  ships:[[5,'k',4],[6,null,0],[7,'c',7]],pl:[{n:'Toi',cap:1,g:{c:3,k:2,f:1}},{n:'Luis',g:{c:2,s:4}},{n:'Mara',g:{t:6}},{n:'Pedro',g:{k:1,f:2}}]},
+  ships:[[5,'k',4],[6,null,0],[7,'c',7]],pl:[{n:'Vous',cap:1,g:{c:3,k:2,f:1}},{n:'Luis',g:{c:2,s:4}},{n:'Mara',g:{t:6}},{n:'Pedro',g:{k:1,f:2}}]},
  {id:'hasard',t:'Situation au hasard',d:'Une situation tirée au hasard à chaque clic sur « Recommencer ».'}
 ];
 function randomShip(){const n=3+rnd(2),caps=n===3?[4,5,6]:[5,6,7],types=shuffle(GOODS.slice()),ships=caps.map((c,i)=>{const r=Math.random();if(r<.45)return [c,null,0];const t=types[i];return [c,t,1+rnd(c-1)]});
@@ -39,15 +39,15 @@ init(r){let S,sc=0;
   finish()};
  const score=(p,n,how)=>{let v=n,d=[`${n} PV`];if(p.har){v++;d.push('1 (Port)')}if(p.cap&&!p.capBonus){v++;p.capBonus=true;d.push('1 (privilège du Capitaine)')}p.vp+=v;return `${how} : <b>+${v} PV</b>${d.length>1?` (${d.join(' + ')})`:''}.`};
  const tryLoad=s=>{if(S.over)return;const p=S.pl[S.cur],g=S.sel;
-  if(!g){log('Choisis d\'abord une marchandise dans le cadre du joueur actif.','err');return draw()}
+  if(!g){log('Choisissez d\'abord une marchandise dans le cadre du joueur actif.','err');return draw()}
   if(full(s)){log(`Refusé : le navire de ${s.cap} cales est plein.`,'err');return draw()}
   if(s.type&&s.type!==g){log(`Refusé : ce navire transporte déjà du ${GN1[s.type]}. Un navire ne prend qu'un type.`,'err');return draw()}
   const own=S.ships.find(x=>x.type===g);
   if(!s.type&&own){log(`Refusé : le ${GN1[g]} voyage déjà sur le navire de ${own.cap} cales. Deux navires ne portent jamais le même type${full(own)?', même si celui-ci est plein':''}.`,'err');return draw()}
-  const L=legal(p,g);if(!L.includes(s)){const b=L[0];log(`Refusé : sur le navire de ${b.cap} cales tu chargerais ${Math.min(p.g[g],b.cap)} barils, contre ${Math.min(p.g[g],s.cap)} ici. Parmi les navires vides, tu dois prendre celui qui te permet de charger le plus.`,'err');return draw()}
+  const L=legal(p,g);if(!L.includes(s)){const b=L[0];log(`Refusé : sur le navire de ${b.cap} cales vous chargeriez ${Math.min(p.g[g],b.cap)} barils, contre ${Math.min(p.g[g],s.cap)} ici. Parmi les navires vides, vous devez prendre celui qui vous permet de charger le plus.`,'err');return draw()}
   const n=Math.min(p.g[g],s.cap-s.n);s.type=g;s.n+=n;p.g[g]-=n;S.idle=0;
   log(`${p.n} charge ${n} ${GN1[g]} sur le navire de ${s.cap} cales${p.g[g]?` (il lui en reste ${p.g[g]}, le navire est plein)`:''}. ${score(p,n,'Gain')}`,'okk');advance()};
- const useWharf=()=>{const p=S.pl[S.cur],g=S.sel;if(!g||!p.g[g]){log('Choisis d\'abord la marchandise à embarquer sur le navire privé.','err');return draw()}
+ const useWharf=()=>{const p=S.pl[S.cur],g=S.sel;if(!g||!p.g[g]){log('Choisissez d\'abord la marchandise à embarquer sur le navire privé.','err');return draw()}
   const n=p.g[g];p.g[g]=0;p.whaUsed=true;S.idle=0;log(`${p.n} utilise son Chantier Naval : ${n} ${GN1[g]} partent sur un navire privé et retournent à la réserve. ${score(p,n,'Gain')}`,'okk');advance()};
  const pass=()=>{const p=S.pl[S.cur];if(S.over)return;
   if(canCargo(p)){const opts=GOODS.filter(g=>legal(p,g).length).map(g=>GN1[g]);log(`Refusé : ${p.n} peut charger (${opts.join(', ')}). Le chargement est obligatoire.`,'err');return draw()}
@@ -58,7 +58,7 @@ init(r){let S,sc=0;
  const draw=()=>{const cur=S.pl[S.cur];
   $('#sh-ships',r).innerHTML=S.ships.map((s,i)=>`<button type="button" class="ship${full(s)?' full':''}" data-i="${i}"><span class="cap">${s.cap} cales${s.type?`<br>${G[s.type]}`:'<br><span class="muted">vide</span>'}</span><span class="holds">${Array.from({length:s.cap},(_,k)=>k<s.n?bl(s.type):'<span class="hold"></span>').join('')}</span></button>`).join('');
   $('#sh-pl',r).innerHTML=S.pl.map((p,i)=>`<div class="pl${i===S.cur&&!S.over?' cur':''}"><div class="nm">${p.n}${p.cap?'<span class="badge cap">Capitaine</span>':''}${p.har?'<span class="badge">Port</span>':''}${p.wha?`<span class="badge">Chantier Naval${p.whaUsed?' utilisé':''}</span>`:''}<span style="margin-left:auto">${vp(p.vp)}</span></div><div class="goods">${GOODS.filter(g=>p.g[g]).map(g=>`<button type="button" class="gbtn${i===S.cur&&S.sel===g?' sel':''}" data-p="${i}" data-g="${g}" ${i!==S.cur||S.over?'disabled':''}>${bl(g)} ${p.g[g]}</button>`).join('')||'<span class="muted small">plus rien</span>'}</div></div>`).join('');
-  $('#sh-who',r).innerHTML=S.over?'Phase terminée. Choisis un autre scénario ou recommence.':`Au tour de <b>${cur.n}</b> : choisis une marchandise, puis un navire.`;
+  $('#sh-who',r).innerHTML=S.over?'Phase terminée. Choisissez un autre scénario ou recommencez.':`Au tour de <b>${cur.n}</b> : choisissez une marchandise, puis un navire.`;
   $('#sh-wharf',r).hidden=S.over||!canWharf(cur);$('#sh-pass',r).disabled=S.over;
   $$('#sh-ships .ship',r).forEach(b=>b.onclick=()=>tryLoad(S.ships[+b.dataset.i]));
   $$('#sh-pl .gbtn',r).forEach(b=>b.onclick=()=>{S.sel=b.dataset.g;draw()});

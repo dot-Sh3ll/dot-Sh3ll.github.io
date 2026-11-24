@@ -128,7 +128,7 @@ roles = [
 ]
 rc = "".join(f'<div class="role"><h3>{n}</h3><p><span class="k">Action :</span> {a}</p><p><span class="k">Privilège :</span> {p}</p><p><span class="k">Fin de phase :</span> {f}</p>{f"<p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : {bt}</i></p>" if bt else ""}</div>' for n, a, p, f, bt in roles)
 P2 = f"""<section class="pg p">{top("Les Personnages","2 / 4")}<div class="roles">{rc}
-<div class="role" style="border:.5mm solid #b4532a"><h3>À retenir</h3><p>Un Personnage non choisi gagne 1 Peso par tour : il devient de plus en plus intéressant.</p><p>Prendre un Personnage, c'est aussi offrir sa phase aux autres : regarde ce qu'ils y gagnent.</p></div></div>
+<div class="role" style="border:.5mm solid #b4532a"><h3>À retenir</h3><p>Un Personnage non choisi gagne 1 Peso par tour : il devient de plus en plus intéressant.</p><p>Prendre un Personnage, c'est aussi offrir sa phase aux autres : regardez ce qu'ils y gagnent.</p></div></div>
 {foot("")}</section>"""
 
 setup_rows = [
@@ -188,9 +188,9 @@ P4 = f"""<section class="pg p">{top("Vendre ou expédier ?","4 / 4")}
 SHORT = {
  "sfw": "1 Fruit au plus.", "ssm": "1 Sucre au plus.", "lfw": "3 Fruits au plus.", "lsm": "3 Sucres au plus.", "tob": "3 Tabacs au plus.", "cof": "2 Cafés au plus.",
  "smk": "+1 Peso à chaque vente à la Maison de Commerce.", "byd": "Carrière au lieu d'une Plantation (pas de 2e Carrière pour le Paysan).",
- "hac": "Avant de choisir : +1 Plantation tirée face cachée, à poser obligatoirement.", "swh": "Fin du Capitaine : garde tous les barils d'1 type en plus.",
+ "hac": "Avant de choisir : +1 Plantation tirée face cachée, à poser obligatoirement.", "swh": "Fin du Capitaine : gardez tous les barils d'1 type en plus.",
  "hos": "Plantation ou Carrière posée : +1 ouvrier de la réserve dessus (avec l'Hacienda : sur l'une des deux).", "off": "Vendre un type déjà présent à la Maison de Commerce.",
- "lmk": "+2 Pesos à chaque vente (+3 avec le Petit Marché).", "lwh": "Fin du Capitaine : garde tous les barils de 2 types (3 avec le Petit Entrepôt).",
+ "lmk": "+2 Pesos à chaque vente (+3 avec le Petit Marché).", "lwh": "Fin du Capitaine : gardez tous les barils de 2 types (3 avec le Petit Entrepôt).",
  "fac": "Phase du Producteur : 2 / 3 / 4 / 5 types produits → 1 / 2 / 3 / 5 Pesos.", "sch": "Construction : +1 ouvrier de la réserve sur le nouveau bâtiment.",
  "har": "+1 PV à chaque chargement.", "wha": "1 fois par phase : tous les barils d'1 type sur un navire privé (1 PV chacun).",
  "fst": "+1 PV par petit, +2 PV par grand bâtiment industriel.", "res": "Parcelles occupées : ≤9 → 4, 10 → 5, 11 → 6, 12 → 7 PV.", "frt": "+1 PV par tranche de 3 ouvriers.",
@@ -200,7 +200,7 @@ SHORT = {
  "pen": "Avant d'expédier : 1 marchandise rendue par bourgeois (types différents) = 1 PV chacune.", "vil": "Début du Recruteur : +1 bourgeois de la réserve (sinon 1 ouvrier).",
  "tai": "Phase du Producteur : +1 Peso par bourgeois. Compte comme grand bâtiment industriel.", "tsq": "+1 PV par bourgeois.",
  "can": "+1 Fruit / +1 Sucre si produit avec la Grande Exploitation / Raffinerie.", "bmk": "Rendre 1 ouvrier, 1 marchandise et/ou 1 PV = −1 Peso chacun (max 3), sans garder de Peso.",
- "lum": "Plantation posée face Forêt. Chaque paire de Forêts : −1 Peso par construction.", "sto": "Fin du Capitaine : garde jusqu'à 3 marchandises de plus.",
+ "lum": "Plantation posée face Forêt. Chaque paire de Forêts : −1 Peso par construction.", "sto": "Fin du Capitaine : gardez jusqu'à 3 marchandises de plus.",
  "boh": "Jusqu'à 2 « invités » à déplacer pendant une autre phase ; effet immédiat.", "tpo": "Vendre n'importe quelle marchandise à son Commerce (sans bonus des Marchés).",
  "chu": "Construction : +1 PV (rangée 2 ou 3), +2 PV (grand bâtiment).", "swf": "1 fois par phase : marchandises au choix sur un navire privé, 1 PV par lot de 2.",
  "lig": "+1 Peso à chaque chargement ; Capitaine : +1 Peso.", "pub": "Double le privilège de son Personnage.",

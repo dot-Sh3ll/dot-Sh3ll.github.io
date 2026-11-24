@@ -2,7 +2,7 @@
    Pages : réseau d'abord (toujours la dernière version), copie locale si pas de réseau.
    Polices, icônes, PDF : copie locale d'abord, mise à jour en arrière-plan.
    Changer VERSION à chaque grosse mise à jour pour vider l'ancien cache. */
-const VERSION = "v11";
+const VERSION = "v12";
 const CACHE = "aides-de-jeu-" + VERSION;
 const PRECACHE = [
   "./", "index.html", "manifest.webmanifest",

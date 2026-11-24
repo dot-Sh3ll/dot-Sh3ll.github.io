@@ -4,11 +4,11 @@ PAIRS = [
 (r"""`${d} chapitre${d>1?'s':''} validé${d>1?'s':''} sur ${CH.length}`""", r"""`${d} of ${CH.length} chapter${CH.length>1?'s':''} completed`"""),
 (r"""'<span class="tick" aria-label="validé">✓</span>'""", r"""'<span class="tick" aria-label="completed">✓</span>'"""),
 (r"""$('#tocbtn').textContent='Afficher le sommaire'})}""", r"""$('#tocbtn').textContent='Show contents'})}"""),
-(r"""'<span class="tag">Que fais-tu ?</span>'""", r"""'<span class="tag">What do you do?</span>'"""),
+(r"""'<span class="tag">Que faites-vous ?</span>'""", r"""'<span class="tag">What do you do?</span>'"""),
 (r"""<div class="eyebrow">${c.part} · étape ${i+1} sur ${CH.length}</div>""", r"""<div class="eyebrow">${c.part} · step ${i+1} of ${CH.length}</div>"""),
 (r"""<h2>Les points de règle</h2>""", r"""<h2>The rules</h2>"""),
 (r"""h+=`<h2>Cas pratiques</h2>""", r"""h+=`<h2>Hands-on cases</h2>"""),
-(r"""h+=`<h2>Vérifie que c'est acquis</h2>""", r"""h+=`<h2>Check what you've learnt</h2>"""),
+(r"""h+=`<h2>Vérifiez que c'est acquis</h2>""", r"""h+=`<h2>Check what you've learnt</h2>"""),
 (r"""data-tab="aide">Ouvrir l'aide-mémoire →</button>""", r"""data-tab="aide">Open the reference →</button>"""),
 (r"""`<b>Pas tout à fait.</b> Essaie une autre réponse.`""", r"""`<b>Not quite.</b> Try another answer.`"""),
 (r"""`${ok} question${ok>1?'s':''} sur ${all.length} résolue${ok>1?'s':''}, dont ${first} du premier coup.`""", r"""`${ok} of ${all.length} question${all.length>1?'s':''} solved, ${first} at the first try.`"""),
@@ -61,7 +61,7 @@ PAIRS = [
 (r"""d.push(`${bv} de bâtiments`)""", r"""d.push(`${bv} from Buildings`)"""),
 (r"""d.push(`${lb} de bonus`)""", r"""d.push(`${lb} bonus`)"""),
 (r"""d.push(`${p.cit} de bourgeois`)""", r"""d.push(`${p.cit} from citizens`)"""),
-(r"""<div class="eyebrow">Décompte</div><h1>Calculer les scores</h1><p class="lead">Coche les bâtiments de chacun ; pour les grands bâtiments occupés, l'appli calcule le bonus. Tout reste enregistré dans ce navigateur.</p>
+(r"""<div class="eyebrow">Décompte</div><h1>Calculer les scores</h1><p class="lead">Cochez les bâtiments de chacun ; pour les grands bâtiments occupés, l'appli calcule le bonus. Tout reste enregistré dans ce navigateur.</p>
  <div class="toolbar">Joueurs ${seg('sc-n',[2,3,4,5],SC.n)}<label class="chk"><input type="checkbox" id="sc-e1" ${SC.e1?'checked':''}> Extension I</label><label class="chk"><input type="checkbox" id="sc-e2" ${SC.e2?'checked':''}> Extension II (bourgeois)</label><button type="button" id="sc-reset">Tout effacer</button></div>""",
  r"""<div class="eyebrow">Scoring</div><h1>Score calculator</h1><p class="lead">Tick each player's Buildings; for occupied Large Buildings, the app works out the bonus. Everything is saved in this browser.</p>
  <div class="toolbar">Players ${seg('sc-n',[2,3,4,5],SC.n)}<label class="chk"><input type="checkbox" id="sc-e1" ${SC.e1?'checked':''}> Expansion I</label><label class="chk"><input type="checkbox" id="sc-e2" ${SC.e2?'checked':''}> Expansion II (citizens)</label><button type="button" id="sc-reset">Clear all</button></div>"""),

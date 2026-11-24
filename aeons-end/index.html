@@ -273,7 +273,7 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
 <main>
 <header>
   <h1>Marché d'<span>Aeon's End</span></h1>
-  <p>Neuf piles de gemmes, reliques et sorts tirées des boîtes que tu possèdes. Choisis la répartition et le type de marché avant chaque combat.</p>
+  <p>Neuf piles de gemmes, reliques et sorts tirées des boîtes que vous possédez. Choisissez la répartition et le type de marché avant chaque combat.</p>
 </header>
 
 <nav class="tabs" role="tablist" aria-label="Sections">
@@ -297,12 +297,12 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
       <span class="d">Les meilleures cartes à chaque poste : économie rapide, épuration du deck, sorts d'ouverture et finisseurs.</span>
     </button>
     <button class="mode" data-mode="combo" type="button">
-      <span class="k">À toi de trouver</span><span class="t">Original</span>
-      <span class="d">Un marché bâti autour d'une synergie cachée. L'indice reste masqué tant que tu ne le demandes pas.</span>
+      <span class="k">À vous de trouver</span><span class="t">Original</span>
+      <span class="d">Un marché bâti autour d'une synergie cachée. L'indice reste masqué tant que vous ne le demandez pas.</span>
     </button>
     <button class="mode" data-mode="rand" type="button">
       <span class="k">Au hasard</span><span class="t">Full random</span>
-      <span class="d">Neuf cartes tirées sans aucun filtre. Tu fais avec ce qui sort.</span>
+      <span class="d">Neuf cartes tirées sans aucun filtre. Vous faites avec ce qui sort.</span>
     </button>
   </div>
   <div class="opts">
@@ -359,7 +359,7 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
       <input type="file" id="a-photo" multiple hidden>
       <button class="btn primary" type="button" id="a-analyze" disabled>Analyser</button>
       <button class="btn" type="button" id="a-stop" hidden>Arrêter</button>
-      <span class="st" id="a-st">Prends la table en photo (marché, et si possible la némésis et les plateaux des mages). Je reconnais les cartes et je remplis la fiche ; tu vérifies avant d'enregistrer. Chaque analyse utilise un peu de ton usage de Claude.</span>
+      <span class="st" id="a-st">Prenez la table en photo (marché, et si possible la némésis et les plateaux des mages). Je reconnais les cartes et je remplis la fiche ; vous vérifiez avant d'enregistrer. Chaque analyse utilise un peu de votre usage de Claude.</span>
     </div>
     <div class="resrow" role="radiogroup" aria-label="Résultat">
       <label><input type="radio" name="a-res" id="a-res-v" value="V" checked> Victoire</label>
@@ -896,17 +896,17 @@ function rollDist(){
 function fits(a){ return TYPES.every(([t],i)=>pool(t).length>=a[i]) }
 
 const THEMES = {
-  ch:{name:"Moteur à charges",hint:"Plusieurs cartes produisent ou dépensent des charges. Cherche comment déclencher la capacité d'un mage bien plus souvent que d'habitude."},
-  mem:{name:"Défausse bien remplie",hint:"Certaines cartes se renforcent quand ta défausse compte six ou sept cartes. Surveille le moment où elle redevient ta pioche."},
+  ch:{name:"Moteur à charges",hint:"Plusieurs cartes produisent ou dépensent des charges. Cherchez comment déclencher la capacité d'un mage bien plus souvent que d'habitude."},
+  mem:{name:"Défausse bien remplie",hint:"Certaines cartes se renforcent quand votre défausse compte six ou sept cartes. Surveillez le moment où elle redevient votre pioche."},
   thin:{name:"Épuration",hint:"Ce marché détruit des cartes à tour de bras. Un deck de dix cartes qui ne contient plus aucun Cristal tourne très vite."},
-  br:{name:"Maîtres des brèches",hint:"Tout pousse à ouvrir tes brèches tôt et à garder plusieurs sorts préparés en même temps."},
+  br:{name:"Maîtres des brèches",hint:"Tout pousse à ouvrir vos brèches tôt et à garder plusieurs sorts préparés en même temps."},
   amp:{name:"Sorts démultipliés",hint:"Des sorts lancés deux fois, relancés ou gonflés par un bonus. Un même bonus de dégâts peut s'appliquer à chaque impact."},
   coop:{name:"Jeu d'équipe",hint:"Les meilleures cartes ici agissent sur un allié ou réclament la même carte chez deux mages. Répartissez les achats."},
   sup:{name:"Ruée sur la réserve",hint:"Des cartes récompensent le fait de gagner beaucoup de cartes, ou de vider une pile de la réserve."},
-  min:{name:"Chasse aux serviteurs",hint:"Silence, petits dégâts répétés et bonus quand un serviteur tombe : garde ces cartes pour eux plutôt que pour la némésis."},
-  surv:{name:"Sur le fil",hint:"Des soins, des cartes à sacrifier pour Gravehold et des effets qui s'activent quand tes vies sont au plus bas."},
-  zero:{name:"Retour aux sources",hint:"Pour une fois, tes Cristaux et tes Étincelles de départ valent de l'or. Réfléchis avant de les détruire."},
-  turn:{name:"Maîtres du temps",hint:"Plusieurs cartes lisent ou manipulent le deck Ordre du tour. Compte les cartes déjà sorties."}
+  min:{name:"Chasse aux serviteurs",hint:"Silence, petits dégâts répétés et bonus quand un serviteur tombe : gardez ces cartes pour eux plutôt que pour la némésis."},
+  surv:{name:"Sur le fil",hint:"Des soins, des cartes à sacrifier pour Gravehold et des effets qui s'activent quand vos vies sont au plus bas."},
+  zero:{name:"Retour aux sources",hint:"Pour une fois, vos Cristaux et vos Étincelles de départ valent de l'or. Réfléchissez avant de les détruire."},
+  turn:{name:"Maîtres du temps",hint:"Plusieurs cartes lisent ou manipulent le deck Ordre du tour. Comptez les cartes déjà sorties."}
 };
 
 /* ---------- némésis et mages ----------
@@ -1212,7 +1212,7 @@ const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
 function fxHtml(fx){
   return fx.split("~").map(part=>part.split("|").map(l=>esc(l).replace(/^(Lancer :|Écho|Lien|Connectez)/,"<b>$1</b>")).join("<br>")).join('<span class="or">OU</span>');
 }
-const MODES={opt:["Le plus facile","Marché optimisé"],combo:["À toi de trouver","Marché original"],rand:["Au hasard","Marché full random"],replay:["Déjà joué","Marché rejoué"]};
+const MODES={opt:["Le plus facile","Marché optimisé"],combo:["À vous de trouver","Marché original"],rand:["Au hasard","Marché full random"],replay:["Déjà joué","Marché rejoué"]};
 let hintShown=false, keysShown=false;
 
 function fitsFight(t){
@@ -1230,7 +1230,7 @@ function render(){
   $("again").hidden=m.mode==="replay"; $("rt").textContent=MODES[m.mode][1];
   const note=$("note");
   if(m.mode==="opt"){
-    note.innerHTML="<p>Plan de jeu : achète la gemme bon marché dès les premiers tours, épure tes Cristaux et Étincelles avec la relique dédiée, puis empile les finisseurs.</p>"+adaptText()+"<p class='muted'>Chaque carte porte son rôle. Tu peux en changer une : la remplaçante tient le même poste.</p>";
+    note.innerHTML="<p>Plan de jeu : achetez la gemme bon marché dès les premiers tours, épurez vos Cristaux et Étincelles avec la relique dédiée, puis empilez les finisseurs.</p>"+adaptText()+"<p class='muted'>Chaque carte porte son rôle. Vous pouvez en changer une : la remplaçante tient le même poste.</p>";
   }else if(m.mode==="replay"){
     note.innerHTML="<p>"+esc(m.label)+"</p>"+(m.missing?"<p class='muted'>"+m.missing+" carte(s) de ce marché ne sont pas dans le générateur et manquent ici.</p>":"");
   }else if(m.mode==="rand"){
@@ -1239,7 +1239,7 @@ function render(){
     const th=THEMES[m.theme], nkey=m.slots.filter(s=>s.key).length;
     note.innerHTML = (hintShown
       ? "<p><b>"+esc(th.name)+".</b> "+esc(th.hint)+"</p>"
-      : "<p>Une synergie relie "+nkey+" de ces cartes. À toi de la trouver en jouant.</p>")
+      : "<p>Une synergie relie "+nkey+" de ces cartes. À vous de la trouver en jouant.</p>")
       + (hintShown&&!m.chosen&&fitsFight(m.theme)?"<p class='muted'>Thème retenu parce qu'il sert ce combat.</p>":"")
       + "<div class='row'>"
       + (hintShown?"":"<button class='btn' id='bhint' type='button'>Révéler l'indice</button>")
@@ -1290,7 +1290,7 @@ function showResult(){
 function showWarn(){
   const w=$("warn");
   if(enough()){w.hidden=true;return}
-  w.hidden=false; w.textContent="Pas assez de cartes pour cette répartition : coche une boîte de plus ou choisis-en une autre.";
+  w.hidden=false; w.textContent="Pas assez de cartes pour cette répartition : cochez une boîte de plus ou choisissez-en une autre.";
 }
 function distText(d){ return d.Gem+(d.Gem>1?" gemmes, ":" gemme, ")+d.Relic+(d.Relic>1?" reliques, ":" relique, ")+d.Spell+" sorts" }
 function renderDist(){
@@ -1390,7 +1390,7 @@ function renderJournal(){
     +'<div class="acts">'+(ids(g).length?'<button class="swap" type="button" data-replay="'+esc(g.id)+'">Rejouer ce marché</button>':'')
     +'<button class="swap" type="button" data-del="'+esc(g.id)+'">Supprimer</button></div></div>'
     +'<div class="mk">'+col("g-Gem","Gemmes",g.gems)+col("g-Relic","Reliques",g.relics)+col("g-Spell","Sorts",g.spells)+'</div></article>'; }).join("")
-    || '<p class="jmsg">Aucune partie notée. Génère un marché, joue, puis clique sur Victoire ou Défaite.</p>';
+    || '<p class="jmsg">Aucune partie notée. Générez un marché, jouez, puis cliquez sur Victoire ou Défaite.</p>';
   document.querySelectorAll("[data-replay]").forEach(b=>b.onclick=()=>replay(b.dataset.replay));
   document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{
     if(b.dataset.sure){ db&&db.doc("parties/"+b.dataset.del).delete().catch(()=>{ b.textContent="Suppression impossible" }); }
@@ -1447,7 +1447,7 @@ $("logwin").onclick=()=>openLog("V"); $("logloss").onclick=()=>openLog("D");
 $("l-cancel").onclick=()=>{ $("logform").hidden=true };
 $("logform").onsubmit=e=>{
   e.preventDefault(); if(!db||!current) return;
-  const nem=$("l-nem").value; if(!nem){ $("l-msg").textContent="Choisis la némésis affrontée."; return; }
+  const nem=$("l-nem").value; if(!nem){ $("l-msg").textContent="Choisissez la némésis affrontée."; return; }
   const of=t=>current.slots.filter(s=>s.type===t).map(s=>s.card.id);
   const doc={res:logRes,nem,mages:[$("l-m1").value,$("l-m2").value].filter(Boolean),gems:of("Gem"),relics:of("Relic"),spells:of("Spell"),
     note:$("l-note").value.trim(),date:$("l-date").value||"",mode:current.mode,ts:Date.now()};
@@ -1455,7 +1455,7 @@ $("logform").onsubmit=e=>{
   db.collection("parties").add(doc).then(()=>{
     $("logform").hidden=true; const p=$("l-done"); p.hidden=false;
     p.textContent=(logRes==="V"?"Victoire":"Défaite")+" contre "+nem+" enregistrée dans le journal.";
-  },()=>{ $("l-save").disabled=false; $("l-msg").textContent="Enregistrement impossible pour l'instant. Réessaie dans un instant."; });
+  },()=>{ $("l-save").disabled=false; $("l-msg").textContent="Enregistrement impossible pour l'instant. Réessayez dans un instant."; });
 };
 (async()=>{
   await Promise.resolve();
@@ -1492,7 +1492,7 @@ const mageOwned=m=>owned.has(m[1]), nemOwned=n=>owned.has(n[1]);
 let exps=[], xstate="loading", xd=null, xkey="", xbusy=false, xconfirm="";
 let xq=Promise.resolve();
 function xsave(E){ const data=JSON.parse(JSON.stringify(E)); delete data.id;
-  xq=xq.then(()=>db.doc("expeditions/"+E.id).set(data)).catch(()=>{ xmsg="Sauvegarde impossible pour l'instant. Réessaie dans un instant."; renderExp(); });
+  xq=xq.then(()=>db.doc("expeditions/"+E.id).set(data)).catch(()=>{ xmsg="Sauvegarde impossible pour l'instant. Réessayez dans un instant."; renderExp(); });
   return xq; }
 let xmsg="";
 function rollCard(type,used){ const c=CARDS.filter(x=>x.type===type&&owned.has(x.box)&&!used.has(x.id)); return c.length?pick(c).id:null }
@@ -1516,7 +1516,7 @@ function createExp(){
   const um=new Set(); for(let i=0;i<4;i++){ const m=rollMage(um); if(m){ um.add(m); E.barracks.mages.push(m); } }
   E.usedMages=[...um];
   if(variant==="short"){ const got=addSupplies(E); E.treasures[1]+=5;
-    E.last={kind:"start",cards:got,text:"Expédition courte : le combat 1 compte comme gagné. Ajoute ces cartes à ta caserne et pioche 5 trésors de niveau I."}; }
+    E.last={kind:"start",cards:got,text:"Expédition courte : le combat 1 compte comme gagné. Ajoutez ces cartes à votre caserne et piochez 5 trésors de niveau I."}; }
   if(E.barracks.cards.length<9||E.barracks.mages.length<players){ xmsg="Pas assez de cartes ou de mages dans les boîtes cochées pour lancer une expédition."; renderExp(); return; }
   E.id="x"+Date.now().toString(36); xmsg="";
   exps=exps.concat([E]); renderExp(); xsave(E);
@@ -1529,8 +1529,8 @@ function logBattle(E,res){
 }
 function xstart(E){
   const m=[...xd.market], cnt=t=>m.filter(id=>CARDS.find(c=>c.id===id).type===t).length;
-  if(!xd.nem){ xmsg="Choisis la némésis du combat."; return renderExp(); }
-  if(xd.mages.length!==E.players){ xmsg="Choisis "+E.players+" mage"+(E.players>1?"s":"")+" dans la caserne."; return renderExp(); }
+  if(!xd.nem){ xmsg="Choisissez la némésis du combat."; return renderExp(); }
+  if(xd.mages.length!==E.players){ xmsg="Choisissez "+E.players+" mage"+(E.players>1?"s":"")+" dans la caserne."; return renderExp(); }
   if(Object.entries(XNEED).some(([t,n])=>cnt(t)!==n)){ xmsg="Le marché doit compter exactement 3 gemmes, 2 reliques et 4 sorts."; return renderExp(); }
   xmsg="";
   E.cur={nem:xd.nem,mages:xd.mages.slice(),market:m,tries:E.cur.tries||0};
@@ -1544,7 +1544,7 @@ function xwin(E){
   if(g) E.treasures[g.tier]+=g.n;
   E.score+=pts;
   E.history.push({b:E.battle,nem:E.cur.nem,mages:E.cur.mages,market:E.cur.market,tries:E.cur.tries,res:"V",pts,rewards:got,treasure:g});
-  E.last={kind:"win",nem:E.cur.nem,pts,cards:got,text:g?"Pioche "+g.n+" trésors de niveau "+ROMAN[g.tier]+" et ajoute-les à ta caserne.":""};
+  E.last={kind:"win",nem:E.cur.nem,pts,cards:got,text:g?"Piochez "+g.n+" trésors de niveau "+ROMAN[g.tier]+" et ajoutez-les à votre caserne.":""};
   if(E.battle>=XVAR[E.variant].last){ E.status="done"; E.phase="done"; }
   else{ E.battle++; E.phase="prep"; E.cur={tries:0}; }
   xsave(E); renderExp();
@@ -1559,8 +1559,8 @@ function xsupport(E,kind){
   if(kind in XNEED){ const used=new Set(E.used), id=rollCard(kind,used);
     if(id){ E.used.push(id); E.barracks.cards.push(id); text=TYPEFR[kind]+(kind==="Spell"?" ajouté":" ajoutée")+" à la caserne : "+cardName(id)+"."; } else text="Plus aucune carte de ce type disponible."; }
   else if(kind==="mage"){ const m=rollMage(new Set(E.usedMages)); if(m){ E.usedMages.push(m); E.barracks.mages.push(m); text="Nouveau mage dans la caserne : "+m+"."; } else text="Plus aucun mage disponible."; }
-  else { const t=+kind.slice(1); E.treasures[t]++; text="Pioche 1 trésor de niveau "+ROMAN[t]+" et ajoute-le à ta caserne."; }
-  E.last={kind:"support",cards:[],text:"Soutien après la défaite. "+text+" Tu affrontes à nouveau "+E.cur.nem+"."};
+  else { const t=+kind.slice(1); E.treasures[t]++; text="Piochez 1 trésor de niveau "+ROMAN[t]+" et ajoutez-le à votre caserne."; }
+  E.last={kind:"support",cards:[],text:"Soutien après la défaite. "+text+" Vous affrontez à nouveau "+E.cur.nem+"."};
   E.phase="prep"; xsave(E); renderExp();
 }
 function xpropose(E,mode){
@@ -1585,7 +1585,7 @@ function xlist(ids,check){
 }
 function renderExp(){
   const box=$("exp");
-  if(xstate!=="ok"){ box.innerHTML='<p class="jmsg">'+(xstate==="loading"?"Chargement de l'expédition…":xstate==="slow"?"L'expédition ne répond pas encore. Elle s'affichera dès que la connexion revient.":"Le mode Expédition a besoin du journal, qui n'est pas disponible dans cette vue. Ouvre la page connecté à ton compte.")+'</p>'; return; }
+  if(xstate!=="ok"){ box.innerHTML='<p class="jmsg">'+(xstate==="loading"?"Chargement de l'expédition…":xstate==="slow"?"L'expédition ne répond pas encore. Elle s'affichera dès que la connexion revient.":"Le mode Expédition a besoin du journal, qui n'est pas disponible dans cette vue. Ouvrez la page connecté à votre compte.")+'</p>'; return; }
   const E=exps.find(e=>e.status==="active");
   const msg=xmsg?'<p class="msg" style="color:#ffb4a3">'+esc(xmsg)+'</p>':"";
   if(!E){
@@ -1596,7 +1596,7 @@ function renderExp(){
       +'<label class="fld"><span>Durée</span><select id="x-var"><option value="std">Standard, 4 combats</option><option value="short">Courte, 3 combats</option><option value="long">Longue, 8 combats</option></select></label>'
       +'<label class="fld"><span>Joueurs</span><select id="x-pl"><option>2</option><option>3</option><option>4</option></select></label></div>'
       +'<div class="xmages"><label><input type="checkbox" id="x-endless"> Réserve sans fin : les cartes non choisies restent dans la caserne au lieu d\'être bannies</label></div>'
-      +'<p class="muted">La caserne de départ est tirée dans les boîtes cochées de l\'onglet Nouveau marché : 3 gemmes, 2 reliques, 4 sorts et 4 mages. Les trésors restent des cartes physiques : l\'appli te dit combien en piocher.</p>'
+      +'<p class="muted">La caserne de départ est tirée dans les boîtes cochées de l\'onglet Nouveau marché : 3 gemmes, 2 reliques, 4 sorts et 4 mages. Les trésors restent des cartes physiques : l\'appli vous dit combien en piocher.</p>'
       +msg+'<div class="xbtns"><button class="btn primary" type="button" id="x-create">Lancer l\'expédition</button></div></div>'
       +(past.length?'<div class="xpanel"><h3>Expéditions passées</h3><ul class="xpast" style="list-style:none;margin:0;padding:0">'+past.map(e=>'<li><span>'+esc(e.name)+' · '+esc(XVAR[e.variant].name)+(e.status==="abandoned"?" · abandonnée au combat "+e.battle:"")+'</span><b style="color:var(--gold)">'+(e.score||0)+' pts</b></li>').join("")+'</ul></div>':"");
     const b=$("x-create"); if(b) b.onclick=createExp;
@@ -1629,7 +1629,7 @@ function renderExp(){
     act='<div class="xpanel"><h3>Préparer le combat '+E.battle+'</h3>'
       +'<h4>1. Némésis</h4>'+nemSel
       +'<h4>2. Mages ('+E.players+')</h4><div class="xmages">'+E.barracks.mages.map(m=>'<label><input type="checkbox" data-xm="'+esc(m)+'"'+(xd.mages.includes(m)?" checked":"")+'> '+esc(m)+'</label>').join("")+'</div>'
-      +'<h4>3. Marché : coche 3 gemmes, 2 reliques et 4 sorts</h4>'
+      +'<h4>3. Marché : cochez 3 gemmes, 2 reliques et 4 sorts</h4>'
       +'<div class="xbtns"><button class="btn" type="button" data-xp="opt">Proposer : optimisé</button><button class="btn" type="button" data-xp="combo">Original</button><button class="btn" type="button" data-xp="rand">Au hasard</button></div>'
       +counter+hint+xlist(E.barracks.cards,true)
       +'<p class="muted">'+(E.endless?"Réserve sans fin : les cartes non cochées restent dans la caserne.":"Les cartes non cochées seront bannies de l'expédition au début du combat.")+'</p>'
@@ -1643,7 +1643,7 @@ function renderExp(){
         :'<button class="btn win-b" type="button" id="x-askwin">Victoire</button><button class="btn loss-b" type="button" id="x-askloss">Défaite</button>')+'</div></div>';
   }else if(E.phase==="support"){
     const tiers=[1,2,3].filter(t=>E.treasures[t]>0);
-    act='<div class="xpanel"><h3>Défaite contre '+esc(E.cur.nem)+'</h3><p>Choisis un soutien pour la revanche :</p><div class="xbtns">'
+    act='<div class="xpanel"><h3>Défaite contre '+esc(E.cur.nem)+'</h3><p>Choisissez un soutien pour la revanche :</p><div class="xbtns">'
       +'<button class="btn" type="button" data-xs="Gem">Une gemme</button><button class="btn" type="button" data-xs="Relic">Une relique</button><button class="btn" type="button" data-xs="Spell">Un sort</button>'
       +'<button class="btn" type="button" data-xs="mage">Un mage</button>'
       +tiers.map(t=>'<button class="btn" type="button" data-xs="T'+t+'">Un trésor de niveau '+ROMAN[t]+'</button>').join("")+'</div></div>';
@@ -1683,7 +1683,7 @@ function renderExp(){
 let picked={Gem:[],Relic:[],Spell:[]}, doubt=new Set(), sampleFn=null, imgLim=null, actl=null;
 function renderPick(){
   $("a-pick").innerHTML=TYPES.map(([t,label])=>'<div class="col g-'+t+'"><h4>'+label+'</h4><div class="pchips">'
-    +picked[t].map(id=>{ const c=CARDS.find(x=>x.id===id); return '<div class="pchip'+(doubt.has(id)?" doubt":"")+'"'+(doubt.has(id)?' title="Pas sûr de cette carte : vérifie-la"':'')+'><span class="nm">'+esc(c.fr)+' <span class="muted" style="color:var(--muted)">· '+c.cost+'</span>'+(doubt.has(id)?' <span style="color:var(--gold);font-size:12.5px">à vérifier</span>':'')+'</span><button type="button" data-rm="'+id+'" aria-label="Retirer '+esc(c.fr)+'">×</button></div>'; }).join("")
+    +picked[t].map(id=>{ const c=CARDS.find(x=>x.id===id); return '<div class="pchip'+(doubt.has(id)?" doubt":"")+'"'+(doubt.has(id)?' title="Pas sûr de cette carte : vérifiez-la"':'')+'><span class="nm">'+esc(c.fr)+' <span class="muted" style="color:var(--muted)">· '+c.cost+'</span>'+(doubt.has(id)?' <span style="color:var(--gold);font-size:12.5px">à vérifier</span>':'')+'</span><button type="button" data-rm="'+id+'" aria-label="Retirer '+esc(c.fr)+'">×</button></div>'; }).join("")
     +'</div><select data-add="'+t+'" aria-label="Ajouter : '+label.toLowerCase()+'"><option value="">Ajouter…</option>'
     +BOXES.filter(b=>shown(b[0])).map(([k,n])=>{ const l=CARDS.filter(c=>c.type===t&&c.box===k&&!picked[t].includes(c.id)).sort((a,b)=>a.fr.localeCompare(b.fr)); return l.length?'<optgroup label="'+esc(n)+'">'+l.map(c=>'<option value="'+c.id+'">'+esc(c.fr)+' ('+c.cost+')</option>').join("")+'</optgroup>':""; }).join("")
     +'</select></div>').join("");
@@ -1703,17 +1703,17 @@ function openAdd(){
 $("a-open").onclick=openAdd;
 $("a-cancel").onclick=()=>{ if(actl) actl.abort(); $("addform").hidden=true; };
 $("a-photo").onchange=()=>{ const n=$("a-photo").files.length; $("a-analyze").disabled=!n;
-  if(n) $("a-st").textContent=n+" photo"+(n>1?"s":"")+" choisie"+(n>1?"s":"")+(imgLim&&n>imgLim.maxCount?" : seules les "+imgLim.maxCount+" premières seront analysées.":". Clique sur Analyser."); };
+  if(n) $("a-st").textContent=n+" photo"+(n>1?"s":"")+" choisie"+(n>1?"s":"")+(imgLim&&n>imgLim.maxCount?" : seules les "+imgLim.maxCount+" premières seront analysées.":". Cliquez sur Analyser."); };
 async function analyze(){
   const files=[...$("a-photo").files].slice(0,imgLim?imgLim.maxCount:1); if(!files.length||!sampleFn) return;
   const list=CARDS.filter(c=>owned.has(c.box)).map(c=>c.id+" | "+TYPEFR[c.type]+" | "+c.cost+" | "+c.fr).join("\n");
-  const prompt="Tu regardes "+(files.length>1?files.length+" photos":"une photo")+" d'une partie du jeu de cartes coopératif Aeon's End, édition française.\n"
-    +"Repère les cartes du marché (la réserve) : des piles de gemmes, reliques et sorts posées face visible, chacune avec son nom en haut du cadre de texte et son coût dans un hexagone en haut à droite. Il y en a en général 9 (3 gemmes, 2 reliques, 4 sorts), mais ce nombre peut varier.\n"
-    +"Ignore les cartes de départ (Cristal, Éclat, Étincelle), les cartes en main ou dans les pioches, les trésors et les cartes de la némésis.\n"
-    +"Si tu vois le plateau de la némésis ou les plateaux des mages, donne leurs noms.\n\n"
+  const prompt="Vous regardez "+(files.length>1?files.length+" photos":"une photo")+" d'une partie du jeu de cartes coopératif Aeon's End, édition française.\n"
+    +"Repérez les cartes du marché (la réserve) : des piles de gemmes, reliques et sorts posées face visible, chacune avec son nom en haut du cadre de texte et son coût dans un hexagone en haut à droite. Il y en a en général 9 (3 gemmes, 2 reliques, 4 sorts), mais ce nombre peut varier.\n"
+    +"Ignorez les cartes de départ (Cristal, Éclat, Étincelle), les cartes en main ou dans les pioches, les trésors et les cartes de la némésis.\n"
+    +"Si vous voyez le plateau de la némésis ou les plateaux des mages, donnez leurs noms.\n\n"
     +"Cartes possibles (id | type | coût | nom) :\n"+list+"\n\nNémésis possibles : "+NEM.filter(nemOwned).map(n=>n[0]).join(", ")+"\nMages possibles : "+MAGES.filter(mageOwned).map(m=>m[0]).join(", ")+"\n\n"
-    +'Réponds uniquement avec un objet JSON de cette forme : {"cards":["id",...],"doubtful":["id",...],"nemesis":"nom exact ou null","mages":["nom exact",...],"comment":"une phrase courte en français"}. '
-    +"N'utilise que des id de la liste. Mets dans doubtful les cartes que tu as identifiées sans en être sûr (elles figurent aussi dans cards). N'invente aucune carte : si un nom est illisible, laisse-la de côté et signale-le dans comment.";
+    +'Répondez uniquement avec un objet JSON de cette forme : {"cards":["id",...],"doubtful":["id",...],"nemesis":"nom exact ou null","mages":["nom exact",...],"comment":"une phrase courte en français"}. '
+    +"N'utilisez que des id de la liste. Mettez dans doubtful les cartes que vous avez identifiées sans en être sûr (elles figurent aussi dans cards). N'inventez aucune carte : si un nom est illisible, laissez-la de côté et signalez-le dans comment.";
   const btn=$("a-analyze"), st=$("a-st"); btn.disabled=true; $("a-stop").hidden=false; st.textContent="Analyse en cours… cela peut prendre une minute.";
   actl=new AbortController();
   try{
@@ -1725,16 +1725,16 @@ async function analyze(){
     const ms=(Array.isArray(r.mages)?r.mages:[]).map(String).filter(m=>MAGEBY[m]);
     if(ms[0]) $("a-m1").value=ms[0]; if(ms[1]) $("a-m2").value=ms[1];
     renderPick();
-    st.textContent=got.length?(got.length+" carte"+(got.length>1?"s":"")+" reconnue"+(got.length>1?"s":"")+(doubt.size?", dont "+doubt.size+" à vérifier (encadrées en doré)":"")+". "+(r.comment?String(r.comment):"")+" Vérifie et complète avant d'enregistrer."):"Aucune carte reconnue. "+(r&&r.comment?String(r.comment)+" ":"")+"Essaie une photo plus nette et plus proche, ou ajoute les cartes à la main.";
+    st.textContent=got.length?(got.length+" carte"+(got.length>1?"s":"")+" reconnue"+(got.length>1?"s":"")+(doubt.size?", dont "+doubt.size+" à vérifier (encadrées en doré)":"")+". "+(r.comment?String(r.comment):"")+" Vérifie et complète avant d'enregistrer."):"Aucune carte reconnue. "+(r&&r.comment?String(r.comment)+" ":"")+"Essayez une photo plus nette et plus proche, ou ajoutez les cartes à la main.";
   }catch(e){
     const c=e&&e.code;
     st.textContent = c==="cancelled"?"Analyse arrêtée."
-      : c==="not_granted"||c==="sampling_disabled"||c==="images_unavailable"||c==="not_declared"?"L'analyse de photo n'est pas autorisée dans cette vue. Tu peux remplir la fiche à la main."
-      : c==="rate_limited"?"Trop d'analyses d'un coup ou limite d'usage atteinte. Réessaie plus tard."
-      : c==="image_rejected"?"Cette photo n'est pas acceptée (format ou taille). Essaie une autre photo."
-      : c==="invalid_json"||c==="empty_completion"?"La réponse n'était pas exploitable. Réessaie, ou remplis la fiche à la main."
-      : c==="session_expired"?"Ta session a expiré : reconnecte-toi puis réessaie."
-      : "L'analyse a échoué. Réessaie dans un instant.";
+      : c==="not_granted"||c==="sampling_disabled"||c==="images_unavailable"||c==="not_declared"?"L'analyse de photo n'est pas autorisée dans cette vue. Vous pouvez remplir la fiche à la main."
+      : c==="rate_limited"?"Trop d'analyses d'un coup ou limite d'usage atteinte. Réessayez plus tard."
+      : c==="image_rejected"?"Cette photo n'est pas acceptée (format ou taille). Essayez une autre photo."
+      : c==="invalid_json"||c==="empty_completion"?"La réponse n'était pas exploitable. Réessayez, ou remplissez la fiche à la main."
+      : c==="session_expired"?"Votre session a expiré : reconnectez-vous puis réessayez."
+      : "L'analyse a échoué. Réessayez dans un instant.";
     if(c==="not_granted"||c==="sampling_disabled") $("a-photo-row").hidden=true;
   }finally{ btn.disabled=!$("a-photo").files.length; $("a-stop").hidden=true; actl=null; }
 }
@@ -1742,15 +1742,15 @@ $("a-analyze").onclick=analyze;
 $("a-stop").onclick=()=>{ if(actl) actl.abort(); };
 $("addform").onsubmit=e=>{
   e.preventDefault(); if(!db){ $("a-msg").textContent="Le journal n'est pas disponible dans cette vue."; return; }
-  const nem=$("a-nem").value; if(!nem){ $("a-msg").textContent="Choisis la némésis affrontée."; return; }
-  if(!picked.Gem.length&&!picked.Relic.length&&!picked.Spell.length){ $("a-msg").textContent="Ajoute au moins une carte du marché."; return; }
+  const nem=$("a-nem").value; if(!nem){ $("a-msg").textContent="Choisissez la némésis affrontée."; return; }
+  if(!picked.Gem.length&&!picked.Relic.length&&!picked.Spell.length){ $("a-msg").textContent="Ajoutez au moins une carte du marché."; return; }
   const res=$("a-res-d").checked?"D":"V";
   const doc={res,nem,mages:[$("a-m1").value,$("a-m2").value].filter(Boolean),gems:picked.Gem,relics:picked.Relic,spells:picked.Spell,
     note:$("a-note").value.trim(),date:$("a-date").value||"",mode:"saisie",ts:Date.now()};
   $("a-save").disabled=true;
   db.collection("parties").add(doc).then(()=>{ $("addform").hidden=true; $("a-save").disabled=false;
     const p=$("a-done"); p.hidden=false; p.textContent=(res==="V"?"Victoire":"Défaite")+" contre "+nem+" ajoutée au journal."; },
-    ()=>{ $("a-save").disabled=false; $("a-msg").textContent="Enregistrement impossible pour l'instant. Réessaie dans un instant."; });
+    ()=>{ $("a-save").disabled=false; $("a-msg").textContent="Enregistrement impossible pour l'instant. Réessayez dans un instant."; });
 };
 (async()=>{
   try{ sampleFn=window.claude&&window.claude.use?await window.claude.use("sample"):null }catch(e){ sampleFn=null }

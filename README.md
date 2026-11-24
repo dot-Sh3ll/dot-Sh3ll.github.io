@@ -13,6 +13,10 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 *Créations de fan non officielles, sans lien avec les éditeurs des jeux concernés.*
 
+## Règles de rédaction
+
+- On **vouvoie** toujours le lecteur, dans les applis, les fiches et la page d'accueil (jamais de tutoiement). `python3 outils/site/vouvoiement.py scan <fichier>` vérifie qu'il ne reste rien au tutoiement.
+
 ## Ajouter une nouvelle appli
 
 1. Créer un dossier (ex. `nouveau-jeu/`) et y déposer la version française renommée en `index.html` (et la version anglaise en `en.html` si elle existe).
