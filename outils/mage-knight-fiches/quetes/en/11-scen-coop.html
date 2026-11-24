@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Quests: two-player scenarios</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:26px 28px 20px;background:#fff;color:#1c1b22;font-family:Figtree,sans-serif;font-size:12px;line-height:1.25;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1b22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5a5566;text-align:right}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+ul{margin:0;padding-left:14px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+b{font-weight:700}
+.hi{border:2px solid #2b2860;border-radius:8px;padding:5px 9px;background:#f4f3fa}
+.hi p{margin:0 0 2px}
+.sc{display:flex;flex-direction:column;gap:3px;border-bottom:1px solid #c9c4d2;padding-bottom:6px}
+.sc:last-of-type{border-bottom:0}
+.band{display:flex;justify-content:space-between;align-items:center;background:#2b2860;color:#fff;border-radius:5px;padding:2px 9px}
+.band .t{font-family:Marcellus,serif;font-size:15px}
+.band .m{font-size:11.5px;display:flex;gap:8px;align-items:center}
+.pip{display:inline-block;width:8px;height:8px;border-radius:50%;border:1px solid #fff;margin-left:2px}
+.pip.on{background:#d9c38c;border-color:#d9c38c}
+.pitch{font-style:italic;color:#3d3a45}
+.goal{color:#2b2860}
+.goal b{font-family:Marcellus,serif;font-weight:400;color:#8a6d1f;font-size:13px}
+.cols{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:0 12px}
+.lt{font-family:Marcellus,serif;color:#8a6d1f;font-size:13px;margin-bottom:1px}
+.end{border:1px solid #9c97a6;border-radius:5px;padding:2px 7px}
+.end b{color:#1d6b35}
+.foot{font-size:11.5px;color:#5a5566;border-top:1px solid #c9c4d2;padding-top:4px;margin-top:auto}
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Two-player scenarios</h1></div><div class="kick">Quest module<br>Homemade scenarios</div></div>
+<div class="hi">
+<p><b>Rulebook co-op setup:</b> one Dummy player, who draws its Tactic at random before you. At the end of each Round, remove from the game one of the Tactics the players used. Remove the four interactive Spells (no. 17 to 20) and each Hero's interactive Skill. No combat between players.</p>
+<p><b>Quest module required</b>, in Normal mode by default (see the “Quest module” sheet). The City levels given already account for the quests: no +1. A site offers quests <b>only once for the whole team</b>.</p>
+</div>
+<div class="sc">
+<div class="band"><span class="t">Brothers in Arms</span><span class="m"><span>4 Rounds · 2 h 30</span><span aria-label="Difficulty 2 out of 5"><span class="pip on"></span><span class="pip on"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></span></span></div>
+<p class="pitch">Two Knights, one quest board. Share out the villages, and lend each other a hand when a quest is too much for one.</p>
+<p class="goal"><b>Goal</b> · complete 8 quests together, at least 3 each, 2 of them tier II.</p>
+<div class="cols"><div><div class="lt">Setup</div><ul><li>Open board, starting tile side B.</li><li>7 Countryside tiles: keep in priority those with a Village or Monastery.</li><li>2 Core tiles without a City.</li></ul></div>
+<div><div class="lt">Scenario rules</div><ul><li>No rules beyond the common setup.</li></ul></div></div>
+<p class="end"><b>End</b> · as soon as the 8<sup>th</sup> quest is completed, if the goal is met, each player plays one last turn, not the Dummy. Otherwise, at the end of the 4<sup>th</sup> Round.</p>
+</div>
+<div class="sc">
+<div class="band"><span class="t">Guardians of the Realm</span><span class="m"><span>5 Rounds · 3 h 30</span><span aria-label="Difficulty 3 out of 5"><span class="pip on"></span><span class="pip on"></span><span class="pip on"></span><span class="pip"></span><span class="pip"></span></span></span></div>
+<p class="pitch">The Realm is threatened on all sides. Take the City, then become the champions its people were waiting for.</p>
+<p class="goal"><b>Goal</b> · conquer the City, then complete 2 tier III quests, one each.</p>
+<div class="cols"><div><div class="lt">Setup</div><ul><li>Open board, starting tile side B.</li><li>8 Countryside tiles.</li><li>1 Core tile with a City and 2 without.</li><li>The City is level 6.</li></ul></div>
+<div><div class="lt">Scenario rules</div><ul><li><b>Guardians:</b> each Race completed gives +1 Reputation to both Heroes.</li></ul></div></div>
+<p class="end"><b>End</b> · as soon as the 2<sup>nd</sup> tier III quest is completed, each player plays one last turn, not the Dummy. Otherwise, at the end of the 5<sup>th</sup> Round.</p>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

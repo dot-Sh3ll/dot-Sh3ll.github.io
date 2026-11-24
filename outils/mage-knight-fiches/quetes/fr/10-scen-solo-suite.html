@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Quêtes : scénarios solo (suite)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:26px 28px 20px;background:#fff;color:#1c1b22;font-family:Figtree,sans-serif;font-size:12px;line-height:1.25;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1b22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5a5566;text-align:right}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+ul{margin:0;padding-left:14px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+b{font-weight:700}
+.hi{border:2px solid #2b2860;border-radius:8px;padding:5px 9px;background:#f4f3fa}
+.hi p{margin:0 0 2px}
+.sc{display:flex;flex-direction:column;gap:3px;border-bottom:1px solid #c9c4d2;padding-bottom:6px}
+.sc:last-of-type{border-bottom:0}
+.band{display:flex;justify-content:space-between;align-items:center;background:#2b2860;color:#fff;border-radius:5px;padding:2px 9px}
+.band .t{font-family:Marcellus,serif;font-size:15px}
+.band .m{font-size:11.5px;display:flex;gap:8px;align-items:center}
+.pip{display:inline-block;width:8px;height:8px;border-radius:50%;border:1px solid #fff;margin-left:2px}
+.pip.on{background:#d9c38c;border-color:#d9c38c}
+.pitch{font-style:italic;color:#3d3a45}
+.goal{color:#2b2860}
+.goal b{font-family:Marcellus,serif;font-weight:400;color:#8a6d1f;font-size:13px}
+.cols{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:0 12px}
+.lt{font-family:Marcellus,serif;color:#8a6d1f;font-size:13px;margin-bottom:1px}
+.end{border:1px solid #9c97a6;border-radius:5px;padding:2px 7px}
+.end b{color:#1d6b35}
+.foot{font-size:11.5px;color:#5a5566;border-top:1px solid #c9c4d2;padding-top:4px;margin-top:auto}
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Scénarios solo</h1></div><div class="kick">Module Quêtes<br>Suite</div></div>
+<div class="sc">
+<div class="band"><span class="t">La Confrérie de l'ombre</span><span class="m"><span>5 Manches · 3 h 30</span><span aria-label="Difficulté 4 sur 5"><span class="pip on"></span><span class="pip on"></span><span class="pip on"></span><span class="pip on"></span><span class="pip"></span></span></span></div>
+<p class="pitch">Les honnêtes gens vous ferment leur porte, mais la Confrérie a toujours du travail pour un Chevalier sans scrupules. Prenez une Cité et devenez son homme de l'ombre.</p>
+<p class="goal"><b>Objectif</b> · finir la partie avec une Réputation qui vous donne un malus, après avoir réussi 3 quêtes ⚫, dont une de palier III.</p>
+<div class="cols"><div><div class="lt">Mise en place</div><ul><li>Plateau en pyramide.</li><li>8 tuiles Campagne.</li><li>1 tuile Royaume avec Cité et 1 sans Cité.</li><li>La Cité révélée est de niveau 5.</li></ul></div>
+<div><div class="lt">Règles du scénario</div><ul><li><b>Voie de l'ombre :</b> quand une quête propose 😇 ou 😈, vous choisissez toujours 😈.</li><li><b>Contacts dans l'ombre :</b> tant que votre Réputation vous donne un malus, à chaque tirage, vous pouvez remplacer le résultat d'un des deux lancers par ⚫.</li><li>Rappel : avec une Réputation à malus, les Monastères vous sont fermés, et dans une Cité conquise vous ne pouvez accepter qu'une quête ⚫.</li></ul></div></div>
+<p class="end"><b>Fin</b> · dès la 3<sup>e</sup> quête ⚫ réussie, si l'une est de palier III, jouez un dernier tour. Sinon, à la fin de la 5<sup>e</sup> Manche. Votre Réputation doit alors vous donner un malus.</p>
+</div>
+<div class="hi">
+<p><b>Score :</b> réussi si l'objectif est atteint. Pour comparer vos parties : votre Gloire et les Hauts Faits sans les titres, plus 5 points par quête réussie au palier I, 10 au palier II, 15 au palier III, et 30 par Manche non utilisée.</p>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
