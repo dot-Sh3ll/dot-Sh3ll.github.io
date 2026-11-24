@@ -3,3 +3,5 @@ outils/puerto-rico/fiches/*.html
 outils/puerto-rico/fiches/*.pdf
 outils/mage-knight-fiches/*.pdf
 outils/mage-knight-fiches/*.html
+outils/mage-knight-fiches/node_modules/
+outils/mage-knight-fiches/package*.json

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Quêtes : barème et précisions</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:26px 28px 20px;background:#fff;color:#1c1b22;font-family:Figtree,sans-serif;font-size:12px;line-height:1.25;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1b22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5a5566;text-align:right}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#2b2860;border-bottom:1px solid #b9a678;padding-bottom:1px}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 2px}
+p{margin:0 0 2px}
+b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c97a6;padding:2px 5px;text-align:left;vertical-align:top}
+th{background:#efeadf;font-weight:700}
+.box{border:1px solid #1c1b22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #2b2860;border-radius:8px;padding:6px 9px;background:#f4f3fa}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1b22;vertical-align:-1px;margin:0 3px 0 0}
+.gain{color:#1d6b35;font-weight:700}
+.band{background:#2b2860;color:#fff;border-radius:5px;padding:2px 9px;font-family:Marcellus,serif;font-size:14px}
+.row{display:grid;grid-template-columns:14px minmax(0,1fr) minmax(0,1fr);gap:0 9px;border-bottom:1px solid #c9c4d2;padding:4px 0 5px}
+.q{display:flex;flex-direction:column;gap:1px}
+.qt{display:flex;gap:4px;align-items:flex-start;color:#2b2860;font-weight:700}
+.lt{font-family:Marcellus,serif;font-weight:400;color:#8a6d1f}
+.var{margin-top:2px;padding:1px 5px;border:1px dashed #8a6d1f;border-radius:4px;color:#3d3420}
+.var b{color:#8a6d1f}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#5a5566;border-top:1px solid #c9c4d2;padding-top:4px;margin-top:auto}
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Quests · Rewards</h1></div><div class="kick">Rewards<br>and clarifications</div></div>
+<div class="band">Reward table</div>
+<table><tr><th style="width:52px">Tier</th><th>Typical reward</th><th style="width:96px">Black quest</th></tr>
+<tr><td>I</td><td>2 Fame · 1 crystal · Heal 1 · ready 1 Unit · 1 Reputation (or 2 Fame)</td><td>1 Advanced Action</td></tr>
+<tr><td>II</td><td>4 Fame · 2 crystals · Heal 2 · 2 Reputation (or 4 Fame)</td><td>1 Spell</td></tr>
+<tr><td>III</td><td>6 Fame · 3 crystals · 1 free Unit</td><td>1 Artifact</td></tr></table>
+<p>Advanced Actions, Spells and Artifacts come <b>only from black quests</b>, which are riskier.</p>
+<div class="band">Clarifications</div>
+<ul>
+<li><b>Quest enemies</b>: normal Fame, no Reputation unless stated. If not defeated, they are discarded and the quest fails.</li>
+<li><b>Values outside combat</b> (Block, Attack, Move, Influence, Heal): generated with your cards and Units as usual. They cannot be used for anything else that turn.</li>
+<li><b>Reputation rewards</b>: you may always take the Fame shown instead.</li>
+<li><b>😇 Hero or 😈 Rogue</b>: some quests let you choose. The rogue gains more but loses Reputation, which opens access to Monasteries and Cities.</li>
+<li><b>Spell, Advanced Action, Unit</b>: taken from the Offer, for free. A free Unit still counts against your Command limit.</li>
+<li><b>Artifact</b>: draw 2, keep 1, as for a site reward.</li>
+<li><b>“On top of the site reward”</b>: the conquest pays out as usual, and the quest reward is added.</li>
+</ul>
+<div class="band">Reading a quest</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px">
+<div class="qt"><span style="flex:none">🏠</span><span style="color:#1c1b22;font-weight:400"><b>On site</b>: at the quest's site</span></div>
+<div class="qt"><span style="flex: 0 0 auto">🗺️</span><span style="color: rgb(28, 27, 34); font-weight: 400"><b>Elsewhere</b>: you have to travel</span></div>
+</div>
+
+<div class="var"><b>Variant (expansion):</b> if you play with the expansion named, the variant replaces the quest, or widens it when it says “also counts”. Without that expansion, ignore it.</div>
+<div class="band">Travel constraints</div>
+<ul>
+<li>🚶‍♀️ <b>Escort</b>: put a mana token on a free Command token. Otherwise a Ready Unit becomes the escort: it is spent and cannot be readied before you arrive. With no free slot and no Ready Unit, you cannot accept an escort quest.</li>
+<li>💎 <b>Fragile item</b>: put a crystal from the supply on your Hero. If a Wound reaches your hand before you arrive, the crystal is lost: the quest fails. On arrival, return it.</li>
+<li>🏃‍♀️ <b>Race</b>: put the token shown face down on the quest, and 1 crystal next to it at the end of each of your turns. On the 3<sup>rd</sup>, it attacks the nearest inhabited site (not this one). If you are there: combat, with your Units, the site is not fortified. Otherwise the quest fails and the site is exhausted.</li>
+<li>🎖️ <b>Feat</b>: the condition is added to the site's normal rules.</li>
+</ul>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

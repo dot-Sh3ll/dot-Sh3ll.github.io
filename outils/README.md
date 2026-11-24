@@ -53,6 +53,10 @@ Fiches A5 : `outils/puerto-rico/fiches/gen.py` (lit `b.json`, la liste des bâti
 
 Les fiches françaises n'existent qu'en PDF (pages en image). `gen_mk_en.py` reconstruit la version anglaise en HTML puis en PDF ; les illustrations des sites et des capacités ennemies (`ico/`) ont été découpées dans les fiches françaises. Police des titres : `npm install @fontsource/marcellus` dans le dossier du script.
 
+## `mage-knight-fiches/quetes/` : module de quêtes Mage Knight (FR et EN)
+
+Les 8 pages viennent de l'artefact Design « Aide de jeu Mage Knight » (pages `A5QuetesRegles` … `A5QuetesIIINuit`), copiées telles quelles dans `fr/` (`1-regles.html` … `8-III-nuit.html`). `python3 outils/mage-knight-fiches/quetes/quetes.py` applique les correctifs du français (`CORRECTIFS_FR` : coquilles, pas de mention de BGG), produit l'anglais avec la table `EN` (phrase française → anglaise, page par page ; les pages anglaises sont aussi écrites dans `en/`), imprime les deux PDF A5 avec le pied de page du site : `fiches/mage-knight-module-quetes.pdf` et `fiches/mage-knight-quest-module.pdf`. Après une modification dans l'artefact : recopier les pages dans `fr/`, relancer ; le script signale toute phrase française qui n'a plus de traduction. Polices : `npm install @fontsource/marcellus @fontsource/figtree` dans `outils/mage-knight-fiches/`.
+
 ## Langues du site
 
 - Page d'accueil : français et anglais sont écrits dans `index.html` ; les autres langues (allemand, espagnol…) viennent de `outils/site/accueil/<code>.json`, où chaque clé est un texte anglais de la page et chaque valeur sa traduction. Les blocs `_words` (interface), `_form` (formulaire), `_soon` (bandeau sous le titre) et `_k` (bouton « Télécharger (EN) ») complètent le fichier.

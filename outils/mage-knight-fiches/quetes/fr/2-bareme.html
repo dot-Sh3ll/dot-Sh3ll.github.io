@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Quêtes : barème et précisions</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:26px 28px 20px;background:#fff;color:#1c1b22;font-family:Figtree,sans-serif;font-size:12px;line-height:1.25;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1b22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5a5566;text-align:right}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#2b2860;border-bottom:1px solid #b9a678;padding-bottom:1px}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 2px}
+p{margin:0 0 2px}
+b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c97a6;padding:2px 5px;text-align:left;vertical-align:top}
+th{background:#efeadf;font-weight:700}
+.box{border:1px solid #1c1b22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #2b2860;border-radius:8px;padding:6px 9px;background:#f4f3fa}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1b22;vertical-align:-1px;margin:0 3px 0 0}
+.gain{color:#1d6b35;font-weight:700}
+.band{background:#2b2860;color:#fff;border-radius:5px;padding:2px 9px;font-family:Marcellus,serif;font-size:14px}
+.row{display:grid;grid-template-columns:14px minmax(0,1fr) minmax(0,1fr);gap:0 9px;border-bottom:1px solid #c9c4d2;padding:4px 0 5px}
+.q{display:flex;flex-direction:column;gap:1px}
+.qt{display:flex;gap:4px;align-items:flex-start;color:#2b2860;font-weight:700}
+.lt{font-family:Marcellus,serif;font-weight:400;color:#8a6d1f}
+.var{margin-top:2px;padding:1px 5px;border:1px dashed #8a6d1f;border-radius:4px;color:#3d3420}
+.var b{color:#8a6d1f}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#5a5566;border-top:1px solid #c9c4d2;padding-top:4px;margin-top:auto}
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Quêtes · Barème</h1></div><div class="kick">Récompenses<br>et précisions</div></div>
+<div class="band">Barème des récompenses</div>
+<table><tr><th style="width:52px">Palier</th><th>Récompense type</th><th style="width:96px">Quête noire</th></tr>
+<tr><td>I</td><td>2 Gloire · 1 cristal · Soin 1 · préparer 1 Unité · 1 Réputation (ou 2 Gloire)</td><td>1 Action Avancée</td></tr>
+<tr><td>II</td><td>4 Gloire · 2 cristaux · Soin 2 · 2 Réputation (ou 4 Gloire)</td><td>1 Sort</td></tr>
+<tr><td>III</td><td>6 Gloire · 3 cristaux · 1 Unité gratuite</td><td>1 Artefact</td></tr></table>
+<p>Actions Avancées, Sorts et Artefacts ne viennent <b>que des quêtes noires</b>, plus risquées.</p>
+<div class="band">Précisions</div>
+<ul>
+<li><b>Ennemis de quête</b> : Gloire normale, sans Réputation sauf indication. Non vaincus, ils sont défaussés et la quête échoue.</li>
+<li><b>Valeurs hors combat</b> (Parade, Attaque, Déplacement, Influence, Soin) : produites avec vos cartes et vos Unités comme d'habitude. Elles ne servent à rien d'autre ce tour-là.</li>
+<li><b>Réputation en récompense</b> : vous pouvez toujours prendre la Gloire indiquée à la place.</li>
+<li><b>😇 Héros ou 😈 Crapule</b> : certaines quêtes laissent le choix. La crapule gagne plus mais perd de la Réputation, qui ouvre l'accès aux Monastères et aux Cités.</li>
+<li><b>Sort, Action Avancée, Unité</b> : pris dans l'Offre, sans payer. Une Unité gratuite reste dans votre limite de Commandement.</li>
+<li><b>Artefact</b> : piochez-en 2, gardez-en 1, comme une récompense de site.</li>
+<li><b>« En plus de la récompense du site »</b> : la conquête rapporte normalement, la quête s'y ajoute.</li>
+</ul>
+<div class="band">Lire une quête</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px">
+<div class="qt"><span style="flex:none">🏠</span><span style="color:#1c1b22;font-weight:400"><b>Sur place</b> : sur le site de la quête</span></div>
+<div class="qt"><span style="flex: 0 0 auto">🗺️</span><span style="color: rgb(28, 27, 34); font-weight: 400"><b>Ailleurs</b> : demande de se déplacer</span></div>
+</div>
+
+<div class="var"><b>Variante (extension) :</b> si vous jouez avec l'extension indiquée, la variante remplace la quête, ou l'élargit quand elle dit « compte aussi ». Sans l'extension, ignorez-la.</div>
+<div class="band">Contraintes de trajet</div>
+<ul>
+<li>🚶‍♀️ <b>Escorte</b> : posez un jeton de mana sur un jeton de Commandement libre. Sinon, une Unité prête devient l'escorte : épuisez-la, elle ne peut pas être préparée avant l'arrivée. Si vous n'avez ni place libre ni Unité prête, vous ne pouvez acceptez une quête d'escorte.</li>
+<li>💎 <b>Objet fragile</b> : posez un cristal de la réserve sur votre Héros. Si une Blessure arrive dans votre main avant l'arrivée, le cristal est perdu : échec. À l'arrivée, rendez-le.</li>
+<li>🏃‍♀️ <b>Course</b> : posez le jeton indiqué face cachée sur la quête, et 1 cristal à côté à la fin de chacun de vos tours. Au 3<sup>e</sup>, il attaque le site habité le plus proche (pas celui-ci). Vous y êtes : combat, avec vos Unités, site non fortifié. Sinon la quête échoue et le site est épuisé.</li>
+<li>🎖️ <b>Exploit</b> : la condition s'ajoute aux règles normales du site.</li>
+</ul>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

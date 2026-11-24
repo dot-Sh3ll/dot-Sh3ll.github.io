@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Quêtes : règles</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:26px 28px 20px;background:#fff;color:#1c1b22;font-family:Figtree,sans-serif;font-size:12px;line-height:1.25;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1b22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5a5566;text-align:right}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#2b2860;border-bottom:1px solid #b9a678;padding-bottom:1px}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 2px}
+p{margin:0 0 2px}
+b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c97a6;padding:2px 5px;text-align:left;vertical-align:top}
+th{background:#efeadf;font-weight:700}
+.box{border:1px solid #1c1b22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #2b2860;border-radius:8px;padding:6px 9px;background:#f4f3fa}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1b22;vertical-align:-1px;margin:0 3px 0 0}
+.gain{color:#1d6b35;font-weight:700}
+.band{background:#2b2860;color:#fff;border-radius:5px;padding:2px 9px;font-family:Marcellus,serif;font-size:14px}
+.row{display:grid;grid-template-columns:14px minmax(0,1fr) minmax(0,1fr);gap:0 9px;border-bottom:1px solid #c9c4d2;padding:4px 0 5px}
+.q{display:flex;flex-direction:column;gap:1px}
+.qt{display:flex;gap:4px;align-items:flex-start;color:#2b2860;font-weight:700}
+.lt{font-family:Marcellus,serif;font-weight:400;color:#8a6d1f}
+.var{margin-top:2px;padding:1px 5px;border:1px dashed #8a6d1f;border-radius:4px;color:#3d3420}
+.var b{color:#8a6d1f}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#5a5566;border-top:1px solid #c9c4d2;padding-top:4px;margin-top:auto}
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Quêtes</h1></div><div class="kick">Module maison<br>Par DotShell sur BGG</div></div>
+
+<ul>
+
+
+</ul>
+
+
+
+<div class="band">Consulter et accepter une quête</div><ul>
+<li>Pendant votre tour, sur un <b>Village</b>, un <b>Monastère</b> ou une <b>Cité conquise, </b>vous pouvez consulter le tableau des quêtes.</li>
+<li><b>Une seule quête active</b> par joueur. Un site ne propose des quêtes <b>qu'une fois par partie</b>.</li>
+</ul>
+<ol>
+<li>Lancez <b>un dé de mana</b> (pas celui de la Source) : <b>quête A</b> de sa couleur.</li>
+<li>Relancez-le : <b>quête B</b> de sa couleur.</li>
+<li>Lisez la page <b>Jour</b> ou <b>Nuit</b>, selon la Manche.</li>
+<li><b>Choisissez-en une</b>, ou refusez les deux.<br></li><li><b>Posez un bouclier</b> pour signifier que vous déjà consultez les quêtes du lieu.</li>
+</ol>
+<p><b>Quête déjà faite ou impossible</b> (site absent…) : prenez la suivante de la même liste, dans l'ordre 🔴 🔵 🟢 ⚪ 🟡 ⚫, puis à nouveau 🔴.</p><div class="band">Pour augmenter la difficulté</div>
+<p><b>Mode Mercenaire :</b> un seul lancer, quête A seulement.</p><p><b>Mode Héroïque :</b> un seul lancer, quête B seulement.</p>
+<div class="band">Le palier</div><table><tr><th>Site</th><th>Palier</th><th>Accès (bonus de Réputation)</th><th>Niveau conseillé</th></tr>
+<tr><td>Village</td><td>I · Novice</td><td>toujours</td><td>1+</td></tr>
+<tr><td>Monastère</td><td>II · Confirmé</td><td>au moins +1 Influence</td><td>3+</td></tr>
+<tr><td>Cité conquise</td><td>III · Héroïque</td><td>au moins +2 Influence</td><td>5+</td></tr></table>
+<p>😈 <b>Confrérie de l'ombre</b> : si votre Réputation vous donne un malus d'influence, les Monastères vous sont fermés. Dans une Cité conquise, vous ne pouvez accepter qu'une quête ⚫. <b>Contacts dans l'ombre</b> : à chaque tirage, vous pouvez remplacer le résultat d'un des deux lancers par ⚫.</p><div class="band">Délais</div>
+<ul>
+<li>⚡ <b>Immédiat</b> : maintenant, sinon c'est un échec.</li>
+<li>⚔️ <b>Combat</b> : avant la fin de la Manche, avec votre action du tour (ni interaction ni assaut ce tour-là).</li>
+<li>⏳ <b>Fin de Manche</b> : avant la fin de la Manche.</li>
+</ul>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+<div class="box"><b style="color:#1d6b35">Réussite</b><p>Posez un de vos Boucliers sur le site : <b>+1 Influence</b> à chaque interaction ici.&nbsp;</p></div>
+<div class="box"><b style="color:#8a1f1f">Échec ou refus</b><p>Échec (délai dépassé, ennemi non vaincu) : <b>−1 Réputation</b>. Refus : sans pénalité. Dans les deux cas, posez le Bouclier d'un Héros d'un Héros qui n'est pas joué&nbsp;: site épuisé.</p></div>
+</div>
+<div class="hi"><p><b>Titre « Plus grand Chevalier errant »</b> : le joueur qui a réussi le plus de quêtes gagne <span class="gain">+3 Gloire</span> (égalité : +1 chacun).</p></div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

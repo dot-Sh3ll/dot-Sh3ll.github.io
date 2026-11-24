@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Quêtes palier I (Nuit)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:22px 24px 16px;background:#fff;color:#1c1b22;font-family:Figtree,sans-serif;font-size:12px;line-height:1.25;overflow:hidden;display:flex;flex-direction:column;gap:4px}
+.hero{display:flex;align-items:center;gap:11px;border-radius:10px;padding:7px 12px;background:#f6efd9;border:1px solid #d9c591;margin-bottom:2px}
+.hero.nuit{background:#232150;border-color:#232150}
+.hero h1{font-family:Marcellus,serif;font-weight:400;font-size:23px;margin:0;line-height:1.05;color:#2b2860}
+.hero.nuit h1{color:#fff}
+.hero .sub{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6b5a2a;margin-top:2px}
+.hero.nuit .sub{color:#cfc9f2}
+.hero .moment{margin-left:auto;text-align:right;font-family:Marcellus,serif;font-size:16px;color:#2b2860;line-height:1.1}
+.hero.nuit .moment{color:#fff}
+.colh{display:grid;grid-template-columns:20px minmax(0,1fr) minmax(0,1fr);gap:0 10px;padding:0 8px 0 0}
+.colh div{font-family:Marcellus,serif;font-size:14px;color:#2b2860;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.colh div::after{content:"";flex:1;height:1px;background:#d9c591}
+.colh small{font-family:Figtree,sans-serif;font-size:12px;color:#5a5566}
+.row{display:grid;grid-template-columns:20px minmax(0,1fr) minmax(0,1fr);gap:0 10px;padding:4px 8px 5px 0;border-radius:7px;background-image:linear-gradient(#fff,#fff);background-repeat:no-repeat;background-size:2px 100%;background-position:calc(50% + 10px) 0}
+.row>span:first-child{align-self:center;text-align:center;font-size:13px}
+.c-Rouge{background-color:#fbeae6}.c-Bleu{background-color:#e8eff8}.c-Vert{background-color:#e8f3ea}.c-Blanc{background-color:#f1f0ea}.c-Or{background-color:#fbf3dc}.c-Noir{background-color:#e7e6ee}
+.q{display:flex;flex-direction:column;gap:2px}
+.qt{display:flex;gap:5px;align-items:baseline;font-family:Marcellus,serif;font-size:13.5px;color:#2b2860;line-height:1.15}
+.qt span:first-child{font-family:Figtree,sans-serif;font-size:12px}
+.qt span:last-child{font-weight:700}
+.gain{display:inline-block;background:#fff;color:#1d6b35;font-weight:700;border-radius:999px;padding:0 7px;border:1px solid #b7d8c0}
+.var{margin-top:2px;padding:1px 6px;background:rgba(255,255,255,.75);border:1px dashed #a8862c;border-radius:5px;color:#3d3420}
+.var b{color:#8a6d1f}
+b{font-weight:700}
+.foot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#5a5566;border-top:1px solid #d9c591;padding-top:4px;margin-top:auto}
+</style>
+</helmet>
+<div class="pg">
+<div class="hero nuit"><svg width="34" height="40" viewBox="0 0 34 40" role="img" aria-label="Palier I" style="flex:none"><path d="M17 1 L32 6 V18 C32 28 25 35 17 39 C9 35 2 28 2 18 V6 Z" fill="#d9b66c"></path><path d="M17 4.5 L29 8.5 V18 C29 26.5 23.5 32.5 17 35.6 C10.5 32.5 5 26.5 5 18 V8.5 Z" fill="none" stroke="#232150" stroke-width="1"></path><text x="17" y="24.5" text-anchor="middle" font-family="Marcellus, serif" font-size="15" fill="#232150">I</text></svg><div><h1>Quêtes · Palier I</h1><div class="sub">Novice · Villages · ouvert à tous</div></div><div class="moment">🌙 Nuit</div></div>
+<div class="colh"><span></span><div>A <small>· 1<sup>er</sup> lancer</small></div><div>B <small>· 2<sup>nd</sup> lancer</small></div></div>
+<div class="row c-Rouge"><span role="img" aria-label="Rouge" style="font-size: 12px; line-height: 1.25; text-align: left">🔴</span><div class="q"><div class="qt"><span style="flex:none">🏠</span><span>Les hommes-rats sortent des égouts</span></div><div>⚔️ Piochez un jeton vert et combattez-le ici.</div><div style="display:flex;flex-direction:column;gap:2px;align-items:flex-start"><span class="gain">😇 1 Réputation ou 2 Gloire</span><span class="gain" style="color:#8a1f1f;border-color:#e3b9b2">😈 Dépouillez-les : 1 cristal + 2 Gloire, −1 Réputation</span></div></div><div class="q"><div class="qt"><span style="flex:none">🗺️</span><span>Une marée verte et hurlante</span></div><div>🏃‍♀️ Atteignez le lieu habité le plus proche en moins de 3 tours. Un jeton vert.</div><div><span class="gain">→ 1 Réputation ou 2 Gloire</span></div></div></div>
+<div class="row c-Bleu"><span role="img" aria-label="Bleu" style="font-size:12px;line-height:1.25">🔵</span><div class="q"><div class="qt"><span style="flex:none">🗺️</span><span>Suivre les feux follets</span></div><div>⏳ Finissez un tour sur une Clairière magique.</div><div><span class="gain">→ 1 cristal de base au choix</span></div><div class="var"><b>Variante Ombres de Tezla :</b> la Vallée Oubliée compte aussi.</div></div><div class="q"><div class="qt"><span style="flex:none">🏠</span><span>Allumer le feu de camp</span></div><div>⏳ Pendant un tour ici, payez 2 manas bleus.</div><div><span class="gain">→ 2 Gloire</span></div></div></div>
+<div class="row c-Vert"><span role="img" aria-label="Vert" style="font-size:12px;line-height:1.25">🟢</span><div class="q"><div class="qt"><span style="flex:none">🗺️</span><span>Ne quittez jamais le sentier</span></div><div>⏳ Finissez un tour sur une case de forêt à au moins 3 cases d'ici.</div><div><span class="gain">→ 2 Gloire</span></div></div><div class="q"><div class="qt"><span style="flex:none">🏠</span><span>Ne frappez pas les cocottes</span></div><div>⏳ Pendant un tour ici, produisez Soin 2, même sans Blessure.</div><div><span class="gain">→ Préparez 1 Unité, ou 1 cristal vert</span></div></div></div>
+<div class="row c-Blanc"><span role="img" aria-label="Blanc" style="font-size:12px;line-height:1.25">⚪</span><div class="q"><div class="qt"><span style="flex:none">🏠</span><span>Écouter les anciens à la veillée</span></div><div>⚡ Défaussez 2 cartes, sauf des Blessures.</div><div><span class="gain">→ 1 cristal blanc</span></div></div><div class="q"><div class="qt"><span style="flex:none">🏠</span><span>Chanter à la taverne</span></div><div>⏳ Pendant un tour ici, produisez Influence 5.</div><div><span class="gain">→ 2 Gloire</span></div></div></div>
+<div class="row c-Or"><span role="img" aria-label="Or" style="font-size:12px;line-height:1.25">🟡</span><div class="q"><div class="qt"><span style="flex:none">🗺️</span><span>Rattraper la pie voleuse</span></div><div>⏳ Finissez un tour sur une Mine de cristal.</div><div style="display:flex;flex-direction:column;gap:2px;align-items:flex-start"><span class="gain">😇 Rendez le butin : 1 Réputation ou 2 Gloire</span><span class="gain" style="color:#8a1f1f;border-color:#e3b9b2">😈 Gardez-le : 2 cristaux de la couleur de la Mine, −1 Réputation</span></div><div class="var"><b>Variante Légion Oubliée :</b> la Mine sans fond compte aussi (couleur au choix parmi les siennes).</div></div><div class="q"><div class="qt"><span style="flex:none">🗺️</span><span>Un tas d'or au bord du chemin</span></div><div>⏳ Finissez un tour sur une case de désert.</div><div><span class="gain">→ 1 cristal au choix</span></div></div></div>
+<div class="row c-Noir"><span role="img" aria-label="Noir" style="font-size:12px;line-height:1.25">⚫</span><div class="q"><div class="qt"><span style="flex:none">🏠</span><span>Un joyau noir au front</span></div><div>⚡ Prenez 2 Blessures dans votre main.</div><div><span class="gain">→ 1 Action Avancée de l'Offre</span></div></div><div class="q"><div class="qt"><span style="flex:none">🗺️</span><span>Les Dames du Marais</span></div><div>⚔️ Sur une case de marais, piochez un jeton vert et combattez-le.</div><div><span class="gain">→ 1 Action Avancée de l'Offre</span></div><div class="var"><b>Variante Ombres de Tezla :</b> un Cimetière ou la Nécropole compte aussi.</div></div></div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
