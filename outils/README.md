@@ -64,6 +64,10 @@ La page est découpée en morceaux (`1-head.html` : styles et structure, `2-data
 
 Fiches A5 : `outils/puerto-rico/fiches/gen.py` (lit `b.json`, la liste des bâtiments extraite de `2-data.js`) produit `puerto-rico-aide-de-jeu.pdf` et `puerto-rico-batiments.pdf`, à copier dans `fiches/`.
 
+## `imperium-fiches/` : fiches A5 Imperium Antique (FR)
+
+Les 4 pages viennent de l'artefact Design « Aide de jeu Imperium Antique » (`A5Tour`, `A5Deck` : aide de jeu ; `A5MotsCles1`, `A5MotsCles2` : mots-clés), copiées telles quelles dans `fr/`. `python3 outils/imperium-fiches/pdf.py` imprime `fiches/imperium-aide-de-jeu.pdf` et `fiches/imperium-mots-cles.pdf` (A5, 2 pages chacun). Après une modification dans l'artefact : recopier les pages dans `fr/`, relancer, puis `accueil.py fiche` avec `fiche-aide-de-jeu.json` ou `fiche-mots-cles.json` (dans ce dossier) pour dater la mise à jour sur l'accueil. Polices : `npm install @fontsource/marcellus @fontsource/source-sans-3` dans `outils/imperium-fiches/`.
+
 ## `mage-knight-fiches/` : aide de jeu Mage Knight en anglais
 
 Les fiches françaises n'existent qu'en PDF (pages en image). `gen_mk_en.py` reconstruit la version anglaise en HTML puis en PDF ; les illustrations des sites et des capacités ennemies (`ico/`) ont été découpées dans les fiches françaises. Police des titres : `npm install @fontsource/marcellus` dans le dossier du script.

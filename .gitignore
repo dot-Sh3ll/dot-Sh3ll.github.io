@@ -5,3 +5,5 @@ outils/mage-knight-fiches/*.pdf
 outils/mage-knight-fiches/*.html
 outils/mage-knight-fiches/node_modules/
 outils/mage-knight-fiches/package*.json
+outils/imperium-fiches/node_modules/
+outils/imperium-fiches/package*.json

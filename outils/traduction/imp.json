@@ -2690,7 +2690,7 @@
 "ctx": "li> <li>Forme sa <b>pioche Dynastie</b> "
 },
 {
-"t": "Mélange ses cartes de départ, places-en une face cachée sous chaque marqueur. Le reste forme le deck C.I.V.",
+"t": "Mélange ses cartes de départ, placez-en une face cachée sous chaque marqueur. Le reste forme le deck C.I.V.",
 "n": 1,
 "ctx": "Nation mélangées, face cachée.</li> <li>"
 },
@@ -2755,7 +2755,7 @@
 "ctx": "li></ol> <h3>Son Nettoyage</h3> <ol><li>"
 },
 {
-"t": "Glisse la carte non résolue à l'emplacement 1, face cachée, puis complète les autres emplacements depuis le deck C.I.V.",
+"t": "Glisse la carte non résolue à l'emplacement 1, face cachée, puis complétez les autres emplacements depuis le deck C.I.V.",
 "n": 1,
 "ctx": "e sont 2 Matériaux à la place.</li> <li>"
 },
@@ -3740,7 +3740,7 @@
 "ctx": " cartes',0]]; const NATS=[['Romains',1,'"
 },
 {
-"t": "Expansion rapide : conquiers des Régions pour jouer Gloire et gagner de la Renommée. Tes Légions prolongent les conquêtes une fois Empire. Mets en jeu la Cité de Rome et fais-la évoluer. Quelques villes en plus aident à faire tourner le deck.",
+"t": "Expansion rapide : conquérez des Régions pour jouer Gloire et gagner de la Renommée. Tes Légions prolongent les conquêtes une fois Empire. Mets en jeu la Cité de Rome et fais-la évoluer. Quelques villes en plus aident à faire tourner le deck.",
 "n": 1,
 "ctx": " const NATS=[['Romains',1,'Belliqueux','"
 },
@@ -3765,7 +3765,7 @@
 "ctx": "Moulins à vent.',''], ['Macédoniens',1,'"
 },
 {
-"t": "La nation de l\\'expansion : accumule les Régions et garde-les en jeu. Conquête reste utile une fois Empire grâce à Alexandre et sa Cavalerie. Joue Gloire tôt et souvent, en synergie avec les Phalanges, et Réserve des cartes sous tes Régions en trop.",
+"t": "La nation de l\\'expansion : accumule les Régions et garde-les en jeu. Conquête reste utile une fois Empire grâce à Alexandre et sa Cavalerie. Joue Gloire tôt et souvent, en synergie avec les Phalanges, et Réservez des cartes sous tes Régions en trop.",
 "n": 1,
 "ctx": "], ['Macédoniens',1,'Plutôt pacifiste','"
 },
@@ -3775,7 +3775,7 @@
 "ctx": "artes sous tes Régions en trop.',''], ['"
 },
 {
-"t": "Contrôle le Marché et amasse les Matériaux avec Caravanes et Navires marchands. Une fois Empire : Éléphants menés par Hannibal, ou Monopole pour envoyer Instabilités et cartes gênantes chez les autres. Cherche les océans.",
+"t": "Contrôlez le Marché et amassez les Matériaux avec Caravanes et Navires marchands. Une fois Empire : Éléphants menés par Hannibal, ou Monopole pour envoyer Instabilités et cartes gênantes chez les autres. Cherche les océans.",
 "n": 1,
 "ctx": ".',''], ['Carthaginois',2,'Belliqueux','"
 },
@@ -3810,7 +3810,7 @@
 "ctx": "ue : impossible de s\\'en protéger.'], ['"
 },
 {
-"t": "Nomades : étends ton territoire et exploite tes Régions avec Tentes et Archers montés. Deck léger et très rapide grâce à Tamga, mais pauvre en points : guette les cartes à points variables du Marché.",
+"t": "Nomades : étends ton territoire et exploite tes Régions avec Tentes et Archers montés. Deck léger et très rapide grâce à Tamga, mais pauvre en points : guettez les cartes à points variables du Marché.",
 "n": 1,
 "ctx": "protéger.'], ['Scythes',2,'Belliqueux','"
 },
@@ -3830,7 +3830,7 @@
 "ctx": "xil : retiens ce que tu Exiles.',''], ['"
 },
 {
-"t": "Ta pioche Nation t\\'offre des cartes gratuites, dans un ordre que tu ne maîtrises pas. Appuie-toi sur Gothja, et Réserve des cartes avec tes Régions et tes Sagas pour dompter ton deck.",
+"t": "Ta pioche Nation t\\'offre des cartes gratuites, dans un ordre que tu ne maîtrises pas. Appuie-toi sur Gothja, et Réservez des cartes avec tes Régions et tes Sagas pour dompter ton deck.",
 "n": 1,
 "ctx": "iles.',''], ['Vikings',3,'Impitoyable','"
 },
@@ -8845,7 +8845,7 @@
 "ctx": "ibut');log('Tu donnes 1 '+chip('pop')+' "
 },
 {
-"t": "Donne 1 Population de ta réserve à la C.I.V. (remets-la au stock).",
+"t": "Donne 1 Population de ta réserve à la C.I.V. (remettez-la au stock).",
 "n": 1,
 "ctx": "'pop')+' à la C.I.V.','you');await ask('"
 },
@@ -13165,7 +13165,7 @@
 "ctx": "ompte.</p></div></div>  <p class=\"big1\">"
 },
 {
-"t": "1 · Choisis un ordre",
+"t": "1 · Choisissez un ordre",
 "n": 1,
 "ctx": "]; const REF=`<div class=\"ref\"><div><h3>"
 },
