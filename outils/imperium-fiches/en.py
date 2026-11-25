@@ -184,7 +184,7 @@ for k, (nom, ents) in enumerate(zip(['A5MotsCles1.dc.html', 'A5MotsCles2.dc.html
     s = re.sub(r'<title>.*?</title>', f'<title>Imperium: Classics, keywords {debut} to {fin}</title>', s)
     s = re.sub(r'<h1>.*?</h1>', f'<h1>Keywords, {debut} to {fin}</h1>', s)
     s = re.sub(r'(<p class="note" style="margin:0">).*?(</p>)', lambda m: m.group(1) + LEADS[k] + m.group(2), s)
-    corps = ''.join(f'<p style="margin:0 0 5px;break-inside:avoid"><b style="color:#1d4f91">{html.escape(a)}</b> · {html.escape(b)}</p>\n' for a, b in ents)
+    corps = ''.join(f'<p style="margin:0 0 5px;break-inside:avoid"><b style="color:#ae5d50">{html.escape(a)}</b> · {html.escape(b)}</p>\n' for a, b in ents)
     s = re.sub(r'(<div class="gl">\n).*?(</div>)', lambda m: m.group(1) + corps + m.group(2), s, flags=re.S)
     (ICI / 'en' / nom).write_text(s, encoding='utf-8')
 
