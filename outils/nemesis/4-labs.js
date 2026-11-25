@@ -11,7 +11,7 @@ const tok=k=>`<span class="tok ${k}" title="${TY[k]}">${{reine:'R',guerrier:'G',
 const plural=(n,s,p)=>`${n} ${n>1?p:s}`;
 /* faces réelles des dés (données par le propriétaire du jeu) */
 const DE_BRUIT=['1','2','2','3','3','4','4','4','D','D'], DE_RAFALE=[1,1,1,2,3,4], DE_TIR=['C','2','3','4','4','5','5','M'];
-const pct=(n,d)=>Math.round(100*n/d)+'\u00a0%';
+const pct=(n,d)=>String(Math.round(1000*n/d)/10).replace('.',',')+'\u00a0%';
 
 const LABS={
 /* ===== sac Intrus ===== */

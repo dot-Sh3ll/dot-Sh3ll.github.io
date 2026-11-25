@@ -742,7 +742,7 @@ const tok=k=>`<span class="tok ${k}" title="${TY[k]}">${{reine:'Q',guerrier:'D',
 const plural=(n,s,p)=>`${n} ${n>1?p:s}`;
 /* real die faces (given by the game's owner) */
 const DE_BRUIT=['1','2','2','3','3','4','4','4','D','D'], DE_RAFALE=[1,1,1,2,3,4], DE_TIR=['C','2','3','4','4','5','5','M'];
-const pct=(n,d)=>Math.round(100*n/d)+'%';
+const pct=(n,d)=>Math.round(1000*n/d)/10+'%';
 
 const LABS={
 /* ===== sac Intrus ===== */
