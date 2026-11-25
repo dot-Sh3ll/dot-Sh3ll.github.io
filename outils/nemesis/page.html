@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{_lang}}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nemesis: Retaliation · Apprendre les règles</title>
-<meta name="description" content="Apprendre Nemesis: Retaliation point de règle par point de règle : ateliers interactifs (sac Intrus, jet de bruit, tir, rafale), cas pratiques, quiz, aide-mémoire et toutes les salles.">
+{{titre}}
+<meta name="description" {{description}}>
 <!--polices:Rajdhani,Source Sans 3--><!--/polices-->
 <style>
 /* Plan : barre d'onglets collante, sommaire à gauche avec progression, colonne de lecture à droite.
@@ -228,20 +228,20 @@ h1{font-weight:700;text-transform:uppercase}
 <header class="apphead"><div class="in">
   <p class="title">Nemesis: Retaliation</p>
   <div class="lrmp-onglets" role="tablist" aria-label="Sections">
-    <button type="button" role="tab" data-tab="learn" aria-selected="true">Apprendre</button>
-    <button type="button" role="tab" data-tab="aide" aria-selected="false">Aide-mémoire</button>
-    <button type="button" role="tab" data-tab="salles" aria-selected="false">Salles</button>
+    <button type="button" role="tab" {{onglet_apprendre}}
+    <button type="button" role="tab" {{onglet_aide}}
+    <button type="button" role="tab" {{onglet_salles}}
   </div>
-  <button type="button" class="themebtn ghost" id="theme" aria-label="Changer de thème (clair / sombre)">◐</button>
+  <button type="button" class="themebtn ghost" id="theme" {{bouton_theme}}>◐</button>
 </div></header>
 
 <div class="tab on" id="tab-learn"><div class="learn">
-  <nav class="toc" id="toc" aria-label="Sommaire du tutoriel">
-    <p class="brand">Apprendre les règles<small>D'après le livret de règles français</small></p>
-    <p class="merci">Avec les précisions de la FAQ officielle (v1.2).</p>
+  <nav class="toc" id="toc" {{sommaire_aria}}>
+    {{marque}}
+    {{merci_faq}}
     <div class="bar"><i id="bar"></i></div>
     <p class="barlabel" id="barlabel"></p>
-    <button type="button" class="tocbtn" id="tocbtn" aria-expanded="false">Afficher le sommaire</button>
+    <button type="button" class="tocbtn" id="tocbtn" {{bouton_sommaire}}
     <ol id="toclist"></ol>
   </nav>
   <main class="read" id="read"></main>
@@ -249,3 +249,77 @@ h1{font-weight:700;text-transform:uppercase}
 
 <div class="tab" id="tab-aide"><div class="page" id="aide"></div></div>
 <div class="tab" id="tab-salles"><div class="page" id="sallespage"></div></div>
+<script>
+(function(){
+"use strict";
+/* ---------- utilitaires ---------- */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const rnd=n=>Math.floor(Math.random()*n);
+
+/* ---------- petits pictogrammes ---------- */
+const it=c=>`<span class="it it-${c}" {{objet_titre}}></span>`;
+{{objet_noms}}
+const ordi=`<span class="pic" {{ordinateur_titre}}>💻</span>`;
+const sect=s=>`<span class="sec sec-${s==='?'?'x':s}">${s}</span>`;
+
+/* ---------- salles (aide de jeu Salles de la boîte) ----------
+   s : section (A, B, C) ou « ? » ; n : numéro ; obj : icônes Objet ; ic : autres icônes ; fx : effet ; pr : précisions */
+<!--CONTENU:salles--><!--CONTENU:chapitres--><!--CONTENU:ateliers--><!--CONTENU:schemas-->
+/* ---------- fiches de salles (chapitre et onglet Salles) ---------- */
+const SC_COL={A:'var(--secA)',B:'var(--secB)',C:'var(--secC)','?':'var(--secX)'};
+const roomCard=x=>`<div class="rcard" style="--rc:${SC_COL[x.s]}"><div class="hd"><div class="nm">${x.fr}</div>${sect(x.s)}</div>
+ <div class="meta">{{salle_numero}}${x.obj?`<span>${[...x.obj].map(it).join('')}</span>`:''}${x.ic.map(k=>`<span>${k==='ordi'?ordi+' ':''}${ICN[k]}</span>`).join('')}</div>
+ <div class="fx">${x.fx}</div>${x.pr.length?`<ul>${x.pr.map(p=>`<li>${p}</li>`).join('')}</ul>`:''}</div>`;
+
+/* ---------- tutoriel ---------- */
+const ST={{sauvegarde_lire}}{done:{},cur:CH[0].id,q:{}});ST.done=ST.done||{};ST.q=ST.q||{};
+const saveST=()=>{{sauvegarde_ecrire}}ST);
+function progress(){const d=CH.filter(c=>ST.done[c.id]).length;$('#bar').style.width=(100*d/CH.length)+'%';{{progression}}}
+function toc(){let h='',part='';CH.forEach((c,i)=>{if(c.part!==part){part=c.part;h+=`<li class="part">${part}</li>`}h+=`<li><a href="#${c.id}" data-id="${c.id}" class="${ST.cur===c.id?'on':''}"><span class="n">${i+1}</span><span>${c.t}</span>${ST.done[c.id]?{{valide_aria}}:''}</a></li>`});$('#toclist').innerHTML=h;
+ $$('#toclist a').forEach(a=>a.onclick=e=>{e.preventDefault();show(a.dataset.id,true);$('#toc').classList.remove('open');$('#tocbtn').setAttribute('aria-expanded','false');{{sommaire_fermer}}
+function qBlock(list,kind,cid){return `<div class="qs">${list.map((x,i)=>{const key=`${cid}:${kind}${i}`,st=ST.q[key];return `<div class="q${kind==='c'?' case':''}" data-k="${key}" data-a="${x.a}">${kind==='c'?{{cas_question}}:''}<div class="qt">${x.q}</div><div class="opts">${x.o.map((o,j)=>`<button type="button" data-j="${j}" class="${st&&st.picked&&st.picked.includes(j)?(j===x.a?'right':'wrong'):''}">${o}</button>`).join('')}</div><div class="why" ${st&&st.ok?'':'hidden'}>${x.w}</div></div>`}).join('')}</div>`}
+function show(id,scroll){const c=CH.find(x=>x.id===id)||CH[0];ST.cur=c.id;saveST();const i=CH.indexOf(c),prev=CH[i-1],next=CH[i+1];
+ let h=`<section class="ch on" id="ch-${c.id}"><div class="eyebrow">{{etape}}</div><h1>${c.t}</h1><p class="lead">${c.lead}</p>
+ {{titre_regles}}<ol class="rules">${c.rules.map(x=>`<li>${x}</li>`).join('')}</ol>${typeof FIG!=='undefined'&&FIG[c.id]?`<figure class="fig">${FIG[c.id].svg}<figcaption>${FIG[c.id].cap}</figcaption></figure>`:''}${c.faq?`<div class="faq">{{faq_titre}}<ul>${c.faq.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}${c.html||''}${c.lab?`<div id="labhost">${LABS[c.lab].html()}</div>`:''}`;
+ if(c.cas&&c.cas.length){{titre_cas}}${qBlock(c.cas,'c',c.id)}`;
+ if(c.quiz&&c.quiz.length){{titre_verifier}}${qBlock(c.quiz,'q',c.id)}<div id="qscore" class="score"></div>`;
+ h+=`<div id="donebox"></div><div class="pager">${prev?`<button type="button" data-go="${prev.id}">← ${prev.t}</button>`:'<span></span>'}${next?`<button type="button" class="pri" data-go="${next.id}">${next.t} →</button>`:`<button type="button" class="pri" {{bouton_ouvrir_aide}}`}</div></section>`;
+ const R=$('#read');R.innerHTML=h;if(c.lab)LABS[c.lab].init($('#labhost'));
+ const sc=$('#salles-ch');if(sc)sc.innerHTML={{aide_salles_section}}<div class="cards">${SALLES.filter(x=>x.s!=='?').map(roomCard).join('')}</div>{{aide_salles_aleatoires}}`;
+ $$('.q',R).forEach(q=>$$('.opts button',q).forEach(b=>b.onclick=()=>{const k=q.dataset.k,a=+q.dataset.a,j=+b.dataset.j,st=ST.q[k]||(ST.q[k]={picked:[]});if(st.picked.includes(j))return;st.picked.push(j);
+  b.classList.add(j===a?'right':'wrong');if(j===a){st.ok=true;if(st.picked.length===1)st.first=true}$('.why',q).hidden=false;
+  if(j!==a){$('.why',q).innerHTML={{reponse_fausse}};$('.why',q).hidden=false}else $('.why',q).innerHTML=(q.classList.contains('case')?c.cas:c.quiz)[+k.split(':')[1].slice(1)].w;
+  saveST();check(c)}));
+ $$('[data-go]',R).forEach(b=>b.onclick=()=>show(b.dataset.go,true));$$('[data-tab]',R).forEach(b=>b.onclick=e=>{e.preventDefault();tab(b.dataset.tab)});
+ check(c);toc();progress();if(location.hash!=='#'+c.id)history.replaceState(null,'','#'+c.id);if(scroll)window.scrollTo(0,0)}
+function check(c){const all=[...(c.quiz||[]).map((_,i)=>`${c.id}:q${i}`),...(c.cas||[]).map((_,i)=>`${c.id}:c${i}`)];const ok=all.filter(k=>ST.q[k]&&ST.q[k].ok).length,first=all.filter(k=>ST.q[k]&&ST.q[k].first).length;
+ const sc=$('#qscore');if(sc)sc.textContent=ok?{{bilan_quiz}}:'';
+ if(ok===all.length&&all.length&&!ST.done[c.id]){ST.done[c.id]=1;saveST();toc();progress()}
+ $('#donebox').innerHTML=ST.done[c.id]?{{chapitre_valide}}:''}
+$('#tocbtn').onclick=()=>{const o=$('#toc').classList.toggle('open');$('#tocbtn').setAttribute('aria-expanded',o);{{sommaire_basculer}}
+window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(CH.some(c=>c.id===id)&&id!==ST.cur){tab('learn');show(id,true)}});
+
+<!--CONTENU:aide-->/* ---------- onglet Salles ---------- */
+function salles(){$('#sallespage').innerHTML=`{{salles_entete}}
+ <div class="filters2"><div class="seg" id="sl-s">${['tout','A','B','C','?'].map((v,i)=>`<button type="button" data-v="${v}" class="${i?'':'sel'}">{{salles_filtres}}</button>`).join('')}</div><input type="search" id="sl-q" {{salles_recherche}}></div>
+ {{salles_legende}}<div class="cards" id="sl-cards"></div>`;
+ let s='tout';const norm=t=>t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/<[^>]+>/g,'');
+ const draw=()=>{const q=norm($('#sl-q').value||'');$('#sl-cards').innerHTML=SALLES.filter(x=>(s==='tout'||x.s===s)&&(!q||norm(x.fr+' '+x.fx+' '+x.pr.join(' ')).includes(q))).map(roomCard).join('')||{{salles_aucune}}};
+ $$('#sl-s button').forEach(b=>b.onclick=()=>{$$('#sl-s button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');s=b.dataset.v;draw()});$('#sl-q').oninput=draw;draw()}
+
+/* ---------- onglets, thème, démarrage ---------- */
+function tab(t){$$('.lrmp-onglets button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));$$('.tab').forEach(x=>x.classList.toggle('on',x.id==='tab-'+t));LS.set('nemr-tab',t);window.scrollTo(0,0)}
+$$('.lrmp-onglets button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
+const TH=['auto','dark','light'];let th=LS.get('nemr-theme','auto');
+const applyTh=()=>{if(th==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',th);{{theme_titre}}};
+$('#theme').onclick=()=>{th=TH[(TH.indexOf(th)+1)%3];LS.set('nemr-theme',th);applyTh()};applyTh();
+aide();salles();
+const h=location.hash.slice(1);show(CH.some(c=>c.id===h)?h:ST.cur,false);
+if(!CH.some(c=>c.id===h))tab(LS.get('nemr-tab','learn'));
+})();
+</script>
+{{pied_mentions}}
+</body>
+</html>

@@ -94,10 +94,14 @@ Fiches A5 : `outils/puerto-rico/fiches/gen.py` (lit `b.json`, la liste des bâti
 
 ## `nemesis/` : appli Nemesis: Retaliation
 
-Même moteur que Puerto Rico. Morceaux : `1-head.html` (styles et structure), `2-data.js` (utilitaires et salles), `3-chapters.js` (25 chapitres), `4-labs.js` (ateliers : sac Intrus, jet de bruit, tir et mêlée, rafale, éclosion), `6-app.js` (tutoriel, aide-mémoire, onglet Salles). `sh outils/nemesis/build.sh` depuis la racine reconstruit `nemesis/index.html` et `nemesis/en.html`, puis pose langue, en-tête, PWA et pied de page ; relancer ensuite `seo.py`.
+**Format commun du site** (depuis le 26/11/2026, pages identiques à l'octet près à l'ancienne chaîne) :
+- `page.html` : styles, structure et code, communs aux langues ; `{{clé}}` = texte d'interface, `<!--CONTENU:nom-->` = morceau de contenu.
+- `i18n/fr.json`, `i18n/en.json` : textes d'interface (mêmes clés ; titre, onglets, sommaire, quiz, onglet Salles, pied, clés de sauvegarde).
+- `contenu/<langue>/` : `salles.js` (les 25 salles), `chapitres.js` (25 chapitres), `ateliers.js` (sac Intrus, jet de bruit, tir et mêlée, rafale, éclosion), `schemas.js` (écrit par `figures.py`), `aide.js` (aide-mémoire).
+- Construction : `python3 outils/site/assembler.py nemesis` (ou `sh outils/nemesis/build.sh`), puis `seo.py`. Une nouvelle langue = `i18n/<code>.json` + `contenu/<code>/` (un morceau absent reprend l'anglais).
 
 - Source : livret de règles français et aide de jeu Salles (relevée sur photo, voir `salles.md`). Les faces des dés sont choisies par le lecteur : l'appli ne simule que les règles, pas les probabilités des dés (inconnues).
-- Anglais : `en/3-chapters.js` (chapitres rédigés en anglais avec les termes du livret VO : Drone, Hazard, Lander, Life Support, Data token, Healthy / Injured / Heavily Injured, Nightmare Rule…), `en/salles.js` (salles ; les noms des salles aléatoires sont traduits par nous, faute d'aide de jeu VO), `en/4-labs.js` et `en/aide.js` (copies traduites, à tenir en parallèle des versions françaises), `en/build_en.py` (paires pour l'en-tête et l'interface ; signale toute paire devenue introuvable).
+- Anglais : chapitres rédigés avec les termes du livret VO (Drone, Hazard, Lander, Life Support, Data token, Healthy / Injured / Heavily Injured, Nightmare Rule…) ; noms des salles aléatoires traduits par nous, faute d'aide de jeu VO. Les morceaux FR et EN se tiennent en parallèle.
 - Carte de l'accueil : `carte.json` (`accueil.py appli outils/nemesis/carte.json`).
 
 ## `imperium-fiches/` : fiches A5 Imperium Antique (FR et EN)

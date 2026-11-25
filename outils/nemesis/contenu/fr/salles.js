@@ -1,20 +1,3 @@
-<script>
-(function(){
-"use strict";
-/* ---------- utilitaires ---------- */
-const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const rnd=n=>Math.floor(Math.random()*n);
-
-/* ---------- petits pictogrammes ---------- */
-const it=c=>`<span class="it it-${c}" title="Objet ${{v:'vert',r:'rouge',j:'jaune'}[c]}"></span>`;
-const ITN={v:'vert',r:'rouge',j:'jaune'};
-const ordi=`<span class="pic" title="Ordinateur">💻</span>`;
-const sect=s=>`<span class="sec sec-${s==='?'?'x':s}">${s}</span>`;
-
-/* ---------- salles (aide de jeu Salles de la boîte) ----------
-   s : section (A, B, C) ou « ? » ; n : numéro ; obj : icônes Objet ; ic : autres icônes ; fx : effet ; pr : précisions */
 const SALLES=[
  {n:14,s:'A',fr:'Zone d\'atterrissage',obj:'',ic:['tok'],fx:'Prenez ici autant de jetons tactiques disponibles que vous voulez. <b>OU</b> Faites un jet de bruit pour entrer dans le vaisseau.',pr:['Les jetons gagnés doivent être placés dans des emplacements tactiques libres. Vous pouvez défausser tout ou partie de vos jetons une fois, avant ou pendant cette action.','Le deuxième effet n\'est utilisable que si le vaisseau s\'y trouve.','S\'il y a un Intrus dans la salle après le jet de bruit, l\'action échoue.','C\'est le point de départ de tous les personnages.']},
  {n:15,s:'A',fr:'Contrôle du recycleur A',obj:'vr',ic:['ordi'],fx:'Retournez un recycleur d\'air dans la section A. <b>OU</b> Défaussez un marqueur Feu depuis n\'importe quelle salle du complexe.',pr:['Le premier effet active ou désactive le recycleur d\'air de la section A.']},

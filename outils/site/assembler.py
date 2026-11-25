@@ -7,6 +7,8 @@ Sources dans outils/<dossier>/ :
   page.html            structure, styles et code ; {{clé}} = texte de l'interface ; <!--CONTENU--> = contenu de la langue
   i18n/<langue>.json   textes de l'interface, mêmes clés dans toutes les langues (format commun du site)
   contenu/<langue>.js  chapitres et aide-mémoire ; une langue sans fichier reprend l'anglais
+  ou, pour une appli en plusieurs morceaux, page.html contient des emplacements nommés <!--CONTENU:nom-->,
+  remplis par contenu/<langue>/nom.js (même règle : un morceau absent reprend l'anglais). Ex. : outils/nemesis.
 Réglages lus dans outils/site/jeux.json (entrée <dossier>) : code, couleur, police.
 
 Une page est écrite pour chaque fichier i18n/<langue>.json : <dossier>/index.html (fr), <dossier>/<langue>.html.
@@ -59,11 +61,21 @@ def main():
         if manque:
             print(f"{c} : {len(manque)} texte(s) sans traduction (repris de l'anglais) : {', '.join(manque)}")
         t |= {"_lang": c, "_code": j["code"], "_police": j.get("police", "Marcellus"), "_accent_clair": accent_clair(j["couleur"])}
-        contenu = os.path.join(src, "contenu", f"{c}.js")
-        if not os.path.exists(contenu):
-            print(f"{c} : pas de contenu/{c}.js, contenu anglais repris")
-            contenu = os.path.join(src, "contenu", "en.js")
-        s = page.replace("<!--CONTENU-->", open(contenu, encoding="utf-8").read().strip())
+        s = page
+        if "<!--CONTENU-->" in s:
+            contenu = os.path.join(src, "contenu", f"{c}.js")
+            if not os.path.exists(contenu):
+                print(f"{c} : pas de contenu/{c}.js, contenu anglais repris")
+                contenu = os.path.join(src, "contenu", "en.js")
+            s = s.replace("<!--CONTENU-->", open(contenu, encoding="utf-8").read().strip())
+
+        def morceau(m):  # emplacements nommés : le morceau est inséré tel quel (aucun espace retiré)
+            f = os.path.join(src, "contenu", c, m.group(1) + ".js")
+            if not os.path.exists(f):
+                print(f"{c} : pas de contenu/{c}/{m.group(1)}.js, morceau anglais repris")
+                f = os.path.join(src, "contenu", "en", m.group(1) + ".js")
+            return open(f, encoding="utf-8").read()
+        s = re.sub(r"<!--CONTENU:([a-z0-9_-]+)-->", morceau, s)
         s = re.sub(r"\{\{([a-z_]+)\}\}", lambda m: str(t.get(m.group(1), m.group(0))), s)
         reste = re.findall(r"\{\{[a-z_]+\}\}", s)
         if reste:

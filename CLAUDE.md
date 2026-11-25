@@ -48,7 +48,7 @@ Applis (registre : `outils/site/jeux.json`) :
 | `imperium` | imp | `#ec7f6d` corail | Cinzel / Marcellus | FR EN | FR à la main ; EN : `build_imp.sh` |
 | `aeons-end` | ae | `#c495f5` violet | Marcellus | FR EN DE | FR et EN à la main en parallèle ; DE : `outils/aeons-end/gen_lang.py de` |
 | `puerto-rico` | pr | `#e2cc9f` sable | Fraunces | FR EN | sources `outils/puerto-rico/` + `sh outils/puerto-rico/build.sh` |
-| `nemesis` | nr | `#9bd33a` vert acide | Rajdhani | FR EN | sources `outils/nemesis/` + `sh outils/nemesis/build.sh` |
+| `nemesis` | nr | `#9bd33a` vert acide | Rajdhani | FR EN | **format commun** : `outils/nemesis/` (`page.html`, `i18n/`, `contenu/<langue>/`) + `assembler.py nemesis` |
 
 Chaque jeu garde **sa police de titre et son thème** (clair ou sombre). L'expérience est commune : même barre du site,
 mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent`, `--app-accent-ink`, `--app-piste`,
@@ -81,7 +81,8 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 - Textes allemands de l'accueil (en réserve, non affichés) : `outils/site/accueil/de.json` (clé = texte anglais de la page).
 - **Format de traduction commun pour les nouvelles applis** (modèle `outils/modele-appli`) : textes d'interface par clés dans
   `i18n/<langue>.json` (mêmes clés partout), contenu dans `contenu/<langue>.js` ; `assembler.py` signale les clés
-  manquantes et reprend l'anglais. Les applis existantes gardent leur chaîne (tableau ci-dessus).
+  manquantes et reprend l'anglais. Une appli en plusieurs morceaux utilise des emplacements nommés `<!--CONTENU:nom-->`
+  remplis par `contenu/<langue>/nom.js` (Nemesis). Passées au format commun : Nemesis. Les autres gardent leur chaîne (tableau ci-dessus).
 - État des traductions : `python3 outils/traduire_etat.py`.
 
 ## Commandes
@@ -95,7 +96,7 @@ Toujours depuis la racine du dépôt.
 | Avancement des traductions | `python3 outils/traduire_etat.py` |
 | Créer une appli | `python3 outils/nouvelle_appli.py <dossier> <code> "<Nom FR>" "<Nom EN>" <#couleur> <glyphe> [police]` |
 | Reconstruire une appli faite sur le modèle | `python3 outils/site/assembler.py <dossier>` puis `seo.py` |
-| Reconstruire Puerto Rico / Nemesis | `sh outils/puerto-rico/build.sh` / `sh outils/nemesis/build.sh` puis `seo.py` |
+| Reconstruire Puerto Rico / Nemesis | `sh outils/puerto-rico/build.sh` / `python3 outils/site/assembler.py nemesis` puis `seo.py` |
 | Aeon's End allemand | `python3 outils/aeons-end/gen_lang.py de` (`--todo` : ce qui manque), puis `seo.py` |
 | Barre du site + feuilles communes + polices d'une appli | `python3 outils/site/chrome.py <dossier>` |
 | Pied de page | `python3 outils/site/pied.py <dossier> "<option du formulaire>"` |
@@ -160,7 +161,7 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 - Les pages `en/` et `de/` de l'accueil et `aeons-end/de.html` sont générées : toute retouche se fait à la source.
 - `localStorage` toujours dans `try/catch` (navigation privée, stockage bloqué).
 - Contrastes : AA (4,5:1) pour le texte ; `assembler.py` assombrit la couleur du jeu pour les thèmes clairs.
-- Schémas du tutoriel Nemesis : `outils/nemesis/figures.py` écrit `5-figures.js` (FR) et `en/5-figures.js` (EN), puis `build.sh` ;
+- Schémas du tutoriel Nemesis : `outils/nemesis/figures.py` écrit `contenu/fr/schemas.js` et `contenu/en/schemas.js`, puis `assembler.py nemesis` ;
   SVG dans la page, couleurs des variables de l'appli (thèmes clair et sombre), légende et texte alternatif dans les deux langues.
 - **Thèmes** : chaque appli a un bouton ◐. Nemesis et Puerto Rico : dans leurs sources. Imperium, Aeon's End, Mage Knight :
   `theme.py` ; Imperium suit le système par défaut, Aeon's End et Mage Knight restent sombres par défaut (le clair est une option).
@@ -175,8 +176,8 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 
 ## À faire (par ordre d'intérêt)
 
-1. **Format de traduction commun** (`i18n/<langue>.json` + `contenu/<langue>.js`) : y passer les applis existantes une à une,
-   en commençant par Nemesis ou Puerto Rico.
+1. **Format de traduction commun** : Nemesis est passé (pages identiques). Suivant : Puerto Rico (même moteur), puis Imperium,
+   Mage Knight, Aeon's End.
 2. **Schémas** : d'autres dans Nemesis (robot, évasion, contamination), éventuellement interactifs ; chercher où des schémas
    aideraient dans les autres applis (même méthode que `outils/nemesis/figures.py`).
 3. **Versions de règles suivies** : afficher sous « Apprendre » de chaque appli la version des règles et des errata intégrés
