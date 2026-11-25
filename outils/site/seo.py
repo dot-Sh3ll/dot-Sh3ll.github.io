@@ -24,61 +24,59 @@ SITE = "https://paulmoussard.com"
 MARQUE = "Less Rules, More Play"
 AUTEUR = {"@type": "Person", "name": "Paul Moussard", "url": SITE + "/",
           "sameAs": ["https://ko-fi.com/paulmoussard", "https://github.com/dot-Sh3ll"]}
-LOCALE = {"fr": "fr_FR", "en": "en_GB", "de": "de_DE", "es": "es_ES"}
-ACCUEIL_LANGS = ["fr", "en", "de", "es"]
+LOCALE = {"fr": "fr_FR", "en": "en_GB", "de": "de_DE"}
+ACCUEIL_LANGS = ["fr", "en", "de"]
 
 ACCUEIL = {
-    "fr": ("Aides de jeu gratuites pour jeux de société experts | Less Rules, More Play",
-           "Tutoriels interactifs, compagnons solo et fiches à imprimer, gratuits, pour Mage Knight, Imperium Antique, Aeon's End, Puerto Rico 1897 et Nemesis: Retaliation. Apprenez les règles en jouant."),
+    "fr": ("Aides de jeu de société gratuites | Less Rules, More Play",
+           "Tutoriels interactifs, compagnons solo et fiches à imprimer gratuits pour Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 et Nemesis: Retaliation."),
     "en": ("Free game aids for heavy board games | Less Rules, More Play",
-           "Free interactive rules tutorials, solo companions and printable game aids for Mage Knight, Imperium: Classics, Aeon's End, Puerto Rico 1897 and Nemesis: Retaliation. Learn the rules by playing."),
-    "de": ("Kostenlose Spielhilfen für Expertenspiele | Less Rules, More Play",
-           "Kostenlose interaktive Regel-Tutorials, Solo-Begleiter und Spielhilfen zum Ausdrucken für Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 und Nemesis: Retaliation."),
-    "es": ("Ayudas de juego gratuitas para juegos de mesa expertos | Less Rules, More Play",
-           "Tutoriales interactivos de reglas, compañeros en solitario y hojas para imprimir, gratis, para Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 y Nemesis: Retaliation."),
+           "Free interactive rules tutorials, solo companions and printable aids for Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 and Nemesis: Retaliation."),
+    "de": ("Kostenlose Spielhilfen für Brettspiele | Less Rules, More Play",
+           "Interaktive Regel-Tutorials, Solo-Begleiter und Spielhilfen zum Ausdrucken für Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 und Nemesis: Retaliation."),
 }
 
 # dossier de l'appli : jeu (nom du jeu par langue), puis titre et description par langue de page
 PAGES = {
     "mage-knight": {
         "jeu": {"fr": "Mage Knight", "en": "Mage Knight"},
-        "fr": ("Mage Knight : tutoriel des règles et compagnon de partie gratuits",
-               "Apprenez Mage Knight pas à pas avec un tutoriel interactif des règles, puis jouez avec le compagnon de partie : joueur Fantôme, scénarios solo et coop à deux. Gratuit."),
+        "fr": ("Mage Knight : tutoriel des règles et compagnon de partie",
+               "Apprenez Mage Knight pas à pas avec un tutoriel interactif, puis jouez avec le compagnon : joueur Fantôme, scénarios solo et coop à deux. Gratuit."),
         "en": ("Mage Knight rules tutorial and free game companion",
                "Learn Mage Knight step by step with an interactive rules tutorial, then play with the game companion: Dummy player, solo and two-player co-op scenarios. Free."),
     },
     "imperium": {
         "jeu": {"fr": "Imperium Antique", "en": "Imperium: Classics"},
         "fr": ("Imperium Antique : tutoriel des règles et solo contre la C.I.V.",
-               "Apprenez Imperium Antique en six étapes interactives, jouez en solo contre la C.I.V. sans gérer l'automate vous-même, et gardez l'aide-mémoire sous la main. Gratuit."),
-        "en": ("Imperium: Classics rules tutorial and solo companion vs the C.I.V.",
+               "Apprenez Imperium Antique en six étapes interactives, jouez en solo contre la C.I.V. sans gérer l'automate, et gardez l'aide-mémoire. Gratuit."),
+        "en": ("Imperium: Classics rules tutorial and solo vs the C.I.V.",
                "Learn Imperium: Classics in six interactive steps, play solo against the C.I.V. without running the bot yourself, and keep the quick reference at hand. Free."),
     },
     "aeons-end": {
         "jeu": {"fr": "Aeon's End", "en": "Aeon's End", "de": "Aeon's End"},
-        "fr": ("Aeon's End : générateur de marché, mises en place officielles et journal",
-               "Générez le marché d'Aeon's End en un clic : mises en place officielles, piles au choix, journal des parties et expéditions. Gratuit, sur ordinateur et mobile."),
+        "fr": ("Aeon's End : générateur de marché et journal des parties",
+               "Générez le marché d'Aeon's End en un clic : mises en place officielles, piles au choix, journal des parties et expéditions. Gratuit."),
         "en": ("Aeon's End market randomizer, official setups and game log",
                "Generate your Aeon's End market in one tap: official setups, pick-your-own piles, a game log and expeditions. Free, on desktop and mobile."),
-        "de": ("Aeon's End: Marktgenerator, offizielle Aufbauten und Spieljournal",
+        "de": ("Aeon's End: Marktgenerator und Spieljournal",
                "Erstellen Sie den Markt für Aeon's End mit einem Klick: offizielle Aufbauten, frei wählbare Stapel, Spieljournal und Expeditionen. Kostenlos, auch mobil."),
     },
     "puerto-rico": {
         "jeu": {"fr": "Puerto Rico 1897", "en": "Puerto Rico 1897"},
-        "fr": ("Puerto Rico 1897 : apprendre les règles pas à pas, aide-mémoire et score",
-               "Apprenez Puerto Rico 1897 règle par règle avec des ateliers interactifs et des quiz, puis gardez l'aide-mémoire des bâtiments et le calculateur de score. Gratuit."),
-        "en": ("Puerto Rico 1897: learn the rules step by step, reference and scoring",
+        "fr": ("Puerto Rico 1897 : règles pas à pas, aide-mémoire et score",
+               "Apprenez Puerto Rico 1897 règle par règle avec des ateliers et des quiz, puis gardez l'aide-mémoire des bâtiments et le calcul du score. Gratuit."),
+        "en": ("Puerto Rico 1897 rules tutorial, reference and scoring",
                "Learn Puerto Rico 1897 one rule at a time with interactive labs and quizzes, then keep the building reference and the score calculator at hand. Free."),
     },
     "nemesis": {
         "jeu": {"fr": "Nemesis: Retaliation", "en": "Nemesis: Retaliation"},
-        "fr": ("Nemesis: Retaliation : apprendre les règles pas à pas, aide-mémoire et salles",
-               "Apprenez Nemesis: Retaliation règle par règle avec des ateliers interactifs (sac Intrus, jet de bruit, tir, rafale) et des quiz, puis gardez l'aide-mémoire et toutes les salles. Gratuit."),
-        "en": ("Nemesis: Retaliation: learn the rules step by step, reference and rooms",
-               "Learn Nemesis: Retaliation one rule at a time with interactive labs (Intruder bag, Noise roll, shooting, Burst fire) and quizzes, then keep the reference sheet and every Room at hand. Free."),
+        "fr": ("Nemesis: Retaliation : règles pas à pas, aide-mémoire, salles",
+               "Apprenez Nemesis: Retaliation règle par règle avec des ateliers interactifs et des quiz, puis gardez l'aide-mémoire et toutes les salles. Gratuit."),
+        "en": ("Nemesis: Retaliation rules tutorial, reference and rooms",
+               "Learn Nemesis: Retaliation one rule at a time with interactive labs and quizzes, then keep the reference sheet and every Room at hand. Free."),
     },
 }
-FIL = {"fr": "Aides de jeu", "en": "Game aids", "de": "Spielhilfen", "es": "Ayudas de juego"}
+FIL = {"fr": "Aides de jeu", "en": "Game aids", "de": "Spielhilfen"}
 
 
 def url_page(dossier, code):
@@ -86,7 +84,7 @@ def url_page(dossier, code):
 
 
 def url_accueil(code):
-    return SITE + "/" if code == "fr" else f"{SITE}/?lang={code}"
+    return SITE + "/" if code == "fr" else f"{SITE}/{code}/"
 
 
 def e(t):
@@ -125,6 +123,61 @@ def poser(path, code, titre, b):
     tete = re.sub(r'\n?<link rel="(?:canonical|alternate)" hreflang[^>]*>|\n?<link rel="canonical"[^>]*>', "", tete)
     tete = re.sub(r"<title>.*?</title>", lambda m: f"<title>{e(titre)}</title>\n" + b, tete, count=1, flags=re.S)
     open(path, "w", encoding="utf-8").write(tete + "</head>" + corps)
+
+
+# Redirection de l'accueil français (posée seulement sur index.html) : ?lang=xx, la langue choisie (site-lang),
+# puis la langue du navigateur (jamais pour les robots) mènent à /en/ ou /de/ ; une langue sans page mène à /en/.
+REDIR = ('<script id="home-lang-js">(function(){try{var H=%s,s=location.search,q=/[?&]lang=([a-z]{2})/.exec(s),t=null,sl=null;'
+         'try{sl=localStorage.getItem("site-lang")}catch(e){}'
+         'if(q)t=q[1];else if(sl)t=sl;else if(!/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent))t=(navigator.language||"").slice(0,2).toLowerCase();'
+         'if(!t||t==="fr")return;if(!H[t])t="en";'
+         'location.replace(H[t]+s.replace(/([?&])lang=[a-z]{2}&?/,"$1").replace(/[?&]$/,"")+location.hash)}catch(e){}})();</script>')
+
+
+def applis_liste():
+    return [{"@type": "ListItem", "position": i + 1, "url": url_page(d, "fr"), "name": c["jeu"]["fr"]}
+            for i, (d, c) in enumerate(PAGES.items())]
+
+
+def accueil(applis_ld=None):
+    """Balises de l'accueil français, puis pages /en/ et /de/ tirées de index.html. Renvoie les alternates."""
+    applis_ld = applis_ld or applis_liste()
+    alts = [(c, url_accueil(c)) for c in ACCUEIL_LANGS] + [("x-default", url_accueil("en"))]
+    site = {"@type": "WebSite", "@id": SITE + "/#site", "name": MARQUE, "alternateName": "paulmoussard.com", "url": SITE + "/",
+            "description": ACCUEIL["fr"][1], "inLanguage": ACCUEIL_LANGS, "publisher": AUTEUR, "author": AUTEUR}
+    auteur = AUTEUR | {"@id": SITE + "/#auteur", "jobTitle": "Président d'une association de jeux de société",
+                       "homeLocation": {"@type": "Place", "name": "Strasbourg, France"}}
+    redir = "\n" + REDIR % json.dumps({c: "/" if c == "fr" else f"/{c}/" for c in ACCUEIL_LANGS}, separators=(",", ":"))
+    src = None
+    for c in ACCUEIL_LANGS:
+        titre, desc = ACCUEIL[c]
+        url = url_accueil(c)
+        ld = {"@context": "https://schema.org", "@graph": [
+            site,
+            {"@type": "CollectionPage", "@id": url + "#page", "url": url, "name": titre, "description": desc,
+             "isPartOf": {"@id": SITE + "/#site"}, "inLanguage": c, "image": SITE + "/img/og/accueil.jpg",
+             "mainEntity": {"@type": "ItemList", "itemListElement": applis_ld}},
+            auteur]}
+        b = bloc(c, titre, desc, url, alts, "img/og/accueil.jpg", MARQUE, ld, redir if c == "fr" else "")
+        if c == "fr":
+            s = open("index.html", encoding="utf-8").read()
+            s = re.sub(r'\n?<script>window\.SEO=.*?</script>', "", s, flags=re.S)
+            open("index.html", "w", encoding="utf-8").write(s)
+            poser("index.html", "fr", titre, b)
+            src = open("index.html", encoding="utf-8").read()
+            print("ok index.html")
+            continue
+        s = src.replace(b'<html lang="fr"'.decode(), f'<html lang="{c}"', 1).replace('<body data-lang="fr">', f'<body data-lang="{c}">', 1)
+        s = re.sub(r"<title>.*?</title>\n?<!--seo-->.*?<!--/seo-->", lambda m: f"<title>{e(titre)}</title>\n" + b, s, count=1, flags=re.S)
+        # liens relatifs : la page est un dossier plus bas
+        s = re.sub(r'((?:href|src|srcset)=")(?!https?:|/|#|data:|mailto:|\./")([^"]+")', r"\1../\2", s)
+        s = s.replace('register("sw.js")', 'register("../sw.js")')
+        s = s.replace(' aria-current="page">FR</a>', '>FR</a>').replace(f'hreflang="{c}" lang="{c}">', f'hreflang="{c}" lang="{c}" aria-current="page">', 1)
+        os.makedirs(c, exist_ok=True)
+        s = s.replace("<!DOCTYPE html>\n", "<!DOCTYPE html>\n<!-- Page générée par outils/site/seo.py depuis /index.html : ne pas modifier à la main. -->\n", 1)
+        open(os.path.join(c, "index.html"), "w", encoding="utf-8").write(s)
+        print("ok", c + "/index.html")
+    return alts
 
 
 def git_date(path):
@@ -169,32 +222,8 @@ def main():
         plan.append((os.path.join(dossier, page_file("fr")), alts[:-1], None))
         applis_ld.append({"@type": "ListItem", "position": len(applis_ld) + 1, "url": url_page(dossier, "fr"), "name": cfg["jeu"]["fr"]})
 
-    # ---- accueil : une seule page HTML, la langue suit ?lang= ; le script ajuste titre, description et canonical
-    alts = [(c, url_accueil(c)) for c in ACCUEIL_LANGS] + [("x-default", url_accueil("fr"))]
-    titre, desc = ACCUEIL["fr"]
-    ld = {"@context": "https://schema.org", "@graph": [
-        {"@type": "WebSite", "@id": SITE + "/#site", "name": MARQUE, "alternateName": "paulmoussard.com", "url": SITE + "/",
-         "description": desc, "inLanguage": ACCUEIL_LANGS, "publisher": AUTEUR, "author": AUTEUR},
-        {"@type": "CollectionPage", "@id": SITE + "/#page", "url": SITE + "/", "name": titre, "description": desc,
-         "isPartOf": {"@id": SITE + "/#site"}, "inLanguage": "fr", "image": SITE + "/img/og/accueil.jpg",
-         "mainEntity": {"@type": "ItemList", "itemListElement": applis_ld}},
-        AUTEUR | {"@id": SITE + "/#auteur", "jobTitle": "Président d'une association de jeux de société",
-                  "homeLocation": {"@type": "Place", "name": "Strasbourg, France"}}]}
-    seo_js = ("\n<script>window.SEO=%s;window.seoLang=function(l){try{var t=SEO[l]||SEO.fr,"
-              "u=l===\"fr\"?\"%s/\":\"%s/?lang=\"+l;document.title=t[0];"
-              "var q=function(s){return document.querySelector(s)};q('meta[name=\"description\"]').content=t[1];"
-              "q('link[rel=\"canonical\"]').href=u;q('meta[property=\"og:url\"]').content=u;"
-              "q('meta[property=\"og:title\"]').content=t[0];q('meta[property=\"og:description\"]').content=t[1]}catch(e){}};</script>") % (
-        json.dumps(ACCUEIL, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"), SITE, SITE)
-    poser("index.html", "fr", titre, bloc("fr", titre, desc, SITE + "/", alts, "img/og/accueil.jpg", MARQUE, ld, seo_js))
-    s = open("index.html", encoding="utf-8").read()
-    if "seoLang(l)" not in s:
-        s = s.replace('lang=l; body.setAttribute("data-lang",l); document.documentElement.lang=l;',
-                      'lang=l; body.setAttribute("data-lang",l); document.documentElement.lang=l; if(window.seoLang) seoLang(l);', 1)
-        if "seoLang(l)" not in s:
-            sys.exit("seo.py : setLang introuvable dans index.html")
-        open("index.html", "w", encoding="utf-8").write(s)
-    print("ok index.html")
+    # ---- accueil : index.html (français) est la page source ; en/ et de/ en sont tirées (accueil_pages)
+    alts = accueil(applis_ld)
     plan.insert(0, ("index.html", alts[:-1], None))
 
     # ---- PDF : métadonnées d'après les cartes de l'accueil
@@ -217,7 +246,7 @@ def main():
             if not os.path.exists(path):
                 continue
             r = PdfReader(path)
-            meta = {"/Title": titre, "/Author": "Paul Moussard · " + MARQUE, "/Subject": sujet,
+            meta = {"/Title": titre, "/Author": "Paul Moussard", "/Subject": sujet,
                     "/Keywords": ", ".join([titre.split(" · ")[0], "aide de jeu" if c == "fr" else "game aid", "PDF", MARQUE]),
                     "/Creator": MARQUE + " · paulmoussard.com"}
             old = {k: r.metadata.get(k) for k in meta} if r.metadata else {}

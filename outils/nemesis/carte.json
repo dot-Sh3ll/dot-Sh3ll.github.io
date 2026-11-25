@@ -1,10 +1,11 @@
-{"dossier": "nemesis", "jeu": "nr", "glyphe": "☣", "cree": "2026-11-25",
+{
+ "dossier": "nemesis",
+ "jeu": "nr",
+ "glyphe": "☣",
+ "cree": "2026-11-25",
  "nom": {"fr": "Nemesis: Retaliation"},
- "texte": {"fr": "Apprenez chaque point de règle avec des ateliers interactifs (sac Intrus, jet de bruit, tir, rafale, risque d'éclosion), des cas pratiques et des quiz. Avec aide-mémoire et toutes les salles du complexe.",
-           "en": "Learn every rule with interactive labs (Intruder bag, Noise roll, shooting, Burst fire, hatching risk), hands-on cases and quizzes. Includes a reference sheet and every Room of the complex.",
-           "de": "Lernen Sie jede Regel mit interaktiven Übungen (Eindringlingsbeutel, Geräuschwurf, Schießen, Feuerstoß, Schlüpfrisiko), Praxisbeispielen und Quizfragen. Mit Kurzübersicht und allen Räumen des Komplexes.",
-           "es": "Aprenda cada regla con talleres interactivos (bolsa de Intrusos, tirada de ruido, disparo, ráfaga, riesgo de eclosión), casos prácticos y cuestionarios. Incluye una hoja de referencia y todas las salas del complejo."},
- "tags": [{"fr": "Tutoriel", "en": "Tutorial", "de": "Tutorial", "es": "Tutorial"}, {"fr": "Aide-mémoire", "en": "Reference", "de": "Übersicht", "es": "Referencia"}, {"fr": "Salles", "en": "Rooms", "de": "Räume", "es": "Salas"}],
+ "texte": {"fr": "Apprenez chaque point de règle avec des ateliers interactifs (sac Intrus, jet de bruit, tir, rafale, risque d'éclosion), des cas pratiques et des quiz. Avec aide-mémoire et toutes les salles du complexe.", "en": "Learn every rule with interactive labs (Intruder bag, Noise roll, shooting, Burst fire, hatching risk), hands-on cases and quizzes. Includes a reference sheet and every Room of the complex.", "de": "Lernen Sie jede Regel mit interaktiven Übungen (Eindringlingsbeutel, Geräuschwurf, Schießen, Feuerstoß, Schlüpfrisiko), Praxisbeispielen und Quizfragen. Mit Kurzübersicht und allen Räumen des Komplexes."},
+ "tags": [{"fr": "Tutoriel", "en": "Tutorial", "de": "Tutorial"}, {"fr": "Aide-mémoire", "en": "Reference", "de": "Übersicht"}, {"fr": "Salles", "en": "Rooms", "de": "Räume"}],
  "langues": "FR · EN",
- "nouveau_jeu": {"chip": "Nemesis: Retaliation", "recherche": "nemesis retaliation primesangs intrus",
-                 "accent": "#9bd33a", "c1": "#3f5f1c", "c2": "#0f1611"}}
+ "nouveau_jeu": {"chip": "Nemesis: Retaliation", "recherche": "nemesis retaliation primesangs intrus", "accent": "#9bd33a", "c1": "#3f5f1c", "c2": "#0f1611"}
+}

@@ -93,7 +93,7 @@ s = re.sub(r'data-(ph-)?en="([^"]*)"', attr, s)
 
 # 3. boutons, CSS, bandeau, JS
 s = block(s, "<!--langs-->", "<!--/langs-->", "".join(
-    f'\n        <button type="button" data-set="{c}" aria-pressed="{"true" if c == "fr" else "false"}">{LANGS[c]["_name"]}</button>' for c in codes) + "\n        ")
+    f'\n        <a href="{"/" if c == "fr" else "/" + c + "/"}" data-set="{c}" hreflang="{c}" lang="{c}"{' aria-current="page"' if c == "fr" else ""}>{LANGS[c]["_name"]}</a>' for c in codes) + "\n        ")
 css = []
 for c in codes:
     others = [o for o in codes if o != c]
@@ -114,3 +114,8 @@ for c in extra:
         print(f"{c} : {len(missing[c])} texte(s) sans traduction (laissés en anglais) :")
         for t in sorted(missing[c]): print("   ", json.dumps(t, ensure_ascii=False))
 print("ok", P, "langues :", " ".join(codes))
+# pages /en/ et /de/ : tirées de index.html, à refaire à chaque changement de l'accueil
+if P == "index.html":
+    sys.path.insert(0, H)
+    import seo
+    seo.accueil()

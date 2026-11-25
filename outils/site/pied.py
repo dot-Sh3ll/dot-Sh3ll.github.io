@@ -21,8 +21,6 @@ T = {
            "Unofficial, free fan-made tool, not affiliated with the game's publisher."),
     "de": ("← Alle Spielhilfen", "💌 Ein Problem melden", "☕ Gefällt Ihnen dieses Hilfsmittel? Spendieren Sie mir einen Kaffee",
            "Inoffizielles, kostenloses Fan-Projekt ohne Verbindung zum Verlag des Spiels."),
-    "es": ("← Todas las ayudas de juego", "💌 Informar de un problema", "☕ ¿Le ha gustado esta herramienta? Invíteme a un café",
-           "Herramienta no oficial y gratuita hecha por un aficionado, sin relación con la editorial del juego."),
 }
 STYLE = ("max-width:1100px;margin:48px auto 0;padding:20px 16px 32px;border-top:1px solid rgba(128,128,128,.3);"
          "font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.85;display:flex;flex-wrap:wrap;"

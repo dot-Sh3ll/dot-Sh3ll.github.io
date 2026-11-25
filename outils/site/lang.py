@@ -13,14 +13,15 @@ Ce que fait le script posé en tête de page :
     (« en: », « de: »…), sauf « site-lang » ; chaque langue garde donc ses propres parties ;
   - redirection : « site-lang » (choisi sur l'accueil ou avec le bouton de langue) décide de la page ;
     une langue sans page dans l'appli ouvre la page anglaise (langs.FALLBACK) ;
-    sans choix enregistré, un navigateur en allemand (ou toute langue autre que fr/en qui a sa page) y est envoyé ;
+    sans choix enregistré, un navigateur dans une autre langue que le français est envoyé sur la page de sa langue,
+    ou sur la page anglaise si elle n'existe pas (les robots d'indexation ne sont jamais redirigés) ;
     ?lang=<code> dans l'adresse empêche la redirection vers une autre langue.
 """
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from langs import FALLBACK, available, code_of, page_href
 
-APPS = ["mage-knight", "imperium", "aeons-end", "puerto-rico"]
+APPS = ["mage-knight", "imperium", "aeons-end", "puerto-rico", "nemesis"]
 
 OLD = [
     r'<script>try\{var sl=localStorage\.getItem\("site-lang"\).*?</script>\n?',
@@ -36,7 +37,7 @@ def head_script(code, langs):
           'P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}'
           'var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;'
           'var sl=ls.getItem("site-lang"),t=null;'
-          'if(sl)t=sl;else{var n=(navigator.language||"").slice(0,2).toLowerCase();if(n!=="fr"&&n!=="en"&&A.indexOf(n)>-1)t=n}'
+          'if(sl)t=sl;else if(!/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)){var n=(navigator.language||"").slice(0,2).toLowerCase();if(n&&n!=="fr")t=n}'
           'if(t&&A.indexOf(t)<0)t=A.indexOf(B)>-1?B:null;'
           'if(t&&t!==C)location.replace(F[t]+location.hash)}catch(e){}})();') % (
         json.dumps(code), json.dumps(langs), json.dumps(hrefs, separators=(",", ":")), json.dumps(FALLBACK))

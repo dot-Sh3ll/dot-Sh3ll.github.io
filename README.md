@@ -16,7 +16,7 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 ## Règles de rédaction
 
-- On **vouvoie** toujours le lecteur, dans les applis, les fiches et la page d'accueil (jamais de tutoiement), dans toutes les langues : « vous » en français, « Sie » en allemand, « usted » en espagnol. `python3 outils/site/vouvoiement.py scan <fichier>` vérifie qu'il ne reste rien au tutoiement.
+- On **vouvoie** toujours le lecteur, dans les applis, les fiches et la page d'accueil (jamais de tutoiement), dans toutes les langues : « vous » en français, « Sie » en allemand. `python3 outils/site/vouvoiement.py scan <fichier>` vérifie qu'il ne reste rien au tutoiement.
 
 ## Ajouter une nouvelle appli
 
@@ -35,4 +35,4 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 ## Langues
 
-Le site est en français, anglais, allemand et espagnol. Aeon's End existe aussi en allemand (`aeons-end/de.html`, générée depuis la page anglaise). Les autres applis et les fiches s'ouvrent en anglais pour les visiteurs allemands et espagnols. Voir « Langues du site » dans `outils/README.md`.
+Le site est en français, anglais et allemand. Aeon's End existe aussi en allemand (`aeons-end/de.html`, générée depuis la page anglaise). Les autres applis et les fiches s'ouvrent en anglais pour les visiteurs allemands. Voir « Langues du site » dans `outils/README.md`.

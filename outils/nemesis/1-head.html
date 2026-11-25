@@ -13,10 +13,10 @@
    Couleurs : complexe sombre, vert acide (Intrus), orange d'alerte. Sections A, B, C en vert, violet, rouge comme sur l'aide de jeu. */
 :root{
   --bg:#eef0ec; --surface:#fbfcfa; --sunk:#e1e5df; --ink:#1b211d; --muted:#5b665e; --line:#c9d1c8;
-  --accent:#4d7a12; --accent-ink:#ffffff; --terra:#c4501f; --terra-soft:#f7e3d8;
+  --accent:#4b7711; --accent-ink:#ffffff; --terra:#b4491c; --terra-soft:#f7e3d8;
   --ok:#2c7a3f; --ok-soft:#e1f1e3; --bad:#b3372f; --bad-soft:#f8e1dd;
-  --secA:#2f8f6a; --secB:#7a4fc4; --secC:#c43a3a; --secX:#7c8580;
-  --itr:#c8342f; --itv:#3f9a3f; --itj:#d6a11f;
+  --secA:#27795a; --secB:#7a4fc4; --secC:#c43a3a; --secX:#656d68;
+  --itr:#c8342f; --itv:#317931; --itj:#d6a11f;
   --display:"Rajdhani","Bahnschrift","Segoe UI",system-ui,sans-serif;
   --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
   --top:0px;
@@ -200,6 +200,7 @@ h1{font-weight:700;text-transform:uppercase}
 .meter{height:12px;border-radius:6px;background:var(--sunk);overflow:hidden;margin:6px 0}
 .meter i{display:block;height:100%;background:var(--bad)}
 @media print{.apphead,nav.toc,.pager,.lab button{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>

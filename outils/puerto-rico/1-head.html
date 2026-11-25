@@ -13,9 +13,9 @@
    Couleurs : sable, mer des Caraïbes, terre cuite. Les cinq marchandises gardent les couleurs des tonneaux. */
 :root{
   --bg:#f4efe4; --surface:#fffdf8; --sunk:#ebe3d3; --ink:#2a2118; --muted:#6f6252; --line:#dccfb8;
-  --accent:#0f6b6b; --accent-ink:#ffffff; --terra:#b4532a; --terra-soft:#f6e2d6;
+  --accent:#0f6b6b; --accent-ink:#ffffff; --terra:#a64b24; --terra-soft:#f6e2d6;
   --ok:#2c7a3f; --ok-soft:#e1f1e3; --bad:#b3372f; --bad-soft:#f8e1dd;
-  --corn:#e2b52a; --fruit:#3f9343; --sugar:#f3efe6; --tob:#8b5a2b; --cof:#2e231c;
+  --corn:#e2b52a; --fruit:#337836; --sugar:#f3efe6; --tob:#8b5a2b; --cof:#2e231c;
   --display:"Fraunces","Palatino Linotype",Georgia,serif;
   --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
   --top:0px;
@@ -217,6 +217,7 @@ details.grp summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--mu
 .small{font-size:14px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media print{.apphead,nav.toc,.pager,.lab button{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>

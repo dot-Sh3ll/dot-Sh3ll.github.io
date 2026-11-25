@@ -64,7 +64,7 @@ def main():
     root = os.path.abspath(os.path.join(HERE, "..", ".."))
     src = open(os.path.join(root, "aeons-end", "en.html"), encoding="utf-8").read()
     html, missing, unused = rebuild_raw(src, load_cards(code))
-    html, todo, errors = traduire.run(html, os.path.join(HERE, "langues", code, "textes.json"), [(RAW_START, RAW_END)])
+    html, todo, errors = traduire.run(html, os.path.join(HERE, "langues", code, "textes.json"), [(RAW_START, RAW_END), ("<title>", "<!--/seo-->")])
     for k in missing:
         print("carte sans traduction (anglais gardé) :", k)
     for k in unused:

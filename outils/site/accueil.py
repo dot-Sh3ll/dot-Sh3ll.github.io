@@ -7,13 +7,13 @@
                                                          cible = dossier de l'appli (puerto-rico) ou nom du PDF (puerto-rico-batiments.pdf)
   python3 outils/site/accueil.py appli <appli.json>       ajoute (ou remplace) la carte d'une appli
   python3 outils/site/accueil.py fiche <fiche.json>       ajoute (ou remplace) une fiche PDF
-Chaque commande relance home_lang.py : les textes allemand / espagnol… donnés dans le JSON
+Chaque commande relance home_lang.py : les textes allemands… donnés dans le JSON
 sont rangés dans accueil/<code>.json, les langues sans texte restent en anglais (et sont signalées).
 
 appli.json (exemple dans accueil/exemples/exemple-appli.json) :
   {"dossier": "puerto-rico", "jeu": "pr", "glyphe": "⛵",
    "nom": {"fr": "Puerto Rico 1897"},                    une seule langue = même nom partout
-   "texte": {"fr": "...", "en": "...", "de": "...", "es": "..."},
+   "texte": {"fr": "...", "en": "...", "de": "..."},
    "tags": [{"fr": "Tutoriel", "en": "Tutorial", "de": "Tutorial"}],
    "langues": "FR · EN",                                   langues de l'appli (ex. "FR · EN · DE")
    "nouveau_jeu": {"chip": "Puerto Rico", "recherche": "puerto rico 1897",

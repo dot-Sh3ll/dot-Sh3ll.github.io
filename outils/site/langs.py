@@ -6,14 +6,13 @@ lang.py et chrome.py lisent ce fichier ; ils déduisent les langues d'une appli 
 import os
 
 # ordre d'affichage dans le bouton de langue
-ORDER = ["fr", "en", "de", "es"]
+ORDER = ["fr", "en", "de"]
 
 # textes de l'en-tête, dans la langue de la page affichée
 LABELS = {
     "fr": {"home": "Retour à l'accueil des aides de jeu", "kofi": "Offrir un café", "switch": "Passer en français", "soon": "Version française bientôt"},
     "en": {"home": "Back to the game aids home page", "kofi": "Buy me a coffee", "switch": "Switch to English", "soon": "English version coming soon"},
     "de": {"home": "Zurück zur Startseite der Spielhilfen", "kofi": "Spendieren Sie mir einen Kaffee", "switch": "Auf Deutsch wechseln", "soon": "Deutsche Version folgt"},
-    "es": {"home": "Volver a la página de inicio de las ayudas de juego", "kofi": "Invíteme a un café", "switch": "Cambiar a español", "soon": "Versión en español próximamente"},
 }
 
 # langue de repli quand la langue du visiteur n'a pas de page dans l'appli

@@ -202,10 +202,6 @@
  ],
  "_patches": [
   [
-   "<title>Aeon's End Market</title>",
-   "<title>Aeon's End – Markt</title>"
-  ],
-  [
    "l=>esc(l).replace(/^(Cast:|Echo|Link|Attach)/,\"<b>$1</b>\")).join(\"<br>\")).join('<span class=\"or\">OR</span>');",
    "l=>esc(l).replace(/^(Wirken:|ECHO\\.?|Verknüpfbar\\.?|Gebunden( \\(1x pro Zug\\))?:|Angehängt:|Dauerhaft:|Einmalig (bei Erwerb|beim Binden|beim Entwickeln \\(Develop\\)):|Rückruf \\(Recall\\):)/,\"<b>$1</b>\")).join(\"<br>\")).join('<span class=\"or\">ODER</span>');"
   ],

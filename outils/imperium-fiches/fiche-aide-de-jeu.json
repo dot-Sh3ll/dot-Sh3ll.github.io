@@ -3,23 +3,8 @@
  "icone": "📜",
  "pdf_fr": "imperium-aide-de-jeu.pdf",
  "cree": "2026-11-24",
- "titre": {
-  "fr": "Imperium Antique · Aide de jeu",
-  "en": "Imperium: Classics · Game aid",
-  "de": "Imperium: Classics · Spielhilfe",
-  "es": "Imperium: Classics · Ayuda de juego"
- },
- "texte": {
-  "fr": "Votre tour, les trois ordres, le Nettoyage, le Solstice, le mélange du deck, le Marché et la fin de partie. 2 pages.",
-  "en": "Your turn, the three orders, Cleanup, Solstice, reshuffling your deck, the Market and game end. 2 pages.",
-  "de": "Ihr Zug, die drei Befehle, Aufräumen, Sonnenwende, Mischen des Decks, der Markt und das Spielende. 2 Seiten.",
-  "es": "Su turno, las tres órdenes, la limpieza, el solsticio, barajar el mazo, el mercado y el final de la partida. 2 páginas."
- },
- "meta": {
-  "fr": "PDF · format A5 · français ou anglais",
-  "en": "PDF · A5 · English or French",
-  "de": "PDF · A5 · auf Englisch",
-  "es": "PDF · A5 · en inglés"
- },
+ "titre": {"fr": "Imperium Antique · Aide de jeu", "en": "Imperium: Classics · Game aid", "de": "Imperium: Classics · Spielhilfe"},
+ "texte": {"fr": "Votre tour, les trois ordres, le Nettoyage, le Solstice, le mélange du deck, le Marché et la fin de partie. 2 pages.", "en": "Your turn, the three orders, Cleanup, Solstice, reshuffling your deck, the Market and game end. 2 pages.", "de": "Ihr Zug, die drei Befehle, Aufräumen, Sonnenwende, Mischen des Decks, der Markt und das Spielende. 2 Seiten."},
+ "meta": {"fr": "PDF · format A5 · français ou anglais", "en": "PDF · A5 · English or French", "de": "PDF · A5 · auf Englisch"},
  "pdf_en": "imperium-game-aid.pdf"
 }
