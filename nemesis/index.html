@@ -530,7 +530,7 @@ quiz:[
 {id:'bruit',part:'Le complexe',t:'Le jet de bruit',
 lead:`Chaque déplacement fait du bruit. Le dé Bruit indique d'où vient la menace : des marqueurs Bruit apparaissent, puis se changent en Intrus.`,
 rules:[
-`Lancez le dé Bruit. Ses faces : <b>1, 2, 3, 4</b> et <b>Danger</b>.`,
+`Lancez le dé Bruit (10 faces) : <b>un 1, deux 2, deux 3, trois 4</b> et <b>deux Danger</b>. Le 4 sort donc le plus souvent (3 chances sur 10) et le 1 le moins (1 sur 10).`,
 `<b>Numéro :</b> repérez tous les couloirs de ce numéro <b>adjacents à votre salle</b>. Pour chacun : s'il contient au moins 1 Intrus, <b>le plus gros entre dans votre salle</b> (et attaque) ; sinon, s'il a déjà un marqueur Bruit, <b>résolvez ce marqueur</b> (des Intrus apparaissent) ; sinon, <b>posez un marqueur Bruit</b>. Aucun couloir de ce numéro : rien.`,
 `<b>Danger :</b> quelque chose tombe du plafond. Piochez un jeton dans le sac Intrus et résolvez-le dans la colonne « salle » de l'aide de jeu Intrus : le plus souvent, un Intrus du type indiqué apparaît dans votre salle. Ignorez le chiffre au dos, puis remettez le jeton sous sa pile.`,
 `<b>Résoudre un marqueur Bruit :</b> retirez-le, piochez un jeton dans le sac et résolvez-le dans ce couloir (colonne « couloir ») : le <b>chiffre blanc</b> au dos donne le nombre d'Intrus (Adultes), le <b>chiffre rouge</b> le nombre de Guerriers ajoutés. Défaussez le jeton sous sa pile ; le jeton vierge retourne toujours dans le sac.`,
@@ -564,10 +564,11 @@ rules:[
 `Ensuite, le jeton pioché retourne <b>sous sa pile</b>, hors du sac. Seul le jeton <b>vierge</b> revient toujours dans le sac.`,
 `On ajoute des jetons en les prenant sur les piles ; on en retire en les remettant sous les piles. Si une pile est vide, ajoutez ce qui reste (limite du matériel).`,
 `Le même sac sert aux jets de bruit : colonne « couloir » pour un marqueur Bruit résolu, colonne « salle » pour un résultat Danger.`,
-`Quand la Reine meurt, retournez l'aide de jeu sur la face « La Reine est morte » : les effets des jetons changent.`],
+`Quand la Reine meurt, retournez l'aide de jeu sur la face <b>« La Reine est morte »</b>. Dans le sac : <b>Reine</b> = ajoutez 2 Guerriers et <b>retirez ce jeton du jeu</b> ; <b>Guerrier ou Adulte</b> = ajoutez 2 Larves ; <b>Larve</b> = ajoutez 2 Guerriers ; <b>vierge</b> = 2 Adultes, comme avant. Un jeton Reine tiré pour un bruit ou un Danger fait apparaître <b>1 Guerrier</b> à sa place, puis il est retiré du jeu.`],
 lab:'sac',
 quiz:[
 {q:`Pendant la phase Événement, vous tirez un jeton Larve. Que mettez-vous dans le sac ?`,o:[`2 Larves`,`2 Guerriers`,`2 Reines`],a:1,w:`Larve : ajoutez 2 Guerriers au hasard. La Larve tirée retourne sous sa pile.`},
+{q:`La Reine est morte. En phase Événement, vous tirez un jeton Reine. Que se passe-t-il ?`,o:[`Rien`,`Ajoutez 2 Guerriers ; le jeton Reine est retiré du jeu`,`Ajoutez 2 Larves ; le jeton retourne sous sa pile`],a:1,w:`Face « La Reine est morte » : 2 Guerriers dans le sac, et le jeton Reine quitte la partie. Les jetons Reine disparaissent ainsi peu à peu.`},
 {q:`Vous tirez le jeton vierge. Où va-t-il ensuite ?`,o:[`Sous sa pile`,`Dans le sac`,`Hors du jeu`],a:1,w:`Le jeton vierge est le seul qui revient toujours dans le sac. Il ajoute aussi 2 Adultes.`}]},
 
 {id:'depl-intrus',part:'Les Intrus',t:'Le déplacement des Intrus',
@@ -621,11 +622,11 @@ quiz:[
 lead:`Regroupés dans un couloir étroit, les Intrus sont vulnérables : une rafale peut en tuer plusieurs d'un coup.`,
 rules:[
 `<b>Rafale</b> (1 carte) : une arme à distance chargée et sans panne, et un <b>couloir adjacent</b> (pas derrière une porte fermée).`,
-`Dépensez des munitions et lancez le dé Rafale : <b>1, 2, 3 ou 4</b> touches. La face 4 porte aussi une icône spéciale qui déclenche l'effet éventuel de l'arme ou de l'action.`,
+`Dépensez des munitions et lancez le dé Rafale (6 faces : <b>trois 1, un 2, un 3, un 4</b>) : une fois sur deux, une seule touche ; 2 en moyenne. La face 4 porte aussi une icône spéciale qui déclenche l'effet éventuel de l'arme ou de l'action.`,
 `Répartissez les touches comme vous voulez : <b>1 au plus</b> par Adulte et par Larve, <b>exactement 2</b> par Guerrier, autant que vous voulez à la Reine (jusqu'au bout de sa piste). Les touches restantes sont perdues.`,
 `Dans un couloir, <b>1 touche tue</b> un Adulte ou une Larve ; un Guerrier meurt avec ses 2 touches. Les touches à la Reine font avancer sa piste.`,
 `Les Intrus des couloirs ne gardent pas leurs blessures.`,
-`<b>Grenade</b> (jeton tactique) : dé Rafale + 2 touches dans un couloir adjacent ; ce n'est pas une rafale, les effets d'arme ne s'appliquent pas. <b>Contrôle des tourelles</b> (salle) : un dé Rafale de touches sans dépenser de munitions.`],
+`<b>Grenade</b> (jeton tactique) : dé Rafale + 2, soit 3 à 6 touches (3 une fois sur deux) dans un couloir adjacent ; ce n'est pas une rafale, les effets d'arme ne s'appliquent pas. <b>Contrôle des tourelles</b> (salle) : un dé Rafale de touches sans dépenser de munitions.`],
 lab:'rafale',
 cas:[
 {q:`Un couloir contient 1 Guerrier et 2 Adultes. Vous faites 3 à la rafale. Que pouvez-vous tuer au mieux ?`,o:[`Les 3 Intrus`,`Le Guerrier et 1 Adulte, ou les 2 Adultes`,`Seulement le Guerrier`],a:1,w:`Le Guerrier prend exactement 2 touches : 2 + 1 = le Guerrier et un Adulte. Ou 1 + 1 sur les deux Adultes, la 3e touche étant perdue (pas d'1 seule touche sur un Guerrier).`}],
@@ -637,7 +638,7 @@ lead:`La Reine est un ennemi unique, résistant et agressif. On ne la tue pas av
 rules:[
 `Ses touches font avancer le cube de la <b>piste des touches portées à la Reine</b>, une case par touche, au lieu de poser des cubes sur sa figurine.`,
 `Quand le cube atteint le bout de la piste : ignorez les autres touches de cette action, révélez la première <b>carte Santé de la Reine</b>, défaussez sans les révéler autant de cartes de sa pioche que le numéro indiqué, résolvez l'effet du bas de la carte (même si la Reine vient de mourir), défaussez-la et remettez le cube à 0.`,
-`Quand sa dernière carte Santé est défaussée, la Reine meurt : retirez sa figurine, ignorez les effets qui la font apparaître et retournez l'aide de jeu Intrus côté « La Reine est morte ».`,
+`Quand sa dernière carte Santé est défaussée, la Reine meurt : retirez sa figurine, ignorez les effets qui la font apparaître et retournez l'aide de jeu Intrus côté « La Reine est morte ». Les jetons Reine font alors apparaître des Guerriers puis quittent la partie, et les Guerriers et Adultes tirés en phase Événement ajoutent des Larves au lieu de Reines.`,
 `<b>Activation</b> (le plus souvent avec un jeton Reine du sac) : elle attaque un personnage de sa salle si possible ; sinon, elle se déplace une fois vers le plus proche, avec les mêmes priorités que les autres Intrus.`,
 `Dans un couloir, elle compte pour 4 Intrus ; avec elle, il ne peut y avoir que 2 autres Intrus. Une rafale peut lui donner autant de touches que vous voulez.`],
 quiz:[
@@ -738,25 +739,34 @@ const TYP={reine:'Reines',guerrier:'Guerriers',adulte:'Adultes',larve:'Larves',v
 const SIZE={reine:4,guerrier:3,adulte:2,larve:1};
 const tok=k=>`<span class="tok ${k}" title="${TY[k]}">${{reine:'R',guerrier:'G',adulte:'A',larve:'L',vierge:'∅'}[k]}</span>`;
 const plural=(n,s,p)=>`${n} ${n>1?p:s}`;
+/* faces réelles des dés (données par le propriétaire du jeu) */
+const DE_BRUIT=['1','2','2','3','3','4','4','4','D','D'], DE_RAFALE=[1,1,1,2,3,4];
+const pct=(n,d)=>Math.round(100*n/d)+'\u00a0%';
 
 const LABS={
 /* ===== sac Intrus ===== */
-sac:{html:()=>`<div class="lab"><h3>Atelier : la colonie grandit</h3><p class="hint">Composez le sac de départ, puis piochez. L'appli applique l'aide de jeu Intrus (côté « La Reine est en vie ») et montre la probabilité de chaque type au prochain tirage.</p>
+sac:{html:()=>`<div class="lab"><h3>Atelier : la colonie grandit</h3><p class="hint">Composez le sac de départ, puis piochez. L'appli applique l'aide de jeu Intrus (côté « La Reine est en vie », ou « morte » si vous cochez la case) et montre la probabilité de chaque type au prochain tirage.</p>
 <div class="row">Personnages ${seg('sa-n',[1,2,3,4,5],3)} <button type="button" id="sa-reset">Recommencer</button></div>
-<div class="row" style="margin-top:8px"><label class="chk"><input type="checkbox" id="sa-q"> La Reine est sur le plateau</label></div>
+<div class="row" style="margin-top:8px"><label class="chk"><input type="checkbox" id="sa-q"> La Reine est sur le plateau</label><label class="chk"><input type="checkbox" id="sa-dead"> La Reine est morte</label></div>
 <div class="bag" id="sa-bag" aria-live="polite"></div><div class="counts" id="sa-cnt"></div>
 <div class="row"><button type="button" class="pri" id="sa-ev">Phase Événement : piocher</button><button type="button" id="sa-co">Marqueur Bruit résolu (couloir)</button><button type="button" id="sa-sa">Résultat Danger (salle)</button></div>
 <div class="out" id="sa-out">Piochez pour voir ce qui se passe.</div><ul class="log" id="sa-log"></ul></div>`,
 init(r){const TOT={reine:9,guerrier:8,adulte:16,larve:6,vierge:1};let S;
- const reset=()=>{const n=+segVal(r,'sa-n');S={bag:{reine:0,guerrier:0,adulte:3+n,larve:2,vierge:1},log:[],manche:1};draw();$('#sa-out',r).textContent='Sac de départ : 1 jeton vierge, 2 Larves, 3 Adultes + 1 Adulte par personnage.';$('#sa-out',r).className='out'};
- const pile=k=>TOT[k]-S.bag[k];
+ const reset=()=>{const n=+segVal(r,'sa-n');S={bag:{reine:0,guerrier:0,adulte:3+n,larve:2,vierge:1},out:0,log:[],manche:1};draw();$('#sa-out',r).textContent='Sac de départ : 1 jeton vierge, 2 Larves, 3 Adultes + 1 Adulte par personnage.';$('#sa-out',r).className='out'};
+ const pile=k=>TOT[k]-S.bag[k]-(k==='reine'?S.out:0);
  const add=(k,n)=>{const m=Math.min(n,pile(k));S.bag[k]+=m;return m<n?` (pile épuisée : ${m} seulement)`:''};
  const total=()=>Object.values(S.bag).reduce((a,b)=>a+b,0);
  const draw=()=>{const order=['reine','guerrier','adulte','larve','vierge'];$('#sa-bag',r).innerHTML=order.flatMap(k=>Array(S.bag[k]).fill(tok(k))).join('')||'<span class="muted">Sac vide</span>';const t=total();
   $('#sa-cnt',r).innerHTML=order.map(k=>`<div>${TYP[k]}<br><b>${S.bag[k]}</b> <span class="muted small">${t?Math.round(100*S.bag[k]/t):0} %</span></div>`).join('');$('#sa-log',r).innerHTML=S.log.slice(-8).reverse().map(x=>`<li>${x}</li>`).join('')};
  const pickTok=()=>{let x=rnd(total());for(const k in S.bag){if(x<S.bag[k])return k;x-=S.bag[k]}return null};
- const go=mode=>{if(!total()){$('#sa-out',r).textContent='Le sac est vide.';return}const k=pickTok(),q=$('#sa-q',r).checked;let m='',back=false;
-  if(mode==='ev'){
+ const go=mode=>{if(!total()){$('#sa-out',r).textContent='Le sac est vide.';return}const k=pickTok(),q=$('#sa-q',r).checked,dead=$('#sa-dead',r).checked;let m='',back=false,gone=false;
+  if(dead&&k!=='vierge'){const lieu=mode==='co'?'le couloir':'votre salle';
+   if(k==='reine'){gone=true;m=mode==='ev'?`<b>Ajoutez 2 Guerriers</b> dans le sac.`+add('guerrier',2):`<b>Placez 1 Guerrier</b> dans ${lieu}.`}
+   else if(mode==='ev')m=k==='larve'?`<b>Ajoutez 2 Guerriers</b> dans le sac.`+add('guerrier',2):`<b>Ajoutez 2 Larves</b> dans le sac.`+add('larve',2);
+   else if(mode==='co')m=k==='larve'?'<b>Placez 1 Larve</b> dans le couloir.':'<b>Placez le nombre d\'Intrus indiqué au dos du jeton</b> dans le couloir (chiffre blanc : Adultes ; chiffre rouge : Guerriers).';
+   else m=`<b>Placez 1 ${TY[k]}</b> dans votre salle : il attaque aussitôt.`}
+  else if(mode==='ev'){
+
    if(k==='reine'){if(q)m='La Reine est sur le plateau : <b>activez-la</b> (elle attaque un personnage de sa salle, sinon se déplace une fois vers le plus proche).';else m='La Reine n\'est pas sur le plateau : <b>ajoutez 2 Larves</b> dans le sac.'+add('larve',2)}
    else if(k==='guerrier'||k==='adulte')m=`<b>Ajoutez 2 Reines</b> dans le sac.`+add('reine',2);
    else if(k==='larve')m=`<b>Ajoutez 2 Guerriers</b> dans le sac.`+add('guerrier',2);
@@ -767,16 +777,16 @@ init(r){const TOT={reine:9,guerrier:8,adulte:16,larve:6,vierge:1};let S;
    else if(mode==='co'&&k==='larve')m='<b>Placez 1 Larve</b> dans le couloir.';
    else if(mode==='co')m='<b>Placez le nombre d\'Intrus indiqué au dos du jeton</b> dans le couloir (chiffre blanc : Adultes ; chiffre rouge : Guerriers).';
    else m=`<b>Placez 1 ${TY[k]}</b> dans votre salle : il attaque aussitôt.`}
-  if(!back){S.bag[k]--;m+=` Le jeton ${TY[k]} retourne sous sa pile.`}else m+=' Le jeton vierge retourne dans le sac.';
+  if(gone){S.bag[k]--;S.out++;m+=' Le jeton Reine est <b>retiré du jeu</b>.';}else if(!back){S.bag[k]--;m+=` Le jeton ${TY[k]} retourne sous sa pile.`}else m+=' Le jeton vierge retourne dans le sac.';
   const lab={ev:'Phase Événement',co:'Marqueur Bruit',sa:'Danger'}[mode];
   $('#sa-out',r).innerHTML=`${tok(k)} <b>${lab} : jeton ${TY[k]}.</b> ${m}`;$('#sa-out',r).className='out';S.log.push(`${lab} : ${TY[k]}`);draw()};
- wireSeg(r,'sa-n',reset);$('#sa-reset',r).onclick=reset;$('#sa-ev',r).onclick=()=>go('ev');$('#sa-co',r).onclick=()=>go('co');$('#sa-sa',r).onclick=()=>go('sa');reset()}},
+ $('#sa-dead',r).onchange=e=>{const d=e.target.checked;if(d)$('#sa-q',r).checked=false;$('#sa-q',r).disabled=d};wireSeg(r,'sa-n',reset);$('#sa-reset',r).onclick=reset;$('#sa-ev',r).onclick=()=>go('ev');$('#sa-co',r).onclick=()=>go('co');$('#sa-sa',r).onclick=()=>go('sa');reset()}},
 
 /* ===== jet de bruit ===== */
 bruit:{html:()=>`<div class="lab"><h3>Atelier : le jet de bruit</h3><p class="hint">Votre personnage vient d'entrer dans la salle du centre. Choisissez la face obtenue au dé Bruit : l'appli applique la règle à chaque couloir adjacent.</p>
 <div class="map" id="br-map"></div>
 <div class="dice" id="br-dice">${[1,2,3,4].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="D">Danger</button></div>
-<div class="row"><button type="button" id="br-new">Nouvelle situation</button></div><div class="out" id="br-out">Choisissez une face du dé.</div></div>`,
+<div class="row"><button type="button" class="pri" id="br-roll">Lancer le dé</button><button type="button" id="br-new">Nouvelle situation</button></div><p class="small muted" id="br-p"></p><div class="out" id="br-out">Choisissez une face du dé.</div></div>`,
 init(r){let S;const POS=[1,3,5,7];
  const neu=()=>{const cors=[];const k=2+rnd(3);const pos=[...POS].sort(()=>Math.random()-.5).slice(0,k);
   pos.forEach((p,i)=>{const num=i===0&&Math.random()<.35?0:1+rnd(4);const c={p,num,bruit:false,app:false,intrus:[]};if(num){const x=rnd(3);if(x===1)c.bruit=true;else if(x===2){const n=1+rnd(3);for(let j=0;j<n;j++)c.intrus.push(['adulte','adulte','larve','guerrier'][rnd(4)])}}cors.push(c)});
@@ -784,7 +794,9 @@ init(r){let S;const POS=[1,3,5,7];
  const draw=()=>{let h='';for(let i=0;i<9;i++){const c=S.cors.find(x=>x.p===i);
   if(i===4)h+=`<div class="room">Votre salle${S.room.length?`<div>${S.room.map(tok).join(' ')}</div>`:''}</div>`;
   else if(c)h+=`<div class="cor${c.num===0?' reinf':''}${S.hit&&S.hit.includes&&S.hit.includes(c.p)?' hit':''}"><div class="num">${c.num}</div>${c.num===0?'renforcé':c.intrus.length?c.intrus.map(tok).join(' '):c.app?'Intrus apparus (selon le jeton)':c.bruit?'⚠ marqueur Bruit':'vide'}</div>`;
-  else h+='<div class="empty"></div>'}$('#br-map',r).innerHTML=h};
+  else h+='<div class="empty"></div>'}$('#br-map',r).innerHTML=h;
+  const nums=new Set(S.cors.filter(c=>c.num).map(c=>c.num+'')),rien=DE_BRUIT.filter(f=>f!=='D'&&!nums.has(f)).length,ent=DE_BRUIT.filter(f=>f!=='D'&&S.cors.some(c=>c.num+''===f&&(c.intrus.length||c.app))).length,dg=DE_BRUIT.filter(f=>f==='D').length;
+  $('#br-p',r).innerHTML=`Dé Bruit (10 faces : un 1, deux 2, deux 3, trois 4, deux Danger). Sur ce plan : <b>${pct(rien,10)}</b> rien ne se passe, <b>${pct(ent,10)}</b> un Intrus d'un couloir entre dans votre salle, <b>${pct(dg,10)}</b> Danger.`};
  const roll=v=>{if(v==='D'){S.hit=[];draw();$('#br-out',r).innerHTML='<b>Danger !</b> Quelque chose tombe du plafond : piochez un jeton dans le sac Intrus et résolvez-le dans la colonne « salle » de l\'aide de jeu. Le plus souvent, un Intrus du type indiqué apparaît dans votre salle et vous attaque. Ignorez le chiffre au dos et remettez le jeton sous sa pile (le jeton vierge, lui, retourne dans le sac).';$('#br-out',r).className='out bad';return}
   const n=+v,cs=S.cors.filter(c=>c.num===n);S.hit=cs.map(c=>c.p);
   if(!cs.length){draw();$('#br-out',r).innerHTML=`Aucun couloir adjacent ne porte le ${n} : <b>rien ne se passe</b>. Ouf.`;$('#br-out',r).className='out ok';return}
@@ -794,7 +806,7 @@ init(r){let S;const POS=[1,3,5,7];
    c.bruit=true;return `Couloir ${n} : vide et sans marqueur, <b>posez un marqueur Bruit</b>.`});
   draw();
   $('#br-out',r).innerHTML=lines.map(x=>`<p style="margin:0 0 6px">${x}</p>`).join('')+'<p class="small muted" style="margin:0">Faites un autre jet sur la même situation pour voir les marqueurs se transformer.</p>';$('#br-out',r).className=S.room.length?'out bad':'out'};
- $$('#br-dice button',r).forEach(b=>b.onclick=()=>roll(b.dataset.v));$('#br-new',r).onclick=neu;neu()}},
+ $$('#br-dice button',r).forEach(b=>b.onclick=()=>roll(b.dataset.v));$('#br-roll',r).onclick=()=>{const v=DE_BRUIT[rnd(10)];roll(v);$('#br-out',r).insertAdjacentHTML('afterbegin',`<p style="margin:0 0 6px"><b>Le dé donne : ${v==='D'?'Danger':v}.</b></p>`)};$('#br-new',r).onclick=neu;neu()}},
 
 /* ===== tir et mêlée ===== */
 tir:{html:()=>`<div class="lab"><h3>Atelier : tir et mêlée dans une salle</h3><p class="hint">Choisissez la cible et le type d'attaque, puis la face obtenue au dé Tir. La touche est toujours posée <b>avant</b> le jet.</p>
@@ -821,7 +833,8 @@ init(r){let S;
 /* ===== rafale ===== */
 rafale:{html:()=>`<div class="lab"><h3>Atelier : répartir une rafale</h3><p class="hint">Choisissez la face du dé Rafale, puis répartissez les touches : 1 au plus par Adulte ou Larve, exactement 2 par Guerrier.</p>
 <div class="foes" id="ra-foes"></div>
-<div class="dice" id="ra-dice">${[1,2,3].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="4">4 ✦</button></div>
+<div class="dice" id="ra-dice">${[1,2,3].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="4">4 ✦</button><button type="button" class="pri" id="ra-roll">Lancer le dé</button></div>
+<p class="small muted">Dé Rafale (6 faces) : trois 1, un 2, un 3, un 4. Une chance sur deux de ne faire qu'une touche ; 2 touches en moyenne.</p>
 <div class="out" id="ra-left">Choisissez une face du dé Rafale.</div>
 <div class="row" style="margin-top:8px"><button type="button" class="pri" id="ra-go" disabled>Résoudre</button><button type="button" id="ra-new">Nouveau couloir</button></div><div class="out" id="ra-out" hidden></div></div>`,
 init(r){let S;
@@ -830,11 +843,11 @@ init(r){let S;
  const draw=()=>{$('#ra-foes',r).innerHTML=S.f.map((x,i)=>`<div class="foe${x.dead?' dead':''}">${tok(x.k)}<div><b>${TY[x.k]}</b></div><div class="h">Touches : <span class="cubes">${'■'.repeat(x.h)||'0'}</span></div>${S.res&&!S.done?`<div class="row"><button type="button" data-i="${i}" data-d="-1" aria-label="Retirer une touche">−</button><button type="button" data-i="${i}" data-d="1" aria-label="Ajouter une touche">+</button></div>`:''}</div>`).join('');
   $$('#ra-foes [data-i]',r).forEach(b=>b.onclick=()=>{const x=S.f[+b.dataset.i],d=+b.dataset.d,step=x.k==='guerrier'?2:1,max=x.k==='guerrier'?2:1;const nh=x.h+d*step;if(nh<0||nh>max)return;if(d>0&&used()+step>S.res)return;x.h=nh;draw()});
   if(S.res&&!S.done){const l=S.res-used();$('#ra-left',r).innerHTML=`${S.res} touche${S.res>1?'s':''} à répartir : <b>${l}</b> restante${l>1?'s':''}.${l&&S.f.some(x=>x.k==='guerrier'&&!x.h)&&l<2?' Une seule touche ne peut pas aller sur un Guerrier : elle sera perdue.':''}`}};
- $$('#ra-dice button',r).forEach(b=>b.onclick=()=>{if(S.done)neu();$$('#ra-dice button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');S.res=+b.dataset.v;S.f.forEach(x=>x.h=0);$('#ra-go',r).disabled=false;$('#ra-out',r).hidden=true;draw()});
+ $$('#ra-dice button[data-v]',r).forEach(b=>b.onclick=()=>{if(S.done)neu();$$('#ra-dice button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');S.res=+b.dataset.v;S.f.forEach(x=>x.h=0);$('#ra-go',r).disabled=false;$('#ra-out',r).hidden=true;draw()});
  $('#ra-go',r).onclick=()=>{let k=0;S.f.forEach(x=>{if(x.h&&(x.k!=='guerrier'||x.h===2)){x.dead=true;k++}});const lost=S.res-used();S.done=true;draw();
   $('#ra-left',r).textContent='';$('#ra-out',r).hidden=false;$('#ra-out',r).className=k?'out ok':'out';
   $('#ra-out',r).innerHTML=`<b>${k} Intrus tué${k>1?'s':''}.</b>${lost?` ${plural(lost,'touche perdue','touches perdues')}.`:''}${S.res===4?' Le 4 porte aussi l\'icône spéciale : appliquez l\'effet de votre arme s\'il y en a un.':''} Les survivants ne gardent aucune blessure dans un couloir.`};
- $('#ra-new',r).onclick=neu;neu()}},
+ $('#ra-roll',r).onclick=()=>{const v=DE_RAFALE[rnd(6)];$(`#ra-dice button[data-v="${v}"]`,r).click()};$('#ra-new',r).onclick=neu;neu()}},
 
 /* ===== fin de partie ===== */
 fin:{html:()=>`<div class="lab"><h3>Atelier : survivre à l'éclosion</h3><p class="hint">Avec une Larve sur votre plateau à la fin, vous ajoutez 1 Contamination, mélangez toutes vos cartes et en tirez 4 : une seule Contamination vous tue. Ajustez votre paquet pour voir le risque.</p>
@@ -900,6 +913,7 @@ function aide(){
  <h2 id="am-bruit">Jet de bruit</h2><ul><li><b>1 à 4</b> — chaque couloir adjacent de ce numéro : Intrus présent → le plus gros entre et attaque ; marqueur Bruit → résolvez-le (sac, colonne couloir) ; rien → posez un marqueur Bruit.</li><li><b>Danger</b> — jeton du sac, colonne salle : l'Intrus indiqué apparaît dans votre salle.</li><li>Couloir renforcé = 0 ; couloir plein = 6 Intrus (Reine = 4) ou 1 marqueur Bruit.</li></ul>
  <h2 id="am-sac">Aide de jeu Intrus (Reine en vie)</h2><div class="tw"><table><tr><th>Jeton</th><th>Résolu dans un couloir</th><th>Résolu dans une salle</th><th>Phase Événement (sac)</th></tr>${SAC.map(x=>`<tr><td><b>${x[0]}</b></td><td>${x[1]}</td><td>${x[2]}</td><td>${x[3]}</td></tr>`).join('')}</table></div>
  <p class="small">Le jeton tiré retourne sous sa pile, sauf le vierge qui revient dans le sac. Sac de départ : 1 vierge, 2 Larves, 3 Adultes + 1 par personnage.</p>
+ <h3>Face « La Reine est morte »</h3><div class="tw"><table><tr><th>Jeton</th><th>Résolu dans un couloir</th><th>Résolu dans une salle</th><th>Phase Événement (sac)</th></tr><tr><td><b>Reine</b></td><td>Placez 1 Guerrier ; retirez le jeton du jeu.</td><td>Placez 1 Guerrier ; retirez le jeton du jeu.</td><td>+2 Guerriers ; retirez le jeton du jeu.</td></tr><tr><td><b>Guerrier, Adulte</b></td><td>Placez les Intrus indiqués au dos.</td><td>Placez 1 Intrus du type indiqué.</td><td>+2 Larves.</td></tr><tr><td><b>Larve</b></td><td>Placez 1 Larve.</td><td>Placez 1 Larve.</td><td>+2 Guerriers.</td></tr><tr><td><b>Vierge</b></td><td colspan="3">+2 Adultes dans le sac ; le jeton revient dans le sac.</td></tr></table></div>
  <h2 id="am-combat">Combat</h2><ul>
  <li><b>Tir</b> (salle) : +1 touche, puis dé Tir : critique = mort ; 2 à 5 = mort si ≤ touches ; face munitions = dépensez des munitions. Pas de munitions dépensées sinon.</li>
  <li><b>Mêlée</b> : +1 Contamination, +1 touche, dé Tir (dernière face : rien) ; si l'Intrus survit, il riposte (sauf panne sur une de vos armes).</li>

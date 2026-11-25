@@ -187,7 +187,7 @@ quiz:[
 {id:'bruit',part:'The Facility',t:'The Noise roll',
 lead:`Every Movement makes noise. The Noise die tells you where the threat comes from: Noise markers appear, then turn into Intruders.`,
 rules:[
-`Roll the Noise die. Its faces: <b>1, 2, 3, 4</b> and <b>Hazard</b>.`,
+`Roll the Noise die (10 faces): <b>one 1, two 2s, two 3s, three 4s</b> and <b>two Hazards</b>. So 4 comes up most often (3 chances in 10) and 1 least often (1 in 10).`,
 `<b>Number:</b> find every Corridor with that number <b>adjacent to your Room</b>. For each one: if it holds at least 1 Intruder, <b>the largest one enters your Room</b> (and Attacks); otherwise, if it already has a Noise marker, <b>resolve that marker</b> (Intruders appear); otherwise, <b>place a Noise marker</b>. No Corridor with that number: nothing.`,
 `<b>Hazard:</b> something jumps from the ceiling. Draw a token from the Intruder bag and resolve it in the "Room" column of the Intruder Help sheet: most of the time, an Intruder of the type shown appears in your Room. Ignore the number on the back, then put the token back under its pile.`,
 `<b>Resolving a Noise marker:</b> remove it, draw a token from the bag and resolve it in that Corridor ("Corridor" column): the <b>white number</b> on the back gives the number of Intruders (Adults), the <b>red number</b> the number of Drones added. Discard the token under its pile; the Blank token always goes back into the bag.`,
@@ -221,10 +221,11 @@ rules:[
 `Then the drawn token goes back <b>under its pile</b>, out of the bag. Only the <b>Blank</b> token always goes back into the bag.`,
 `Tokens are added from the piles and removed by putting them back under the piles. If a pile is empty, add what is left (component limits).`,
 `The same bag is used for Noise rolls: "Corridor" column for a resolved Noise marker, "Room" column for a Hazard result.`,
-`When the Queen dies, flip the Help sheet to "The Queen is dead": token effects change.`],
+`When the Queen dies, flip the Help sheet to <b>"The Queen is dead"</b>. In the bag: <b>Queen</b> = add 2 Drones and <b>remove this token from the game</b>; <b>Drone or Adult</b> = add 2 Larvae; <b>Larva</b> = add 2 Drones; <b>Blank</b> = 2 Adults, as before. A Queen token drawn for Noise or a Hazard places <b>1 Drone</b> instead, then is removed from the game.`],
 lab:'sac',
 quiz:[
 {q:`During the Event Phase, you draw a Larva token. What goes into the bag?`,o:[`2 Larvae`,`2 Drones`,`2 Queens`],a:1,w:`Larva: add 2 random Drones. The drawn Larva goes back under its pile.`},
+{q:`The Queen is dead. In the Event Phase, you draw a Queen token. What happens?`,o:[`Nothing`,`Add 2 Drones; the Queen token is removed from the game`,`Add 2 Larvae; the token goes back under its pile`],a:1,w:`"The Queen is dead" side: 2 Drones into the bag, and the Queen token leaves the game. Queen tokens thus disappear little by little.`},
 {q:`You draw the Blank token. Where does it go next?`,o:[`Under its pile`,`Into the bag`,`Out of the game`],a:1,w:`The Blank token is the only one that always goes back into the bag. It also adds 2 Adults.`}]},
 
 {id:'depl-intrus',part:'Intruders',t:'Intruder movement',
@@ -278,11 +279,11 @@ quiz:[
 lead:`Crammed into a narrow Corridor, Intruders are vulnerable: a Burst can kill several at once.`,
 rules:[
 `<b>Burst</b> (1 card): a loaded Ranged Weapon without Malfunction, and an <b>adjacent Corridor</b> (not behind a closed Door).`,
-`Spend Ammo and roll the Burst die: <b>1, 2, 3 or 4</b> Hits. The 4 face also shows a special icon that triggers the Weapon's or Action's effect, if any.`,
+`Spend Ammo and roll the Burst die (6 faces: <b>three 1s, one 2, one 3, one 4</b>): half the time, a single Hit; 2 on average. The 4 face also shows a special icon that triggers the Weapon's or Action's effect, if any.`,
 `Assign the Hits as you like: <b>at most 1</b> per Adult and per Larva, <b>exactly 2</b> per Drone, as many as you like to the Queen (up to the end of her track). Leftover Hits are lost.`,
 `In a Corridor, <b>1 Hit kills</b> an Adult or a Larva; a Drone dies with its 2 Hits. Hits on the Queen move her track.`,
 `Intruders in Corridors do not keep their wounds.`,
-`<b>Grenade</b> (Tactical Gear token): Burst die + 2 Hits in an adjacent Corridor; it is not a Burst, Weapon effects do not apply. <b>Turret Control</b> (Room): a Burst die of Hits without spending Ammo.`],
+`<b>Grenade</b> (Tactical Gear token): Burst die + 2, so 3 to 6 Hits (3 half the time) in an adjacent Corridor; it is not a Burst, Weapon effects do not apply. <b>Turret Control</b> (Room): a Burst die of Hits without spending Ammo.`],
 lab:'rafale',
 cas:[
 {q:`A Corridor holds 1 Drone and 2 Adults. You roll 3 on the Burst. What can you kill at best?`,o:[`All 3 Intruders`,`The Drone and 1 Adult, or the 2 Adults`,`Only the Drone`],a:1,w:`The Drone takes exactly 2 Hits: 2 + 1 = the Drone and one Adult. Or 1 + 1 on both Adults, the 3rd Hit being lost (no single Hit on a Drone).`}],
@@ -294,7 +295,7 @@ lead:`The Queen is a unique enemy, tough and aggressive. You do not kill her wit
 rules:[
 `Her Hits move the marker on the <b>Queen's Hit track</b>, one space per Hit, instead of placing markers on her miniature.`,
 `When the marker reaches the end of the track: ignore any other Hits from that Action, reveal the top <b>Queen Health card</b>, discard that many cards from her deck without revealing them, resolve the effect at the bottom of the card (even if the Queen has just died), discard it and reset the marker to 0.`,
-`When her last Health card is discarded, the Queen dies: remove her miniature, ignore effects that make her appear, and flip the Intruder Help sheet to "The Queen is dead".`,
+`When her last Health card is discarded, the Queen dies: remove her miniature, ignore effects that make her appear, and flip the Intruder Help sheet to "The Queen is dead". Queen tokens then place Drones and leave the game, and Drones and Adults drawn in the Event Phase add Larvae instead of Queens.`,
 `<b>Activation</b> (usually from a Queen token in the bag): she Attacks a Character in her Room if possible; otherwise, she moves once towards the closest one, with the same priorities as other Intruders.`,
 `In a Corridor, she counts as 4 Intruders; with her, there can only be 2 other Intruders. A Burst can give her as many Hits as you like.`],
 quiz:[

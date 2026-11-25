@@ -9,25 +9,34 @@ const TYP={reine:'Queens',guerrier:'Drones',adulte:'Adults',larve:'Larvae',vierg
 const SIZE={reine:4,guerrier:3,adulte:2,larve:1};
 const tok=k=>`<span class="tok ${k}" title="${TY[k]}">${{reine:'Q',guerrier:'D',adulte:'A',larve:'L',vierge:'∅'}[k]}</span>`;
 const plural=(n,s,p)=>`${n} ${n>1?p:s}`;
+/* real die faces (given by the game's owner) */
+const DE_BRUIT=['1','2','2','3','3','4','4','4','D','D'], DE_RAFALE=[1,1,1,2,3,4];
+const pct=(n,d)=>Math.round(100*n/d)+'%';
 
 const LABS={
 /* ===== sac Intrus ===== */
-sac:{html:()=>`<div class="lab"><h3>Lab: the colony grows</h3><p class="hint">Build the starting bag, then draw. The app applies the Intruder Help sheet ("The Queen is alive" side) and shows the chance of each type on the next draw.</p>
+sac:{html:()=>`<div class="lab"><h3>Lab: the colony grows</h3><p class="hint">Build the starting bag, then draw. The app applies the Intruder Help sheet ("The Queen is alive" side, or "dead" if you tick the box) and shows the chance of each type on the next draw.</p>
 <div class="row">Characters ${seg('sa-n',[1,2,3,4,5],3)} <button type="button" id="sa-reset">Start over</button></div>
-<div class="row" style="margin-top:8px"><label class="chk"><input type="checkbox" id="sa-q"> The Queen is on the board</label></div>
+<div class="row" style="margin-top:8px"><label class="chk"><input type="checkbox" id="sa-q"> The Queen is on the board</label><label class="chk"><input type="checkbox" id="sa-dead"> The Queen is dead</label></div>
 <div class="bag" id="sa-bag" aria-live="polite"></div><div class="counts" id="sa-cnt"></div>
 <div class="row"><button type="button" class="pri" id="sa-ev">Event Phase: draw</button><button type="button" id="sa-co">Noise marker resolved (Corridor)</button><button type="button" id="sa-sa">Hazard result (Room)</button></div>
 <div class="out" id="sa-out">Draw to see what happens.</div><ul class="log" id="sa-log"></ul></div>`,
 init(r){const TOT={reine:9,guerrier:8,adulte:16,larve:6,vierge:1};let S;
- const reset=()=>{const n=+segVal(r,'sa-n');S={bag:{reine:0,guerrier:0,adulte:3+n,larve:2,vierge:1},log:[],manche:1};draw();$('#sa-out',r).textContent='Starting bag: 1 Blank token, 2 Larvae, 3 Adults + 1 Adult per Character.';$('#sa-out',r).className='out'};
- const pile=k=>TOT[k]-S.bag[k];
+ const reset=()=>{const n=+segVal(r,'sa-n');S={bag:{reine:0,guerrier:0,adulte:3+n,larve:2,vierge:1},out:0,log:[],manche:1};draw();$('#sa-out',r).textContent='Starting bag: 1 Blank token, 2 Larvae, 3 Adults + 1 Adult per Character.';$('#sa-out',r).className='out'};
+ const pile=k=>TOT[k]-S.bag[k]-(k==='reine'?S.out:0);
  const add=(k,n)=>{const m=Math.min(n,pile(k));S.bag[k]+=m;return m<n?` (pile empty: only ${m})`:''};
  const total=()=>Object.values(S.bag).reduce((a,b)=>a+b,0);
  const draw=()=>{const order=['reine','guerrier','adulte','larve','vierge'];$('#sa-bag',r).innerHTML=order.flatMap(k=>Array(S.bag[k]).fill(tok(k))).join('')||'<span class="muted">Empty bag</span>';const t=total();
   $('#sa-cnt',r).innerHTML=order.map(k=>`<div>${TYP[k]}<br><b>${S.bag[k]}</b> <span class="muted small">${t?Math.round(100*S.bag[k]/t):0} %</span></div>`).join('');$('#sa-log',r).innerHTML=S.log.slice(-8).reverse().map(x=>`<li>${x}</li>`).join('')};
  const pickTok=()=>{let x=rnd(total());for(const k in S.bag){if(x<S.bag[k])return k;x-=S.bag[k]}return null};
- const go=mode=>{if(!total()){$('#sa-out',r).textContent='The bag is empty.';return}const k=pickTok(),q=$('#sa-q',r).checked;let m='',back=false;
-  if(mode==='ev'){
+ const go=mode=>{if(!total()){$('#sa-out',r).textContent='The bag is empty.';return}const k=pickTok(),q=$('#sa-q',r).checked,dead=$('#sa-dead',r).checked;let m='',back=false,gone=false;
+  if(dead&&k!=='vierge'){const lieu=mode==='co'?'the Corridor':'your Room';
+   if(k==='reine'){gone=true;m=mode==='ev'?`<b>Add 2 Drones</b> to the bag.`+add('guerrier',2):`<b>Place 1 Drone</b> in ${lieu}.`}
+   else if(mode==='ev')m=k==='larve'?`<b>Add 2 Drones</b> to the bag.`+add('guerrier',2):`<b>Add 2 Larvae</b> to the bag.`+add('larve',2);
+   else if(mode==='co')m=k==='larve'?'<b>Place 1 Larva</b> in the Corridor.':'<b>Place the number of Intruders shown on the back of the token</b> in the Corridor (white number: Adults; red number: Drones).';
+   else m=`<b>Place 1 ${TY[k]}</b> in your Room: it Attacks at once.`}
+  else if(mode==='ev'){
+
    if(k==='reine'){if(q)m='The Queen is on the board: <b>activate her</b> (she Attacks a Character in her Room, otherwise moves once towards the closest one).';else m='The Queen is not on the board: <b>add 2 Larvae</b> to the bag.'+add('larve',2)}
    else if(k==='guerrier'||k==='adulte')m=`<b>Add 2 Queens</b> to the bag.`+add('reine',2);
    else if(k==='larve')m=`<b>Add 2 Drones</b> to the bag.`+add('guerrier',2);
@@ -38,16 +47,16 @@ init(r){const TOT={reine:9,guerrier:8,adulte:16,larve:6,vierge:1};let S;
    else if(mode==='co'&&k==='larve')m='<b>Place 1 Larva</b> in the Corridor.';
    else if(mode==='co')m='<b>Place the number of Intruders shown on the back of the token</b> in the Corridor (white number: Adults; red number: Drones).';
    else m=`<b>Place 1 ${TY[k]}</b> in your Room: it Attacks at once.`}
-  if(!back){S.bag[k]--;m+=` The ${TY[k]} token goes back under its pile.`}else m+=' The Blank token goes back into the bag.';
+  if(gone){S.bag[k]--;S.out++;m+=' The Queen token is <b>removed from the game</b>.';}else if(!back){S.bag[k]--;m+=` The ${TY[k]} token goes back under its pile.`}else m+=' The Blank token goes back into the bag.';
   const lab={ev:'Event Phase',co:'Noise marker',sa:'Hazard'}[mode];
   $('#sa-out',r).innerHTML=`${tok(k)} <b>${lab}: ${TY[k]} token.</b> ${m}`;$('#sa-out',r).className='out';S.log.push(`${lab}: ${TY[k]}`);draw()};
- wireSeg(r,'sa-n',reset);$('#sa-reset',r).onclick=reset;$('#sa-ev',r).onclick=()=>go('ev');$('#sa-co',r).onclick=()=>go('co');$('#sa-sa',r).onclick=()=>go('sa');reset()}},
+ $('#sa-dead',r).onchange=e=>{const d=e.target.checked;if(d)$('#sa-q',r).checked=false;$('#sa-q',r).disabled=d};wireSeg(r,'sa-n',reset);$('#sa-reset',r).onclick=reset;$('#sa-ev',r).onclick=()=>go('ev');$('#sa-co',r).onclick=()=>go('co');$('#sa-sa',r).onclick=()=>go('sa');reset()}},
 
 /* ===== jet de bruit ===== */
 bruit:{html:()=>`<div class="lab"><h3>Lab: the Noise roll</h3><p class="hint">Your Character has just entered the middle Room. Pick the face rolled on the Noise die: the app applies the rule to each adjacent Corridor.</p>
 <div class="map" id="br-map"></div>
 <div class="dice" id="br-dice">${[1,2,3,4].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="D">Hazard</button></div>
-<div class="row"><button type="button" id="br-new">New situation</button></div><div class="out" id="br-out">Pick a die face.</div></div>`,
+<div class="row"><button type="button" class="pri" id="br-roll">Roll the die</button><button type="button" id="br-new">New situation</button></div><p class="small muted" id="br-p"></p><div class="out" id="br-out">Pick a die face.</div></div>`,
 init(r){let S;const POS=[1,3,5,7];
  const neu=()=>{const cors=[];const k=2+rnd(3);const pos=[...POS].sort(()=>Math.random()-.5).slice(0,k);
   pos.forEach((p,i)=>{const num=i===0&&Math.random()<.35?0:1+rnd(4);const c={p,num,bruit:false,app:false,intrus:[]};if(num){const x=rnd(3);if(x===1)c.bruit=true;else if(x===2){const n=1+rnd(3);for(let j=0;j<n;j++)c.intrus.push(['adulte','adulte','larve','guerrier'][rnd(4)])}}cors.push(c)});
@@ -55,7 +64,9 @@ init(r){let S;const POS=[1,3,5,7];
  const draw=()=>{let h='';for(let i=0;i<9;i++){const c=S.cors.find(x=>x.p===i);
   if(i===4)h+=`<div class="room">Your Room${S.room.length?`<div>${S.room.map(tok).join(' ')}</div>`:''}</div>`;
   else if(c)h+=`<div class="cor${c.num===0?' reinf':''}${S.hit&&S.hit.includes&&S.hit.includes(c.p)?' hit':''}"><div class="num">${c.num}</div>${c.num===0?'Reinforced':c.intrus.length?c.intrus.map(tok).join(' '):c.app?'Intruders appeared (per the token)':c.bruit?'⚠ Noise marker':'empty'}</div>`;
-  else h+='<div class="empty"></div>'}$('#br-map',r).innerHTML=h};
+  else h+='<div class="empty"></div>'}$('#br-map',r).innerHTML=h;
+  const nums=new Set(S.cors.filter(c=>c.num).map(c=>c.num+'')),rien=DE_BRUIT.filter(f=>f!=='D'&&!nums.has(f)).length,ent=DE_BRUIT.filter(f=>f!=='D'&&S.cors.some(c=>c.num+''===f&&(c.intrus.length||c.app))).length,dg=DE_BRUIT.filter(f=>f==='D').length;
+  $('#br-p',r).innerHTML=`Noise die (10 faces: one 1, two 2s, two 3s, three 4s, two Hazards). On this map: <b>${pct(rien,10)}</b> nothing happens, <b>${pct(ent,10)}</b> an Intruder from a Corridor enters your Room, <b>${pct(dg,10)}</b> Hazard.`};
  const roll=v=>{if(v==='D'){S.hit=[];draw();$('#br-out',r).innerHTML='<b>Hazard!</b> Something jumps from the ceiling: draw a token from the Intruder bag and resolve it in the "Room" column of the Help sheet. Most of the time, an Intruder of the type shown appears in your Room and Attacks you. Ignore the number on the back and put the token back under its pile (the Blank token goes back into the bag).';$('#br-out',r).className='out bad';return}
   const n=+v,cs=S.cors.filter(c=>c.num===n);S.hit=cs.map(c=>c.p);
   if(!cs.length){draw();$('#br-out',r).innerHTML=`No adjacent Corridor shows ${n}: <b>nothing happens</b>. Phew.`;$('#br-out',r).className='out ok';return}
@@ -65,7 +76,7 @@ init(r){let S;const POS=[1,3,5,7];
    c.bruit=true;return `Corridor ${n}: empty and unmarked, <b>place a Noise marker</b>.`});
   draw();
   $('#br-out',r).innerHTML=lines.map(x=>`<p style="margin:0 0 6px">${x}</p>`).join('')+'<p class="small muted" style="margin:0">Roll again on the same situation to watch the markers turn into Intruders.</p>';$('#br-out',r).className=S.room.length?'out bad':'out'};
- $$('#br-dice button',r).forEach(b=>b.onclick=()=>roll(b.dataset.v));$('#br-new',r).onclick=neu;neu()}},
+ $$('#br-dice button',r).forEach(b=>b.onclick=()=>roll(b.dataset.v));$('#br-roll',r).onclick=()=>{const v=DE_BRUIT[rnd(10)];roll(v);$('#br-out',r).insertAdjacentHTML('afterbegin',`<p style="margin:0 0 6px"><b>You roll: ${v==='D'?'Hazard':v}.</b></p>`)};$('#br-new',r).onclick=neu;neu()}},
 
 /* ===== shooting and melee ===== */
 tir:{html:()=>`<div class="lab"><h3>Lab: Shooting and Melee in a Room</h3><p class="hint">Pick the target and the type of attack, then the face rolled on the Shoot die. The Hit is always placed <b>before</b> the roll.</p>
@@ -92,7 +103,8 @@ init(r){let S;
 /* ===== rafale ===== */
 rafale:{html:()=>`<div class="lab"><h3>Lab: assigning a Burst</h3><p class="hint">Pick the face of the Burst die, then assign the Hits: at most 1 per Adult or Larva, exactly 2 per Drone.</p>
 <div class="foes" id="ra-foes"></div>
-<div class="dice" id="ra-dice">${[1,2,3].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="4">4 ✦</button></div>
+<div class="dice" id="ra-dice">${[1,2,3].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="4">4 ✦</button><button type="button" class="pri" id="ra-roll">Roll the die</button></div>
+<p class="small muted">Burst die (6 faces): three 1s, one 2, one 3, one 4. Half the time you get a single Hit; 2 Hits on average.</p>
 <div class="out" id="ra-left">Pick a face of the Burst die.</div>
 <div class="row" style="margin-top:8px"><button type="button" class="pri" id="ra-go" disabled>Resolve</button><button type="button" id="ra-new">New Corridor</button></div><div class="out" id="ra-out" hidden></div></div>`,
 init(r){let S;
@@ -101,11 +113,11 @@ init(r){let S;
  const draw=()=>{$('#ra-foes',r).innerHTML=S.f.map((x,i)=>`<div class="foe${x.dead?' dead':''}">${tok(x.k)}<div><b>${TY[x.k]}</b></div><div class="h">Hits: <span class="cubes">${'■'.repeat(x.h)||'0'}</span></div>${S.res&&!S.done?`<div class="row"><button type="button" data-i="${i}" data-d="-1" aria-label="Remove a Hit">−</button><button type="button" data-i="${i}" data-d="1" aria-label="Add a Hit">+</button></div>`:''}</div>`).join('');
   $$('#ra-foes [data-i]',r).forEach(b=>b.onclick=()=>{const x=S.f[+b.dataset.i],d=+b.dataset.d,step=x.k==='guerrier'?2:1,max=x.k==='guerrier'?2:1;const nh=x.h+d*step;if(nh<0||nh>max)return;if(d>0&&used()+step>S.res)return;x.h=nh;draw()});
   if(S.res&&!S.done){const l=S.res-used();$('#ra-left',r).innerHTML=`${S.res} Hit${S.res>1?'s':''} to assign: <b>${l}</b> left.${l&&S.f.some(x=>x.k==='guerrier'&&!x.h)&&l<2?' A single Hit cannot go on a Drone: it will be lost.':''}`}};
- $$('#ra-dice button',r).forEach(b=>b.onclick=()=>{if(S.done)neu();$$('#ra-dice button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');S.res=+b.dataset.v;S.f.forEach(x=>x.h=0);$('#ra-go',r).disabled=false;$('#ra-out',r).hidden=true;draw()});
+ $$('#ra-dice button[data-v]',r).forEach(b=>b.onclick=()=>{if(S.done)neu();$$('#ra-dice button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');S.res=+b.dataset.v;S.f.forEach(x=>x.h=0);$('#ra-go',r).disabled=false;$('#ra-out',r).hidden=true;draw()});
  $('#ra-go',r).onclick=()=>{let k=0;S.f.forEach(x=>{if(x.h&&(x.k!=='guerrier'||x.h===2)){x.dead=true;k++}});const lost=S.res-used();S.done=true;draw();
   $('#ra-left',r).textContent='';$('#ra-out',r).hidden=false;$('#ra-out',r).className=k?'out ok':'out';
   $('#ra-out',r).innerHTML=`<b>${k} Intruder${k>1?'s':''} killed.</b>${lost?` ${plural(lost,'Hit lost','Hits lost')}.`:''}${S.res===4?' The 4 also shows the special icon: apply your Weapon\'s effect, if any.':''} Survivors keep no wounds in a Corridor.`};
- $('#ra-new',r).onclick=neu;neu()}},
+ $('#ra-roll',r).onclick=()=>{const v=DE_RAFALE[rnd(6)];$(`#ra-dice button[data-v="${v}"]`,r).click()};$('#ra-new',r).onclick=neu;neu()}},
 
 /* ===== fin de partie ===== */
 fin:{html:()=>`<div class="lab"><h3>Lab: surviving the hatching</h3><p class="hint">With a Larva on your board at the end, you add 1 Contamination, shuffle all your cards and draw 4: a single Contamination kills you. Adjust your deck to see the risk.</p>

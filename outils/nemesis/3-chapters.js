@@ -187,7 +187,7 @@ quiz:[
 {id:'bruit',part:'Le complexe',t:'Le jet de bruit',
 lead:`Chaque déplacement fait du bruit. Le dé Bruit indique d'où vient la menace : des marqueurs Bruit apparaissent, puis se changent en Intrus.`,
 rules:[
-`Lancez le dé Bruit. Ses faces : <b>1, 2, 3, 4</b> et <b>Danger</b>.`,
+`Lancez le dé Bruit (10 faces) : <b>un 1, deux 2, deux 3, trois 4</b> et <b>deux Danger</b>. Le 4 sort donc le plus souvent (3 chances sur 10) et le 1 le moins (1 sur 10).`,
 `<b>Numéro :</b> repérez tous les couloirs de ce numéro <b>adjacents à votre salle</b>. Pour chacun : s'il contient au moins 1 Intrus, <b>le plus gros entre dans votre salle</b> (et attaque) ; sinon, s'il a déjà un marqueur Bruit, <b>résolvez ce marqueur</b> (des Intrus apparaissent) ; sinon, <b>posez un marqueur Bruit</b>. Aucun couloir de ce numéro : rien.`,
 `<b>Danger :</b> quelque chose tombe du plafond. Piochez un jeton dans le sac Intrus et résolvez-le dans la colonne « salle » de l'aide de jeu Intrus : le plus souvent, un Intrus du type indiqué apparaît dans votre salle. Ignorez le chiffre au dos, puis remettez le jeton sous sa pile.`,
 `<b>Résoudre un marqueur Bruit :</b> retirez-le, piochez un jeton dans le sac et résolvez-le dans ce couloir (colonne « couloir ») : le <b>chiffre blanc</b> au dos donne le nombre d'Intrus (Adultes), le <b>chiffre rouge</b> le nombre de Guerriers ajoutés. Défaussez le jeton sous sa pile ; le jeton vierge retourne toujours dans le sac.`,
@@ -221,10 +221,11 @@ rules:[
 `Ensuite, le jeton pioché retourne <b>sous sa pile</b>, hors du sac. Seul le jeton <b>vierge</b> revient toujours dans le sac.`,
 `On ajoute des jetons en les prenant sur les piles ; on en retire en les remettant sous les piles. Si une pile est vide, ajoutez ce qui reste (limite du matériel).`,
 `Le même sac sert aux jets de bruit : colonne « couloir » pour un marqueur Bruit résolu, colonne « salle » pour un résultat Danger.`,
-`Quand la Reine meurt, retournez l'aide de jeu sur la face « La Reine est morte » : les effets des jetons changent.`],
+`Quand la Reine meurt, retournez l'aide de jeu sur la face <b>« La Reine est morte »</b>. Dans le sac : <b>Reine</b> = ajoutez 2 Guerriers et <b>retirez ce jeton du jeu</b> ; <b>Guerrier ou Adulte</b> = ajoutez 2 Larves ; <b>Larve</b> = ajoutez 2 Guerriers ; <b>vierge</b> = 2 Adultes, comme avant. Un jeton Reine tiré pour un bruit ou un Danger fait apparaître <b>1 Guerrier</b> à sa place, puis il est retiré du jeu.`],
 lab:'sac',
 quiz:[
 {q:`Pendant la phase Événement, vous tirez un jeton Larve. Que mettez-vous dans le sac ?`,o:[`2 Larves`,`2 Guerriers`,`2 Reines`],a:1,w:`Larve : ajoutez 2 Guerriers au hasard. La Larve tirée retourne sous sa pile.`},
+{q:`La Reine est morte. En phase Événement, vous tirez un jeton Reine. Que se passe-t-il ?`,o:[`Rien`,`Ajoutez 2 Guerriers ; le jeton Reine est retiré du jeu`,`Ajoutez 2 Larves ; le jeton retourne sous sa pile`],a:1,w:`Face « La Reine est morte » : 2 Guerriers dans le sac, et le jeton Reine quitte la partie. Les jetons Reine disparaissent ainsi peu à peu.`},
 {q:`Vous tirez le jeton vierge. Où va-t-il ensuite ?`,o:[`Sous sa pile`,`Dans le sac`,`Hors du jeu`],a:1,w:`Le jeton vierge est le seul qui revient toujours dans le sac. Il ajoute aussi 2 Adultes.`}]},
 
 {id:'depl-intrus',part:'Les Intrus',t:'Le déplacement des Intrus',
@@ -278,11 +279,11 @@ quiz:[
 lead:`Regroupés dans un couloir étroit, les Intrus sont vulnérables : une rafale peut en tuer plusieurs d'un coup.`,
 rules:[
 `<b>Rafale</b> (1 carte) : une arme à distance chargée et sans panne, et un <b>couloir adjacent</b> (pas derrière une porte fermée).`,
-`Dépensez des munitions et lancez le dé Rafale : <b>1, 2, 3 ou 4</b> touches. La face 4 porte aussi une icône spéciale qui déclenche l'effet éventuel de l'arme ou de l'action.`,
+`Dépensez des munitions et lancez le dé Rafale (6 faces : <b>trois 1, un 2, un 3, un 4</b>) : une fois sur deux, une seule touche ; 2 en moyenne. La face 4 porte aussi une icône spéciale qui déclenche l'effet éventuel de l'arme ou de l'action.`,
 `Répartissez les touches comme vous voulez : <b>1 au plus</b> par Adulte et par Larve, <b>exactement 2</b> par Guerrier, autant que vous voulez à la Reine (jusqu'au bout de sa piste). Les touches restantes sont perdues.`,
 `Dans un couloir, <b>1 touche tue</b> un Adulte ou une Larve ; un Guerrier meurt avec ses 2 touches. Les touches à la Reine font avancer sa piste.`,
 `Les Intrus des couloirs ne gardent pas leurs blessures.`,
-`<b>Grenade</b> (jeton tactique) : dé Rafale + 2 touches dans un couloir adjacent ; ce n'est pas une rafale, les effets d'arme ne s'appliquent pas. <b>Contrôle des tourelles</b> (salle) : un dé Rafale de touches sans dépenser de munitions.`],
+`<b>Grenade</b> (jeton tactique) : dé Rafale + 2, soit 3 à 6 touches (3 une fois sur deux) dans un couloir adjacent ; ce n'est pas une rafale, les effets d'arme ne s'appliquent pas. <b>Contrôle des tourelles</b> (salle) : un dé Rafale de touches sans dépenser de munitions.`],
 lab:'rafale',
 cas:[
 {q:`Un couloir contient 1 Guerrier et 2 Adultes. Vous faites 3 à la rafale. Que pouvez-vous tuer au mieux ?`,o:[`Les 3 Intrus`,`Le Guerrier et 1 Adulte, ou les 2 Adultes`,`Seulement le Guerrier`],a:1,w:`Le Guerrier prend exactement 2 touches : 2 + 1 = le Guerrier et un Adulte. Ou 1 + 1 sur les deux Adultes, la 3e touche étant perdue (pas d'1 seule touche sur un Guerrier).`}],
@@ -294,7 +295,7 @@ lead:`La Reine est un ennemi unique, résistant et agressif. On ne la tue pas av
 rules:[
 `Ses touches font avancer le cube de la <b>piste des touches portées à la Reine</b>, une case par touche, au lieu de poser des cubes sur sa figurine.`,
 `Quand le cube atteint le bout de la piste : ignorez les autres touches de cette action, révélez la première <b>carte Santé de la Reine</b>, défaussez sans les révéler autant de cartes de sa pioche que le numéro indiqué, résolvez l'effet du bas de la carte (même si la Reine vient de mourir), défaussez-la et remettez le cube à 0.`,
-`Quand sa dernière carte Santé est défaussée, la Reine meurt : retirez sa figurine, ignorez les effets qui la font apparaître et retournez l'aide de jeu Intrus côté « La Reine est morte ».`,
+`Quand sa dernière carte Santé est défaussée, la Reine meurt : retirez sa figurine, ignorez les effets qui la font apparaître et retournez l'aide de jeu Intrus côté « La Reine est morte ». Les jetons Reine font alors apparaître des Guerriers puis quittent la partie, et les Guerriers et Adultes tirés en phase Événement ajoutent des Larves au lieu de Reines.`,
 `<b>Activation</b> (le plus souvent avec un jeton Reine du sac) : elle attaque un personnage de sa salle si possible ; sinon, elle se déplace une fois vers le plus proche, avec les mêmes priorités que les autres Intrus.`,
 `Dans un couloir, elle compte pour 4 Intrus ; avec elle, il ne peut y avoir que 2 autres Intrus. Une rafale peut lui donner autant de touches que vous voulez.`],
 quiz:[
