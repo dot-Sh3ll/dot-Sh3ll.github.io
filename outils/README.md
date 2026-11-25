@@ -1,8 +1,32 @@
 # Outils de construction du site
 
+Vue d'ensemble, conventions et procédures : `CLAUDE.md` à la racine. Ce fichier détaille chaque script.
+
+## Outils transverses (à la racine de `outils/`)
+
+| Script | Rôle |
+|---|---|
+| `verifier.py [--rapide]` | Vérifie tout le site avant publication : balises SEO, liens et images internes, sitemap, langues déclarées, poids, cache hors ligne, vouvoiement, html-validate (s'il est installé ; règles dans `html-validate.json`). Code de sortie 1 en cas d'erreur. Lancé à chaque push par `.github/workflows/verifier.yml`. |
+| `traduire_etat.py` | Tableau de l'avancement des traductions : applis × langues, accueil, fiches. |
+| `nouvelle_appli.py` | Crée une appli complète sur le modèle commun (voir `CLAUDE.md`, « Ajouter un jeu »). |
+| `modele-appli/` | Modèle d'appli : `page.html` (tutoriel en chapitres + aide-mémoire), `i18n/<langue>.json` (textes d'interface par clés), `contenu/<langue>.js`. |
+| `fiches-gabarit/` | Gabarit des fiches A5 (portrait, paysage, couleurs par jeu), copie de l'artefact Design « Gabarit des fiches Less Rules, More Play ». |
+
+## Socle commun (`site/`)
+
+| Script | Rôle |
+|---|---|
+| `jeux.json` | Registre des applis : code, couleur, police, nom du jeu, titres et descriptions par langue, image de partage, option du formulaire. Lu par `seo.py`, `og_images.py`, `sw.py`, `assembler.py`, `verifier.py`. |
+| `commun.py <pages>` | Pose les liens vers `commun/tokens.css` et `commun/composants.css` (avec `?v=` tiré du contenu). Appelé par `chrome.py`. |
+| `polices.py <pages>` | Remplace Google Fonts par `commun/polices.css` + préchargements. Appelé par `chrome.py`. |
+| `assembler.py <dossier>` | Construit toutes les langues d'une appli faite sur le modèle commun, puis langue, en-tête, PWA, pied, fiches. |
+| `sw.py` | Écrit `PRECACHE` et `VERSION` (empreinte du contenu) dans `sw.js`, la description et les raccourcis du manifest. Appelé par `seo.py`. |
+
+`seo.py` génère aussi les accueils `/en/` et `/de/` depuis `index.html` (et `home_lang.py` les refait à chaque changement de l'accueil).
+
 Ces scripts ne font pas partie du site : ils servent à le modifier. Le dossier est exclu de la publication (voir `_config.yml` à la racine).
 
-Les scripts utilisent des chemins fixes sous `/home/claude/`. Pour les remettre en place dans une nouvelle session :
+Seuls les scripts de traduction de Mage Knight et d'Imperium (`traduction/`) et ceux d'Aeon's End utilisent encore des chemins fixes sous `/home/claude/`. Pour les remettre en place dans une nouvelle session :
 
 ```bash
 git clone https://github.com/dot-Sh3ll/dot-Sh3ll.github.io /home/claude/dot-sh3ll.github.io
@@ -19,14 +43,14 @@ cd /home/claude/ae && npm install     # installe typescript (pour extract.js)
 
 | Script | Rôle |
 |---|---|
-| `chrome.py <dossier>` ou `chrome.py <code> <page>` | Pose l'en-tête du site (dé, nom, bouton de langue, Ko-fi) sur les pages d'une appli et l'aligne sur la largeur commune (`--site-w` 1080 px, `--site-pad` 20 px, 16 px sur mobile). Le bouton montre toutes les langues dont la page existe dans le dossier (FR / EN / DE…). À relancer sur les dossiers des applis après toute modification de l'en-tête, et sur le dossier d'une appli qui reçoit une nouvelle langue. |
+| `chrome.py <dossier>` ou `chrome.py <code> <page>` | Pose l'en-tête du site (dé, nom, bouton de langue, Ko-fi) sur les pages d'une appli, puis les feuilles communes (`commun.py`) et les polices (`polices.py`). Styles de la barre : `commun/composants.css`. Le bouton montre toutes les langues dont la page existe dans le dossier (FR / EN / DE…). À relancer sur les dossiers des applis après toute modification de l'en-tête, et sur le dossier d'une appli qui reçoit une nouvelle langue. |
 | `langs.py` | Langues des applis, utilisé par `lang.py` et `chrome.py` : ordre du bouton, textes de l'en-tête dans chaque langue, langue de repli (anglais). Une nouvelle langue d'appli (it…) s'ajoute ici. |
 | `pied.py <dossier> "<jeu>"` | Pied de page du site sur toutes les pages d'une appli (retour à l'accueil, « Signaler un problème » vers le formulaire « Votre avis » avec le jeu présélectionné, Ko-fi, mention « création de fan »), dans la langue de chaque page. `<jeu>` = valeur de l'option du formulaire (vérifiée). |
 | `fiches.py [<dossier>]` | Rappel des fiches à imprimer dans les applis qui en ont : un encart « À imprimer » en tête de l'aide-mémoire et un rappel « Prêt pour votre première partie ? » à la fin du tutoriel, avec les PDF de la langue de la page. Les fiches sont lues sur l'accueil (cartes de fiches, `accueil.py fiche`) ; l'emplacement des rappels se règle appli par appli dans `CONF`. À relancer après une nouvelle fiche, et après la reconstruction d'une appli (`build.sh` de Puerto Rico et de Nemesis le font ; Mage Knight et Imperium : après `build_mk.sh` / `build_imp.sh`). Une appli sans fiche ne reçoit rien. |
 | `pwa.py <préfixe> <page>` | Ajoute le bloc PWA (manifeste, icônes, service worker) et GoatCounter. Préfixe `../` pour une appli. |
 | `accueil.py liste\|maj\|appli\|fiche` | Page d'accueil sans toucher au HTML : liste des cartes et de leurs dates, mise à jour de la date d'une appli ou d'une fiche (`maj puerto-rico`), ajout ou remplacement d'une carte d'appli ou d'une fiche à partir d'un petit JSON (modèles dans `accueil/exemples/`). Un nouveau jeu (couleurs, bouton de filtre, recherche, choix dans le formulaire) se déclare dans le même JSON avec `nouveau_jeu`. |
-| `seo.py` | Référencement de tout le site en une commande : titre et description par page et par langue, canonical, hreflang, Open Graph et Twitter, données structurées (JSON-LD), `sitemap.xml` refait (dates tirées de git), métadonnées des PDF de `fiches/` (titres pris sur les cartes de l'accueil). Textes dans `PAGES` et `ACCUEIL`. À relancer après un nouveau jeu ou une nouvelle langue (compléter `PAGES`, sinon le script s'arrête), après `gen_lang.py` (la page allemande d'Aeon's End reprend les balises de la page anglaise), après une nouvelle fiche ou un PDF regénéré (les générateurs effacent les métadonnées). |
-| `og_images.py` | Images de partage 1200×630 (`img/og/<appli>.jpg`), utilisées par `seo.py`. Une ligne par appli dans `IMAGES`. Polices : celles de `outils/imperium-fiches/node_modules`. |
+| `seo.py` | Référencement de tout le site en une commande : titre et description par page et par langue, canonical, hreflang, Open Graph et Twitter, données structurées (JSON-LD), `sitemap.xml` refait (dates tirées de git), métadonnées des PDF de `fiches/` (titres pris sur les cartes de l'accueil). Textes des applis dans `jeux.json`, de l'accueil dans `ACCUEIL`. À relancer après un nouveau jeu ou une nouvelle langue (compléter `PAGES`, sinon le script s'arrête), après `gen_lang.py` (la page allemande d'Aeon's End reprend les balises de la page anglaise), après une nouvelle fiche ou un PDF regénéré (les générateurs effacent les métadonnées). |
+| `og_images.py` | Images de partage 1200×630 (`img/og/<appli>.jpg`), utilisées par `seo.py`. Une entrée « og » par appli dans `jeux.json`. Polices : `commun/polices`. |
 | `home_lang.py` | Langues de la page d'accueil, à partir de `accueil/<code>.json`. Relancé automatiquement par `accueil.py`. `home_lang.py --todo de` liste les textes encore sans traduction. |
 | `lang.py <dossier>` ou `lang.py --site` | Redirection de langue et sauvegardes séparées, pour toutes les pages d'une appli (ou de toutes les applis). Les langues d'une appli se déduisent des fichiers : `index.html` (fr), `en.html`, `de.html`… La langue choisie sur le site (`site-lang`) ouvre la page de cette langue, ou `en.html` si l'appli n'est pas traduite ; sans choix enregistré, un navigateur en allemand est envoyé sur `de.html` s'il existe. Chaque langue autre que le français a ses propres sauvegardes (préfixe `en:`, `de:`…). `?lang=xx` dans l'adresse empêche la redirection. |
 | `i18n.py extract\|apply` | Extraction des textes d'une page et application d'une table de traduction (bas niveau). |
@@ -94,4 +118,4 @@ Scénarios du module (fiches 11 et 12 de l'artefact : `A5QuetesScenSolo`, `A5Que
 - Page d'accueil : français et anglais sont écrits dans `index.html` ; les autres langues (allemand…) viennent de `outils/site/accueil/<code>.json`, où chaque clé est un texte anglais de la page et chaque valeur sa traduction. Les blocs `_words` (interface), `_form` (formulaire), `_soon` (bandeau sous le titre) et `_k` (bouton « Télécharger (EN) ») complètent le fichier.
 - Ajouter une langue : copier `de.json` en `it.json`, changer `_name` et `_locale`, traduire les valeurs, puis `python3 outils/site/home_lang.py`. Les textes oubliés restent en anglais et sont listés.
 - `_apps` dit, appli par appli, dans quelle langue les visiteurs de cette langue ouvrent les applis : `{"*": "en", "ae": "de"}` = Aeon's End (`data-game="ae"`) en allemand, le reste en anglais. Sur la carte d'une appli qui s'ouvre en anglais, le bouton affiche `_k.open_en` (« Öffnen (EN) ») ; les fiches gardent « Herunterladen (EN) » tant qu'il n'y a pas de PDF dans la langue. La carte indique ses langues (`langues` dans le JSON de `accueil.py`, ex. « FR · EN · DE »).
-- Traduire une appli dans une nouvelle langue : écrire `<dossier>/<code>.html` (pour Aeon's End : `gen_lang.py`, ci-dessus ; pour une autre appli : `traduire.py` sur `en.html` avec une table), puis `lang.py <dossier>` et `chrome.py <dossier>` (le bouton et la redirection de toutes les pages de l'appli prennent la nouvelle langue), mettre `"<jeu>": "<code>"` dans `_apps` et lancer `home_lang.py`, ajouter la page à `sitemap.xml` et à `PRECACHE` dans `sw.js` (et changer `VERSION`). Vérifier le vouvoiement (`vouvoiement.py`, `sie.py`).
+- Traduire une appli dans une nouvelle langue : écrire `<dossier>/<code>.html` (pour Aeon's End : `gen_lang.py`, ci-dessus ; pour une autre appli : `traduire.py` sur `en.html` avec une table), puis `lang.py <dossier>` et `chrome.py <dossier>` (le bouton et la redirection de toutes les pages de l'appli prennent la nouvelle langue), mettre `"<jeu>": "<code>"` dans `_apps` et lancer `home_lang.py`, lancer `seo.py` (sitemap et cache hors ligne suivent tout seuls). Vérifier le vouvoiement (`vouvoiement.py`, `sie.py`).

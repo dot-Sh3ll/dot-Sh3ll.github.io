@@ -14,6 +14,8 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 
 *Créations de fan non officielles, sans lien avec les éditeurs des jeux concernés.*
 
+**Pour travailler sur le site, lire d'abord `CLAUDE.md`** (architecture, conventions, commandes, procédures).
+
 ## Règles de rédaction
 
 - On **vouvoie** toujours le lecteur, dans les applis, les fiches et la page d'accueil (jamais de tutoiement), dans toutes les langues : « vous » en français, « Sie » en allemand. `python3 outils/site/vouvoiement.py scan <fichier>` vérifie qu'il ne reste rien au tutoiement.
