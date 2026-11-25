@@ -76,6 +76,9 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(-
 .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,3.6vw,2.3rem);line-height:1.15;margin:0 0 8px}
 .hero p{margin:0;color:var(--muted);max-width:640px}
 .hero p.accroche{color:var(--ink);font-size:1.08rem;line-height:1.5;margin:0 0 10px;max-width:680px}
+.hero .atouts{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.hero .atouts li{display:inline-flex;align-items:center;gap:7px;padding:6px 13px 6px 10px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--surface,#fff) 70%,transparent);font-size:.92rem;font-weight:600;color:var(--ink)}
+.hero .atouts .ic{font-size:1rem;line-height:1}
 
 /* --- recherche et filtres --- */
 .filters{position:sticky;top:57px;z-index:5;margin:0 0 30px;padding:10px 0;background:rgba(13,15,22,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -207,7 +210,7 @@ footer p{margin:0 0 6px}
 <section class="wrap hero">
   <h1><span class="fr">Apprenez le jeu en jouant.</span><span class="en">Learn the game by playing it.</span></h1>
   <p class="accroche"><span class="fr">Tutoriels interactifs, cas pratiques et mini-quiz : à la fin, vous saurez jouer, sans rouvrir le livret ni interroger une IA en pleine partie.</span><span class="en">Interactive tutorials, worked examples and mini-quizzes: by the end, you'll know how to play, with no need to reopen the rulebook or ask an AI mid-game.</span></p>
-  <p><span class="fr">Tutoriels interactifs, compagnons solo et fiches à imprimer pour les jeux experts : Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 et Nemesis: Retaliation. Gratuit, en français et en anglais, directement dans le navigateur.</span><span class="en">Interactive tutorials, solo companions and printable sheets for heavy games: Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 and Nemesis: Retaliation. Free, in English and French, right in your browser.</span></p>
+  <ul class="atouts"><li><span class="ic" aria-hidden="true">📖</span><span class="fr">Tutoriels complets et interactifs</span><span class="en">Complete, interactive tutorials</span></li><li><span class="ic" aria-hidden="true">🤖</span><span class="fr">Automas pour jouer en solo</span><span class="en">Automas for solo play</span></li><li><span class="ic" aria-hidden="true">🧰</span><span class="fr">Outils de partie</span><span class="en">In-game tools</span></li><li><span class="ic" aria-hidden="true">🖨️</span><span class="fr">Fiches à imprimer</span><span class="en">Printable sheets</span></li></ul>
   <!--soon--><!--/soon-->
 </section>
 
