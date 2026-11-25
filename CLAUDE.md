@@ -66,6 +66,7 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 | `<!--pwa-->…<!--/pwa-->` | `outils/site/pwa.py` | manifest, icônes, service worker, **GoatCounter** (code `shell`) |
 | `<footer class="lrmp-pied">` | `outils/site/pied.py` | retour, « Signaler un problème » (formulaire avec le jeu choisi), Ko-fi, mention fan |
 | `<!--fiches-->…<!--/fiches-->` | `outils/site/fiches.py` | encart « À imprimer » de l'aide-mémoire, rappel en fin de tutoriel |
+| `/*precisions*/…/*/precisions*/` (script de Mage Knight) | `outils/mage-knight/precisions.py` | encadré « À ne pas oublier », bloc replié « Précisions (n) » par chapitre, chapitre facultatif « Cas épineux » (partie « Pour aller plus loin », après le Glossaire) |
 | `<!--schemas-->…<!--/schemas-->` | `outils/site/schemas.py` | schémas SVG des tutoriels Mage Knight, Imperium, Puerto Rico, insérés sous les règles du chapitre |
 | `<!--theme-->…<!--/theme-->`, `#lrmp-theme`, `#theme-js` | `outils/site/theme.py` | bouton de thème clair / sombre d'Imperium, Aeon's End et Mage Knight (palettes : `outils/site/themes/<code>.css`) |
 
@@ -102,6 +103,7 @@ Toujours depuis la racine du dépôt.
 | Barre du site + feuilles communes + polices d'une appli | `python3 outils/site/chrome.py <dossier>` |
 | Pied de page | `python3 outils/site/pied.py <dossier> "<option du formulaire>"` |
 | Schémas des tutoriels Mage Knight, Imperium, Puerto Rico | `python3 outils/site/schemas.py <dossier>` ou `--tout` (à relancer après `build_mk.sh`, `build_imp.sh` ; le `build.sh` de Puerto Rico le fait) |
+| Mage Knight : « À ne pas oublier », « Précisions » et chapitre « Cas épineux » (compendium BGG) | `python3 outils/mage-knight/precisions.py` (contenu FR et EN dans le script ; à relancer après `build_mk.sh`) |
 | Bouton de thème (Imperium, Aeon's End, Mage Knight) | `python3 outils/site/theme.py <dossier>` ou `--tout` (à relancer après `build_imp.sh`, `build_mk.sh`, `gen_lang.py`) |
 | Accueil : carte d'appli, de fiche, date de mise à jour | `python3 outils/site/accueil.py appli\|fiche <json>` ; `accueil.py maj <dossier ou pdf>` (badge « Mis à jour ») — ne pas couper sa sortie avec `\| head` |
 | Images de partage | `python3 outils/site/og_images.py` (Playwright) |

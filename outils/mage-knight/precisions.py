@@ -70,8 +70,8 @@ CH = [
              "Fame and Reputation are earned for each enemy defeated, even if others survive. A site's reward, however, requires defeating all its defenders.",
              "During an assault, rampaging enemies you fail to beat do not stop you from conquering the site."]},
  {"fr": "Blessures", "en": "Wounds",
-  "att_fr": "Chaque attaque se convertit en Blessures séparément. Contre une Armure de 4, des attaques de 3, 4, 5 et 6 font 1 + 1 + 2 + 2 = 6 Blessures, pas 18 ÷ 4 = 5.",
-  "att_en": "Each attack is turned into Wounds separately. Against Armor 4, attacks of 3, 4, 5 and 6 give 1 + 1 + 2 + 2 = 6 Wounds, not 18 ÷ 4 = 5.",
+  "att_fr": "Chaque attaque se convertit en Blessures séparément. Si votre Héros a une Armure de 4, des attaques de 3, 4, 5 et 6 lui font 1 + 1 + 2 + 2 = 6 Blessures, pas 18 ÷ 4 = 5.",
+  "att_en": "Each attack is turned into Wounds separately. If your Hero has Armor 4, attacks of 3, 4, 5 and 6 give it 1 + 1 + 2 + 2 = 6 Wounds, not 18 ÷ 4 = 5.",
   "faq_fr": ["Pour une même attaque, les Unités encaissent d'abord ; dès que le Héros en prend une part, tout le reste de cette attaque va au Héros.",
              "Les Blessures que Toxique envoie dans votre défausse ne comptent pas pour être Assommé. On n'est Assommé qu'une fois par tour, et Unités et Compétences restent utilisables.",
              "En vous Reposant, vous annoncez seulement que vous vous reposez : vous pouvez d'abord jouer des Soins, puis choisir le Repos Standard ou le Repos Prolongé.",
@@ -172,7 +172,7 @@ EPINEUX = {
   "quiz": [
    {"q": "Vous battez des Orques Maraudeurs provoqués en chemin. Où se trouve votre Héros après le combat ?", "o": ["Sur la case des Orques", "Sur la case où il s'est arrêté", "Sur sa case de départ"], "a": 1,
     "why": "Vaincre un ennemi errant ne vous fait jamais entrer sur sa case. Voir le chapitre « Le combat »."},
-   {"q": "Armure 4. Trois attaques non parées de 3, 5 et 6. Combien de Blessures ?", "o": ["4", "5", "6"], "a": 1,
+   {"q": "Votre Héros a une Armure de 4. Trois attaques non parées de 3, 5 et 6 le visent. Combien de Blessures ?", "o": ["4", "5", "6"], "a": 1,
     "why": "Chaque attaque séparément : 1 + 2 + 2 = 5. Additionner d'abord (14 ÷ 4 = 4) serait une erreur. Voir le chapitre « Blessures »."},
    {"q": "Vous avez 7 cartes en main pour une Limite de 5. Que se passe-t-il en fin de tour ?", "o": ["Vous défaussez 2 cartes", "Vous gardez vos 7 cartes et ne piochez pas", "Vous défaussez toute votre main"], "a": 1,
     "why": "La Limite ne force jamais à défausser. Voir le chapitre « Le tour »."},
@@ -192,7 +192,7 @@ EPINEUX = {
   "quiz": [
    {"q": "You defeat Orc Marauders you provoked on the way. Where is your Hero after the combat?", "o": ["On the Orcs' space", "On the space where it stopped", "On its starting space"], "a": 1,
     "why": "Defeating a rampaging enemy never moves you onto its space. See the \"Combat\" chapter."},
-   {"q": "Armor 4. Three unblocked attacks of 3, 5 and 6. How many Wounds?", "o": ["4", "5", "6"], "a": 1,
+   {"q": "Your Hero has Armor 4. Three unblocked attacks of 3, 5 and 6 target it. How many Wounds?", "o": ["4", "5", "6"], "a": 1,
     "why": "Each attack separately: 1 + 2 + 2 = 5. Adding them first (14 ÷ 4 = 4) would be wrong. See the \"Wounds\" chapter."},
    {"q": "You hold 7 cards with a Hand Limit of 5. What happens at the end of the turn?", "o": ["You discard 2 cards", "You keep your 7 cards and draw nothing", "You discard your whole hand"], "a": 1,
     "why": "The Hand Limit never forces a discard. See \"The turn\" chapter."},
@@ -246,7 +246,8 @@ def apply(lang):
     s = s.replace(tp, tp + bloc(lang))
     # le chapitre facultatif, à la toute fin du parcours
     part = UI[lang]["part"]
-    s = re.sub(r",\s*\['" + re.escape(part) + r"',\['[^']*'\]\]\];", "];", s)
+    for pp in {u["part"] for u in UI.values()}:  # build_mk.sh recopie la partie française dans en.html
+        s = re.sub(r",\s*\['" + re.escape(pp) + r"',\['[^']*'\]\]\];", "];", s)
     m = re.search(r"(const PARTS=\[.*?)\];", s, re.S)
     s = s[:m.end(1)] + f",\n ['{part}',['{EPINEUX[lang]['t']}']]" + s[m.end(1):]
     # affichage dans le chapitre
