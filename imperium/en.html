@@ -2599,6 +2599,7 @@ document.querySelectorAll('.ftabs button').forEach(b=>b.onclick=()=>show(+b.data
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Enjoyed this tool? Buy me a coffee</a>
 <small>Unofficial, free fan-made tool, not affiliated with the game's publisher.</small>
 </footer>
+<script id="theme-js">(function(){var M=['auto','dark','light'],K='imp-theme',N={auto:'automatic',dark:'dark',light:'light'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Theme: '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 <!--fiches-->
 <script>
 (function(){var F=[{"i": "📜", "t": "Game aid", "d": "Your turn, the three orders, Cleanup, Solstice, reshuffling your deck, the Market and game end. 2 pages.", "u": "../fiches/imperium-game-aid.pdf", "x": ""}, {"i": "📖", "t": "Keywords", "d": "The 37 card keywords, from Abandon to Steal, exactly as the rules define them. 2 pages.", "u": "../fiches/imperium-keywords.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".endnav button[data-done]:not([data-go])", ".endnav"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
@@ -2614,6 +2615,5 @@ run();new MutationObserver(function(){requestAnimationFrame(run)}).observe(docum
 })();
 </script>
 <!--/fiches-->
-<script id="theme-js">(function(){var M=['auto','dark','light'],K='imp-theme',N={auto:'automatic',dark:'dark',light:'light'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Theme: '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 </body>
 </html>

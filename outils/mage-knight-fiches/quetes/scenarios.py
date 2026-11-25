@@ -18,8 +18,8 @@ from quetes import H, ROOT, to_html, render, pied
 
 PAGES = ["9-scen-solo", "10-scen-solo-suite", "11-scen-coop", "12-scen-coop-suite"]
 
-# Dans le PDF, les règles du module sont dans la fiche « Module de quêtes », pas dans les « fiches 7 à 10 » de l'artefact.
-CORRECTIFS_FR = [("(fiches 7 à 10)", "(fiche « Module de quêtes »)")]
+# Dans le PDF, les règles du module sont aux pages 1 à 8 du même document, pas dans les « fiches 7 à 10 » de l'artefact.
+CORRECTIFS_FR = [("(fiches 7 à 10)", "(règles du module, pages 1 à 8)")]
 
 EN = [
  ("Mage Knight, Quêtes : scénarios solo (suite)", "Mage Knight, Quests: solo scenarios (continued)"),
@@ -41,8 +41,8 @@ EN = [
   "<b>Rulebook solo setup:</b> one Dummy player. You choose your Tactic first, it draws one at random, and both are removed for the rest of the game. Remove the four interactive Spells (no. 17 to 20) and your Hero's interactive Skill."),
  ("<b>Cadre coopératif du livret :</b> un joueur Fantôme, qui tire sa Tactique au hasard avant vous. À la fin de chaque Manche, retirez du jeu une des Tactiques utilisées par les joueurs. Retirez les quatre Sorts interactifs (n° 17 à 20) et la Compétence interactive de chaque Héros. Pas de combat entre joueurs.",
   "<b>Rulebook co-op setup:</b> one Dummy player, who draws its Tactic at random before you. At the end of each Round, remove from the game one of the Tactics the players used. Remove the four interactive Spells (no. 17 to 20) and each Hero's interactive Skill. No combat between players."),
- ("<b>Module Quêtes obligatoire</b>, en mode Normal par défaut (fiche « Module de quêtes »). Les niveaux de Cité indiqués tiennent déjà compte des quêtes : pas de +1.",
-  "<b>Quest module required</b>, in Normal mode by default (see the “Quest module” sheet). The City levels given already account for the quests: no +1."),
+ ("<b>Module Quêtes obligatoire</b>, en mode Normal par défaut (règles du module, pages 1 à 8). Les niveaux de Cité indiqués tiennent déjà compte des quêtes : pas de +1.",
+  "<b>Quest module required</b>, in Normal mode by default (module rules, pages 1 to 8). The City levels given already account for the quests: no +1."),
  ("Un site ne propose des quêtes <b>qu'une seule fois pour toute l'équipe</b>.", "A site offers quests <b>only once for the whole team</b>."),
  ("<b>Coup de main :</b> un Héros sur la même case qu'un autre peut, pendant son propre tour, produire une partie des valeurs hors combat (Parade, Déplacement, Influence, Soin…) demandées par la quête de son allié.",
   "<b>Helping hand:</b> a Hero on the same space as another may, during their own turn, generate part of the values outside combat (Block, Move, Influence, Heal…) that their ally's quest requires."),
@@ -120,7 +120,8 @@ EN = [
   "as soon as the goal is met, each player plays one last turn, not the Dummy. Otherwise, at the end of the 6<sup>th</sup> Round."),
 ]
 
-def main():
+def pages(label_fr, label_en, start, total):
+    """Les 4 pages de scénarios (FR, EN), numérotées start…start+3 sur total, pour le PDF unique du module."""
     fr_pages, en_pages, used = [], [], set()
     for p in PAGES:
         dc = open(os.path.join(H, "fr", p + ".html"), encoding="utf-8").read()
@@ -128,16 +129,20 @@ def main():
         en = dc
         for i, (a, b) in enumerate(EN):
             if a in en: used.add(i); en = en.replace(a, b)
-        n = PAGES.index(p) + 1
-        dc, en = pied(dc, f"Scénarios du module de quêtes · {n}/{len(PAGES)}"), pied(en, f"Quest module scenarios · {n}/{len(PAGES)}")
+        n = start + PAGES.index(p)
+        dc, en = pied(dc, f"{label_fr} · {n}/{total}"), pied(en, f"{label_en} · {n}/{total}")
         fr_pages.append(to_html(dc, "fr")); en_pages.append(to_html(en, "en"))
         os.makedirs(os.path.join(H, "en"), exist_ok=True)
         open(os.path.join(H, "en", p + ".html"), "w", encoding="utf-8").write(en.replace('<html lang="fr">', '<html lang="en">'))
     missing = [EN[i][0] for i in range(len(EN)) if i not in used]
     for m in missing: print("[en] texte introuvable →", m[:90])
-    asyncio.run(render(fr_pages, os.path.join(ROOT, "fiches/mage-knight-scenarios-quetes.pdf")))
-    asyncio.run(render(en_pages, os.path.join(ROOT, "fiches/mage-knight-quest-scenarios.pdf")))
-    if missing: sys.exit("Des textes sont introuvables : mettre à jour EN.")
+    return fr_pages, en_pages, not missing
+
+
+def main():
+    """Les scénarios font maintenant partie du PDF unique du module : voir quetes.py."""
+    from quetes import main as module
+    module()
 
 if __name__ == "__main__":
     main()

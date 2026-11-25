@@ -2599,6 +2599,7 @@ document.querySelectorAll('.ftabs button').forEach(b=>b.onclick=()=>show(+b.data
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Cet outil vous a plu ? Offrez-moi un café</a>
 <small>Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</small>
 </footer>
+<script id="theme-js">(function(){var M=['auto','dark','light'],K='imp-theme',N={auto:'automatique',dark:'sombre',light:'clair'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Thème : '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 <!--fiches-->
 <script>
 (function(){var F=[{"i": "📜", "t": "Aide de jeu", "d": "Votre tour, les trois ordres, le Nettoyage, le Solstice, le mélange du deck, le Marché et la fin de partie. 2 pages.", "u": "../fiches/imperium-aide-de-jeu.pdf", "x": ""}, {"i": "📖", "t": "Mots-clés", "d": "Les 37 mots-clés des cartes, d&#x27;Abandonner à Voler, au sens exact des règles. 2 pages.", "u": "../fiches/imperium-mots-cles.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".endnav button[data-done]:not([data-go])", ".endnav"]},T={"k": "À imprimer", "aide": "Vous préférez le papier ? Ces fiches A5 se gardent près du plateau pendant la partie.", "fin_t": "Prêt pour votre première partie ?", "fin": "Imprimez les fiches et gardez-les près du plateau :", "dl": "PDF", "frtag": ""};
@@ -2614,6 +2615,5 @@ run();new MutationObserver(function(){requestAnimationFrame(run)}).observe(docum
 })();
 </script>
 <!--/fiches-->
-<script id="theme-js">(function(){var M=['auto','dark','light'],K='imp-theme',N={auto:'automatique',dark:'sombre',light:'clair'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Thème : '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 </body>
 </html>

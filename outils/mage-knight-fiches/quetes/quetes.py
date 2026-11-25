@@ -4,7 +4,9 @@
 Sources : fr/*.html = les 8 pages A5QuetesXXX.dc.html de l'artefact, copiées telles quelles (1-regles … 8-III-nuit).
 Pour mettre à jour : recopier les pages modifiées de l'artefact dans fr/, puis lancer depuis la racine du dépôt
     python3 outils/mage-knight-fiches/quetes/quetes.py
-→ fiches/mage-knight-module-quetes.pdf et fiches/mage-knight-quest-module.pdf (pied de page du gabarit dans chaque page).
+→ fiches/mage-knight-module-quetes.pdf et fiches/mage-knight-quest-module.pdf (pied de page du gabarit dans chaque page) :
+  règles (pages 1 à 8) puis scénarios (pages 9 à 12, scenarios.py), un seul PDF. Les anciennes adresses des scénarios
+  (mage-knight-scenarios-quetes.pdf, mage-knight-quest-scenarios.pdf) reçoivent le même PDF pour ne casser aucun lien.
 
 CORRECTIFS_FR : retouches appliquées au français avant l'impression (coquilles, pas de mention de BGG).
 EN : table de traduction (texte français → anglais), page par page. Une phrase française introuvable est signalée :
@@ -17,6 +19,7 @@ H = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(H, "..", "..", ".."))
 NM = os.path.join(H, "..", "node_modules", "@fontsource")
 PAGES = ["1-regles", "2-bareme", "3-I-jour", "4-I-nuit", "5-II-jour", "6-II-nuit", "7-III-jour", "8-III-nuit"]
+TOTAL = len(PAGES) + 4  # + les 4 pages de scénarios (scenarios.py), dans le même PDF
 
 CORRECTIFS_FR = {
  "1-regles": [
@@ -368,12 +371,18 @@ def main():
         en, _ = apply(en, TETE_JOUR_NUIT, p, "en", strict=False)
         ok = ok and o1 and o2
         n = PAGES.index(p) + 1
-        fr, en = pied(fr, f"Module de quêtes · {n}/{len(PAGES)}"), pied(en, f"Quest module · {n}/{len(PAGES)}")
+        fr, en = pied(fr, f"Module de quêtes · {n}/{TOTAL}"), pied(en, f"Quest module · {n}/{TOTAL}")
         fr_pages.append(to_html(fr, "fr")); en_pages.append(to_html(en, "en"))
         os.makedirs(os.path.join(H, "en"), exist_ok=True)
         open(os.path.join(H, "en", p + ".html"), "w", encoding="utf-8").write(en.replace('<html lang="fr">', '<html lang="en">'))
-    asyncio.run(render(fr_pages, os.path.join(ROOT, "fiches/mage-knight-module-quetes.pdf")))
-    asyncio.run(render(en_pages, os.path.join(ROOT, "fiches/mage-knight-quest-module.pdf")))
+    # Scénarios (pages 9 à 12) dans le même PDF
+    import scenarios
+    sf, se, o3 = scenarios.pages("Module de quêtes", "Quest module", len(PAGES) + 1, TOTAL)
+    fr_pages += sf; en_pages += se; ok = ok and o3
+    for nom in ("mage-knight-module-quetes.pdf", "mage-knight-scenarios-quetes.pdf"):  # ancienne adresse des scénarios : même PDF, aucun lien cassé
+        asyncio.run(render(fr_pages, os.path.join(ROOT, "fiches", nom)))
+    for nom in ("mage-knight-quest-module.pdf", "mage-knight-quest-scenarios.pdf"):
+        asyncio.run(render(en_pages, os.path.join(ROOT, "fiches", nom)))
     if not ok: sys.exit("Des textes sont introuvables : mettre à jour CORRECTIFS_FR ou EN.")
 
 if __name__ == "__main__":

@@ -2499,9 +2499,10 @@ S=load()||blank();render();
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Enjoyed this tool? Buy me a coffee</a>
 <small>Unofficial, free fan-made tool, not affiliated with the game's publisher.</small>
 </footer>
+<script id="theme-js">(function(){var M=['dark','light'],K='mk-theme',N={auto:'automatic',dark:'dark',light:'light'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Theme: '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 <!--fiches-->
 <script>
-(function(){var F=[{"i": "🗺️", "t": "Game aid", "d": "Summaries of the turn, movement, combat, sites and enemy abilities. 8 pages.", "u": "../fiches/mage-knight-game-aid.pdf", "x": ""}, {"i": "📜", "t": "Homemade quest module", "d": "Module rules, reward table, and Day and Night quests across three tiers: villages, monasteries, cities. 8 pages.", "u": "../fiches/mage-knight-quest-module.pdf", "x": ""}, {"i": "🗺️", "t": "Quest module scenarios", "d": "Six homemade scenarios to play with the quests: three solo, three two-player co-op, with setup, rules and game end. 4 pages.", "u": "../fiches/mage-knight-quest-scenarios.pdf", "x": ""}],C={"aide": "#app-aide header.top", "fin": ["#c-bot button.primary[data-chap=\"free\"]", ".row"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
+(function(){var F=[{"i": "🗺️", "t": "Game aid", "d": "Summaries of the turn, movement, combat, sites and enemy abilities. 8 pages.", "u": "../fiches/mage-knight-game-aid.pdf", "x": ""}, {"i": "📜", "t": "Homemade quest module", "d": "Module rules, reward table, Day and Night quests across three tiers (villages, monasteries, cities) and six homemade scenarios: three solo, three two-player co-op. 12 pages.", "u": "../fiches/mage-knight-quest-module.pdf", "x": ""}],C={"aide": "#app-aide header.top", "fin": ["#c-bot button.primary[data-chap=\"free\"]", ".row"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
 function box(kind){var a=document.createElement('aside');a.className='lrmp-fiches';a.dataset.kind=kind;
  a.innerHTML='<p class="k">'+(kind==='fin'?T.fin_t:T.k)+'</p><p class="t">'+(kind==='fin'?T.fin:T.aide)+'</p><ul>'+F.map(function(f){
   return '<li><span class="i" aria-hidden="true">'+f.i+'</span><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}
@@ -2514,6 +2515,5 @@ run();new MutationObserver(function(){requestAnimationFrame(run)}).observe(docum
 })();
 </script>
 <!--/fiches-->
-<script id="theme-js">(function(){var M=['dark','light'],K='mk-theme',N={auto:'automatic',dark:'dark',light:'light'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Theme: '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 </body>
 </html>
