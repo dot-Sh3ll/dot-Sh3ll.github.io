@@ -9,14 +9,14 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#fff}
-.pg{width:559px;height:794px;box-sizing:border-box;padding:26px 28px 20px;background:#fff;color:#1c1b22;font-family:Figtree,sans-serif;font-size:12px;line-height:1.25;overflow:hidden;display:flex;flex-direction:column;gap:5px}
-.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1b22;padding-bottom:5px}
-.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5a5566;text-align:right}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:26px 28px 20px;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.25;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#4b4e58;text-align:right}
 h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
-h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#2b2860;border-bottom:1px solid #b9a678;padding-bottom:1px}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#52789d;border-bottom:1px solid #b9a678;padding-bottom:1px}
 ul,ol{margin:0;padding-left:15px}
 li{margin:0 0 2px}
 p{margin:0 0 2px}
@@ -24,18 +24,18 @@ b{font-weight:700}
 table{width:100%;border-collapse:collapse;font-size:12px}
 th,td{border:1px solid #9c97a6;padding:2px 5px;text-align:left;vertical-align:top}
 th{background:#efeadf;font-weight:700}
-.box{border:1px solid #1c1b22;border-radius:6px;padding:5px 8px}
-.hi{border:2px solid #2b2860;border-radius:8px;padding:6px 9px;background:#f4f3fa}
-.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1b22;vertical-align:-1px;margin:0 3px 0 0}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #52789d;border-radius:8px;padding:6px 9px;background:#f4f3fa}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1d22;vertical-align:-1px;margin:0 3px 0 0}
 .gain{color:#1d6b35;font-weight:700}
-.band{background:#2b2860;color:#fff;border-radius:5px;padding:2px 9px;font-family:Marcellus,serif;font-size:14px}
-.row{display:grid;grid-template-columns:14px minmax(0,1fr) minmax(0,1fr);gap:0 9px;border-bottom:1px solid #c9c4d2;padding:4px 0 5px}
+.band{background:#52789d;color:#fff;border-radius:5px;padding:2px 9px;font-family:Marcellus,serif;font-size:14px}
+.row{display:grid;grid-template-columns:14px minmax(0,1fr) minmax(0,1fr);gap:0 9px;border-bottom:1px solid #c9cdd6;padding:4px 0 5px}
 .q{display:flex;flex-direction:column;gap:1px}
-.qt{display:flex;gap:4px;align-items:flex-start;color:#2b2860;font-weight:700}
-.lt{font-family:Marcellus,serif;font-weight:400;color:#8a6d1f}
-.var{margin-top:2px;padding:1px 5px;border:1px dashed #8a6d1f;border-radius:4px;color:#3d3420}
-.var b{color:#8a6d1f}
-.foot{display:flex;justify-content:space-between;font-size:12px;color:#5a5566;border-top:1px solid #c9c4d2;padding-top:4px;margin-top:auto}
+.qt{display:flex;gap:4px;align-items:flex-start;color:#52789d;font-weight:700}
+.lt{font-family:Marcellus,serif;font-weight:400;color:#3e5b77}
+.var{margin-top:2px;padding:1px 5px;border:1px dashed #3e5b77;border-radius:4px;color:#1c1d22}
+.var b{color:#3e5b77}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#4b4e58;border-top:1px solid #c9cdd6;padding-top:4px;margin-top:auto}
 </style>
 </helmet>
 <div class="pg">
@@ -58,7 +58,7 @@ th{background:#efeadf;font-weight:700}
 </ul>
 <div class="band">Reading a quest</div>
 <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px">
-<div class="qt"><span style="flex:none">🏠</span><span style="color:#1c1b22;font-weight:400"><b>On site</b>: at the quest's site</span></div>
+<div class="qt"><span style="flex:none">🏠</span><span style="color:#1c1d22;font-weight:400"><b>On site</b>: at the quest's site</span></div>
 <div class="qt"><span style="flex: 0 0 auto">🗺️</span><span style="color: rgb(28, 27, 34); font-weight: 400"><b>Elsewhere</b>: you have to travel</span></div>
 </div>
 
@@ -71,6 +71,7 @@ th{background:#efeadf;font-weight:700}
 <li>🎖️ <b>Feat</b>: the condition is added to the site's normal rules.</li>
 </ul>
 
+<footer style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#52789d;border-top:1px solid #52789d;padding-top:4px;margin-top:auto"><span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>Quest module · 2/8</span></footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>

@@ -4,12 +4,12 @@
 Sources : fr/*.html = les 8 pages A5QuetesXXX.dc.html de l'artefact, copiées telles quelles (1-regles … 8-III-nuit).
 Pour mettre à jour : recopier les pages modifiées de l'artefact dans fr/, puis lancer depuis la racine du dépôt
     python3 outils/mage-knight-fiches/quetes/quetes.py
-→ fiches/mage-knight-module-quetes.pdf et fiches/mage-knight-quest-module.pdf (pied de page du site ajouté).
+→ fiches/mage-knight-module-quetes.pdf et fiches/mage-knight-quest-module.pdf (pied de page du gabarit dans chaque page).
 
 CORRECTIFS_FR : retouches appliquées au français avant l'impression (coquilles, pas de mention de BGG).
 EN : table de traduction (texte français → anglais), page par page. Une phrase française introuvable est signalée :
      la page a changé dans l'artefact, il faut mettre la paire à jour.
-Polices : npm install @fontsource/marcellus @fontsource/figtree dans outils/mage-knight-fiches/.
+Polices : commun/polices (celles du site). Gabarit : outils/fiches-gabarit (bleu Mage Knight #52789d, titres Marcellus, texte Source Sans 3).
 """
 import os, re, sys, subprocess, asyncio, tempfile
 
@@ -308,14 +308,21 @@ EN = {
  ],
 }
 
+POL = os.path.join(ROOT, "commun", "polices")  # polices du site
+
 def font_css():
-    f = lambda p: "file://" + os.path.join(NM, p)
+    f = lambda n: "file://" + os.path.join(POL, n)
     return ('<style>@font-face{font-family:"Marcellus";src:url("%s") format("woff2")}'
-            '@font-face{font-family:"Figtree";font-weight:400;src:url("%s") format("woff2")}'
-            '@font-face{font-family:"Figtree";font-weight:600;src:url("%s") format("woff2")}'
-            '@font-face{font-family:"Figtree";font-weight:700;src:url("%s") format("woff2")}</style>') % (
-        f("marcellus/files/marcellus-latin-400-normal.woff2"), f("figtree/files/figtree-latin-400-normal.woff2"),
-        f("figtree/files/figtree-latin-600-normal.woff2"), f("figtree/files/figtree-latin-700-normal.woff2"))
+            '@font-face{font-family:"Source Sans 3";font-weight:200 900;src:url("%s") format("woff2")}'
+            '@font-face{font-family:"Source Sans 3";font-style:italic;font-weight:200 900;src:url("%s") format("woff2")}</style>') % (
+        f("marcellus-latin.woff2"), f("source-sans-3-latin.woff2"), f("source-sans-3-italic-latin.woff2"))
+
+def pied(dc, label):
+    """Pied de page du gabarit commun (outils/fiches-gabarit) en bas de la page, dans la couleur de la fiche."""
+    i = dc.rindex("</div>", 0, dc.index("</x-dc>"))
+    return dc[:i] + ('<footer style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#52789d;'
+                     'border-top:1px solid #52789d;padding-top:4px;margin-top:auto">'
+                     f'<span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>{label}</span></footer>\n') + dc[i:]  # <footer> : ne compte pas dans les :last-of-type des div
 
 def to_html(dc, lang):
     """Page Design (.dc.html) -> page HTML simple : le <helmet> passe dans <head>, sans script ni polices en ligne."""
@@ -349,8 +356,7 @@ async def render(pages, out):
     w = PdfWriter()
     for f in files:
         r = PdfReader(f); w.add_page(r.pages[0])
-    raw = os.path.join(tmp, "raw.pdf"); w.write(raw)
-    subprocess.run([sys.executable, os.path.join(ROOT, "outils/site/pdf_footer.py"), raw, out], check=True)
+    w.write(out)  # le pied de page est dans chaque page (pied())
     print("écrit", os.path.relpath(out, ROOT), len(pages), "pages")
 
 def main():
@@ -361,6 +367,8 @@ def main():
         en, o2 = apply(fr, EN[p], p, "en")
         en, _ = apply(en, TETE_JOUR_NUIT, p, "en", strict=False)
         ok = ok and o1 and o2
+        n = PAGES.index(p) + 1
+        fr, en = pied(fr, f"Module de quêtes · {n}/{len(PAGES)}"), pied(en, f"Quest module · {n}/{len(PAGES)}")
         fr_pages.append(to_html(fr, "fr")); en_pages.append(to_html(en, "en"))
         os.makedirs(os.path.join(H, "en"), exist_ok=True)
         open(os.path.join(H, "en", p + ".html"), "w", encoding="utf-8").write(en.replace('<html lang="fr">', '<html lang="en">'))

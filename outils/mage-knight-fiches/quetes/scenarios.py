@@ -14,7 +14,7 @@ une phrase introuvable dans toutes les pages est signalée (la page a changé da
 """
 import os, sys, asyncio
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from quetes import H, ROOT, to_html, render
+from quetes import H, ROOT, to_html, render, pied
 
 PAGES = ["9-scen-solo", "10-scen-solo-suite", "11-scen-coop", "12-scen-coop-suite"]
 
@@ -128,6 +128,8 @@ def main():
         en = dc
         for i, (a, b) in enumerate(EN):
             if a in en: used.add(i); en = en.replace(a, b)
+        n = PAGES.index(p) + 1
+        dc, en = pied(dc, f"Scénarios du module de quêtes · {n}/{len(PAGES)}"), pied(en, f"Quest module scenarios · {n}/{len(PAGES)}")
         fr_pages.append(to_html(dc, "fr")); en_pages.append(to_html(en, "en"))
         os.makedirs(os.path.join(H, "en"), exist_ok=True)
         open(os.path.join(H, "en", p + ".html"), "w", encoding="utf-8").write(en.replace('<html lang="fr">', '<html lang="en">'))

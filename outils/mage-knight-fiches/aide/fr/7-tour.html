@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Manche, tour et mana</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:26px 28px 20px;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.3;overflow:hidden;display:flex;flex-direction:column;gap:8px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4b4e58}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#52789d;border-bottom:1px solid #b9cde0;padding-bottom:1px}
+h3{font-family:Marcellus,serif;font-weight:400;font-size:14px;margin:0 0 2px;color:#52789d}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:1px 5px;text-align:left;vertical-align:top}
+th{background:#f2f7fd;font-weight:700}
+.c{text-align:center}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #52789d;border-radius:8px;padding:6px 9px;background:#f2f7fd}
+.f{font-family:Marcellus,serif;font-size:15px;text-align:center;margin:2px 0}
+.note{color:#4b4e58}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1d22;vertical-align:-1px;margin:0 3px 0 0}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#4b4e58;border-top:1px solid #c9cdd6;padding-top:4px;margin-top:auto}
+
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Manche, tour et mana</h1></div></div>
+
+<div class="box">
+<h2>La Manche</h2>
+<ol>
+<li><b>Préparation</b> : Jour/Nuit alternent. Relancez la Source (moitié des dés au moins en couleur fondamentale). Nouvelle Offre d'Unités.</li>
+<li><b>Tactiques</b> : le moins de Gloire choisit d'abord ; le plus petit numéro joue en premier.</li>
+<li><b>Fin</b> : début de votre tour, paquet vide → annoncez-la. Les autres jouent un dernier tour, puis on remélange tout.</li>
+</ol>
+</div>
+
+<div class="two">
+<div class="hi">
+<h3>Tour normal</h3>
+<p><b>1. Mouvement</b> (facultatif)<br><b>2. Une Action</b> (facultative) : combat <i>ou</i> interaction.</p>
+</div>
+<div class="hi">
+<h3>Repos</h3>
+<p>Ni Mouvement ni Action. Défaussez 1 carte non-Blessure + autant de Blessures que vous voulez.</p>
+<p class="note">Que des Blessures : défaussez-en 1.</p>
+</div>
+</div>
+
+<div class="box">
+<h2>Jouer une carte</h2>
+<table>
+<tr><th>Façon</th><th>Coût</th><th>Effet</th></tr>
+<tr><td>Base</td><td>gratuit</td><td>texte du haut</td></tr>
+<tr><td>Puissante</td><td>1 mana de sa couleur</td><td>texte du bas</td></tr>
+<tr><td>De côté</td><td>gratuit</td><td>1 Mouvement, Influence, Attaque ou Parade</td></tr>
+<tr><td>Sort</td><td>1 mana couleur (+ noir)</td><td>base (puissant, de Nuit)</td></tr>
+<tr><td>Artefact</td><td>gratuit (1 mana)</td><td>base (puissant, puis détruit)</td></tr>
+</table>
+</div>
+
+<div class="box">
+<h2>Le mana</h2>
+<p><span class="chip" style="background:#c0392b"></span>Rouge <span class="chip" style="background:#2f6db5"></span>Bleu <span class="chip" style="background:#3a8a3a"></span>Vert <span class="chip" style="background:#fff"></span>Blanc <span class="chip" style="background:#d4ad2f"></span>Or <span class="chip" style="background:#1c1d22"></span>Noir</p>
+<ul>
+<li><b>Source</b> : 1 dé par tour. <b>Cristaux</b> : 3 max par couleur. <b>Jetons</b> : perdus en fin de tour.</li>
+<li><b>Or</b> = n'importe quelle couleur fondamentale, de Jour seulement. <b>Noir</b> : de Nuit seulement (et Donjon, Tombeau).</li>
+</ul>
+</div>
+
+<div class="hi">
+<h2 style="border:0">Fin de votre tour</h2>
+<ol>
+<li>Récompenses : les cartes gagnées vont sur votre paquet.</li>
+<li>Défaussez vos cartes jouées (et d'autres, non-Blessure, si vous voulez).</li>
+<li>Piochez jusqu'à votre limite de main (selon le niveau, +1 par Forteresse proche).</li>
+<li>Relancez le dé utilisé ; jetons Mana perdus.</li>
+<li>Niveau : pair = Compétence + Action Avancée ; impair = Commandement (+ Armure ou main).</li>
+</ol>
+</div>
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,70 +1,76 @@
 #!/usr/bin/env python3
-"""Mage Knight game aid, English edition (8 A5 pages). Rebuilt in HTML after the French sheets (which are images);
+"""Mage Knight game aid, English edition (8 A5 pages). Rebuilt in HTML after the French sheets; style: shared template (outils/fiches-gabarit), Mage Knight blue #52789d, Marcellus + Source Sans 3;
 the site and enemy-ability pictures are cropped from those sheets (ico/).
 usage: python3 gen_mk_en.py  -> mage-knight-game-aid.pdf"""
 import asyncio, os
 from playwright.async_api import async_playwright
 H = os.path.dirname(os.path.abspath(__file__))
-MARC = os.path.join(H, "node_modules/@fontsource/marcellus/files/marcellus-latin-400-normal.woff2")
+POL = os.path.join(H, "..", "..", "commun", "polices")  # polices du site
+MARC = os.path.join(POL, "marcellus-latin.woff2")
 I = lambda n: f'<img src="ico/{n}.png" alt="">'
 
 CSS = """
 @font-face{font-family:"Marcellus";src:url("file://MARCPATH") format("woff2")}
+@font-face{font-family:"Source Sans 3";font-weight:200 900;src:url("file://POLPATH/source-sans-3-latin.woff2") format("woff2")}
+@font-face{font-family:"Source Sans 3";font-style:italic;font-weight:200 900;src:url("file://POLPATH/source-sans-3-italic-latin.woff2") format("woff2")}
 @page{margin:0}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font-family:"Inter",sans-serif;color:#26232f;font-size:7.9pt;line-height:1.27;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.pg{position:relative;width:148mm;height:210mm;overflow:hidden;padding:6mm 7mm 7mm;page-break-after:always;background:#fff}
+body{font-family:"Source Sans 3",sans-serif;color:#1c1d22;font-size:7.9pt;line-height:1.27;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg{position:relative;width:148mm;height:210mm;overflow:hidden;padding:6mm 7mm 10mm;page-break-after:always;background:#fff}
 .pg:last-child{page-break-after:auto}
-.ttl{display:flex;justify-content:space-between;align-items:baseline;border-bottom:.5mm solid #26232f;padding-bottom:1mm;margin-bottom:2mm}
+.ttl{display:flex;justify-content:space-between;align-items:baseline;border-bottom:.5mm solid #1c1d22;padding-bottom:1mm;margin-bottom:2mm}
 .ttl h1{font-family:Marcellus,serif;font-weight:400;font-size:18pt;margin:0;letter-spacing:.01em}
 .ttl span{font-family:Marcellus,serif;font-size:10pt}
-h2{font-family:Marcellus,serif;font-weight:400;font-size:10.6pt;color:#2a275e;margin:0 0 1.3mm;padding-bottom:.6mm;border-bottom:.25mm solid #d8d2c6}
-h3{font-family:Marcellus,serif;font-weight:400;font-size:10pt;color:#2a275e;margin:0 0 1mm;padding-bottom:.4mm;border-bottom:.25mm solid #d8d2c6}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:10.6pt;color:#52789d;margin:0 0 1.3mm;padding-bottom:.6mm;border-bottom:.25mm solid #b9cde0}
+h3{font-family:Marcellus,serif;font-weight:400;font-size:10pt;color:#52789d;margin:0 0 1mm;padding-bottom:.4mm;border-bottom:.25mm solid #b9cde0}
 p{margin:0 0 1mm} ul,ol{margin:0 0 1mm;padding-left:4.5mm} li{margin:0 0 .5mm}
 b{font-weight:700}
 .box{border:.3mm solid #8d8899;border-radius:2mm;padding:1.5mm 2.3mm;margin-bottom:1.8mm}
-.box.strong{border:.6mm solid #2a275e;background:#f3f2f9}
+.box.strong{border:.6mm solid #52789d;background:#f2f7fd}
 .box.warn{border:.5mm solid #9d2b2b;background:#fdf1f1}
 .box.warn b.r{color:#9d2b2b}
 .box.day{border:.4mm solid #c9a24e}
-.box.night{border:.4mm solid #2a275e;background:#f1f0f8}
+.box.night{border:.4mm solid #52789d;background:#f2f7fd}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:2.4mm}
 .g2 .box{margin-bottom:0}
 .walls img{width:13mm;display:block;margin-bottom:1.5mm}
 .hex svg{width:58mm;flex:none}
 .formula{font-family:Marcellus,serif;font-size:10.5pt;margin:.3mm 0 .6mm;text-align:center}
 table{border-collapse:collapse;width:100%;font-size:7.5pt;margin:.5mm 0 1mm}
-th{background:#efebe3;text-align:left;font-weight:700;padding:.45mm 1.2mm;border:.25mm solid #cfc8ba}
-td{padding:.4mm 1.2mm;border:.25mm solid #cfc8ba;vertical-align:top}
+th{background:#f2f7fd;text-align:left;font-weight:700;padding:.45mm 1.2mm;border:.25mm solid #c9cdd6}
+td{padding:.4mm 1.2mm;border:.25mm solid #c9cdd6;vertical-align:top}
 td.c,th.c{text-align:center}
 .green{color:#2f6b2a;font-weight:700}
 .muted{color:#6d6878}
-.bar{background:#2a275e;color:#fff;border-radius:1.6mm;padding:1.1mm 2.6mm;margin:0 0 1.3mm}
+.bar{background:#52789d;color:#fff;border-radius:1.6mm;padding:1.1mm 2.6mm;margin:0 0 1.3mm}
 .bar h2{color:#fff;border:0;margin:0;padding:0;font-size:12pt}
 .bar p{margin:.3mm 0 0;font-weight:700;font-size:8pt}
 .sites{display:grid;grid-template-columns:1fr 1fr;gap:1.2mm 3mm;margin-bottom:2mm}
 .site{display:grid;grid-template-columns:13mm 1fr;gap:2mm}
 .site img{width:13mm;max-height:16mm;object-fit:contain}
 .site .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4mm}
-.site .hd b{color:#2a275e}
+.site .hd b{color:#52789d}
 .site ul{padding-left:3.6mm;margin:0}
 .dots{white-space:nowrap;font-size:7pt;letter-spacing:.2mm;color:#8e1f1f}
 .abil{display:grid;grid-template-columns:7.2mm 1fr;gap:1.6mm;padding:.9mm 0;border-bottom:.25mm solid #e1dccf}
 .abil img{width:7.2mm;max-height:8.6mm;object-fit:contain}
-.abil b{color:#2a275e;display:block;font-size:8.4pt}
+.abil b{color:#52789d;display:block;font-size:8.4pt}
 .abil p{font-size:8pt;margin:0}
 .col h2{font-size:12pt}
-.foot{position:absolute;left:7.5mm;bottom:2.4mm;font-size:6pt;color:#2a275e}
+.foot{position:absolute;left:7mm;right:7mm;bottom:3.5mm;display:flex;justify-content:space-between;font-size:8.25pt;color:#52789d;border-top:.26mm solid #52789d;padding-top:1mm}
+.foot span:first-child{font-weight:600}
 .hex{display:flex;gap:3mm;align-items:center}
 .mana i{display:inline-block;width:3mm;height:3mm;border-radius:50%;border:.25mm solid #333;vertical-align:-.5mm;margin:0 .6mm 0 1.2mm}
-""".replace("MARCPATH", MARC)
+""".replace("MARCPATH", MARC).replace("POLPATH", POL)
 
 D = lambda n: '<span class="dots">' + "●" * n + "○" * (5 - n) + "</span>"
-FOOT = '<div class="foot">Less Rules, More Play · paulmoussard.com</div>'
+N = [0]  # numéro de page, pour le pied de page du gabarit commun
 
 def page(title, body, num=""):
-    return f'<section class="pg"><div class="ttl"><h1>{title}</h1><span>{num}</span></div>{body}{FOOT}</section>'
+    N[0] += 1
+    foot = f'<div class="foot"><span>Less Rules, More Play · paulmoussard.com</span><span>Game aid · {N[0]}/8</span></div>'
+    return f'<section class="pg"><div class="ttl"><h1>{title}</h1><span>{num}</span></div>{body}{foot}</section>'
 
 def site(img, name, dots, items):
     return f'<div class="site">{I(img)}<div><div class="hd"><b>{name}</b>{D(dots) if dots is not None else ""}</div><ul>{"".join(f"<li>{x}</li>" for x in items)}</ul></div></div>'
@@ -137,7 +143,7 @@ P4 = page("Adventure sites and Cities", f"""
 {site("tomb","Tomb",4,["1 red enemy drawn on entering.","<b>Night rules · your Units don't take part</b>",'<span class="green">If conquered: 1 Shield + 1 Spell + 1 Artifact</span>'])}</div>
 <div class="bar"><h2>Cities · fortified site</h2><p>Assault: move there as terrain allows, −1 Reputation per player, the defender is Fortified.</p></div>
 <div class="g2" style="margin-bottom:1.6mm"><ul style="margin:0"><li>Defenders face down on the City card, revealed when a player is adjacent, <b>even at Night</b>.</li><li>Fortified defenders + color bonus</li><li class="green">1 Shield per defender defeated</li><li class="green">All defeated: conquest; Leader = most Shields</li></ul>
-<div><b style="color:#2a275e">Conquered</b><ul style="margin:0"><li>Anyone may be there, no combat between players</li><li>Recruit (City icon) and its interaction</li><li>Interaction here: +1 Influence per Shield placed</li><li>End of turn in it / next to it: hand +2 (Leader) or +1</li></ul></div></div>
+<div><b style="color:#52789d">Conquered</b><ul style="margin:0"><li>Anyone may be there, no combat between players</li><li>Recruit (City icon) and its interaction</li><li>Interaction here: +1 Influence per Shield placed</li><li>End of turn in it / next to it: hand +2 (Leader) or +1</li></ul></div></div>
 <table><tr><th>City</th><th>Defender bonus</th><th>Interaction</th></tr>
 <tr><td><b>White</b></td><td>+1 Armor</td><td>Any Unit type · 2 Influence → +1 Elite</td></tr>
 <tr><td><b>Blue</b></td><td>Ice/Fire Attacks +2, Cold Fire +1</td><td>7 Influence + 1 mana → 1 Spell</td></tr>
@@ -157,8 +163,8 @@ P5 = page("The Lost Legion sites", f"""
 <div class="sites">{site("deepmine","Deep Mine",0,['<span class="green">End your turn on it: 1 Crystal of a color of your choice among the Mine\'s</span>'])}{site("refugee","Refugee Camp",0,["Recruit <b>any Unit</b>","Extra cost: Village +0 · Keep, Tower, Monastery +1 · City +3","Units recruitable at several sites: lowest extra cost"])}</div>
 <div class="bar"><h2>Walls</h2><p>Fortified edge between two spaces.</p></div>
 <div class="walls" style="display:grid;grid-template-columns:13mm 1fr 1fr;gap:2mm"><div>{I("wall1")}<br>{I("wall2")}</div>
-<div><b style="color:#2a275e">Movement</b><ul style="margin:0"><li>Crossing: <b>+1 Movement</b></li><li>Cost reductions don't change it</li><li>No effect on Flight and other effects</li><li>A rampaging enemy never attacks across it</li></ul></div>
-<div><b style="color:#2a275e">Combat across</b><ul style="margin:0"><li>Challenging a rampaging enemy: it is <b>Fortified</b></li><li>Attacking a player or Volkare: they are <b>Fortified</b></li><li>Assaulting a fortified site: defenders are <b>Double Fortified</b></li></ul></div></div>
+<div><b style="color:#52789d">Movement</b><ul style="margin:0"><li>Crossing: <b>+1 Movement</b></li><li>Cost reductions don't change it</li><li>No effect on Flight and other effects</li><li>A rampaging enemy never attacks across it</li></ul></div>
+<div><b style="color:#52789d">Combat across</b><ul style="margin:0"><li>Challenging a rampaging enemy: it is <b>Fortified</b></li><li>Attacking a player or Volkare: they are <b>Fortified</b></li><li>Assaulting a fortified site: defenders are <b>Double Fortified</b></li></ul></div></div>
 """)
 
 def ab(img, name, txt):
@@ -197,13 +203,13 @@ P7 = page("Round, turn and mana", """
 <li>Level: even = Skill + Advanced Action; odd = Command token (+ Armor or hand).</li></ol></div>
 """)
 
-HEX = """<svg viewBox="0 0 220 76"><g fill="#fff" stroke="#26232f" stroke-width="1.6">
+HEX = """<svg viewBox="0 0 220 76"><g fill="#fff" stroke="#1c1d22" stroke-width="1.6">
 <polygon points="6.0,32.0 17.0,12.9 39.0,12.9 50.0,32.0 39.0,51.1 17.0,51.1"/><polygon points="72.0,32.0 83.0,12.9 105.0,12.9 116.0,32.0 105.0,51.1 83.0,51.1"/></g>
 <polygon points="39.0,51.1 50.0,32.0 72.0,32.0 83.0,51.1 72.0,70.1 50.0,70.1" fill="#f6dede" stroke="#9d2b2b" stroke-width="1.8"/>
-<text x="61" y="54.6" text-anchor="middle" font-size="10" font-weight="700" fill="#9d2b2b" font-family="Inter">Orcs</text>
-<circle cx="25" cy="33" r="4.5" fill="#2a275e"/><path d="M30 28 C46 2 78 2 90 22" fill="none" stroke="#2a275e" stroke-width="2" marker-end="url(#a)"/>
-<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#2a275e"/></marker></defs>
-<text x="128" y="28" font-size="9" font-family="Inter" fill="#26232f">adjacent</text><text x="128" y="40" font-size="9" font-family="Inter" fill="#26232f">→ adjacent</text><text x="128" y="52" font-size="9" font-weight="700" font-family="Inter" fill="#9d2b2b">= provoked</text></svg>"""
+<text x="61" y="54.6" text-anchor="middle" font-size="10" font-weight="700" fill="#9d2b2b" font-family="Source Sans 3">Orcs</text>
+<circle cx="25" cy="33" r="4.5" fill="#52789d"/><path d="M30 28 C46 2 78 2 90 22" fill="none" stroke="#52789d" stroke-width="2" marker-end="url(#a)"/>
+<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#52789d"/></marker></defs>
+<text x="128" y="28" font-size="9" font-family="Source Sans 3" fill="#1c1d22">adjacent</text><text x="128" y="40" font-size="9" font-family="Source Sans 3" fill="#1c1d22">→ adjacent</text><text x="128" y="52" font-size="9" font-weight="700" font-family="Source Sans 3" fill="#9d2b2b">= provoked</text></svg>"""
 P8 = page("Movement and Influence", f"""
 <div class="g2"><div class="box"><h2>Terrain costs</h2><table><tr><th>Terrain</th><th class="c">Day</th><th class="c">Night</th></tr>
 <tr><td>Plains</td><td class="c">2</td><td class="c">2</td></tr><tr><td>Hills</td><td class="c">3</td><td class="c">3</td></tr><tr><td>Forest</td><td class="c">3</td><td class="c"><b>5</b></td></tr>

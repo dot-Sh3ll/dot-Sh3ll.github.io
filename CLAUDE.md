@@ -131,8 +131,11 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
    minimum, une seule couleur (celle du jeu en version foncée), pied
    « Less Rules, More Play · paulmoussard.com » **dans la couleur de la fiche**.
 2. **Montrer la fiche à Paul dans le Design avant de la mettre sur le site.**
-3. Copier les pages dans `outils/<jeu>-fiches/fr/`, produire le PDF avec le script du jeu (ex. `outils/imperium-fiches/pdf.py`)
-   dans `fiches/`, la version anglaise s'il y en a une.
+3. Copier les pages dans `outils/<jeu>-fiches/fr/`, produire le PDF avec le script du jeu dans `fiches/`, la version anglaise
+   s'il y en a une. Scripts : Puerto Rico `outils/puerto-rico/fiches/gen.py` et `gen_en.py` ; Imperium `outils/imperium-fiches/en.py`
+   puis `pdf.py` ; Mage Knight aide de jeu `outils/mage-knight-fiches/aide/aide.py` (FR, images dans `aide/img/`) et
+   `gen_mk_en.py` (EN), module de quêtes `quetes/quetes.py`, scénarios `quetes/scenarios.py`.
+   Toutes les fiches actuelles suivent le gabarit (relookées le 25/11/2026).
 4. `python3 outils/site/accueil.py fiche <json>` (modèle : `outils/site/accueil/exemples/exemple-fiche.json`),
    puis `seo.py` (les générateurs de PDF effacent les métadonnées : auteur « Paul Moussard »),
    puis `python3 outils/site/fiches.py` (la fiche apparaît dans l'appli du jeu).
@@ -151,5 +154,5 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 - `localStorage` toujours dans `try/catch` (navigation privée, stockage bloqué).
 - Contrastes : AA (4,5:1) pour le texte ; `assembler.py` assombrit la couleur du jeu pour les thèmes clairs.
 - Points ouverts : noms allemands incertains dans Aeon's End (attendre la communauté) ; noms anglais des salles
-  aléatoires de Nemesis (traductions maison sauf Shelter et Technical Corridor Entrance) ; fiche Mage Knight FR en images
-  (4 Mo) ; fiches existantes à aligner sur le gabarit (liste dans l'artefact du gabarit).
+  aléatoires de Nemesis (traductions maison sauf Shelter et Technical Corridor Entrance) ; aide de jeu Mage Knight
+  anglaise (gen_mk_en.py) construite à part de la française, texte plus petit : à régénérer un jour depuis les pages FR traduites.

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Le combat 1</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:21px 28px 13px;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.3;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4b4e58}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#52789d;border-bottom:1px solid #b9cde0;padding-bottom:1px}
+h3{font-family:Marcellus,serif;font-weight:400;font-size:14px;margin:0 0 2px;color:#52789d}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:1px 5px;text-align:left;vertical-align:top}
+th{background:#f2f7fd;font-weight:700}
+.c{text-align:center}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #52789d;border-radius:8px;padding:6px 9px;background:#f2f7fd}
+.f{font-family:Marcellus,serif;font-size:15px;text-align:center;margin:2px 0}
+.note{color:#4b4e58}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1d22;vertical-align:-1px;margin:0 3px 0 0}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#4b4e58;border-top:1px solid #c9cdd6;padding-top:4px;margin-top:auto}
+.gain{color:#1d6b35;font-weight:700}
+.warn{border:2.5px solid #8a1f1f;border-radius:8px;padding:5px 9px;background:#fbefef}
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Le combat</h1></div><div class="note" style="font-family:Marcellus,serif;font-size:14px">1 / 2</div></div>
+
+<div class="box">
+<h2>Entrer en combat · c'est votre Action du tour</h2>
+<ul>
+<li><b>Provoquer</b> ou <b>défier</b> un ennemi errant · <b>Assaut</b> d'un site fortifié (−1 Réputation) · <b>Entrer</b> dans un site d'aventure.</li>
+<li>Tous les ennemis engagés forment <b>un seul combat</b>.</li>
+</ul>
+</div>
+
+<div class="hi">
+<h2 style="border:0">Les 4 phases</h2>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px">
+<div class="box"><h3>1 · Distance et Siège</h3><p>Tuer <b>avant qu'ils attaquent</b>, avec des attaques à distance ou siège seulement.<br><b>Fortifié</b> : Attaques de siège seulement. <br><b>Doublement Fortifié</b> : intouchable.</p></div>
+<div class="box"><h3>2 · Parade</h3><p>Chaque attaque se pare <b>séparément</b> : Parade ≥ Attaque.<br>Attention aux éléments et résistances.<br><b>Vif</b> : il faut 2 × l'Attaque.</p></div>
+<div class="box"><h3>3 · Dégâts</h3><p>Attaques non parées, une par une, sur <b>unités</b> et/ou <b>Héros</b>.</p></div>
+<div class="box"><h3>4 · Attaque</h3><p>Tous les types d'attaquent peuvent être utilisés ici, même à distance et de siège. Groupe : <b>somme des Armures</b>, <b>cumul des Résistances</b>.</p></div>
+</div>
+</div>
+
+<div class="warn">
+<p style="margin:0"><b style="color: rgb(138, 31, 31)">À ne pas oublier ·</b> <b>Groupe</b> : <b>Chaque Résistance de chaque ennemi s'applique à tout le groupe</b>. Vous choisissez librement qui grouper. Astuce : Isolez les ennemis résistants.</p>
+</div>
+
+<div class="two">
+<div class="box">
+<h3>Phases 1 et 4 · Attaquer</h3>
+<p class="f">efficace + ½ inefficace ≥ Armure</p>
+<table>
+<tr><th>Votre attaque</th><th>Inefficace si l'ennemi a</th></tr>
+<tr><td>Physique</td><td>Rés. Physique</td></tr>
+<tr><td>Feu</td><td>Rés. Feu</td></tr>
+<tr><td>Glace</td><td>Rés. Glace</td></tr>
+<tr><td>Feu-Glace</td><td>Rés. Feu <b>et</b> Glace</td></tr>
+</table>
+<p class="note">Les cartes jouées de côté donnent 1 Attaque physique.<br></p>
+</div>
+<div class="box">
+<h3>Phase 2 · Parer</h3>
+<p class="f">efficace + ½ inefficace ≥ Attaque</p>
+<table>
+<tr><th>Attaque ennemie</th><th>Parade efficace</th></tr>
+<tr><td>Physique</td><td>toutes</td></tr>
+<tr><td>Feu</td><td>Glace, Feu-Glace</td></tr>
+<tr><td>Glace</td><td>Feu, Feu-Glace</td></tr>
+<tr><td>Feu-Glace</td><td>Feu-Glace seule</td></tr>
+</table>
+<p class="note">Parade sans icône = physique.&nbsp;<br>Vif : il 2 x l'Attaque.</p>
+</div>
+</div>
+
+<div class="box">
+<h3>Calculer le « ½ inefficace »</h3>
+<ol>
+<li>Additionnez toutes les valeurs <b>inefficaces</b>.</li>
+<li>Divisez ce total par 2, <b>arrondi à l'inférieur</b>.</li>
+<li>Ajoutez les valeurs <b>efficaces</b>, en entier.</li>
+</ol>
+<p><b>Exemple</b> : Parade Glace 3 (efficace) + Parade Physique 3 + Parade Feu 2 (inefficaces) contre une attaque de Feu 6 ça donne 3 + (3 + 2) ÷ 2 = 3 + 2 = <b>5 &lt; 6, la parade est ratée</b>.</p>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

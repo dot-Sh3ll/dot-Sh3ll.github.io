@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Déplacement et Influence</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:26px 28px 20px;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.3;overflow:hidden;display:flex;flex-direction:column;gap:8px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4b4e58}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#52789d;border-bottom:1px solid #b9cde0;padding-bottom:1px}
+h3{font-family:Marcellus,serif;font-weight:400;font-size:14px;margin:0 0 2px;color:#52789d}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:1px 5px;text-align:left;vertical-align:top}
+th{background:#f2f7fd;font-weight:700}
+.c{text-align:center}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #52789d;border-radius:8px;padding:6px 9px;background:#f2f7fd}
+.f{font-family:Marcellus,serif;font-size:15px;text-align:center;margin:2px 0}
+.note{color:#4b4e58}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1d22;vertical-align:-1px;margin:0 3px 0 0}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#4b4e58;border-top:1px solid #c9cdd6;padding-top:4px;margin-top:auto}
+
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Déplacement et Influence</h1></div></div>
+
+<div class="two">
+<div class="box">
+<h2>Coûts de terrain</h2>
+<table>
+<tr><th>Terrain</th><th class="c">Jour</th><th class="c">Nuit</th></tr>
+<tr><td>Plaine</td><td class="c">2</td><td class="c">2</td></tr>
+<tr><td>Colline</td><td class="c">3</td><td class="c">3</td></tr>
+<tr><td>Forêt</td><td class="c">3</td><td class="c"><b>5</b></td></tr>
+<tr><td>Friche</td><td class="c">4</td><td class="c">4</td></tr>
+<tr><td>Désert</td><td class="c">5</td><td class="c"><b>3</b></td></tr>
+<tr><td>Marais</td><td class="c">5</td><td class="c">5</td></tr>
+<tr><td>Lac, Montagne</td><td class="c" colspan="2">infranchissable</td></tr>
+</table>
+</div>
+<div class="box">
+<h2>Se déplacer</h2>
+<ul>
+<li>Additionnez vos points de Mouvement, dépensez-les case par case, autant de cases que vous voulez.</li>
+<li>Jamais sur la case d'un ennemi errant.</li>
+<li><b>Site fortifié</b> non conquis : y entrer = assaut, fin du Mouvement, −1 Réputation.</li>
+<li>Vous ne pouvez plus bouger après votre Action.</li>
+</ul>
+</div>
+</div>
+
+<div class="hi">
+<h2 style="border:0">Provoquer un ennemi errant</h2>
+<div style="display:flex;gap:10px;align-items:center">
+<svg width="210" height="92" viewBox="0 0 210 92" role="img" aria-label="Passer d'une case adjacente à une autre case adjacente provoque l'ennemi" style="width: 269px">
+<g fill="#fff" stroke="#1c1d22" stroke-width="1.4" style="position: static">
+<polygon points="40,6 66,6 79,29 66,52 40,52 27,29"></polygon>
+<polygon points="79,29 105,29 118,52 105,75 79,75 66,52"></polygon>
+<polygon points="118,6 144,6 157,29 144,52 118,52 105,29"></polygon>
+</g>
+<polygon points="79,29 105,29 118,52 105,75 79,75 66,52" fill="#f3dcdc" stroke="#8a1f1f" stroke-width="1.8"></polygon>
+<text x="92" y="57" text-anchor="middle" font-family="Source Sans 3,sans-serif" font-size="12" font-weight="700" fill="#8a1f1f">Orques</text>
+<circle cx="53" cy="29" r="7" fill="#52789d"></circle>
+<path d="M62 22 Q92 0 120 22" fill="none" stroke="#52789d" stroke-width="2"></path>
+<path d="M114 17 L121 23 L112 25" fill="none" stroke="#52789d" stroke-width="2"></path>
+<text x="170" y="20" font-family="Source Sans 3,sans-serif" font-size="12" fill="#1c1d22">adjacente</text>
+<text x="170" y="34" font-family="Source Sans 3,sans-serif" font-size="12" fill="#1c1d22">→ adjacente</text>
+<text x="170" y="48" font-family="Source Sans 3,sans-serif" font-size="12" font-weight="700" fill="#8a1f1f">= provoqué</text>
+</svg>
+<p style="flex:1">Le combat a lieu tout de suite et devient votre Action. Les deux ennemis adjacents avant et après le pas attaquent ensemble. Vous pouvez aussi <b>défier</b> un ennemi adjacent, comme Action, en fin de Mouvement.</p>
+</div>
+</div>
+
+<div class="box">
+<h2>Explorer</h2>
+<p>Depuis une case au bord du plateau, dépensez <b>2 Mouvement</b> : révélez la tuile du dessus de la pioche et posez-la contre ce bord. Pas besoin d'y entrer : vous pouvez continuer à bouger. Placez les jetons Ennemi de ses sites (face cachée sur les sites fortifiés).</p>
+</div>
+
+<div class="box">
+<h2>Influence et Réputation</h2>
+<ul>
+<li>Recruter, soigner, acheter : on paie en <b>Influence</b> (cartes, effets de côté).</li>
+<li>Votre <b>Réputation</b> ajoute ou retire son bonus <b>une fois par interaction</b>, jamais en combat.</li>
+<li>Case « × » : plus aucune interaction possible.</li>
+<li><b>Réputation</b> : assaut −1, pillage −1, Monastère brûlé −3. Orques +1, Draconien +2.</li>
+</ul>
+</div>
+
+<div class="two">
+<div class="box" style="border-color:#b08a2e">
+<h3>Jour</h3>
+<p>Dé or = joker, dé noir inutilisable. Garnisons révélées quand vous êtes adjacent.</p>
+</div>
+<div class="box" style="border-color:#52789d;background:#f2f7fd">
+<h3>Nuit</h3>
+<p>Dé or inutilisable, mana noir utilisable. Garnisons révélées seulement à l'assaut.</p>
+</div>
+</div>
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

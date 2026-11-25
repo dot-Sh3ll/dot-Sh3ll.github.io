@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Mage Knight, Le combat 2</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:21px 28px 13px;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.26;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4b4e58}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#52789d;border-bottom:1px solid #b9cde0;padding-bottom:1px}
+h3{font-family:Marcellus,serif;font-weight:400;font-size:14px;margin:0 0 2px;color:#52789d}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:1px 5px;text-align:left;vertical-align:top}
+th{background:#f2f7fd;font-weight:700}
+.c{text-align:center}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #52789d;border-radius:8px;padding:6px 9px;background:#f2f7fd}
+.f{font-family:Marcellus,serif;font-size:15px;text-align:center;margin:2px 0}
+.note{color:#4b4e58}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1d22;vertical-align:-1px;margin:0 3px 0 0}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#4b4e58;border-top:1px solid #c9cdd6;padding-top:4px;margin-top:auto}
+.gain{color:#1d6b35;font-weight:700}
+.warn{border:2.5px solid #8a1f1f;border-radius:8px;padding:5px 9px;background:#fbefef}
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Le combat</h1></div><div class="note" style="font-family:Marcellus,serif;font-size:14px">2 / 2</div></div>
+
+<div class="warn">
+<p style="margin:0"><b style="color: rgb(138, 31, 31)">À ne pas oublier ·</b> Encaisser, c'est <b>toujours au moins 1 Blessure</b>. <br><span style="font-weight: 700; color: rgb(138, 31, 31)">Exception ·</span>&nbsp;Une unité qui a la Résistance au type de l'attaque ET une armure ≥ à l'attaque</p>
+</div>
+
+<div class="two">
+<div class="box">
+<h3>Phase 3 · Une unité encaisse</h3>
+<ul>
+<li>Toute unité disponible ou épuisée peut encaisser des dégâts <b>à condition qu'elle ne soit pas déjà blessée.<br><br></b></li>
+<li>Si l'unité a une résistance au type de dégâts encaissés <b>ET </b>que son armure est supérieur ou égale à l'attaque, <b>elle ne subit aucune blessure</b>.<br><br></li>
+<li>Sinon, l'Unité prend <b>1 Blessure</b>&nbsp;et soustrait&nbsp;<b>son Armure</b>&nbsp;aux dégâts, et le reste devront être encaisser par une autre unité ou le Héros.<br><br><b>Paralysie </b>: Si blessée, elle est détruite.<br><span style="font-weight: 700">Poison</span> : Si blessée, prend 2 blessures.<b><br>Assassin </b>: l'unité n'a pas le droit d'encaisser ces dégâts, seul le héros doit le faire.<br></li>
+
+
+</ul>
+</div>
+<div class="box">
+<h3>Phase 3 · Le Héros encaisse</h3>
+<p><b>Brutal</b> : Dégâts × 2 d'abord.</p>
+<p class="f" style="text-align: center">Dégâts ÷ Armure, arrondi ↑<br>= nombres de Blessures</p>
+<table>
+<tr><th>Dégâts</th><th class="c">Arm. 2</th><th class="c">Arm. 3</th><th class="c">Arm. 4</th><th class="c">Arm. 5</th></tr>
+<tr><td>2</td><td class="c">1</td><td class="c">1</td><td class="c">1</td><td class="c">1</td></tr>
+<tr><td>3</td><td class="c">2</td><td class="c">1</td><td class="c">1</td><td class="c">1</td></tr>
+<tr><td>4</td><td class="c">2</td><td class="c">2</td><td class="c">1</td><td class="c">1</td></tr>
+<tr><td>6</td><td class="c">3</td><td class="c">2</td><td class="c">2</td><td class="c">2</td></tr>
+<tr><td>8</td><td class="c">4</td><td class="c">3</td><td class="c">2</td><td class="c">2</td></tr>
+<tr><td>12</td><td class="c">6</td><td class="c">4</td><td class="c">3</td><td class="c">3</td></tr>
+</table>
+<p>Les Blessures vont <b>dans votre main</b>.</p>
+<p><b>Poison</b> : +1 Blessure en défausse par Blessure reçue. <br><b>Paralysie</b> : défaussez vos cartes non-Blessure.</p>
+</div>
+</div>
+
+<div class="box" style="border-color:#8a1f1f">
+<p style="margin:0;color:#8a1f1f"><b>Assommé</b> : si les Blessures reçues <b>pendant ce combat</b> atteignent votre limite de main, défaussez toutes vos cartes non-Blessure. Le combat continue.</p>
+</div>
+
+<div class="box">
+<h3>Dragon Attaque 6 Feu, Brutal, contre Unité Armure 4 et Héros Armure 3</h3>
+<p><b>Parer</b> : contre du Feu, seule une Parade de Glace (ou Feu-Glace) est efficace. Parade de Glace 6 : <b>attaque parée</b>. Parade Physique 4 + Parade de Feu 4 : toutes deux inefficaces, (4 + 4) ÷ 2 = 4 &lt; 6 : <b>attaque non parée</b>.</p>
+<p><b>Non parée</b> : 6 × 2 (Brutal) = 12 dégâts. L'unité absorbe 4 dégâts et prend 1 Blessure : il reste 8. Le Héros encaisse 8 ÷ 3 = 2,67, arrondi au supérieur = 3 Blessures.<br><b>Résultat : l'unité est blessée, le Héros ajoute 3 Blessures dans sa main.</b></p>
+</div>
+
+<div class="box">
+<h3>Après le combat</h3>
+<ul>
+<li><span class="gain">Gloire</span> : la valeur de chaque ennemi vaincu (Gloire et niveau en fin de tour).</li>
+<li><span class="gain">Site conquis</span> : posez un Bouclier ; récompense en fin de tour.</li>
+<li><b>Ennemis non vaincus</b> : ils restent sur leur case. Assaut raté : reculez sur votre case précédente.</li>
+<li><b>Unités blessées&nbsp;</b>: inutilisables jusqu'au Soin.&nbsp;Pour soigner une unité, il faudra X soins, X étant le niveau de l'unité en haut à gauche de sa carte.</li>
+</ul>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
