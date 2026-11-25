@@ -2,20 +2,19 @@
 """Images de partage (Open Graph, 1200×630) : img/og/<nom>.jpg, une pour l'accueil et une par appli.
 
 Usage : python3 outils/site/og_images.py   (depuis la racine du dépôt)
-Polices : celles de outils/imperium-fiches/node_modules (npm install @fontsource/marcellus @fontsource/source-sans-3).
+Polices : commun/polices (celles du site).
 Ajouter une appli : son entrée « og » dans outils/site/jeux.json, puis relancer ce script et seo.py.
 """
 import pathlib
 from playwright.sync_api import sync_playwright
 
 RACINE = pathlib.Path(__file__).resolve().parents[2]
-FS = RACINE / 'outils/imperium-fiches/node_modules/@fontsource'
 import json
 _J = json.load(open(RACINE / 'outils/site/jeux.json', encoding='utf-8'))
 IMAGES = {k: tuple(v['og']) for k, v in _J.items() if not k.startswith('_')}  # nom : (titre, sous-titre FR, sous-titre EN), dans jeux.json
-POLICES = (f"@font-face{{font-family:Marcellus;src:url({(FS/'marcellus/files/marcellus-latin-400-normal.woff2').as_uri()})}}"
-           f"@font-face{{font-family:S;font-weight:400;src:url({(FS/'source-sans-3/files/source-sans-3-latin-400-normal.woff2').as_uri()})}}"
-           f"@font-face{{font-family:S;font-weight:600;src:url({(FS/'source-sans-3/files/source-sans-3-latin-600-normal.woff2').as_uri()})}}")
+P = RACINE / 'commun/polices'  # polices du site (outils/site/polices.py)
+POLICES = (f"@font-face{{font-family:Marcellus;src:url({(P/'marcellus-latin.woff2').as_uri()})}}"
+           f"@font-face{{font-family:S;font-weight:200 900;src:url({(P/'source-sans-3-latin.woff2').as_uri()})}}")
 
 def html(titre, fr, en, accueil):
     marque = '' if accueil else '<div class="b">Less Rules, More Play</div>'

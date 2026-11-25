@@ -1,0 +1,11 @@
+{
+ "titre_page": "{{NOM_EN}}: learn the rules step by step",
+ "nom_jeu": "{{NOM_EN}}",
+ "sections": "Sections",
+ "apprendre": "Learn",
+ "aide_memoire": "Reference",
+ "sommaire": "Tutorial contents",
+ "etape_n_sur": "Step {n} of {total}",
+ "precedent": "Previous",
+ "suivant": "Next"
+}

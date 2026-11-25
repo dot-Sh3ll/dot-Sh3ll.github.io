@@ -1,0 +1,12 @@
+{
+ "_aide": "Textes de l'interface, une clé par texte ; {{clé}} dans page.html. Même clés dans chaque langue (i18n/en.json, i18n/de.json…). Les clés commençant par _ sont remplies par assembler.py.",
+ "titre_page": "{{NOM}} : apprendre les règles pas à pas",
+ "nom_jeu": "{{NOM}}",
+ "sections": "Sections",
+ "apprendre": "Apprendre",
+ "aide_memoire": "Aide-mémoire",
+ "sommaire": "Sommaire du tutoriel",
+ "etape_n_sur": "Étape {n} sur {total}",
+ "precedent": "Précédent",
+ "suivant": "Suivant"
+}

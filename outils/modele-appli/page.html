@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="{{_lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{titre_page}}</title>
+<!--polices:{{_police}},Source Sans 3--><!--/polices-->
+<style>
+/* Modèle d'appli Less Rules, More Play (outils/modele-appli) : tutoriel en chapitres + aide-mémoire.
+   Les couleurs du jeu sont ici ; les onglets, la barre du site et le pied viennent de commun/composants.css. */
+:root{
+  color-scheme:light;
+  --bg:#f3f1ec; --surface:#ffffff; --sunk:#e8e4dc; --ink:#1f1c17; --muted:#5f584c; --line:#d8d1c3;
+  --accent:{{_accent_clair}}; --accent-ink:#ffffff;
+  --display:"{{_police}}",Georgia,serif; --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --app-accent:var(--accent); --app-accent-ink:var(--accent-ink); --app-piste:var(--sunk); --app-onglet:var(--muted);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body)}
+a{color:var(--accent)}
+.apphead{background:var(--surface);border-bottom:1px solid var(--line)}
+.apphead .in{max-width:var(--site-w);margin:0 auto;padding:10px var(--site-pad);display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.apphead .titre{margin:0;font:400 22px/1.2 var(--display)}
+.apphead .lrmp-onglets{margin-left:auto}
+@media (max-width:640px){.apphead .lrmp-onglets{margin-left:0}}
+.vue{display:none}.vue.on{display:block}
+.page{max-width:var(--site-w);margin:0 auto;padding:24px var(--site-pad)}
+.cours{display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:start}
+@media (max-width:860px){.cours{grid-template-columns:1fr}}
+.sommaire{position:sticky;top:calc(var(--sitehead-h) + 16px)}
+.sommaire ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+.sommaire button{width:100%;text-align:left;border:0;background:none;border-radius:var(--rayon-m);padding:8px 10px;font:inherit;font-size:15px;color:var(--muted);cursor:pointer;min-height:var(--cible-compacte)}
+.sommaire button[aria-current="step"]{background:var(--sunk);color:var(--ink);font-weight:600}
+.sommaire button.vu::after{content:" ✓";color:var(--accent)}
+.etape{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.2}
+h1{font-size:2rem;margin:.2em 0 .6em}
+.carte{background:var(--surface);border:1px solid var(--line);border-radius:var(--rayon-l);padding:16px 20px;margin:16px 0}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:32px}
+.bouton{display:inline-flex;align-items:center;min-height:var(--cible);padding:0 18px;border-radius:var(--rayon-pilule);border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 15px var(--body);cursor:pointer}
+.bouton.principal{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.bouton:focus-visible,.sommaire button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bouton[disabled]{visibility:hidden}
+</style>
+</head>
+<body>
+<header class="apphead"><div class="in">
+  <p class="titre">{{nom_jeu}}</p>
+  <div class="lrmp-onglets" role="tablist" aria-label="{{sections}}">
+    <button type="button" role="tab" data-vue="apprendre" aria-selected="true">{{apprendre}}</button>
+    <button type="button" role="tab" data-vue="aide" aria-selected="false">{{aide_memoire}}</button>
+  </div>
+</div></header>
+
+<div class="vue on" id="vue-apprendre"><div class="page cours">
+  <nav class="sommaire" aria-label="{{sommaire}}"><ol id="sommaire"></ol></nav>
+  <main id="chapitre" aria-live="polite"></main>
+</div></div>
+<div class="vue" id="vue-aide"><div class="page" id="aide"></div></div>
+
+<script>
+/* contenu de la langue de la page : outils/<appli>/contenu/<langue>.js */
+<!--CONTENU-->
+</script>
+<script>
+(function(){
+"use strict";
+const T={etape:"{{etape_n_sur}}",precedent:"{{precedent}}",suivant:"{{suivant}}"};
+const CLE="{{_code}}-";
+const LS={get(k,d){try{const v=localStorage.getItem(CLE+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
+          set(k,v){try{localStorage.setItem(CLE+k,JSON.stringify(v))}catch(e){}}};
+const $=s=>document.querySelector(s);
+let n=Math.min(LS.get("chapitre",0),CHAPITRES.length-1); const vus=new Set(LS.get("vus",[]));
+
+function sommaire(){
+  $("#sommaire").innerHTML=CHAPITRES.map((c,i)=>`<li><button type="button" data-i="${i}" class="${vus.has(i)?"vu":""}"${i===n?' aria-current="step"':""}>${c.titre}</button></li>`).join("");
+  document.querySelectorAll("#sommaire button").forEach(b=>b.onclick=()=>aller(+b.dataset.i));
+}
+function aller(i){
+  if(i!==n)vus.add(n); n=i; LS.set("chapitre",n); LS.set("vus",[...vus]);
+  const c=CHAPITRES[n];
+  $("#chapitre").innerHTML=`<p class="etape">${T.etape.replace("{n}",n+1).replace("{total}",CHAPITRES.length)}</p><h1>${c.titre}</h1>${c.html}
+    <div class="nav"><button type="button" class="bouton" id="prec"${n?"":" disabled"}>← ${T.precedent}</button>
+    <button type="button" class="bouton principal" id="suiv"${n<CHAPITRES.length-1?"":" disabled"}>${T.suivant} →</button></div>`;
+  $("#prec").onclick=()=>{aller(n-1);window.scrollTo(0,0)}; $("#suiv").onclick=()=>{aller(n+1);window.scrollTo(0,0)};
+  sommaire();
+}
+function vue(v){
+  document.querySelectorAll(".lrmp-onglets button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.vue===v)));
+  document.querySelectorAll(".vue").forEach(x=>x.classList.toggle("on",x.id==="vue-"+v));
+  LS.set("vue",v);
+}
+document.querySelectorAll(".lrmp-onglets button").forEach(b=>b.onclick=()=>{vue(b.dataset.vue);window.scrollTo(0,0)});
+$("#aide").innerHTML=AIDE;
+aller(n); vue(LS.get("vue","apprendre"));
+})();
+</script>
+</body>
+</html>
