@@ -1,0 +1,45 @@
+<script>
+(function(){
+"use strict";
+/* ---------- utilitaires ---------- */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const rnd=n=>Math.floor(Math.random()*n);
+
+/* ---------- petits pictogrammes ---------- */
+const it=c=>`<span class="it it-${c}" title="Objet ${{v:'vert',r:'rouge',j:'jaune'}[c]}"></span>`;
+const ITN={v:'vert',r:'rouge',j:'jaune'};
+const ordi=`<span class="pic" title="Ordinateur">⌨</span>`;
+const sect=s=>`<span class="sec sec-${s==='?'?'x':s}">${s}</span>`;
+
+/* ---------- salles (aide de jeu Salles de la boîte) ----------
+   s : section (A, B, C) ou « ? » ; n : numéro ; obj : icônes Objet ; ic : autres icônes ; fx : effet ; pr : précisions */
+const SALLES=[
+ {n:14,s:'A',fr:'Zone d\'atterrissage',obj:'',ic:['tok'],fx:'Prenez ici autant de jetons tactiques disponibles que vous voulez. <b>OU</b> Faites un jet de bruit pour entrer dans le vaisseau.',pr:['Les jetons gagnés doivent être placés dans des emplacements tactiques libres. Vous pouvez défausser tout ou partie de vos jetons une fois, avant ou pendant cette action.','Le deuxième effet n\'est utilisable que si le vaisseau s\'y trouve.','S\'il y a un Intrus dans la salle après le jet de bruit, l\'action échoue.','C\'est le point de départ de tous les personnages.']},
+ {n:15,s:'A',fr:'Contrôle du recycleur A',obj:'vr',ic:['ordi'],fx:'Retournez un recycleur d\'air dans la section A. <b>OU</b> Défaussez un marqueur Feu depuis n\'importe quelle salle du complexe.',pr:['Le premier effet active ou désactive le recycleur d\'air de la section A.']},
+ {n:16,s:'A',fr:'Bloc opératoire',obj:'vvv',ic:[],fx:'Défaussez toutes vos cartes Action pour retirer une Larve de votre plateau Personnage et scannez toutes les contaminations de votre pioche et de votre défausse ; retirez de la partie celles qui sont infectées. <b>OU</b> Défaussez 1 blessure grave.',pr:['Le premier effet n\'est possible que si vous avez une Larve sur votre plateau Personnage. Vous n\'avez pas besoin d\'avoir des cartes Contamination.','Ensuite, remettez les contaminations scannées restantes dans votre pioche et remélangez l\'ensemble.']},
+ {n:17,s:'A',fr:'Station de forage',obj:'jjj',ic:['ordi'],fx:'Placez un nouveau couloir depuis la salle où se trouve le robot.',pr:['Ce couloir peut mener vers une salle découverte ou non découverte.']},
+ {n:18,s:'B',fr:'Hibernatorium',obj:'',ic:[],fx:'Faites un jet de bruit pour hiberner.',pr:['Utilisable seulement si l\'hibernatorium est actif. On l\'active depuis la salle de contrôle du recycleur C.','S\'il y a un Intrus dans la salle après le jet de bruit, l\'action échoue.','Au début, la tuile est « non découverte » : pas de marqueur Bruit dans ses couloirs, pas de robot activable.']},
+ {n:19,s:'B',fr:'Contrôle du recycleur B',obj:'vr',ic:[],fx:'Retournez un recycleur d\'air dans la section B. <b>OU</b> Consultez les deux jetons DCA et placez-les dans l\'ordre de votre choix.',pr:['Le jeton DCA du dessus indique l\'état actuel de la DCA.','Vous n\'avez pas à dire comment les jetons sont agencés, ni si vous les avez inversés.']},
+ {n:20,s:'B',fr:'Salle des serveurs',obj:'rj',ic:['ordi'],fx:'Utilisez n\'importe quelle salle découverte du complexe qui a un ordinateur. <b>OU</b> Gagnez un jeton Info (si vous n\'en avez pas déjà un).',pr:['Vous ne pouvez pas utiliser de cette façon une salle qui a un marqueur Panne.']},
+ {n:21,s:'B',fr:'Système de refroidissement',obj:'jjj',ic:['ordi'],fx:'Activez la procédure d\'autodestruction.',pr:['Le jeton Autodestruction se place 5 manches plus loin sur le compte-tours.']},
+ {n:22,s:'C',fr:'Contrôle du recycleur C',obj:'vr',ic:[],fx:'Retournez un recycleur d\'air dans la section C. <b>OU</b> Retournez l\'hibernatorium sur sa face active.',pr:['Le deuxième effet active l\'hibernatorium : on ne peut pas le désactiver.']},
+ {n:23,s:'C',fr:'Réacteur',obj:'rj',ic:[],fx:'Retirez du jeu tous les jetons Recycleur d\'air, le jeton Autodestruction et les deux jetons DCA.',pr:['Cette action coupe le réacteur : toutes les sections comptent ensuite comme ayant un recycleur inactif, et la DCA comme inactive.','Le jeton Autodestruction est retiré même s\'il est déjà sur la piste compte-tours.','Les recycleurs, la DCA et l\'autodestruction ne peuvent plus être remis en marche.']},
+ {n:24,s:'C',fr:'Navette d\'évacuation',obj:'vr',ic:[],fx:'Faites un jet de bruit pour entrer dans la navette d\'évacuation.',pr:['S\'il y a un Intrus dans la salle après le jet de bruit, l\'action échoue.','Une fois qu\'un personnage s\'est enfui avec, la navette ne sert plus : il n\'y en a qu\'une.','La DCA n\'empêche pas la navette de partir.']},
+ {n:25,s:'C',fr:'Nid',obj:'',ic:['nosec','nopanne'],fx:'Prenez ou détruisez 1 œuf d\'Intrus et faites un jet de bruit.',pr:['Les œufs se prennent sur l\'emplacement du plateau périphérique de la section C. Ce sont des objets lourds.','Le nid est détruit quand il n\'y a plus d\'œufs.']},
+ {n:1,s:'?',fr:'Système anti-incendie',obj:'vj',ic:['ordi'],fx:'Défaussez tous les marqueurs Feu d\'une section de votre choix.',pr:[]},
+ {n:2,s:'?',fr:'Abri',obj:'vr',ic:['sec'],fx:'Si vous n\'êtes pas infecté par une Larve : prenez toutes les contaminations de votre main et retirez-les du jeu sans les scanner.',pr:['Cette salle est sécurisée par défaut.']},
+ {n:3,s:'?',fr:'Infirmerie',obj:'vvv',ic:[],fx:'Regagnez 2 points de santé. <b>OU</b> Défaussez 1 blessure grave.',pr:[]},
+ {n:4,s:'?',fr:'Entrepôt',obj:'vrj',ic:['nosec'],fx:'Piochez 1 objet vert, 1 rouge et 1 jaune. Vous pouvez garder 2 objets et défausser le reste.',pr:[]},
+ {n:5,s:'?',fr:'Armurerie',obj:'rrr',ic:[],fx:'Gagnez autant de jetons Munitions et de jetons Grenade que vous le souhaitez.',pr:['Les jetons gagnés doivent être placés dans des emplacements tactiques libres. Vous pouvez défausser tout ou partie de vos jetons une fois, avant ou pendant cette action.']},
+ {n:6,s:'?',fr:'Contrôle des portes',obj:'rj',ic:['ordi'],fx:'Ouvrez et/ou fermez autant de portes que vous le souhaitez dans une section de votre choix.',pr:['Vous ne pouvez fermer que les portes qui ont un seuil sur le plateau.']},
+ {n:7,s:'?',fr:'Console du robot',obj:'rj',ic:['ordi'],fx:'Placez 1 jeton Sécurisation dans la salle où se trouve le robot. <b>OU</b> Renforcez un couloir vide adjacent à la salle où est le robot.',pr:[]},
+ {n:8,s:'?',fr:'Contrôle des tourelles',obj:'rrr',ic:['ordi'],fx:'Choisissez un couloir adjacent à une salle qui a une icône Objet rouge et pas de marqueur Panne. Lancez un dé Rafale et infligez autant de touches que le résultat dans ce couloir.',pr:['Ce n\'est pas une action Rafale : vous ne dépensez pas de munitions.']},
+ {n:9,s:'?',fr:'Contrôle de la pression',obj:'jjj',ic:['ordi'],fx:'Déplacez 1 Intrus n\'importe où dans le complexe.',pr:['L\'Intrus peut être déplacé dans n\'importe quelle direction (d\'une salle vers un couloir, ou d\'un couloir vers une salle).']},
+ {n:10,s:'?',fr:'Signal d\'alarme',obj:'vr',ic:['ordi'],fx:'Résolvez ou défaussez un marqueur Bruit depuis un couloir du complexe de votre choix.',pr:[]},
+ {n:11,s:'?',fr:'Labo militaire expérimental',obj:'rj',ic:[],fx:'Gagnez autant de jetons Munitions que vous le souhaitez. <b>OU</b> Piochez 2 équipements de soutien au hasard : conservez-en 1 et défaussez l\'autre.',pr:['Les jetons gagnés doivent être placés dans des emplacements tactiques libres. Vous pouvez défausser tout ou partie de vos jetons une fois, avant ou pendant cette action.','Les équipements de soutien choisis à la mise en place ne reviennent pas dans la pioche.']},
+ {n:12,s:'?',fr:'Accès aux conduits',obj:'jjj',ic:['nosec'],fx:'Déplacez-vous dans n\'importe quelle salle du complexe. Résolvez une attaque d\'Intrus (Intrus Adulte).',pr:['Tirez une carte Attaque d\'Intrus et résolvez l\'effet de l\'Adulte. Ne placez pas d\'Intrus sur le plateau.','Les jetons Sécurisation ne comptent pas : aucun Intrus n\'est entré dans la salle.','Ensuite, faites un jet de bruit comme d\'habitude.']},
+ {n:13,s:'?',fr:'Salle de décontamination',obj:'vvv',ic:[],fx:'Défaussez toutes vos cartes Action et dépensez 2 oxygène pour retirer du jeu toutes les contaminations de votre pioche et de votre défausse, sans les scanner.',pr:['Impossible si vous avez 1 oxygène ou moins : l\'action vous infligerait un jeton Suffocation.']}
+];
+const ICN={tok:'4 emplacements de jetons tactiques',ordi:'ordinateur',sec:'sécurisée par défaut',nosec:'jamais sécurisée',nopanne:'jamais en panne'};

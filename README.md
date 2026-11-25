@@ -8,6 +8,7 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 - Imperium Antique — tutoriel, solo contre la C.I.V., aide-mémoire
 - Aeon's End — générateur de marché (dont les mises en place officielles), journal, expéditions (FR, EN, DE)
 - Puerto Rico 1897 — tutoriel règle par règle, aide-mémoire, décompte
+- Nemesis: Retaliation — tutoriel règle par règle (ateliers : sac Intrus, jet de bruit, tir, rafale, éclosion), aide-mémoire, toutes les salles
 
 ☕ Soutenir : https://ko-fi.com/paulmoussard
 

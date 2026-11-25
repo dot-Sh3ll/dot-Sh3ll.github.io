@@ -16,6 +16,7 @@ IMAGES = {  # nom : (titre, sous-titre FR, sous-titre EN)
     'imperium': ('Imperium', 'Tutoriel, solo contre la C.I.V., fiches', 'Tutorial, solo against the C.I.V., printables'),
     'aeons-end': ("Aeon's End", 'Générateur de marché, mises en place, journal', 'Market randomizer, setups, game log'),
     'puerto-rico': ('Puerto Rico 1897', 'Les règles pas à pas, aide-mémoire, score', 'Rules step by step, reference, scoring'),
+    'nemesis': ('Nemesis: Retaliation', 'Les règles pas à pas, aide-mémoire, salles', 'Rules step by step, reference, rooms'),
 }
 POLICES = (f"@font-face{{font-family:Marcellus;src:url({(FS/'marcellus/files/marcellus-latin-400-normal.woff2').as_uri()})}}"
            f"@font-face{{font-family:S;font-weight:400;src:url({(FS/'source-sans-3/files/source-sans-3-latin-400-normal.woff2').as_uri()})}}"

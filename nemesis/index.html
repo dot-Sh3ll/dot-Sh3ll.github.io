@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script id="site-lang-js">(function(){try{var C="fr",A=["fr", "en"],F={"fr":"./","en":"en.html"},B="en",ls=localStorage;if(C!=="fr"){var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;var sl=ls.getItem("site-lang"),t=null;if(sl)t=sl;else{var n=(navigator.language||"").slice(0,2).toLowerCase();if(n!=="fr"&&n!=="en"&&A.indexOf(n)>-1)t=n}if(t&&A.indexOf(t)<0)t=A.indexOf(B)>-1?B:null;if(t&&t!==C)location.replace(F[t]+location.hash)}catch(e){}})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nemesis: Retaliation : apprendre les règles pas à pas, aide-mémoire et salles</title>
+<!--seo-->
+<meta name="description" content="Apprenez Nemesis: Retaliation règle par règle avec des ateliers interactifs (sac Intrus, jet de bruit, tir, rafale) et des quiz, puis gardez l&#x27;aide-mémoire et toutes les salles. Gratuit.">
+<link rel="canonical" href="https://paulmoussard.com/nemesis/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<link rel="alternate" hreflang="fr" href="https://paulmoussard.com/nemesis/">
+<link rel="alternate" hreflang="en" href="https://paulmoussard.com/nemesis/en.html">
+<link rel="alternate" hreflang="x-default" href="https://paulmoussard.com/nemesis/en.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Less Rules, More Play">
+<meta property="og:title" content="Nemesis: Retaliation : apprendre les règles pas à pas, aide-mémoire et salles">
+<meta property="og:description" content="Apprenez Nemesis: Retaliation règle par règle avec des ateliers interactifs (sac Intrus, jet de bruit, tir, rafale) et des quiz, puis gardez l&#x27;aide-mémoire et toutes les salles. Gratuit.">
+<meta property="og:url" content="https://paulmoussard.com/nemesis/">
+<meta property="og:image" content="https://paulmoussard.com/img/og/nemesis.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nemesis: Retaliation · Less Rules, More Play">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nemesis: Retaliation : apprendre les règles pas à pas, aide-mémoire et salles">
+<meta name="twitter:description" content="Apprenez Nemesis: Retaliation règle par règle avec des ateliers interactifs (sac Intrus, jet de bruit, tir, rafale) et des quiz, puis gardez l&#x27;aide-mémoire et toutes les salles. Gratuit.">
+<meta name="twitter:image" content="https://paulmoussard.com/img/og/nemesis.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","@id":"https://paulmoussard.com/nemesis/#appli","name":"Nemesis: Retaliation : apprendre les règles pas à pas, aide-mémoire et salles","url":"https://paulmoussard.com/nemesis/","description":"Apprenez Nemesis: Retaliation règle par règle avec des ateliers interactifs (sac Intrus, jet de bruit, tir, rafale) et des quiz, puis gardez l'aide-mémoire et toutes les salles. Gratuit.","inLanguage":"fr","applicationCategory":"GameApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"image":"https://paulmoussard.com/img/og/nemesis.jpg","author":{"@type":"Person","name":"Paul Moussard","url":"https://paulmoussard.com/","sameAs":["https://ko-fi.com/paulmoussard","https://github.com/dot-Sh3ll"]},"publisher":{"@type":"Person","name":"Paul Moussard","url":"https://paulmoussard.com/","sameAs":["https://ko-fi.com/paulmoussard","https://github.com/dot-Sh3ll"]},"about":{"@type":"Game","name":"Nemesis: Retaliation"},"isPartOf":{"@type":"WebSite","name":"Less Rules, More Play","url":"https://paulmoussard.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Less Rules, More Play · Aides de jeu","item":"https://paulmoussard.com/"},{"@type":"ListItem","position":2,"name":"Nemesis: Retaliation","item":"https://paulmoussard.com/nemesis/"}]}]}</script>
+<!--/seo-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* Plan : barre d'onglets collante, sommaire à gauche avec progression, colonne de lecture à droite.
+   Couleurs : complexe sombre, vert acide (Intrus), orange d'alerte. Sections A, B, C en vert, violet, rouge comme sur l'aide de jeu. */
+:root{
+  --bg:#eef0ec; --surface:#fbfcfa; --sunk:#e1e5df; --ink:#1b211d; --muted:#5b665e; --line:#c9d1c8;
+  --accent:#4d7a12; --accent-ink:#ffffff; --terra:#c4501f; --terra-soft:#f7e3d8;
+  --ok:#2c7a3f; --ok-soft:#e1f1e3; --bad:#b3372f; --bad-soft:#f8e1dd;
+  --secA:#2f8f6a; --secB:#7a4fc4; --secC:#c43a3a; --secX:#7c8580;
+  --itr:#c8342f; --itv:#3f9a3f; --itj:#d6a11f;
+  --display:"Rajdhani","Bahnschrift","Segoe UI",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --top:0px;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0f1311; --surface:#171d19; --sunk:#111613; --ink:#e3eae4; --muted:#9aa89d; --line:#2c3630;
+  --accent:#9bd33a; --accent-ink:#0d1509; --terra:#ff8a4c; --terra-soft:#3a2214;
+  --ok:#6fcf8a; --ok-soft:#16301d; --bad:#f08a80; --bad-soft:#3b1a17;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0f1311; --surface:#171d19; --sunk:#111613; --ink:#e3eae4; --muted:#9aa89d; --line:#2c3630;
+    --accent:#9bd33a; --accent-ink:#0d1509; --terra:#ff8a4c; --terra-soft:#3a2214;
+    --ok:#6fcf8a; --ok-soft:#16301d; --bad:#f08a80; --bad-soft:#3b1a17;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:7px}
+button:hover{border-color:var(--accent)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+button.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+button.ghost{background:transparent}
+button[disabled]{opacity:.45;cursor:not-allowed}
+button.sel{border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+input,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:6px 8px}
+input[type=number]{width:74px}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);vertical-align:-3px}
+
+/* ---------- en-tête de l'appli ---------- */
+.apphead{position:sticky;top:var(--sitehead-h,0px);z-index:8;background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.apphead .in{max-width:var(--site-w,1080px);margin:0 auto;padding:10px var(--site-pad,20px);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.apphead .title{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.1;margin:0;display:flex;align-items:baseline;gap:8px}
+.apphead .title small{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
+.tabs{display:flex;gap:4px;background:var(--sunk);padding:4px;border-radius:999px;margin-left:auto}
+.tabs button{border:0;background:transparent;border-radius:999px;padding:6px 14px;font-weight:600;font-size:15px;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+.themebtn{border-radius:999px;width:36px;height:36px;padding:0;display:grid;place-items:center}
+@media (max-width:640px){.apphead .title{font-size:18px}.apphead .title small{display:none}.apphead .in{gap:8px;padding-top:8px;padding-bottom:8px}.themebtn{margin-left:auto;width:32px;height:32px}.tabs{order:3;margin-left:0;width:100%;justify-content:space-between}.tabs button{padding:6px 10px;font-size:14px}}
+
+.tab{display:none}.tab.on{display:block}
+
+/* ---------- tutoriel : sommaire + lecture ---------- */
+.learn{max-width:var(--site-w,1080px);margin:0 auto;padding:0 var(--site-pad,20px);display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(16px,3vw,40px)}
+nav.toc{position:sticky;top:calc(var(--sitehead-h,0px) + 64px);align-self:start;max-height:calc(100vh - var(--sitehead-h,0px) - 76px);overflow:auto;padding:22px 4px 20px 0}
+.toc .brand{font-family:var(--display);font-size:19px;font-weight:600;margin:0 6px 2px}
+.toc .brand small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+.bar{height:6px;background:var(--sunk);border-radius:3px;margin:12px 6px 4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--terra);width:0;transition:width .3s}
+.barlabel{font-size:13px;color:var(--muted);margin:0 6px 10px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+.toc a{display:flex;gap:9px;align-items:baseline;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:15px;line-height:1.3}
+.toc a:hover{background:var(--sunk)}
+.toc a.on{background:var(--accent);color:var(--accent-ink)}
+.toc a .n{font-variant-numeric:tabular-nums;font-size:12px;width:18px;color:var(--muted);flex:none}
+.toc a.on .n{color:inherit}
+.toc a .tick{margin-left:auto;font-size:12px;font-weight:700;color:var(--ok)}
+.toc a.on .tick{color:inherit}
+.toc .part{font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--terra);font-weight:700;margin:14px 8px 3px}
+.tocbtn{display:none;width:100%;margin:10px 0 0}
+@media (max-width:860px){
+  .learn{grid-template-columns:1fr}
+  nav.toc{position:static;max-height:none;padding:16px 0 0}
+  .toc ol{display:none}.toc.open ol{display:flex}
+  .tocbtn{display:block}
+}
+main.read{padding:26px 0 90px;min-width:0}
+section.ch{display:none;max-width:760px}
+section.ch.on{display:block}
+.eyebrow{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);font-weight:700}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,38px);line-height:1.12;margin:4px 0 10px;text-wrap:balance}
+h2{font-family:var(--display);font-weight:600;font-size:23px;margin:34px 0 10px;text-wrap:balance}
+h3{font-size:17px;margin:18px 0 4px}
+p{margin:0 0 12px}
+.lead{font-size:19px;color:var(--muted)}
+ul,ol{padding-left:22px;margin:0 0 12px}
+li{margin-bottom:5px}
+ol.rules{list-style:none;padding:0;counter-reset:r;display:flex;flex-direction:column;gap:8px}
+ol.rules>li{counter-increment:r;position:relative;padding:10px 14px 10px 50px;background:var(--surface);border:1px solid var(--line);border-radius:8px;margin:0}
+ol.rules>li::before{content:counter(r);position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--sunk);color:var(--terra);font-weight:700;font-size:14px;display:grid;place-items:center}
+.note{border-left:4px solid var(--terra);background:var(--terra-soft);padding:10px 14px;border-radius:0 7px 7px 0;margin:14px 0}
+.note b:first-child{color:var(--terra)}
+.ex{border-left:4px solid var(--accent);background:color-mix(in srgb,var(--accent) 9%,var(--surface));padding:10px 14px;border-radius:0 7px 7px 0;margin:14px 0}
+.ex b:first-child{color:var(--accent)}
+.tw{overflow-x:auto;margin:10px 0 16px}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--sunk);font-weight:700}
+td.c,th.c{text-align:center}
+.en{display:none}
+
+/* atelier */
+.lab{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:9px;padding:16px 18px;margin:20px 0}
+.lab>h3:first-child{margin-top:0;font-family:var(--display);font-weight:600;font-size:20px}
+.lab .hint{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.f{display:flex;flex-direction:column;gap:3px;font-size:13.5px;color:var(--muted);font-weight:600}
+.f input,.f select{color:var(--ink);font-weight:400}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:15px;padding:4px 2px}
+.out{margin-top:12px;padding:10px 12px;background:var(--sunk);border-radius:7px;min-height:22px}
+.out.ok{background:var(--ok-soft)} .out.bad{background:var(--bad-soft)}
+.big{font-family:var(--display);font-size:26px;font-weight:600}
+.seg{display:inline-flex;background:var(--sunk);border-radius:999px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;border-radius:999px;padding:4px 12px;font-weight:600}
+.seg button.sel{background:var(--accent);color:var(--accent-ink);box-shadow:none}
+
+/* cas pratiques et quiz */
+.qs{display:flex;flex-direction:column;gap:12px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.q .qt{font-weight:600;margin-bottom:8px}
+.q.case{border-left:4px solid var(--terra)}
+.q .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);margin-bottom:3px}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opts button{text-align:left;padding:8px 12px}
+.opts button.right{border-color:var(--ok);background:var(--ok-soft)}
+.opts button.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.why{margin-top:9px;font-size:15.5px;padding:8px 11px;border-radius:7px;background:var(--sunk)}
+.score{margin-top:12px;font-weight:600}
+.done-banner{margin-top:14px;padding:10px 14px;border-radius:8px;background:var(--ok-soft);color:var(--ok);font-weight:700}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:34px;padding-top:16px;border-top:1px solid var(--line);flex-wrap:wrap}
+
+/* aide-mémoire et décompte */
+.page{max-width:var(--site-w,1080px);margin:0 auto;padding:22px var(--site-pad,20px) 90px}
+.page h1{margin-top:6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.bcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;border-top:5px solid var(--bc,var(--line))}
+.bcard .hd{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.bcard .nm{font-weight:700;line-height:1.2}
+.bcard .meta{display:flex;gap:5px;align-items:center;flex:none}
+.bcard .fx{font-size:14.5px}
+.bcard .set{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.slots{font-size:12.5px;color:var(--muted)}
+.filters2{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 14px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Nemesis */
+h1,h2,.apphead .title,.toc .brand,.lab>h3:first-child,.big{letter-spacing:.01em}
+h1{font-weight:700;text-transform:uppercase}
+.it{display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid rgba(0,0,0,.35);vertical-align:-1px;margin-right:2px}
+.it-r{background:var(--itr)}.it-v{background:var(--itv)}.it-j{background:var(--itj)}
+.sec{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 5px;border-radius:5px;color:#fff;font-weight:700;font-size:13px}
+.sec-A{background:var(--secA)}.sec-B{background:var(--secB)}.sec-C{background:var(--secC)}.sec-x{background:var(--secX)}
+.pic{font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+.rcard{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:5px;border-top:5px solid var(--rc,var(--line))}
+.rcard .hd{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.rcard .nm{font-weight:700;line-height:1.2}
+.rcard .meta{font-size:12.5px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.rcard .fx{font-size:14.5px}
+.rcard ul{font-size:13.5px;color:var(--muted);margin:2px 0 0;padding-left:18px}
+.rcard li{margin-bottom:2px}
+/* ateliers */
+.tok{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 6px;border-radius:50%;font-weight:700;font-size:12px;border:2px solid var(--line);background:var(--surface)}
+.tok.reine{border-color:#b8860b;color:#b8860b}.tok.guerrier{border-color:var(--terra);color:var(--terra)}.tok.adulte{border-color:var(--accent);color:var(--accent)}.tok.larve{border-color:var(--muted);color:var(--muted)}.tok.vierge{border-style:dashed;color:var(--muted)}
+.bag{display:flex;flex-wrap:wrap;gap:5px;padding:10px;border:2px dashed var(--line);border-radius:12px;min-height:52px;margin:8px 0}
+.counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px;margin:8px 0;font-size:14px}
+.counts div{background:var(--sunk);border-radius:7px;padding:6px 9px}
+.counts b{font-size:18px}
+.map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:440px;margin:10px auto}
+.cor{border:2px solid var(--line);border-radius:8px;padding:6px;min-height:64px;text-align:center;font-size:13px;background:var(--surface)}
+.cor .num{font-family:var(--display);font-size:22px;font-weight:700;line-height:1}
+.cor.hit{border-color:var(--terra);box-shadow:0 0 0 2px var(--terra)}
+.cor.reinf{opacity:.6;border-style:dashed}
+.room{border:2px solid var(--accent);border-radius:12px;display:grid;place-items:center;font-weight:700;min-height:64px;text-align:center;font-size:13px;background:color-mix(in srgb,var(--accent) 10%,var(--surface))}
+.empty{visibility:hidden}
+.dice{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.dice button{min-width:52px;font-weight:700}
+.foes{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.foe{border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:var(--surface);min-width:118px;text-align:center}
+.foe.dead{opacity:.4;text-decoration:line-through}
+.foe .h{font-size:13px;color:var(--muted)}
+.foe .row{justify-content:center;margin-top:4px}
+.cubes{letter-spacing:2px;color:var(--terra)}
+.meter{height:12px;border-radius:6px;background:var(--sunk);overflow:hidden;margin:6px 0}
+.meter i{display:block;height:100%;background:var(--bad)}
+@media print{.apphead,nav.toc,.pager,.lab button{display:none}}
+</style>
+<style id="sitehead-css">
+@font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
+.sitehead{position:sticky;top:0;z-index:9;background:#0d0f16;border-bottom:1px solid #2a3144;color:#efe8d8;font:500 15px/1.2 "Figtree","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.sitehead *{box-sizing:border-box}
+:root{--site-w:1080px;--site-pad:20px}
+@media (max-width:640px){:root{--site-pad:16px}}
+.sitehead .sh-in{max-width:var(--site-w);margin:0 auto;padding:0 var(--site-pad);height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sitehead a{color:inherit;text-decoration:none}
+.sitehead .sh-brand{display:flex;align-items:center;gap:10px;font-family:"Marcellus","SH Marcellus","Palatino Linotype",Georgia,serif;font-size:19px;font-weight:400;letter-spacing:.01em;white-space:nowrap}
+.sitehead .sh-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#1d2230;border:1px solid #2a3144;font-size:16px;line-height:1}
+.sitehead .sh-act{display:flex;align-items:center;gap:10px}
+.sitehead .sh-lang{display:inline-flex;padding:3px;background:#161a25;border:1px solid #2a3144;border-radius:999px}
+.sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;font-weight:700;font-size:12.5px;letter-spacing:.04em}
+.sitehead .sh-lang span{background:#ddb96a;color:#17130a}
+.sitehead .sh-lang a{color:#a3a9b8}
+.sitehead .sh-lang span.sh-off{background:none;color:#5d6475;cursor:not-allowed}
+.sitehead .sh-lang a:hover{color:#fff}
+.sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:#ddb96a;color:#17130a;font-weight:700;font-size:14.5px;white-space:nowrap}
+.sitehead .sh-kofi:hover{filter:brightness(1.08)}
+.sitehead a:focus-visible{outline:2px solid #ddb96a;outline-offset:2px}
+@media (max-width:640px){.sitehead .sh-text,.sitehead .sh-kofi-t{display:none}.sitehead .sh-kofi{width:36px;padding:0;justify-content:center}}
+@media print{.sitehead{display:none}}
+:root{--sitehead-h:57px}
+html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
+</style>
+<!--pwa-->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/favicon-32.png" type="image/png">
+<meta name="theme-color" content="#0d0f16">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Less Rules">
+<script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
+<script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<!--/pwa-->
+</head>
+<body>
+<header class="sitehead">
+<div class="sh-in">
+<a class="sh-brand" href="../" aria-label="Retour à l'accueil des aides de jeu"><span class="sh-mark" aria-hidden="true">🎲</span><span class="sh-text">Less Rules, More Play</span></a>
+<div class="sh-act">
+<div class="sh-lang" role="group" aria-label="Langue / Language"><span aria-current="true">FR</span><a href="en.html?lang=en" hreflang="en" lang="en" aria-label="Switch to English" onclick="try{localStorage.setItem('site-lang','en')}catch(e){}">EN</a></div>
+<a class="sh-kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" aria-label="Ko-fi"><span aria-hidden="true">☕</span><span class="sh-kofi-t">Offrir un café</span></a>
+</div>
+</div>
+</header><!--/sitehead-->
+<header class="apphead"><div class="in">
+  <p class="title">Nemesis: Retaliation</p>
+  <div class="tabs" role="tablist" aria-label="Sections">
+    <button type="button" role="tab" data-tab="learn" aria-selected="true">Apprendre</button>
+    <button type="button" role="tab" data-tab="aide" aria-selected="false">Aide-mémoire</button>
+    <button type="button" role="tab" data-tab="salles" aria-selected="false">Salles</button>
+  </div>
+  <button type="button" class="themebtn ghost" id="theme" aria-label="Changer de thème (clair / sombre)">◐</button>
+</div></header>
+
+<div class="tab on" id="tab-learn"><div class="learn">
+  <nav class="toc" id="toc" aria-label="Sommaire du tutoriel">
+    <p class="brand">Apprendre les règles<small>D'après le livret de règles français</small></p>
+    <div class="bar"><i id="bar"></i></div>
+    <p class="barlabel" id="barlabel"></p>
+    <button type="button" class="tocbtn" id="tocbtn" aria-expanded="false">Afficher le sommaire</button>
+    <ol id="toclist"></ol>
+  </nav>
+  <main class="read" id="read"></main>
+</div></div>
+
+<div class="tab" id="tab-aide"><div class="page" id="aide"></div></div>
+<div class="tab" id="tab-salles"><div class="page" id="sallespage"></div></div>
+<script>
+(function(){
+"use strict";
+/* ---------- utilitaires ---------- */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const rnd=n=>Math.floor(Math.random()*n);
+
+/* ---------- petits pictogrammes ---------- */
+const it=c=>`<span class="it it-${c}" title="Objet ${{v:'vert',r:'rouge',j:'jaune'}[c]}"></span>`;
+const ITN={v:'vert',r:'rouge',j:'jaune'};
+const ordi=`<span class="pic" title="Ordinateur">⌨</span>`;
+const sect=s=>`<span class="sec sec-${s==='?'?'x':s}">${s}</span>`;
+
+/* ---------- salles (aide de jeu Salles de la boîte) ----------
+   s : section (A, B, C) ou « ? » ; n : numéro ; obj : icônes Objet ; ic : autres icônes ; fx : effet ; pr : précisions */
+const SALLES=[
+ {n:14,s:'A',fr:'Zone d\'atterrissage',obj:'',ic:['tok'],fx:'Prenez ici autant de jetons tactiques disponibles que vous voulez. <b>OU</b> Faites un jet de bruit pour entrer dans le vaisseau.',pr:['Les jetons gagnés doivent être placés dans des emplacements tactiques libres. Vous pouvez défausser tout ou partie de vos jetons une fois, avant ou pendant cette action.','Le deuxième effet n\'est utilisable que si le vaisseau s\'y trouve.','S\'il y a un Intrus dans la salle après le jet de bruit, l\'action échoue.','C\'est le point de départ de tous les personnages.']},
+ {n:15,s:'A',fr:'Contrôle du recycleur A',obj:'vr',ic:['ordi'],fx:'Retournez un recycleur d\'air dans la section A. <b>OU</b> Défaussez un marqueur Feu depuis n\'importe quelle salle du complexe.',pr:['Le premier effet active ou désactive le recycleur d\'air de la section A.']},
+ {n:16,s:'A',fr:'Bloc opératoire',obj:'vvv',ic:[],fx:'Défaussez toutes vos cartes Action pour retirer une Larve de votre plateau Personnage et scannez toutes les contaminations de votre pioche et de votre défausse ; retirez de la partie celles qui sont infectées. <b>OU</b> Défaussez 1 blessure grave.',pr:['Le premier effet n\'est possible que si vous avez une Larve sur votre plateau Personnage. Vous n\'avez pas besoin d\'avoir des cartes Contamination.','Ensuite, remettez les contaminations scannées restantes dans votre pioche et remélangez l\'ensemble.']},
+ {n:17,s:'A',fr:'Station de forage',obj:'jjj',ic:['ordi'],fx:'Placez un nouveau couloir depuis la salle où se trouve le robot.',pr:['Ce couloir peut mener vers une salle découverte ou non découverte.']},
+ {n:18,s:'B',fr:'Hibernatorium',obj:'',ic:[],fx:'Faites un jet de bruit pour hiberner.',pr:['Utilisable seulement si l\'hibernatorium est actif. On l\'active depuis la salle de contrôle du recycleur C.','S\'il y a un Intrus dans la salle après le jet de bruit, l\'action échoue.','Au début, la tuile est « non découverte » : pas de marqueur Bruit dans ses couloirs, pas de robot activable.']},
+ {n:19,s:'B',fr:'Contrôle du recycleur B',obj:'vr',ic:[],fx:'Retournez un recycleur d\'air dans la section B. <b>OU</b> Consultez les deux jetons DCA et placez-les dans l\'ordre de votre choix.',pr:['Le jeton DCA du dessus indique l\'état actuel de la DCA.','Vous n\'avez pas à dire comment les jetons sont agencés, ni si vous les avez inversés.']},
+ {n:20,s:'B',fr:'Salle des serveurs',obj:'rj',ic:['ordi'],fx:'Utilisez n\'importe quelle salle découverte du complexe qui a un ordinateur. <b>OU</b> Gagnez un jeton Info (si vous n\'en avez pas déjà un).',pr:['Vous ne pouvez pas utiliser de cette façon une salle qui a un marqueur Panne.']},
+ {n:21,s:'B',fr:'Système de refroidissement',obj:'jjj',ic:['ordi'],fx:'Activez la procédure d\'autodestruction.',pr:['Le jeton Autodestruction se place 5 manches plus loin sur le compte-tours.']},
+ {n:22,s:'C',fr:'Contrôle du recycleur C',obj:'vr',ic:[],fx:'Retournez un recycleur d\'air dans la section C. <b>OU</b> Retournez l\'hibernatorium sur sa face active.',pr:['Le deuxième effet active l\'hibernatorium : on ne peut pas le désactiver.']},
+ {n:23,s:'C',fr:'Réacteur',obj:'rj',ic:[],fx:'Retirez du jeu tous les jetons Recycleur d\'air, le jeton Autodestruction et les deux jetons DCA.',pr:['Cette action coupe le réacteur : toutes les sections comptent ensuite comme ayant un recycleur inactif, et la DCA comme inactive.','Le jeton Autodestruction est retiré même s\'il est déjà sur la piste compte-tours.','Les recycleurs, la DCA et l\'autodestruction ne peuvent plus être remis en marche.']},
+ {n:24,s:'C',fr:'Navette d\'évacuation',obj:'vr',ic:[],fx:'Faites un jet de bruit pour entrer dans la navette d\'évacuation.',pr:['S\'il y a un Intrus dans la salle après le jet de bruit, l\'action échoue.','Une fois qu\'un personnage s\'est enfui avec, la navette ne sert plus : il n\'y en a qu\'une.','La DCA n\'empêche pas la navette de partir.']},
+ {n:25,s:'C',fr:'Nid',obj:'',ic:['nosec','nopanne'],fx:'Prenez ou détruisez 1 œuf d\'Intrus et faites un jet de bruit.',pr:['Les œufs se prennent sur l\'emplacement du plateau périphérique de la section C. Ce sont des objets lourds.','Le nid est détruit quand il n\'y a plus d\'œufs.']},
+ {n:1,s:'?',fr:'Système anti-incendie',obj:'vj',ic:['ordi'],fx:'Défaussez tous les marqueurs Feu d\'une section de votre choix.',pr:[]},
+ {n:2,s:'?',fr:'Abri',obj:'vr',ic:['sec'],fx:'Si vous n\'êtes pas infecté par une Larve : prenez toutes les contaminations de votre main et retirez-les du jeu sans les scanner.',pr:['Cette salle est sécurisée par défaut.']},
+ {n:3,s:'?',fr:'Infirmerie',obj:'vvv',ic:[],fx:'Regagnez 2 points de santé. <b>OU</b> Défaussez 1 blessure grave.',pr:[]},
+ {n:4,s:'?',fr:'Entrepôt',obj:'vrj',ic:['nosec'],fx:'Piochez 1 objet vert, 1 rouge et 1 jaune. Vous pouvez garder 2 objets et défausser le reste.',pr:[]},
+ {n:5,s:'?',fr:'Armurerie',obj:'rrr',ic:[],fx:'Gagnez autant de jetons Munitions et de jetons Grenade que vous le souhaitez.',pr:['Les jetons gagnés doivent être placés dans des emplacements tactiques libres. Vous pouvez défausser tout ou partie de vos jetons une fois, avant ou pendant cette action.']},
+ {n:6,s:'?',fr:'Contrôle des portes',obj:'rj',ic:['ordi'],fx:'Ouvrez et/ou fermez autant de portes que vous le souhaitez dans une section de votre choix.',pr:['Vous ne pouvez fermer que les portes qui ont un seuil sur le plateau.']},
+ {n:7,s:'?',fr:'Console du robot',obj:'rj',ic:['ordi'],fx:'Placez 1 jeton Sécurisation dans la salle où se trouve le robot. <b>OU</b> Renforcez un couloir vide adjacent à la salle où est le robot.',pr:[]},
+ {n:8,s:'?',fr:'Contrôle des tourelles',obj:'rrr',ic:['ordi'],fx:'Choisissez un couloir adjacent à une salle qui a une icône Objet rouge et pas de marqueur Panne. Lancez un dé Rafale et infligez autant de touches que le résultat dans ce couloir.',pr:['Ce n\'est pas une action Rafale : vous ne dépensez pas de munitions.']},
+ {n:9,s:'?',fr:'Contrôle de la pression',obj:'jjj',ic:['ordi'],fx:'Déplacez 1 Intrus n\'importe où dans le complexe.',pr:['L\'Intrus peut être déplacé dans n\'importe quelle direction (d\'une salle vers un couloir, ou d\'un couloir vers une salle).']},
+ {n:10,s:'?',fr:'Signal d\'alarme',obj:'vr',ic:['ordi'],fx:'Résolvez ou défaussez un marqueur Bruit depuis un couloir du complexe de votre choix.',pr:[]},
+ {n:11,s:'?',fr:'Labo militaire expérimental',obj:'rj',ic:[],fx:'Gagnez autant de jetons Munitions que vous le souhaitez. <b>OU</b> Piochez 2 équipements de soutien au hasard : conservez-en 1 et défaussez l\'autre.',pr:['Les jetons gagnés doivent être placés dans des emplacements tactiques libres. Vous pouvez défausser tout ou partie de vos jetons une fois, avant ou pendant cette action.','Les équipements de soutien choisis à la mise en place ne reviennent pas dans la pioche.']},
+ {n:12,s:'?',fr:'Accès aux conduits',obj:'jjj',ic:['nosec'],fx:'Déplacez-vous dans n\'importe quelle salle du complexe. Résolvez une attaque d\'Intrus (Intrus Adulte).',pr:['Tirez une carte Attaque d\'Intrus et résolvez l\'effet de l\'Adulte. Ne placez pas d\'Intrus sur le plateau.','Les jetons Sécurisation ne comptent pas : aucun Intrus n\'est entré dans la salle.','Ensuite, faites un jet de bruit comme d\'habitude.']},
+ {n:13,s:'?',fr:'Salle de décontamination',obj:'vvv',ic:[],fx:'Défaussez toutes vos cartes Action et dépensez 2 oxygène pour retirer du jeu toutes les contaminations de votre pioche et de votre défausse, sans les scanner.',pr:['Impossible si vous avez 1 oxygène ou moins : l\'action vous infligerait un jeton Suffocation.']}
+];
+const ICN={tok:'4 emplacements de jetons tactiques',ordi:'ordinateur',sec:'sécurisée par défaut',nosec:'jamais sécurisée',nopanne:'jamais en panne'};
+
+/* ---------- contenu des chapitres ----------
+   rules : un point de règle par ligne. html : bloc libre. lab : atelier interactif (voir LABS). cas : mises en situation. quiz : vérification.
+   a : indice de la bonne réponse. Source : livret de règles français et aide de jeu Salles. */
+const CH=[
+/* ======================= DÉCOUVRIR ======================= */
+{id:'but',part:'Découvrir',t:'Le but du jeu',
+lead:`Vous êtes un Marine envoyé dans un complexe extraterrestre infesté. L'escouade a une mission commune, mais chacun poursuit aussi ses propres objectifs. Nemesis: Retaliation est <b>semi-coopératif</b> : il peut y avoir plusieurs gagnants, ou aucun.`,
+rules:[
+`Le jeu se joue de 1 à 5 joueurs. Ce n'est pas un jeu coopératif : chaque personnage se bat pour son propre intérêt, même si l'entraide est souvent vitale.`,
+`Pour gagner, vous devez remplir <b>trois conditions</b> : <b>1.</b> vous échapper du complexe ou hiberner ; <b>2.</b> accomplir l'un de vos objectifs ; <b>3.</b> survivre aux procédures d'infection et d'éclosion de fin de partie.`,
+`Il y a trois façons de finir la partie en lieu sûr : partir avec le <b>vaisseau</b> depuis la zone d'atterrissage, <b>hiberner</b> dans une nacelle de l'hibernatorium, ou partir avec la <b>navette d'évacuation</b>.`,
+`Chaque joueur reçoit <b>2 objectifs cachés</b> : un <b>objectif personnel</b>, propre à son personnage, et un <b>objectif de mission</b>, lié à la mission commune décrite sur la carte <b>Mission de l'escouade</b>. Au cours de la partie, vous en choisissez un, que vous devrez accomplir.`,
+`La partie s'arrête à la <b>fin de la 14e manche</b> (tous ceux qui ne sont ni partis ni en hibernation sont laissés pour morts), ou dès que <b>tous les personnages</b> sont morts, partis ou en hibernation.`,
+`Les Intrus de ce jeu s'appellent les <b>Primesangs</b>. Le mot « Intrus » désigne toutes les races extraterrestres de l'univers de Nemesis : les règles disent toujours « Intrus ».`],
+quiz:[
+{q:`Vous avez accompli votre objectif et vous êtes en vie à la fin de la 14e manche, mais vous êtes encore dans le complexe. Avez-vous gagné ?`,o:[`Oui, l'objectif suffit`,`Non : à la fin de la 14e manche, ceux qui ne sont ni partis ni en hibernation sont laissés pour morts`,`Oui, si la Reine est morte`],a:1,w:`Il faut <b>aussi</b> être parti ou en hibernation. Les trois conditions sont cumulatives.`},
+{q:`Combien de joueurs peuvent gagner la même partie ?`,o:[`Un seul`,`Tous ceux qui remplissent les trois conditions`,`Toute l'escouade, ou personne`],a:1,w:`Plusieurs gagnants sont possibles : chacun gagne s'il remplit ses trois conditions.`},
+{q:`Quelles sont les trois façons de terminer la partie en sécurité ?`,o:[`Vaisseau, hibernatorium, navette d'évacuation`,`Vaisseau, bloc opératoire, abri`,`Tuer la Reine, détruire le nid, autodestruction`],a:0,w:`Le vaisseau (zone d'atterrissage), une nacelle de l'hibernatorium, ou la navette d'évacuation (section C).`}]},
+
+{id:'mep-complexe',part:'Découvrir',t:'Mise en place du complexe',
+lead:`La mise en place du jeu peut se faire à l'avance. Elle prépare le complexe, les Intrus et les réserves. Suivez les étapes dans l'ordre.`,
+rules:[
+`<b>Plateau :</b> assemblez les 3 plateaux périphériques de section et les 3 plateaux compte-tours. Posez la tuile <b>Hibernatorium non découvert</b> sur l'emplacement de l'hibernatorium : tant qu'aucun personnage ne l'a atteint, il compte comme absent (pas de marqueur Bruit dans ses couloirs, robot non activable).`,
+`<b>Compte-tours :</b> le marqueur sur la 1re case, le jeton <b>Vaisseau</b> sur la <b>10e case</b>, le jeton <b>Autodestruction</b> sur sa case, au-dessus de la piste. Un cube sur la case supérieure de la piste <b>Choix d'objectif</b>.`,
+`<b>Systèmes :</b> les 3 jetons Recycleur d'air et le jeton Hibernatorium côté <b>inactif</b>. Une carte Robot tirée au hasard, face cachée, sur l'emplacement Robot de la section A (les autres retournent dans la boîte), avec 1 jeton Munitions (côté plein) et 1 jeton Oxygène à côté. La figurine du robot va dans l'hibernatorium.`,
+`<b>DCA et nid :</b> les 2 jetons DCA mélangés, face cachée, l'un sur l'autre, dans l'emplacement DCA de la section B. 5 jetons <b>Œuf</b> dans l'emplacement du nid (section C).`,
+`<b>Zone d'atterrissage :</b> 4 jetons Munitions (côté plein), 4 Grenades, 4 Oxygène et 4 Medpacks sur ses emplacements.`,
+`<b>Couloirs et salles :</b> mélangez les tuiles Couloir dans un casier, face « 0 » visible, pour piocher sans voir leur numéro. Reliez <b>3 couloirs</b> au hasard à la zone d'atterrissage, côté non renforcé (seuil de porte tourné vers la zone). Triez les tuiles Salle par dos en 4 piles mélangées : A, B, C et « ? ».`,
+`<b>Intrus :</b> mélangez le paquet Exploration. Triez les jetons Intrus en piles par type. Mettez dans le <b>sac Intrus</b> : <b>1 jeton vierge, 2 Larves, 3 Adultes, plus 1 Adulte par personnage</b>. Mélangez les paquets Attaque et Événement, et les 12 cartes Santé de la Reine (face numérotée cachée) sur la section C, avec un cube sur la case 0 de la piste des touches portées à la Reine. L'aide de jeu Intrus se pose côté <b>« La Reine est en vie »</b>.`,
+`<b>Le reste :</b> les 3 paquets Objet (rouge, vert, jaune), le paquet Contamination et le paquet Blessure grave, mélangés séparément, face cachée. Le casier des marqueurs Bruit, Feu, Panne, jetons Porte, Sécurisation, jetons tactiques et cubes, les 6 dés et le scanner à portée de main.`],
+html:`<div class="note"><b>Mode mortel.</b> Certains couloirs portent un second chiffre, plus petit : il ne sert qu'en mode mortel (voir le dernier chapitre).</div>`,
+quiz:[
+{q:`Combien de jetons Adulte mettez-vous dans le sac Intrus à 4 joueurs ?`,o:[`3`,`4`,`7`,`8`],a:2,w:`3 Adultes de base + 1 par personnage, soit 7 (avec aussi 1 jeton vierge et 2 Larves).`},
+{q:`Où commence le jeton Vaisseau ?`,o:[`Sur la zone d'atterrissage`,`Sur la 10e case du compte-tours`,`Sur la dernière case du compte-tours`],a:1,w:`Quand le compte-tours atteint la 10e case, le vaisseau tente d'atterrir.`},
+{q:`Dans quel état commencent les recycleurs d'air ?`,o:[`Actifs`,`Inactifs`,`Au hasard`],a:1,w:`Les 3 recycleurs et l'hibernatorium commencent côté inactif : sans recycleur actif, vous perdez de l'oxygène à chaque tour.`}]},
+
+{id:'mep-joueurs',part:'Découvrir',t:'Mise en place des joueurs',
+lead:`Tous les joueurs doivent être autour de la table : chacun reçoit un numéro, ses objectifs, un personnage et son équipement.`,
+rules:[
+`<b>Numéros :</b> prenez les aides de jeu correspondant au nombre de joueurs (1 à 3 à trois joueurs, etc.), mélangez-les et distribuez-en une à chacun. Ce numéro sert au choix des personnages et à certains objectifs, pas à l'ordre du tour.`,
+`<b>Objectifs :</b> séparez les objectifs personnels et les objectifs de mission. Dans ces deux paquets et dans le paquet Mission de l'escouade, retirez les cartes qui affichent un nombre de personnages supérieur au nombre de joueurs. Distribuez au hasard <b>1 objectif personnel et 1 objectif de mission</b> à chacun, face cachée. Tirez <b>1 Mission de l'escouade</b>, face visible, sur le plateau compte-tours inférieur.`,
+`Ne montrez jamais vos objectifs. Vous pouvez en parler, mais rien ne vous oblige à dire la vérité. Ils ne sont révélés qu'à la fin.`,
+`<b>Personnages :</b> le joueur 1 reçoit 2 cartes Rôle, en choisit une en secret puis la révèle ; l'autre retourne dans le paquet. On continue par numéro croissant.`,
+`<b>Votre plateau :</b> la tuile Personnage sur le plateau Personnage, un cube sur la case la plus à gauche de la piste de santé, le cadran d'oxygène sur <b>7</b>, votre figurine (avec son socle de couleur) dans la <b>zone d'atterrissage</b>, le porte-cartes numéroté au-dessus du plateau, vos 10 cartes Action mélangées à gauche (défausse à droite).`,
+`<b>Objet de personnage :</b> un objet lourd va dans un emplacement de main, une armure sur la section <b>État critique</b> de la piste de santé. Un jeton Munitions (côté plein) sur chaque emplacement de munitions. La Mercenaire commence avec 2 objets de personnage.`,
+`<b>Équipement de soutien</b> (sauf la Mercenaire) : révélez 7 cartes ; du numéro le plus élevé au plus bas, chacun en choisit 1. Remplissez leurs emplacements tactiques. Les cartes non choisies sont retirées du jeu ; le reste du paquet reste à côté des objets.`,
+`<b>Ceinture tactique :</b> chacun choisit <b>4 jetons tactiques</b> dans la réserve (en cas de conflit, par numéro décroissant). Pour la première partie, prenez 1 jeton de chaque type.`,
+`<b>Départ :</b> chacun pioche 5 cartes Action. Le joueur 1 prend le jeton Premier joueur et commence.`],
+cas:[
+{q:`À 3 joueurs, une carte Objectif indique « 4 personnages ». Que faites-vous ?`,o:[`Vous la gardez, elle est simplement plus dure`,`Vous la retirez avant de distribuer`,`Vous la donnez au joueur 1`],a:1,w:`Toute carte Objectif ou Mission de l'escouade qui affiche plus de personnages que de joueurs est retirée avant la distribution.`}],
+quiz:[
+{q:`Qui choisit son équipement de soutien en premier ?`,o:[`Le joueur 1`,`Le joueur au numéro le plus élevé`,`Le premier joueur`],a:1,w:`L'équipement de soutien se choisit par numéro décroissant. La Mercenaire n'y participe pas.`},
+{q:`À combien est réglé le cadran d'oxygène au départ ?`,o:[`5`,`7`,`10`],a:1,w:`7, la valeur maximale. Votre réserve ne peut jamais dépasser 7.`}]},
+
+{id:'manche',part:'Découvrir',t:'Une manche en 4 phases',
+lead:`La partie se joue en manches (14 au plus). Chaque manche enchaîne quatre phases : Joueurs, Intrus, Événement et Nettoyage.`,
+rules:[
+`<b>Phase Joueurs :</b> à partir du premier joueur, dans le sens horaire, chacun joue un tour : <b>1.</b> effectuer 2 actions ; <b>2.</b> perte d'oxygène si le recycleur d'air de sa section est inactif ; <b>3.</b> dégâts du feu s'il est dans une salle en feu. On enchaîne les tours jusqu'à ce que <b>tout le monde ait passé</b>.`,
+`<b>Phase Intrus :</b> <b>1.</b> chaque Intrus dans une salle en feu subit 1 touche (et le nid en feu perd 1 œuf) ; <b>2.</b> les Intrus attaquent les personnages de leur salle.`,
+`<b>Phase Événement :</b> <b>3.</b> piochez et résolvez une carte Événement (des Intrus se déplacent, puis effet principal, puis effet secondaire) ; <b>4.</b> piochez un jeton dans le sac Intrus : la colonie se développe.`,
+`<b>Phase Nettoyage :</b> <b>5.</b> le jeton Premier joueur passe au voisin de gauche du premier joueur de la manche ; <b>6.</b> chacun pioche pour remonter à 5 cartes en main ; <b>7.</b> le compte-tours avance d'une case.`,
+`Si le compte-tours arrive sur la case du jeton <b>Vaisseau</b>, le vaisseau tente d'atterrir. S'il arrive sur la case du jeton <b>Autodestruction</b>, le complexe explose. S'il est déjà sur la dernière case, la partie se termine.`,
+`<b>Priorité au premier joueur :</b> quand les règles départagent des joueurs, la priorité va au détenteur du jeton Premier joueur, ou à défaut au plus proche de lui dans le sens horaire.`],
+html:`<div class="ex"><b>Effets d'un événement.</b> Les effets qui touchent des personnages se résolvent dans l'ordre du tour. Ceux qui touchent les marqueurs Bruit des couloirs se résolvent à partir du couloir en haut à gauche du complexe, rangée par rangée. Si un effet est impossible, ignorez-le et résolvez le reste.</div>`,
+quiz:[
+{q:`À quel moment perdez-vous de l'oxygène à cause d'un recycleur inactif ?`,o:[`Pendant la phase Nettoyage`,`À la fin de chacun de vos tours, même quand vous passez`,`Une fois par manche, au début de la phase Joueurs`],a:1,w:`C'est l'étape 2 de votre tour : à chaque tour (même un tour où vous passez), si le recycleur de votre section est inactif, vous perdez 1 oxygène.`},
+{q:`Dans quel ordre se déroule la phase Événement ?`,o:[`Sac Intrus, puis carte Événement`,`Carte Événement, puis sac Intrus`,`Attaques, puis carte Événement`],a:1,w:`D'abord la carte Événement (déplacements, effet principal, effet secondaire), puis le tirage dans le sac Intrus.`},
+{q:`Combien de cartes avez-vous en main après la phase Nettoyage ?`,o:[`5`,`Ce qu'il vous reste + 2`,`10`],a:0,w:`Chaque joueur remonte à 5 cartes (sauf exception).`}]},
+
+/* ======================= VOTRE TOUR ======================= */
+{id:'actions',part:'Votre tour',t:'Les actions',
+lead:`À votre tour, vous faites 2 actions parmi celles de votre plateau Personnage. La plupart se paient en défaussant des cartes Action.`,
+rules:[
+`Vous <b>devez</b> faire 2 actions. Vous pouvez faire deux fois la même. Si vous ne pouvez faire aucune autre action, vous devez faire l'action <b>Passer</b>.`,
+`<b>Coût 0 :</b> Jouer une carte Action ; Passer.`,
+`<b>Coût 1 carte :</b> Se déplacer ; Placer 1 jeton Sécurisation ✖ ; Effectuer un tir dans une salle ; Tirer une rafale dans un couloir ; Combattre en mêlée ; Utiliser un objet ; Activer le robot ✖ ; Échanger ✖ ; Utiliser un équipement tactique.`,
+`<b>Coût 2 cartes :</b> Action de salle ✖ ; Déplacement prudent ✖.`,
+`Les actions marquées ✖ sont des actions <b>hors combat</b> : impossibles si vous êtes <b>engagé dans un combat</b>, c'est-à-dire dans une salle avec au moins 1 Intrus.`,
+`Pour payer, défaussez le nombre de cartes requis, face visible : leurs effets ne sont <b>pas</b> résolus. Puis résolvez l'action.`,
+`<b>Passer</b> est une action : vous ne passez pas automatiquement quand vous n'avez plus de cartes. En passant, vous pouvez défausser autant de cartes Action et Contamination de votre main que vous voulez. Ensuite, votre tour est ignoré jusqu'à la fin de la manche, mais vous pouvez encore jouer des réactions.`,
+`Après vos 2 actions : <b>perte d'oxygène</b> (recycleur de votre section inactif : −1 oxygène) puis <b>dégâts du feu</b> (salle en feu : −1 santé).`],
+cas:[
+{q:`Il vous reste 1 carte Action en main et vous êtes seul dans une salle vide. Vous voulez faire un déplacement prudent. Est-ce possible ?`,o:[`Oui`,`Non : il coûte 2 cartes`,`Oui, en défaussant une carte Contamination en plus`],a:1,w:`Le déplacement prudent coûte 2 cartes Action, et les cartes Contamination ne peuvent pas servir à payer.`},
+{q:`Un Adulte est dans votre salle. Pouvez-vous utiliser l'action de la salle ?`,o:[`Oui`,`Non : l'action de salle est hors combat`,`Oui, si vous payez 3 cartes`],a:1,w:`Une salle avec au moins 1 Intrus vous engage dans un combat : les actions hors combat (action de salle, déplacement prudent, sécurisation, robot, échange) sont interdites.`}],
+quiz:[
+{q:`Que coûte l'action Tirer une rafale dans un couloir ?`,o:[`0 carte`,`1 carte`,`2 cartes`],a:1,w:`1 carte Action (et la rafale dépense en plus des munitions).`},
+{q:`Vous n'avez plus de carte en main et il vous reste une action. Que se passe-t-il ?`,o:[`Vous passez automatiquement`,`Vous devez faire l'action Passer (sauf si une action à 0 carte est possible)`,`Vous piochez une carte`],a:1,w:`Passer est une action qu'il faut effectuer ; elle ne coûte rien.`}]},
+
+{id:'cartes',part:'Votre tour',t:'Cartes Action, objectif et règles d\'or',
+lead:`Vos 10 cartes Action sont à la fois votre monnaie et vos effets spéciaux. C'est aussi pendant votre tour que vous choisissez votre objectif.`,
+rules:[
+`<b>Jouer une carte Action</b> (coût 0) : révélez-la, résolvez son effet, défaussez-la. L'icône <b>hors combat</b> sur une carte interdit de la jouer dans une salle avec un Intrus.`,
+`<b>Réactions :</b> certaines cartes ont un effet de réaction, jouable à tout moment, même hors de votre tour, si ses conditions sont remplies. Ce n'est pas une action.`,
+`<b>Ordres :</b> certains effets vous font agir avec un autre personnage, même s'il a passé. Interdit si cela provoque une attaque d'opportunité (sortir d'une salle avec des Intrus, traverser un couloir infesté).`,
+`<b>Effets :</b> vous ne pouvez choisir un effet que si vous pouvez le résoudre entièrement. Exemple : « À couvert » demande de défausser 1 carte de plus ; sans elle, vous ne pouvez pas la jouer.`,
+`<b>Choisir un objectif</b>, une fois par partie, à votre tour, avant ou après vos 2 actions (pas entre les deux) : gardez 1 carte Objectif, retirez l'autre sans la montrer. Ce n'est pas une action.`,
+`Le premier joueur à choisir pioche <b>3</b> cartes Action, le 2e et le 3e en piochent <b>2</b>, le 4e et le 5e <b>1</b> : le cube de la piste Choix d'objectif descend d'un cran à chaque choix. Plus vous attendez, moins vous piochez.`,
+`Pioche vide : mélangez votre défausse pour en refaire une, à n'importe quelle phase.`,
+`<b>Règles d'or.</b> <b>Loi de Murphy :</b> en cas de doute, appliquez ce qui pénalise le plus l'ensemble des joueurs, puis le premier dans l'ordre du tour. <b>Effets locaux :</b> un effet sans cible précise s'applique dans la salle du personnage qui l'a déclenché (ou sur ce qu'il porte). <b>Limite du matériel :</b> les éléments sont limités sauf mention contraire (pas de jeton Munitions s'ils sont tous pris ; les cubes, eux, sont illimités).`],
+cas:[
+{q:`Deux joueurs ont déjà choisi leur objectif. Vous choisissez le vôtre au début de votre tour. Combien de cartes piochez-vous ?`,o:[`3`,`2`,`1`],a:1,w:`Vous êtes le 3e à choisir : 2 cartes (3 pour le 1er, 2 pour les 2e et 3e, 1 pour les 4e et 5e).`}],
+quiz:[
+{q:`Pouvez-vous choisir votre objectif entre vos deux actions ?`,o:[`Oui`,`Non : avant ou après les 2 actions`,`Seulement si vous passez`],a:1,w:`Avant ou après vos 2 actions, jamais au milieu. Ce n'est pas une action.`},
+{q:`Un effet vous permet de défausser un marqueur Panne sans préciser où. Où pouvez-vous le prendre ?`,o:[`N'importe où dans le complexe`,`Dans votre salle, ou sur un objet que vous portez`,`Seulement sur votre arme`],a:1,w:`Règle d'or des effets locaux : dans la salle du personnage qui déclenche l'effet, y compris sur ce qu'il transporte.`},
+{q:`Peut-on ordonner à un personnage de quitter une salle où se trouve un Intrus ?`,o:[`Oui`,`Non : cela provoquerait une attaque d'opportunité`,`Oui, s'il a passé`],a:1,w:`Un ordre ne peut jamais provoquer d'attaque d'opportunité d'Intrus.`}]},
+
+{id:'sante',part:'Votre tour',t:'Santé, blessures graves et armure',
+lead:`Votre piste de santé se lit de gauche à droite. Plus le cube avance, plus vous êtes mal en point, et certaines attaques deviennent mortelles.`,
+rules:[
+`La piste a 3 sections : <b>En forme</b>, <b>Affaibli</b>, <b>État critique</b>. Les attaques d'Intrus font souvent référence à la section où se trouve votre cube.`,
+`Perdre de la santé déplace le cube vers la <b>droite</b> ; en regagner le déplace vers la <b>gauche</b>. Vous pouvez choisir de regagner moins que permis.`,
+`Si le cube atteint la case marquée d'un <b>crâne</b>, votre personnage meurt : sa figurine et tous ses objets sont retirés, vous ne pouvez plus gagner.`,
+`<b>Blessure grave :</b> piochez une carte au hasard et posez-la sur la section libre la plus à gauche. Elle impose un handicap et réduit votre santé maximum : le cube ne peut jamais aller sur une case couverte. Si elle couvre la case du cube, celui-ci passe aussitôt sur la première case de la section suivante.`,
+`Deux blessures graves identiques ne cumulent pas leurs effets. Pour en défausser une, il faut un objet ou une salle (Bloc opératoire, Infirmerie) ; vous choisissez laquelle, les autres glissent d'une section vers la gauche. Le cube ne bouge pas.`,
+`<b>Armure :</b> elle se pose sur la section État critique. Quand le cube atteint cette section, l'armure est détruite <b>au lieu</b> de perdre 1 point de santé, puis vous appliquez le reste des dégâts. Une seule armure à la fois ; elle ne va jamais dans le sac à dos. Si votre cube est déjà en État critique, vous ne pouvez pas en équiper une nouvelle : défaussez-la.`],
+cas:[
+{q:`Votre cube est sur la dernière case de la section Affaibli. Vous portez une armure et perdez 2 points de santé. Que se passe-t-il ?`,o:[`Vous perdez 2 points, l'armure reste`,`L'armure est détruite au lieu du 1er point, puis le cube avance de 1`,`L'armure absorbe les 2 points`],a:1,w:`En entrant dans la section de l'armure, vous la défaussez au lieu de perdre ce point, puis vous appliquez le reste : le cube avance d'une case.`}],
+quiz:[
+{q:`Une blessure grave vient couvrir la case de votre cube. Où va-t-il ?`,o:[`Il reste dessous`,`Sur la première case de la section suivante`,`Sur la case libre précédente`],a:1,w:`Il passe immédiatement sur la première case de la section suivante, ce qui peut vous faire défausser une armure.`},
+{q:`Défausser une blessure grave vous fait-il regagner de la santé ?`,o:[`Oui, 1 point`,`Non, le cube ne bouge pas`,`Oui, jusqu'au début de la section`],a:1,w:`Les blessures restantes glissent vers la gauche, mais le cube ne bouge pas.`}]},
+
+{id:'ceinture',part:'Votre tour',t:'Oxygène et jetons tactiques',
+lead:`L'air du complexe n'est pas respirable sans recycleur. Votre réserve d'oxygène baisse, et vos jetons tactiques sont vos ressources de survie.`,
+rules:[
+`<b>Oxygène :</b> à la fin de chacun de vos tours (même si vous passez), si le recycleur d'air de votre section est inactif, perdez 1 oxygène. Un recycleur actif empêche la perte mais ne <b>remplit pas</b> votre réserve.`,
+`Vous ne pouvez pas faire une action qui ferait descendre votre cadran sous 0. Si le cadran tombe en dessous de 0 (par perte), vous recevez un <b>jeton Suffocation</b>, remettez le cadran à 0 et suivez le jeton : vous avez <b>un tour</b> pour trouver de l'oxygène, sinon vous mourez.`,
+`<b>Ceinture tactique :</b> 4 emplacements, à gauche de votre plateau, chacun pour 1 jeton. Armes et objets ont aussi des emplacements tactiques : leur couleur dit quel jeton ils acceptent ; les <b>gris</b> (dont ceux de la ceinture) acceptent tout.`,
+`<b>Utiliser un équipement tactique</b> est une action (1 carte) : utilisez autant de jetons que vous voulez, défaussez-les (sauf les munitions mises dans vos armes). Vous pouvez aussi réorganiser vos jetons entre emplacements, sauf d'une arme vers une autre arme.`,
+`<b>Munitions :</b> un jeton a 2 charges (plein, puis à moitié). L'utiliser recharge une arme : il passe de la ceinture à l'emplacement de l'arme. « Dépenser » des munitions : un jeton plein se retourne, un jeton à moitié se défausse.`,
+`<b>Oxygène :</b> +3 oxygène, sans dépasser 7. <b>Medpack :</b> +2 santé. <b>Grenade :</b> choisissez un couloir adjacent, lancez un dé Rafale et ajoutez 2 : autant de touches dans ce couloir. Ce n'est pas une rafale (les effets d'arme ne s'appliquent pas).`,
+`Un objet trouvé arrive avec ses emplacements tactiques remplis. Vous pouvez défausser objets et jetons à tout moment.`],
+cas:[
+{q:`Vous êtes dans une section dont le recycleur est actif, avec 2 oxygène. Combien en aurez-vous à la fin de votre tour ?`,o:[`2`,`3`,`7`],a:0,w:`Un recycleur actif vous évite d'en perdre, mais ne vous en rend pas. Pour remonter, il faut un jeton Oxygène ou un objet.`},
+{q:`Vous lancez une grenade et faites 3 au dé Rafale. Combien de touches ?`,o:[`3`,`5`,`6`],a:1,w:`Résultat + 2 : 5 touches dans le couloir choisi.`}],
+quiz:[
+{q:`Combien de jetons pouvez-vous utiliser avec une seule action Utiliser un équipement tactique ?`,o:[`1`,`2`,`Autant que vous voulez`],a:2,w:`Une seule action, autant de jetons que vous voulez.`}]},
+
+/* ======================= LE COMPLEXE ======================= */
+{id:'plateau',part:'Le complexe',t:'Sections, salles, couloirs et portes',
+lead:`Le complexe est divisé en 3 sections : A (l'entrée), B (le centre) et C (la plus dangereuse). Les personnages vont de salle en salle ; les Intrus occupent salles et couloirs.`,
+rules:[
+`Chaque section a un <b>recycleur d'air</b> (actif ou inactif), qu'on change depuis sa salle de contrôle, et des salles qui lui sont propres (marquées A, B ou C). Les salles « ? » sont aléatoires : elles ne seront pas toutes en jeu.`,
+`Aucune salle ni aucun couloir ne peut sortir des limites formées par les plateaux périphériques.`,
+`Une tuile Salle indique : nom, effet, <b>icônes Objet</b> (pour la Fouille), icône <b>Ordinateur</b> (salle accessible à distance pour certains effets), type et numéro de référence (pour départager), et parfois une icône « jamais sécurisée » ou « jamais en panne ».`,
+`Un couloir relié à une salle lui est toujours <b>adjacent</b>, quoi qu'il y ait dessus. Un couloir à la frontière de 2 sections est dans les deux. Un couloir relié à une seule salle est <b>inexploré</b> ; un couloir sans Intrus est <b>vide</b> (même avec un marqueur Bruit).`,
+`Un couloir accueille : <b>la Reine et jusqu'à 2 autres Intrus</b>, <b>ou</b> jusqu'à <b>6</b> Adultes, Guerriers et Larves, <b>ou</b> <b>1 marqueur Bruit</b>. Un Intrus qui entre dans un couloir avec un marqueur Bruit le défausse ; on ne pose jamais de marqueur Bruit sur un Intrus.`,
+`<b>Couloir renforcé :</b> défaussez son marqueur Bruit et retournez-le : sa valeur de bruit devient 0, aucun jet de bruit n'y place plus de marqueur, mais les Intrus peuvent toujours y passer. Les couloirs de l'hibernatorium ne peuvent jamais être renforcés.`,
+`<b>Portes :</b> un seuil de porte = une porte ouverte. Fermée, on pose un jeton Porte ; détruite, on le couche : elle reste ouverte pour toujours. Une porte fermée bloque tout ce qui est de l'autre côté (sauf les marqueurs Bruit) : pas de déplacement ni de rafale à travers, et le feu ne se propage pas. Les Intrus qui doivent la franchir la <b>détruisent</b> au lieu de bouger.`,
+`Un effet qui vous envoie « n'importe où dans le complexe » ignore les portes fermées (vous passez par un conduit).`],
+quiz:[
+{q:`Combien d'Intrus Adultes un couloir peut-il contenir au plus ?`,o:[`3`,`4`,`6`],a:2,w:`6 au total (Adultes, Guerriers, Larves). La Reine compte pour 4.`},
+{q:`Un couloir contient un marqueur Bruit. Est-il « vide » ?`,o:[`Oui`,`Non`],a:0,w:`Un couloir est vide s'il ne contient aucun Intrus ; un marqueur Bruit n'est pas un Intrus.`},
+{q:`Un Adulte doit traverser une porte fermée. Que se passe-t-il ?`,o:[`Il fait un détour`,`Il détruit la porte au lieu de se déplacer`,`Il reste bloqué pour la manche`],a:1,w:`Le chemin le plus court ignore les portes ; arrivé devant une porte fermée, l'Intrus la détruit et reste sur place.`}]},
+
+{id:'marqueurs',part:'Le complexe',t:'Feu, panne et sécurisation',
+lead:`Le complexe est abandonné : des feux s'y déclarent, des systèmes tombent en panne. Les jetons Sécurisation, eux, préparent une salle aux attaques.`,
+rules:[
+`<b>Feu</b> (1 par salle au plus) : un personnage qui finit son tour dans une salle en feu perd 1 point de santé ; en phase Intrus, chaque Intrus d'une salle en feu subit 1 touche, et le nid en feu perd 1 œuf. Certains événements propagent le feu aux salles adjacentes ; une porte fermée l'arrête.`,
+`<b>Feu généralisé :</b> s'il faut poser un marqueur Feu et qu'il n'y en a plus, le complexe est détruit et la partie se termine.`,
+`<b>Panne</b> (1 par salle) : l'action de la salle est indisponible, d'aucune façon (ses icônes Objet restent valables). Sur un <b>objet lourd</b> : il ne peut plus servir du tout, mais ses jetons tactiques restent utilisables ; une 2e panne le <b>détruit</b>. Sur la <b>carte Robot</b> : le robot ne fait plus rien, mais ses jetons et les effets qui demandent sa présence restent utilisables.`,
+`Plus de marqueur Panne en réserve ? Posez un marqueur Feu dans la salle à la place, si possible. Vous pouvez défausser une panne depuis votre salle, ou depuis un objet ou le robot de cette salle.`,
+`<b>Sécurisation</b> (3 par salle au plus, impossible si un Intrus s'y trouve) : quand un Intrus <b>entre</b> dans une salle qui contient au moins 1 personnage et 1 jeton Sécurisation, défaussez 1 jeton <b>au lieu</b> de l'attaque. C'est obligatoire.`,
+`Les jetons Sécurisation ne protègent pas des Intrus <b>déjà présents</b> (par exemple lors des attaques de la phase Intrus). Certaines salles ne se sécurisent jamais (Nid, Entrepôt, Accès aux conduits) ; l'Abri est sécurisé par défaut.`],
+cas:[
+{q:`Vous êtes dans une salle avec 2 jetons Sécurisation. Un Guerrier y entre, puis un Adulte. Combien d'attaques subissez-vous ?`,o:[`0`,`1`,`2`],a:0,w:`Chaque entrée fait défausser 1 jeton au lieu de l'attaque : il vous reste 0 jeton, et aucune attaque. Mais en phase Intrus, ces deux Intrus déjà présents attaqueront normalement.`},
+{q:`Votre fusil a déjà un marqueur Panne et un effet vous en impose un autre. Que se passe-t-il ?`,o:[`Rien`,`Le fusil est détruit`,`Vous perdez 1 point de santé`],a:1,w:`Un deuxième marqueur Panne sur un objet le détruit : défaussez-le.`}],
+quiz:[
+{q:`Une salle a un marqueur Panne. Pouvez-vous y faire une Fouille ?`,o:[`Non`,`Oui : la panne n'affecte pas les icônes Objet`],a:1,w:`La panne bloque l'action de salle, pas les icônes Objet.`}]},
+
+{id:'deplacement',part:'Le complexe',t:'Déplacement et exploration',
+lead:`Un personnage va toujours d'une salle à une autre, jamais dans un couloir. Quand il emprunte un couloir inexploré, il découvre une nouvelle salle.`,
+rules:[
+`<b>1. Choisissez une direction :</b> un couloir adjacent à votre salle (ni porte fermée, ni rien de l'autre côté qui bloque).`,
+`<b>2. Attaques d'opportunité :</b> chaque Intrus de votre salle et du couloir emprunté, du plus gros au plus petit, résout une attaque contre vous (<b>3 au plus</b>).`,
+`<b>3a. Salle découverte :</b> déplacez votre figurine ; en <b>déplacement prudent</b>, posez un jeton Sécurisation dans la salle d'arrivée ; puis faites un <b>jet de bruit</b>. Tout déplacement entraîne un jet de bruit, même vers une salle occupée.`,
+`<b>3b. Couloir inexploré :</b> résolvez une <b>séquence d'exploration</b>. Piochez une carte Exploration et orientez-la comme le plateau (icône Nord).`,
+`<b>Exploration, dans l'ordre :</b> placez la salle du type indiqué (A, B, C ou « ? » ; s'il n'en reste plus, une « ? ») ; placez les couloirs indiqués, seuil de porte côté nouvelle salle, sauf ceux qui sortiraient du complexe ou mèneraient à une salle déjà placée ; posez marqueurs et jetons (pas de 2e marqueur Bruit dans un couloir) ; déplacez votre figurine (+ Sécurisation si prudent) ; résolvez l'effet d'arrivée (souvent un jet de bruit) ; défaussez la carte.`,
+`L'icône <b>Infiltrée</b> des cartes Exploration ne sert pas dans le jeu de base. Pioche Exploration vide : remélangez la défausse (sans les cartes retirées du jeu).`,
+`<b>Passages secrets :</b> un effet qui vous envoie vers une salle précise (comme l'Accès aux conduits) suit la même séquence, sans l'étape « choisir une direction ».`],
+cas:[
+{q:`Vous quittez une salle avec 1 Adulte en empruntant un couloir qui contient 1 Guerrier et 2 Larves. Combien d'attaques d'opportunité ?`,o:[`1`,`3`,`4`],a:1,w:`Tous les Intrus de la salle et du couloir attaquent, du plus gros au plus petit, mais 3 au plus : le Guerrier, l'Adulte, puis une Larve.`},
+{q:`Une carte Exploration demande un couloir qui mènerait vers une salle déjà posée. Que faites-vous ?`,o:[`Vous le placez`,`Vous ne le placez pas`,`Vous le placez renforcé`],a:1,w:`Aucun couloir ne mène à une salle déjà placée (ni ne sort du complexe). Le marqueur Bruit prévu dans ce couloir n'est pas posé non plus.`}],
+quiz:[
+{q:`Vous allez dans une salle où se trouve déjà un autre personnage. Faites-vous un jet de bruit ?`,o:[`Oui`,`Non`],a:0,w:`Tout déplacement entraîne un jet de bruit, sauf effet spécial.`}]},
+
+{id:'bruit',part:'Le complexe',t:'Le jet de bruit',
+lead:`Chaque déplacement fait du bruit. Le dé Bruit indique d'où vient la menace : des marqueurs Bruit apparaissent, puis se changent en Intrus.`,
+rules:[
+`Lancez le dé Bruit. Ses faces : <b>1, 2, 3, 4</b> et <b>Danger</b>.`,
+`<b>Numéro :</b> repérez tous les couloirs de ce numéro <b>adjacents à votre salle</b>. Pour chacun : s'il contient au moins 1 Intrus, <b>le plus gros entre dans votre salle</b> (et attaque) ; sinon, s'il a déjà un marqueur Bruit, <b>résolvez ce marqueur</b> (des Intrus apparaissent) ; sinon, <b>posez un marqueur Bruit</b>. Aucun couloir de ce numéro : rien.`,
+`<b>Danger :</b> quelque chose tombe du plafond. Piochez un jeton dans le sac Intrus et résolvez-le dans la colonne « salle » de l'aide de jeu Intrus : le plus souvent, un Intrus du type indiqué apparaît dans votre salle. Ignorez le chiffre au dos, puis remettez le jeton sous sa pile.`,
+`<b>Résoudre un marqueur Bruit :</b> retirez-le, piochez un jeton dans le sac et résolvez-le dans ce couloir (colonne « couloir ») : le <b>chiffre blanc</b> au dos donne le nombre d'Intrus (Adultes), le <b>chiffre rouge</b> le nombre de Guerriers ajoutés. Défaussez le jeton sous sa pile ; le jeton vierge retourne toujours dans le sac.`,
+`<b>Attaque immédiate :</b> un Intrus qui apparaît dans une salle ou y entre attaque aussitôt un personnage présent.`,
+`Un couloir renforcé vaut 0 : aucun résultat du dé ne le désigne.`],
+lab:'bruit',
+quiz:[
+{q:`Vous faites 2. Le couloir 2 adjacent contient 3 Adultes. Que se passe-t-il ?`,o:[`Les 3 Adultes entrent`,`Un Adulte entre dans votre salle et vous attaque`,`Vous posez un marqueur Bruit`],a:1,w:`Seul le plus gros Intrus du couloir entre dans votre salle.`},
+{q:`Vous faites 3 et vous avez deux couloirs 3 adjacents, sans rien dedans. Que faites-vous ?`,o:[`Un marqueur Bruit dans l'un des deux, au choix`,`Un marqueur Bruit dans chacun`,`Rien`],a:1,w:`Chaque couloir du numéro obtenu est traité, un par un.`}]},
+
+{id:'salles',part:'Le complexe',t:'Les salles clés',
+lead:`Les salles A, B et C sont toujours en jeu et servent presque toujours à vos objectifs. L'onglet « Salles » détaille aussi les 13 salles aléatoires.`,
+rules:[
+`Utiliser une salle (action de salle, 2 cartes, hors combat) résout son effet. Quand une salle propose deux effets séparés par OU, vous en choisissez un.`,
+`<b>Section A :</b> Zone d'atterrissage (réapprovisionnement, embarquement), Contrôle du recycleur A (recycleur A ou éteindre un feu n'importe où), Bloc opératoire (retirer une Larve, ou une blessure grave), Station de forage (nouveau couloir depuis la salle du robot).`,
+`<b>Section B :</b> Hibernatorium (hiberner, s'il est actif), Contrôle du recycleur B (recycleur B ou consulter et réordonner la DCA), Salle des serveurs (utiliser une salle avec ordinateur à distance, ou prendre un jeton Info), Système de refroidissement (lancer l'autodestruction).`,
+`<b>Section C :</b> Contrôle du recycleur C (recycleur C ou activer l'hibernatorium), Réacteur (tout couper : recycleurs, DCA, autodestruction), Navette d'évacuation (s'enfuir seul), Nid (prendre ou détruire un œuf).`,
+`Hibernatorium, Zone d'atterrissage (vaisseau) et Navette demandent un <b>jet de bruit</b> : s'il y a un Intrus dans la salle après le jet, l'action échoue.`],
+html:`<div id="salles-ch"></div>`,
+quiz:[
+{q:`Quelle salle permet d'activer l'hibernatorium ?`,o:[`Contrôle du recycleur B`,`Contrôle du recycleur C`,`Salle des serveurs`],a:1,w:`Le Contrôle du recycleur C (section C), deuxième effet. On ne peut pas le désactiver.`},
+{q:`Où regarde-t-on en secret l'état de la DCA ?`,o:[`Contrôle du recycleur B`,`Zone d'atterrissage`,`Réacteur`],a:0,w:`Le Contrôle du recycleur B permet de consulter les deux jetons DCA et de les remettre dans l'ordre de votre choix.`},
+{q:`Que fait le Réacteur ?`,o:[`Il active tous les recycleurs`,`Il retire du jeu les recycleurs, l'autodestruction et la DCA`,`Il éteint tous les feux`],a:1,w:`Toutes les sections passent sans air, la DCA devient inactive et l'autodestruction s'arrête, définitivement.`}]},
+
+/* ======================= LES INTRUS ======================= */
+{id:'sac',part:'Les Intrus',t:'Le sac Intrus',
+lead:`Le sac contient les Intrus qui vivent dans le complexe, hors de vue. À chaque manche, il change de composition : c'est la colonie qui grandit.`,
+rules:[
+`Quatre types, du plus gros au plus petit : <b>Reine</b>, <b>Guerrier</b>, <b>Adulte</b>, <b>Larve</b>. Il y a aussi un jeton <b>vierge</b>.`,
+`<b>Phase Événement (étape 4) :</b> piochez un jeton et appliquez la colonne « sac Intrus » de l'aide de jeu. <b>Reine :</b> si la Reine est sur le plateau, activez-la ; sinon, ajoutez 2 Larves. <b>Guerrier ou Adulte :</b> ajoutez 2 Reines. <b>Larve :</b> ajoutez 2 Guerriers. <b>Vierge :</b> ajoutez 2 Adultes.`,
+`Ensuite, le jeton pioché retourne <b>sous sa pile</b>, hors du sac. Seul le jeton <b>vierge</b> revient toujours dans le sac.`,
+`On ajoute des jetons en les prenant sur les piles ; on en retire en les remettant sous les piles. Si une pile est vide, ajoutez ce qui reste (limite du matériel).`,
+`Le même sac sert aux jets de bruit : colonne « couloir » pour un marqueur Bruit résolu, colonne « salle » pour un résultat Danger.`,
+`Quand la Reine meurt, retournez l'aide de jeu sur la face « La Reine est morte » : les effets des jetons changent.`],
+lab:'sac',
+quiz:[
+{q:`Pendant la phase Événement, vous tirez un jeton Larve. Que mettez-vous dans le sac ?`,o:[`2 Larves`,`2 Guerriers`,`2 Reines`],a:1,w:`Larve : ajoutez 2 Guerriers au hasard. La Larve tirée retourne sous sa pile.`},
+{q:`Vous tirez le jeton vierge. Où va-t-il ensuite ?`,o:[`Sous sa pile`,`Dans le sac`,`Hors du jeu`],a:1,w:`Le jeton vierge est le seul qui revient toujours dans le sac. Il ajoute aussi 2 Adultes.`}]},
+
+{id:'depl-intrus',part:'Les Intrus',t:'Le déplacement des Intrus',
+lead:`Les Intrus vont vers le personnage le plus proche, par le chemin le plus court, en passant alternativement de salle en couloir.`,
+rules:[
+`Ils bougent à cause des <b>cartes Événement</b>, des <b>jets de bruit</b>, d'un effet qui les <b>repousse</b> et de l'<b>activation de la Reine</b>.`,
+`<b>Règles générales :</b> ils se déplacent en groupe vers le personnage le plus proche, par le chemin le plus court (en <b>ignorant les portes</b> pour le calculer). D'un couloir, ils vont dans la salle adjacente ; d'une salle, dans le couloir adjacent.`,
+`Si plusieurs Intrus doivent entrer d'un couloir dans une salle occupée par un personnage, <b>seul le plus gros</b> y entre, et il attaque aussitôt (sauf jeton Sécurisation). Un Intrus dans une salle avec un personnage <b>ne bouge pas</b> : il reste en combat.`,
+`<b>Cartes Événement :</b> une icône de couloir orientée fait bouger tous les Intrus des couloirs de cette orientation vers une salle adjacente ; l'icône « salle » fait sortir tous les Intrus des salles vers un couloir. On traite les groupes un par un, en partant du haut à gauche, rangée par rangée.`,
+`<b>Priorités de cible :</b> le personnage le plus proche ; à égalité, celui qui a déclenché l'attaque ou le déplacement ; puis le premier dans l'ordre du tour.`,
+`<b>Égalités de chemin :</b> à longueur égale, le chemin qui commence par le couloir ou la salle au plus petit numéro de référence. Si le couloir visé est plein (6), ils prennent un autre chemin de même longueur s'il existe ; sinon, ceux qui peuvent entrer le font et les autres attendent.`,
+`<b>Repousser :</b> l'Intrus s'éloigne du personnage qui le repousse (qui choisit le couloir quand il le repousse d'une salle). Sans personnage adjacent, il va vers le couloir ou la salle au plus petit numéro. Il ne sort jamais d'un couloir inexploré, détruit une porte fermée au lieu de la franchir, et attaque s'il est repoussé dans une salle occupée.`,
+`<b>Couloir plein :</b> les plus gros passent en priorité. En déplacement, les petits cèdent simplement leur place (sans attaque) ; en placement, les petits sont retirés. Ceux qui ne peuvent pas bouger restent où ils sont.`,
+`Un Intrus blessé qui va dans un couloir défausse ses cubes de touches.`],
+cas:[
+{q:`Deux personnages sont à égale distance d'un groupe d'Intrus. Le jet de bruit qui les a fait bouger a été fait par le second dans l'ordre du tour. Vers qui vont-ils ?`,o:[`Le premier dans l'ordre du tour`,`Celui qui a fait le jet de bruit`,`Au hasard`],a:1,w:`À égalité de distance, le personnage qui a déclenché le déplacement passe avant l'ordre du tour.`}],
+quiz:[
+{q:`Un Adulte est dans votre salle. Une carte Événement fait bouger les Intrus des salles. Que fait-il ?`,o:[`Il sort vers un couloir`,`Il reste : un Intrus en combat ne bouge pas`,`Il vous attaque deux fois`],a:1,w:`Un Intrus dans une salle avec un personnage reste en combat, sauf s'il est repoussé.`}]},
+
+{id:'attaques',part:'Les Intrus',t:'Les attaques des Intrus',
+lead:`Un Intrus attaque dès qu'il entre dans une salle occupée, et chaque Intrus attaque en phase Intrus. Les Larves, elles, vous infectent.`,
+rules:[
+`<b>Attaque standard :</b> piochez une carte <b>Attaque d'Intrus</b>, cherchez l'icône du type d'Intrus qui attaque et résolvez l'effet associé, puis défaussez la carte. On ne remélange que si le jeu le demande.`,
+`<b>Cible :</b> le joueur qui a provoqué l'arrivée de l'Intrus ; sinon, le premier dans l'ordre du tour parmi ceux de la salle.`,
+`<b>Phase Intrus :</b> dans chaque salle, chaque Intrus attaque un personnage. On commence par la salle en haut à gauche, rangée par rangée ; les plus gros attaquent d'abord, tous sur le premier dans l'ordre du tour, sauf s'il meurt ou quitte la salle.`,
+`<b>Attaque de Larve :</b> pas de carte Attaque. Le personnage reçoit 1 carte <b>Contamination</b> dans sa défausse et la Larve va sur son plateau Personnage : il est <b>infecté</b>. S'il en avait déjà une, la Larve qui attaque est défaussée.`,
+`<b>Empêcher une attaque :</b> certains effets l'annulent entièrement : aucune carte piochée, aucun effet.`,
+`Il est impossible d'attaquer un autre personnage. Mais l'enfermer dans une salle en flammes n'est pas une attaque…`],
+cas:[
+{q:`Phase Intrus : un Guerrier et un Adulte sont dans une salle avec Alice (première dans l'ordre du tour) et Bruno. Qui attaque qui ?`,o:[`Le Guerrier attaque Alice, l'Adulte attaque Bruno`,`Les deux attaquent Alice, le Guerrier d'abord`,`L'Adulte attaque Alice, puis le Guerrier`],a:1,w:`Tous les Intrus d'une salle attaquent le même personnage (le premier dans l'ordre du tour), en commençant par les plus gros, sauf s'il meurt ou quitte la salle.`}],
+quiz:[
+{q:`Une Larve vous attaque alors que vous avez déjà une Larve sur votre plateau. Que se passe-t-il ?`,o:[`Vous mourez`,`Vous recevez 1 Contamination et la Larve qui attaque est défaussée`,`Rien`],a:1,w:`Vous recevez quand même la carte Contamination ; la seconde Larve est défaussée.`}]},
+
+/* ======================= COMBAT ======================= */
+{id:'tir',part:'Combat',t:'Le tir et la mêlée',
+lead:`Dans une salle, les Intrus sont agiles : chaque touche augmente la chance de les tuer, sans jamais la garantir.`,
+rules:[
+`<b>Tir</b> (1 carte) : choisissez une arme à distance dans vos mains, avec au moins 1 jeton Munitions (même à moitié) et sans panne, et un Intrus de votre salle. Le tir au coup par coup ne dépense pas de munitions (sauf résultat particulier).`,
+`<b>1.</b> Infligez 1 touche : quoi qu'il arrive, un cube à côté du socle. <b>2.</b> Lancez le dé Tir : <b>Coup critique</b> = l'Intrus meurt ; <b>2 à 5</b> = l'Intrus meurt si le chiffre est <b>inférieur ou égal</b> au nombre de cubes sur lui ; la face <b>munitions</b> = pris de panique, vous dépensez des munitions.`,
+`<b>Mêlée</b> (1 carte), avec ou sans arme : <b>1.</b> recevez 1 carte Contamination ; <b>2.</b> choisissez un Intrus de votre salle ; <b>3.</b> 1 touche ; <b>4.</b> dé Tir (critique : mort ; 2 à 5 : comme au tir ; dernière face : aucun effet) ; <b>5.</b> s'il survit, il <b>riposte</b> : une attaque d'Intrus, sauf si vous mettez un marqueur Panne sur l'une de vos armes pour la parer.`,
+`<b>Larves :</b> 1 touche les tue, quel que soit le dé. <b>Guerriers :</b> dans une salle, ils se tirent comme des Adultes. <b>Reine :</b> ses touches vont sur sa piste (chapitre La Reine).`,
+`Chaque carte Arme ajoute ses propres effets selon certains résultats ; appliquez-les en plus.`],
+lab:'tir',
+cas:[
+{q:`Un Adulte porte déjà 2 cubes. Vous tirez et faites 3. Que se passe-t-il ?`,o:[`Il survit : 3 est plus grand que 2`,`Il meurt : avec le nouveau cube il en a 3, et 3 ≤ 3`,`Il meurt seulement sur un critique`],a:1,w:`La touche est posée avant le jet : 3 cubes. 3 est inférieur ou égal à 3, l'Adulte meurt.`}],
+quiz:[
+{q:`Un tir dans une salle consomme-t-il des munitions ?`,o:[`Toujours`,`Non, sauf sur la face qui le demande`,`Seulement contre la Reine`],a:1,w:`Le coup par coup ne dépense rien ; seule la face « panique » fait dépenser des munitions. Il faut quand même une arme chargée.`},
+{q:`Que coûte une attaque de mêlée, en plus de la carte Action ?`,o:[`Rien`,`1 carte Contamination`,`1 jeton Munitions`],a:1,w:`Toucher ces organismes n'est pas bon pour la santé : vous recevez toujours 1 Contamination.`}]},
+
+{id:'rafale',part:'Combat',t:'La rafale et la grenade',
+lead:`Regroupés dans un couloir étroit, les Intrus sont vulnérables : une rafale peut en tuer plusieurs d'un coup.`,
+rules:[
+`<b>Rafale</b> (1 carte) : une arme à distance chargée et sans panne, et un <b>couloir adjacent</b> (pas derrière une porte fermée).`,
+`Dépensez des munitions et lancez le dé Rafale : <b>1, 2, 3 ou 4</b> touches. La face 4 porte aussi une icône spéciale qui déclenche l'effet éventuel de l'arme ou de l'action.`,
+`Répartissez les touches comme vous voulez : <b>1 au plus</b> par Adulte et par Larve, <b>exactement 2</b> par Guerrier, autant que vous voulez à la Reine (jusqu'au bout de sa piste). Les touches restantes sont perdues.`,
+`Dans un couloir, <b>1 touche tue</b> un Adulte ou une Larve ; un Guerrier meurt avec ses 2 touches. Les touches à la Reine font avancer sa piste.`,
+`Les Intrus des couloirs ne gardent pas leurs blessures.`,
+`<b>Grenade</b> (jeton tactique) : dé Rafale + 2 touches dans un couloir adjacent ; ce n'est pas une rafale, les effets d'arme ne s'appliquent pas. <b>Contrôle des tourelles</b> (salle) : un dé Rafale de touches sans dépenser de munitions.`],
+lab:'rafale',
+cas:[
+{q:`Un couloir contient 1 Guerrier et 2 Adultes. Vous faites 3 à la rafale. Que pouvez-vous tuer au mieux ?`,o:[`Les 3 Intrus`,`Le Guerrier et 1 Adulte, ou les 2 Adultes`,`Seulement le Guerrier`],a:1,w:`Le Guerrier prend exactement 2 touches : 2 + 1 = le Guerrier et un Adulte. Ou 1 + 1 sur les deux Adultes, la 3e touche étant perdue (pas d'1 seule touche sur un Guerrier).`}],
+quiz:[
+{q:`Pouvez-vous mettre 2 touches sur le même Adulte d'un couloir ?`,o:[`Oui`,`Non : 1 au plus par Adulte`],a:1,w:`Chaque Adulte et chaque Larve ne reçoit qu'une touche ; une suffit à le tuer.`}]},
+
+{id:'reine',part:'Combat',t:'La Reine',
+lead:`La Reine est un ennemi unique, résistant et agressif. On ne la tue pas avec des cubes : il faut épuiser ses cartes Santé.`,
+rules:[
+`Ses touches font avancer le cube de la <b>piste des touches portées à la Reine</b>, une case par touche, au lieu de poser des cubes sur sa figurine.`,
+`Quand le cube atteint le bout de la piste : ignorez les autres touches de cette action, révélez la première <b>carte Santé de la Reine</b>, défaussez sans les révéler autant de cartes de sa pioche que le numéro indiqué, résolvez l'effet du bas de la carte (même si la Reine vient de mourir), défaussez-la et remettez le cube à 0.`,
+`Quand sa dernière carte Santé est défaussée, la Reine meurt : retirez sa figurine, ignorez les effets qui la font apparaître et retournez l'aide de jeu Intrus côté « La Reine est morte ».`,
+`<b>Activation</b> (le plus souvent avec un jeton Reine du sac) : elle attaque un personnage de sa salle si possible ; sinon, elle se déplace une fois vers le plus proche, avec les mêmes priorités que les autres Intrus.`,
+`Dans un couloir, elle compte pour 4 Intrus ; avec elle, il ne peut y avoir que 2 autres Intrus. Une rafale peut lui donner autant de touches que vous voulez.`],
+quiz:[
+{q:`Le cube de la piste est sur l'avant-dernière case et votre rafale donne 3 touches à la Reine. Que se passe-t-il ?`,o:[`Les 3 touches comptent, le cube repart de 2`,`Le cube atteint le bout : les autres touches sont ignorées, on résout une carte Santé`,`Rien, il faut un critique`],a:1,w:`Au bout de la piste, les touches restantes de l'action sont ignorées ; résolvez une carte Santé, puis remettez le cube à 0.`},
+{q:`Un jeton Reine est tiré du sac en phase Événement alors que la Reine n'est pas sur le plateau. Effet ?`,o:[`Elle apparaît dans le nid`,`Ajoutez 2 Larves dans le sac`,`Rien`],a:1,w:`Colonne « sac Intrus » : Reine sur le plateau = activation ; sinon, 2 jetons Larve dans le sac.`}]},
+
+/* ======================= SURVIVRE ======================= */
+{id:'contamination',part:'Survivre',t:'Contamination, infection et éclosion',
+lead:`Les Intrus sont aussi un danger biologique. Les cartes Contamination encombrent votre main et préparent votre mort en fin de partie.`,
+rules:[
+`Une carte Contamination reçue va dans votre <b>défausse</b>. Elle a le même dos que vos cartes Action mais <b>ne peut pas</b> payer une action.`,
+`Chaque carte cache un texte. Le <b>scanner</b> le révèle : si le mot <b>« Infectée »</b> apparaît, la carte est infectée (et vous aussi). Attention aux faux mots très proches !`,
+`L'effet qui vous fait scanner (objet, action, salle) dit quoi faire d'une carte infectée ; le plus souvent, la procédure d'infection.`,
+`<b>Procédure d'infection :</b> scannez toutes les Contaminations de votre main ; s'il y en a une infectée, placez une Larve sur votre plateau (sauf s'il y en a déjà une) ; puis mettez toutes les Contaminations de votre main dans votre défausse.`,
+`<b>Procédure d'éclosion :</b> tirez 4 cartes de votre pioche Action. Aucune Contamination : vous survivez et défaussez votre main. Au moins une : votre personnage est tué. En cours de partie, posez alors 1 Adulte dans votre salle ; s'il y a un autre personnage, il l'attaque.`,
+`Une Larve sur votre plateau n'a pas d'effet immédiat, mais elle réduit fortement vos chances de survie à la fin. Le Bloc opératoire permet de la retirer.`,
+`Pour se débarrasser des Contaminations : l'Abri (retire celles de votre main sans les scanner, si vous n'avez pas de Larve) et la Salle de décontamination (toutes celles de votre pioche et de votre défausse).`],
+quiz:[
+{q:`Pouvez-vous défausser une carte Contamination pour payer un déplacement ?`,o:[`Oui`,`Non`],a:1,w:`Les Contaminations ne peuvent jamais payer une action. En revanche, vous pouvez les défausser quand vous passez.`},
+{q:`Pendant une éclosion, vous tirez 4 cartes dont 1 Contamination. Résultat ?`,o:[`Vous survivez`,`Votre personnage est tué`,`Vous recevez une Larve`],a:1,w:`Une seule Contamination parmi les 4 cartes suffit : l'hôte est tué.`}]},
+
+{id:'objets',part:'Survivre',t:'Les objets',
+lead:`Chaque personnage commence avec un objet de personnage (et un équipement de soutien). Les autres objets se trouvent en fouillant le complexe.`,
+rules:[
+`<b>Fouille</b> (carte Action) : piochez 1 carte Objet par icône Objet de la salle (rouge, vert, jaune), gardez-en 1 et remettez les autres sous leur paquet, sans les montrer.`,
+`<b>Objets communs</b> (format portrait) : ils vont dans votre <b>sac à dos</b> (le porte-cartes), sans limite, et restent secrets jusqu'à leur utilisation. Utilisez-les avec l'action Utiliser un objet.`,
+`<b>Objets lourds</b> (format paysage) : un par emplacement de main (2 mains). Toutes les armes sont lourdes, et les <b>œufs</b> aussi. Mains pleines ? Défaussez un objet porté pour prendre le nouveau.`,
+`<b>Objets passifs :</b> leur effet s'applique tout seul quand les conditions sont réunies ; on ne les « utilise » jamais.`,
+`Mots-clés : <b>Arme à distance</b> (nécessaire pour le tir et la rafale), <b>Arme de mêlée</b> (bien plus efficace en mêlée), <b>Usage unique</b> (défaussé après usage), <b>Sans munitions</b> (fonctionne sans jeton ; elle compte comme chargée), <b>Armure</b> (sur la section État critique).`,
+`Perdre un objet fait perdre ses jetons tactiques.`,
+`<b>Interaction :</b> avec son accord, vous pouvez utiliser un objet sur un personnage de votre salle s'il lui fait regagner de la santé, défausser une blessure grave, défausser une panne de ses objets ou récupérer de l'oxygène. Sinon, il faut échanger.`,
+`<b>Échanger</b> (1 carte, hors combat) : tous les personnages de votre salle peuvent révéler et s'échanger objets et jetons tactiques, avec vous et entre eux (avec votre accord). Donner sans contrepartie est permis.`],
+quiz:[
+{q:`Vous fouillez le Contrôle du recycleur A (icônes verte et rouge). Combien de cartes piochez-vous ?`,o:[`1`,`2, et vous en gardez 1`,`2, et vous les gardez`],a:1,w:`1 carte par icône Objet : 1 verte et 1 rouge. Vous en gardez 1 et remettez l'autre sous son paquet.`},
+{q:`Où va un œuf que vous ramassez dans le nid ?`,o:[`Dans le sac à dos`,`Dans un emplacement de main : c'est un objet lourd`,`Sur la ceinture tactique`],a:1,w:`Les œufs sont des objets lourds.`}]},
+
+{id:'robot',part:'Survivre',t:'Le robot',
+lead:`Un robot attend dans l'hibernatorium. Sa spécialité, tirée au hasard, n'est connue qu'une fois qu'on l'a atteint. Il ne fait que ce qu'on lui demande.`,
+rules:[
+`La carte Robot est révélée quand une salle est reliée à l'hibernatorium pour la première fois. Le robot peut alors être activé. Il existe 6 cartes Robot ; une seule sert par partie.`,
+`<b>Activer le robot</b> (hors combat) : 1 carte si vous êtes dans sa salle ; à distance, depuis une salle avec <b>ordinateur</b>, en payant 1 carte de plus. Avec un <b>jeton Info</b> (Salle des serveurs), l'activation à distance ne coûte pas de carte supplémentaire.`,
+`Le robot ne bouge que par les actions des joueurs, de salle en salle voisine. Il ignore les Intrus (et ils l'ignorent), mais ne franchit pas les portes fermées, n'explore jamais (sauf le robot d'exploration) et ne fait jamais de jet de bruit.`,
+`Il commence avec 1 jeton Munitions et 1 jeton Oxygène. Dans sa salle, l'action Utiliser un équipement tactique vous permet d'utiliser ses jetons et d'échanger des jetons avec lui (sauf ceux de vos armes).`,
+`Robot en panne : il ne fait rien, mais ses jetons et les effets qui demandent sa présence restent utilisables. Dans sa salle, vous pouvez défausser la panne depuis le robot.`],
+quiz:[
+{q:`Combien coûte l'activation du robot à distance, depuis une salle avec ordinateur, sans jeton Info ?`,o:[`1 carte`,`2 cartes`,`3 cartes`],a:1,w:`1 carte pour l'action + 1 carte de plus à distance. Le jeton Info supprime ce supplément.`}]},
+
+{id:'evasion',part:'Survivre',t:'Vaisseau, DCA, autodestruction',
+lead:`Pour gagner, il faut sortir vivant (ou hiberner). Trois portes de sortie, chacune avec ses risques.`,
+rules:[
+`<b>DCA :</b> 2 jetons empilés ; celui du dessus dit si la DCA est active. Le Contrôle du recycleur B permet de les consulter en secret et de les réordonner. Vous pouvez dire ce que vous avez vu, ou mentir, mais pas les montrer.`,
+`<b>Arrivée du vaisseau</b> (compte-tours sur la case du jeton Vaisseau) : révélez le jeton DCA du dessus. <b>Active</b> : le vaisseau est abattu, retirez son jeton. <b>Inactive</b> (ou jetons retirés par le Réacteur) : il se pose dans la zone d'atterrissage et les jetons DCA sont retirés.`,
+`<b>Embarquer :</b> action de salle de la zone d'atterrissage, avec jet de bruit (échec si un Intrus est dans la salle après le jet). Placez votre figurine sur l'emplacement DCA vide. À bord, votre tour est ignoré, vous ne perdez ni oxygène ni santé, vous piochez normalement en Nettoyage ; si un Intrus apparaît dans la zone d'atterrissage, tous les passagers débarquent.`,
+`<b>Décoller :</b> au début de la phase Événement, n'importe quel passager peut décider, seul, de faire décoller le vaisseau. Tous ceux à bord sont échappés.`,
+`<b>Navette d'évacuation :</b> jet de bruit pour y entrer ; une seule place. La DCA ne l'arrête pas. <b>Hibernatorium :</b> jet de bruit pour hiberner, s'il a été activé ; mais si le complexe est détruit, les hibernés meurent.`,
+`<b>Autodestruction</b> (Système de refroidissement) : posez le jeton à 5 manches de la manche en cours (4 cases entre les deux), ou après la dernière case s'il en reste moins. Quand le compte-tours l'atteint, le complexe explose : tout le monde encore dedans meurt, hibernatorium compris. Seul le <b>Réacteur</b> peut l'arrêter.`],
+cas:[
+{q:`Vous êtes à bord du vaisseau avec Bruno. Au début de la phase Événement, vous voulez partir mais Bruno veut attendre Carla. Qui décide ?`,o:[`Il faut l'accord de tous`,`N'importe quel passager peut décoller seul`,`Le premier joueur`],a:1,w:`Faire décoller le vaisseau n'est pas une décision collective. Bruno part avec vous puisqu'il est à bord.`}],
+quiz:[
+{q:`Le vaisseau est abattu. Pouvez-vous encore partir avec la navette ?`,o:[`Oui, la DCA n'empêche pas la navette`,`Non`],a:0,w:`La DCA ne vise que le vaisseau. La navette n'a qu'une place.`},
+{q:`Hiberner vous protège-t-il de l'autodestruction ?`,o:[`Oui`,`Non : les personnages en hibernation meurent si le complexe est détruit`],a:1,w:`L'hibernatorium est dans le complexe.`}]},
+
+{id:'fin',part:'Survivre',t:'Fin de partie et victoire',
+lead:`Quand la partie s'arrête, les survivants passent encore deux épreuves avant de révéler leur objectif.`,
+rules:[
+`La partie s'arrête à la fin de la manche 14 (ceux qui ne sont ni partis ni en hibernation sont morts), quand plus aucun personnage n'est en jeu, ou quand le complexe est détruit (autodestruction, feu généralisé).`,
+`Les personnages vivants, échappés ou en hibernation résolvent, dans l'ordre :`,
+`<b>1. Sans Larve sur votre plateau :</b> prenez en main votre pioche et votre défausse, puis résolvez une <b>procédure d'infection</b>. Si elle fait apparaître une Larve, vous devez résoudre une procédure d'éclosion.`,
+`<b>2. Avec une Larve :</b> prenez 1 carte Contamination, prenez en main toutes vos cartes (pioche, défausse, main), mélangez-les et résolvez une <b>procédure d'éclosion</b>.`,
+`<b>3. Toujours en vie :</b> révélez votre objectif (si vous n'en aviez pas choisi, choisissez-le maintenant, avant les autres révélations). <b>4.</b> Objectif accompli : vous gagnez !`,
+`Un personnage échappé compte comme échappé même s'il meurt à l'éclosion. Un personnage en hibernation n'est pas échappé.`,
+`La mission de l'escouade est révélée dès le départ et ne change jamais. La plupart des objectifs de mission (pas tous) poussent à l'accomplir.`],
+lab:'fin',
+quiz:[
+{q:`Vous avez une Larve à la fin. Avant l'éclosion, que faites-vous ?`,o:[`Rien`,`Vous prenez 1 carte Contamination de plus et mélangez toutes vos cartes`,`Vous scannez votre main`],a:1,w:`Avec une Larve : +1 Contamination, toutes vos cartes mélangées, puis éclosion.`},
+{q:`Vous n'avez pas choisi d'objectif avant la fin. Que se passe-t-il ?`,o:[`Vous perdez`,`Vous le choisissez maintenant, avant les révélations des autres`,`Vous gardez les deux`],a:1,w:`Le choix se fait à ce moment-là, si vous êtes encore en vie.`}]},
+
+{id:'modes',part:'Survivre',t:'Mode mortel, solo et coop',
+lead:`Deux variantes officielles : un mode plus dur pour tous, et un mode entièrement coopératif, jouable seul.`,
+rules:[
+`<b>Mode mortel :</b> les couloirs qui ont une seconde valeur de bruit (le petit chiffre) utilisent <b>les deux</b> valeurs pour tous les effets. Les jets de bruit deviennent bien plus dangereux. Un couloir renforcé vaut toujours 0. Pour départager, utilisez seulement la valeur standard.`,
+`<b>Solo et coop, mise en place :</b> au lieu d'une Mission de l'escouade, piochez autant de cartes <b>Mission de l'escouade Solo/Coop</b> qu'il y a de joueurs. Ne tirez pas d'objectifs standard.`,
+`<b>Victoire :</b> toutes les missions de l'escouade doivent être réussies et au moins 1 personnage doit survivre. Si plusieurs missions demandent la même chose (un jeton Info, par exemple), il faut la remplir autant de fois. Si on vous demande plus de jetons Info qu'il n'y a de personnages, il en faut autant que de personnages.`,
+`<b>Réanimer :</b> le bloc opératoire a un AutoDoc. Un personnage tué est couché, ses objets défaussés. Un personnage de sa salle peut payer 1 carte de plus pour le porter en se déplaçant. S'il commence la manche au bloc opératoire (sans Intrus ni panne), il est réanimé : blessures graves défaussées, cube sur la première case de la section Affaibli.`,
+`<b>Difficulté :</b> retirez ou ajoutez des missions de l'escouade à la mise en place.`],
+quiz:[
+{q:`En coop à 3 joueurs, combien de missions de l'escouade ?`,o:[`1`,`3`,`3 + 1 par Larve`],a:1,w:`Autant de cartes Mission de l'escouade Solo/Coop que de joueurs (à ajuster pour la difficulté).`},
+{q:`En mode mortel, un couloir porte 2 et un petit 4. Sur quels résultats est-il concerné ?`,o:[`2 seulement`,`2 et 4`,`4 seulement`],a:1,w:`En mode mortel, il a les deux valeurs pour tous les effets (mais seulement 2 pour départager).`}]}
+];
+
+/* ---------- ateliers ----------
+   Les faces des dés sont choisies par le lecteur : l'appli ne simule pas le hasard des dés, seulement les règles. */
+const seg=(id,vals,cur,lab)=>`<div class="seg" id="${id}" role="group">${vals.map((v,i)=>`<button type="button" data-v="${v}" class="${v==cur?'sel':''}">${lab?lab[i]:v}</button>`).join('')}</div>`;
+function segVal(root,id){const b=$(`#${id} .sel`,root);return b?b.dataset.v:''}
+function wireSeg(root,id,cb){$$(`#${id} button`,root).forEach(b=>b.onclick=()=>{$$(`#${id} button`,root).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');cb()})}
+const TY={reine:'Reine',guerrier:'Guerrier',adulte:'Adulte',larve:'Larve',vierge:'vierge'};
+const TYP={reine:'Reines',guerrier:'Guerriers',adulte:'Adultes',larve:'Larves',vierge:'vierge'};
+const SIZE={reine:4,guerrier:3,adulte:2,larve:1};
+const tok=k=>`<span class="tok ${k}" title="${TY[k]}">${{reine:'R',guerrier:'G',adulte:'A',larve:'L',vierge:'∅'}[k]}</span>`;
+const plural=(n,s,p)=>`${n} ${n>1?p:s}`;
+
+const LABS={
+/* ===== sac Intrus ===== */
+sac:{html:()=>`<div class="lab"><h3>Atelier : la colonie grandit</h3><p class="hint">Composez le sac de départ, puis piochez. L'appli applique l'aide de jeu Intrus (côté « La Reine est en vie ») et montre la probabilité de chaque type au prochain tirage.</p>
+<div class="row">Personnages ${seg('sa-n',[1,2,3,4,5],3)} <button type="button" id="sa-reset">Recommencer</button></div>
+<div class="row" style="margin-top:8px"><label class="chk"><input type="checkbox" id="sa-q"> La Reine est sur le plateau</label></div>
+<div class="bag" id="sa-bag" aria-live="polite"></div><div class="counts" id="sa-cnt"></div>
+<div class="row"><button type="button" class="pri" id="sa-ev">Phase Événement : piocher</button><button type="button" id="sa-co">Marqueur Bruit résolu (couloir)</button><button type="button" id="sa-sa">Résultat Danger (salle)</button></div>
+<div class="out" id="sa-out">Piochez pour voir ce qui se passe.</div><ul class="log" id="sa-log"></ul></div>`,
+init(r){const TOT={reine:9,guerrier:8,adulte:16,larve:6,vierge:1};let S;
+ const reset=()=>{const n=+segVal(r,'sa-n');S={bag:{reine:0,guerrier:0,adulte:3+n,larve:2,vierge:1},log:[],manche:1};draw();$('#sa-out',r).textContent='Sac de départ : 1 jeton vierge, 2 Larves, 3 Adultes + 1 Adulte par personnage.';$('#sa-out',r).className='out'};
+ const pile=k=>TOT[k]-S.bag[k];
+ const add=(k,n)=>{const m=Math.min(n,pile(k));S.bag[k]+=m;return m<n?` (pile épuisée : ${m} seulement)`:''};
+ const total=()=>Object.values(S.bag).reduce((a,b)=>a+b,0);
+ const draw=()=>{const order=['reine','guerrier','adulte','larve','vierge'];$('#sa-bag',r).innerHTML=order.flatMap(k=>Array(S.bag[k]).fill(tok(k))).join('')||'<span class="muted">Sac vide</span>';const t=total();
+  $('#sa-cnt',r).innerHTML=order.map(k=>`<div>${TYP[k]}<br><b>${S.bag[k]}</b> <span class="muted small">${t?Math.round(100*S.bag[k]/t):0} %</span></div>`).join('');$('#sa-log',r).innerHTML=S.log.slice(-8).reverse().map(x=>`<li>${x}</li>`).join('')};
+ const pickTok=()=>{let x=rnd(total());for(const k in S.bag){if(x<S.bag[k])return k;x-=S.bag[k]}return null};
+ const go=mode=>{if(!total()){$('#sa-out',r).textContent='Le sac est vide.';return}const k=pickTok(),q=$('#sa-q',r).checked;let m='',back=false;
+  if(mode==='ev'){
+   if(k==='reine'){if(q)m='La Reine est sur le plateau : <b>activez-la</b> (elle attaque un personnage de sa salle, sinon se déplace une fois vers le plus proche).';else m='La Reine n\'est pas sur le plateau : <b>ajoutez 2 Larves</b> dans le sac.'+add('larve',2)}
+   else if(k==='guerrier'||k==='adulte')m=`<b>Ajoutez 2 Reines</b> dans le sac.`+add('reine',2);
+   else if(k==='larve')m=`<b>Ajoutez 2 Guerriers</b> dans le sac.`+add('guerrier',2);
+   else{m=`<b>Ajoutez 2 Adultes</b> dans le sac.`+add('adulte',2);back=true}}
+  else{const lieu=mode==='co'?'le couloir':'votre salle';
+   if(k==='reine'){if(q)m='<b>Activez la Reine.</b>';else{m=`La Reine n'est pas sur le plateau : <b>placez-la dans ${lieu}</b>.`;$('#sa-q',r).checked=true}}
+   else if(k==='vierge'){m=`Rien n'apparaît : <b>ajoutez 2 Adultes</b> dans le sac.`+add('adulte',2);back=true}
+   else if(mode==='co'&&k==='larve')m='<b>Placez 1 Larve</b> dans le couloir.';
+   else if(mode==='co')m='<b>Placez le nombre d\'Intrus indiqué au dos du jeton</b> dans le couloir (chiffre blanc : Adultes ; chiffre rouge : Guerriers).';
+   else m=`<b>Placez 1 ${TY[k]}</b> dans votre salle : il attaque aussitôt.`}
+  if(!back){S.bag[k]--;m+=` Le jeton ${TY[k]} retourne sous sa pile.`}else m+=' Le jeton vierge retourne dans le sac.';
+  const lab={ev:'Phase Événement',co:'Marqueur Bruit',sa:'Danger'}[mode];
+  $('#sa-out',r).innerHTML=`${tok(k)} <b>${lab} : jeton ${TY[k]}.</b> ${m}`;$('#sa-out',r).className='out';S.log.push(`${lab} : ${TY[k]}`);draw()};
+ wireSeg(r,'sa-n',reset);$('#sa-reset',r).onclick=reset;$('#sa-ev',r).onclick=()=>go('ev');$('#sa-co',r).onclick=()=>go('co');$('#sa-sa',r).onclick=()=>go('sa');reset()}},
+
+/* ===== jet de bruit ===== */
+bruit:{html:()=>`<div class="lab"><h3>Atelier : le jet de bruit</h3><p class="hint">Votre personnage vient d'entrer dans la salle du centre. Choisissez la face obtenue au dé Bruit : l'appli applique la règle à chaque couloir adjacent.</p>
+<div class="map" id="br-map"></div>
+<div class="dice" id="br-dice">${[1,2,3,4].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="D">Danger</button></div>
+<div class="row"><button type="button" id="br-new">Nouvelle situation</button></div><div class="out" id="br-out">Choisissez une face du dé.</div></div>`,
+init(r){let S;const POS=[1,3,5,7];
+ const neu=()=>{const cors=[];const k=2+rnd(3);const pos=[...POS].sort(()=>Math.random()-.5).slice(0,k);
+  pos.forEach((p,i)=>{const num=i===0&&Math.random()<.35?0:1+rnd(4);const c={p,num,bruit:false,app:false,intrus:[]};if(num){const x=rnd(3);if(x===1)c.bruit=true;else if(x===2){const n=1+rnd(3);for(let j=0;j<n;j++)c.intrus.push(['adulte','adulte','larve','guerrier'][rnd(4)])}}cors.push(c)});
+  if(!cors.some(c=>c.num))cors[0].num=2;S={cors,room:[],hit:[]};draw();$('#br-out',r).textContent='Choisissez une face du dé.';$('#br-out',r).className='out'};
+ const draw=()=>{let h='';for(let i=0;i<9;i++){const c=S.cors.find(x=>x.p===i);
+  if(i===4)h+=`<div class="room">Votre salle${S.room.length?`<div>${S.room.map(tok).join(' ')}</div>`:''}</div>`;
+  else if(c)h+=`<div class="cor${c.num===0?' reinf':''}${S.hit&&S.hit.includes&&S.hit.includes(c.p)?' hit':''}"><div class="num">${c.num}</div>${c.num===0?'renforcé':c.intrus.length?c.intrus.map(tok).join(' '):c.app?'Intrus apparus (selon le jeton)':c.bruit?'⚠ marqueur Bruit':'vide'}</div>`;
+  else h+='<div class="empty"></div>'}$('#br-map',r).innerHTML=h};
+ const roll=v=>{if(v==='D'){S.hit=[];draw();$('#br-out',r).innerHTML='<b>Danger !</b> Quelque chose tombe du plafond : piochez un jeton dans le sac Intrus et résolvez-le dans la colonne « salle » de l\'aide de jeu. Le plus souvent, un Intrus du type indiqué apparaît dans votre salle et vous attaque. Ignorez le chiffre au dos et remettez le jeton sous sa pile (le jeton vierge, lui, retourne dans le sac).';$('#br-out',r).className='out bad';return}
+  const n=+v,cs=S.cors.filter(c=>c.num===n);S.hit=cs.map(c=>c.p);
+  if(!cs.length){draw();$('#br-out',r).innerHTML=`Aucun couloir adjacent ne porte le ${n} : <b>rien ne se passe</b>. Ouf.`;$('#br-out',r).className='out ok';return}
+  const lines=cs.map(c=>{if(c.intrus.length){c.intrus.sort((a,b)=>SIZE[b]-SIZE[a]);const k=c.intrus.shift();S.room.push(k);return `Couloir ${n} : il contient des Intrus, <b>le plus gros (${TY[k]}) entre dans votre salle</b> et vous attaque${k==='larve'?' (une Larve vous contamine et vous infecte)':''}.`}
+   if(c.app)return `Couloir ${n} : des Intrus y sont apparus, <b>le plus gros entre dans votre salle</b> et vous attaque.`;
+   if(c.bruit){c.bruit=false;c.app=true;return `Couloir ${n} : il y avait déjà un marqueur Bruit, <b>résolvez-le</b> : retirez-le et piochez un jeton dans le sac (colonne « couloir ») ; des Intrus apparaissent dans ce couloir.`}
+   c.bruit=true;return `Couloir ${n} : vide et sans marqueur, <b>posez un marqueur Bruit</b>.`});
+  draw();
+  $('#br-out',r).innerHTML=lines.map(x=>`<p style="margin:0 0 6px">${x}</p>`).join('')+'<p class="small muted" style="margin:0">Faites un autre jet sur la même situation pour voir les marqueurs se transformer.</p>';$('#br-out',r).className=S.room.length?'out bad':'out'};
+ $$('#br-dice button',r).forEach(b=>b.onclick=()=>roll(b.dataset.v));$('#br-new',r).onclick=neu;neu()}},
+
+/* ===== tir et mêlée ===== */
+tir:{html:()=>`<div class="lab"><h3>Atelier : tir et mêlée dans une salle</h3><p class="hint">Choisissez la cible et le type d'attaque, puis la face obtenue au dé Tir. La touche est toujours posée <b>avant</b> le jet.</p>
+<div class="row">Cible ${seg('ti-t',['adulte','guerrier','larve'],'adulte',['Adulte','Guerrier','Larve'])} Attaque ${seg('ti-m',['tir','melee'],'tir',['Tir','Mêlée'])}</div>
+<div class="foes" id="ti-foe"></div>
+<div class="dice" id="ti-dice"></div>
+<div class="row"><button type="button" id="ti-reset">Nouvelle cible</button></div><div class="out" id="ti-out">Choisissez une face du dé Tir.</div></div>`,
+init(r){let S;
+ const reset=()=>{S={t:segVal(r,'ti-t'),m:segVal(r,'ti-m'),cubes:0,dead:false,cont:0};faces();draw();$('#ti-out',r).textContent='Choisissez une face du dé Tir.';$('#ti-out',r).className='out'};
+ const faces=()=>{const last=segVal(r,'ti-m')==='tir'?'Munitions':'Vide';$('#ti-dice',r).innerHTML=['Critique','2','3','4','5',last].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('');$$('#ti-dice button',r).forEach(b=>b.onclick=()=>shoot(b.dataset.v))};
+ const draw=()=>{$('#ti-foe',r).innerHTML=`<div class="foe${S.dead?' dead':''}">${tok(S.t)}<div><b>${TY[S.t]}</b></div><div class="h">Touches : <span class="cubes">${'■'.repeat(S.cubes)||'aucune'}</span></div></div>${S.m==='melee'?`<div class="foe"><div class="h">Cartes Contamination reçues</div><b>${S.cont}</b></div>`:''}`};
+ const shoot=v=>{if(S.dead){$('#ti-out',r).textContent='Cette cible est déjà morte : prenez-en une nouvelle.';return}
+  const lines=[];if(S.m==='melee'){S.cont++;lines.push('Mêlée : vous recevez d\'abord <b>1 carte Contamination</b>.')}
+  S.cubes++;lines.push(`Vous posez 1 touche : la cible en a maintenant <b>${S.cubes}</b>.`);
+  if(S.t==='larve'){S.dead=true;lines.push('Une Larve meurt dès qu\'elle reçoit une touche, <b>quel que soit le dé</b>.')}
+  else if(v==='Critique'){S.dead=true;lines.push('<b>Coup critique</b> : la cible meurt.')}
+  else if(v==='Munitions')lines.push('Pris de panique, vous tirez plusieurs fois : <b>dépensez des munitions</b> (un jeton plein se retourne, un jeton à moitié se défausse). La cible survit.');
+  else if(v==='Vide')lines.push('<b>Aucun effet.</b>');
+  else{const n=+v;if(n<=S.cubes){S.dead=true;lines.push(`${n} est inférieur ou égal à ${S.cubes} touche${S.cubes>1?'s':''} : <b>la cible meurt</b>.`)}else lines.push(`${n} est plus grand que ${S.cubes} : <b>la cible survit</b>, avec ses touches.`)}
+  if(!S.dead&&S.m==='melee')lines.push('Elle <b>riposte</b> aussitôt : résolvez une attaque d\'Intrus, sauf si vous placez un marqueur Panne sur l\'une de vos armes pour la parer.');
+  draw();$('#ti-out',r).innerHTML=lines.map(x=>`<p style="margin:0 0 5px">${x}</p>`).join('');$('#ti-out',r).className=S.dead?'out ok':'out'};
+ wireSeg(r,'ti-t',reset);wireSeg(r,'ti-m',reset);$('#ti-reset',r).onclick=reset;reset()}},
+
+/* ===== rafale ===== */
+rafale:{html:()=>`<div class="lab"><h3>Atelier : répartir une rafale</h3><p class="hint">Choisissez la face du dé Rafale, puis répartissez les touches : 1 au plus par Adulte ou Larve, exactement 2 par Guerrier.</p>
+<div class="foes" id="ra-foes"></div>
+<div class="dice" id="ra-dice">${[1,2,3].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="4">4 ✦</button></div>
+<div class="out" id="ra-left">Choisissez une face du dé Rafale.</div>
+<div class="row" style="margin-top:8px"><button type="button" class="pri" id="ra-go" disabled>Résoudre</button><button type="button" id="ra-new">Nouveau couloir</button></div><div class="out" id="ra-out" hidden></div></div>`,
+init(r){let S;
+ const neu=()=>{const n=2+rnd(4),f=[];for(let i=0;i<n;i++)f.push({k:['adulte','adulte','guerrier','larve'][rnd(4)],h:0,dead:false});f.sort((a,b)=>SIZE[b.k]-SIZE[a.k]);S={f,res:0,done:false};$('#ra-go',r).disabled=true;$('#ra-out',r).hidden=true;$$('#ra-dice button',r).forEach(b=>b.classList.remove('sel'));draw()};
+ const used=()=>S.f.reduce((a,x)=>a+x.h,0);
+ const draw=()=>{$('#ra-foes',r).innerHTML=S.f.map((x,i)=>`<div class="foe${x.dead?' dead':''}">${tok(x.k)}<div><b>${TY[x.k]}</b></div><div class="h">Touches : <span class="cubes">${'■'.repeat(x.h)||'0'}</span></div>${S.res&&!S.done?`<div class="row"><button type="button" data-i="${i}" data-d="-1" aria-label="Retirer une touche">−</button><button type="button" data-i="${i}" data-d="1" aria-label="Ajouter une touche">+</button></div>`:''}</div>`).join('');
+  $$('#ra-foes [data-i]',r).forEach(b=>b.onclick=()=>{const x=S.f[+b.dataset.i],d=+b.dataset.d,step=x.k==='guerrier'?2:1,max=x.k==='guerrier'?2:1;const nh=x.h+d*step;if(nh<0||nh>max)return;if(d>0&&used()+step>S.res)return;x.h=nh;draw()});
+  if(S.res&&!S.done){const l=S.res-used();$('#ra-left',r).innerHTML=`${S.res} touche${S.res>1?'s':''} à répartir : <b>${l}</b> restante${l>1?'s':''}.${l&&S.f.some(x=>x.k==='guerrier'&&!x.h)&&l<2?' Une seule touche ne peut pas aller sur un Guerrier : elle sera perdue.':''}`}};
+ $$('#ra-dice button',r).forEach(b=>b.onclick=()=>{if(S.done)neu();$$('#ra-dice button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');S.res=+b.dataset.v;S.f.forEach(x=>x.h=0);$('#ra-go',r).disabled=false;$('#ra-out',r).hidden=true;draw()});
+ $('#ra-go',r).onclick=()=>{let k=0;S.f.forEach(x=>{if(x.h&&(x.k!=='guerrier'||x.h===2)){x.dead=true;k++}});const lost=S.res-used();S.done=true;draw();
+  $('#ra-left',r).textContent='';$('#ra-out',r).hidden=false;$('#ra-out',r).className=k?'out ok':'out';
+  $('#ra-out',r).innerHTML=`<b>${k} Intrus tué${k>1?'s':''}.</b>${lost?` ${plural(lost,'touche perdue','touches perdues')}.`:''}${S.res===4?' Le 4 porte aussi l\'icône spéciale : appliquez l\'effet de votre arme s\'il y en a un.':''} Les survivants ne gardent aucune blessure dans un couloir.`};
+ $('#ra-new',r).onclick=neu;neu()}},
+
+/* ===== fin de partie ===== */
+fin:{html:()=>`<div class="lab"><h3>Atelier : survivre à l'éclosion</h3><p class="hint">Avec une Larve sur votre plateau à la fin, vous ajoutez 1 Contamination, mélangez toutes vos cartes et en tirez 4 : une seule Contamination vous tue. Ajustez votre paquet pour voir le risque.</p>
+<div class="row"><label class="f">Cartes Action<input type="number" id="fi-a" min="4" max="20" value="10"></label><label class="f">Cartes Contamination<input type="number" id="fi-c" min="0" max="27" value="3"></label><label class="chk"><input type="checkbox" id="fi-l" checked> Larve sur votre plateau</label></div>
+<div class="out" id="fi-out"></div><div class="row" style="margin-top:8px"><button type="button" id="fi-sim">Tirer 4 cartes</button></div><div class="out" id="fi-sim-out" hidden></div></div>`,
+init(r){const C=(n,k)=>{if(k<0||k>n)return 0;let x=1;for(let i=0;i<k;i++)x=x*(n-i)/(i+1);return x};
+ const upd=()=>{const a=Math.max(0,+$('#fi-a',r).value||0),c=Math.max(0,+$('#fi-c',r).value||0),l=$('#fi-l',r).checked;
+  if(!l){$('#fi-out',r).innerHTML=`Sans Larve, vous résolvez d'abord une <b>procédure d'infection</b> : vous scannez vos ${c} carte${c>1?'s':''} Contamination. ${c?'Si l\'une est infectée, une Larve apparaît et l\'éclosion suit (cochez la case pour voir ce risque). Sinon, vous survivez.':'Sans Contamination, rien ne peut vous infecter : vous survivez.'}`;$('#fi-out',r).className=c?'out':'out ok';$('#fi-sim',r).disabled=true;return}
+  const cc=c+1,n=a+cc,p=n>=4?1-C(a,4)/C(n,4):1;$('#fi-sim',r).disabled=false;
+  $('#fi-out',r).innerHTML=`Paquet : ${a} Action + ${cc} Contamination (dont celle de la Larve) = ${n} cartes.<div class="meter"><i style="width:${Math.round(100*p)}%"></i></div><b>${Math.round(100*p)} %</b> de risque de mourir à l'éclosion.${c===0?' Même sans autre Contamination, la carte ajoutée par la Larve suffit à vous menacer.':''}`;$('#fi-out',r).className='out'};
+ $('#fi-sim',r).onclick=()=>{const a=+$('#fi-a',r).value||0,cc=(+$('#fi-c',r).value||0)+1;const deck=Array(a).fill('A').concat(Array(cc).fill('C'));for(let i=deck.length-1;i>0;i--){const j=rnd(i+1);[deck[i],deck[j]]=[deck[j],deck[i]]}const h=deck.slice(0,4),bad=h.filter(x=>x==='C').length;
+  $('#fi-sim-out',r).hidden=false;$('#fi-sim-out',r).className=bad?'out bad':'out ok';$('#fi-sim-out',r).innerHTML=`Vous tirez : ${h.map(x=>x==='C'?'<b>Contamination</b>':'Action').join(', ')}. ${bad?'<b>La Larve éclot : votre personnage est tué.</b>':'<b>Vous survivez</b> : défaussez votre main.'}`};
+ ['fi-a','fi-c'].forEach(id=>$('#'+id,r).oninput=upd);$('#fi-l',r).onchange=upd;upd()}}
+};
+
+/* ---------- fiches de salles (chapitre et onglet Salles) ---------- */
+const SC_COL={A:'var(--secA)',B:'var(--secB)',C:'var(--secC)','?':'var(--secX)'};
+const roomCard=x=>`<div class="rcard" style="--rc:${SC_COL[x.s]}"><div class="hd"><div class="nm">${x.fr}</div>${sect(x.s)}</div>
+ <div class="meta"><span>n° ${String(x.n).padStart(2,'0')}</span>${x.obj?`<span>${[...x.obj].map(it).join('')}</span>`:''}${x.ic.map(k=>`<span>${k==='ordi'?ordi+' ':''}${ICN[k]}</span>`).join('')}</div>
+ <div class="fx">${x.fx}</div>${x.pr.length?`<ul>${x.pr.map(p=>`<li>${p}</li>`).join('')}</ul>`:''}</div>`;
+
+/* ---------- tutoriel ---------- */
+const ST=LS.get('nemr-tuto',{done:{},cur:CH[0].id,q:{}});ST.done=ST.done||{};ST.q=ST.q||{};
+const saveST=()=>LS.set('nemr-tuto',ST);
+function progress(){const d=CH.filter(c=>ST.done[c.id]).length;$('#bar').style.width=(100*d/CH.length)+'%';$('#barlabel').textContent=`${d} chapitre${d>1?'s':''} validé${d>1?'s':''} sur ${CH.length}`}
+function toc(){let h='',part='';CH.forEach((c,i)=>{if(c.part!==part){part=c.part;h+=`<li class="part">${part}</li>`}h+=`<li><a href="#${c.id}" data-id="${c.id}" class="${ST.cur===c.id?'on':''}"><span class="n">${i+1}</span><span>${c.t}</span>${ST.done[c.id]?'<span class="tick" aria-label="validé">✓</span>':''}</a></li>`});$('#toclist').innerHTML=h;
+ $$('#toclist a').forEach(a=>a.onclick=e=>{e.preventDefault();show(a.dataset.id,true);$('#toc').classList.remove('open');$('#tocbtn').setAttribute('aria-expanded','false');$('#tocbtn').textContent='Afficher le sommaire'})}
+function qBlock(list,kind,cid){return `<div class="qs">${list.map((x,i)=>{const key=`${cid}:${kind}${i}`,st=ST.q[key];return `<div class="q${kind==='c'?' case':''}" data-k="${key}" data-a="${x.a}">${kind==='c'?'<span class="tag">Que faites-vous ?</span>':''}<div class="qt">${x.q}</div><div class="opts">${x.o.map((o,j)=>`<button type="button" data-j="${j}" class="${st&&st.picked&&st.picked.includes(j)?(j===x.a?'right':'wrong'):''}">${o}</button>`).join('')}</div><div class="why" ${st&&st.ok?'':'hidden'}>${x.w}</div></div>`}).join('')}</div>`}
+function show(id,scroll){const c=CH.find(x=>x.id===id)||CH[0];ST.cur=c.id;saveST();const i=CH.indexOf(c),prev=CH[i-1],next=CH[i+1];
+ let h=`<section class="ch on" id="ch-${c.id}"><div class="eyebrow">${c.part} · étape ${i+1} sur ${CH.length}</div><h1>${c.t}</h1><p class="lead">${c.lead}</p>
+ <h2>Les points de règle</h2><ol class="rules">${c.rules.map(x=>`<li>${x}</li>`).join('')}</ol>${c.html||''}${c.lab?`<div id="labhost">${LABS[c.lab].html()}</div>`:''}`;
+ if(c.cas&&c.cas.length)h+=`<h2>Cas pratiques</h2>${qBlock(c.cas,'c',c.id)}`;
+ if(c.quiz&&c.quiz.length)h+=`<h2>Vérifiez que c'est acquis</h2>${qBlock(c.quiz,'q',c.id)}<div id="qscore" class="score"></div>`;
+ h+=`<div id="donebox"></div><div class="pager">${prev?`<button type="button" data-go="${prev.id}">← ${prev.t}</button>`:'<span></span>'}${next?`<button type="button" class="pri" data-go="${next.id}">${next.t} →</button>`:`<button type="button" class="pri" data-tab="aide">Ouvrir l'aide-mémoire →</button>`}</div></section>`;
+ const R=$('#read');R.innerHTML=h;if(c.lab)LABS[c.lab].init($('#labhost'));
+ const sc=$('#salles-ch');if(sc)sc.innerHTML=`<h2>Les 12 salles de section</h2><div class="cards">${SALLES.filter(x=>x.s!=='?').map(roomCard).join('')}</div><p class="small muted">Les salles aléatoires sont dans l'onglet <a href="#" data-tab="salles">Salles</a>.</p>`;
+ $$('.q',R).forEach(q=>$$('.opts button',q).forEach(b=>b.onclick=()=>{const k=q.dataset.k,a=+q.dataset.a,j=+b.dataset.j,st=ST.q[k]||(ST.q[k]={picked:[]});if(st.picked.includes(j))return;st.picked.push(j);
+  b.classList.add(j===a?'right':'wrong');if(j===a){st.ok=true;if(st.picked.length===1)st.first=true}$('.why',q).hidden=false;
+  if(j!==a){$('.why',q).innerHTML=`<b>Pas tout à fait.</b> Essayez une autre réponse.`;$('.why',q).hidden=false}else $('.why',q).innerHTML=(q.classList.contains('case')?c.cas:c.quiz)[+k.split(':')[1].slice(1)].w;
+  saveST();check(c)}));
+ $$('[data-go]',R).forEach(b=>b.onclick=()=>show(b.dataset.go,true));$$('[data-tab]',R).forEach(b=>b.onclick=e=>{e.preventDefault();tab(b.dataset.tab)});
+ check(c);toc();progress();if(location.hash!=='#'+c.id)history.replaceState(null,'','#'+c.id);if(scroll)window.scrollTo(0,0)}
+function check(c){const all=[...(c.quiz||[]).map((_,i)=>`${c.id}:q${i}`),...(c.cas||[]).map((_,i)=>`${c.id}:c${i}`)];const ok=all.filter(k=>ST.q[k]&&ST.q[k].ok).length,first=all.filter(k=>ST.q[k]&&ST.q[k].first).length;
+ const sc=$('#qscore');if(sc)sc.textContent=ok?`${ok} question${ok>1?'s':''} sur ${all.length} résolue${ok>1?'s':''}, dont ${first} du premier coup.`:'';
+ if(ok===all.length&&all.length&&!ST.done[c.id]){ST.done[c.id]=1;saveST();toc();progress()}
+ $('#donebox').innerHTML=ST.done[c.id]?`<div class="done-banner">✓ Chapitre validé.</div>`:''}
+$('#tocbtn').onclick=()=>{const o=$('#toc').classList.toggle('open');$('#tocbtn').setAttribute('aria-expanded',o);$('#tocbtn').textContent=o?'Masquer le sommaire':'Afficher le sommaire'};
+window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(CH.some(c=>c.id===id)&&id!==ST.cur){tab('learn');show(id,true)}});
+
+/* ---------- aide-mémoire ---------- */
+function aide(){
+ const ACT=[['0','Jouer une carte Action',''],['0','Passer',''],['1','Se déplacer','jet de bruit'],['1','Placer 1 jeton Sécurisation','hors combat'],['1','Tir dans votre salle','arme chargée'],['1','Rafale dans un couloir adjacent','dépense des munitions'],['1','Mêlée','+1 Contamination'],['1','Utiliser un objet',''],['1','Activer le robot','hors combat ; +1 à distance'],['1','Échanger','hors combat'],['1','Utiliser un équipement tactique','autant de jetons que voulu'],['2','Action de salle','hors combat'],['2','Déplacement prudent','hors combat ; +1 Sécurisation']];
+ const SAC=[['Reine','Activez-la ; sinon placez-la dans le couloir.','Activez-la ; sinon placez-la dans la salle.','Reine sur le plateau : activez-la. Sinon : +2 Larves.'],['Guerrier','Placez les Intrus indiqués au dos (blanc : Adultes, rouge : Guerriers).','Placez 1 Guerrier.','+2 Reines.'],['Adulte','Placez les Intrus indiqués au dos (blanc : Adultes, rouge : Guerriers).','Placez 1 Adulte.','+2 Reines.'],['Larve','Placez 1 Larve.','Placez 1 Larve.','+2 Guerriers.'],['Vierge','+2 Adultes dans le sac ; le jeton revient dans le sac.','+2 Adultes dans le sac ; le jeton revient dans le sac.','+2 Adultes ; le jeton revient dans le sac.']];
+ $('#aide').innerHTML=`<div class="eyebrow">Aide-mémoire</div><h1>Nemesis: Retaliation en une page</h1>
+ <div class="toolbar"><a href="#am-manche">Manche</a> · <a href="#am-act">Actions</a> · <a href="#am-bruit">Bruit</a> · <a href="#am-sac">Sac Intrus</a> · <a href="#am-combat">Combat</a> · <a href="#am-corps">Santé et oxygène</a> · <a href="#am-fin">Fin</a> · <a href="#am-or">Règles d'or</a></div>
+ <h2 id="am-manche">Une manche</h2><ol>
+ <li><b>Phase Joueurs</b> — à tour de rôle jusqu'à ce que tous aient passé : 2 actions, puis −1 oxygène si le recycleur de votre section est inactif, puis −1 santé si votre salle est en feu. Choix d'objectif possible avant ou après vos 2 actions (3 / 2 / 2 / 1 / 1 cartes).</li>
+ <li><b>Phase Intrus</b> — 1 touche à chaque Intrus d'une salle en feu (nid en feu : −1 œuf) ; puis les Intrus attaquent, salle par salle depuis le haut à gauche, les plus gros d'abord, sur le premier dans l'ordre du tour.</li>
+ <li><b>Phase Événement</b> — carte Événement (déplacements, effet principal, effet secondaire) ; puis 1 jeton du sac Intrus. Passagers du vaisseau : décollage possible au début de la phase.</li>
+ <li><b>Phase Nettoyage</b> — jeton Premier joueur à gauche ; chacun remonte à 5 cartes ; compte-tours +1 (Vaisseau en case 10 : DCA ; Autodestruction : explosion ; après la 14e manche : fin).</li></ol>
+ <h2 id="am-act">Actions</h2><div class="tw"><table><tr><th class="c">Coût</th><th>Action</th><th>À retenir</th></tr>${ACT.map(x=>`<tr><td class="c">${x[0]}</td><td>${x[1]}</td><td>${x[2]}</td></tr>`).join('')}</table></div>
+ <p class="small">Hors combat = impossible dans une salle avec au moins 1 Intrus. Les cartes défaussées pour payer ne sont pas résolues ; les Contaminations ne paient jamais.</p>
+ <h2 id="am-bruit">Jet de bruit</h2><ul><li><b>1 à 4</b> — chaque couloir adjacent de ce numéro : Intrus présent → le plus gros entre et attaque ; marqueur Bruit → résolvez-le (sac, colonne couloir) ; rien → posez un marqueur Bruit.</li><li><b>Danger</b> — jeton du sac, colonne salle : l'Intrus indiqué apparaît dans votre salle.</li><li>Couloir renforcé = 0 ; couloir plein = 6 Intrus (Reine = 4) ou 1 marqueur Bruit.</li></ul>
+ <h2 id="am-sac">Aide de jeu Intrus (Reine en vie)</h2><div class="tw"><table><tr><th>Jeton</th><th>Résolu dans un couloir</th><th>Résolu dans une salle</th><th>Phase Événement (sac)</th></tr>${SAC.map(x=>`<tr><td><b>${x[0]}</b></td><td>${x[1]}</td><td>${x[2]}</td><td>${x[3]}</td></tr>`).join('')}</table></div>
+ <p class="small">Le jeton tiré retourne sous sa pile, sauf le vierge qui revient dans le sac. Sac de départ : 1 vierge, 2 Larves, 3 Adultes + 1 par personnage.</p>
+ <h2 id="am-combat">Combat</h2><ul>
+ <li><b>Tir</b> (salle) : +1 touche, puis dé Tir : critique = mort ; 2 à 5 = mort si ≤ touches ; face munitions = dépensez des munitions. Pas de munitions dépensées sinon.</li>
+ <li><b>Mêlée</b> : +1 Contamination, +1 touche, dé Tir (dernière face : rien) ; si l'Intrus survit, il riposte (sauf panne sur une de vos armes).</li>
+ <li><b>Rafale</b> (couloir) : dépensez des munitions ; 1 à 4 touches ; 1 max par Adulte ou Larve, exactement 2 par Guerrier, la Reine autant que voulu.</li>
+ <li><b>Grenade</b> : dé Rafale + 2 touches dans un couloir adjacent (ce n'est pas une rafale).</li>
+ <li><b>Larve</b> : 1 touche la tue. <b>Reine</b> : piste des touches ; au bout, une carte Santé (défaussez autant de cartes que son numéro, appliquez l'effet, cube à 0).</li>
+ <li><b>Attaque de Larve</b> : +1 Contamination et la Larve sur votre plateau (infecté).</li></ul>
+ <h2 id="am-corps">Santé et oxygène</h2><ul><li>Piste : En forme → Affaibli → État critique → crâne (mort). Armure sur État critique : détruite au lieu de perdre 1 point.</li><li>Blessure grave : sur la section libre la plus à gauche ; le cube ne va jamais sur une case couverte.</li><li>Oxygène max 7 ; jeton Oxygène +3, Medpack +2 santé. Cadran sous 0 : jeton Suffocation, un tour pour trouver de l'oxygène.</li><li>Munitions : 2 charges (plein, puis à moitié).</li></ul>
+ <h2 id="am-fin">Fin de partie</h2><ol><li>Sans Larve : toutes vos cartes en main, procédure d'infection (scan) ; une infectée → Larve → éclosion.</li><li>Avec Larve : +1 Contamination, toutes vos cartes mélangées, éclosion : tirez 4 cartes, une Contamination = mort.</li><li>Vivant : révélez votre objectif. Il faut aussi être parti (vaisseau, navette) ou en hibernation.</li></ol>
+ <h2 id="am-or">Règles d'or</h2><ul><li><b>Loi de Murphy</b> : en cas de doute, ce qui pénalise le plus les joueurs, puis le premier dans l'ordre du tour.</li><li><b>Effets locaux</b> : sans cible précise, l'effet s'applique dans votre salle.</li><li><b>Limite du matériel</b> : les éléments sont limités, sauf les cubes.</li><li>Un effet ne se choisit que s'il peut être résolu entièrement.</li></ul>`;
+ $$('#aide .toolbar a').forEach(a=>a.onclick=e=>{e.preventDefault();const t=$(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})}
+
+/* ---------- onglet Salles ---------- */
+function salles(){$('#sallespage').innerHTML=`<div class="eyebrow">Aide de jeu</div><h1>Les salles</h1><p class="lead">Les 12 salles de section sont toujours en jeu ; les 13 salles aléatoires (« ? ») pas forcément. Une action de salle coûte 2 cartes et se fait hors combat.</p>
+ <div class="filters2"><div class="seg" id="sl-s">${['tout','A','B','C','?'].map((v,i)=>`<button type="button" data-v="${v}" class="${i?'':'sel'}">${['Toutes','Section A','Section B','Section C','Aléatoires'][i]}</button>`).join('')}</div><input type="search" id="sl-q" placeholder="Chercher une salle ou un effet…" aria-label="Chercher une salle"></div>
+ <p class="small muted">Couleurs des icônes Objet (pour la Fouille) : ${it('r')} rouge ${it('v')} vert ${it('j')} jaune. ${ordi} ordinateur : la salle peut être utilisée depuis la Salle des serveurs, et le robot activé à distance depuis elle.</p><div class="cards" id="sl-cards"></div>`;
+ let s='tout';const norm=t=>t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/<[^>]+>/g,'');
+ const draw=()=>{const q=norm($('#sl-q').value||'');$('#sl-cards').innerHTML=SALLES.filter(x=>(s==='tout'||x.s===s)&&(!q||norm(x.fr+' '+x.fx+' '+x.pr.join(' ')).includes(q))).map(roomCard).join('')||'<p class="muted">Aucune salle trouvée.</p>'};
+ $$('#sl-s button').forEach(b=>b.onclick=()=>{$$('#sl-s button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');s=b.dataset.v;draw()});$('#sl-q').oninput=draw;draw()}
+
+/* ---------- onglets, thème, démarrage ---------- */
+function tab(t){$$('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));$$('.tab').forEach(x=>x.classList.toggle('on',x.id==='tab-'+t));LS.set('nemr-tab',t);window.scrollTo(0,0)}
+$$('.tabs button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
+const TH=['auto','dark','light'];let th=LS.get('nemr-theme','auto');
+const applyTh=()=>{if(th==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',th);$('#theme').title='Thème : '+{auto:'automatique',dark:'sombre',light:'clair'}[th]};
+$('#theme').onclick=()=>{th=TH[(TH.indexOf(th)+1)%3];LS.set('nemr-theme',th);applyTh()};applyTh();
+aide();salles();
+const h=location.hash.slice(1);show(CH.some(c=>c.id===h)?h:ST.cur,false);
+if(!CH.some(c=>c.id===h))tab(LS.get('nemr-tab','learn'));
+})();
+</script>
+<footer class="page small muted" style="padding-top:0">Aide de jeu de fan, gratuite et non officielle, sans lien avec Awaken Realms ni ses éditeurs partenaires. Nemesis: Retaliation © Awaken Realms. Règles résumées d'après le livret de règles français et l'aide de jeu Salles.</footer>
+<footer style="max-width:1100px;margin:48px auto 0;padding:20px 16px 32px;border-top:1px solid rgba(128,128,128,.3);font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.85;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between">
+<a href="../" style="color:inherit;font-weight:600">← Toutes les aides de jeu</a>
+<a href="../?app=Nemesis%3A%20Retaliation#avis" style="color:inherit;font-weight:600">💌 Signaler un problème</a>
+<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" style="color:inherit;font-weight:600">☕ Cet outil vous a plu ? Offrez-moi un café</a>
+<span style="width:100%;font-size:12px;opacity:.8">Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</span>
+</footer>
+</body>
+</html>

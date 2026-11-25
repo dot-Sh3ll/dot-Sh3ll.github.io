@@ -29,13 +29,13 @@ ACCUEIL_LANGS = ["fr", "en", "de", "es"]
 
 ACCUEIL = {
     "fr": ("Aides de jeu gratuites pour jeux de société experts | Less Rules, More Play",
-           "Tutoriels interactifs, compagnons solo et fiches à imprimer, gratuits, pour Mage Knight, Imperium Antique, Aeon's End et Puerto Rico 1897. Apprenez les règles en jouant."),
+           "Tutoriels interactifs, compagnons solo et fiches à imprimer, gratuits, pour Mage Knight, Imperium Antique, Aeon's End, Puerto Rico 1897 et Nemesis: Retaliation. Apprenez les règles en jouant."),
     "en": ("Free game aids for heavy board games | Less Rules, More Play",
-           "Free interactive rules tutorials, solo companions and printable game aids for Mage Knight, Imperium: Classics, Aeon's End and Puerto Rico 1897. Learn the rules by playing."),
+           "Free interactive rules tutorials, solo companions and printable game aids for Mage Knight, Imperium: Classics, Aeon's End, Puerto Rico 1897 and Nemesis: Retaliation. Learn the rules by playing."),
     "de": ("Kostenlose Spielhilfen für Expertenspiele | Less Rules, More Play",
-           "Kostenlose interaktive Regel-Tutorials, Solo-Begleiter und Spielhilfen zum Ausdrucken für Mage Knight, Imperium, Aeon's End und Puerto Rico 1897."),
+           "Kostenlose interaktive Regel-Tutorials, Solo-Begleiter und Spielhilfen zum Ausdrucken für Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 und Nemesis: Retaliation."),
     "es": ("Ayudas de juego gratuitas para juegos de mesa expertos | Less Rules, More Play",
-           "Tutoriales interactivos de reglas, compañeros en solitario y hojas para imprimir, gratis, para Mage Knight, Imperium, Aeon's End y Puerto Rico 1897."),
+           "Tutoriales interactivos de reglas, compañeros en solitario y hojas para imprimir, gratis, para Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 y Nemesis: Retaliation."),
 }
 
 # dossier de l'appli : jeu (nom du jeu par langue), puis titre et description par langue de page
@@ -69,6 +69,13 @@ PAGES = {
                "Apprenez Puerto Rico 1897 règle par règle avec des ateliers interactifs et des quiz, puis gardez l'aide-mémoire des bâtiments et le calculateur de score. Gratuit."),
         "en": ("Puerto Rico 1897: learn the rules step by step, reference and scoring",
                "Learn Puerto Rico 1897 one rule at a time with interactive labs and quizzes, then keep the building reference and the score calculator at hand. Free."),
+    },
+    "nemesis": {
+        "jeu": {"fr": "Nemesis: Retaliation", "en": "Nemesis: Retaliation"},
+        "fr": ("Nemesis: Retaliation : apprendre les règles pas à pas, aide-mémoire et salles",
+               "Apprenez Nemesis: Retaliation règle par règle avec des ateliers interactifs (sac Intrus, jet de bruit, tir, rafale) et des quiz, puis gardez l'aide-mémoire et toutes les salles. Gratuit."),
+        "en": ("Nemesis: Retaliation: learn the rules step by step, reference and rooms",
+               "Learn Nemesis: Retaliation one rule at a time with interactive labs (Intruder bag, Noise roll, shooting, Burst fire) and quizzes, then keep the reference sheet and every Room at hand. Free."),
     },
 }
 FIL = {"fr": "Aides de jeu", "en": "Game aids", "de": "Spielhilfen", "es": "Ayudas de juego"}

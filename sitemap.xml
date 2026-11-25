@@ -63,6 +63,14 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://paulmoussard.com/puerto-rico/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://paulmoussard.com/puerto-rico/en.html"/>
   </url>
+  <url><loc>https://paulmoussard.com/nemesis/</loc><lastmod>2026-11-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paulmoussard.com/nemesis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://paulmoussard.com/nemesis/en.html"/>
+  </url>
+  <url><loc>https://paulmoussard.com/nemesis/en.html</loc><lastmod>2026-11-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://paulmoussard.com/nemesis/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://paulmoussard.com/nemesis/en.html"/>
+  </url>
   <url><loc>https://paulmoussard.com/fiches/imperium-aide-de-jeu.pdf</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://paulmoussard.com/fiches/imperium-game-aid.pdf</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://paulmoussard.com/fiches/imperium-keywords.pdf</loc><lastmod>2026-11-24</lastmod></url>

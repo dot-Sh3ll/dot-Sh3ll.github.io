@@ -72,7 +72,7 @@
  "Your email <small>(optional, so I can reply)</small>": "Su correo <small>(opcional, para que pueda responderle)</small>",
  "Send": "Enviar",
  "Everything is and will stay free. ☕ Enjoyed a tool? <a href=\"https://ko-fi.com/paulmoussard\" target=\"_blank\" rel=\"noopener\">Buy me a coffee</a>.": "Todo es y seguirá siendo gratis. ☕ ¿Le ha gustado alguna herramienta? <a href=\"https://ko-fi.com/paulmoussard\" target=\"_blank\" rel=\"noopener\">Invíteme a un café</a>.",
- "Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium, Aeon's End and Puerto Rico 1897 belong to their respective publishers.": "Contenido no oficial y gratuito hecho por un fan, sin relación con las editoriales de los juegos. Mage Knight es una marca de WizKids; Imperium, Aeon's End y Puerto Rico 1897 pertenecen a sus respectivas editoriales.",
+ "Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium, Aeon's End, Puerto Rico 1897 and Nemesis: Retaliation belong to their respective publishers.": "Contenido no oficial y gratuito hecho por un fan, sin relación con las editoriales de los juegos. Mage Knight es una marca de WizKids; Imperium, Aeon's End, Puerto Rico 1897 y Nemesis: Retaliation pertenecen a sus respectivas editoriales.",
  "The site in general": "El sitio en general",
  "An idea for another game": "Una idea para otro juego",
  "Bug: something doesn't work": "Error: algo no funciona",
@@ -88,7 +88,9 @@
  "Printables": "Hojas",
  "All the apps for this game": "Todas las apps de este juego",
  "All the printables for this game, to print and keep by the board": "Todas las hojas de este juego, para imprimir y tener junto al tablero",
- "Interactive tutorials, solo companions and printable sheets for heavy games: Mage Knight, Imperium, Aeon's End and Puerto Rico 1897. Free, in English and French, right in your browser.": "Tutoriales interactivos, compañeros para jugar en solitario y hojas imprimibles para juegos expertos: Mage Knight, Imperium, Aeon's End y Puerto Rico 1897. Gratis, directamente en el navegador.",
+ "Interactive tutorials, solo companions and printable sheets for heavy games: Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 and Nemesis: Retaliation. Free, in English and French, right in your browser.": "Tutoriales interactivos, compañeros para jugar en solitario y hojas imprimibles para juegos expertos: Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 y Nemesis: Retaliation. Gratis, directamente en el navegador.",
  "Mage Knight · Quest module scenarios": "Mage Knight · Escenarios del módulo de misiones",
- "Six homemade scenarios to play with the quests: three solo, three two-player co-op, with setup, rules and game end. 4 pages.": "Seis escenarios caseros para jugar con las misiones: tres en solitario y tres cooperativos para dos, con preparación, reglas y final de partida. 4 páginas."
+ "Six homemade scenarios to play with the quests: three solo, three two-player co-op, with setup, rules and game end. 4 pages.": "Seis escenarios caseros para jugar con las misiones: tres en solitario y tres cooperativos para dos, con preparación, reglas y final de partida. 4 páginas.",
+ "Rooms": "Salas",
+ "Learn every rule with interactive labs (Intruder bag, Noise roll, shooting, Burst fire, hatching risk), hands-on cases and quizzes. Includes a reference sheet and every Room of the complex.": "Aprenda cada regla con talleres interactivos (bolsa de Intrusos, tirada de ruido, disparo, ráfaga, riesgo de eclosión), casos prácticos y cuestionarios. Incluye una hoja de referencia y todas las salas del complejo."
 }
