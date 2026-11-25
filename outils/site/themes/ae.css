@@ -1,0 +1,24 @@
+/* Aeon's End : sombre par défaut ; palette claire en option (data-theme="light"). */
+main>header{position:relative}
+main>header h1{padding-right:48px}
+.lrmp-theme{position:absolute;top:2px;right:0;width:36px;height:36px;padding:0;border-radius:999px;display:grid;place-items:center;
+  background:transparent;color:var(--ink);border:1px solid var(--line);font-size:19px;line-height:1;cursor:pointer}
+.lrmp-theme:hover{border-color:var(--gold)}
+.lrmp-theme:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+:root[data-theme="light"]{color-scheme:light;--app-accent-ink:#ffffff;
+  --bg:#f3f0f7; --surface:#ffffff; --surface-2:#ece7f4; --line:#d4cce2; --ink:#221d33; --muted:#5d5672;
+  --gold:#85600f; --gem:#7440b8; --relic:#17707f; --spell:#a24e0c}
+:root[data-theme="light"] body{background-image:radial-gradient(900px 420px at 50% -120px,#ddd0f5 0%,transparent 70%)}
+:root[data-theme="light"] .hunt .chip.done,:root[data-theme="light"] .btn.primary{color:#fff}
+:root[data-theme="light"] .btn.win-b{border-color:#5f9a6a;color:#2b6b39}
+:root[data-theme="light"] .btn.loss-b{border-color:#c4847d;color:#a3362b}
+:root[data-theme="light"] .logform .msg,:root[data-theme="light"] .warn,
+:root[data-theme="light"] [style*="#ffb4a3"]{color:#a3362b!important}
+:root[data-theme="light"] .win .lbl.l,:root[data-theme="light"] .hunt .chip.lost,:root[data-theme="light"] .xcount b.ko{color:#a3362b}
+:root[data-theme="light"] .hunt .chip.lost{border-color:#c4847d}
+:root[data-theme="light"] .xstep.won b,:root[data-theme="light"] .xcount b.ok{color:#2b6b39}
+:root[data-theme="light"] .chip.adapt{border-color:#8fc0c8}
+:root[data-theme="light"] .chip.role{border-color:#cbb47c}
+:root[data-theme="light"] .pchip.doubt{border-color:#b08a3a;background:rgba(133,96,15,.08)}
+:root[data-theme="light"] .picker li button:hover,:root[data-theme="light"] .picker li button:focus-visible{background:rgba(0,0,0,.04)}
+:root[data-theme="light"] main a:not([class]){color:var(--gem)}

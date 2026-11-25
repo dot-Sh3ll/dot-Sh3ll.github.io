@@ -436,6 +436,40 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 .topbar{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
 @media (max-width:480px){.topbar{justify-content:space-between!important;text-align:left!important}}
 </style>
+<!--theme-->
+<style id="theme-css">
+/* Mage Knight : sombre par défaut ; palette claire en option (data-theme="light").
+   Le tutoriel (.app-tuto) et le compagnon (.app-comp) ont chacun leurs variables : on les redéfinit toutes les deux. */
+.topbar>.lrmp-onglets{margin-left:auto}
+.lrmp-theme{flex:none;width:36px;height:36px;padding:0;border-radius:999px;display:grid;place-items:center;
+  background:transparent;color:var(--ink);border:1px solid var(--line);font-size:19px;line-height:1;cursor:pointer}
+.lrmp-theme:hover{border-color:var(--gold)}
+.lrmp-theme:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+:root[data-theme="light"]{color-scheme:light;
+  --bg:#edf0f5; --ink:#1b2433; --muted:#566275; --line:#c7d0dc; --gold:#86621a; --gold-ink:#ffffff; --sunk:#e0e5ed}
+:root[data-theme="light"] body{background:radial-gradient(ellipse 110% 300px at 50% -70px,rgba(84,160,232,.24),rgba(40,92,170,.07) 55%,transparent 80%) no-repeat,var(--bg)}
+:root[data-theme="light"] .app-tuto{color-scheme:light;
+  --bg:#edf0f5; --panel:#ffffff; --ink:#1b2931; --muted:#566772; --line:#c6d0d7;
+  --accent:#86621a; --accent-ink:#ffffff; --gold:#86621a; --good:#2b7a4b; --bad:#b03b2b;
+  --t-plaine:#bcd492; --t-collines:#cdb682; --t-foret:#69a36c; --t-desol:#aaa099; --t-desert:#e8d292;
+  --t-marais:#86a394; --t-lac:#86b9d8; --t-montagne:#9597a1; --t-fog:#d3dae0; --hexline:#52636e}
+:root[data-theme="light"] .app-comp{color-scheme:light;
+  --bg:#edf0f5; --panel:#ffffff; --sunk:#e9edf3; --ink:#1b2433; --muted:#566275; --line:#c7d0dc;
+  --gold:#86621a; --gold-2:#a07a26; --gold-ink:#ffffff;
+  --gem:#2b65a8; --relic:#3d7a2d; --spell:#a0511d; --bad:#b03b2b}
+:root[data-theme="light"] .app button:disabled,:root[data-theme="light"] .app button.primary:disabled,
+:root[data-theme="light"] .app button.on:disabled{color:#7a8596!important;border-color:#b9c3d1!important}
+:root[data-theme="light"] .app-comp .card{background:#f6f8fb}
+:root[data-theme="light"] .app-comp input::placeholder{color:#7a8596}
+:root[data-theme="light"] .app-comp .chip.quest{border-color:#86621a;color:#86621a}
+:root[data-theme="light"] .app-comp .scen:has(.chip.quest){border-top-color:#86621a}
+:root[data-theme="light"] .app-comp .qline{color:var(--gold)}
+:root[data-theme="light"] .app-comp button.on{background:color-mix(in srgb,var(--gold) 13%,#ffffff)}
+:root[data-theme="light"] .app-comp .tabs button.on,:root[data-theme="light"] .app-comp .seg button.on{background:var(--gold)}
+@media (max-width:700px){.topbar>.lrmp-theme{order:2;margin-left:auto}.topbar>.lrmp-onglets{order:3;margin-left:0}.topbar>.brand{order:1}}
+</style>
+<script>try{if(localStorage.getItem("mk-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
+<!--/theme-->
 </head>
 <body>
 <header class="sitehead">
@@ -456,7 +490,7 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 
 <header class="topbar">
   <p class="brand">Mage Knight<small>Interactive tutorial and game companion</small></p>
-  <nav class="modes lrmp-onglets" aria-label="Sections"><a href="#apprendre" data-mode="apprendre">Learn</a><a href="#jouer" data-mode="jouer">Play</a><a href="#aide" data-mode="aide">Reference</a></nav>
+  <nav class="modes lrmp-onglets" aria-label="Sections"><a href="#apprendre" data-mode="apprendre">Learn</a><a href="#jouer" data-mode="jouer">Play</a><a href="#aide" data-mode="aide">Reference</a></nav><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="Change theme (light / dark)"><span aria-hidden="true">◐</span></button>
 </header>
 <div class="app app-tuto" id="app-tuto">
 <div class="wrap">
@@ -2480,5 +2514,6 @@ run();new MutationObserver(function(){requestAnimationFrame(run)}).observe(docum
 })();
 </script>
 <!--/fiches-->
+<script id="theme-js">(function(){var M=['dark','light'],K='mk-theme',N={auto:'automatic',dark:'dark',light:'light'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Theme: '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 </body>
 </html>

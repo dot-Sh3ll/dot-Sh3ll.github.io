@@ -519,6 +519,18 @@ main{padding-left:clamp(16px,3vw,32px)!important;padding-right:0!important}
 @media (max-width:860px){main{padding-left:0!important}}
 header.top{padding-left:max(var(--site-pad),calc((100% - var(--site-w))/2 + var(--site-pad)))!important;padding-right:max(var(--site-pad),calc((100% - var(--site-w))/2 + var(--site-pad)))!important}
 </style>
+<!--theme-->
+<style id="theme-css">
+/* Imperium : les deux palettes existent déjà dans la page (clair par défaut, sombre via prefers-color-scheme ou data-theme).
+   Ici seulement le bouton, posé dans le bandeau toujours sombre. */
+.lrmp-theme{margin-left:auto;flex:none;width:36px;height:36px;padding:0;border-radius:999px;display:grid;place-items:center;
+  background:transparent;color:var(--head-ink);border:1px solid rgba(255,255,255,.2);font-size:19px;line-height:1;cursor:pointer}
+.lrmp-theme:hover{border-color:var(--head-gold)}
+.lrmp-theme:focus-visible{outline:3px solid var(--head-gold);outline-offset:2px}
+@media (max-width:640px){.lrmp-theme{width:32px;height:32px;margin-left:0}header.top>.lrmp-onglets{flex:1 1 0;min-width:0;width:auto}}
+</style>
+<script>try{var t=localStorage.getItem("imp-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<!--/theme-->
 </head>
 <body>
 <header class="sitehead">
@@ -537,7 +549,7 @@ header.top{padding-left:max(var(--site-pad),calc((100% - var(--site-w))/2 + var(
 
 
 
-<header class="top"><div class="logo"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22V6M13 22c-4 0-7-3-8-7 3 0 6 2 8 5M13 22c4 0 7-3 8-7-3 0-6 2-8 5M13 14c-3 0-5-2-6-5 3 0 5 2 6 4M13 14c3 0 5-2 6-5-3 0-5 2-6 4M13 7c-1.5-1-2-3-1.5-4.5C13 3.5 13.5 5 13 7z" fill="none" stroke="#c9a24e" stroke-width="1.5" stroke-linecap="round"/></svg>Imperium Antique</div><div class="lrmp-onglets" role="group" aria-label="Sections"><button type="button" data-tab="apprendre">Apprendre</button><button type="button" data-tab="solo">Jouer en solo</button><button type="button" data-tab="plusieurs">À plusieurs</button><button type="button" data-tab="aide">Aide-mémoire</button></div></header>
+<header class="top"><div class="logo"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22V6M13 22c-4 0-7-3-8-7 3 0 6 2 8 5M13 22c4 0 7-3 8-7-3 0-6 2-8 5M13 14c-3 0-5-2-6-5 3 0 5 2 6 4M13 14c3 0 5-2 6-5-3 0-5 2-6 4M13 7c-1.5-1-2-3-1.5-4.5C13 3.5 13.5 5 13 7z" fill="none" stroke="#c9a24e" stroke-width="1.5" stroke-linecap="round"/></svg>Imperium Antique</div><div class="lrmp-onglets" role="group" aria-label="Sections"><button type="button" data-tab="apprendre">Apprendre</button><button type="button" data-tab="solo">Jouer en solo</button><button type="button" data-tab="plusieurs">À plusieurs</button><button type="button" data-tab="aide">Aide-mémoire</button></div><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="Changer de thème (clair / sombre)"><span aria-hidden="true">◐</span></button></header>
 <div class="tab" id="tab-apprendre"><div class="app">
 <nav id="nav">
   <p class="brand">Apprendre les règles<small>Six étapes, d'après le livret Horizons</small></p>
@@ -2602,5 +2614,6 @@ run();new MutationObserver(function(){requestAnimationFrame(run)}).observe(docum
 })();
 </script>
 <!--/fiches-->
+<script id="theme-js">(function(){var M=['auto','dark','light'],K='imp-theme',N={auto:'automatique',dark:'sombre',light:'clair'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Thème : '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 </body>
 </html>

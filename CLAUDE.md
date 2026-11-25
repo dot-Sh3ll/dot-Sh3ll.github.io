@@ -66,6 +66,7 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 | `<!--pwa-->…<!--/pwa-->` | `outils/site/pwa.py` | manifest, icônes, service worker, **GoatCounter** (code `shell`) |
 | `<footer class="lrmp-pied">` | `outils/site/pied.py` | retour, « Signaler un problème » (formulaire avec le jeu choisi), Ko-fi, mention fan |
 | `<!--fiches-->…<!--/fiches-->` | `outils/site/fiches.py` | encart « À imprimer » de l'aide-mémoire, rappel en fin de tutoriel |
+| `<!--theme-->…<!--/theme-->`, `#lrmp-theme`, `#theme-js` | `outils/site/theme.py` | bouton de thème clair / sombre d'Imperium, Aeon's End et Mage Knight (palettes : `outils/site/themes/<code>.css`) |
 
 ## Langues
 
@@ -96,6 +97,7 @@ Toujours depuis la racine du dépôt.
 | Aeon's End allemand | `python3 outils/aeons-end/gen_lang.py de` (`--todo` : ce qui manque), puis `seo.py` |
 | Barre du site + feuilles communes + polices d'une appli | `python3 outils/site/chrome.py <dossier>` |
 | Pied de page | `python3 outils/site/pied.py <dossier> "<option du formulaire>"` |
+| Bouton de thème (Imperium, Aeon's End, Mage Knight) | `python3 outils/site/theme.py <dossier>` ou `--tout` (à relancer après `build_imp.sh`, `build_mk.sh`, `gen_lang.py`) |
 | Accueil : carte d'appli, de fiche, date de mise à jour | `python3 outils/site/accueil.py appli\|fiche <json>` ; `accueil.py maj <dossier ou pdf>` (badge « Mis à jour ») — ne pas couper sa sortie avec `\| head` |
 | Images de partage | `python3 outils/site/og_images.py` (Playwright) |
 | Test au navigateur | Playwright, Chrome `/usr/bin/google-chrome` (`--no-sandbox`) ; `python3 -m http.server 8766` à la racine |
@@ -157,7 +159,15 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 - Contrastes : AA (4,5:1) pour le texte ; `assembler.py` assombrit la couleur du jeu pour les thèmes clairs.
 - Schémas du tutoriel Nemesis : `outils/nemesis/figures.py` écrit `5-figures.js` (FR) et `en/5-figures.js` (EN), puis `build.sh` ;
   SVG dans la page, couleurs des variables de l'appli (thèmes clair et sombre), légende et texte alternatif dans les deux langues.
-- **À faire plus tard** : un mode thème sombre ou clair (bouton, comme dans Nemesis) pour Imperium, Aeon's End et Mage Knight.
+- **Thèmes** : chaque appli a un bouton ◐. Nemesis et Puerto Rico : dans leurs sources. Imperium, Aeon's End, Mage Knight :
+  `theme.py` ; Imperium suit le système par défaut, Aeon's End et Mage Knight restent sombres par défaut (le clair est une option).
+  Une couleur écrite en dur dans ces pages doit avoir sa version claire dans `outils/site/themes/<code>.css`.
 - Points ouverts : noms allemands incertains dans Aeon's End (attendre la communauté) ; noms anglais des salles
   aléatoires de Nemesis (traductions maison sauf Shelter et Technical Corridor Entrance) ; aide de jeu Mage Knight
   anglaise (gen_mk_en.py) construite à part de la française, texte plus petit : à régénérer un jour depuis les pages FR traduites.
+
+## Décisions de Paul
+
+- **Agricola : projet abandonné.**
+- **Allemand : seul Aeon's End est traduit**, jusqu'à nouvel ordre ; ne pas traduire d'autre appli en allemand.
+- Prochaine appli envisagée : **Pax Pamir** (pour automatiser le Wakhan).

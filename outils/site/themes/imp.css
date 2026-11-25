@@ -1,0 +1,7 @@
+/* Imperium : les deux palettes existent déjà dans la page (clair par défaut, sombre via prefers-color-scheme ou data-theme).
+   Ici seulement le bouton, posé dans le bandeau toujours sombre. */
+.lrmp-theme{margin-left:auto;flex:none;width:36px;height:36px;padding:0;border-radius:999px;display:grid;place-items:center;
+  background:transparent;color:var(--head-ink);border:1px solid rgba(255,255,255,.2);font-size:19px;line-height:1;cursor:pointer}
+.lrmp-theme:hover{border-color:var(--head-gold)}
+.lrmp-theme:focus-visible{outline:3px solid var(--head-gold);outline-offset:2px}
+@media (max-width:640px){.lrmp-theme{width:32px;height:32px;margin-left:0}header.top>.lrmp-onglets{flex:1 1 0;min-width:0;width:auto}}
