@@ -1214,6 +1214,7 @@ let avoidRecent=true, themeChoice="";
 function loadRecent(){ try{ const r=JSON.parse(localStorage.getItem("ae-recent")||"[]"); return Array.isArray(r)?r.slice(0,3):[] }catch(e){ return [] } }
 function recentIds(){ return avoidRecent?new Set(loadRecent().flat()):new Set() }
 function pushRecent(m){ try{ localStorage.setItem("ae-recent",JSON.stringify([m.slots.filter(s=>s.card).map(s=>s.card.id)].concat(loadRecent()).slice(0,3))) }catch(e){} }
+function swapRecent(old,id){ try{ const r=loadRecent(); if(!r.length) return; r[0]=r[0].filter(x=>x!==old); if(id&&!r[0].includes(id)) r[0].push(id); localStorage.setItem("ae-recent",JSON.stringify(r)) }catch(e){} } // la carte changée ou choisie remplace l'ancienne dans le dernier marché
 function fill(slots, chooser){
   const used=new Set(), recent=recentIds();
   for(const s of slots){
@@ -1292,7 +1293,9 @@ function swap(i){
   if(!cand.length) cand=pool(s.type).filter(ok);
   if(!cand.length&&s.unmet) cand=pool(s.type).filter(c=>!used.has(c.id));
   if(!cand.length) return;
+  const old=s.card&&s.card.id;
   s.card = current.mode==="opt" ? weighted(cand) : pick(cand);
+  swapRecent(old,s.card.id);
   if(s.key && !s.card.tags.includes(current.theme)) s.key=false;
   render();
 }
@@ -1383,7 +1386,7 @@ function pickerEl(s,i){ // choix de la carte d'une pile « au choix »
       +cand.map(c=>'<li><button type="button" data-id="'+esc(c.id)+'" title="'+esc(BOXNAME[c.box])+'"><span class="pc">'+c.cost+'</span><span>'+esc(c.fr||c.en)+'</span></button></li>').join("")+'</ul>'
       :'<p class="muted">No card available in the ticked boxes.</p>')
     +'<div class="row">'+(cand.length?'<button class="swap" type="button" data-r>Draw at random</button>':'')+'<button class="swap" type="button" data-x>Cancel</button></div>';
-  const set=c=>{ s.card=c; picking=-1; render(); };
+  const set=c=>{ swapRecent(s.card&&s.card.id,c.id); s.card=c; picking=-1; render(); };
   box.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>set(cand.find(c=>c.id===b.dataset.id)));
   const r=box.querySelector("[data-r]"); if(r) r.onclick=()=>set(pick(cand));
   box.querySelector("[data-x]").onclick=()=>{ picking=-1; render(); };
@@ -1834,13 +1837,13 @@ $("a-photo").onchange=()=>{ const n=$("a-photo").files.length; $("a-analyze").di
 async function analyze(){
   const files=[...$("a-photo").files].slice(0,imgLim?imgLim.maxCount:1); if(!files.length||!sampleFn) return;
   const list=CARDS.filter(c=>owned.has(c.box)).map(c=>c.id+" | "+TYPEFR[c.type]+" | "+c.cost+" | "+c.fr).join("\n");
-  const prompt="Tu regardes "+(files.length>1?files.length+" photos":"une photo")+" d'une partie du jeu de cartes coopératif Aeon's End, édition française.\n"
-    +"Repère les cartes du marché (la réserve) : des piles de gemmes, reliques et sorts posées face visible, chacune avec son nom en haut du cadre de texte et son coût dans un hexagone en haut à droite. Il y en a en général 9 (3 gemmes, 2 reliques, 4 sorts), mais ce nombre peut varier.\n"
-    +"Ignore les cartes de départ (Cristal, Éclat, Étincelle), les cartes en main ou dans les pioches, les trésors et les cartes de la némésis.\n"
-    +"Si tu vois le plateau de la némésis ou les plateaux des mages, donne leurs noms.\n\n"
-    +"Cartes possibles (id | type | coût | nom) :\n"+list+"\n\nNémésis possibles : "+NEM.filter(nemOwned).map(n=>n[0]).join(", ")+"\nMages possibles : "+MAGES.filter(mageOwned).map(m=>m[0]).join(", ")+"\n\n"
-    +'Réponds uniquement avec un objet JSON de cette forme : {"cards":["id",...],"doubtful":["id",...],"nemesis":"nom exact ou null","mages":["nom exact",...],"comment":"une phrase courte en français"}. '
-    +"N'utilise que des id de la liste. Mets dans doubtful les cartes que tu as identifiées sans en être sûr (elles figurent aussi dans cards). N'invente aucune carte : si un nom est illisible, laisse-la de côté et signale-le dans comment.";
+  const prompt="You are looking at "+(files.length>1?files.length+" photos":"a photo")+" of a game of the cooperative card game Aeon's End, English edition (Indie Boards & Cards).\n"
+    +"Find the market cards (the supply): face-up piles of gems, relics and spells, each with its name at the top of the text box and its cost in a hexagon at the top right. There are usually 9 of them (3 gems, 2 relics, 4 spells), but this number may vary.\n"
+    +"Ignore the starting cards (Crystal, Spark), cards in hand or in decks, treasures and nemesis cards.\n"
+    +"If you see the nemesis board or the mage boards, give their names.\n\n"
+    +"Possible cards (id | type | cost | name):\n"+list+"\n\nPossible nemeses: "+NEM.filter(nemOwned).map(n=>n[0]).join(", ")+"\nPossible mages: "+MAGES.filter(mageOwned).map(m=>m[0]).join(", ")+"\n\n"
+    +'Reply only with a JSON object of this form: {"cards":["id",...],"doubtful":["id",...],"nemesis":"exact name from the list or null","mages":["exact name from the list",...],"comment":"one short sentence in English"}. '
+    +"Only use ids from the list. Put in doubtful the cards you identified without being sure (they are also in cards). Do not invent any card: if a name is unreadable, leave it out and say so in comment.";
   const btn=$("a-analyze"), st=$("a-st"); btn.disabled=true; $("a-stop").hidden=false; st.textContent="Analysing… this may take a minute.";
   actl=new AbortController();
   try{

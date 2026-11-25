@@ -1214,6 +1214,7 @@ let avoidRecent=true, themeChoice="";
 function loadRecent(){ try{ const r=JSON.parse(localStorage.getItem("ae-recent")||"[]"); return Array.isArray(r)?r.slice(0,3):[] }catch(e){ return [] } }
 function recentIds(){ return avoidRecent?new Set(loadRecent().flat()):new Set() }
 function pushRecent(m){ try{ localStorage.setItem("ae-recent",JSON.stringify([m.slots.filter(s=>s.card).map(s=>s.card.id)].concat(loadRecent()).slice(0,3))) }catch(e){} }
+function swapRecent(old,id){ try{ const r=loadRecent(); if(!r.length) return; r[0]=r[0].filter(x=>x!==old); if(id&&!r[0].includes(id)) r[0].push(id); localStorage.setItem("ae-recent",JSON.stringify(r)) }catch(e){} } // la carte changée ou choisie remplace l'ancienne dans le dernier marché
 function fill(slots, chooser){
   const used=new Set(), recent=recentIds();
   for(const s of slots){
@@ -1292,7 +1293,9 @@ function swap(i){
   if(!cand.length) cand=pool(s.type).filter(ok);
   if(!cand.length&&s.unmet) cand=pool(s.type).filter(c=>!used.has(c.id));
   if(!cand.length) return;
+  const old=s.card&&s.card.id;
   s.card = current.mode==="opt" ? weighted(cand) : pick(cand);
+  swapRecent(old,s.card.id);
   if(s.key && !s.card.tags.includes(current.theme)) s.key=false;
   render();
 }
@@ -1383,7 +1386,7 @@ function pickerEl(s,i){ // choix de la carte d'une pile « au choix »
       +cand.map(c=>'<li><button type="button" data-id="'+esc(c.id)+'" title="'+esc(BOXNAME[c.box])+'"><span class="pc">'+c.cost+'</span><span>'+esc(c.fr||c.en)+'</span></button></li>').join("")+'</ul>'
       :'<p class="muted">Keine Karte in den angekreuzten Boxen verfügbar.</p>')
     +'<div class="row">'+(cand.length?'<button class="swap" type="button" data-r>Zufällig ziehen</button>':'')+'<button class="swap" type="button" data-x>Abbrechen</button></div>';
-  const set=c=>{ s.card=c; picking=-1; render(); };
+  const set=c=>{ swapRecent(s.card&&s.card.id,c.id); s.card=c; picking=-1; render(); };
   box.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>set(cand.find(c=>c.id===b.dataset.id)));
   const r=box.querySelector("[data-r]"); if(r) r.onclick=()=>set(pick(cand));
   box.querySelector("[data-x]").onclick=()=>{ picking=-1; render(); };
