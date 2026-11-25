@@ -4,7 +4,7 @@
 set -e
 D=outils/nemesis
 mkdir -p nemesis
-cat $D/1-head.html $D/2-data.js $D/3-chapters.js $D/4-labs.js $D/6-app.js > nemesis/index.html
+cat $D/1-head.html $D/2-data.js $D/3-chapters.js $D/4-labs.js $D/5-figures.js $D/6-app.js > nemesis/index.html
 python3 $D/en/build_en.py nemesis/en.html
 python3 outils/site/lang.py fr nemesis/index.html
 python3 outils/site/lang.py en nemesis/en.html

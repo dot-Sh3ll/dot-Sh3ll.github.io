@@ -155,6 +155,9 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 - Les pages `en/` et `de/` de l'accueil et `aeons-end/de.html` sont générées : toute retouche se fait à la source.
 - `localStorage` toujours dans `try/catch` (navigation privée, stockage bloqué).
 - Contrastes : AA (4,5:1) pour le texte ; `assembler.py` assombrit la couleur du jeu pour les thèmes clairs.
+- Schémas du tutoriel Nemesis : `outils/nemesis/figures.py` écrit `5-figures.js` (FR) et `en/5-figures.js` (EN), puis `build.sh` ;
+  SVG dans la page, couleurs des variables de l'appli (thèmes clair et sombre), légende et texte alternatif dans les deux langues.
+- **À faire plus tard** : un mode thème sombre ou clair (bouton, comme dans Nemesis) pour Imperium, Aeon's End et Mage Knight.
 - Points ouverts : noms allemands incertains dans Aeon's End (attendre la communauté) ; noms anglais des salles
   aléatoires de Nemesis (traductions maison sauf Shelter et Technical Corridor Entrance) ; aide de jeu Mage Knight
   anglaise (gen_mk_en.py) construite à part de la française, texte plus petit : à régénérer un jour depuis les pages FR traduites.

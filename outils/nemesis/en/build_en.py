@@ -81,7 +81,7 @@ def main(out):
     app = rd(os.path.join(S, "6-app.js"))
     a, b = app.index("/* ---------- aide-mémoire ---------- */"), app.index("/* ---------- onglet Salles ---------- */")
     app = apply(app[:a] + "@@AIDE@@" + app[b:], APP, "6-app", miss).replace("@@AIDE@@", rd(os.path.join(D, "aide.js")))
-    page = head + data + rd(os.path.join(D, "3-chapters.js")) + rd(os.path.join(D, "4-labs.js")) + app
+    page = head + data + rd(os.path.join(D, "3-chapters.js")) + rd(os.path.join(D, "4-labs.js")) + rd(os.path.join(D, "5-figures.js")) + app
     open(out, "w", encoding="utf-8").write(page)
     print(f"en.html assemblée, {len(miss)} paire(s) introuvable(s)")
     for m in miss:
