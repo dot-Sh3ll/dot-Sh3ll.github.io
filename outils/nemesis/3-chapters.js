@@ -98,6 +98,12 @@ rules:[
 `Le premier joueur à choisir pioche <b>3</b> cartes Action, le 2e et le 3e en piochent <b>2</b>, le 4e et le 5e <b>1</b> : le cube de la piste Choix d'objectif descend d'un cran à chaque choix. Plus vous attendez, moins vous piochez.`,
 `Pioche vide : mélangez votre défausse pour en refaire une, à n'importe quelle phase.`,
 `<b>Règles d'or.</b> <b>Loi de Murphy :</b> en cas de doute, appliquez ce qui pénalise le plus l'ensemble des joueurs, puis le premier dans l'ordre du tour. <b>Effets locaux :</b> un effet sans cible précise s'applique dans la salle du personnage qui l'a déclenché (ou sur ce qu'il porte). <b>Limite du matériel :</b> les éléments sont limités sauf mention contraire (pas de jeton Munitions s'ils sont tous pris ; les cubes, eux, sont illimités).`],
+faq:[
+`<b>Remélanger :</b> quand une carte vous fait remélanger un paquet, elle est mélangée avec. Ce n'est pas le cas quand une carte Action vous fait piocher : vous piochez (ce qui peut vous obliger à remélanger votre défausse) avant de défausser la carte jouée, qui n'est donc pas remélangée.`,
+`<b>« Feu à volonté » :</b> l'Officier choisit sa salle ou une salle voisine. Chaque personnage qui s'y trouve, dans l'ordre du tour, fait une rafale vers un couloir choisi par l'Officier, qui peut choisir un couloir différent pour chacun. Chacun choisit l'arme qu'il utilise.`,
+`<b>La carte <i>Shoot First</i> :</b> vous pouvez tirer ou faire une rafale sur les Intrus qui apparaissent à cause du jet de bruit de votre déplacement.`,
+`<b>« Tenez la position » (Tireur d'élite) :</b> l'état « toujours sécurisé » de l'Abri n'est pas un jeton Sécurisation et ne compte pas pour cette carte.`,
+`<b>« Un par un » (Tireur d'élite) :</b> elle ne peut pas tuer les Guerriers.`],
 cas:[
 {q:`Deux joueurs ont déjà choisi leur objectif. Vous choisissez le vôtre au début de votre tour. Combien de cartes piochez-vous ?`,o:[`3`,`2`,`1`],a:1,w:`Vous êtes le 3e à choisir : 2 cartes (3 pour le 1er, 2 pour les 2e et 3e, 1 pour les 4e et 5e).`}],
 quiz:[
@@ -130,6 +136,9 @@ rules:[
 `<b>Munitions :</b> un jeton a 2 charges (plein, puis à moitié). L'utiliser recharge une arme : il passe de la ceinture à l'emplacement de l'arme. « Dépenser » des munitions : un jeton plein se retourne, un jeton à moitié se défausse.`,
 `<b>Oxygène :</b> +3 oxygène, sans dépasser 7. <b>Medpack :</b> +2 santé. <b>Grenade :</b> choisissez un couloir adjacent, lancez un dé Rafale et ajoutez 2 : autant de touches dans ce couloir. Ce n'est pas une rafale (les effets d'arme ne s'appliquent pas).`,
 `Un objet trouvé arrive avec ses emplacements tactiques remplis. Vous pouvez défausser objets et jetons à tout moment.`],
+faq:[
+`<b>Utiliser un équipement tactique :</b> vous pouvez utiliser plusieurs jetons dans la même action, en les choisissant un par un (par exemple, décider de lancer une 2e grenade après avoir lancé la première).`,
+`Avec cette action, vous pouvez utiliser les jetons de n'importe lequel de vos objets, même en panne : un lance-grenades en panne peut encore lancer ses grenades.`],
 cas:[
 {q:`Vous êtes dans une section dont le recycleur est actif, avec 2 oxygène. Combien en aurez-vous à la fin de votre tour ?`,o:[`2`,`3`,`7`],a:0,w:`Un recycleur actif vous évite d'en perdre, mais ne vous en rend pas. Pour remonter, il faut un jeton Oxygène ou un objet.`},
 {q:`Vous lancez une grenade et faites 3 au dé Rafale. Combien de touches ?`,o:[`3`,`5`,`6`],a:1,w:`Résultat + 2 : 5 touches dans le couloir choisi.`}],
@@ -148,6 +157,8 @@ rules:[
 `<b>Couloir renforcé :</b> défaussez son marqueur Bruit et retournez-le : sa valeur de bruit devient 0, aucun jet de bruit n'y place plus de marqueur, mais les Intrus peuvent toujours y passer. Les couloirs de l'hibernatorium ne peuvent jamais être renforcés.`,
 `<b>Portes :</b> un seuil de porte = une porte ouverte. Fermée, on pose un jeton Porte ; détruite, on le couche : elle reste ouverte pour toujours. Une porte fermée bloque tout ce qui est de l'autre côté (sauf les marqueurs Bruit) : pas de déplacement ni de rafale à travers, et le feu ne se propage pas. Les Intrus qui doivent la franchir la <b>détruisent</b> au lieu de bouger.`,
 `Un effet qui vous envoie « n'importe où dans le complexe » ignore les portes fermées (vous passez par un conduit).`],
+faq:[
+`<b>Portes fermées :</b> à travers une porte fermée, vous ne pouvez ni renforcer un couloir, ni donner un ordre à un autre personnage, ni faire de rafale, ni lancer de grenade. Vous pouvez en revanche y poser et y défausser des marqueurs Bruit : une porte bloque tout, sauf les marqueurs Bruit.`],
 quiz:[
 {q:`Combien d'Intrus Adultes un couloir peut-il contenir au plus ?`,o:[`3`,`4`,`6`],a:2,w:`6 au total (Adultes, Guerriers, Larves). La Reine compte pour 4.`},
 {q:`Un couloir contient un marqueur Bruit. Est-il « vide » ?`,o:[`Oui`,`Non`],a:0,w:`Un couloir est vide s'il ne contient aucun Intrus ; un marqueur Bruit n'est pas un Intrus.`},
@@ -162,6 +173,11 @@ rules:[
 `Plus de marqueur Panne en réserve ? Posez un marqueur Feu dans la salle à la place, si possible. Vous pouvez défausser une panne depuis votre salle, ou depuis un objet ou le robot de cette salle.`,
 `<b>Sécurisation</b> (3 par salle au plus, impossible si un Intrus s'y trouve) : quand un Intrus <b>entre</b> dans une salle qui contient au moins 1 personnage et 1 jeton Sécurisation, défaussez 1 jeton <b>au lieu</b> de l'attaque. C'est obligatoire.`,
 `Les jetons Sécurisation ne protègent pas des Intrus <b>déjà présents</b> (par exemple lors des attaques de la phase Intrus). Certaines salles ne se sécurisent jamais (Nid, Entrepôt, Accès aux conduits) ; l'Abri est sécurisé par défaut.`],
+faq:[
+`<b>Panne et ordinateur :</b> un marqueur Panne ne rend pas l'icône Ordinateur d'une salle indisponible, sauf si un objet ou un effet le dit.`,
+`<b>Propagation du feu :</b> si le feu doit se propager par un couloir ouvert (<i>Open Corridor</i>), il ne se passe rien : ne posez pas de marqueur Feu.`,
+`<b>Sécurisation :</b> les jetons Sécurisation empêchent aussi l'attaque d'un Intrus qui est <b>placé</b> dans la salle (par exemple sur un résultat Danger), pas seulement d'un Intrus qui y entre.`,
+`<b>Abri :</b> « toujours sécurisé » est un état permanent de la salle, pas un jeton Sécurisation : aucun objet ne peut le défausser. Vous pouvez y ajouter des jetons Sécurisation (3 au plus) ; ce sont eux qui sont défaussés en premier.`],
 cas:[
 {q:`Vous êtes dans une salle avec 2 jetons Sécurisation. Un Guerrier y entre, puis un Adulte. Combien d'attaques subissez-vous ?`,o:[`0`,`1`,`2`],a:0,w:`Chaque entrée fait défausser 1 jeton au lieu de l'attaque : il vous reste 0 jeton, et aucune attaque. Mais en phase Intrus, ces deux Intrus déjà présents attaqueront normalement.`},
 {q:`Votre fusil a déjà un marqueur Panne et un effet vous en impose un autre. Que se passe-t-il ?`,o:[`Rien`,`Le fusil est détruit`,`Vous perdez 1 point de santé`],a:1,w:`Un deuxième marqueur Panne sur un objet le détruit : défaussez-le.`}],
@@ -178,6 +194,10 @@ rules:[
 `<b>Exploration, dans l'ordre :</b> placez la salle du type indiqué (A, B, C ou « ? » ; s'il n'en reste plus, une « ? ») ; placez les couloirs indiqués, seuil de porte côté nouvelle salle, sauf ceux qui sortiraient du complexe ou mèneraient à une salle déjà placée ; posez marqueurs et jetons (pas de 2e marqueur Bruit dans un couloir) ; déplacez votre figurine (+ Sécurisation si prudent) ; résolvez l'effet d'arrivée (souvent un jet de bruit) ; défaussez la carte.`,
 `L'icône <b>Infiltrée</b> des cartes Exploration ne sert pas dans le jeu de base. Pioche Exploration vide : remélangez la défausse (sans les cartes retirées du jeu).`,
 `<b>Passages secrets :</b> un effet qui vous envoie vers une salle précise (comme l'Accès aux conduits) suit la même séquence, sans l'étape « choisir une direction ».`],
+faq:[
+`<b>Portes fermées par une carte Exploration :</b> fermez seulement les portes qui touchent la nouvelle salle. Les portes de l'hibernatorium ne se ferment jamais ainsi, puisqu'on n'y résout pas d'exploration.`,
+`<b>« Retirez cette carte du jeu »</b> ne fait pas partie de l'effet d'entrée d'une carte Exploration : un effet qui vous fait explorer en ignorant l'effet d'entrée retire quand même la carte du jeu.`,
+`<b>Empêcher une attaque en se déplaçant :</b> les cartes qui empêchent une attaque d'Intrus pendant un déplacement (comme « À couvert ») ne s'appliquent qu'aux <b>attaques d'opportunité</b>, pas à l'attaque déclenchée par le jet de bruit.`],
 cas:[
 {q:`Vous quittez une salle avec 1 Adulte en empruntant un couloir qui contient 1 Guerrier et 2 Larves. Combien d'attaques d'opportunité ?`,o:[`1`,`3`,`4`],a:1,w:`Tous les Intrus de la salle et du couloir attaquent, du plus gros au plus petit, mais 3 au plus : le Guerrier, l'Adulte, puis une Larve.`},
 {q:`Une carte Exploration demande un couloir qui mènerait vers une salle déjà posée. Que faites-vous ?`,o:[`Vous le placez`,`Vous ne le placez pas`,`Vous le placez renforcé`],a:1,w:`Aucun couloir ne mène à une salle déjà placée (ni ne sort du complexe). Le marqueur Bruit prévu dans ce couloir n'est pas posé non plus.`}],
@@ -193,6 +213,8 @@ rules:[
 `<b>Résoudre un marqueur Bruit :</b> retirez-le, piochez un jeton dans le sac et résolvez-le dans ce couloir (colonne « couloir ») : le <b>chiffre blanc</b> au dos donne le nombre d'Intrus (Adultes), le <b>chiffre rouge</b> le nombre de Guerriers ajoutés. Défaussez le jeton sous sa pile ; le jeton vierge retourne toujours dans le sac.`,
 `<b>Attaque immédiate :</b> un Intrus qui apparaît dans une salle ou y entre attaque aussitôt un personnage présent.`,
 `Un couloir renforcé vaut 0 : aucun résultat du dé ne le désigne.`],
+faq:[
+`<b>Événement « Résolvez un marqueur Bruit dans chaque couloir inexploré » :</b> seuls les couloirs qui ont un marqueur Bruit sont concernés. On ne résout pas un marqueur qui n'existe pas.`],
 lab:'bruit',
 quiz:[
 {q:`Vous faites 2. Le couloir 2 adjacent contient 3 Adultes. Que se passe-t-il ?`,o:[`Les 3 Adultes entrent`,`Un Adulte entre dans votre salle et vous attaque`,`Vous posez un marqueur Bruit`],a:1,w:`Seul le plus gros Intrus du couloir entre dans votre salle.`},
@@ -206,6 +228,10 @@ rules:[
 `<b>Section B :</b> Hibernatorium (hiberner, s'il est actif), Contrôle du recycleur B (recycleur B ou consulter et réordonner la DCA), Salle des serveurs (utiliser une salle avec ordinateur à distance, ou prendre un jeton Info), Système de refroidissement (lancer l'autodestruction).`,
 `<b>Section C :</b> Contrôle du recycleur C (recycleur C ou activer l'hibernatorium), Réacteur (tout couper : recycleurs, DCA, autodestruction), Navette d'évacuation (s'enfuir seul), Nid (prendre ou détruire un œuf).`,
 `Hibernatorium, Zone d'atterrissage (vaisseau) et Navette demandent un <b>jet de bruit</b> : s'il y a un Intrus dans la salle après le jet, l'action échoue.`],
+faq:[
+`<b>Station de forage :</b> si le robot est en panne, elle ne peut pas créer de couloir.`,
+`<b>Accès aux conduits :</b> l'attaque d'Intrus que provoque cette salle peut être empêchée par un effet qui empêche les attaques d'Intrus.`,
+`<b>Nid :</b> si la partie se termine avec un marqueur Feu dans le nid alors qu'il reste des œufs, le nid ne compte pas comme détruit.`],
 html:`<div id="salles-ch"></div>`,
 quiz:[
 {q:`Quelle salle permet d'activer l'hibernatorium ?`,o:[`Contrôle du recycleur B`,`Contrôle du recycleur C`,`Salle des serveurs`],a:1,w:`Le Contrôle du recycleur C (section C), deuxième effet. On ne peut pas le désactiver.`},
@@ -240,6 +266,8 @@ rules:[
 `<b>Repousser :</b> l'Intrus s'éloigne du personnage qui le repousse (qui choisit le couloir quand il le repousse d'une salle). Sans personnage adjacent, il va vers le couloir ou la salle au plus petit numéro. Il ne sort jamais d'un couloir inexploré, détruit une porte fermée au lieu de la franchir, et attaque s'il est repoussé dans une salle occupée.`,
 `<b>Couloir plein :</b> les plus gros passent en priorité. En déplacement, les petits cèdent simplement leur place (sans attaque) ; en placement, les petits sont retirés. Ceux qui ne peuvent pas bouger restent où ils sont.`,
 `Un Intrus blessé qui va dans un couloir défausse ses cubes de touches.`],
+faq:[
+`Les Intrus ne se déplacent pas vers les personnages qui sont dans le vaisseau.`],
 cas:[
 {q:`Deux personnages sont à égale distance d'un groupe d'Intrus. Le jet de bruit qui les a fait bouger a été fait par le second dans l'ordre du tour. Vers qui vont-ils ?`,o:[`Le premier dans l'ordre du tour`,`Celui qui a fait le jet de bruit`,`Au hasard`],a:1,w:`À égalité de distance, le personnage qui a déclenché le déplacement passe avant l'ordre du tour.`}],
 quiz:[
@@ -269,6 +297,8 @@ rules:[
 `<b>Le dé Tir</b> a 8 faces : <b>1 critique, un 2, un 3, deux 4, deux 5 et 1 munitions</b>. Chance de tuer un Adulte : 1 touche (premier tir) 12,5 % ; 2 touches 25 % ; 3 touches 37,5 % ; 4 touches 62,5 % ; 5 touches ou plus 87,5 %. Mieux vaut l'affaiblir dans un couloir… ou ne pas rester là.`,
 `<b>Larves :</b> 1 touche les tue, quel que soit le dé. <b>Guerriers :</b> dans une salle, ils se tirent comme des Adultes. <b>Reine :</b> ses touches vont sur sa piste (chapitre La Reine).`,
 `Chaque carte Arme ajoute ses propres effets selon certains résultats ; appliquez-les en plus.`],
+faq:[
+`<b>Effets d'arme :</b> un effet d'arme lié à un résultat du dé s'applique <b>en plus</b> de l'effet normal, sauf si l'arme dit « au lieu de ». Par exemple, sur la face Munitions du dé Tir, vous dépensez quand même une munition, même si votre arme transforme ce résultat en un autre.`],
 lab:'tir',
 cas:[
 {q:`Un Adulte porte déjà 2 cubes. Vous tirez et faites 3. Que se passe-t-il ?`,o:[`Il survit : 3 est plus grand que 2`,`Il meurt : avec le nouveau cube il en a 3, et 3 ≤ 3`,`Il meurt seulement sur un critique`],a:1,w:`La touche est posée avant le jet : 3 cubes. 3 est inférieur ou égal à 3, l'Adulte meurt.`}],
@@ -299,6 +329,8 @@ rules:[
 `Quand sa dernière carte Santé est défaussée, la Reine meurt : retirez sa figurine, ignorez les effets qui la font apparaître et retournez l'aide de jeu Intrus côté « La Reine est morte ». Les jetons Reine font alors apparaître des Guerriers puis quittent la partie, et les Guerriers et Adultes tirés en phase Événement ajoutent des Larves au lieu de Reines.`,
 `<b>Activation</b> (le plus souvent avec un jeton Reine du sac) : elle attaque un personnage de sa salle si possible ; sinon, elle se déplace une fois vers le plus proche, avec les mêmes priorités que les autres Intrus.`,
 `Dans un couloir, elle compte pour 4 Intrus ; avec elle, il ne peut y avoir que 2 autres Intrus. Une rafale peut lui donner autant de touches que vous voulez.`],
+faq:[
+`<b>Tirer sur la Reine</b> fonctionne exactement comme sur un Adulte, mais au lieu de retirer la figurine, vous résolvez sa carte Santé. Par exemple, avec 2 touches sur sa piste, un 2 (ou moins) ou un coup critique vous fait résoudre la carte du dessus de sa pioche Santé.`],
 quiz:[
 {q:`Le cube de la piste est sur l'avant-dernière case et votre rafale donne 3 touches à la Reine. Que se passe-t-il ?`,o:[`Les 3 touches comptent, le cube repart de 2`,`Le cube atteint le bout : les autres touches sont ignorées, on résout une carte Santé`,`Rien, il faut un critique`],a:1,w:`Au bout de la piste, les touches restantes de l'action sont ignorées ; résolvez une carte Santé, puis remettez le cube à 0.`},
 {q:`Un jeton Reine est tiré du sac en phase Événement alors que la Reine n'est pas sur le plateau. Effet ?`,o:[`Elle apparaît dans le nid`,`Ajoutez 2 Larves dans le sac`,`Rien`],a:1,w:`Colonne « sac Intrus » : Reine sur le plateau = activation ; sinon, 2 jetons Larve dans le sac.`}]},
@@ -329,6 +361,13 @@ rules:[
 `Perdre un objet fait perdre ses jetons tactiques.`,
 `<b>Interaction :</b> avec son accord, vous pouvez utiliser un objet sur un personnage de votre salle s'il lui fait regagner de la santé, défausser une blessure grave, défausser une panne de ses objets ou récupérer de l'oxygène. Sinon, il faut échanger.`,
 `<b>Échanger</b> (1 carte, hors combat) : tous les personnages de votre salle peuvent révéler et s'échanger objets et jetons tactiques, avec vous et entre eux (avec votre accord). Donner sans contrepartie est permis.`],
+faq:[
+`<b>Sans munitions :</b> une carte ou un effet peut quand même vous faire « dépenser » des munitions d'une arme qui a ce mot-clé.`,
+`<b>Arme en panne :</b> vous ne pouvez pas dépenser ses munitions, même pour une carte Action ou un autre effet.`,
+`<b>Échanger :</b> un objet reçu en échange est « gagné » : vous pouvez l'utiliser aussitôt (des munitions, par exemple).`,
+`<b>Interaction :</b> elle vaut pour toutes les formes d'action (cartes Action, cartes Objet, jetons tactiques…), si le personnage qui en profite est d'accord et que l'effet fait partie des 4 cités. Les autres effets, et ce qui n'est pas une action, ne s'utilisent pas sur un autre personnage.`,
+`<b>Le ruban adhésif :</b> il permet de tenir un 3e objet dans une même main.`,
+`<b>La barricade portable :</b> une porte qu'elle a posée disparaît une fois ouverte.`],
 quiz:[
 {q:`Vous fouillez le Contrôle du recycleur A (icônes verte et rouge). Combien de cartes piochez-vous ?`,o:[`1`,`2, et vous en gardez 1`,`2, et vous les gardez`],a:1,w:`1 carte par icône Objet : 1 verte et 1 rouge. Vous en gardez 1 et remettez l'autre sous son paquet.`},
 {q:`Où va un œuf que vous ramassez dans le nid ?`,o:[`Dans le sac à dos`,`Dans un emplacement de main : c'est un objet lourd`,`Sur la ceinture tactique`],a:1,w:`Les œufs sont des objets lourds.`}]},
@@ -353,6 +392,8 @@ rules:[
 `<b>Décoller :</b> au début de la phase Événement, n'importe quel passager peut décider, seul, de faire décoller le vaisseau. Tous ceux à bord sont échappés.`,
 `<b>Navette d'évacuation :</b> jet de bruit pour y entrer ; une seule place. La DCA ne l'arrête pas. <b>Hibernatorium :</b> jet de bruit pour hiberner, s'il a été activé ; mais si le complexe est détruit, les hibernés meurent.`,
 `<b>Autodestruction</b> (Système de refroidissement) : posez le jeton à 5 manches de la manche en cours (4 cases entre les deux), ou après la dernière case s'il en reste moins. Quand le compte-tours l'atteint, le complexe explose : tout le monde encore dedans meurt, hibernatorium compris. Seul le <b>Réacteur</b> peut l'arrêter.`],
+faq:[
+`<b>Autodestruction en fin de partie :</b> si elle est enclenchée quand la partie se termine, le complexe explose quand même, avant la séquence de fin de partie.`],
 cas:[
 {q:`Vous êtes à bord du vaisseau avec Bruno. Au début de la phase Événement, vous voulez partir mais Bruno veut attendre Carla. Qui décide ?`,o:[`Il faut l'accord de tous`,`N'importe quel passager peut décoller seul`,`Le premier joueur`],a:1,w:`Faire décoller le vaisseau n'est pas une décision collective. Bruno part avec vous puisqu'il est à bord.`}],
 quiz:[
@@ -382,6 +423,8 @@ rules:[
 `<b>Victoire :</b> toutes les missions de l'escouade doivent être réussies et au moins 1 personnage doit survivre. Si plusieurs missions demandent la même chose (un jeton Info, par exemple), il faut la remplir autant de fois. Si on vous demande plus de jetons Info qu'il n'y a de personnages, il en faut autant que de personnages.`,
 `<b>Réanimer :</b> le bloc opératoire a un AutoDoc. Un personnage tué est couché, ses objets défaussés. Un personnage de sa salle peut payer 1 carte de plus pour le porter en se déplaçant. S'il commence la manche au bloc opératoire (sans Intrus ni panne), il est réanimé : blessures graves défaussées, cube sur la première case de la section Affaibli.`,
 `<b>Difficulté :</b> retirez ou ajoutez des missions de l'escouade à la mise en place.`],
+faq:[
+`<b>Errata :</b> les missions Solo/Coop n° 3 et n° 11 (<i>CLOSEDOWN</i> et <i>SHUTDOWN</i>) ne peuvent jamais être en jeu ensemble. Si vous les tirez toutes les deux, défaussez la dernière tirée et tirez-en une autre.`],
 quiz:[
 {q:`En coop à 3 joueurs, combien de missions de l'escouade ?`,o:[`1`,`3`,`3 + 1 par Larve`],a:1,w:`Autant de cartes Mission de l'escouade Solo/Coop que de joueurs (à ajuster pour la difficulté).`},
 {q:`En mode mortel, un couloir porte 2 et un petit 4. Sur quels résultats est-il concerné ?`,o:[`2 seulement`,`2 et 4`,`4 seulement`],a:1,w:`En mode mortel, il a les deux valeurs pour tous les effets (mais seulement 2 pour départager).`}]}

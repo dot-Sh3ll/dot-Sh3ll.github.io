@@ -98,6 +98,12 @@ rules:[
 `The first player to choose draws <b>3</b> Action cards, the 2nd and 3rd draw <b>2</b>, the 4th and 5th draw <b>1</b>: the marker on the Objective Choice track moves down one space with each choice. The longer you wait, the fewer cards you draw.`,
 `Empty deck: shuffle your discard pile to make a new one, in any phase.`,
 `<b>Golden Rules.</b> <b>Nightmare Rule:</b> when in doubt, resolve the situation in the worst possible way for the players, then for the first Character in Turn order. <b>Local effects:</b> an effect without a clear target applies in the Room of the Character who triggered it (or to what they carry). <b>Component limits:</b> components are limited unless stated otherwise (no Ammo token if they are all taken).`],
+faq:[
+`<b>Reshuffling:</b> when a card tells you to reshuffle a deck, the card itself is included. This differs from reshuffling your Action deck because you draw cards: if an Action card lets you draw, you draw first (which may force you to reshuffle your discard pile), then discard the card you played, so it is not reshuffled.`,
+`<b>Fire At Will:</b> the Officer chooses their Room or a neighboring one. Each Character there, in Turn order, Bursts at a Corridor chosen by the Officer, who may choose a different Corridor for each. Each Character chooses which Weapon to use.`,
+`<b>Shoot First:</b> you may Shoot or Burst at Intruders that appear because of the Noise roll from your Move.`,
+`<b>Hold Position (Sharpshooter):</b> the Shelter's "always secured" status is not a Secure token and does not count for this card.`,
+`<b>One by One (Sharpshooter):</b> it cannot kill Drones.`],
 cas:[
 {q:`Two players have already chosen their Objective. You choose yours at the start of your Turn. How many cards do you draw?`,o:[`3`,`2`,`1`],a:1,w:`You are the 3rd to choose: 2 cards (3 for the 1st, 2 for the 2nd and 3rd, 1 for the 4th and 5th).`}],
 quiz:[
@@ -130,6 +136,9 @@ rules:[
 `<b>Ammo:</b> a token has 2 charges (full, then half). Using it reloads a Weapon: it moves from the Belt to the Weapon's slot. "Spending" Ammo: a full token is flipped, a half token is discarded.`,
 `<b>Oxygen:</b> +3 Oxygen, up to 7. <b>Medpack:</b> +2 Health. <b>Grenade:</b> choose an adjacent Corridor, roll the Burst die and add 2: that many Hits in that Corridor. It is not a Burst (Weapon effects do not apply).`,
 `An Item you find comes with its Tactical Gear slots filled. You may discard Items and tokens at any time.`],
+faq:[
+`<b>Use Any Tactical Gear:</b> you may use several tokens in the same Action, choosing them one by one (for example, deciding to throw a second Grenade after the first).`,
+`With this Action you may use the tokens on any of your Items, even malfunctioned ones: a malfunctioned Grenade Launcher can still throw its Grenades.`],
 cas:[
 {q:`You are in a Section with active Life Support, with 2 Oxygen. How much will you have at the end of your Turn?`,o:[`2`,`3`,`7`],a:0,w:`Active Life Support stops you from losing Oxygen, but gives none back. To go up, you need an Oxygen token or an Item.`},
 {q:`You throw a Grenade and roll 3 on the Burst die. How many Hits?`,o:[`3`,`5`,`6`],a:1,w:`Result + 2: 5 Hits in the chosen Corridor.`}],
@@ -148,6 +157,8 @@ rules:[
 `<b>Reinforced Corridor:</b> discard its Noise marker and flip it: its Noise value becomes 0, no Noise roll ever places a marker there, but Intruders can still move through. The Hibernatorium's Corridors can never be Reinforced.`,
 `<b>Doors:</b> a Door slot = an open Door. Closed, it gets a Door token; destroyed, the token is laid down: it stays open for good. A closed Door blocks everything on the other side (except Noise markers): no Movement or Burst through it, and Fire does not spread. Intruders that must pass through <b>destroy</b> it instead of moving.`,
 `An effect sending you "anywhere in the Facility" ignores closed Doors (you go through a vent).`],
+faq:[
+`<b>Closed Doors:</b> through a closed Door you cannot Reinforce a Corridor, Command another Character, Burst or throw a Grenade. You can place and discard Noise markers there: a Door blocks everything except Noise markers.`],
 quiz:[
 {q:`How many Adult Intruders can a Corridor hold at most?`,o:[`3`,`4`,`6`],a:2,w:`6 in total (Adults, Drones, Larvae). The Queen counts as 4.`},
 {q:`A Corridor contains a Noise marker. Is it "empty"?`,o:[`Yes`,`No`],a:0,w:`A Corridor is empty if it contains no Intruder; a Noise marker is not an Intruder.`},
@@ -162,6 +173,11 @@ rules:[
 `No Malfunction marker left? Place a Fire marker in the Room instead, if possible. You may discard a Malfunction from your Room, or from an Item or the Robot in that Room.`,
 `<b>Secure tokens</b> (3 per Room at most, not possible if an Intruder is there): when an Intruder <b>enters</b> a Room containing at least 1 Character and 1 Secure token, discard 1 token <b>instead of</b> the Attack. It is mandatory.`,
 `Secure tokens do not protect against Intruders <b>already present</b> (for example during the Intruder Phase Attacks). Some Rooms are never Secured (Nest, Storage, Technical Corridor Entrance); the Shelter is Secured by default.`],
+faq:[
+`<b>Malfunction and computers:</b> a Malfunction marker does not make a Room's Computer icon unavailable, unless an Item or effect says so.`,
+`<b>Spreading Fire:</b> if Fire would spread through an Open Corridor, nothing happens: do not place the Fire marker.`,
+`<b>Secure tokens</b> also prevent the Attack of an Intruder <b>placed</b> in the Room (on a Hazard result, for example), not only one entering it.`,
+`<b>Shelter:</b> "always secured" is a permanent status of the Room, not a Secure token: no Item can discard it. You may add Secure tokens there (limit 3); those are discarded first.`],
 cas:[
 {q:`You are in a Room with 2 Secure tokens. A Drone enters, then an Adult. How many Attacks do you suffer?`,o:[`0`,`1`,`2`],a:0,w:`Each entry discards 1 token instead of the Attack: you have 0 tokens left, and no Attack. But in the Intruder Phase, these two Intruders already present will Attack normally.`},
 {q:`Your rifle already has a Malfunction marker and an effect gives it another one. What happens?`,o:[`Nothing`,`The rifle is destroyed`,`You lose 1 Health`],a:1,w:`A second Malfunction marker on an Item destroys it: discard it.`}],
@@ -178,6 +194,10 @@ rules:[
 `<b>Exploration, in order:</b> place a Room of the type shown (A, B, C or "?"; if none are left, a "?"); place the Corridors shown, Door slot facing the new Room, except those that would leave the Facility or lead to a Room already placed; place markers and tokens (no 2nd Noise marker in a Corridor); move your miniature (+ Secure token if Cautious); resolve the Entrance Effect (often a Noise roll); discard the card.`,
 `The extra icon on some Exploration cards is not used in the base game: ignore it. Empty Exploration deck: reshuffle the discard pile (without cards removed from the game).`,
 `<b>Secret passages:</b> an effect sending you to a specific Room (like the Technical Corridor Entrance) follows the same sequence, without the "choose a direction" step.`],
+faq:[
+`<b>Doors closed by an Exploration card:</b> close only the Doors touching the new Room. Hibernatorium Doors never close this way, since Exploration is never resolved there.`,
+`<b>"Remove this card from the game"</b> is not part of an Exploration card's Entrance effect: an effect that Explores ignoring Entrance effects still removes the card from the game.`,
+`<b>Preventing Attacks while moving:</b> cards that prevent an Intruder Attack during a Move (such as Duck and Cover) only apply to <b>Opportunity Attacks</b>, not to the Attack caused by the Noise roll.`],
 cas:[
 {q:`You leave a Room with 1 Adult through a Corridor containing 1 Drone and 2 Larvae. How many Opportunity Attacks?`,o:[`1`,`3`,`4`],a:1,w:`All Intruders in the Room and the Corridor Attack, largest first, but 3 at most: the Drone, the Adult, then a Larva.`},
 {q:`An Exploration card asks for a Corridor that would lead to a Room already placed. What do you do?`,o:[`Place it`,`Do not place it`,`Place it Reinforced`],a:1,w:`No Corridor leads to a Room already placed (or out of the Facility). The Noise marker planned for that Corridor is not placed either.`}],
@@ -193,6 +213,8 @@ rules:[
 `<b>Resolving a Noise marker:</b> remove it, draw a token from the bag and resolve it in that Corridor ("Corridor" column): the <b>white number</b> on the back gives the number of Intruders (Adults), the <b>red number</b> the number of Drones added. Discard the token under its pile; the Blank token always goes back into the bag.`,
 `<b>Surprise Attacks:</b> an Intruder that appears in or enters a Room immediately Attacks a Character there.`,
 `A Reinforced Corridor is worth 0: no die result ever points to it.`],
+faq:[
+`<b>Event "Resolve a Noise marker in each Unexplored Corridor":</b> only Corridors with a Noise marker are affected. You cannot resolve a Noise marker that does not exist.`],
 lab:'bruit',
 quiz:[
 {q:`You roll 2. The adjacent Corridor 2 holds 3 Adults. What happens?`,o:[`All 3 Adults enter`,`One Adult enters your Room and Attacks you`,`You place a Noise marker`],a:1,w:`Only the largest Intruder in the Corridor enters your Room.`},
@@ -206,6 +228,10 @@ rules:[
 `<b>Section B:</b> Hibernatorium (hibernate, if active), Life Support Control B (Life Support B or check and reorder the Anti-Aircraft tokens), Server Room (use a Room with a Computer remotely, or take a Data token), Cooling System (start the Autodestruction).`,
 `<b>Section C:</b> Life Support Control C (Life Support C or turn on the Hibernatorium), Reactor (shut everything down: Life Support, Anti-Aircraft, Autodestruction), Escape Shuttle (escape alone), Nest (take or destroy an Egg).`,
 `Hibernatorium, Landing Zone (Lander) and Escape Shuttle require a <b>Noise roll</b>: if there is an Intruder in the Room after the roll, the action fails.`],
+faq:[
+`<b>Drilling Room:</b> if the robot is broken, it cannot create a Corridor.`,
+`<b>Technical Corridor Entrance:</b> the Intruder Attack caused by this Room can be prevented by effects that prevent Intruder Attacks.`,
+`<b>Nest:</b> if the game ends with a Fire marker in the Nest while Eggs remain, the Nest does not count as destroyed.`],
 html:`<div id="salles-ch"></div>`,
 quiz:[
 {q:`Which Room turns on the Hibernatorium?`,o:[`Life Support Control B`,`Life Support Control C`,`Server Room`],a:1,w:`Life Support Control C (Section C), second effect. It cannot be turned off.`},
@@ -240,6 +266,8 @@ rules:[
 `<b>Repelling:</b> the Intruder moves away from the Character repelling it (who picks the Corridor when repelling it from a Room). With no adjacent Character, it goes to the Corridor or Room with the lowest number. It never leaves an Unexplored Corridor, destroys a closed Door instead of going through, and Attacks if repelled into an occupied Room.`,
 `<b>Full Corridor:</b> larger Intruders go first. When moving, smaller ones simply swap places (no Attack); when placing, smaller ones are removed. Those who cannot move stay where they are.`,
 `A wounded Intruder moving into a Corridor discards its Hit markers.`],
+faq:[
+`Intruders do not move towards Characters in the Lander.`],
 cas:[
 {q:`Two Characters are the same distance from a group of Intruders. The Noise roll that moved them was made by the second in Turn order. Who do they go to?`,o:[`The first in Turn order`,`The one who made the Noise roll`,`At random`],a:1,w:`At equal distance, the Character who triggered the movement comes before Turn order.`}],
 quiz:[
@@ -269,6 +297,8 @@ rules:[
 `<b>The Shoot die</b> has 8 faces: <b>1 critical, one 2, one 3, two 4s, two 5s and 1 Ammo</b>. Chance to kill an Adult: 1 Hit (first Shot) 12.5%; 2 Hits 25%; 3 Hits 37.5%; 4 Hits 62.5%; 5 Hits or more 87.5%. Better to wear it down in a Corridor… or not to stay there.`,
 `<b>Larvae:</b> 1 Hit kills them, whatever the die. <b>Drones:</b> in a Room, they are shot like Adults. <b>Queen:</b> her Hits go on her track (see The Queen).`,
 `Each Weapon card adds its own effects on certain results; apply them as well.`],
+faq:[
+`<b>Weapon effects:</b> an effect triggered by a specific die result is resolved <b>in addition</b> to the standard result, unless the Weapon says "instead". For example, on the Ammo face of the Shoot die you still spend Ammo, even if your Weapon turns that result into another one.`],
 lab:'tir',
 cas:[
 {q:`An Adult already has 2 Hit markers. You Shoot and roll 3. What happens?`,o:[`It survives: 3 is higher than 2`,`It dies: with the new Hit it has 3, and 3 ≤ 3`,`It only dies on a critical`],a:1,w:`The Hit is placed before the roll: 3 markers. 3 is lower than or equal to 3, the Adult dies.`}],
@@ -299,6 +329,8 @@ rules:[
 `When her last Health card is discarded, the Queen dies: remove her miniature, ignore effects that make her appear, and flip the Intruder Help sheet to "The Queen is dead". Queen tokens then place Drones and leave the game, and Drones and Adults drawn in the Event Phase add Larvae instead of Queens.`,
 `<b>Activation</b> (usually from a Queen token in the bag): she Attacks a Character in her Room if possible; otherwise, she moves once towards the closest one, with the same priorities as other Intruders.`,
 `In a Corridor, she counts as 4 Intruders; with her, there can only be 2 other Intruders. A Burst can give her as many Hits as you like.`],
+faq:[
+`<b>Shooting the Queen</b> works exactly like shooting an Adult, but instead of removing the miniature you resolve her Health card. For example, with 2 Hits on her track, a 2 (or lower) or a critical hit makes you resolve the top card of her Health deck.`],
 quiz:[
 {q:`The track marker is on the second-to-last space and your Burst gives the Queen 3 Hits. What happens?`,o:[`All 3 Hits count, the marker goes back to 2`,`The marker reaches the end: the other Hits are ignored, a Health card is resolved`,`Nothing, you need a critical`],a:1,w:`At the end of the track, the remaining Hits of the Action are ignored; resolve a Health card, then reset the marker to 0.`},
 {q:`A Queen token is drawn from the bag in the Event Phase while the Queen is not on the board. Effect?`,o:[`She appears in the Nest`,`Add 2 Larvae to the bag`,`Nothing`],a:1,w:`"Intruder bag" column: Queen on the board = activation; otherwise, 2 Larva tokens into the bag.`}]},
@@ -329,6 +361,13 @@ rules:[
 `Losing an Item loses its Tactical Gear tokens.`,
 `<b>Interaction:</b> with their agreement, you may use an Item on a Character in your Room if it makes them regain Health, discard a Serious Wound, discard a Malfunction from their Items or regain Oxygen. Otherwise, you must Trade.`,
 `<b>Trade</b> (1 card, Not in Combat): all Characters in your Room may reveal and exchange Items and Tactical Gear tokens, with you and with each other (with your agreement). Giving without getting anything back is allowed.`],
+faq:[
+`<b>Requires No Ammo:</b> a card or effect can still make you "spend" Ammo from a Weapon with this keyword.`,
+`<b>Malfunctioned Weapon:</b> you cannot spend its Ammo, even for an Action card or another effect.`,
+`<b>Trade:</b> an Item received in a Trade is gained: you can use it at once (Ammo, for example).`,
+`<b>Interaction:</b> it applies to every kind of Action (Action cards, Item cards, Tactical Gear tokens…), as long as the receiving Character agrees and the effect is one of the 4 listed. Other effects, and anything that is not an Action, cannot be used on another Character.`,
+`<b>Duct Tape:</b> it lets you hold a 3rd Item in a single hand.`,
+`<b>Portable Barricade:</b> a Door it placed is gone once opened.`],
 quiz:[
 {q:`You Search Life Support Control A (green and red icons). How many cards do you draw?`,o:[`1`,`2, and you keep 1`,`2, and you keep both`],a:1,w:`1 card per Item icon: 1 green and 1 red. Keep 1 and put the other back under its deck.`},
 {q:`Where does an Egg you pick up in the Nest go?`,o:[`In the Backpack`,`In a Hand slot: it is a Heavy Item`,`On the Tactical Belt`],a:1,w:`Eggs are Heavy Items.`}]},
@@ -353,6 +392,8 @@ rules:[
 `<b>Launch:</b> at the start of the Event Phase, any passenger may decide, alone, to launch the Lander. Everyone on board has escaped.`,
 `<b>Escape Shuttle:</b> Noise roll to get in; one seat only. Anti-Aircraft does not stop it. <b>Hibernatorium:</b> Noise roll to hibernate, if it has been turned on; but if the Facility is destroyed, hibernating Characters die.`,
 `<b>Autodestruction</b> (Cooling System): place the token 5 Rounds after the current one (4 spaces between them), or after the last space if fewer remain. When the Round track reaches it, the Facility explodes: everyone still inside dies, Hibernatorium included. Only the <b>Reactor</b> can stop it.`],
+faq:[
+`<b>Autodestruction at game end:</b> if it is on when the game ends, the Facility still explodes, before the end game sequence.`],
 cas:[
 {q:`You are on the Lander with Bruno. At the start of the Event Phase, you want to leave but Bruno wants to wait for Carla. Who decides?`,o:[`Everyone must agree`,`Any passenger can launch alone`,`The Starting Player`],a:1,w:`Launching the Lander is not a joint decision. Bruno leaves with you since he is on board.`}],
 quiz:[
@@ -382,6 +423,8 @@ rules:[
 `<b>Victory:</b> every Mission Task must be fulfilled and at least 1 Character must survive. If several Missions ask for the same thing (a Data token, for example), you must fulfil it that many times. If you are asked for more Data tokens than there are Characters, you need as many as there are Characters.`,
 `<b>Reviving:</b> the Surgery Room has an AutoDoc. A killed Character is laid down, their Items discarded. A Character in their Room may pay 1 more card to carry them while moving. If they start the Round in the Surgery Room (with no Intruder or Malfunction), they are revived: Serious Wounds discarded, marker on the first space of the Injured section.`,
 `<b>Difficulty:</b> remove or add Mission Tasks during setup.`],
+faq:[
+`<b>Errata:</b> Solo/Coop missions 3 and 11 (CLOSEDOWN and SHUTDOWN) can never be in the same game. If you draw both, discard the last one drawn and draw another.`],
 quiz:[
 {q:`In co-op with 3 players, how many Mission Tasks?`,o:[`1`,`3`,`3 + 1 per Larva`],a:1,w:`As many Solo/Coop Mission Task cards as players (adjust for difficulty).`},
 {q:`In Deadly mode, a Corridor shows 2 and a small 4. Which results does it respond to?`,o:[`2 only`,`2 and 4`,`4 only`],a:1,w:`In Deadly mode, it has both values for every effect (but only 2 for tiebreaks).`}]}

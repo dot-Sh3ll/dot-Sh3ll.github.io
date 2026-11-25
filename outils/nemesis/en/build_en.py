@@ -22,6 +22,8 @@ HEAD = [
     ('aria-label="Changer de thème (clair / sombre)"', 'aria-label="Change theme (light / dark)"'),
     ('aria-label="Sommaire du tutoriel"', 'aria-label="Tutorial contents"'),
     ("<p class=\"brand\">Apprendre les règles<small>D'après le livret de règles français</small></p>", '<p class="brand">Learn the rules<small>Based on the English rulebook</small></p>'),
+    ('<p class="merci">Avec les précisions de la FAQ officielle (v1.2). Merci à <a href="https://boardgamegeek.com/profile/Bernaar" rel="noopener">Bernaar</a> pour <a href="https://boardgamegeek.com/thread/3718303/article/48230420#48230420" rel="noopener">son recensement des questions de règles</a> sur BoardGameGeek.</p>',
+     '<p class="merci">Includes the official FAQ clarifications (v1.2). Thanks to <a href="https://boardgamegeek.com/profile/Bernaar" rel="noopener">Bernaar</a> for <a href="https://boardgamegeek.com/thread/3718303/article/48230420#48230420" rel="noopener">their round-up of rules questions</a> on BoardGameGeek.</p>'),
     ('aria-expanded="false">Afficher le sommaire</button>', 'aria-expanded="false">Show contents</button>'),
 ]
 DATA = [
@@ -37,6 +39,7 @@ APP = [
     ("'<span class=\"tag\">Que faites-vous ?</span>'", "'<span class=\"tag\">What do you do?</span>'"),
     ("${c.part} · étape ${i+1} sur ${CH.length}", "${c.part} · step ${i+1} of ${CH.length}"),
     ("<h2>Les points de règle</h2>", "<h2>The rules</h2>"),
+    ("<h3>Précisions officielles <small>FAQ Awaken Realms v1.2</small></h3>", "<h3>Official clarifications <small>Awaken Realms FAQ v1.2</small></h3>"),
     ("h+=`<h2>Cas pratiques</h2>", "h+=`<h2>Hands-on cases</h2>"),
     ("h+=`<h2>Vérifiez que c'est acquis</h2>", "h+=`<h2>Check your understanding</h2>"),
     ("data-tab=\"aide\">Ouvrir l'aide-mémoire →</button>", "data-tab=\"aide\">Open the reference sheet →</button>"),
