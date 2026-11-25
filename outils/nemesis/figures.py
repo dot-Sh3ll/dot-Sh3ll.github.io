@@ -129,11 +129,12 @@ def fig_manche(t):
 
 # ------------------------------------------------------------ 5. santé et armure (chapitre sante)
 def piste(y, t, cube, armure):
-    secs = [(t['forme'], 3), (t['affaibli'], 3), (t['critique'], 3)]
+    secs = [(t['forme'], 3), (t['affaibli'], 3), (t['critique'], 3), ('', 1)]
     c, x, k = '', 150, 0
     for nom, n in secs:
         wsec = n * 38 - 4
-        c += f'<text class="fts" x="{x + wsec/2}" y="{y-14}" text-anchor="middle" dominant-baseline="central">{nom}</text>'
+        if nom:
+            c += f'<text class="fts" x="{x + wsec/2}" y="{y-14}" text-anchor="middle" dominant-baseline="central">{nom}</text>'
         for j in range(n):
             c += f'<rect class="f-case" x="{x + j*38}" y="{y}" width="34" height="34" rx="3"/>'
             if k == cube:
@@ -154,8 +155,8 @@ def piste(y, t, cube, armure):
 def fig_sante(t):
     c = (f'<text class="fth" x="40" y="62" dominant-baseline="central">{t["avant"]}</text>' + piste(45, t, 5, True)
          + f'<text class="fth" x="40" y="172" dominant-baseline="central">{t["apres"]}</text>' + piste(155, t, 6, False)
-         + f'<text class="fts" x="340" y="252" text-anchor="middle" dominant-baseline="central">{t["note"]}</text>')
-    return svg(270, c, t['alt'])
+         )
+    return svg(240, c, t['alt'])
 
 # ------------------------------------------------------------ 6. la Reine (chapitre reine)
 def fig_reine(t):
