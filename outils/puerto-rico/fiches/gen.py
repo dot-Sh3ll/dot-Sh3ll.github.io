@@ -8,61 +8,69 @@ GC = {"c": "#e2b52a", "f": "#3f9343", "s": "#f6f3ea", "t": "#8b5a2b", "k": "#2e2
 GN = {"c": "Maïs", "f": "Fruits", "s": "Sucre", "t": "Tabac", "k": "Café"}
 PRICE = {"c": 0, "f": 1, "s": 2, "t": 3, "k": 4}
 
-CSS = """
+# Gabarit commun des fiches (outils/fiches-gabarit) : fond blanc, titres Fraunces (police de l'appli),
+# texte Source Sans 3, une couleur (sable du jeu foncé : #80745a), pied dans la couleur de la fiche.
+POL = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "commun", "polices"))
+AC, TEINTE, FILET, ENCRE, GRIS = "#80745a", "#fcf9f5", "#d9d0bd", "#1c1d22", "#4b4e58"
+CSS = f"""
+@font-face{{font-family:Fraunces;font-weight:100 900;src:url(file://{POL}/fraunces-latin.woff2)}}
+@font-face{{font-family:"Source Sans 3";font-weight:200 900;src:url(file://{POL}/source-sans-3-latin.woff2)}}
+@font-face{{font-family:"Source Sans 3";font-style:italic;font-weight:200 900;src:url(file://{POL}/source-sans-3-italic-latin.woff2)}}
+""" + """
 @page{margin:0}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{font-family:"Fira Sans",sans-serif;color:#2b2016;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.pg{position:relative;overflow:hidden;background:#fff;page-break-after:always;padding:7mm 7.5mm 6mm}
+body{font-family:"Source Sans 3",sans-serif;color:#1c1d22;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg{position:relative;overflow:hidden;background:#fff;page-break-after:always;padding:6.9mm 7.9mm 11mm}
 .pg:last-child{page-break-after:auto}
-.pg::before{content:"";position:absolute;inset:3mm;border:.3mm solid #b9a58a;border-radius:2.5mm;pointer-events:none}
 .p{width:148mm;height:210mm}.l{width:210mm;height:148mm}
-.top{display:flex;justify-content:space-between;align-items:flex-end;margin:0 0 2.5mm}
-.top .g{font-family:"Cardo",serif;font-size:9pt;letter-spacing:.12em;text-transform:uppercase;color:#a0471f;font-weight:700}
-.top .n{font-size:7pt;color:#8a7558}
-h1{font-family:"Cardo",serif;font-weight:700;font-size:15pt;margin:0 0 3mm;padding:0 0 1mm;color:#6b3d1f;border-bottom:.6mm solid #6b3d1f;letter-spacing:.04em;text-transform:uppercase}
-h2{font-family:"Cardo",serif;font-weight:700;font-size:10.5pt;color:#7a4a2a;margin:3mm 0 1.2mm;border-bottom:.3mm solid #c9ab82;padding-bottom:.5mm}
-p,li{font-size:8.6pt;line-height:1.32;margin:0 0 1.3mm}
-ol,ul{margin:0 0 1.5mm;padding-left:4.6mm}
-b{color:#5a2f15}
-.box{background:#fff;border:.3mm solid #c9ab82;border-radius:1.6mm;padding:2mm 2.6mm;margin:2mm 0}
-.box.red{border-color:#b4532a;border-width:.5mm;background:#fff}
-table{width:100%;border-collapse:collapse;font-size:8pt;background:#fff}
-th,td{border:.25mm solid #c9ab82;padding:1mm 1.4mm;text-align:left;vertical-align:top}
-th{background:#fff;font-weight:700;color:#4a2a14}
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin:0 0 2.6mm;padding-bottom:1.5mm;border-bottom:.53mm solid #1c1d22}
+.top .g{display:block;font-size:8.25pt;letter-spacing:.14em;text-transform:uppercase;color:#80745a;font-weight:700}
+.top .n{font-size:8.6pt;color:#4b4e58;white-space:nowrap}
+h1{font-family:Fraunces,serif;font-weight:400;font-size:18.5pt;margin:.5mm 0 0;line-height:1.05;color:#1c1d22}
+h2{font-family:Fraunces,serif;font-weight:500;font-size:11.25pt;color:#80745a;margin:2.6mm 0 1.1mm;border-bottom:.26mm solid #d9d0bd;padding-bottom:.4mm}
+p,li{font-size:8.8pt;line-height:1.3;margin:0 0 1.2mm}
+ol,ul{margin:0 0 1.4mm;padding-left:4.6mm}
+b{color:#1c1d22;font-weight:700}
+.box{background:#fff;border:.26mm solid #1c1d22;border-radius:1.6mm;padding:1.8mm 2.6mm;margin:2mm 0}
+.box.red{border:.53mm solid #80745a;background:#fcf9f5}
+table{width:100%;border-collapse:collapse;font-size:8.4pt;background:#fff}
+th,td{border:.26mm solid #9c9ca6;padding:.9mm 1.4mm;text-align:left;vertical-align:top}
+th{background:#fcf9f5;font-weight:700;color:#1c1d22}
 td.c,th.c{text-align:center}
 .bl{display:inline-block;width:3mm;height:3.6mm;border-radius:.7mm;border:.25mm solid rgba(0,0,0,.45);vertical-align:-.7mm;margin-right:1mm}
 .coin{display:inline-grid;place-items:center;width:4.6mm;height:4.6mm;border-radius:50%;background:#e6bf4a;border:.25mm solid #9b7419;font-size:7pt;font-weight:700;color:#3b2a08}
 .vp{display:inline-grid;place-items:center;min-width:4.8mm;height:4.4mm;padding:0 .6mm;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);background:#2b2b2b;color:#fff;font-size:7pt;font-weight:700}
 .roles{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
-.role{background:#fff;border:.3mm solid #c9ab82;border-radius:1.6mm;padding:1.6mm 2.2mm}
-.role h3{font-family:"Cardo",serif;font-size:10.5pt;margin:0 0 .6mm;color:#7a4a2a;text-transform:uppercase;letter-spacing:.04em}
-.role p{font-size:7.8pt;margin:0 0 .7mm}
-.role .k{font-weight:600;color:#a0471f}
-.foot{position:absolute;left:7.5mm;right:7.5mm;bottom:4.2mm;font-size:6pt;color:#8a7558;display:flex;justify-content:space-between}
+.role{background:#fcf9f5;border:.53mm solid #80745a;border-radius:2.1mm;padding:1.5mm 2.2mm}
+.role h3{font-family:Fraunces,serif;font-weight:500;font-size:11pt;margin:0 0 .5mm;color:#80745a}
+.role p{font-size:8.2pt;margin:0 0 .6mm}
+.role .k{font-weight:600;font-style:italic;color:#4b4e58}
+.foot{position:absolute;left:7.9mm;right:7.9mm;bottom:4.8mm;font-size:8.25pt;color:#80745a;display:flex;justify-content:space-between;border-top:.26mm solid #80745a;padding-top:1.3mm}
+.foot span:first-child{font-weight:600}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
 /* bâtiments */
-.band{display:grid;grid-template-columns:15mm 1fr;gap:1.6mm;margin-bottom:2mm}
-.lab{background:#fff;color:#6b3d1f;border:.5mm solid #6b3d1f;border-radius:1.4mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:"Cardo",serif;font-size:8pt;font-weight:700;line-height:1.15;padding:1mm}
-.lab small{font-family:"Fira Sans";font-weight:400;font-size:6.3pt;opacity:.9;margin-top:.8mm}
+.band{display:grid;grid-template-columns:17mm 1fr;gap:1.6mm;margin-bottom:2mm}
+.lab{background:#fcf9f5;color:#80745a;border:.53mm solid #80745a;border-radius:1.6mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:Fraunces,serif;font-size:8.6pt;font-weight:500;line-height:1.15;padding:1mm .6mm;hyphens:manual}
+.lab small{font-family:"Source Sans 3",sans-serif;font-weight:400;font-size:7pt;color:#4b4e58;margin-top:.8mm}
 .lines{display:flex;flex-direction:column;gap:1.4mm}
 .line{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4mm}
 .line.six{grid-template-columns:repeat(6,1fr)}
-.bc{background:#fff;border:.3mm solid #c9ab82;border-radius:1.4mm;padding:1mm 1.3mm 1.1mm;border-top:1.3mm solid var(--bc,#c9ab82);min-height:21mm;display:flex;flex-direction:column;gap:.5mm}
-.bc.e2{background:#fff;border-color:#d79a7c}
+.bc{background:#fff;border:.26mm solid #d9d0bd;border-radius:1.4mm;padding:1mm 1.3mm 1.1mm;border-top:1.3mm solid var(--bc,#d9d0bd);min-height:21mm;display:flex;flex-direction:column;gap:.5mm}
+.bc.e2{background:#fff;border-color:#e2b9a9}
 .bc .hd{display:flex;justify-content:space-between;gap:1mm;align-items:flex-start}
-.bc .nm{font-weight:700;font-size:7.4pt;line-height:1.12;color:#3a2412}
+.bc .nm{font-weight:700;font-size:7.6pt;line-height:1.12;color:#1c1d22}
 .bc.e2 .nm{color:#b3261e}
 .bc .mt{display:flex;gap:.6mm;flex:none}
-.bc .fx{font-size:6.5pt;line-height:1.22}
-.bc .ph{font-size:5.6pt;letter-spacing:.05em;text-transform:uppercase;color:#a0471f;font-weight:600}
-.bc .sl{color:#7a4a2a;letter-spacing:.3mm;font-size:6.5pt}
-.empty{border:.3mm dashed #d6c09b;border-radius:1.4mm}
-.legend{font-size:6.6pt;color:#6d5a42;margin-top:1mm}
+.bc .fx{font-size:6.9pt;line-height:1.22}
+.bc .ph{font-size:5.9pt;letter-spacing:.05em;text-transform:uppercase;color:#80745a;font-weight:700}
+.bc .sl{color:#4b4e58;letter-spacing:.3mm;font-size:6.5pt}
+.empty{border:.26mm dashed #d9d0bd;border-radius:1.4mm}
+.legend{font-size:7.2pt;color:#4b4e58;margin-top:1mm}
 """
 
 def top(title, n):
-    return f'<div class="top"><span class="g">Puerto Rico 1897</span><span class="n">{n}</span></div><h1>{title}</h1>'
+    return f'<div class="top"><div><span class="g">Puerto Rico 1897</span><h1>{title}</h1></div><span class="n">{n}</span></div>'
 
 def foot(t):
     return f'<div class="foot"><span>Less Rules, More Play · paulmoussard.com</span><span>{t}</span></div>'
@@ -128,7 +136,7 @@ roles = [
 ]
 rc = "".join(f'<div class="role"><h3>{n}</h3><p><span class="k">Action :</span> {a}</p><p><span class="k">Privilège :</span> {p}</p><p><span class="k">Fin de phase :</span> {f}</p>{f"<p style=margin:0;color:#7a6650;font-size:7pt><i>Bâtiments : {bt}</i></p>" if bt else ""}</div>' for n, a, p, f, bt in roles)
 P2 = f"""<section class="pg p">{top("Les Personnages","2 / 4")}<div class="roles">{rc}
-<div class="role" style="border:.5mm solid #b4532a"><h3>À retenir</h3><p>Un Personnage non choisi gagne 1 Peso par tour : il devient de plus en plus intéressant.</p><p>Prendre un Personnage, c'est aussi offrir sa phase aux autres : regardez ce qu'ils y gagnent.</p></div></div>
+<div class="role" style="border:.53mm solid #80745a;background:#fcf9f5"><h3>À retenir</h3><p>Un Personnage non choisi gagne 1 Peso par tour : il devient de plus en plus intéressant.</p><p>Prendre un Personnage, c'est aussi offrir sa phase aux autres : regardez ce qu'ils y gagnent.</p></div></div>
 {foot("")}</section>"""
 
 setup_rows = [

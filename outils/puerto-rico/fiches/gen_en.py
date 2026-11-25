@@ -67,7 +67,7 @@ roles = [
 ]
 rc = "".join(f'<div class="role"><h3>{n}</h3><p><span class="k">Action:</span> {a}</p><p><span class="k">Advantage:</span> {p}</p><p><span class="k">End of phase:</span> {f}</p>{f"<p style=margin:0;color:#7a6650;font-size:7pt><i>Buildings: {bt}</i></p>" if bt else ""}</div>' for n, a, p, f, bt in roles)
 P2 = f"""<section class="pg p">{top("The roles","2 / 4")}<div class="roles">{rc}
-<div class="role" style="border:.5mm solid #b4532a"><h3>Remember</h3><p>A role nobody picks gains 1 coin per round: it gets more and more tempting.</p><p>Taking a role also gives its phase to the others: look at what they gain from it.</p></div></div>
+<div class="role" style="border:.53mm solid #80745a;background:#fcf9f5"><h3>Remember</h3><p>A role nobody picks gains 1 coin per round: it gets more and more tempting.</p><p>Taking a role also gives its phase to the others: look at what they gain from it.</p></div></div>
 {foot("")}</section>"""
 
 setup_rows = [
