@@ -15,7 +15,7 @@ function show(id,scroll){const c=CH.find(x=>x.id===id)||CH[0];ST.cur=c.id;saveST
  const R=$('#read');R.innerHTML=h;if(c.lab)LABS[c.lab].init($('#labhost'));
  $$('.q',R).forEach(q=>$$('.opts button',q).forEach(b=>b.onclick=()=>{const k=q.dataset.k,a=+q.dataset.a,j=+b.dataset.j,st=ST.q[k]||(ST.q[k]={picked:[]});if(st.picked.includes(j))return;st.picked.push(j);
   b.classList.add(j===a?'right':'wrong');if(j===a){st.ok=true;if(st.picked.length===1)st.first=true}$('.why',q).hidden=false;
-  if(j!==a){$('.why',q).innerHTML=`<b>Pas tout à fait.</b> Essaie une autre réponse.`;$('.why',q).hidden=false}else $('.why',q).innerHTML=(q.classList.contains('case')?c.cas:c.quiz)[+k.split(':')[1].slice(1)].w;
+  if(j!==a){$('.why',q).innerHTML=`<b>Pas tout à fait.</b> Essayez une autre réponse.`;$('.why',q).hidden=false}else $('.why',q).innerHTML=(q.classList.contains('case')?c.cas:c.quiz)[+k.split(':')[1].slice(1)].w;
   saveST();check(c)}));
  $$('[data-go]',R).forEach(b=>b.onclick=()=>show(b.dataset.go,true));$$('[data-tab]',R).forEach(b=>b.onclick=()=>tab(b.dataset.tab));
  check(c);toc();progress();if(location.hash!=='#'+c.id)history.replaceState(null,'','#'+c.id);if(scroll)window.scrollTo(0,0)}

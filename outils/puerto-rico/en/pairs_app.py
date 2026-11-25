@@ -10,7 +10,7 @@ PAIRS = [
 (r"""h+=`<h2>Cas pratiques</h2>""", r"""h+=`<h2>Hands-on cases</h2>"""),
 (r"""h+=`<h2>Vérifiez que c'est acquis</h2>""", r"""h+=`<h2>Check what you've learnt</h2>"""),
 (r"""data-tab="aide">Ouvrir l'aide-mémoire →</button>""", r"""data-tab="aide">Open the reference →</button>"""),
-(r"""`<b>Pas tout à fait.</b> Essaie une autre réponse.`""", r"""`<b>Not quite.</b> Try another answer.`"""),
+(r"""`<b>Pas tout à fait.</b> Essayez une autre réponse.`""", r"""`<b>Not quite.</b> Try another answer.`"""),
 (r"""`${ok} question${ok>1?'s':''} sur ${all.length} résolue${ok>1?'s':''}, dont ${first} du premier coup.`""", r"""`${ok} of ${all.length} question${all.length>1?'s':''} solved, ${first} at the first try.`"""),
 (r"""`<div class="done-banner">✓ Chapitre validé.</div>`""", r"""`<div class="done-banner">✓ Chapter completed.</div>`"""),
 (r"""$('#tocbtn').textContent=o?'Masquer le sommaire':'Afficher le sommaire'""", r"""$('#tocbtn').textContent=o?'Hide contents':'Show contents'"""),
