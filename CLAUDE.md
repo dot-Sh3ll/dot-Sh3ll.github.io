@@ -27,8 +27,8 @@ Ce fichier suffit pour travailler sur le site ; `outils/README.md` détaille cha
 ## Architecture
 
 ```
-index.html            accueil, page SOURCE multilingue (FR + EN écrits à la main, DE généré) : on ne modifie que celle-ci
-en/ de/               accueils anglais et allemand GÉNÉRÉS depuis index.html par seo.py (ne pas modifier)
+index.html            accueil, page SOURCE (FR + EN écrits à la main) : on ne modifie que celle-ci
+en/                   accueil anglais GÉNÉRÉ depuis index.html par seo.py (ne pas modifier) ; de/ : redirection vers /en/
 <appli>/index.html    appli en français ; <appli>/en.html, <appli>/de.html : autres langues (même dossier = même jeu)
 commun/               socle partagé : tokens.css (jetons), composants.css (barre du site, onglets, pied, encart fiches),
                       polices.css + polices/ (woff2 hébergés, plus de Google Fonts)
@@ -74,9 +74,11 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 - Une appli sans page dans la langue du visiteur s'ouvre en **anglais** (`FALLBACK`).
 - Choix mémorisé dans `localStorage["site-lang"]` (bouton de langue de la barre, accueil). Sans choix, la langue du
   navigateur décide ; les robots ne sont jamais redirigés. `?lang=xx` dans l'adresse bloque la redirection.
-- Accueil : `/`, `/en/`, `/de/` sont de vraies pages ; `/?lang=en` redirige vers `/en/` (anciens liens).
-- Textes allemands de l'accueil : `outils/site/accueil/de.json` (clé = texte anglais de la page) ; `_apps` dit dans quelle
-  langue chaque appli s'ouvre pour un visiteur allemand (`{"*": "en", "ae": "de"}`).
+- Accueil : `/` et `/en/` sont de vraies pages ; `/?lang=en` redirige vers `/en/` (anciens liens). **L'allemand n'est proposé que
+  dans Aeon's End** : `/de/` est une page de redirection vers `/en/` (`REDIRIGE` dans `seo.py`, ignorée par `verifier.py`) ;
+  `home_lang.py` garde `de.json` en réserve (`INACTIFS`). Au chargement, l'accueil n'écrase pas une langue qu'il ne propose pas
+  (`site-lang`) : un visiteur germanophone arrive sur `/en/` et ouvre Aeon's End en allemand.
+- Textes allemands de l'accueil (en réserve, non affichés) : `outils/site/accueil/de.json` (clé = texte anglais de la page).
 - **Format de traduction commun pour les nouvelles applis** (modèle `outils/modele-appli`) : textes d'interface par clés dans
   `i18n/<langue>.json` (mêmes clés partout), contenu dans `contenu/<langue>.js` ; `assembler.py` signale les clés
   manquantes et reprend l'anglais. Les applis existantes gardent leur chaîne (tableau ci-dessus).

@@ -25,7 +25,24 @@ MARQUE = "Less Rules, More Play"
 AUTEUR = {"@type": "Person", "name": "Paul Moussard", "url": SITE + "/",
           "sameAs": ["https://ko-fi.com/paulmoussard", "https://github.com/dot-Sh3ll"]}
 LOCALE = {"fr": "fr_FR", "en": "en_GB", "de": "de_DE"}
-ACCUEIL_LANGS = ["fr", "en", "de"]
+# Accueil en français et en anglais seulement (décision de Paul, 25/11/2026 : l'allemand est réservé à Aeon's End).
+# /de/ reste en ligne pour les anciens liens, mais renvoie vers /en/ (REDIRIGE).
+ACCUEIL_LANGS = ["fr", "en"]
+REDIRIGE = {"de": "en"}
+STUB = """<!DOCTYPE html>
+<!-- Page générée par outils/site/seo.py (REDIRIGE) : ancienne adresse, renvoie vers /{to}/. -->
+<html lang="{c}">
+<head>
+<meta charset="utf-8">
+<title>Less Rules, More Play</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://paulmoussard.com/{to}/">
+<meta http-equiv="refresh" content="0; url=/{to}/">
+<script>location.replace("/{to}/"+location.search+location.hash)</script>
+</head>
+<body><p><a href="/{to}/">Less Rules, More Play</a></p></body>
+</html>
+"""
 
 ACCUEIL = {
     "fr": ("Aides de jeu de société gratuites | Less Rules, More Play",
@@ -141,6 +158,10 @@ def accueil(applis_ld=None):
         s = s.replace("<!DOCTYPE html>\n", "<!DOCTYPE html>\n<!-- Page générée par outils/site/seo.py depuis /index.html : ne pas modifier à la main. -->\n", 1)
         open(os.path.join(c, "index.html"), "w", encoding="utf-8").write(s)
         print("ok", c + "/index.html")
+    for c, to in REDIRIGE.items():
+        os.makedirs(c, exist_ok=True)
+        open(os.path.join(c, "index.html"), "w", encoding="utf-8").write(STUB.format(c=c, to=to))
+        print("ok", c + "/index.html (redirection vers /" + to + "/)")
     return alts
 
 

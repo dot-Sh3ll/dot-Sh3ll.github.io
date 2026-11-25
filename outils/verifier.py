@@ -37,7 +37,8 @@ def att(cat, msg):
 def pages():
     """pages publiées (hors outils/, hors fichier de vérification Google)"""
     l = ["index.html", "404.html"] + sorted(glob.glob("*/index.html") + glob.glob("*/[a-z][a-z].html"))
-    return [p for p in l if not p.startswith(("outils/", "node_modules/")) and os.path.exists(p)]
+    return [p for p in l if not p.startswith(("outils/", "node_modules/")) and os.path.exists(p)
+            and 'http-equiv="refresh"' not in lire(p)]  # anciennes adresses qui redirigent (seo.py, REDIRIGE)
 
 
 def lire(p):
@@ -145,7 +146,9 @@ def ctrl_langues():
                 err("langues", f"{d} : page {c} sans titre ni description dans jeux.json")
         if f'<option value="{j["formulaire"]}"' not in lire("index.html"):
             err("langues", f"{d} : « {j['formulaire']} » absent du formulaire « Votre avis »")
-    for c in [x for x in ORDER if x not in ("fr", "en")]:
+    sys.path.insert(0, "outils/site")
+    from seo import ACCUEIL_LANGS
+    for c in [x for x in ACCUEIL_LANGS if x not in ("fr", "en")]:
         r = subprocess.run([sys.executable, "outils/site/home_lang.py", "--todo", c], capture_output=True, text=True)
         n = len([l for l in r.stdout.splitlines() if l.strip()])
         if n:

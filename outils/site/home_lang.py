@@ -34,7 +34,11 @@ LANGS = {}
 for f in sorted(os.listdir(D)):
     if f.endswith(".json") and not f.endswith(".todo.json"):
         LANGS[f[:-5]] = json.load(open(os.path.join(D, f), encoding="utf-8"))
-codes = ORDER + [c for c in LANGS if c not in ORDER]
+# Langues gardées en réserve : leur JSON reste à jour mais l'accueil ne les propose pas.
+# Allemand : réservé à Aeon's End (décision de Paul, 25/11/2026) ; /de/ redirige vers /en/ (seo.py, REDIRIGE).
+INACTIFS = {"de"}
+TOUS = list(LANGS)
+codes = ORDER + [c for c in LANGS if c not in ORDER and c not in INACTIFS]
 
 
 def app_lang(c, game="*"):
@@ -54,7 +58,7 @@ if len(sys.argv) > 2 and sys.argv[1] == "--todo":
 
 P = sys.argv[1] if len(sys.argv) > 1 else "index.html"
 s = open(P, encoding="utf-8").read()
-alt = "|".join(extra) or "zz"
+alt = "|".join(c for c in TOUS if not LANGS[c].get("_base")) or "zz"  # nettoie aussi les langues inactives
 # 1. retirer ce qu'un lancement précédent a généré
 s = re.sub(r'<(span|p|li) class="(?:%s)" data-gen>.*?</\1>' % alt, "", s, flags=re.S)
 s = re.sub(r' data-(?:ph-)?(?:%s)="[^"]*"' % alt, "", s)
