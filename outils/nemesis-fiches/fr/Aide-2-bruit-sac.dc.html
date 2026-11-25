@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Nemesis, bruit et sac Intrus</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{box-sizing:border-box;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.3;overflow:hidden;display:flex;flex-direction:column;gap:7px}
+.pt{width:559px;height:794px;padding:26px 30px 18px}
+.ls{width:794px;height:559px;padding:26px 30px 18px}
+h1{font-family:Rajdhani,sans-serif;font-weight:600;font-size:27px;margin:0;line-height:1;color:#1c1d22}
+h2{font-family:Rajdhani,sans-serif;font-weight:700;font-size:16px;margin:0 0 3px;color:#5c7e22;border-bottom:1px solid #c4d6a4;padding-bottom:1px;line-height:1.1}
+h3{font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;margin:0 0 2px;color:#5c7e22;line-height:1.1}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+.note{color:#4b4e58}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 9px}
+.card{border:2px solid #5c7e22;border-radius:8px;padding:5px 8px;background:#f5faeb}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:2px 5px;text-align:left;vertical-align:top}
+th{background:#f5faeb}
+td.c,th.c{text-align:center;width:34px}
+.obj{display:inline-block;min-width:13px;height:13px;line-height:13px;border:1px solid #1c1d22;border-radius:3px;font-size:9.5px;font-weight:700;text-align:center;margin-left:2px;vertical-align:1px}
+.sec{display:inline-block;padding:0 5px;border-radius:3px;background:#5c7e22;color:#fff;font-weight:700;font-size:11px;line-height:15px;vertical-align:1px}
+.room{border:1px solid #1c1d22;border-radius:6px;padding:4px 7px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.room .hd{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.room .nm{font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;line-height:1.05;color:#5c7e22}
+.room .pr{color:#4b4e58;font-style:italic}
+</style>
+</helmet>
+<div class="pg pt">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px"><div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5c7e22;font-weight:700">Nemesis: Retaliation</div><h1>Bruit, Intrus et objets</h1></div><div style="font-size:11.5px;color:#4b4e58;text-align:right">Fiche 1 · verso</div></div>
+<div class="box">
+<h2>Jet de bruit</h2>
+<ul>
+<li><b>1 à 4</b> : pour chaque couloir adjacent de ce numéro, un Intrus présent → <b>le plus gros entre</b> et attaque ; un marqueur Bruit → <b>résolvez-le</b> (sac, colonne couloir) ; rien → <b>posez un marqueur Bruit</b>.</li>
+<li><b>Danger</b> : un jeton du sac, colonne salle : l'Intrus indiqué apparaît dans votre salle.</li>
+<li>Couloir renforcé = 0. Couloir plein = 6 Intrus (Reine = 4) ou 1 marqueur Bruit.</li>
+</ul>
+</div>
+<div>
+<h2>Sac Intrus (Reine en vie)</h2>
+<table><thead><tr><th style="width:62px">Jeton</th><th>Dans un couloir</th><th>Dans une salle</th><th>Phase Événement</th></tr></thead><tbody><tr><td><b>Reine</b></td><td>Activez-la ; sinon placez-la dans le couloir.</td><td>Activez-la ; sinon placez-la dans la salle.</td><td>Reine en jeu : activez-la. Sinon : +2 Larves.</td></tr><tr><td><b>Guerrier, Adulte</b></td><td>Placez les Intrus indiqués au dos (blanc : Adultes, rouge : Guerriers).</td><td>Placez 1 Intrus du type indiqué.</td><td>+2 Reines.</td></tr><tr><td><b>Larve</b></td><td>Placez 1 Larve.</td><td>Placez 1 Larve.</td><td>+2 Guerriers.</td></tr><tr><td><b>Vierge</b></td><td>+2 Adultes dans le sac.</td><td>+2 Adultes dans le sac.</td><td>+2 Adultes dans le sac.</td></tr></tbody></table>
+<p class="note" style="margin-top:3px">Le jeton tiré retourne <b>sous sa pile</b>, sauf le vierge, qui revient dans le sac. Sac de départ : 1 vierge, 2 Larves, 3 Adultes + 1 par personnage.</p>
+</div>
+<div>
+<h2>Face « La Reine est morte » <span style="font-family:'Source Sans 3',sans-serif;font-weight:400;font-size:12px;color:#4b4e58">(jeton vierge : inchangé)</span></h2>
+<table><thead><tr><th style="width:62px">Jeton</th><th>Dans un couloir</th><th>Dans une salle</th><th>Phase Événement</th></tr></thead><tbody><tr><td><b>Reine</b></td><td>1 Guerrier ; retirez le jeton.</td><td>1 Guerrier ; retirez le jeton.</td><td>+2 Guerriers ; retirez le jeton.</td></tr><tr><td><b>Guerrier, Adulte</b></td><td>Intrus indiqués au dos.</td><td>1 Intrus du type indiqué.</td><td>+2 Larves.</td></tr><tr><td><b>Larve</b></td><td>1 Larve.</td><td>1 Larve.</td><td>+2 Guerriers.</td></tr></tbody></table>
+</div>
+<div class="box">
+<h2>Objets</h2>
+<ul>
+<li><b>Fouille</b> : 1 carte Objet par icône de la salle ; gardez-en 1, remettez les autres sous leur paquet.</li>
+<li><b>Objets communs</b> : dans le sac à dos, sans limite, secrets. <b>Objets lourds</b> (armes, œufs) : un par main, 2 mains.</li>
+<li><b>Interaction</b> : avec son accord, un objet peut servir à un personnage de votre salle (santé, blessure grave, panne, oxygène). Sinon, échangez (1 carte, hors combat).</li>
+</ul>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:11.5px;color:#5c7e22;border-top:1px solid #5c7e22;padding-top:4px;margin-top:auto"><span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>Aide de jeu · 2/3</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

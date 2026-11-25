@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Nemesis, combat et survie</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{box-sizing:border-box;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.3;overflow:hidden;display:flex;flex-direction:column;gap:7px}
+.pt{width:559px;height:794px;padding:26px 30px 18px}
+.ls{width:794px;height:559px;padding:26px 30px 18px}
+h1{font-family:Rajdhani,sans-serif;font-weight:600;font-size:27px;margin:0;line-height:1;color:#1c1d22}
+h2{font-family:Rajdhani,sans-serif;font-weight:700;font-size:16px;margin:0 0 3px;color:#5c7e22;border-bottom:1px solid #c4d6a4;padding-bottom:1px;line-height:1.1}
+h3{font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;margin:0 0 2px;color:#5c7e22;line-height:1.1}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+.note{color:#4b4e58}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 9px}
+.card{border:2px solid #5c7e22;border-radius:8px;padding:5px 8px;background:#f5faeb}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:2px 5px;text-align:left;vertical-align:top}
+th{background:#f5faeb}
+td.c,th.c{text-align:center;width:34px}
+.obj{display:inline-block;min-width:13px;height:13px;line-height:13px;border:1px solid #1c1d22;border-radius:3px;font-size:9.5px;font-weight:700;text-align:center;margin-left:2px;vertical-align:1px}
+.sec{display:inline-block;padding:0 5px;border-radius:3px;background:#5c7e22;color:#fff;font-weight:700;font-size:11px;line-height:15px;vertical-align:1px}
+.room{border:1px solid #1c1d22;border-radius:6px;padding:4px 7px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.room .hd{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.room .nm{font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;line-height:1.05;color:#5c7e22}
+.room .pr{color:#4b4e58;font-style:italic}
+</style>
+</helmet>
+<div class="pg pt">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px"><div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5c7e22;font-weight:700">Nemesis: Retaliation</div><h1>Combat et survie</h1></div><div style="font-size:11.5px;color:#4b4e58;text-align:right">Fiche 2 · recto</div></div>
+<div class="box">
+<h2>Combat</h2>
+<ul>
+<li><b>Tir</b> (salle) : +1 touche, puis dé Tir. Critique = mort ; 2 à 5 = mort si ≤ touches ; face munitions = dépensez des munitions.</li>
+<li><b>Mêlée</b> : +1 Contamination, +1 touche, dé Tir (dernière face : rien). Si l'Intrus survit, il riposte.</li>
+<li><b>Rafale</b> (couloir) : dépensez des munitions, 1 à 4 touches : 1 au plus par Adulte ou Larve, <b>exactement 2</b> par Guerrier, la Reine autant que voulu.</li>
+<li><b>Grenade</b> : dé Rafale + 2 touches dans un couloir adjacent (ce n'est pas une rafale).</li>
+<li><b>Larve</b> : 1 touche la tue. Son attaque : +1 Contamination et la Larve sur votre plateau.</li>
+<li><b>Reine</b> : piste des touches ; au bout, une carte Santé (défaussez autant de cartes que son numéro, appliquez l'effet, cube à 0).</li>
+</ul>
+</div>
+<div class="box">
+<h2>S'échapper</h2>
+<ul>
+<li><b>Vaisseau</b> : quand le compte-tours atteint son jeton, révélez le jeton DCA du dessus. Active : il est abattu. Inactive : il se pose dans la zone d'atterrissage.</li>
+<li><b>Embarquer</b> : action de salle de la zone d'atterrissage, avec jet de bruit. À bord : tour ignoré, ni oxygène ni santé perdus. Un Intrus y apparaît : tous débarquent.</li>
+<li><b>Décoller</b> : au début de la phase Événement, n'importe quel passager peut le décider seul. Tous ceux à bord sont échappés.</li>
+<li><b>Navette d'évacuation</b> : jet de bruit, une seule place ; la DCA ne l'arrête pas. <b>Hibernatorium</b> : jet de bruit, s'il a été activé.</li>
+<li><b>Autodestruction</b> : jeton à 5 manches de la manche en cours. À son tour, le complexe explose : tous ceux qui sont dedans meurent, hibernatorium compris. Seul le Réacteur l'arrête.</li>
+</ul>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+<div class="box">
+<h2>Santé et oxygène</h2>
+<ul>
+<li>En forme → Affaibli → État critique → crâne. <b>Armure</b> : détruite au lieu de perdre 1 point.</li>
+<li>Oxygène 7 au plus ; jeton Oxygène +3, Medpack +2 santé.</li>
+<li>Cadran sous 0 : <b>Suffocation</b>, un tour pour trouver de l'oxygène.</li>
+</ul>
+</div>
+<div class="box">
+<h2>Fin de partie</h2>
+<ol>
+<li>Sans Larve : toutes vos cartes en main, infection.</li>
+<li>Avec Larve : +1 Contamination, éclosion (4 cartes ; une Contamination = mort).</li>
+<li>Vivant, parti ou en hibernation : révélez votre objectif.</li>
+</ol>
+</div>
+</div>
+<div style="border-radius:6px;padding:5px 9px;background:#f5faeb;border:1px solid #c4d6a4">
+<p style="margin:0"><b style="color:#5c7e22">Loi de Murphy :</b> en cas de doute, appliquez ce qui pénalise le plus les joueurs, puis le premier dans l'ordre du tour. <b style="color:#5c7e22">Effets locaux :</b> sans cible précise, l'effet s'applique dans votre salle.</p>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:11.5px;color:#5c7e22;border-top:1px solid #5c7e22;padding-top:4px;margin-top:auto"><span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>Aide de jeu · 3/3</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

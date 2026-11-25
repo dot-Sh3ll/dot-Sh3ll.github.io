@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nemesis, a Round</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{box-sizing:border-box;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.3;overflow:hidden;display:flex;flex-direction:column;gap:7px}
+.pt{width:559px;height:794px;padding:26px 30px 18px}
+.ls{width:794px;height:559px;padding:26px 30px 18px}
+h1{font-family:Rajdhani,sans-serif;font-weight:600;font-size:27px;margin:0;line-height:1;color:#1c1d22}
+h2{font-family:Rajdhani,sans-serif;font-weight:700;font-size:16px;margin:0 0 3px;color:#5c7e22;border-bottom:1px solid #c4d6a4;padding-bottom:1px;line-height:1.1}
+h3{font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;margin:0 0 2px;color:#5c7e22;line-height:1.1}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+.note{color:#4b4e58}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 9px}
+.card{border:2px solid #5c7e22;border-radius:8px;padding:5px 8px;background:#f5faeb}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:2px 5px;text-align:left;vertical-align:top}
+th{background:#f5faeb}
+td.c,th.c{text-align:center;width:34px}
+.obj{display:inline-block;min-width:13px;height:13px;line-height:13px;border:1px solid #1c1d22;border-radius:3px;font-size:9.5px;font-weight:700;text-align:center;margin-left:2px;vertical-align:1px}
+.sec{display:inline-block;padding:0 5px;border-radius:3px;background:#5c7e22;color:#fff;font-weight:700;font-size:11px;line-height:15px;vertical-align:1px}
+.room{border:1px solid #1c1d22;border-radius:6px;padding:4px 7px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.room .hd{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.room .nm{font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;line-height:1.05;color:#5c7e22}
+.room .pr{color:#4b4e58;font-style:italic}
+</style>
+</helmet>
+<div class="pg pt">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px"><div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5c7e22;font-weight:700">Nemesis: Retaliation</div><h1>A Round</h1></div><div style="font-size:11.5px;color:#4b4e58;text-align:right">Sheet 1 · front</div></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+<div class="card"><h3>1. Player Phase</h3>
+<p>In turn, until everyone has Passed: <b>2 Actions</b>, then <b>−1 Oxygen</b> if your Section's Life Support is inactive, then <b>−1 Health</b> if your Room has Fire.</p>
+<p class="note"><i>Objective: choose it before or after your 2 Actions (3 / 2 / 2 / 1 / 1 cards).</i></p></div>
+<div class="card"><h3>2. Intruder Phase</h3>
+<p><b>1 Hit</b> to each Intruder in a Room with Fire (burning Nest: −1 Egg).</p>
+<p>Then Intruders <b>Attack</b>, Room by Room from the top left, largest first, on the first in Turn order.</p></div>
+<div class="card"><h3>3. Event Phase</h3>
+<p>Lander passengers: launch possible at the start of the phase.</p>
+<p><b>Event</b> card (movement, main effect, secondary effect), then <b>1 token</b> from the Intruder bag.</p></div>
+<div class="card"><h3>4. Cleanup Phase</h3>
+<p>Starting Player token to the left; everyone draws up to <b>5 cards</b>; Round track <b>+1</b>.</p>
+<p class="note"><i>Lander on space 10: Anti-Aircraft check. Autodestruction: explosion. After Round 14: end.</i></p></div>
+</div>
+<div>
+<h2>Actions</h2>
+<table><thead><tr><th class="c">Cost</th><th>Action</th><th>Remember</th></tr></thead><tbody>
+<tr><td class="c">0</td><td>Play an Action card</td><td></td></tr><tr><td class="c">0</td><td>Pass</td><td></td></tr><tr><td class="c">1</td><td>Make a Move</td><td>Noise roll</td></tr><tr><td class="c">1</td><td>Place 1 Secure token</td><td>Not in Combat</td></tr><tr><td class="c">1</td><td>Fire a Shot in your Room</td><td>loaded Weapon</td></tr><tr><td class="c">1</td><td>Fire a Burst at an adjacent Corridor</td><td>spends Ammo</td></tr><tr><td class="c">1</td><td>Melee Attack</td><td>+1 Contamination</td></tr><tr><td class="c">1</td><td>Use an Item</td><td></td></tr><tr><td class="c">1</td><td>Activate the Robot</td><td>Not in Combat; +1 remotely</td></tr><tr><td class="c">1</td><td>Trade</td><td>Not in Combat</td></tr><tr><td class="c">1</td><td>Use any Tactical Gear</td><td>as many tokens as you like</td></tr><tr><td class="c">2</td><td>Use the Room</td><td>Not in Combat</td></tr><tr><td class="c">2</td><td>Make a Move Cautiously</td><td>Not in Combat; +1 Secure token</td></tr>
+</tbody></table>
+<p class="note" style="margin-top:3px"><i>Not in Combat</i>: impossible in a Room with at least 1 Intruder. Cards discarded to pay are not resolved; Contamination cards never pay.</p>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:11.5px;color:#5c7e22;border-top:1px solid #5c7e22;padding-top:4px;margin-top:auto"><span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>Game aid · 1/3</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nemesis, combat and survival</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#fff}
+.pg{box-sizing:border-box;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.3;overflow:hidden;display:flex;flex-direction:column;gap:7px}
+.pt{width:559px;height:794px;padding:26px 30px 18px}
+.ls{width:794px;height:559px;padding:26px 30px 18px}
+h1{font-family:Rajdhani,sans-serif;font-weight:600;font-size:27px;margin:0;line-height:1;color:#1c1d22}
+h2{font-family:Rajdhani,sans-serif;font-weight:700;font-size:16px;margin:0 0 3px;color:#5c7e22;border-bottom:1px solid #c4d6a4;padding-bottom:1px;line-height:1.1}
+h3{font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;margin:0 0 2px;color:#5c7e22;line-height:1.1}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+.note{color:#4b4e58}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 9px}
+.card{border:2px solid #5c7e22;border-radius:8px;padding:5px 8px;background:#f5faeb}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:2px 5px;text-align:left;vertical-align:top}
+th{background:#f5faeb}
+td.c,th.c{text-align:center;width:34px}
+.obj{display:inline-block;min-width:13px;height:13px;line-height:13px;border:1px solid #1c1d22;border-radius:3px;font-size:9.5px;font-weight:700;text-align:center;margin-left:2px;vertical-align:1px}
+.sec{display:inline-block;padding:0 5px;border-radius:3px;background:#5c7e22;color:#fff;font-weight:700;font-size:11px;line-height:15px;vertical-align:1px}
+.room{border:1px solid #1c1d22;border-radius:6px;padding:4px 7px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.room .hd{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
+.room .nm{font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;line-height:1.05;color:#5c7e22}
+.room .pr{color:#4b4e58;font-style:italic}
+</style>
+</helmet>
+<div class="pg pt">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px"><div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5c7e22;font-weight:700">Nemesis: Retaliation</div><h1>Combat and survival</h1></div><div style="font-size:11.5px;color:#4b4e58;text-align:right">Sheet 2 · front</div></div>
+<div class="box">
+<h2>Combat</h2>
+<ul>
+<li><b>Shoot</b> (Room): +1 Hit, then Shoot die. Critical = dead; 2 to 5 = dead if ≤ Hits; Ammo face = spend Ammo.</li>
+<li><b>Melee</b>: +1 Contamination, +1 Hit, Shoot die (last face: nothing). If the Intruder survives, it strikes back.</li>
+<li><b>Burst</b> (Corridor): spend Ammo, 1 to 4 Hits: at most 1 per Adult or Larva, <b>exactly 2</b> per Drone, the Queen as many as you like.</li>
+<li><b>Grenade</b>: Burst die + 2 Hits in an adjacent Corridor (not a Burst).</li>
+<li><b>Larva</b>: 1 Hit kills it. Its Attack: +1 Contamination and the Larva on your board.</li>
+<li><b>Queen</b>: Hit track; at the end, a Health card (discard as many cards as its number, apply the effect, marker to 0).</li>
+</ul>
+</div>
+<div class="box">
+<h2>Escaping</h2>
+<ul>
+<li><b>Lander</b>: when the Round track reaches its token, reveal the top Anti-Aircraft token. Active: it is shot down. Inactive: it lands in the Landing Zone.</li>
+<li><b>Boarding</b>: Use the Landing Zone, with a Noise roll. On board: your turn is skipped, no Oxygen or Health lost. An Intruder appears there: everyone gets off.</li>
+<li><b>Launch</b>: at the start of the Event Phase, any passenger may decide it alone. Everyone on board has escaped.</li>
+<li><b>Escape Shuttle</b>: Noise roll, one seat only; Anti-Aircraft does not stop it. <b>Hibernatorium</b>: Noise roll, if it has been activated.</li>
+<li><b>Autodestruction</b>: token 5 Rounds after the current one. When reached, the Facility explodes: everyone inside dies, Hibernatorium included. Only the Reactor stops it.</li>
+</ul>
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+<div class="box">
+<h2>Health and Oxygen</h2>
+<ul>
+<li>Healthy → Injured → Heavily Injured → skull. <b>Armor</b>: destroyed instead of losing 1 point.</li>
+<li>Oxygen 7 at most; Oxygen token +3, Medpack +2 Health.</li>
+<li>Counter below 0: <b>Suffocating</b>, one turn to find Oxygen.</li>
+</ul>
+</div>
+<div class="box">
+<h2>End of the game</h2>
+<ol>
+<li>No Larva: all your cards in hand, Infection Procedure.</li>
+<li>With a Larva: +1 Contamination, hatching (4 cards; one Contamination = death).</li>
+<li>Alive, escaped or hibernating: reveal your Objective.</li>
+</ol>
+</div>
+</div>
+<div style="border-radius:6px;padding:5px 9px;background:#f5faeb;border:1px solid #c4d6a4">
+<p style="margin:0"><b style="color:#5c7e22">Nightmare Rule:</b> when in doubt, apply the worst outcome for the players, then for the first in Turn order. <b style="color:#5c7e22">Local effects:</b> with no clear target, the effect applies in your Room.</p>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:11.5px;color:#5c7e22;border-top:1px solid #5c7e22;padding-top:4px;margin-top:auto"><span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>Game aid · 3/3</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":559,"height":794}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

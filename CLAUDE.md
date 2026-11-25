@@ -135,6 +135,8 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
    s'il y en a une. Scripts : Puerto Rico `outils/puerto-rico/fiches/gen.py` et `gen_en.py` ; Imperium `outils/imperium-fiches/en.py`
    puis `pdf.py` ; Mage Knight aide de jeu `outils/mage-knight-fiches/aide/aide.py` (FR, images dans `aide/img/`) et
    `gen_mk_en.py` (EN), module de quêtes `quetes/quetes.py`, scénarios `quetes/scenarios.py`.
+   Nemesis : `outils/nemesis-fiches/gen_pages.py` (FR) et `gen_pages_en.py` (EN) écrivent les pages, puis `pdf.py`
+   (aide de jeu en portrait, salles en paysage ; artefact Design « Fiches Nemesis: Retaliation · gabarit commun »).
    Toutes les fiches actuelles suivent le gabarit (relookées le 25/11/2026).
 4. `python3 outils/site/accueil.py fiche <json>` (modèle : `outils/site/accueil/exemples/exemple-fiche.json`),
    puis `seo.py` (les générateurs de PDF effacent les métadonnées : auteur « Paul Moussard »),

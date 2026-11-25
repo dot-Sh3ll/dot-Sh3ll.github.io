@@ -984,5 +984,20 @@ if(!CH.some(c=>c.id===h))tab(LS.get('nemr-tab','learn'));
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Enjoyed this tool? Buy me a coffee</a>
 <small>Unofficial, free fan-made tool, not affiliated with the game's publisher.</small>
 </footer>
+<!--fiches-->
+<script>
+(function(){var F=[{"i": "🧬", "t": "Game aid", "d": "The 4 phases of a round, the actions, the Noise roll, the Intruder bag, Items, combat, escaping and game end. 3 pages.", "u": "../fiches/nemesis-game-aid.pdf", "x": ""}, {"i": "🚪", "t": "Rooms", "d": "All 25 Rooms: Section, Item icons, effect and clarifications, official FAQ included. 3 pages.", "u": "../fiches/nemesis-rooms.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".pager button[data-tab=\"aide\"]", ".pager"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
+function box(kind){var a=document.createElement('aside');a.className='lrmp-fiches';a.dataset.kind=kind;
+ a.innerHTML='<p class="k">'+(kind==='fin'?T.fin_t:T.k)+'</p><p class="t">'+(kind==='fin'?T.fin:T.aide)+'</p><ul>'+F.map(function(f){
+  return '<li><span class="i" aria-hidden="true">'+f.i+'</span><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}
+function place(){var e=C.aide&&document.querySelector(C.aide);
+ if(e&&!(e.nextElementSibling&&e.nextElementSibling.dataset&&e.nextElementSibling.dataset.kind==='aide'))e.insertAdjacentElement('afterend',box('aide'));
+ var b=C.fin&&document.querySelector(C.fin[0]),c=b&&b.closest(C.fin[1]);
+ if(c&&!(c.previousElementSibling&&c.previousElementSibling.dataset&&c.previousElementSibling.dataset.kind==='fin'))c.insertAdjacentElement('beforebegin',box('fin'))}
+var busy=false;function run(){if(busy)return;busy=true;try{place()}finally{busy=false}}
+run();new MutationObserver(function(){requestAnimationFrame(run)}).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+<!--/fiches-->
 </body>
 </html>
