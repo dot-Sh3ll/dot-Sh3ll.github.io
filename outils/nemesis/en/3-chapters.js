@@ -266,6 +266,7 @@ rules:[
 `<b>Shooting</b> (1 card): choose a Ranged Weapon in your hands, with at least 1 Ammo token (even half) and no Malfunction, and an Intruder in your Room. Single Shots do not spend Ammo (except on a particular result).`,
 `<b>1.</b> Deal 1 Hit: no matter what, a Hit marker next to its base. <b>2.</b> Roll the Shoot die: <b>Critical hit</b> = the Intruder dies; <b>2 to 5</b> = the Intruder dies if the number is <b>lower than or equal to</b> the number of Hit markers on it; the <b>Ammo</b> face = you lost too many bullets, spend Ammo.`,
 `<b>Melee Attack</b> (1 card), with or without a Weapon: <b>1.</b> get 1 Contamination card; <b>2.</b> choose an Intruder in your Room; <b>3.</b> 1 Hit; <b>4.</b> Shoot die (critical: death; 2 to 5: as for Shooting; last face: no effect); <b>5.</b> if it survives, it <b>strikes back</b>: an Intruder Attack, unless you place a Malfunction marker on one of your Weapons to block it.`,
+`<b>The Shoot die</b> has 8 faces: <b>1 critical, one 2, one 3, two 4s, two 5s and 1 Ammo</b>. Chance to kill an Adult: 1 Hit (first Shot) 12.5%; 2 Hits 25%; 3 Hits 37.5%; 4 Hits 62.5%; 5 Hits or more 87.5%. Better to wear it down in a Corridor… or not to stay there.`,
 `<b>Larvae:</b> 1 Hit kills them, whatever the die. <b>Drones:</b> in a Room, they are shot like Adults. <b>Queen:</b> her Hits go on her track (see The Queen).`,
 `Each Weapon card adds its own effects on certain results; apply them as well.`],
 lab:'tir',

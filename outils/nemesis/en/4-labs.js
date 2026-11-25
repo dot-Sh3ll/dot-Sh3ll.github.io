@@ -10,7 +10,7 @@ const SIZE={reine:4,guerrier:3,adulte:2,larve:1};
 const tok=k=>`<span class="tok ${k}" title="${TY[k]}">${{reine:'Q',guerrier:'D',adulte:'A',larve:'L',vierge:'∅'}[k]}</span>`;
 const plural=(n,s,p)=>`${n} ${n>1?p:s}`;
 /* real die faces (given by the game's owner) */
-const DE_BRUIT=['1','2','2','3','3','4','4','4','D','D'], DE_RAFALE=[1,1,1,2,3,4];
+const DE_BRUIT=['1','2','2','3','3','4','4','4','D','D'], DE_RAFALE=[1,1,1,2,3,4], DE_TIR=['C','2','3','4','4','5','5','M'];
 const pct=(n,d)=>Math.round(100*n/d)+'%';
 
 const LABS={
@@ -83,11 +83,11 @@ tir:{html:()=>`<div class="lab"><h3>Lab: Shooting and Melee in a Room</h3><p cla
 <div class="row">Target ${seg('ti-t',['adulte','guerrier','larve'],'adulte',['Adult','Drone','Larva'])} Attack ${seg('ti-m',['tir','melee'],'tir',['Shoot','Melee'])}</div>
 <div class="foes" id="ti-foe"></div>
 <div class="dice" id="ti-dice"></div>
-<div class="row"><button type="button" id="ti-reset">New target</button></div><div class="out" id="ti-out">Pick a face of the Shoot die.</div></div>`,
+<p class="small muted" id="ti-p"></p><div class="row"><button type="button" class="pri" id="ti-roll">Roll the die</button><button type="button" id="ti-reset">New target</button></div><div class="out" id="ti-out">Pick a face of the Shoot die.</div></div>`,
 init(r){let S;
  const reset=()=>{S={t:segVal(r,'ti-t'),m:segVal(r,'ti-m'),cubes:0,dead:false,cont:0};faces();draw();$('#ti-out',r).textContent='Pick a face of the Shoot die.';$('#ti-out',r).className='out'};
  const faces=()=>{const last=segVal(r,'ti-m')==='tir'?'Ammo':'Blank';$('#ti-dice',r).innerHTML=['Critical','2','3','4','5',last].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('');$$('#ti-dice button',r).forEach(b=>b.onclick=()=>shoot(b.dataset.v))};
- const draw=()=>{$('#ti-foe',r).innerHTML=`<div class="foe${S.dead?' dead':''}">${tok(S.t)}<div><b>${TY[S.t]}</b></div><div class="h">Hits: <span class="cubes">${'■'.repeat(S.cubes)||'none'}</span></div></div>${S.m==='melee'?`<div class="foe"><div class="h">Contamination cards received</div><b>${S.cont}</b></div>`:''}`};
+ const draw=()=>{const h=S.cubes+1,k=S.t==='larve'?8:1+DE_TIR.filter(x=>/\d/.test(x)&&+x<=h).length;$('#ti-p',r).innerHTML=S.dead?'':`Shoot die (8 faces: critical, 2, 3, two 4s, two 5s, Ammo). With this attack's Hit, the target will have ${h} Hit${h>1?'s':''}: <b>${pct(k,8)}</b> chance to kill it.`;$('#ti-foe',r).innerHTML=`<div class="foe${S.dead?' dead':''}">${tok(S.t)}<div><b>${TY[S.t]}</b></div><div class="h">Hits: <span class="cubes">${'■'.repeat(S.cubes)||'none'}</span></div></div>${S.m==='melee'?`<div class="foe"><div class="h">Contamination cards received</div><b>${S.cont}</b></div>`:''}`};
  const shoot=v=>{if(S.dead){$('#ti-out',r).textContent='This target is already dead: take a new one.';return}
   const lines=[];if(S.m==='melee'){S.cont++;lines.push('Melee: you first get <b>1 Contamination card</b>.')}
   S.cubes++;lines.push(`You place 1 Hit: the target now has <b>${S.cubes}</b>.`);
@@ -98,7 +98,7 @@ init(r){let S;
   else{const n=+v;if(n<=S.cubes){S.dead=true;lines.push(`${n} is lower than or equal to ${S.cubes} Hit${S.cubes>1?'s':''}: <b>the target dies</b>.`)}else lines.push(`${n} is higher than ${S.cubes}: <b>the target survives</b>, keeping its Hits.`)}
   if(!S.dead&&S.m==='melee')lines.push('It <b>strikes back</b> at once: resolve an Intruder Attack, unless you place a Malfunction marker on one of your Weapons to block it.');
   draw();$('#ti-out',r).innerHTML=lines.map(x=>`<p style="margin:0 0 5px">${x}</p>`).join('');$('#ti-out',r).className=S.dead?'out ok':'out'};
- wireSeg(r,'ti-t',reset);wireSeg(r,'ti-m',reset);$('#ti-reset',r).onclick=reset;reset()}},
+ $('#ti-roll',r).onclick=()=>{const v=DE_TIR[rnd(8)],m=segVal(r,'ti-m');shoot(v==='C'?'Critical':v==='M'?(m==='tir'?'Ammo':'Blank'):v)};wireSeg(r,'ti-t',reset);wireSeg(r,'ti-m',reset);$('#ti-reset',r).onclick=reset;reset()}},
 
 /* ===== rafale ===== */
 rafale:{html:()=>`<div class="lab"><h3>Lab: assigning a Burst</h3><p class="hint">Pick the face of the Burst die, then assign the Hits: at most 1 per Adult or Larva, exactly 2 per Drone.</p>

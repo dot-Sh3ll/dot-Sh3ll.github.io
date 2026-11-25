@@ -10,7 +10,7 @@ const SIZE={reine:4,guerrier:3,adulte:2,larve:1};
 const tok=k=>`<span class="tok ${k}" title="${TY[k]}">${{reine:'R',guerrier:'G',adulte:'A',larve:'L',vierge:'∅'}[k]}</span>`;
 const plural=(n,s,p)=>`${n} ${n>1?p:s}`;
 /* faces réelles des dés (données par le propriétaire du jeu) */
-const DE_BRUIT=['1','2','2','3','3','4','4','4','D','D'], DE_RAFALE=[1,1,1,2,3,4];
+const DE_BRUIT=['1','2','2','3','3','4','4','4','D','D'], DE_RAFALE=[1,1,1,2,3,4], DE_TIR=['C','2','3','4','4','5','5','M'];
 const pct=(n,d)=>Math.round(100*n/d)+'\u00a0%';
 
 const LABS={
@@ -83,11 +83,11 @@ tir:{html:()=>`<div class="lab"><h3>Atelier : tir et mêlée dans une salle</h3>
 <div class="row">Cible ${seg('ti-t',['adulte','guerrier','larve'],'adulte',['Adulte','Guerrier','Larve'])} Attaque ${seg('ti-m',['tir','melee'],'tir',['Tir','Mêlée'])}</div>
 <div class="foes" id="ti-foe"></div>
 <div class="dice" id="ti-dice"></div>
-<div class="row"><button type="button" id="ti-reset">Nouvelle cible</button></div><div class="out" id="ti-out">Choisissez une face du dé Tir.</div></div>`,
+<p class="small muted" id="ti-p"></p><div class="row"><button type="button" class="pri" id="ti-roll">Lancer le dé</button><button type="button" id="ti-reset">Nouvelle cible</button></div><div class="out" id="ti-out">Choisissez une face du dé Tir.</div></div>`,
 init(r){let S;
  const reset=()=>{S={t:segVal(r,'ti-t'),m:segVal(r,'ti-m'),cubes:0,dead:false,cont:0};faces();draw();$('#ti-out',r).textContent='Choisissez une face du dé Tir.';$('#ti-out',r).className='out'};
  const faces=()=>{const last=segVal(r,'ti-m')==='tir'?'Munitions':'Vide';$('#ti-dice',r).innerHTML=['Critique','2','3','4','5',last].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('');$$('#ti-dice button',r).forEach(b=>b.onclick=()=>shoot(b.dataset.v))};
- const draw=()=>{$('#ti-foe',r).innerHTML=`<div class="foe${S.dead?' dead':''}">${tok(S.t)}<div><b>${TY[S.t]}</b></div><div class="h">Touches : <span class="cubes">${'■'.repeat(S.cubes)||'aucune'}</span></div></div>${S.m==='melee'?`<div class="foe"><div class="h">Cartes Contamination reçues</div><b>${S.cont}</b></div>`:''}`};
+ const draw=()=>{const h=S.cubes+1,k=S.t==='larve'?8:1+DE_TIR.filter(x=>/\d/.test(x)&&+x<=h).length;$('#ti-p',r).innerHTML=S.dead?'':`Dé Tir (8 faces : critique, 2, 3, deux 4, deux 5, munitions). Avec la touche de ce tir, la cible aura ${h} touche${h>1?'s':''} : <b>${pct(k,8)}</b> de chances de la tuer.`;$('#ti-foe',r).innerHTML=`<div class="foe${S.dead?' dead':''}">${tok(S.t)}<div><b>${TY[S.t]}</b></div><div class="h">Touches : <span class="cubes">${'■'.repeat(S.cubes)||'aucune'}</span></div></div>${S.m==='melee'?`<div class="foe"><div class="h">Cartes Contamination reçues</div><b>${S.cont}</b></div>`:''}`};
  const shoot=v=>{if(S.dead){$('#ti-out',r).textContent='Cette cible est déjà morte : prenez-en une nouvelle.';return}
   const lines=[];if(S.m==='melee'){S.cont++;lines.push('Mêlée : vous recevez d\'abord <b>1 carte Contamination</b>.')}
   S.cubes++;lines.push(`Vous posez 1 touche : la cible en a maintenant <b>${S.cubes}</b>.`);
@@ -98,7 +98,7 @@ init(r){let S;
   else{const n=+v;if(n<=S.cubes){S.dead=true;lines.push(`${n} est inférieur ou égal à ${S.cubes} touche${S.cubes>1?'s':''} : <b>la cible meurt</b>.`)}else lines.push(`${n} est plus grand que ${S.cubes} : <b>la cible survit</b>, avec ses touches.`)}
   if(!S.dead&&S.m==='melee')lines.push('Elle <b>riposte</b> aussitôt : résolvez une attaque d\'Intrus, sauf si vous placez un marqueur Panne sur l\'une de vos armes pour la parer.');
   draw();$('#ti-out',r).innerHTML=lines.map(x=>`<p style="margin:0 0 5px">${x}</p>`).join('');$('#ti-out',r).className=S.dead?'out ok':'out'};
- wireSeg(r,'ti-t',reset);wireSeg(r,'ti-m',reset);$('#ti-reset',r).onclick=reset;reset()}},
+ $('#ti-roll',r).onclick=()=>{const v=DE_TIR[rnd(8)],m=segVal(r,'ti-m');shoot(v==='C'?'Critique':v==='M'?(m==='tir'?'Munitions':'Vide'):v)};wireSeg(r,'ti-t',reset);wireSeg(r,'ti-m',reset);$('#ti-reset',r).onclick=reset;reset()}},
 
 /* ===== rafale ===== */
 rafale:{html:()=>`<div class="lab"><h3>Atelier : répartir une rafale</h3><p class="hint">Choisissez la face du dé Rafale, puis répartissez les touches : 1 au plus par Adulte ou Larve, exactement 2 par Guerrier.</p>

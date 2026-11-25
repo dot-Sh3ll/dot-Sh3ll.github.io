@@ -266,6 +266,7 @@ rules:[
 `<b>Tir</b> (1 carte) : choisissez une arme à distance dans vos mains, avec au moins 1 jeton Munitions (même à moitié) et sans panne, et un Intrus de votre salle. Le tir au coup par coup ne dépense pas de munitions (sauf résultat particulier).`,
 `<b>1.</b> Infligez 1 touche : quoi qu'il arrive, un cube à côté du socle. <b>2.</b> Lancez le dé Tir : <b>Coup critique</b> = l'Intrus meurt ; <b>2 à 5</b> = l'Intrus meurt si le chiffre est <b>inférieur ou égal</b> au nombre de cubes sur lui ; la face <b>munitions</b> = pris de panique, vous dépensez des munitions.`,
 `<b>Mêlée</b> (1 carte), avec ou sans arme : <b>1.</b> recevez 1 carte Contamination ; <b>2.</b> choisissez un Intrus de votre salle ; <b>3.</b> 1 touche ; <b>4.</b> dé Tir (critique : mort ; 2 à 5 : comme au tir ; dernière face : aucun effet) ; <b>5.</b> s'il survit, il <b>riposte</b> : une attaque d'Intrus, sauf si vous mettez un marqueur Panne sur l'une de vos armes pour la parer.`,
+`<b>Le dé Tir</b> a 8 faces : <b>1 critique, un 2, un 3, deux 4, deux 5 et 1 munitions</b>. Chance de tuer un Adulte : 1 touche (premier tir) 12,5 % ; 2 touches 25 % ; 3 touches 37,5 % ; 4 touches 62,5 % ; 5 touches ou plus 87,5 %. Mieux vaut l'affaiblir dans un couloir… ou ne pas rester là.`,
 `<b>Larves :</b> 1 touche les tue, quel que soit le dé. <b>Guerriers :</b> dans une salle, ils se tirent comme des Adultes. <b>Reine :</b> ses touches vont sur sa piste (chapitre La Reine).`,
 `Chaque carte Arme ajoute ses propres effets selon certains résultats ; appliquez-les en plus.`],
 lab:'tir',
