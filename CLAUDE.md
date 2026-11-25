@@ -184,9 +184,7 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 4. **Versions de règles suivies** : afficher sous « Apprendre » de chaque appli la version des règles et des errata intégrés
    (comme Nemesis : « Avec les précisions de la FAQ officielle (v1.2) ») une fois les versions confirmées par Paul.
    À vérifier : planche de cartes corrigées VF v1.3 d'Origames (Imperium), pack de cartes corrigées Intrafin (Mage Knight).
-5. **Slogan du site** à retravailler : montrer l'avantage sur la lecture du livret et sur les questions posées à une IA en
-   pleine partie (apprendre pour devenir autonome : tutoriel interactif, cas pratiques, mini-quiz).
-6. **Rappeler à Paul qu'il veut changer l'adresse du site.** À prévoir le jour venu : `CNAME` et DNS, `SITE` dans `seo.py`
+5. **Rappeler à Paul qu'il veut changer l'adresse du site.** À prévoir le jour venu : `CNAME` et DNS, `SITE` dans `seo.py`
    (canonical, hreflang, sitemap, JSON-LD), `robots.txt`, pieds de page « paulmoussard.com » de toutes les fiches (régénérer
    les PDF), GoatCounter, Search Console (outil de changement d'adresse), Ko-fi, liens partagés (Discord) : l'ancien domaine
    doit rediriger vers le nouveau (GitHub Pages ne sert qu'un domaine : redirection chez le registraire).
