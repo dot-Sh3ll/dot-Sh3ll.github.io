@@ -933,7 +933,7 @@ const TYPES = [["Gem","Kristalle"],["Relic","Artefakte"],["Spell","Zauber"]];
 const DISTS = [
   ["324","Klassisch",[3,2,4]],["315","Mehr Zauber",[3,1,5]],["225","Volle Offensive",[2,2,5]],
   ["234","Mehr Artefakte",[2,3,4]],["333","Ausgewogen",[3,3,3]],["any","Überraschung",null],
-  ["m1","Marktaufbau 1",[3,2,4]],["m2","Marktaufbau 2",[3,2,4]],["m3","Marktaufbau 3",[3,1,5]],["m4","Marktaufbau 4",[3,3,3]],["m5","Marktaufbau 5",[4,1,4]],["m6","Marktaufbau 6",[2,3,4]]
+  ["m1","Marktaufbau 1",[3,2,4]],["m2","Marktaufbau 2",[3,2,4]],["m3","Marktaufbau 3",[3,1,5]],["m4","Marktaufbau 4",[3,3,3]],["m5","Marktaufbau 5",[3,2,4]],["m6","Marktaufbau 6",[2,3,4]]
 ];
 let distChoice="324";
 try{ const d=localStorage.getItem("ae-dist"); if(DISTS.some(x=>x[0]===d)) distChoice=d; }catch(e){}
@@ -944,7 +944,7 @@ const SETUPS = {
   m2:{Gem:[">3",">3",">3"],Relic:[">4","*"],Spell:["<6","<6","<6",">6"]},
   m3:{Gem:["<4","4/5","4/5"],Relic:["*"],Spell:["=3","=4",">5",">5",">5"]},
   m4:{Gem:[">4","*","*"],Relic:["<4",">4","*"],Spell:["<5",">5","*"]},
-  m5:{Gem:["=2","=3","=4","=5"],Relic:["*"],Spell:["=4","=5","=6",">6"]},
+  m5:{Gem:["=2","=3","=4"],Relic:["=5","*"],Spell:["=4","=5","=6",">6"]},
   m6:{Gem:["=3","=4"],Relic:["<4",">4","*"],Spell:["3/4","5/6","5/6",">6"]}
 };
 const setupOn=()=>!restrict&&SETUPS[distChoice]?distChoice:"";

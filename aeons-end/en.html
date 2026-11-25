@@ -933,7 +933,7 @@ const TYPES = [["Gem","Gems"],["Relic","Relics"],["Spell","Spells"]];
 const DISTS = [
   ["324","Classic",[3,2,4]],["315","More spells",[3,1,5]],["225","All-out attack",[2,2,5]],
   ["234","More relics",[2,3,4]],["333","Balanced",[3,3,3]],["any","Surprise",null],
-  ["m1","Market setup 1",[3,2,4]],["m2","Market setup 2",[3,2,4]],["m3","Market setup 3",[3,1,5]],["m4","Market setup 4",[3,3,3]],["m5","Market setup 5",[4,1,4]],["m6","Market setup 6",[2,3,4]]
+  ["m1","Market setup 1",[3,2,4]],["m2","Market setup 2",[3,2,4]],["m3","Market setup 3",[3,1,5]],["m4","Market setup 4",[3,3,3]],["m5","Market setup 5",[3,2,4]],["m6","Market setup 6",[2,3,4]]
 ];
 let distChoice="324";
 try{ const d=localStorage.getItem("ae-dist"); if(DISTS.some(x=>x[0]===d)) distChoice=d; }catch(e){}
@@ -944,7 +944,7 @@ const SETUPS = {
   m2:{Gem:[">3",">3",">3"],Relic:[">4","*"],Spell:["<6","<6","<6",">6"]},
   m3:{Gem:["<4","4/5","4/5"],Relic:["*"],Spell:["=3","=4",">5",">5",">5"]},
   m4:{Gem:[">4","*","*"],Relic:["<4",">4","*"],Spell:["<5",">5","*"]},
-  m5:{Gem:["=2","=3","=4","=5"],Relic:["*"],Spell:["=4","=5","=6",">6"]},
+  m5:{Gem:["=2","=3","=4"],Relic:["=5","*"],Spell:["=4","=5","=6",">6"]},
   m6:{Gem:["=3","=4"],Relic:["<4",">4","*"],Spell:["3/4","5/6","5/6",">6"]}
 };
 const setupOn=()=>!restrict&&SETUPS[distChoice]?distChoice:"";
