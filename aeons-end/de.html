@@ -1178,6 +1178,7 @@ const MAGES = [
   ["Inco (The Surface)","TS",[],""],
   ["Qu (The Surface)","TS",[],""]
 ];
+const NEMSETUP = {"Hassgeburt":"Sie beginnt die Partie mit 1 Wut-Marker (Erratum der englischen 2. Edition).","Der Unersättliche":"Auf erhöhtem Schwierigkeitsgrad legen Sie zusätzlich 9 Karten aus beliebigen Vorratsstapeln in beliebiger Reihenfolge oben auf den verschlungenen Stapel (Erratum der englischen 2. Edition)."};
 const NEMBY = Object.fromEntries(NEM.map(n=>[n[0],n])), MAGEBY = Object.fromEntries(MAGES.map(m=>[m[0],m]));
 let fight = {nem:"",mages:[]};
 function bonus(c){ // ce que le contexte du combat ajoute à la note d'une carte
@@ -1321,6 +1322,7 @@ function fitsFight(t){
 function adaptText(){
   const out=[]; const N=NEMBY[fight.nem];
   if(N) out.push(N[2]?"<b>Gegen "+esc(N[0])+"</b>: "+esc(N[3])+".":"<b>"+esc(N[0])+"</b>: Diesen Erzfeind kenne ich nicht gut genug, um die Auswahl zu steuern; sie bleibt allgemein.");
+  if(N&&NEMSETUP[N[0]]) out.push("<b>Erinnerung zum Spielaufbau</b>: "+esc(NEMSETUP[N[0]]));
   fight.mages.forEach(n=>{ const M=MAGEBY[n]; if(M&&M[2].length) out.push("<b>Für "+esc(n.replace(/ \(.*/,""))+"</b>: "+esc(M[3])+"."); });
   return out.length?"<p>"+out.join(" ")+"</p>":"";
 }

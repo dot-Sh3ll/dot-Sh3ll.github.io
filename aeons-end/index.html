@@ -1178,6 +1178,7 @@ const MAGES = [
   ["Inco (The Surface)","TS",[],""],
   ["Qu (The Surface)","TS",[],""]
 ];
+const NEMSETUP = {"Rage Incarnée":"elle commence la partie avec 1 jeton Furie (erratum de la 2e édition anglaise).","Prince des Gloutons":"en difficulté accrue, placez en plus 9 cartes prises dans n'importe quelles piles de la réserve sur la pile dévorée, dans l'ordre de votre choix (erratum de la 2e édition anglaise)."};
 const NEMBY = Object.fromEntries(NEM.map(n=>[n[0],n])), MAGEBY = Object.fromEntries(MAGES.map(m=>[m[0],m]));
 let fight = {nem:"",mages:[]};
 function bonus(c){ // ce que le contexte du combat ajoute à la note d'une carte
@@ -1321,6 +1322,7 @@ function fitsFight(t){
 function adaptText(){
   const out=[]; const N=NEMBY[fight.nem];
   if(N) out.push(N[2]?"<b>Contre "+esc(N[0])+"</b> : "+esc(N[3])+".":"<b>"+esc(N[0])+"</b> : je ne connais pas assez cette némésis pour orienter le tirage, il reste généraliste.");
+  if(N&&NEMSETUP[N[0]]) out.push("<b>Rappel de mise en place</b> : "+esc(NEMSETUP[N[0]]));
   fight.mages.forEach(n=>{ const M=MAGEBY[n]; if(M&&M[2].length) out.push("<b>Pour "+esc(n.replace(/ \(.*/,""))+"</b> : "+esc(M[3])+"."); });
   return out.length?"<p>"+out.join(" ")+"</p>":"";
 }

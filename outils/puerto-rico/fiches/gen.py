@@ -83,7 +83,7 @@ P1 = f"""<section class="pg p">{top("Un tour de jeu","1 / 4")}
 <p>Une partie dure une quinzaine de tours. Chaque tour se joue de la même façon :</p>
 <ol>
 <li>Le <b>Gouverneur</b> choisit une carte Personnage, la pose devant lui et fait l'action <b>avec le privilège</b>.</li>
-<li>Chaque autre joueur, en sens horaire, fait la même action <b>sans le privilège</b> (une seule fois chacun).</li>
+<li>Chaque autre joueur, en sens horaire, fait la même action <b>sans le privilège</b> (une seule fois chacun ; pour le Capitaine, on continue en sens horaire tant qu'un joueur peut charger).</li>
 <li>Le joueur à gauche du Gouverneur choisit un des Personnages restants, et ainsi de suite jusqu'à ce que <b>chacun ait choisi un Personnage</b>.</li>
 <li><b>Fin du tour</b> : 1 Peso de la Banque sur chaque Personnage non choisi ; les cartes reviennent à côté du plateau ; la carte Gouverneur passe à gauche.</li>
 </ol>
@@ -158,6 +158,7 @@ P3 = f"""<section class="pg p">{top("Mise en place","3 / 4")}
 <ul>
 <li>Plateau de jeu au centre, chaque bâtiment sur son emplacement ; les 51 Pesos forment la <b>Banque</b>.</li>
 <li>Chaque joueur : 1 plateau Domaine, ses Pesos <b>visibles</b> sur le portrait, 1 Plantation.</li>
+<li>Vérifiez : <b>12 Fruits et 8 Cafés</b> (premier tirage : parfois 16 Fruits et 4 Cafés, Ravensburger envoie les bonnes tuiles).</li>
 <li>Les 8 Carrières en pile face visible ; les Plantations restantes mélangées face cachée, en <b>une pile de plus que de joueurs</b>.</li>
 <li>Marchandises triées par type en 5 réserves ; Maison de Commerce vide.</li>
 <li>Le matériel non utilisé retourne dans la boîte.</li>

@@ -14,7 +14,7 @@ P1 = f"""<section class="pg p">{top("A game round","1 / 4")}
 <p>A game lasts about fifteen rounds. Every round is played the same way:</p>
 <ol>
 <li>The <b>Governor</b> chooses a role card, places it in front of them and performs the action <b>with the advantage</b>.</li>
-<li>Each other player, clockwise, performs the same action <b>without the advantage</b> (once each).</li>
+<li>Each other player, clockwise, performs the same action <b>without the advantage</b> (once each; for the Captain, keep going clockwise as long as anyone can load).</li>
 <li>The player to the Governor's left chooses one of the remaining roles, and so on until <b>everyone has chosen a role</b>.</li>
 <li><b>End of the round</b>: 1 coin from the Bank on each role not chosen; the cards return next to the board; the Governor card passes to the left.</li>
 </ol>
@@ -89,6 +89,7 @@ P3 = f"""<section class="pg p">{top("Setup","3 / 4")}
 <ul>
 <li>Central board in the middle, each Building on its space; the 51 coins form the <b>Bank</b>.</li>
 <li>Each player: 1 Island board, their coins <b>visible</b> on the Portrait, 1 Estate.</li>
+<li>Check: <b>12 Fruit and 8 Coffee</b> Estates (some first-print copies have 16 Fruit and 4 Coffee; Ravensburger sends the correct tiles).</li>
 <li>The 8 Quarries in a face-up stack; the remaining Estates shuffled face down into stacks.</li>
 <li>Goods sorted by type into 5 supplies; empty Trading House.</li>
 <li>Unused pieces go back in the box.</li>

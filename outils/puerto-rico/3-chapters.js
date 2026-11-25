@@ -39,6 +39,7 @@ rules:[
 `Chaque joueur reçoit un plateau Domaine et des Pesos : <b>une de moins que le nombre de joueurs</b> (2 à 3 joueurs, 3 à 4, 4 à 5), posées sur le Portrait.`,
 `Plantation de départ, en partant du Gouverneur dans le sens horaire : à 3 joueurs Fruits, Fruits, Maïs ; à 4 Fruits, Fruits, Maïs, Maïs ; à 5 Fruits, Fruits, Fruits, Maïs, Maïs. Elle se pose face visible sur une case Parcelle, <b>sans ouvrier</b>.`,
 `Les 8 Carrières forment une pile face visible. Les autres plantations sont mélangées en piles face cachée, et on en révèle <b>une de plus que le nombre de joueurs</b>.`,
+`Vérifiez vos plantations : il y a <b>12 Fruits et 8 Cafés</b>. Certaines boîtes du premier tirage contiennent 16 Fruits et 4 Cafés ; Ravensburger fournit les tuiles correctes sur demande.`,
 `Le Registre du Personnel reçoit <b>autant d'ouvriers que de joueurs</b>. Le reste de la réserve d'ouvriers, des jetons PV, des personnages et des navires dépend du nombre de joueurs (voir l'atelier).`,
 `Les 50 barils sont triés par couleur, la Maison de Commerce est posée vide. Le matériel inutilisé retourne dans la boîte.`
 ],

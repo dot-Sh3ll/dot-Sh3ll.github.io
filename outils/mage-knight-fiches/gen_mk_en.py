@@ -187,7 +187,7 @@ P7 = page("Round, turn and mana", """
 <div class="box"><h2>The Round</h2><ol>
 <li><b>Preparation</b>: Day and Night alternate. Reroll the Source (at least half the dice in basic colors). New Unit offer.</li>
 <li><b>Tactics</b>: the player with the least Fame chooses first; the lowest number plays first.</li>
-<li><b>End</b>: at the start of your turn, empty deck → announce it. The others play one last turn, then everything is reshuffled.</li></ol></div>
+<li><b>End</b>: at the start of your turn, empty deck → you may announce it (must, if your hand is empty too). The others play one last turn, then everything is reshuffled.</li></ol></div>
 <div class="g2"><div class="box strong"><h2>Regular turn</h2><p><b>1. Movement</b> (optional)<br><b>2. One Action</b> (optional): combat <i>or</i> interaction.</p></div>
 <div class="box strong"><h2>Resting</h2><p>No Movement, no Action. Discard 1 non-Wound card + as many Wounds as you like.</p><p class="muted" style="margin:0">Only Wounds: discard 1 of them.</p></div></div>
 <div class="box" style="margin-top:1.8mm"><h2>Playing a card</h2><table><tr><th>Way</th><th>Cost</th><th>Effect</th></tr>

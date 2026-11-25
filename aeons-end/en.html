@@ -1178,6 +1178,7 @@ const MAGES = [
   ["Inco (The Surface)","TS",[],""],
   ["Qu (The Surface)","TS",[],""]
 ];
+const NEMSETUP = {"Rageborne":"she starts the game with 1 Fury token (2nd edition erratum).","Prince of Gluttons":"on increased difficulty, also place 9 cards from any supply piles on top of the devoured pile, in any order (2nd edition erratum)."};
 const NEMBY = Object.fromEntries(NEM.map(n=>[n[0],n])), MAGEBY = Object.fromEntries(MAGES.map(m=>[m[0],m]));
 let fight = {nem:"",mages:[]};
 function bonus(c){ // ce que le contexte du combat ajoute à la note d'une carte
@@ -1321,6 +1322,7 @@ function fitsFight(t){
 function adaptText(){
   const out=[]; const N=NEMBY[fight.nem];
   if(N) out.push(N[2]?"<b>Against "+esc(N[0])+"</b> : "+esc(N[3])+".":"<b>"+esc(N[0])+"</b> : I don't know this nemesis well enough to steer the draw, so it stays general.");
+  if(N&&NEMSETUP[N[0]]) out.push("<b>Setup reminder</b>: "+esc(NEMSETUP[N[0]]));
   fight.mages.forEach(n=>{ const M=MAGEBY[n]; if(M&&M[2].length) out.push("<b>For "+esc(n.replace(/ \(.*/,""))+"</b> : "+esc(M[3])+"."); });
   return out.length?"<p>"+out.join(" ")+"</p>":"";
 }
