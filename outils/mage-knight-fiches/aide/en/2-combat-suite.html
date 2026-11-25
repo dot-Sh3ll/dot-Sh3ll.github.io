@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Mage Knight, Le combat 2</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=Marcellus&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:21px 28px 13px;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.26;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4b4e58}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#52789d;border-bottom:1px solid #b9cde0;padding-bottom:1px}
+h3{font-family:Marcellus,serif;font-weight:400;font-size:14px;margin:0 0 2px;color:#52789d}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:1px 5px;text-align:left;vertical-align:top}
+th{background:#f2f7fd;font-weight:700}
+.c{text-align:center}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #52789d;border-radius:8px;padding:6px 9px;background:#f2f7fd}
+.f{font-family:Marcellus,serif;font-size:15px;text-align:center;margin:2px 0}
+.note{color:#4b4e58}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1d22;vertical-align:-1px;margin:0 3px 0 0}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#4b4e58;border-top:1px solid #c9cdd6;padding-top:4px;margin-top:auto}
+.gain{color:#1d6b35;font-weight:700}
+.warn{border:2.5px solid #8a1f1f;border-radius:8px;padding:5px 9px;background:#fbefef}
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Combat</h1></div><div class="note" style="font-family:Marcellus,serif;font-size:14px">2 / 2</div></div>
+<div class="warn">
+<p style="margin:0"><b style="color: rgb(138, 31, 31)">Don't forget ·</b> Taking damage is <b>always at least 1 Wound</b>. <br/><span style="font-weight: 700; color: rgb(138, 31, 31)">Exception ·</span> a Unit with the Resistance to the attack's type AND Armor ≥ the attack</p>
+</div>
+<div class="two">
+<div class="box">
+<h3>Phase 3 · A Unit takes damage</h3>
+<ul>
+<li>Any ready or spent Unit can take damage <b>as long as it is not already wounded.<br/><br/></b></li>
+<li>If the Unit resists the type of damage taken <b>AND </b>its Armor is greater than or equal to the attack, <b>it takes no Wound</b>.<br/><br/></li>
+<li>Otherwise, the Unit takes <b>1 Wound</b> and subtracts <b>its Armor</b> from the damage; the rest must be taken by another Unit or the Hero.<br/><br/><b>Paralyze </b>: if wounded, it is destroyed.<br/><span style="font-weight: 700">Poison</span>: if wounded, it takes 2 Wounds.<b><br/>Assassination </b>: Units may not take this damage; only the Hero can.<br/></li>
+</ul>
+</div>
+<div class="box">
+<h3>Phase 3 · The Hero takes damage</h3>
+<p><b>Brutal</b>: Damage × 2 first.</p>
+<p class="f" style="text-align: center">Damage ÷ Armor, rounded ↑<br/>= number of Wounds</p>
+<table>
+<tr><th>Damage</th><th class="c">Arm. 2</th><th class="c">Arm. 3</th><th class="c">Arm. 4</th><th class="c">Arm. 5</th></tr>
+<tr><td>2</td><td class="c">1</td><td class="c">1</td><td class="c">1</td><td class="c">1</td></tr>
+<tr><td>3</td><td class="c">2</td><td class="c">1</td><td class="c">1</td><td class="c">1</td></tr>
+<tr><td>4</td><td class="c">2</td><td class="c">2</td><td class="c">1</td><td class="c">1</td></tr>
+<tr><td>6</td><td class="c">3</td><td class="c">2</td><td class="c">2</td><td class="c">2</td></tr>
+<tr><td>8</td><td class="c">4</td><td class="c">3</td><td class="c">2</td><td class="c">2</td></tr>
+<tr><td>12</td><td class="c">6</td><td class="c">4</td><td class="c">3</td><td class="c">3</td></tr>
+</table>
+<p>Wounds go <b>into your hand</b>.</p>
+<p><b>Poison</b>: +1 Wound to your discard pile per Wound taken. <br/><b>Paralyze</b>: discard your non-Wound cards.</p>
+</div>
+</div>
+<div class="box" style="border-color:#8a1f1f">
+<p style="margin:0;color:#8a1f1f"><b>Knocked out</b>: if the Wounds taken <b>during this combat</b> reach your hand limit, discard all your non-Wound cards. The combat goes on.</p>
+</div>
+<div class="box">
+<h3>Dragon Attack 6 Fire, Brutal, against a Unit with Armor 4 and a Hero with Armor 3</h3>
+<p><b>Block</b>: against Fire, only an Ice (or Cold Fire) Block is efficient. Ice Block 6: <b>attack blocked</b>. Physical Block 4 + Fire Block 4: both inefficient, (4 + 4) ÷ 2 = 4 &lt; 6: <b>attack not blocked</b>.</p>
+<p><b>Not blocked</b>: 6 × 2 (Brutal) = 12 damage. The Unit absorbs 4 damage and takes 1 Wound: 8 remain. The Hero takes 8 ÷ 3 = 2.67, rounded up = 3 Wounds.<br/><b>Result: the Unit is wounded, the Hero adds 3 Wounds to their hand.</b></p>
+</div>
+<div class="box">
+<h3>After the combat</h3>
+<ul>
+<li><span class="gain">Fame</span>: the value of each defeated enemy (Fame and level at the end of the turn).</li>
+<li><span class="gain">Site conquered</span>: place a Shield; reward at the end of the turn.</li>
+<li><b>Undefeated enemies</b>: they stay on their space. Failed assault: move back to your previous space.</li>
+<li><b>Wounded Units </b>: unusable until healed. Healing a Unit takes X Healing, X being the Unit's level, top left of its card.</li>
+</ul>
+</div>
+<footer style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#52789d;border-top:1px solid #52789d;padding-top:4px;margin-top:auto"><span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>Game aid · 2/8</span></footer>
+</div>
+</x-dc>
+<script data-dc-script="" data-props='{"$preview":{"width":559,"height":794}}' type="text/x-dc">
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

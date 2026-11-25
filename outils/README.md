@@ -110,7 +110,7 @@ Les 8 pages viennent de l'artefact Design « Aide de jeu Mage Knight » (page «
 
 ## `mage-knight-fiches/` : aide de jeu Mage Knight en anglais
 
-`gen_mk_en.py` construit la version anglaise en HTML puis en PDF (aux couleurs et polices du gabarit ; copier `mage-knight-game-aid.pdf` dans `fiches/`) ; les illustrations des sites et des capacités ennemies (`ico/`) ont été découpées dans les fiches françaises. Polices : `commun/polices`.
+`aide/en.py` construit la version anglaise de l'aide de jeu à partir des pages françaises (`aide/fr/`), traduites bloc par bloc avec `aide/en.json` : même mise en page, mêmes images, même taille de texte → `fiches/mage-knight-game-aid.pdf`. Un bloc français sans traduction arrête le script et est signalé. (`ico/` : anciennes découpes, plus utilisées.)
 
 ## `mage-knight-fiches/quetes/` : module de quêtes Mage Knight (FR et EN)
 

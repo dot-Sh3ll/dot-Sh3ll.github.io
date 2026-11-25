@@ -138,7 +138,7 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 3. Copier les pages dans `outils/<jeu>-fiches/fr/`, produire le PDF avec le script du jeu dans `fiches/`, la version anglaise
    s'il y en a une. Scripts : Puerto Rico `outils/puerto-rico/fiches/gen.py` et `gen_en.py` ; Imperium `outils/imperium-fiches/en.py`
    puis `pdf.py` ; Mage Knight aide de jeu `outils/mage-knight-fiches/aide/aide.py` (FR, images dans `aide/img/`) et
-   `gen_mk_en.py` (EN), module de quêtes `quetes/quetes.py` : un seul PDF de 12 pages, règles (1 à 8) puis scénarios (9 à 12, pages de
+   `aide/en.py` (EN : les pages FR traduites bloc par bloc via `aide/en.json`, même mise en page), module de quêtes `quetes/quetes.py` : un seul PDF de 12 pages, règles (1 à 8) puis scénarios (9 à 12, pages de
    `quetes/scenarios.py`) ; les anciennes adresses des scénarios reçoivent le même PDF.
    Nemesis : `outils/nemesis-fiches/gen_pages.py` (FR) et `gen_pages_en.py` (EN) écrivent les pages, puis `pdf.py`
    (aide de jeu en portrait, salles en paysage ; artefact Design « Fiches Nemesis: Retaliation · gabarit commun »).
@@ -166,8 +166,7 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
   `theme.py` ; Imperium suit le système par défaut, Aeon's End et Mage Knight restent sombres par défaut (le clair est une option).
   Une couleur écrite en dur dans ces pages doit avoir sa version claire dans `outils/site/themes/<code>.css`.
 - Points ouverts : noms allemands incertains dans Aeon's End (attendre la communauté) ; noms anglais des salles
-  aléatoires de Nemesis (traductions maison sauf Shelter et Technical Corridor Entrance) ; aide de jeu Mage Knight
-  anglaise (gen_mk_en.py) construite à part de la française, texte plus petit : à régénérer un jour depuis les pages FR traduites.
+  aléatoires de Nemesis (traductions maison sauf Shelter et Technical Corridor Entrance).
 
 ## Décisions de Paul
 
@@ -176,15 +175,14 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 
 ## À faire (par ordre d'intérêt)
 
-1. **Aide de jeu Mage Knight en anglais** : la régénérer à partir des pages françaises traduites (texte plus grand, même mise en page).
-2. **Format de traduction commun** (`i18n/<langue>.json` + `contenu/<langue>.js`) : y passer les applis existantes une à une,
+1. **Format de traduction commun** (`i18n/<langue>.json` + `contenu/<langue>.js`) : y passer les applis existantes une à une,
    en commençant par Nemesis ou Puerto Rico.
-3. **Schémas** : d'autres dans Nemesis (robot, évasion, contamination), éventuellement interactifs ; chercher où des schémas
+2. **Schémas** : d'autres dans Nemesis (robot, évasion, contamination), éventuellement interactifs ; chercher où des schémas
    aideraient dans les autres applis (même méthode que `outils/nemesis/figures.py`).
-4. **Versions de règles suivies** : afficher sous « Apprendre » de chaque appli la version des règles et des errata intégrés
+3. **Versions de règles suivies** : afficher sous « Apprendre » de chaque appli la version des règles et des errata intégrés
    (comme Nemesis : « Avec les précisions de la FAQ officielle (v1.2) ») une fois les versions confirmées par Paul.
    À vérifier : planche de cartes corrigées VF v1.3 d'Origames (Imperium), pack de cartes corrigées Intrafin (Mage Knight).
-5. **Rappeler à Paul qu'il veut changer l'adresse du site.** À prévoir le jour venu : `CNAME` et DNS, `SITE` dans `seo.py`
+4. **Rappeler à Paul qu'il veut changer l'adresse du site.** À prévoir le jour venu : `CNAME` et DNS, `SITE` dans `seo.py`
    (canonical, hreflang, sitemap, JSON-LD), `robots.txt`, pieds de page « paulmoussard.com » de toutes les fiches (régénérer
    les PDF), GoatCounter, Search Console (outil de changement d'adresse), Ko-fi, liens partagés (Discord) : l'ancien domaine
    doit rediriger vers le nouveau (GitHub Pages ne sert qu'un domaine : redirection chez le registraire).

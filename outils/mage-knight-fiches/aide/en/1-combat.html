@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Mage Knight, Le combat 1</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&amp;family=Marcellus&amp;display=swap" rel="stylesheet"/>
+<style>
+body{margin:0;background:#fff}
+.pg{width:559px;height:794px;box-sizing:border-box;padding:21px 28px 13px;background:#fff;color:#1c1d22;font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.3;overflow:hidden;display:flex;flex-direction:column;gap:6px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1c1d22;padding-bottom:5px}
+.kick{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4b4e58}
+h1{font-family:Marcellus,serif;font-weight:400;font-size:24px;margin:0;line-height:1.1}
+h2{font-family:Marcellus,serif;font-weight:400;font-size:15px;margin:0 0 3px;color:#52789d;border-bottom:1px solid #b9cde0;padding-bottom:1px}
+h3{font-family:Marcellus,serif;font-weight:400;font-size:14px;margin:0 0 2px;color:#52789d}
+ul,ol{margin:0;padding-left:15px}
+li{margin:0 0 1px}
+p{margin:0 0 2px}
+b{font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #9c9ca6;padding:1px 5px;text-align:left;vertical-align:top}
+th{background:#f2f7fd;font-weight:700}
+.c{text-align:center}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.box{border:1px solid #1c1d22;border-radius:6px;padding:5px 8px}
+.hi{border:2px solid #52789d;border-radius:8px;padding:6px 9px;background:#f2f7fd}
+.f{font-family:Marcellus,serif;font-size:15px;text-align:center;margin:2px 0}
+.note{color:#4b4e58}
+.chip{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid #1c1d22;vertical-align:-1px;margin:0 3px 0 0}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:#4b4e58;border-top:1px solid #c9cdd6;padding-top:4px;margin-top:auto}
+.gain{color:#1d6b35;font-weight:700}
+.warn{border:2.5px solid #8a1f1f;border-radius:8px;padding:5px 9px;background:#fbefef}
+</style>
+</helmet>
+<div class="pg">
+<div class="hd"><div><h1>Combat</h1></div><div class="note" style="font-family:Marcellus,serif;font-size:14px">1 / 2</div></div>
+<div class="box">
+<h2>Entering combat · it is your Action for the turn</h2>
+<ul>
+<li><b>Provoke</b> or <b>challenge</b> a rampaging enemy · <b>Assault</b> a fortified site (−1 Reputation) · <b>Enter</b> an adventure site.</li>
+<li>All the enemies engaged form <b>a single combat</b>.</li>
+</ul>
+</div>
+<div class="hi">
+<h2 style="border:0">The 4 phases</h2>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px">
+<div class="box"><h3>1 · Ranged and Siege</h3><p>Kill them <b>before they attack</b>, with ranged or siege attacks only.<br/><b>Fortified</b>: siege attacks only. <br/><b>Double Fortified</b>: untouchable.</p></div>
+<div class="box"><h3>2 · Block</h3><p>Each attack is blocked <b>separately</b>: Block ≥ Attack.<br/>Watch out for elements and resistances.<br/><b>Swift</b>: you need 2 × the Attack.</p></div>
+<div class="box"><h3>3 · Damage</h3><p>Unblocked attacks, one by one, on <b>Units</b> and/or <b>Hero</b>.</p></div>
+<div class="box"><h3>4 · Attack</h3><p>All attack types can be used here, ranged and siege included. Group: <b>sum of Armors</b>, <b>all Resistances combined</b>.</p></div>
+</div>
+</div>
+<div class="warn">
+<p style="margin:0"><b style="color: rgb(138, 31, 31)">Don't forget ·</b> <b>Group</b>: <b>every Resistance of every enemy applies to the whole group</b>. You choose freely whom to group. Tip: isolate resistant enemies.</p>
+</div>
+<div class="two">
+<div class="box">
+<h3>Phases 1 and 4 · Attacking</h3>
+<p class="f">efficient + ½ inefficient ≥ Armor</p>
+<table>
+<tr><th>Your attack</th><th>Inefficient if the enemy has</th></tr>
+<tr><td>Physical</td><td>Physical Res.</td></tr>
+<tr><td>Fire</td><td>Fire Res.</td></tr>
+<tr><td>Ice</td><td>Ice Res.</td></tr>
+<tr><td>Cold Fire</td><td>Fire <b>and</b> Ice Res.</td></tr>
+</table>
+<p class="note">Cards played sideways give 1 physical Attack.<br/></p>
+</div>
+<div class="box">
+<h3>Phase 2 · Blocking</h3>
+<p class="f">efficient + ½ inefficient ≥ Attack</p>
+<table>
+<tr><th>Enemy attack</th><th>Efficient Block</th></tr>
+<tr><td>Physical</td><td>all</td></tr>
+<tr><td>Fire</td><td>Ice, Cold Fire</td></tr>
+<tr><td>Ice</td><td>Fire, Cold Fire</td></tr>
+<tr><td>Cold Fire</td><td>Cold Fire only</td></tr>
+</table>
+<p class="note">Block without an icon = physical. <br/>Swift: you need 2 × the Attack.</p>
+</div>
+</div>
+<div class="box">
+<h3>Working out “½ inefficient”</h3>
+<ol>
+<li>Add up all the <b>inefficient</b> values.</li>
+<li>Divide this total by 2, <b>rounded down</b>.</li>
+<li>Add the <b>efficient</b> values, in full.</li>
+</ol>
+<p><b>Example</b>: Ice Block 3 (efficient) + Physical Block 3 + Fire Block 2 (inefficient) against a Fire attack 6 gives 3 + (3 + 2) ÷ 2 = 3 + 2 = <b>5 &lt; 6, the block fails</b>.</p>
+</div>
+<footer style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#52789d;border-top:1px solid #52789d;padding-top:4px;margin-top:auto"><span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>Game aid · 1/8</span></footer>
+</div>
+</x-dc>
+<script data-dc-script="" data-props='{"$preview":{"width":559,"height":794}}' type="text/x-dc">
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
