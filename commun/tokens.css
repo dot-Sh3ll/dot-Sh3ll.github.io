@@ -1,0 +1,63 @@
+/* Jetons du design system Less Rules, More Play : un seul endroit pour les valeurs partagées.
+   Chargé par l'accueil et par toutes les applis (lien posé par outils/site/chrome.py).
+   Chaque appli garde son thème (police de titre, fond clair ou sombre) et se branche sur les composants
+   communs en définissant les variables --app-* (voir composants.css). */
+:root{
+  /* gabarit */
+  --site-w:1080px;
+  --site-pad:20px;
+  --sitehead-h:57px;
+
+  /* couleurs du site (barre du haut, accueil, 404) */
+  --site-bg:#0d0f16;
+  --site-surface:#161a25;
+  --site-surface-2:#1d2230;
+  --site-line:#2a3144;
+  --site-ink:#efe8d8;
+  --site-muted:#a3a9b8;
+  --site-faint:#7d8496;
+  --site-gold:#ddb96a;
+  --site-gold-ink:#17130a;
+
+  /* couleur de chaque jeu (cartes de l'accueil, fiches, liens « Signaler un problème »…) */
+  --jeu-mk:#7db7ef;   /* Mage Knight : bleu */
+  --jeu-imp:#ec7f6d;  /* Imperium : rouge corail */
+  --jeu-ae:#c495f5;   /* Aeon's End : violet */
+  --jeu-pr:#e2cc9f;   /* Puerto Rico 1897 : sable */
+  --jeu-nr:#9bd33a;   /* Nemesis: Retaliation : vert acide */
+
+  /* typographie du site (les applis gardent leur police de titre) */
+  --font-site:"Marcellus","Palatino Linotype",Georgia,serif;
+  --font-ui:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
+  --texte-xs:12px;
+  --texte-s:14px;
+  --texte-m:15px;
+  --texte-l:17px;
+
+  /* espacements */
+  --esp-1:4px;
+  --esp-2:8px;
+  --esp-3:12px;
+  --esp-4:16px;
+  --esp-5:24px;
+  --esp-6:32px;
+  --esp-7:48px;
+
+  /* rayons */
+  --rayon-s:6px;
+  --rayon-m:10px;
+  --rayon-l:14px;
+  --rayon-xl:18px;
+  --rayon-pilule:999px;
+
+  /* ombres */
+  --ombre-1:0 1px 2px rgba(0,0,0,.12);
+  --ombre-2:0 4px 18px rgba(0,0,0,.18);
+  --ombre-3:0 14px 40px -18px rgba(0,0,0,.55);
+
+  /* interaction */
+  --cible:44px;          /* taille tactile minimale */
+  --cible-compacte:36px;
+  --duree:.15s;
+}
+@media (max-width:640px){:root{--site-pad:16px}}

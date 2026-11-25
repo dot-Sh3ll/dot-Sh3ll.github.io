@@ -22,19 +22,14 @@ T = {
     "de": ("← Alle Spielhilfen", "💌 Ein Problem melden", "☕ Gefällt Ihnen dieses Hilfsmittel? Spendieren Sie mir einen Kaffee",
            "Inoffizielles, kostenloses Fan-Projekt ohne Verbindung zum Verlag des Spiels."),
 }
-STYLE = ("max-width:1100px;margin:48px auto 0;padding:20px 16px 32px;border-top:1px solid rgba(128,128,128,.3);"
-         "font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.85;display:flex;flex-wrap:wrap;"
-         "gap:10px 22px;align-items:center;justify-content:space-between")
-A = 'style="color:inherit;font-weight:600"'
-
-
 def footer(code, game):
     back, report, kofi, fan = T.get(code, T["en"])
-    return (f'<footer style="{STYLE}">\n'
-            f'<a href="../" {A}>{back}</a>\n'
-            f'<a href="../?app={quote(game)}#avis" {A}>{report}</a>\n'
-            f'<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" {A}>{kofi}</a>\n'
-            f'<span style="width:100%;font-size:12px;opacity:.8">{fan}</span>\n'
+    # styles : .lrmp-pied dans commun/composants.css
+    return ('<footer class="lrmp-pied">\n'
+            f'<a href="../">{back}</a>\n'
+            f'<a href="../?app={quote(game)}#avis">{report}</a>\n'
+            f'<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">{kofi}</a>\n'
+            f'<small>{fan}</small>\n'
             '</footer>\n')
 
 
@@ -48,7 +43,7 @@ def main():
     for code in available(folder):
         p = os.path.join(folder, page_file(code))
         s = open(p, encoding="utf-8").read()
-        s = re.sub(r'<footer style="max-width:1100px;margin:48px auto 0;.*?</footer>\n?', "", s, flags=re.S)
+        s = re.sub(r'<footer (?:style="max-width:1100px;margin:48px auto 0;|class="lrmp-pied").*?</footer>\n?', "", s, flags=re.S)
         i = s.rindex("</body>")
         s = s[:i] + footer(code, game) + s[i:]
         open(p, "w", encoding="utf-8").write(s)

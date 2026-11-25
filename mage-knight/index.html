@@ -36,7 +36,7 @@
 <!--/polices-->
 <style>
 /* Une seule page : une barre de navigation commune, puis le tutoriel (Apprendre) ou le compagnon (Jouer), chacun avec ses styles isolés. */
-:root{color-scheme:dark;--bg:#0a0f18;--ink:#efe6d2;--muted:#9eabbd;--line:#26324a;--gold:#d9b66c;--gold-ink:#141a26;--sunk:#0e1520;
+:root{--app-accent:var(--gold);--app-accent-ink:var(--gold-ink);--app-piste:var(--sunk);--app-onglet:var(--muted);color-scheme:dark;--bg:#0a0f18;--ink:#efe6d2;--muted:#9eabbd;--line:#26324a;--gold:#d9b66c;--gold-ink:#141a26;--sunk:#0e1520;
  --f-display:'Marcellus','Palatino Linotype',Georgia,serif;--f-body:'Figtree','Segoe UI',system-ui,sans-serif}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -45,16 +45,12 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 .topbar{max-width:1320px;margin:0 auto;padding:14px 16px 4px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
 .brand{font-family:var(--f-display);font-size:1.5rem;letter-spacing:.03em;margin:0;font-weight:400}
 .brand small{display:block;font-family:var(--f-body);font-size:.8rem;color:var(--muted);letter-spacing:0}
-.modes{display:flex;gap:4px;padding:4px;background:var(--sunk);border:1px solid var(--line);border-radius:999px}
-.modes a{font-family:var(--f-display);font-size:1.05rem;color:var(--muted);text-decoration:none;padding:.45rem 1.1rem;border-radius:999px}
-.modes a[aria-current="page"]{background:var(--gold);color:var(--gold-ink)}
-.modes a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 /* Boutons inactifs : clairement éteints, jamais dorés */
 .app button:disabled,.app button.primary:disabled,.app button.on:disabled{opacity:1;background:transparent!important;color:#6b778a!important;border:1px dashed #33405a!important;box-shadow:none!important;cursor:not-allowed}
 .app .stp button:disabled{border-style:solid!important;opacity:.5}
 .app-tuto .why{margin:6px 0 0;font-size:.9rem;color:var(--muted);border-left:3px solid var(--gold);padding:2px 0 2px 10px}
 .app[hidden]{display:none}
-@media (max-width:480px){.topbar{justify-content:center;text-align:center}.modes{width:100%}.modes a{flex:1;text-align:center;padding:.45rem .4rem}}
+@media (max-width:480px){.topbar{justify-content:center;text-align:center}}
 .app-tuto{
   
   --bg:#e6ebee; --panel:#f8fafb; --ink:#1b2931; --muted:#566772; --line:#c6d0d7;
@@ -428,39 +424,18 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 <script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
 <script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <!--/pwa-->
-<style id="sitehead-css">
-@font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
-.sitehead{position:sticky;top:0;z-index:9;background:#0d0f16;border-bottom:1px solid #2a3144;color:#efe8d8;font:500 15px/1.2 "Figtree","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-.sitehead *{box-sizing:border-box}
-:root{--site-w:1080px;--site-pad:20px}
-@media (max-width:640px){:root{--site-pad:16px}}
-.sitehead .sh-in{max-width:var(--site-w);margin:0 auto;padding:0 var(--site-pad);height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.sitehead a{color:inherit;text-decoration:none}
-.sitehead .sh-brand{display:flex;align-items:center;gap:10px;font-family:"Marcellus","SH Marcellus","Palatino Linotype",Georgia,serif;font-size:19px;font-weight:400;letter-spacing:.01em;white-space:nowrap}
-.sitehead .sh-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#1d2230;border:1px solid #2a3144;font-size:16px;line-height:1}
-.sitehead .sh-act{display:flex;align-items:center;gap:10px}
-.sitehead .sh-lang{display:inline-flex;padding:3px;background:#161a25;border:1px solid #2a3144;border-radius:999px}
-.sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;font-weight:700;font-size:12.5px;letter-spacing:.04em}
-.sitehead .sh-lang span{background:#ddb96a;color:#17130a}
-.sitehead .sh-lang a{color:#a3a9b8}
-.sitehead .sh-lang span.sh-off{background:none;color:#5d6475;cursor:not-allowed}
-.sitehead .sh-lang a:hover{color:#fff}
-.sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:#ddb96a;color:#17130a;font-weight:700;font-size:14.5px;white-space:nowrap}
-.sitehead .sh-kofi:hover{filter:brightness(1.08)}
-.sitehead a:focus-visible{outline:2px solid #ddb96a;outline-offset:2px}
-@media (max-width:640px){.sitehead .sh-text,.sitehead .sh-kofi-t{display:none}.sitehead .sh-kofi{width:36px;padding:0;justify-content:center}}
-@media print{.sitehead{display:none}}
-:root{--sitehead-h:57px}
-html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
-</style>
+<script id="mk-mode-js">(function(){var M=["apprendre","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
+<style id="mk-mode-css">html[data-mode=jouer] #app-tuto,html[data-mode=jouer] #app-aide,html[data-mode=apprendre] #app-comp,html[data-mode=apprendre] #app-aide,html[data-mode=aide] #app-tuto,html[data-mode=aide] #app-comp{display:none}</style>
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=68cac781">
+<link rel="stylesheet" href="../commun/composants.css?v=609fd0d2">
+<!--/commun-->
 <style id="sitehead-css-mk">
 .app-tuto #side-nav{top:calc(8px + var(--sitehead-h))!important;max-height:calc(92vh - var(--sitehead-h))!important}
 .app-tuto .wrap,.app-comp .wrap{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
 .topbar{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
 @media (max-width:480px){.topbar{justify-content:space-between!important;text-align:left!important}}
 </style>
-<script id="mk-mode-js">(function(){var M=["apprendre","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
-<style id="mk-mode-css">html[data-mode=jouer] #app-tuto,html[data-mode=jouer] #app-aide,html[data-mode=apprendre] #app-comp,html[data-mode=apprendre] #app-aide,html[data-mode=aide] #app-tuto,html[data-mode=aide] #app-comp{display:none}</style>
 </head>
 <body>
 <header class="sitehead">
@@ -481,7 +456,7 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 
 <header class="topbar">
   <p class="brand">Mage Knight<small>Tutoriel interactif et compagnon de partie</small></p>
-  <nav class="modes" aria-label="Rubriques"><a href="#apprendre" data-mode="apprendre">Apprendre</a><a href="#jouer" data-mode="jouer">Jouer</a><a href="#aide" data-mode="aide">Aide-mémoire</a></nav>
+  <nav class="modes lrmp-onglets" aria-label="Rubriques"><a href="#apprendre" data-mode="apprendre">Apprendre</a><a href="#jouer" data-mode="jouer">Jouer</a><a href="#aide" data-mode="aide">Aide-mémoire</a></nav>
 </header>
 <div class="app app-tuto" id="app-tuto">
 <div class="wrap">
@@ -2484,26 +2459,13 @@ S=load()||blank();render();
  document.querySelectorAll('.modes a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();show(a.dataset.mode);if(location.hash!=='#'+a.dataset.mode)history.replaceState(null,'','#'+a.dataset.mode);window.scrollTo(0,0)}));
 })();
 </script>
-<footer style="max-width:1100px;margin:48px auto 0;padding:20px 16px 32px;border-top:1px solid rgba(128,128,128,.3);font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.85;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between">
-<a href="../" style="color:inherit;font-weight:600">← Toutes les aides de jeu</a>
-<a href="../?app=Mage%20Knight#avis" style="color:inherit;font-weight:600">💌 Signaler un problème</a>
-<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" style="color:inherit;font-weight:600">☕ Cet outil vous a plu ? Offrez-moi un café</a>
-<span style="width:100%;font-size:12px;opacity:.8">Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</span>
+<footer class="lrmp-pied">
+<a href="../">← Toutes les aides de jeu</a>
+<a href="../?app=Mage%20Knight#avis">💌 Signaler un problème</a>
+<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Cet outil vous a plu ? Offrez-moi un café</a>
+<small>Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</small>
 </footer>
 <!--fiches-->
-<style>
-.lrmp-fiches{margin:16px 0 22px;padding:14px 16px;border:1px solid var(--line,rgba(127,127,127,.35));border-left:4px solid var(--accent,var(--gold,currentColor));border-radius:10px;background:color-mix(in srgb,var(--accent,var(--gold,#888)) 7%,transparent)}
-.lrmp-fiches .k{margin:0;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--gold,inherit))}
-.lrmp-fiches .t{margin:3px 0 10px;font-weight:600}
-.lrmp-fiches ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
-.lrmp-fiches li{display:flex;gap:10px;align-items:center;margin:0}
-.lrmp-fiches .i{font-size:20px;line-height:1;flex:none;width:26px;text-align:center}
-.lrmp-fiches .n{flex:1;min-width:0;line-height:1.3}
-.lrmp-fiches .n small{display:block;opacity:.72;font-size:.85em}
-.lrmp-fiches a.d{flex:none;font-weight:700;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid var(--accent,var(--gold,currentColor));color:inherit;white-space:nowrap}
-.lrmp-fiches a.d:hover,.lrmp-fiches a.d:focus-visible{background:color-mix(in srgb,var(--accent,var(--gold,#888)) 18%,transparent)}
-@media print{.lrmp-fiches{display:none}}
-</style>
 <script>
 (function(){var F=[{"i": "🗺️", "t": "Aide de jeu", "d": "Récapitulatifs du tour, du déplacement, du combat, des sites et des capacités des ennemis. 8 pages.", "u": "../fiches/mage-knight-aide-de-jeu.pdf", "x": ""}, {"i": "📜", "t": "Module de quêtes maison", "d": "Règles du module, barème des récompenses et quêtes de Jour et de Nuit sur trois paliers : villages, monastères, cités. 8 pages.", "u": "../fiches/mage-knight-module-quetes.pdf", "x": ""}, {"i": "🗺️", "t": "Scénarios du module de quêtes", "d": "Six scénarios maison pour jouer avec les quêtes : trois en solo, trois en coopération à deux, avec mise en place, règles et fin de partie. 4 pages.", "u": "../fiches/mage-knight-scenarios-quetes.pdf", "x": ""}],C={"aide": "#app-aide header.top", "fin": ["#c-bot button.primary[data-chap=\"free\"]", ".row"]},T={"k": "À imprimer", "aide": "Vous préférez le papier ? Ces fiches A5 se gardent près du plateau pendant la partie.", "fin_t": "Prêt pour votre première partie ?", "fin": "Imprimez les fiches et gardez-les près du plateau :", "dl": "PDF", "frtag": ""};
 function box(kind){var a=document.createElement('aside');a.className='lrmp-fiches';a.dataset.kind=kind;

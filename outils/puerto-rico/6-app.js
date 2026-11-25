@@ -86,8 +86,8 @@ function score(){const y=window.scrollY;const sets=['base'].concat(SC.e1?['e1']:
  upd();window.scrollTo(0,y)}
 
 /* ---------- onglets, thème, démarrage ---------- */
-function tab(t){$$('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));$$('.tab').forEach(x=>x.classList.toggle('on',x.id==='tab-'+t));LS.set('pr1897-tab',t);window.scrollTo(0,0)}
-$$('.tabs button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
+function tab(t){$$('.lrmp-onglets button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));$$('.tab').forEach(x=>x.classList.toggle('on',x.id==='tab-'+t));LS.set('pr1897-tab',t);window.scrollTo(0,0)}
+$$('.lrmp-onglets button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
 const TH=['auto','dark','light'];let th=LS.get('pr1897-theme','auto');
 const applyTh=()=>{if(th==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',th);$('#theme').title='Thème : '+{auto:'automatique',dark:'sombre',light:'clair'}[th]};
 $('#theme').onclick=()=>{th=TH[(TH.indexOf(th)+1)%3];LS.set('pr1897-theme',th);applyTh()};applyTh();

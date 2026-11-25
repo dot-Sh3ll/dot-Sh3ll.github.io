@@ -37,7 +37,7 @@
 <link rel="preload" href="../commun/polices/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <!--/polices-->
 <style>
-:root{
+:root{--app-accent:var(--gold);--app-accent-ink:#17130a;--app-piste:var(--surface);--app-onglet:var(--muted);
   /* Layout : une colonne centrée ; la question du mode en haut, le marché en 3 rangées (gemmes / reliques / sorts). Un seul univers visuel, sombre, assumé. */
   color-scheme: dark;
   --bg:#15131f;
@@ -91,11 +91,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
 .chip.req{color:var(--ink);border-color:var(--gold)}
 .chip.req.off{text-decoration:line-through;opacity:.7}
 .dist input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
-nav.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line)}
-nav.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 14px 10px;font-weight:600;color:var(--muted);margin-bottom:-1px}
-nav.tabs button[aria-selected="true"]{color:var(--gold);border-bottom-color:var(--gold)}
-nav.tabs button:hover{color:var(--ink)}
-nav.tabs .n{font-variant-numeric:tabular-nums;font-weight:500;opacity:.8}
+.lrmp-onglets .n{font-variant-numeric:tabular-nums;font-weight:500;opacity:.8}
 .view{display:flex;flex-direction:column;gap:26px}
 .wins-head h2{font-size:24px}
 .wins-head p{margin:4px 0 0;color:var(--muted);max-width:65ch}
@@ -276,31 +272,10 @@ footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padd
 <script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
 <script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <!--/pwa-->
-<style id="sitehead-css">
-@font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
-.sitehead{position:sticky;top:0;z-index:9;background:#0d0f16;border-bottom:1px solid #2a3144;color:#efe8d8;font:500 15px/1.2 "Figtree","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-.sitehead *{box-sizing:border-box}
-:root{--site-w:1080px;--site-pad:20px}
-@media (max-width:640px){:root{--site-pad:16px}}
-.sitehead .sh-in{max-width:var(--site-w);margin:0 auto;padding:0 var(--site-pad);height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.sitehead a{color:inherit;text-decoration:none}
-.sitehead .sh-brand{display:flex;align-items:center;gap:10px;font-family:"Marcellus","SH Marcellus","Palatino Linotype",Georgia,serif;font-size:19px;font-weight:400;letter-spacing:.01em;white-space:nowrap}
-.sitehead .sh-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#1d2230;border:1px solid #2a3144;font-size:16px;line-height:1}
-.sitehead .sh-act{display:flex;align-items:center;gap:10px}
-.sitehead .sh-lang{display:inline-flex;padding:3px;background:#161a25;border:1px solid #2a3144;border-radius:999px}
-.sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:999px;font-weight:700;font-size:12.5px;letter-spacing:.04em}
-.sitehead .sh-lang span{background:#ddb96a;color:#17130a}
-.sitehead .sh-lang a{color:#a3a9b8}
-.sitehead .sh-lang span.sh-off{background:none;color:#5d6475;cursor:not-allowed}
-.sitehead .sh-lang a:hover{color:#fff}
-.sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:999px;background:#ddb96a;color:#17130a;font-weight:700;font-size:14.5px;white-space:nowrap}
-.sitehead .sh-kofi:hover{filter:brightness(1.08)}
-.sitehead a:focus-visible{outline:2px solid #ddb96a;outline-offset:2px}
-@media (max-width:640px){.sitehead .sh-text,.sitehead .sh-kofi-t{display:none}.sitehead .sh-kofi{width:36px;padding:0;justify-content:center}}
-@media print{.sitehead{display:none}}
-:root{--sitehead-h:57px}
-html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
-</style>
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=68cac781">
+<link rel="stylesheet" href="../commun/composants.css?v=609fd0d2">
+<!--/commun-->
 <style id="sitehead-css-ae">
 main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
 </style>
@@ -326,7 +301,7 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
   <p>Neun Stapel aus Kristallen, Artefakten und Zaubern, gezogen aus den Schachteln, die Sie besitzen. Wählen Sie vor jedem Kampf die Aufteilung und die Art des Markts.</p>
 </header>
 
-<nav class="tabs" role="tablist" aria-label="Bereiche">
+<nav class="lrmp-onglets" role="tablist" aria-label="Bereiche">
   <button type="button" role="tab" id="tab-gen" aria-selected="true">Neuer Markt</button>
   <button type="button" role="tab" id="tab-exp" aria-selected="false">Expedition</button>
   <button type="button" role="tab" id="tab-wins" aria-selected="false">Tagebuch <span class="n" id="nwins"></span></button>
@@ -1902,11 +1877,11 @@ $("f-theme").onchange=e=>{ themeChoice=e.target.value };
 $("f-fresh").onchange=e=>{ avoidRecent=e.target.checked };
 fillSelects(); renderBoxes(); renderDist(); renderJournal(); renderExp(); showView();
 </script>
-<footer style="max-width:1100px;margin:48px auto 0;padding:20px 16px 32px;border-top:1px solid rgba(128,128,128,.3);font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.85;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between">
-<a href="../" style="color:inherit;font-weight:600">← Alle Spielhilfen</a>
-<a href="../?app=Aeon%27s%20End#avis" style="color:inherit;font-weight:600">💌 Ein Problem melden</a>
-<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" style="color:inherit;font-weight:600">☕ Gefällt Ihnen dieses Hilfsmittel? Spendieren Sie mir einen Kaffee</a>
-<span style="width:100%;font-size:12px;opacity:.8">Inoffizielles, kostenloses Fan-Projekt ohne Verbindung zum Verlag des Spiels.</span>
+<footer class="lrmp-pied">
+<a href="../">← Alle Spielhilfen</a>
+<a href="../?app=Aeon%27s%20End#avis">💌 Ein Problem melden</a>
+<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Gefällt Ihnen dieses Hilfsmittel? Spendieren Sie mir einen Kaffee</a>
+<small>Inoffizielles, kostenloses Fan-Projekt ohne Verbindung zum Verlag des Spiels.</small>
 </footer>
 </body>
 </html>

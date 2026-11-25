@@ -36,19 +36,7 @@ TXT = {
            "dl": "PDF", "frtag": " (French)"},
 }
 
-CSS = """<style>
-.lrmp-fiches{margin:16px 0 22px;padding:14px 16px;border:1px solid var(--line,rgba(127,127,127,.35));border-left:4px solid var(--accent,var(--gold,currentColor));border-radius:10px;background:color-mix(in srgb,var(--accent,var(--gold,#888)) 7%,transparent)}
-.lrmp-fiches .k{margin:0;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--gold,inherit))}
-.lrmp-fiches .t{margin:3px 0 10px;font-weight:600}
-.lrmp-fiches ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
-.lrmp-fiches li{display:flex;gap:10px;align-items:center;margin:0}
-.lrmp-fiches .i{font-size:20px;line-height:1;flex:none;width:26px;text-align:center}
-.lrmp-fiches .n{flex:1;min-width:0;line-height:1.3}
-.lrmp-fiches .n small{display:block;opacity:.72;font-size:.85em}
-.lrmp-fiches a.d{flex:none;font-weight:700;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid var(--accent,var(--gold,currentColor));color:inherit;white-space:nowrap}
-.lrmp-fiches a.d:hover,.lrmp-fiches a.d:focus-visible{background:color-mix(in srgb,var(--accent,var(--gold,#888)) 18%,transparent)}
-@media print{.lrmp-fiches{display:none}}
-</style>"""
+CSS = ""  # styles de l'encart : .lrmp-fiches dans commun/composants.css
 
 JS = """<script>
 (function(){var F=%s,C=%s,T=%s;
@@ -96,7 +84,7 @@ def bloc(liste, code, conf, dossier):
         x = "" if (code == "fr" or f["pdf"][code]) else tx["frtag"]
         F.append({"i": f["ico"], "t": html.escape(titre), "d": html.escape(html.unescape(re.sub(r"<[^>]+>", "", f["d"][code] or f["d"]["fr"]))), "u": "../" + url, "x": x})
     T = {k: html.escape(v) for k, v in tx.items()}
-    return "<!--fiches-->\n" + CSS + "\n" + JS % (json.dumps(F, ensure_ascii=False), json.dumps(conf), json.dumps(T, ensure_ascii=False)) + "\n<!--/fiches-->\n"
+    return "<!--fiches-->\n" + JS % (json.dumps(F, ensure_ascii=False), json.dumps(conf), json.dumps(T, ensure_ascii=False)) + "\n<!--/fiches-->\n"
 
 
 def poser(dossier, toutes):

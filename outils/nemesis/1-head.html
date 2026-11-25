@@ -9,7 +9,7 @@
 <style>
 /* Plan : barre d'onglets collante, sommaire à gauche avec progression, colonne de lecture à droite.
    Couleurs : complexe sombre, vert acide (Intrus), orange d'alerte. Sections A, B, C en vert, violet, rouge comme sur l'aide de jeu. */
-:root{
+:root{--app-accent:var(--accent);--app-accent-ink:var(--accent-ink);--app-piste:var(--sunk);--app-onglet:var(--muted);
   --bg:#eef0ec; --surface:#fbfcfa; --sunk:#e1e5df; --ink:#1b211d; --muted:#5b665e; --line:#c9d1c8;
   --accent:#4b7711; --accent-ink:#ffffff; --terra:#b4491c; --terra-soft:#f7e3d8;
   --ok:#2c7a3f; --ok-soft:#e1f1e3; --bad:#b3372f; --bad-soft:#f8e1dd;
@@ -53,11 +53,9 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);vertical-
 .apphead .in{max-width:var(--site-w,1080px);margin:0 auto;padding:10px var(--site-pad,20px);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .apphead .title{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.1;margin:0;display:flex;align-items:baseline;gap:8px}
 .apphead .title small{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra)}
-.tabs{display:flex;gap:4px;background:var(--sunk);padding:4px;border-radius:999px;margin-left:auto}
-.tabs button{border:0;background:transparent;border-radius:999px;padding:6px 14px;font-weight:600;font-size:15px;color:var(--muted)}
-.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+.apphead .lrmp-onglets{margin-left:auto;width:auto}
 .themebtn{border-radius:999px;width:36px;height:36px;padding:0;display:grid;place-items:center}
-@media (max-width:640px){.apphead .title{font-size:18px}.apphead .title small{display:none}.apphead .in{gap:8px;padding-top:8px;padding-bottom:8px}.themebtn{margin-left:auto;width:32px;height:32px}.tabs{order:3;margin-left:0;width:100%;justify-content:space-between}.tabs button{padding:6px 10px;font-size:14px}}
+@media (max-width:640px){.apphead .title{font-size:18px}.apphead .title small{display:none}.apphead .in{gap:8px;padding-top:8px;padding-bottom:8px}.themebtn{margin-left:auto;width:32px;height:32px}.apphead .lrmp-onglets{order:3;margin-left:0;width:100%}}
 
 .tab{display:none}.tab.on{display:block}
 
@@ -204,7 +202,7 @@ h1{font-weight:700;text-transform:uppercase}
 <body>
 <header class="apphead"><div class="in">
   <p class="title">Nemesis: Retaliation</p>
-  <div class="tabs" role="tablist" aria-label="Sections">
+  <div class="lrmp-onglets" role="tablist" aria-label="Sections">
     <button type="button" role="tab" data-tab="learn" aria-selected="true">Apprendre</button>
     <button type="button" role="tab" data-tab="aide" aria-selected="false">Aide-mémoire</button>
     <button type="button" role="tab" data-tab="salles" aria-selected="false">Salles</button>
