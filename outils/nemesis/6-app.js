@@ -81,6 +81,6 @@ const h=location.hash.slice(1);show(CH.some(c=>c.id===h)?h:ST.cur,false);
 if(!CH.some(c=>c.id===h))tab(LS.get('nemr-tab','learn'));
 })();
 </script>
-<footer class="page small muted" style="padding-top:0">Aide de jeu de fan, gratuite et non officielle, sans lien avec Awaken Realms ni ses éditeurs partenaires. Nemesis: Retaliation © Awaken Realms. Règles résumées d'après le livret de règles français et l'aide de jeu Salles.</footer>
+<footer class="page small muted" style="padding-top:0">Aide de jeu de fan, gratuite et non officielle, sans lien avec Awaken Realms ni ses éditeurs partenaires. Nemesis: Retaliation © Awaken Realms. Règles résumées d'après le livret de règles français et l'aide de jeu Salles. Merci à <a href="https://boardgamegeek.com/profile/Bernaar" rel="noopener">Bernaar</a> pour <a href="https://boardgamegeek.com/thread/3718303/article/48230420#48230420" rel="noopener">son recensement des questions de règles</a> sur BoardGameGeek.</footer>
 </body>
 </html>

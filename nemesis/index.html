@@ -91,8 +91,6 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);vertical-
 .learn{max-width:var(--site-w,1080px);margin:0 auto;padding:0 var(--site-pad,20px);display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(16px,3vw,40px)}
 nav.toc{position:sticky;top:calc(var(--sitehead-h,0px) + 64px);align-self:start;max-height:calc(100vh - var(--sitehead-h,0px) - 76px);overflow:auto;padding:22px 4px 20px 0}
 .toc .brand{font-family:var(--display);font-size:19px;font-weight:600;margin:0 6px 2px}
-.toc .merci{font-size:12px;line-height:1.45;color:var(--muted);margin:0 6px 12px}
-.toc .merci a{display:inline;padding:0;margin:0;border:0;background:none;color:inherit;text-decoration:underline;font-size:inherit;min-height:0}
 .toc .brand small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
 .bar{height:6px;background:var(--sunk);border-radius:3px;margin:12px 6px 4px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--terra);width:0;transition:width .3s}
@@ -273,7 +271,6 @@ h1{font-weight:700;text-transform:uppercase}
 <div class="tab on" id="tab-learn"><div class="learn">
   <nav class="toc" id="toc" aria-label="Sommaire du tutoriel">
     <p class="brand">Apprendre les règles<small>D'après le livret de règles français</small></p>
-    <p class="merci">Avec les précisions de la FAQ officielle (v1.2). Merci à <a href="https://boardgamegeek.com/profile/Bernaar" rel="noopener">Bernaar</a> pour <a href="https://boardgamegeek.com/thread/3718303/article/48230420#48230420" rel="noopener">son recensement des questions de règles</a> sur BoardGameGeek.</p>
     <div class="bar"><i id="bar"></i></div>
     <p class="barlabel" id="barlabel"></p>
     <button type="button" class="tocbtn" id="tocbtn" aria-expanded="false">Afficher le sommaire</button>
@@ -977,7 +974,7 @@ const h=location.hash.slice(1);show(CH.some(c=>c.id===h)?h:ST.cur,false);
 if(!CH.some(c=>c.id===h))tab(LS.get('nemr-tab','learn'));
 })();
 </script>
-<footer class="page small muted" style="padding-top:0">Aide de jeu de fan, gratuite et non officielle, sans lien avec Awaken Realms ni ses éditeurs partenaires. Nemesis: Retaliation © Awaken Realms. Règles résumées d'après le livret de règles français et l'aide de jeu Salles.</footer>
+<footer class="page small muted" style="padding-top:0">Aide de jeu de fan, gratuite et non officielle, sans lien avec Awaken Realms ni ses éditeurs partenaires. Nemesis: Retaliation © Awaken Realms. Règles résumées d'après le livret de règles français et l'aide de jeu Salles. Merci à <a href="https://boardgamegeek.com/profile/Bernaar" rel="noopener">Bernaar</a> pour <a href="https://boardgamegeek.com/thread/3718303/article/48230420#48230420" rel="noopener">son recensement des questions de règles</a> sur BoardGameGeek.</footer>
 <footer class="lrmp-pied">
 <a href="../">← Toutes les aides de jeu</a>
 <a href="../?app=Nemesis%3A%20Retaliation#avis">💌 Signaler un problème</a>

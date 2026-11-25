@@ -22,8 +22,6 @@ HEAD = [
     ('aria-label="Changer de thème (clair / sombre)"', 'aria-label="Change theme (light / dark)"'),
     ('aria-label="Sommaire du tutoriel"', 'aria-label="Tutorial contents"'),
     ("<p class=\"brand\">Apprendre les règles<small>D'après le livret de règles français</small></p>", '<p class="brand">Learn the rules<small>Based on the English rulebook</small></p>'),
-    ('<p class="merci">Avec les précisions de la FAQ officielle (v1.2). Merci à <a href="https://boardgamegeek.com/profile/Bernaar" rel="noopener">Bernaar</a> pour <a href="https://boardgamegeek.com/thread/3718303/article/48230420#48230420" rel="noopener">son recensement des questions de règles</a> sur BoardGameGeek.</p>',
-     '<p class="merci">Includes the official FAQ clarifications (v1.2). Thanks to <a href="https://boardgamegeek.com/profile/Bernaar" rel="noopener">Bernaar</a> for <a href="https://boardgamegeek.com/thread/3718303/article/48230420#48230420" rel="noopener">their round-up of rules questions</a> on BoardGameGeek.</p>'),
     ('aria-expanded="false">Afficher le sommaire</button>', 'aria-expanded="false">Show contents</button>'),
 ]
 DATA = [
@@ -58,8 +56,8 @@ APP = [
     ("'<p class=\"muted\">Aucune salle trouvée.</p>'", "'<p class=\"muted\">No Room found.</p>'"),
     ("$('#theme').title='Thème : '+{auto:'automatique',dark:'sombre',light:'clair'}[th]", "$('#theme').title='Theme: '+{auto:'automatic',dark:'dark',light:'light'}[th]"),
     ("LS.get('nemr-tuto',", "LS.get('en:nemr-tuto',"), ("LS.set('nemr-tuto',", "LS.set('en:nemr-tuto',"),
-    ("<footer class=\"page small muted\" style=\"padding-top:0\">Aide de jeu de fan, gratuite et non officielle, sans lien avec Awaken Realms ni ses éditeurs partenaires. Nemesis: Retaliation © Awaken Realms. Règles résumées d'après le livret de règles français et l'aide de jeu Salles.</footer>",
-     "<footer class=\"page small muted\" style=\"padding-top:0\">Free, unofficial fan-made game aid, not affiliated with Awaken Realms or its partner publishers. Nemesis: Retaliation © Awaken Realms. Rules summarised from the English rulebook and the Rooms help sheet.</footer>"),
+    ("<footer class=\"page small muted\" style=\"padding-top:0\">Aide de jeu de fan, gratuite et non officielle, sans lien avec Awaken Realms ni ses éditeurs partenaires. Nemesis: Retaliation © Awaken Realms. Règles résumées d'après le livret de règles français et l'aide de jeu Salles. Merci à <a href=\"https://boardgamegeek.com/profile/Bernaar\" rel=\"noopener\">Bernaar</a> pour <a href=\"https://boardgamegeek.com/thread/3718303/article/48230420#48230420\" rel=\"noopener\">son recensement des questions de règles</a> sur BoardGameGeek.</footer>",
+     "<footer class=\"page small muted\" style=\"padding-top:0\">Free, unofficial fan-made game aid, not affiliated with Awaken Realms or its partner publishers. Nemesis: Retaliation © Awaken Realms. Rules summarised from the English rulebook and the Rooms help sheet. Thanks to <a href=\"https://boardgamegeek.com/profile/Bernaar\" rel=\"noopener\">Bernaar</a> for <a href=\"https://boardgamegeek.com/thread/3718303/article/48230420#48230420\" rel=\"noopener\">their round-up of rules questions</a> on BoardGameGeek.</footer>"),
 ]
 
 
