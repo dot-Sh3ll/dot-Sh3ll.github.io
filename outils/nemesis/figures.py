@@ -233,7 +233,7 @@ FR.update({
         'alt': "Santé et armure : le cube est sur la dernière case de la section Affaibli, avec une armure sur État critique. Après la perte de 2 points, l'armure est détruite à la place du premier point et le cube passe sur la première case d'État critique."}),
   'cap': "Exemple : vous perdez 2 points de santé. Le cube entre en État critique : l'armure est détruite au lieu du 1er point, puis le cube avance d'une case pour le 2e."},
  'reine': {
-  'svg': fig_reine({'piste': 'Piste des touches portées à la Reine', 'bout': 'crâne', 'rafale': 'Rafale : 3 touches', 'ignore': '1 suffit, 2 ignorées',
+  'svg': fig_reine({'piste': 'Piste des touches portées à la Reine (le cube part de 0)', 'bout': '5 · crâne', 'rafale': 'Rafale : 3 touches', 'ignore': '1 suffit, 2 ignorées',
         'etapes': [('Carte Santé', 'révélez la 1re carte'), ('Défaussez', 'autant que son numéro'), ('Effet, cube à 0', 'puis défaussez-la')],
         'note': 'Plus de carte Santé : la Reine meurt.',
         'alt': "La Reine : le cube de sa piste des touches est sur l'avant-dernière case. Une rafale de 3 touches l'amène sur le crâne : les 2 autres touches sont ignorées. On révèle une carte Santé, on défausse autant de cartes que son numéro, on applique l'effet et le cube revient à 0."}),
@@ -252,7 +252,7 @@ EN.update({
         'alt': 'Health and Armor: the marker is on the last Injured space, with Armor on Heavily Injured. After losing 2 Health, the Armor is destroyed instead of the first point and the marker moves to the first Heavily Injured space.'}),
   'cap': 'Example: you lose 2 Health. The marker enters Heavily Injured: the Armor is destroyed instead of the 1st point, then the marker moves one space for the 2nd.'},
  'reine': {
-  'svg': fig_reine({'piste': "Queen's Hit track", 'bout': 'skull', 'rafale': 'Burst: 3 Hits', 'ignore': '1 is enough, 2 ignored',
+  'svg': fig_reine({'piste': "Queen's Hit track (the marker starts on 0)", 'bout': '5 · skull', 'rafale': 'Burst: 3 Hits', 'ignore': '1 is enough, 2 ignored',
         'etapes': [('Health card', 'reveal the top card'), ('Discard', 'as many as its number'), ('Effect, marker to 0', 'then discard it')],
         'note': 'No Health card left: the Queen dies.',
         'alt': "The Queen: the marker on her Hit track is on the second-to-last space. A 3-Hit Burst brings it to the skull: the other 2 Hits are ignored. Reveal a Health card, discard as many cards as its number, apply the effect and reset the marker to 0."}),
