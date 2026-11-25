@@ -13,3 +13,4 @@ python3 outils/site/chrome.py en nemesis/en.html
 python3 outils/site/pwa.py ../ nemesis/index.html
 python3 outils/site/pwa.py ../ nemesis/en.html
 if grep -q '"Nemesis: Retaliation"' index.html; then python3 outils/site/pied.py nemesis "Nemesis: Retaliation"; fi
+python3 outils/site/fiches.py nemesis

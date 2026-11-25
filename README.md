@@ -31,6 +31,7 @@ Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, c
 1. Déposer le PDF dans `fiches/` (nom sans espaces ni accents, ex. `imperium-aide-memoire.pdf`), et sa version anglaise s'il y en a une.
 2. Décrire la fiche dans un JSON (modèle : `outils/site/accueil/exemples/exemple-fiche.json`), puis `python3 outils/site/accueil.py fiche fiche.json`.
 3. `python3 outils/site/seo.py` : la fiche entre dans le sitemap et reçoit ses métadonnées PDF (titre, auteur).
+4. `python3 outils/site/fiches.py` : la fiche apparaît dans l'appli du jeu (encart « À imprimer » de l'aide-mémoire, rappel en fin de tutoriel).
 
 ## Langues
 

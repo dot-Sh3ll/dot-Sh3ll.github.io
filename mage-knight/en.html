@@ -413,18 +413,6 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 .app-comp footer{color:var(--muted);font-size:.84rem;padding:0 4px}
 @media (prefers-reduced-motion:reduce){.app-comp button{transition:none}}
 </style>
-<!--pwa-->
-<link rel="manifest" href="../manifest.webmanifest">
-<link rel="icon" href="../icons/favicon-32.png" type="image/png">
-<meta name="theme-color" content="#0d0f16">
-<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Less Rules">
-<script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
-<script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<!--/pwa-->
 <style id="sitehead-css">
 @font-face{font-family:"SH Marcellus";font-display:swap;src:local("Marcellus"),local("Marcellus-Regular")}
 .sitehead{position:sticky;top:0;z-index:9;background:#0d0f16;border-bottom:1px solid #2a3144;color:#efe8d8;font:500 15px/1.2 "Figtree","Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
@@ -456,6 +444,18 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 .topbar{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
 @media (max-width:480px){.topbar{justify-content:space-between!important;text-align:left!important}}
 </style>
+<!--pwa-->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/favicon-32.png" type="image/png">
+<meta name="theme-color" content="#0d0f16">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Less Rules">
+<script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
+<script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<!--/pwa-->
 </head>
 <body>
 <header class="sitehead">
@@ -474,10 +474,9 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 
 
 
-
 <header class="topbar">
   <p class="brand">Mage Knight<small>Interactive tutorial and game companion</small></p>
-  <nav class="modes" aria-label="Sections"><a href="#apprendre" data-mode="apprendre">Learn</a><a href="#jouer" data-mode="jouer">Play</a></nav>
+  <nav class="modes" aria-label="Sections"><a href="#apprendre" data-mode="apprendre">Learn</a><a href="#jouer" data-mode="jouer">Play</a><a href="#aide" data-mode="aide">Reference</a></nav>
 </header>
 <div class="app app-tuto" id="app-tuto">
 <div class="wrap">
@@ -513,7 +512,21 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
   </div>
   </div>
 
-  <h2>Reference</h2>
+  <footer>Unofficial tutorial for learning the Mage Knight board game, based on its rulebook. Texts and drawings created for this page.</footer>
+</div>
+
+<div class="modal" id="modal" hidden><div class="box" role="dialog" aria-modal="true"><h2 id="mtitle"></h2><p id="mbody"></p><div class="opts" id="mopts"></div></div></div>
+
+</div>
+
+<div class="app app-tuto app-aide" id="app-aide" hidden>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Reference</h1>
+      <p>The essential rules on one page, to keep open while you play.</p>
+    </div>
+  </header>
   <section class="ref">
     <div class="panel"><h3>Your turn</h3>
       <ol><li>Move (optional), as many spaces as your Move points allow.</li>
@@ -562,11 +575,7 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
       <li>In the combat cases, cards marked "example" are invented for the exercise. The others are the Basic Action cards.</li>
       <li>The free game remains simplified: a single enemy per combat, no Spells, Artifacts, Skills or Tactics.</li></ul></div>
   </section>
-  <footer>Unofficial tutorial for learning the Mage Knight board game, based on its rulebook. Texts and drawings created for this page.</footer>
 </div>
-
-<div class="modal" id="modal" hidden><div class="box" role="dialog" aria-modal="true"><h2 id="mtitle"></h2><p id="mbody"></p><div class="opts" id="mopts"></div></div></div>
-
 </div>
 <div class="app app-comp" id="app-comp">
 <div class="wrap">
@@ -1356,7 +1365,7 @@ NEWT.push(
  `Heroes (the Unit): recruiting them doubles your Reputation bonus or penalty for the interaction. During an assault on a fortified site, their abilities cost 2 Influence; they can still absorb damage.`,
  `You can't recruit Thugs and Heroes in the same interaction.`,
  `Delphana Masters: recruitable only by interaction. Once activated, they can use several of their abilities, each once, by paying their mana.`,
- `Magic Familiars: also recruitable at a Magical Glade, as an action and with no Reputation effect. You must pay a basic mana, then a Crystal at the start of each following Round, otherwise they leave the game.`,
+ `Familiers magiques : recrutables aussi dans une Clairière Magique, comme action et sans effet de Réputation. Il faut payer un mana fondamental, puis un Cristal au début de chaque Manche suivante, sinon ils quittent la partie.`,
  `Banner of Command: attached to a Unit, it replaces its Command token, so you control one more Unit. If the Unit loses the Banner, it leaves the game.`,
  `New Heroes: Wolfhawk (The Lost Legion), Krang and Braevalar (Shades of Tezla) play like the others. Some of Krang's Skills have a Reactivation effect: once per turn, a flipped tile can turn face up again under the condition shown on it, then be used again.`],
  quiz:[{q:`Your Reputation gives a penalty of 2. You recruit Thugs. What happens to this penalty?`,o:[`It stays at 2`,`It becomes a bonus of 2`,`It is doubled`],a:1,why:`Thugs reverse the Reputation effect for the whole interaction.`},
@@ -1404,7 +1413,7 @@ const PARTS=[['The basics',['Goal of the game','The cards','Mana','The turn','Mo
  ['Expansions',['Legion: sites','Legion: enemies','Legion: Units','Volkare','Tezla: Factions','Tezla: Leaders']],
  ['Appendix',['Glossary']]];
 const COURSE=[];PARTS.forEach(([p,l])=>l.forEach(n=>{const t=TP(n);t.part=p;COURSE.push(t)}));
-TP('Move').rules.unshift(`Entering a space costs Move points depending on its terrain; the table is in the reference at the bottom of the page. Unspent points are lost at the end of the turn.`);
+TP('Move').rules.unshift(`Entering a space costs Move points depending on its terrain; the table is in the Reference tab. Unspent points are lost at the end of the turn.`);
 
 /* --- Cas pratiques : cartes d'exemple pour l'arène --- */
 const AC={
@@ -2460,8 +2469,8 @@ S=load()||blank();render();
 
 })();</script>
 <script>
-(()=>{const modes=['apprendre','jouer'];
- function show(m){if(!modes.includes(m))m='jouer';document.getElementById('app-tuto').hidden=m!=='apprendre';document.getElementById('app-comp').hidden=m!=='jouer';
+(()=>{const modes=['apprendre','jouer','aide'];
+ function show(m){if(!modes.includes(m))m='jouer';document.getElementById('app-tuto').hidden=m!=='apprendre';document.getElementById('app-comp').hidden=m!=='jouer';document.getElementById('app-aide').hidden=m!=='aide';
   document.querySelectorAll('.modes a').forEach(a=>a.toggleAttribute('aria-current',a.dataset.mode===m)&&a.setAttribute('aria-current','page'));
   try{localStorage.setItem('mk-mode',m)}catch(e){}}
  let start=location.hash.slice(1);if(!modes.includes(start)){try{start=localStorage.getItem('mk-mode')||'jouer'}catch(e){start='jouer'}}
@@ -2476,5 +2485,33 @@ S=load()||blank();render();
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" style="color:inherit;font-weight:600">☕ Enjoyed this tool? Buy me a coffee</a>
 <span style="width:100%;font-size:12px;opacity:.8">Unofficial, free fan-made tool, not affiliated with the game's publisher.</span>
 </footer>
+<!--fiches-->
+<style>
+.lrmp-fiches{margin:16px 0 22px;padding:14px 16px;border:1px solid var(--line,rgba(127,127,127,.35));border-left:4px solid var(--accent,var(--gold,currentColor));border-radius:10px;background:color-mix(in srgb,var(--accent,var(--gold,#888)) 7%,transparent)}
+.lrmp-fiches .k{margin:0;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--gold,inherit))}
+.lrmp-fiches .t{margin:3px 0 10px;font-weight:600}
+.lrmp-fiches ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.lrmp-fiches li{display:flex;gap:10px;align-items:center;margin:0}
+.lrmp-fiches .i{font-size:20px;line-height:1;flex:none;width:26px;text-align:center}
+.lrmp-fiches .n{flex:1;min-width:0;line-height:1.3}
+.lrmp-fiches .n small{display:block;opacity:.72;font-size:.85em}
+.lrmp-fiches a.d{flex:none;font-weight:700;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid var(--accent,var(--gold,currentColor));color:inherit;white-space:nowrap}
+.lrmp-fiches a.d:hover,.lrmp-fiches a.d:focus-visible{background:color-mix(in srgb,var(--accent,var(--gold,#888)) 18%,transparent)}
+@media print{.lrmp-fiches{display:none}}
+</style>
+<script>
+(function(){var F=[{"i": "🗺️", "t": "Game aid", "d": "Summaries of the turn, movement, combat, sites and enemy abilities. 8 pages.", "u": "../fiches/mage-knight-game-aid.pdf", "x": ""}, {"i": "📜", "t": "Homemade quest module", "d": "Module rules, reward table, and Day and Night quests across three tiers: villages, monasteries, cities. 8 pages.", "u": "../fiches/mage-knight-quest-module.pdf", "x": ""}, {"i": "🗺️", "t": "Quest module scenarios", "d": "Six homemade scenarios to play with the quests: three solo, three two-player co-op, with setup, rules and game end. 4 pages.", "u": "../fiches/mage-knight-quest-scenarios.pdf", "x": ""}],C={"aide": "#app-aide header.top", "fin": ["#c-bot button.primary[data-chap=\"free\"]", ".row"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
+function box(kind){var a=document.createElement('aside');a.className='lrmp-fiches';a.dataset.kind=kind;
+ a.innerHTML='<p class="k">'+(kind==='fin'?T.fin_t:T.k)+'</p><p class="t">'+(kind==='fin'?T.fin:T.aide)+'</p><ul>'+F.map(function(f){
+  return '<li><span class="i" aria-hidden="true">'+f.i+'</span><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}
+function place(){var e=C.aide&&document.querySelector(C.aide);
+ if(e&&!(e.nextElementSibling&&e.nextElementSibling.dataset&&e.nextElementSibling.dataset.kind==='aide'))e.insertAdjacentElement('afterend',box('aide'));
+ var b=C.fin&&document.querySelector(C.fin[0]),c=b&&b.closest(C.fin[1]);
+ if(c&&!(c.previousElementSibling&&c.previousElementSibling.dataset&&c.previousElementSibling.dataset.kind==='fin'))c.insertAdjacentElement('beforebegin',box('fin'))}
+var busy=false;function run(){if(busy)return;busy=true;try{place()}finally{busy=false}}
+run();new MutationObserver(function(){requestAnimationFrame(run)}).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+<!--/fiches-->
 </body>
 </html>

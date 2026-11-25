@@ -12,3 +12,4 @@ python3 outils/site/chrome.py en puerto-rico/en.html
 python3 outils/site/pwa.py ../ puerto-rico/index.html
 python3 outils/site/pwa.py ../ puerto-rico/en.html
 python3 outils/site/pied.py puerto-rico "Puerto Rico"
+python3 outils/site/fiches.py puerto-rico
