@@ -91,6 +91,7 @@ input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);vertical-
 .learn{max-width:var(--site-w,1080px);margin:0 auto;padding:0 var(--site-pad,20px);display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(16px,3vw,40px)}
 nav.toc{position:sticky;top:calc(var(--sitehead-h,0px) + 64px);align-self:start;max-height:calc(100vh - var(--sitehead-h,0px) - 76px);overflow:auto;padding:22px 4px 20px 0}
 .toc .brand{font-family:var(--display);font-size:19px;font-weight:600;margin:0 6px 2px}
+.toc .merci{font-size:12px;line-height:1.45;color:var(--muted);margin:0 6px 12px}
 .toc .brand small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
 .bar{height:6px;background:var(--sunk);border-radius:3px;margin:12px 6px 4px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--terra);width:0;transition:width .3s}
@@ -271,6 +272,7 @@ h1{font-weight:700;text-transform:uppercase}
 <div class="tab on" id="tab-learn"><div class="learn">
   <nav class="toc" id="toc" aria-label="Sommaire du tutoriel">
     <p class="brand">Apprendre les règles<small>D'après le livret de règles français</small></p>
+    <p class="merci">Avec les précisions de la FAQ officielle (v1.2).</p>
     <div class="bar"><i id="bar"></i></div>
     <p class="barlabel" id="barlabel"></p>
     <button type="button" class="tocbtn" id="tocbtn" aria-expanded="false">Afficher le sommaire</button>

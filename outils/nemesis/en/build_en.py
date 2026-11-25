@@ -22,6 +22,7 @@ HEAD = [
     ('aria-label="Changer de thème (clair / sombre)"', 'aria-label="Change theme (light / dark)"'),
     ('aria-label="Sommaire du tutoriel"', 'aria-label="Tutorial contents"'),
     ("<p class=\"brand\">Apprendre les règles<small>D'après le livret de règles français</small></p>", '<p class="brand">Learn the rules<small>Based on the English rulebook</small></p>'),
+    ('<p class="merci">Avec les précisions de la FAQ officielle (v1.2).</p>', '<p class="merci">Includes the official FAQ clarifications (v1.2).</p>'),
     ('aria-expanded="false">Afficher le sommaire</button>', 'aria-expanded="false">Show contents</button>'),
 ]
 DATA = [
