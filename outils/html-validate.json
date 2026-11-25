@@ -1,0 +1,12 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "no-inline-style": "off",
+    "unique-landmark": "off",
+    "long-title": "off",
+    "no-redundant-for": "off",
+    "element-permitted-content": "warn",
+    "wcag/h63": "warn",
+    "empty-heading": "warn"
+  }
+}

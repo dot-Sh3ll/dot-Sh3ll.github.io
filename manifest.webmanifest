@@ -1,7 +1,7 @@
 {
   "name": "Less Rules, More Play",
   "short_name": "Less Rules",
-  "description": "Tutoriels interactifs, compagnons solo et fiches pour Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 et Nemesis: Retaliation.",
+  "description": "Tutoriels interactifs, compagnons solo et fiches pour Mage Knight, Imperium Antique, Aeon's End, Puerto Rico 1897 et Nemesis: Retaliation.",
   "lang": "fr",
   "start_url": "./",
   "scope": "./",
@@ -9,15 +9,73 @@
   "background_color": "#0d0f16",
   "theme_color": "#0d0f16",
   "icons": [
-    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"},
-    {"src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "shortcuts": [
-    {"name": "Mage Knight", "url": "mage-knight/", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
-    {"name": "Imperium Antique", "url": "imperium/", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
-    {"name": "Aeon's End", "url": "aeons-end/", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
-    {"name": "Puerto Rico 1897", "url": "puerto-rico/", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
-    {"name": "Nemesis: Retaliation", "url": "nemesis/", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
+    {
+      "name": "Mage Knight",
+      "url": "mage-knight/",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Imperium Antique",
+      "url": "imperium/",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Aeon's End",
+      "url": "aeons-end/",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Puerto Rico 1897",
+      "url": "puerto-rico/",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Nemesis: Retaliation",
+      "url": "nemesis/",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
   ]
 }

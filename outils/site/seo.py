@@ -13,7 +13,7 @@ Puis :
   - sitemap.xml refait (pages, variantes de langue de l'accueil, PDF des fiches, dates tirées de git) ;
   - métadonnées des PDF de fiches/ (titre, auteur, sujet, mots-clés), tirées des cartes de l'accueil.
 
-À relancer après : un nouveau jeu ou une nouvelle langue (compléter PAGES), gen_lang.py (la page allemande
+À relancer après : un nouveau jeu ou une nouvelle langue (compléter outils/site/jeux.json), gen_lang.py (la page allemande
 d'Aeon's End est copiée de la page anglaise, balises comprises), une nouvelle fiche (accueil.py fiche).
 """
 import datetime, html, json, os, re, subprocess, sys
@@ -36,46 +36,10 @@ ACCUEIL = {
            "Interaktive Regel-Tutorials, Solo-Begleiter und Spielhilfen zum Ausdrucken für Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 und Nemesis: Retaliation."),
 }
 
-# dossier de l'appli : jeu (nom du jeu par langue), puis titre et description par langue de page
-PAGES = {
-    "mage-knight": {
-        "jeu": {"fr": "Mage Knight", "en": "Mage Knight"},
-        "fr": ("Mage Knight : tutoriel des règles et compagnon de partie",
-               "Apprenez Mage Knight pas à pas avec un tutoriel interactif, puis jouez avec le compagnon : joueur Fantôme, scénarios solo et coop à deux. Gratuit."),
-        "en": ("Mage Knight rules tutorial and free game companion",
-               "Learn Mage Knight step by step with an interactive rules tutorial, then play with the game companion: Dummy player, solo and two-player co-op scenarios. Free."),
-    },
-    "imperium": {
-        "jeu": {"fr": "Imperium Antique", "en": "Imperium: Classics"},
-        "fr": ("Imperium Antique : tutoriel des règles et solo contre la C.I.V.",
-               "Apprenez Imperium Antique en six étapes interactives, jouez en solo contre la C.I.V. sans gérer l'automate, et gardez l'aide-mémoire. Gratuit."),
-        "en": ("Imperium: Classics rules tutorial and solo vs the C.I.V.",
-               "Learn Imperium: Classics in six interactive steps, play solo against the C.I.V. without running the bot yourself, and keep the quick reference at hand. Free."),
-    },
-    "aeons-end": {
-        "jeu": {"fr": "Aeon's End", "en": "Aeon's End", "de": "Aeon's End"},
-        "fr": ("Aeon's End : générateur de marché et journal des parties",
-               "Générez le marché d'Aeon's End en un clic : mises en place officielles, piles au choix, journal des parties et expéditions. Gratuit."),
-        "en": ("Aeon's End market randomizer, official setups and game log",
-               "Generate your Aeon's End market in one tap: official setups, pick-your-own piles, a game log and expeditions. Free, on desktop and mobile."),
-        "de": ("Aeon's End: Marktgenerator und Spieljournal",
-               "Erstellen Sie den Markt für Aeon's End mit einem Klick: offizielle Aufbauten, frei wählbare Stapel, Spieljournal und Expeditionen. Kostenlos, auch mobil."),
-    },
-    "puerto-rico": {
-        "jeu": {"fr": "Puerto Rico 1897", "en": "Puerto Rico 1897"},
-        "fr": ("Puerto Rico 1897 : règles pas à pas, aide-mémoire et score",
-               "Apprenez Puerto Rico 1897 règle par règle avec des ateliers et des quiz, puis gardez l'aide-mémoire des bâtiments et le calcul du score. Gratuit."),
-        "en": ("Puerto Rico 1897 rules tutorial, reference and scoring",
-               "Learn Puerto Rico 1897 one rule at a time with interactive labs and quizzes, then keep the building reference and the score calculator at hand. Free."),
-    },
-    "nemesis": {
-        "jeu": {"fr": "Nemesis: Retaliation", "en": "Nemesis: Retaliation"},
-        "fr": ("Nemesis: Retaliation : règles pas à pas, aide-mémoire, salles",
-               "Apprenez Nemesis: Retaliation règle par règle avec des ateliers interactifs et des quiz, puis gardez l'aide-mémoire et toutes les salles. Gratuit."),
-        "en": ("Nemesis: Retaliation rules tutorial, reference and rooms",
-               "Learn Nemesis: Retaliation one rule at a time with interactive labs and quizzes, then keep the reference sheet and every Room at hand. Free."),
-    },
-}
+# applis : outils/site/jeux.json (dossier -> nom du jeu par langue, titre et description par langue de page)
+JEUX = {k: v for k, v in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "jeux.json"), encoding="utf-8")).items()
+        if not k.startswith("_") and k != "accueil"}
+PAGES = {d: {"jeu": j["jeu"], **{c: tuple(t) for c, t in j["seo"].items()}} for d, j in JEUX.items()}
 FIL = {"fr": "Aides de jeu", "en": "Game aids", "de": "Spielhilfen"}
 
 
@@ -276,6 +240,8 @@ def main():
     x.append("</urlset>")
     open("sitemap.xml", "w", encoding="utf-8").write("\n".join(x) + "\n")
     print("ok sitemap.xml ·", sum(1 for l in x if l.startswith("  <url>")), "adresses")
+    import sw  # service worker (liste et version du cache) et manifest
+    sw.main()
 
 
 if __name__ == "__main__":

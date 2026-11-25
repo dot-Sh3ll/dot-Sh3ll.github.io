@@ -3,21 +3,16 @@
 
 Usage : python3 outils/site/og_images.py   (depuis la racine du dépôt)
 Polices : celles de outils/imperium-fiches/node_modules (npm install @fontsource/marcellus @fontsource/source-sans-3).
-Ajouter une appli : une ligne dans IMAGES (même nom que le dossier de l'appli), puis relancer seo.py.
+Ajouter une appli : son entrée « og » dans outils/site/jeux.json, puis relancer ce script et seo.py.
 """
 import pathlib
 from playwright.sync_api import sync_playwright
 
 RACINE = pathlib.Path(__file__).resolve().parents[2]
 FS = RACINE / 'outils/imperium-fiches/node_modules/@fontsource'
-IMAGES = {  # nom : (titre, sous-titre FR, sous-titre EN)
-    'accueil': ('Less Rules, More Play', 'Aides de jeu gratuites pour jeux de société experts', 'Free game aids for heavy board games'),
-    'mage-knight': ('Mage Knight', 'Tutoriel des règles et compagnon de partie', 'Rules tutorial and game companion'),
-    'imperium': ('Imperium', 'Tutoriel, solo contre la C.I.V., fiches', 'Tutorial, solo against the C.I.V., printables'),
-    'aeons-end': ("Aeon's End", 'Générateur de marché, mises en place, journal', 'Market randomizer, setups, game log'),
-    'puerto-rico': ('Puerto Rico 1897', 'Les règles pas à pas, aide-mémoire, score', 'Rules step by step, reference, scoring'),
-    'nemesis': ('Nemesis: Retaliation', 'Les règles pas à pas, aide-mémoire, salles', 'Rules step by step, reference, rooms'),
-}
+import json
+_J = json.load(open(RACINE / 'outils/site/jeux.json', encoding='utf-8'))
+IMAGES = {k: tuple(v['og']) for k, v in _J.items() if not k.startswith('_')}  # nom : (titre, sous-titre FR, sous-titre EN), dans jeux.json
 POLICES = (f"@font-face{{font-family:Marcellus;src:url({(FS/'marcellus/files/marcellus-latin-400-normal.woff2').as_uri()})}}"
            f"@font-face{{font-family:S;font-weight:400;src:url({(FS/'source-sans-3/files/source-sans-3-latin-400-normal.woff2').as_uri()})}}"
            f"@font-face{{font-family:S;font-weight:600;src:url({(FS/'source-sans-3/files/source-sans-3-latin-600-normal.woff2').as_uri()})}}")

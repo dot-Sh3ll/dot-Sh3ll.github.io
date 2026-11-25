@@ -1,0 +1,135 @@
+{
+ "_aide": "Registre des applis : un jeu par dossier. Lu par seo.py (titres, descriptions, sitemap), og_images.py (image de partage), sw.py (cache hors ligne, raccourcis), verifier.py et traduire_etat.py. Ajouter un jeu : outils/nouvelle_appli.py le fait pour vous.",
+ "accueil": {
+  "og": [
+   "Less Rules, More Play",
+   "Aides de jeu gratuites pour jeux de société experts",
+   "Free game aids for heavy board games"
+  ]
+ },
+ "mage-knight": {
+  "code": "mk",
+  "formulaire": "Mage Knight",
+  "couleur": "#7db7ef",
+  "jeu": {
+   "fr": "Mage Knight",
+   "en": "Mage Knight"
+  },
+  "seo": {
+   "fr": [
+    "Mage Knight : tutoriel des règles et compagnon de partie",
+    "Apprenez Mage Knight pas à pas avec un tutoriel interactif, puis jouez avec le compagnon : joueur Fantôme, scénarios solo et coop à deux. Gratuit."
+   ],
+   "en": [
+    "Mage Knight rules tutorial and free game companion",
+    "Learn Mage Knight step by step with an interactive rules tutorial, then play with the game companion: Dummy player, solo and two-player co-op scenarios. Free."
+   ]
+  },
+  "og": [
+   "Mage Knight",
+   "Tutoriel des règles et compagnon de partie",
+   "Rules tutorial and game companion"
+  ]
+ },
+ "imperium": {
+  "code": "imp",
+  "formulaire": "Imperium",
+  "couleur": "#ec7f6d",
+  "jeu": {
+   "fr": "Imperium Antique",
+   "en": "Imperium: Classics"
+  },
+  "seo": {
+   "fr": [
+    "Imperium Antique : tutoriel des règles et solo contre la C.I.V.",
+    "Apprenez Imperium Antique en six étapes interactives, jouez en solo contre la C.I.V. sans gérer l'automate, et gardez l'aide-mémoire. Gratuit."
+   ],
+   "en": [
+    "Imperium: Classics rules tutorial and solo vs the C.I.V.",
+    "Learn Imperium: Classics in six interactive steps, play solo against the C.I.V. without running the bot yourself, and keep the quick reference at hand. Free."
+   ]
+  },
+  "og": [
+   "Imperium",
+   "Tutoriel, solo contre la C.I.V., fiches",
+   "Tutorial, solo against the C.I.V., printables"
+  ]
+ },
+ "aeons-end": {
+  "code": "ae",
+  "formulaire": "Aeon's End",
+  "couleur": "#c495f5",
+  "jeu": {
+   "fr": "Aeon's End",
+   "en": "Aeon's End",
+   "de": "Aeon's End"
+  },
+  "seo": {
+   "fr": [
+    "Aeon's End : générateur de marché et journal des parties",
+    "Générez le marché d'Aeon's End en un clic : mises en place officielles, piles au choix, journal des parties et expéditions. Gratuit."
+   ],
+   "en": [
+    "Aeon's End market randomizer, official setups and game log",
+    "Generate your Aeon's End market in one tap: official setups, pick-your-own piles, a game log and expeditions. Free, on desktop and mobile."
+   ],
+   "de": [
+    "Aeon's End: Marktgenerator und Spieljournal",
+    "Erstellen Sie den Markt für Aeon's End mit einem Klick: offizielle Aufbauten, frei wählbare Stapel, Spieljournal und Expeditionen. Kostenlos, auch mobil."
+   ]
+  },
+  "og": [
+   "Aeon's End",
+   "Générateur de marché, mises en place, journal",
+   "Market randomizer, setups, game log"
+  ]
+ },
+ "puerto-rico": {
+  "code": "pr",
+  "formulaire": "Puerto Rico",
+  "couleur": "#e2cc9f",
+  "jeu": {
+   "fr": "Puerto Rico 1897",
+   "en": "Puerto Rico 1897"
+  },
+  "seo": {
+   "fr": [
+    "Puerto Rico 1897 : règles pas à pas, aide-mémoire et score",
+    "Apprenez Puerto Rico 1897 règle par règle avec des ateliers et des quiz, puis gardez l'aide-mémoire des bâtiments et le calcul du score. Gratuit."
+   ],
+   "en": [
+    "Puerto Rico 1897 rules tutorial, reference and scoring",
+    "Learn Puerto Rico 1897 one rule at a time with interactive labs and quizzes, then keep the building reference and the score calculator at hand. Free."
+   ]
+  },
+  "og": [
+   "Puerto Rico 1897",
+   "Les règles pas à pas, aide-mémoire, score",
+   "Rules step by step, reference, scoring"
+  ]
+ },
+ "nemesis": {
+  "code": "nr",
+  "formulaire": "Nemesis: Retaliation",
+  "couleur": "#9bd33a",
+  "jeu": {
+   "fr": "Nemesis: Retaliation",
+   "en": "Nemesis: Retaliation"
+  },
+  "seo": {
+   "fr": [
+    "Nemesis: Retaliation : règles pas à pas, aide-mémoire, salles",
+    "Apprenez Nemesis: Retaliation règle par règle avec des ateliers interactifs et des quiz, puis gardez l'aide-mémoire et toutes les salles. Gratuit."
+   ],
+   "en": [
+    "Nemesis: Retaliation rules tutorial, reference and rooms",
+    "Learn Nemesis: Retaliation one rule at a time with interactive labs and quizzes, then keep the reference sheet and every Room at hand. Free."
+   ]
+  },
+  "og": [
+   "Nemesis: Retaliation",
+   "Les règles pas à pas, aide-mémoire, salles",
+   "Rules step by step, reference, rooms"
+  ]
+ }
+}
