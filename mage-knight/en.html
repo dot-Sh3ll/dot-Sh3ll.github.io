@@ -426,16 +426,6 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 <!--/pwa-->
 <script id="mk-mode-js">(function(){var M=["apprendre","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
 <style id="mk-mode-css">html[data-mode=jouer] #app-tuto,html[data-mode=jouer] #app-aide,html[data-mode=apprendre] #app-comp,html[data-mode=apprendre] #app-aide,html[data-mode=aide] #app-tuto,html[data-mode=aide] #app-comp{display:none}</style>
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=68cac781">
-<link rel="stylesheet" href="../commun/composants.css?v=609fd0d2">
-<!--/commun-->
-<style id="sitehead-css-mk">
-.app-tuto #side-nav{top:calc(8px + var(--sitehead-h))!important;max-height:calc(92vh - var(--sitehead-h))!important}
-.app-tuto .wrap,.app-comp .wrap{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
-.topbar{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
-@media (max-width:480px){.topbar{justify-content:space-between!important;text-align:left!important}}
-</style>
 <!--theme-->
 <style id="theme-css">
 /* Mage Knight : sombre par défaut ; palette claire en option (data-theme="light").
@@ -470,6 +460,17 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 </style>
 <script>try{if(localStorage.getItem("mk-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <!--/theme-->
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=68cac781">
+<link rel="stylesheet" href="../commun/composants.css?v=609fd0d2">
+<!--/commun-->
+<style id="sitehead-css-mk">
+.app-tuto #side-nav{top:calc(8px + var(--sitehead-h))!important;max-height:calc(92vh - var(--sitehead-h))!important}
+.app-tuto .wrap,.app-comp .wrap{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
+.topbar{max-width:none!important;margin:0 0 6px!important;padding:10px calc(max(0px,(100% - var(--site-w))/2) + var(--site-pad))!important;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent)}
+.topbar>.brand{font-size:21px;line-height:1.1}
+@media (max-width:480px){.topbar{justify-content:space-between!important;text-align:left!important}.topbar>.brand{font-size:18px}}
+</style>
 </head>
 <body>
 <header class="sitehead">
