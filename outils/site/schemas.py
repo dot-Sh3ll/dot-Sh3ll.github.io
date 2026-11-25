@@ -55,25 +55,16 @@ def mk_combat(t):
 
 # ------------------------------------------------------------------ Mage Knight : efficace + ½ inefficace
 def mk_demi(t):
-    u = 30  # pixels par point
-    x0, y = 150, 44
-    lim = x0 + 6 * u
-    c = T(20, 18, t["titre"], "s-t", "start")
-    lignes = [(t["glace"], 3, "s-ok"), (t["phys"], 3, "s-half"), (t["feu"], 2, "s-half")]
-    for i, (nom, v, cls) in enumerate(lignes):
-        yy = y + i * 34
-        c += T(140, yy + 12, nom, "s-s", "end") + f'<rect class="{cls}" x="{x0}" y="{yy}" width="{v*u}" height="24" rx="4"/>'
-        c += T(lim + 24, yy + 12, t["eff"] if cls == "s-ok" else t["ineff"], "s-s", "start")
-    yy = y + 3 * 34 + 14
-    c += T(140, yy + 12, t["total"], "s-t", "end")
-    c += f'<rect class="s-ok" x="{x0}" y="{yy}" width="{3*u}" height="24" rx="4"/>'
-    c += f'<rect class="s-half" x="{x0+3*u}" y="{yy}" width="{2*u}" height="24" rx="4"/>'
-    c += T(x0 + 1.5 * u, yy + 12, "3", "s-in") + T(x0 + 4 * u, yy + 12, "2", "s-t")
-    c += T(x0 + 4 * u, yy + 40, "(3 + 2) ÷ 2", "s-s")
-    c += f'<line class="s-limit" x1="{lim}" y1="{y-10}" x2="{lim}" y2="{yy+30}"/>' + T(lim, y - 20, t["attaque"], "s-s s-em")
-    c += T(lim + 24, yy + 12, t["rate"], "s-s s-em", "start")
-    c += T(340, yy + 70, t["note"])
-    return svg(yy + 88, c, t["alt"])
+    c = T(340, 16, t["titre"], "s-t")
+    c += T(140, 44, t["etape1"], "s-s s-em") + T(397, 44, t["etape2"], "s-s s-em") + T(585, 44, t["etape3"], "s-s s-em")
+    c += boite(20, 58, 240, t["eff"], t["effs"])
+    c += boite(20, 126, 240, t["ineff"], t["ineffs"], "s-phase")
+    c += fleche(261, 85, 318, 112) + fleche(261, 153, 318, 126)
+    c += boite(320, 92, 155, t["total"], t["totals"])
+    c += fleche(476, 119, 508, 119)
+    c += boite(510, 92, 150, t["res"], t["ress"], "s-warn")
+    c += T(340, 206, t["note"])
+    return svg(222, c, t["alt"])
 
 
 # ------------------------------------------------------------------ Imperium : deck vide, on mélange
@@ -149,9 +140,12 @@ FIGS = {
       "bas": "Rien ne se reporte d'une phase à l'autre : une attaque trop faible est perdue.",
       "alt": "Le combat en quatre phases : Distance et Siège, Parade, Dégâts, Attaque. Un ennemi vaincu en phase 1 ne riposte pas ; une Parade doit égaler l'Attaque ; les attaques non parées font des Dégâts ; en phase 4, toutes les Attaques comptent."}),
     "cap": "Le combat se joue une seule fois dans cet ordre, même face à plusieurs ennemis. La phase 3 est la seule obligatoire."},
-   {"anchor": "Feu, Glace et Résistances", "svg": mk_demi({"titre": "Parer une Attaque de Feu 6", "glace": "Parade Glace", "phys": "Parade physique", "feu": "Parade Feu",
-      "eff": "efficace : compte en entier", "ineff": "inefficace : compte moitié", "total": "Total", "attaque": "Attaque 6", "rate": "5 < 6 : ratée",
-      "note": "Additionnez d'abord tout l'inefficace, puis divisez par 2, arrondi à l'inférieur.",
+   {"anchor": "Feu, Glace et Résistances", "svg": mk_demi({"titre": "Parer une Attaque de Feu 6 avec 3 cartes de Parade",
+      "etape1": "1. Triez vos Parades", "etape2": "2. Additionnez", "etape3": "3. Comparez",
+      "eff": "Efficace : Glace 3", "effs": "compte en entier : 3",
+      "ineff": "Inefficaces : Physique 3, Feu 2", "ineffs": "(3 + 2) ÷ 2 = 2,5 → 2",
+      "total": "Parade totale", "totals": "3 + 2 = 5", "res": "5 < Attaque 6", "ress": "ratée : 6 Dégâts",
+      "note": "Contre le Feu, seules la Glace et le Feu Glacé sont efficaces ; tout le reste compte pour moitié.",
       "alt": "Contre une Attaque de Feu 6 : Parade Glace 3 efficace compte 3 ; Parade physique 3 et Parade Feu 2 sont inefficaces, (3 + 2) ÷ 2 = 2. Total 5, inférieur à 6 : la parade est ratée."}),
     "cap": "Exemple : 3 + (3 + 2) ÷ 2 = 5. Il manque 1 point : la parade est ratée, et une Parade trop faible ne réduit rien."},
    {"anchor": "Blessures, Repos et Soin", "svg": mk_blessures({"titre": "Les Dégâts sont des points, les Blessures sont des cartes",
@@ -168,9 +162,12 @@ FIGS = {
       "bas": "Nothing carries over between phases: an attack that falls short is lost.",
       "alt": "Combat in four phases: Ranged and Siege, Block, Damage, Attack. An enemy defeated in phase 1 does not strike back; a Block must match the Attack; unblocked attacks deal Damage; in phase 4, all Attacks count."}),
     "cap": "Combat is played once in this order, even against several enemies. Phase 3 is the only mandatory one."},
-   {"anchor": "Fire, Ice and Resistances", "svg": mk_demi({"titre": "Blocking a Fire Attack 6", "glace": "Ice Block", "phys": "Physical Block", "feu": "Fire Block",
-      "eff": "efficient: counts in full", "ineff": "inefficient: counts half", "total": "Total", "attaque": "Attack 6", "rate": "5 < 6: failed",
-      "note": "First add up everything inefficient, then divide by 2, rounded down.",
+   {"anchor": "Fire, Ice and Resistances", "svg": mk_demi({"titre": "Blocking a Fire Attack 6 with 3 Block cards",
+      "etape1": "1. Sort your Blocks", "etape2": "2. Add them up", "etape3": "3. Compare",
+      "eff": "Efficient: Ice 3", "effs": "counts in full: 3",
+      "ineff": "Inefficient: Physical 3, Fire 2", "ineffs": "(3 + 2) ÷ 2 = 2.5 → 2",
+      "total": "Total Block", "totals": "3 + 2 = 5", "res": "5 < Attack 6", "ress": "fails: 6 Damage",
+      "note": "Against Fire, only Ice and Cold Fire are efficient; everything else counts half.",
       "alt": "Against a Fire Attack 6: an efficient Ice Block 3 counts 3; Physical Block 3 and Fire Block 2 are inefficient, (3 + 2) ÷ 2 = 2. Total 5, less than 6: the block fails."}),
     "cap": "Example: 3 + (3 + 2) ÷ 2 = 5. One point short: the block fails, and a Block that falls short reduces nothing."},
    {"anchor": "Wounds, Rest and Healing", "svg": mk_blessures({"titre": "Damage is points, Wounds are cards",
