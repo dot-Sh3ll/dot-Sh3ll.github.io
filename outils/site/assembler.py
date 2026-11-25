@@ -53,7 +53,7 @@ def main():
     page = open(os.path.join(src, "page.html"), encoding="utf-8").read()
     textes = {os.path.basename(f)[:-5]: json.load(open(f, encoding="utf-8")) for f in glob.glob(os.path.join(src, "i18n", "*.json"))}
     langues = [c for c in ORDER if c in textes]
-    cles = set(re.findall(r"\{\{([a-z_]+)\}\}", page)) - {"_lang", "_code", "_police", "_accent_clair"}
+    cles = set(re.findall(r"\{\{([a-z0-9_]+)\}\}", page)) - {"_lang", "_code", "_police", "_accent_clair"}
     os.makedirs(d, exist_ok=True)
     for c in langues:
         t = {**textes.get("fr", {}), **textes.get("en", {}), **textes[c]}
@@ -76,8 +76,8 @@ def main():
                 f = os.path.join(src, "contenu", "en", m.group(1) + ".js")
             return open(f, encoding="utf-8").read()
         s = re.sub(r"<!--CONTENU:([a-z0-9_-]+)-->", morceau, s)
-        s = re.sub(r"\{\{([a-z_]+)\}\}", lambda m: str(t.get(m.group(1), m.group(0))), s)
-        reste = re.findall(r"\{\{[a-z_]+\}\}", s)
+        s = re.sub(r"\{\{([a-z0-9_]+)\}\}", lambda m: str(t.get(m.group(1), m.group(0))), s)
+        reste = re.findall(r"\{\{[a-z0-9_]+\}\}", s)
         if reste:
             sys.exit(f"assembler.py : clés inconnues dans page.html : {sorted(set(reste))}")
         out = os.path.join(d, page_file(c))
