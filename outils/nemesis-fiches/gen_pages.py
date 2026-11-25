@@ -81,7 +81,7 @@ p1 = f"""<div class="pg pt">
 <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
 <div class="card"><h3>1. Phase Joueurs</h3>
 <p>À tour de rôle, jusqu'à ce que tous aient passé : <b>2 actions</b>, puis <b>−1 oxygène</b> si le recycleur de votre section est inactif, puis <b>−1 santé</b> si votre salle est en feu.</p>
-<p class="note"><i>Objectif : à choisir avant ou après vos 2 actions (3 / 2 / 2 / 1 / 1 cartes).</i></p></div>
+<p class="note"><i>Objectif : à choisir avant, entre ou après vos 2 actions, jamais au milieu d'une action (3 / 2 / 2 / 1 / 1 cartes).</i></p></div>
 <div class="card"><h3>2. Phase Intrus</h3>
 <p><b>1 touche</b> à chaque Intrus d'une salle en feu (nid en feu : −1 œuf).</p>
 <p>Puis les Intrus <b>attaquent</b>, salle par salle depuis le haut à gauche, les plus gros d'abord, sur le premier dans l'ordre du tour.</p></div>

@@ -40,7 +40,7 @@ function aide(){
  $('#aide').innerHTML=`<div class="eyebrow">Aide-mémoire</div><h1>Nemesis: Retaliation en une page</h1>
  <div class="toolbar"><a href="#am-manche">Manche</a> · <a href="#am-act">Actions</a> · <a href="#am-bruit">Bruit</a> · <a href="#am-sac">Sac Intrus</a> · <a href="#am-combat">Combat</a> · <a href="#am-corps">Santé et oxygène</a> · <a href="#am-fin">Fin</a> · <a href="#am-or">Règles d'or</a></div>
  <h2 id="am-manche">Une manche</h2><ol>
- <li><b>Phase Joueurs</b> — à tour de rôle jusqu'à ce que tous aient passé : 2 actions, puis −1 oxygène si le recycleur de votre section est inactif, puis −1 santé si votre salle est en feu. Choix d'objectif possible avant ou après vos 2 actions (3 / 2 / 2 / 1 / 1 cartes).</li>
+ <li><b>Phase Joueurs</b> — à tour de rôle jusqu'à ce que tous aient passé : 2 actions, puis −1 oxygène si le recycleur de votre section est inactif, puis −1 santé si votre salle est en feu. Choix d'objectif possible avant, entre ou après vos 2 actions (jamais au milieu d'une action) (3 / 2 / 2 / 1 / 1 cartes).</li>
  <li><b>Phase Intrus</b> — 1 touche à chaque Intrus d'une salle en feu (nid en feu : −1 œuf) ; puis les Intrus attaquent, salle par salle depuis le haut à gauche, les plus gros d'abord, sur le premier dans l'ordre du tour.</li>
  <li><b>Phase Événement</b> — carte Événement (déplacements, effet principal, effet secondaire) ; puis 1 jeton du sac Intrus. Passagers du vaisseau : décollage possible au début de la phase.</li>
  <li><b>Phase Nettoyage</b> — jeton Premier joueur à gauche ; chacun remonte à 5 cartes ; compte-tours +1 (Vaisseau en case 10 : DCA ; Autodestruction : explosion ; après la 14e manche : fin).</li></ol>

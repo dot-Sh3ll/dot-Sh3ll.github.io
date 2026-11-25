@@ -443,7 +443,7 @@ rules:[
 `<b>Reactions:</b> some cards have a Reaction effect, playable at any time, even outside your Turn, if its conditions are met. It is not an Action.`,
 `<b>Commands:</b> some effects let you act with another Character, even one who has Passed. Forbidden if it would cause an Opportunity Attack (leaving a Room with Intruders, going through an infested Corridor).`,
 `<b>Effects:</b> you may only choose an effect you can resolve completely. Example: "Duck and Cover" asks you to discard 1 more card; without it, you cannot play it.`,
-`<b>Choose an Objective</b>, once per game, on your Turn, before or after your 2 Actions (not in between): keep 1 Objective card, remove the other from the game without showing it. It is not an Action.`,
+`<b>Choose an Objective</b>, once per game, on your Turn, before, between or after your 2 Actions, but never in the middle of an Action: keep 1 Objective card, remove the other from the game without showing it. It is not an Action.`,
 `The first player to choose draws <b>3</b> Action cards, the 2nd and 3rd draw <b>2</b>, the 4th and 5th draw <b>1</b>: the marker on the Objective Choice track moves down one space with each choice. The longer you wait, the fewer cards you draw.`,
 `Empty deck: shuffle your discard pile to make a new one, in any phase.`,
 `<b>Golden Rules.</b> <b>Nightmare Rule:</b> when in doubt, resolve the situation in the worst possible way for the players, then for the first Character in Turn order. <b>Local effects:</b> an effect without a clear target applies in the Room of the Character who triggered it (or to what they carry). <b>Component limits:</b> components are limited unless stated otherwise (no Ammo token if they are all taken).`],
@@ -456,7 +456,7 @@ faq:[
 cas:[
 {q:`Two players have already chosen their Objective. You choose yours at the start of your Turn. How many cards do you draw?`,o:[`3`,`2`,`1`],a:1,w:`You are the 3rd to choose: 2 cards (3 for the 1st, 2 for the 2nd and 3rd, 1 for the 4th and 5th).`}],
 quiz:[
-{q:`Can you choose your Objective between your two Actions?`,o:[`Yes`,`No: before or after your 2 Actions`,`Only when you Pass`],a:1,w:`Before or after your 2 Actions, never in the middle. It is not an Action.`},
+{q:`Can you choose your Objective between your two Actions?`,o:[`Yes, as long as no Action is being resolved`,`No: only before or after your 2 Actions`,`Only when you Pass`],a:0,w:`Before, between or after your 2 Actions, but never in the middle of resolving an Action (rulebook, p. 13). It is not an Action.`},
 {q:`An effect lets you discard a Malfunction marker without saying where. Where can you take it from?`,o:[`Anywhere in the Facility`,`Your Room, or an object you carry`,`Only your Weapon`],a:1,w:`Golden Rule of local effects: the Room of the Character triggering the effect, including what they carry.`},
 {q:`Can you command a Character to leave a Room containing an Intruder?`,o:[`Yes`,`No: it would cause an Opportunity Attack`,`Yes, if they have Passed`],a:1,w:`A Command can never cause an Intruder Opportunity Attack.`}]},
 
@@ -981,7 +981,7 @@ function aide(){
  $('#aide').innerHTML=`<div class="eyebrow">Reference</div><h1>Nemesis: Retaliation on one page</h1>
  <div class="toolbar"><a href="#am-manche">Round</a> · <a href="#am-act">Actions</a> · <a href="#am-bruit">Noise</a> · <a href="#am-sac">Intruder bag</a> · <a href="#am-combat">Combat</a> · <a href="#am-corps">Health and Oxygen</a> · <a href="#am-fin">End</a> · <a href="#am-or">Golden Rules</a></div>
  <h2 id="am-manche">A Round</h2><ol>
- <li><b>Player Phase</b> — in turn until everyone has Passed: 2 Actions, then −1 Oxygen if your Section's Life Support is inactive, then −1 Health if your Room has Fire. Objective choice possible before or after your 2 Actions (3 / 2 / 2 / 1 / 1 cards).</li>
+ <li><b>Player Phase</b> — in turn until everyone has Passed: 2 Actions, then −1 Oxygen if your Section's Life Support is inactive, then −1 Health if your Room has Fire. Objective choice possible before, between or after your 2 Actions (never in the middle of one) (3 / 2 / 2 / 1 / 1 cards).</li>
  <li><b>Intruder Phase</b> — 1 Hit to each Intruder in a Room with Fire (burning Nest: −1 Egg); then Intruders Attack, Room by Room from the top left, largest first, on the first in Turn order.</li>
  <li><b>Event Phase</b> — Event card (movement, main effect, secondary effect); then 1 token from the Intruder bag. Lander passengers: launch possible at the start of the phase.</li>
  <li><b>Cleanup Phase</b> — Starting Player token to the left; everyone draws up to 5 cards; Round track +1 (Lander on space 10: Anti-Aircraft check; Autodestruction: explosion; after Round 14: end).</li></ol>

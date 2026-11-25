@@ -5,7 +5,7 @@ function aide(){
  $('#aide').innerHTML=`<div class="eyebrow">Reference</div><h1>Nemesis: Retaliation on one page</h1>
  <div class="toolbar"><a href="#am-manche">Round</a> · <a href="#am-act">Actions</a> · <a href="#am-bruit">Noise</a> · <a href="#am-sac">Intruder bag</a> · <a href="#am-combat">Combat</a> · <a href="#am-corps">Health and Oxygen</a> · <a href="#am-fin">End</a> · <a href="#am-or">Golden Rules</a></div>
  <h2 id="am-manche">A Round</h2><ol>
- <li><b>Player Phase</b> — in turn until everyone has Passed: 2 Actions, then −1 Oxygen if your Section's Life Support is inactive, then −1 Health if your Room has Fire. Objective choice possible before or after your 2 Actions (3 / 2 / 2 / 1 / 1 cards).</li>
+ <li><b>Player Phase</b> — in turn until everyone has Passed: 2 Actions, then −1 Oxygen if your Section's Life Support is inactive, then −1 Health if your Room has Fire. Objective choice possible before, between or after your 2 Actions (never in the middle of one) (3 / 2 / 2 / 1 / 1 cards).</li>
  <li><b>Intruder Phase</b> — 1 Hit to each Intruder in a Room with Fire (burning Nest: −1 Egg); then Intruders Attack, Room by Room from the top left, largest first, on the first in Turn order.</li>
  <li><b>Event Phase</b> — Event card (movement, main effect, secondary effect); then 1 token from the Intruder bag. Lander passengers: launch possible at the start of the phase.</li>
  <li><b>Cleanup Phase</b> — Starting Player token to the left; everyone draws up to 5 cards; Round track +1 (Lander on space 10: Anti-Aircraft check; Autodestruction: explosion; after Round 14: end).</li></ol>

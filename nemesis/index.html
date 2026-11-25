@@ -443,7 +443,7 @@ rules:[
 `<b>Réactions :</b> certaines cartes ont un effet de réaction, jouable à tout moment, même hors de votre tour, si ses conditions sont remplies. Ce n'est pas une action.`,
 `<b>Ordres :</b> certains effets vous font agir avec un autre personnage, même s'il a passé. Interdit si cela provoque une attaque d'opportunité (sortir d'une salle avec des Intrus, traverser un couloir infesté).`,
 `<b>Effets :</b> vous ne pouvez choisir un effet que si vous pouvez le résoudre entièrement. Exemple : « À couvert » demande de défausser 1 carte de plus ; sans elle, vous ne pouvez pas la jouer.`,
-`<b>Choisir un objectif</b>, une fois par partie, à votre tour, avant ou après vos 2 actions (pas entre les deux) : gardez 1 carte Objectif, retirez l'autre sans la montrer. Ce n'est pas une action.`,
+`<b>Choisir un objectif</b>, une fois par partie, à votre tour, avant, entre ou après vos 2 actions, mais jamais au milieu d'une action : gardez 1 carte Objectif, retirez l'autre sans la montrer. Ce n'est pas une action.`,
 `Le premier joueur à choisir pioche <b>3</b> cartes Action, le 2e et le 3e en piochent <b>2</b>, le 4e et le 5e <b>1</b> : le cube de la piste Choix d'objectif descend d'un cran à chaque choix. Plus vous attendez, moins vous piochez.`,
 `Pioche vide : mélangez votre défausse pour en refaire une, à n'importe quelle phase.`,
 `<b>Règles d'or.</b> <b>Loi de Murphy :</b> en cas de doute, appliquez ce qui pénalise le plus l'ensemble des joueurs, puis le premier dans l'ordre du tour. <b>Effets locaux :</b> un effet sans cible précise s'applique dans la salle du personnage qui l'a déclenché (ou sur ce qu'il porte). <b>Limite du matériel :</b> les éléments sont limités sauf mention contraire (pas de jeton Munitions s'ils sont tous pris ; les cubes, eux, sont illimités).`],
@@ -456,7 +456,7 @@ faq:[
 cas:[
 {q:`Deux joueurs ont déjà choisi leur objectif. Vous choisissez le vôtre au début de votre tour. Combien de cartes piochez-vous ?`,o:[`3`,`2`,`1`],a:1,w:`Vous êtes le 3e à choisir : 2 cartes (3 pour le 1er, 2 pour les 2e et 3e, 1 pour les 4e et 5e).`}],
 quiz:[
-{q:`Pouvez-vous choisir votre objectif entre vos deux actions ?`,o:[`Oui`,`Non : avant ou après les 2 actions`,`Seulement si vous passez`],a:1,w:`Avant ou après vos 2 actions, jamais au milieu. Ce n'est pas une action.`},
+{q:`Pouvez-vous choisir votre objectif entre vos deux actions ?`,o:[`Oui, tant qu'aucune action n'est en cours`,`Non : avant ou après les 2 actions seulement`,`Seulement si vous passez`],a:0,w:`Avant, entre ou après vos 2 actions, mais jamais au milieu de la résolution d'une action (livret, p. 13). Ce n'est pas une action.`},
 {q:`Un effet vous permet de défausser un marqueur Panne sans préciser où. Où pouvez-vous le prendre ?`,o:[`N'importe où dans le complexe`,`Dans votre salle, ou sur un objet que vous portez`,`Seulement sur votre arme`],a:1,w:`Règle d'or des effets locaux : dans la salle du personnage qui déclenche l'effet, y compris sur ce qu'il transporte.`},
 {q:`Peut-on ordonner à un personnage de quitter une salle où se trouve un Intrus ?`,o:[`Oui`,`Non : cela provoquerait une attaque d'opportunité`,`Oui, s'il a passé`],a:1,w:`Un ordre ne peut jamais provoquer d'attaque d'opportunité d'Intrus.`}]},
 
@@ -981,7 +981,7 @@ function aide(){
  $('#aide').innerHTML=`<div class="eyebrow">Aide-mémoire</div><h1>Nemesis: Retaliation en une page</h1>
  <div class="toolbar"><a href="#am-manche">Manche</a> · <a href="#am-act">Actions</a> · <a href="#am-bruit">Bruit</a> · <a href="#am-sac">Sac Intrus</a> · <a href="#am-combat">Combat</a> · <a href="#am-corps">Santé et oxygène</a> · <a href="#am-fin">Fin</a> · <a href="#am-or">Règles d'or</a></div>
  <h2 id="am-manche">Une manche</h2><ol>
- <li><b>Phase Joueurs</b> — à tour de rôle jusqu'à ce que tous aient passé : 2 actions, puis −1 oxygène si le recycleur de votre section est inactif, puis −1 santé si votre salle est en feu. Choix d'objectif possible avant ou après vos 2 actions (3 / 2 / 2 / 1 / 1 cartes).</li>
+ <li><b>Phase Joueurs</b> — à tour de rôle jusqu'à ce que tous aient passé : 2 actions, puis −1 oxygène si le recycleur de votre section est inactif, puis −1 santé si votre salle est en feu. Choix d'objectif possible avant, entre ou après vos 2 actions (jamais au milieu d'une action) (3 / 2 / 2 / 1 / 1 cartes).</li>
  <li><b>Phase Intrus</b> — 1 touche à chaque Intrus d'une salle en feu (nid en feu : −1 œuf) ; puis les Intrus attaquent, salle par salle depuis le haut à gauche, les plus gros d'abord, sur le premier dans l'ordre du tour.</li>
  <li><b>Phase Événement</b> — carte Événement (déplacements, effet principal, effet secondaire) ; puis 1 jeton du sac Intrus. Passagers du vaisseau : décollage possible au début de la phase.</li>
  <li><b>Phase Nettoyage</b> — jeton Premier joueur à gauche ; chacun remonte à 5 cartes ; compte-tours +1 (Vaisseau en case 10 : DCA ; Autodestruction : explosion ; après la 14e manche : fin).</li></ol>

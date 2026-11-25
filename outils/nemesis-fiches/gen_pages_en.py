@@ -22,7 +22,7 @@ p1 = f"""<div class="pg pt">
 <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
 <div class="card"><h3>1. Player Phase</h3>
 <p>In turn, until everyone has Passed: <b>2 Actions</b>, then <b>−1 Oxygen</b> if your Section's Life Support is inactive, then <b>−1 Health</b> if your Room has Fire.</p>
-<p class="note"><i>Objective: choose it before or after your 2 Actions (3 / 2 / 2 / 1 / 1 cards).</i></p></div>
+<p class="note"><i>Objective: choose it before, between or after your 2 Actions, never in the middle of one (3 / 2 / 2 / 1 / 1 cards).</i></p></div>
 <div class="card"><h3>2. Intruder Phase</h3>
 <p><b>1 Hit</b> to each Intruder in a Room with Fire (burning Nest: −1 Egg).</p>
 <p>Then Intruders <b>Attack</b>, Room by Room from the top left, largest first, on the first in Turn order.</p></div>
