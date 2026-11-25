@@ -161,13 +161,13 @@ def fig_sante(t):
 def fig_reine(t):
     c = f'<text class="fts" x="340" y="22" text-anchor="middle" dominant-baseline="central">{t["piste"]}</text>'
     x0 = 205
-    for n in range(5):
+    for n in range(6):
         x = x0 + n * 56
-        c += f'<rect class="f-case{" f-bout" if n == 4 else ""}" x="{x}" y="40" width="50" height="40" rx="3"/>'
-        c += f'<text class="fts" x="{x+25}" y="92" text-anchor="middle" dominant-baseline="central">{t["bout"] if n == 4 else n}</text>'
-    c += (f'<rect class="f-cube f-cube-old" x="{x0+3*56+16}" y="51" width="18" height="18" rx="2"/>'
-          f'<rect class="f-cube" x="{x0+4*56+16}" y="51" width="18" height="18" rx="2"/>'
-          f'<path class="f-path" d="M{x0+3*56+25} 46 Q{x0+3*56+53} 28 {x0+4*56+22} 46" marker-end="url(#f-fl)"/>'
+        c += f'<rect class="f-case{" f-bout" if n == 5 else ""}" x="{x}" y="40" width="50" height="40" rx="3"/>'
+        c += f'<text class="fts" x="{x+25}" y="92" text-anchor="middle" dominant-baseline="central">{t["bout"] if n == 5 else n}</text>'
+    c += (f'<rect class="f-cube f-cube-old" x="{x0+4*56+16}" y="51" width="18" height="18" rx="2"/>'
+          f'<rect class="f-cube" x="{x0+5*56+16}" y="51" width="18" height="18" rx="2"/>'
+          f'<path class="f-path" d="M{x0+4*56+25} 46 Q{x0+4*56+53} 28 {x0+5*56+22} 46" marker-end="url(#f-fl)"/>'
           f'<text class="fts" x="40" y="60" dominant-baseline="central">{t["rafale"]}</text>'
           f'<text class="fts" x="40" y="78" dominant-baseline="central">{t["ignore"]}</text>')
     etapes = t['etapes']
@@ -176,7 +176,7 @@ def fig_reine(t):
         c += boite(x, 128, 190, a, b).replace('class="f-box"', 'class="f-phase"')
         if i < 2:
             c += f'<line class="f-arr" x1="{x+192}" y1="155" x2="{x+203}" y2="155" marker-end="url(#f-fl3)"/>'
-    c += (f'<line class="f-arr" x1="{x0+4*56+25}" y1="102" x2="{x0+4*56+25}" y2="120" marker-end="url(#f-fl3)"/>'
+    c += (f'<line class="f-arr" x1="{x0+5*56+25}" y1="102" x2="{x0+5*56+25}" y2="120" marker-end="url(#f-fl3)"/>'
           f'<text class="fts" x="340" y="212" text-anchor="middle" dominant-baseline="central">{t["note"]}</text>')
     return svg(230, c, t['alt'])
 
@@ -233,11 +233,11 @@ FR.update({
         'alt': "Santé et armure : le cube est sur la dernière case de la section Affaibli, avec une armure sur État critique. Après la perte de 2 points, l'armure est détruite à la place du premier point et le cube passe sur la première case d'État critique."}),
   'cap': "Exemple : vous perdez 2 points de santé. Le cube entre en État critique : l'armure est détruite au lieu du 1er point, puis le cube avance d'une case pour le 2e."},
  'reine': {
-  'svg': fig_reine({'piste': 'Piste des touches portées à la Reine', 'bout': 'bout', 'rafale': 'Rafale : 3 touches', 'ignore': '1 suffit, 2 ignorées',
+  'svg': fig_reine({'piste': 'Piste des touches portées à la Reine', 'bout': 'crâne', 'rafale': 'Rafale : 3 touches', 'ignore': '1 suffit, 2 ignorées',
         'etapes': [('Carte Santé', 'révélez la 1re carte'), ('Défaussez', 'autant que son numéro'), ('Effet, cube à 0', 'puis défaussez-la')],
-        'note': 'Longueur de piste simplifiée. Plus de carte Santé : la Reine meurt.',
-        'alt': "La Reine : le cube de sa piste des touches est sur l'avant-dernière case. Une rafale de 3 touches l'amène au bout : les 2 autres touches sont ignorées. On révèle une carte Santé, on défausse autant de cartes que son numéro, on applique l'effet et le cube revient à 0."}),
-  'cap': "Exemple : le cube est sur l'avant-dernière case et votre rafale donne 3 touches. La 1re l'amène au bout, les 2 autres sont ignorées : vous résolvez une carte Santé."},
+        'note': 'Plus de carte Santé : la Reine meurt.',
+        'alt': "La Reine : le cube de sa piste des touches est sur l'avant-dernière case. Une rafale de 3 touches l'amène sur le crâne : les 2 autres touches sont ignorées. On révèle une carte Santé, on défausse autant de cartes que son numéro, on applique l'effet et le cube revient à 0."}),
+  'cap': "Exemple : le cube est sur l'avant-dernière case et votre rafale donne 3 touches. La 1re l'amène sur le crâne, au bout de la piste ; les 2 autres sont ignorées : vous résolvez une carte Santé."},
 })
 EN.update({
  'manche': {
@@ -252,11 +252,11 @@ EN.update({
         'alt': 'Health and Armor: the marker is on the last Injured space, with Armor on Heavily Injured. After losing 2 Health, the Armor is destroyed instead of the first point and the marker moves to the first Heavily Injured space.'}),
   'cap': 'Example: you lose 2 Health. The marker enters Heavily Injured: the Armor is destroyed instead of the 1st point, then the marker moves one space for the 2nd.'},
  'reine': {
-  'svg': fig_reine({'piste': "Queen's Hit track", 'bout': 'end', 'rafale': 'Burst: 3 Hits', 'ignore': '1 is enough, 2 ignored',
+  'svg': fig_reine({'piste': "Queen's Hit track", 'bout': 'skull', 'rafale': 'Burst: 3 Hits', 'ignore': '1 is enough, 2 ignored',
         'etapes': [('Health card', 'reveal the top card'), ('Discard', 'as many as its number'), ('Effect, marker to 0', 'then discard it')],
-        'note': 'Track length simplified. No Health card left: the Queen dies.',
-        'alt': "The Queen: the marker on her Hit track is on the second-to-last space. A 3-Hit Burst brings it to the end: the other 2 Hits are ignored. Reveal a Health card, discard as many cards as its number, apply the effect and reset the marker to 0."}),
-  'cap': 'Example: the marker is on the second-to-last space and your Burst deals 3 Hits. The 1st brings it to the end, the other 2 are ignored: you resolve a Health card.'},
+        'note': 'No Health card left: the Queen dies.',
+        'alt': "The Queen: the marker on her Hit track is on the second-to-last space. A 3-Hit Burst brings it to the skull: the other 2 Hits are ignored. Reveal a Health card, discard as many cards as its number, apply the effect and reset the marker to 0."}),
+  'cap': 'Example: the marker is on the second-to-last space and your Burst deals 3 Hits. The 1st brings it to the skull, at the end of the track; the other 2 are ignored: you resolve a Health card.'},
 })
 
 def ecrire(chemin, data, entete):
