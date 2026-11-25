@@ -4,3 +4,4 @@
 # usage (depuis la racine du dépôt) : sh outils/puerto-rico/build.sh   (puis python3 outils/site/seo.py)
 set -e
 python3 outils/site/assembler.py puerto-rico
+python3 outils/site/schemas.py puerto-rico

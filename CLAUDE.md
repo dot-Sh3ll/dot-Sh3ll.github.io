@@ -66,6 +66,7 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 | `<!--pwa-->…<!--/pwa-->` | `outils/site/pwa.py` | manifest, icônes, service worker, **GoatCounter** (code `shell`) |
 | `<footer class="lrmp-pied">` | `outils/site/pied.py` | retour, « Signaler un problème » (formulaire avec le jeu choisi), Ko-fi, mention fan |
 | `<!--fiches-->…<!--/fiches-->` | `outils/site/fiches.py` | encart « À imprimer » de l'aide-mémoire, rappel en fin de tutoriel |
+| `<!--schemas-->…<!--/schemas-->` | `outils/site/schemas.py` | schémas SVG des tutoriels Mage Knight, Imperium, Puerto Rico, insérés sous les règles du chapitre |
 | `<!--theme-->…<!--/theme-->`, `#lrmp-theme`, `#theme-js` | `outils/site/theme.py` | bouton de thème clair / sombre d'Imperium, Aeon's End et Mage Knight (palettes : `outils/site/themes/<code>.css`) |
 
 ## Langues
@@ -100,6 +101,7 @@ Toujours depuis la racine du dépôt.
 | Aeon's End allemand | `python3 outils/aeons-end/gen_lang.py de` (`--todo` : ce qui manque), puis `seo.py` |
 | Barre du site + feuilles communes + polices d'une appli | `python3 outils/site/chrome.py <dossier>` |
 | Pied de page | `python3 outils/site/pied.py <dossier> "<option du formulaire>"` |
+| Schémas des tutoriels Mage Knight, Imperium, Puerto Rico | `python3 outils/site/schemas.py <dossier>` ou `--tout` (à relancer après `build_mk.sh`, `build_imp.sh` ; le `build.sh` de Puerto Rico le fait) |
 | Bouton de thème (Imperium, Aeon's End, Mage Knight) | `python3 outils/site/theme.py <dossier>` ou `--tout` (à relancer après `build_imp.sh`, `build_mk.sh`, `gen_lang.py`) |
 | Accueil : carte d'appli, de fiche, date de mise à jour | `python3 outils/site/accueil.py appli\|fiche <json>` ; `accueil.py maj <dossier ou pdf>` (badge « Mis à jour ») — ne pas couper sa sortie avec `\| head` |
 | Images de partage | `python3 outils/site/og_images.py` (Playwright) |
@@ -178,8 +180,8 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 
 1. **Format de traduction commun** : Nemesis et Puerto Rico sont passés (pages identiques). Restent Imperium et Mage Knight
    (pages FR écrites à la main, anglais par anciens chemins fixes) et Aeon's End (FR/EN en parallèle, DE généré).
-2. **Schémas** : d'autres dans Nemesis (robot, évasion, contamination), éventuellement interactifs ; chercher où des schémas
-   aideraient dans les autres applis (même méthode que `outils/nemesis/figures.py`).
+2. **Schémas** : Nemesis (7), Mage Knight (combat, ½ inefficace, Dégâts et Blessures), Imperium (mélange), Puerto Rico (Capitaine).
+   Pistes : versions interactives.
 3. **Versions de règles suivies** : afficher sous « Apprendre » de chaque appli la version des règles et des errata intégrés
    (comme Nemesis : « Avec les précisions de la FAQ officielle (v1.2) ») une fois les versions confirmées par Paul.
    À vérifier : planche de cartes corrigées VF v1.3 d'Origames (Imperium), pack de cartes corrigées Intrafin (Mage Knight).
