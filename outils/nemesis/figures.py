@@ -260,6 +260,117 @@ EN.update({
   'cap': 'Example: the marker is on the second-to-last space and your Burst deals 3 Hits. The 1st brings it to the skull, at the end of the track; the other 2 are ignored: you resolve a Health card.'},
 })
 
+# ------------------------------------------------------------ 7. contamination : procédures d'infection et d'éclosion (chapitre contamination)
+def fig_contamination(t):
+    c = ''
+    for x0, k in ((20, 'inf'), (360, 'ecl')):
+        cx = x0 + 150
+        c += f'<text class="fth" x="{cx}" y="18" text-anchor="middle" dominant-baseline="central">{t[k]}</text>'
+        c += boite(x0, 36, 300, t[k + '1'], t[k + '1s']).replace('class="f-box"', 'class="f-phase"')
+        c += f'<line class="f-arr" x1="{cx}" y1="92" x2="{cx}" y2="110" marker-end="url(#f-fl3)"/>'
+        c += f'<text class="fts" x="{cx}" y="124" text-anchor="middle" dominant-baseline="central">{t[k + "q"]}</text>'
+        for i, (xx, cle, rouge) in enumerate(((x0, k + 'a', k == 'inf'), (x0 + 160, k + 'b', k == 'ecl'))):
+            c += f'<line class="f-arr" x1="{cx}" y1="136" x2="{xx+70}" y2="150" marker-end="url(#f-fl3)"/>'
+            b = boite(xx, 154, 140, t[cle], t[cle + 's'])
+            c += b if rouge else b.replace('class="f-box"', 'class="f-phase"')
+    # infection : les deux branches finissent par la défausse
+    c += (f'<line class="f-arr" x1="90" y1="210" x2="150" y2="230" marker-end="url(#f-fl3)"/>'
+          f'<line class="f-arr" x1="250" y1="210" x2="190" y2="230" marker-end="url(#f-fl3)"/>')
+    c += boite(20, 234, 300, t['inf2'], t['inf2s']).replace('class="f-box"', 'class="f-phase"')
+    c += (f'<text class="fts f-warn" x="510" y="250" text-anchor="middle" dominant-baseline="central">{t["ecl2"]}</text>'
+          f'<text class="fts" x="510" y="270" text-anchor="middle" dominant-baseline="central">{t["ecl3"]}</text>')
+    return svg(300, c, t['alt'])
+
+# ------------------------------------------------------------ 8. évasion : le vaisseau, puis les autres sorties (chapitre evasion)
+def fig_evasion(t):
+    c = f'<text class="fth" x="20" y="18" dominant-baseline="central">{t["titre1"]}</text>'
+    for i, (a, b) in enumerate(t['etapes']):
+        x = 20 + i * 130
+        c += boite(x, 34, 120, a, b).replace('class="f-box"', 'class="f-phase"')
+        if i < 4:
+            c += f'<line class="f-arr" x1="{x+121}" y1="61" x2="{x+129}" y2="61" marker-end="url(#f-fl3)"/>'
+    c += (f'<line class="f-arr" x1="210" y1="90" x2="210" y2="108" marker-end="url(#f-fl3)"/>'
+          + boite(150, 112, 120, t['abattu'], t['abattus'])
+          + f'<text class="fts" x="300" y="139" dominant-baseline="central">{t["dca"]}</text>')
+    c += f'<text class="fth" x="20" y="196" dominant-baseline="central">{t["titre2"]}</text>'
+    for i, (a, b) in enumerate(t['sorties']):
+        x = 20 + i * 220
+        bx = boite(x, 212, 200, a, b)
+        c += bx if i == 2 else bx.replace('class="f-box"', 'class="f-phase"')
+    c += f'<text class="fts" x="340" y="290" text-anchor="middle" dominant-baseline="central">{t["note"]}</text>'
+    return svg(306, c, t['alt'])
+
+# ------------------------------------------------------------ 9. le robot : activation et déplacement (chapitre robot)
+def robot(x, y, lettre):
+    return (f'<circle class="f-tok" cx="{x}" cy="{y}" r="16"/>'
+            f'<text class="f-tokt" x="{x}" y="{y}" text-anchor="middle" dominant-baseline="central">{lettre}</text>')
+
+def fig_robot(t):
+    c = f'<text class="fth" x="20" y="18" dominant-baseline="central">{t["titre1"]}</text>'
+    for i, (a, b) in enumerate(t['couts']):
+        c += boite(20 + i * 220, 34, 200, a, b).replace('class="f-box"', 'class="f-phase"')
+    c += f'<text class="fth" x="20" y="120" dominant-baseline="central">{t["titre2"]}</text>'
+    for x in (40, 275, 510):
+        c += f'<rect class="f-room" x="{x}" y="140" width="130" height="90" rx="8"/>'
+    c += (f'<rect class="f-cor" x="170" y="165" width="105" height="40"/>'
+          f'<rect class="f-cor" x="405" y="165" width="105" height="40"/>'
+          f'<rect class="f-porte" x="452" y="160" width="10" height="50" rx="2"/>'
+          + robot(85, 185, t['R']) + jeton(340, 185, 16, t['A'])
+          + '<path class="f-path" d="M85 165 L85 150 L300 150 L300 168" marker-end="url(#f-fl)"/>'
+          f'<text class="fts" x="222" y="138" text-anchor="middle" dominant-baseline="central">{t["ignore"]}</text>'
+          f'<text class="fts f-warn" x="457" y="226" text-anchor="middle" dominant-baseline="central">{t["porte"]}</text>'
+          f'<text class="fts" x="340" y="258" text-anchor="middle" dominant-baseline="central">{t["note"]}</text>')
+    return svg(276, c, t['alt'])
+
+FR.update({
+ 'contamination': {
+  'svg': fig_contamination({'inf': "Procédure d'infection", 'inf1': 'Scannez', 'inf1s': 'les Contaminations de votre main',
+        'infq': 'Une carte « Infectée » ?', 'infa': 'Oui', 'infas': '1 Larve sur le plateau', 'infb': 'Non', 'infbs': 'pas de Larve',
+        'inf2': 'Défaussez', 'inf2s': 'toutes celles de votre main',
+        'ecl': "Procédure d'éclosion", 'ecl1': 'Tirez 4 cartes', 'ecl1s': 'de votre pioche Action',
+        'eclq': 'Une Contamination parmi elles ?', 'ecla': 'Non', 'eclas': 'vous survivez', 'eclb': 'Oui', 'eclbs': 'personnage tué',
+        'ecl2': 'En cours de partie : 1 Adulte', 'ecl3': 'apparaît dans votre salle',
+        'alt': "Deux procédures. Infection : scannez les Contaminations de votre main ; si une carte est infectée, une Larve va sur votre plateau ; dans tous les cas, ces cartes vont dans votre défausse. Éclosion : tirez 4 cartes de votre pioche Action ; sans Contamination vous survivez, avec au moins une votre personnage est tué."}),
+  'cap': "Infection : la Larve n'arrive que si une carte scannée est infectée, et une seule à la fois. Éclosion : une seule Contamination parmi les 4 cartes tirées suffit à tuer le personnage."},
+ 'evasion': {
+  'svg': fig_evasion({'titre1': 'Le vaisseau', 'etapes': [('Vaisseau', 'case 10 atteinte'), ('DCA du dessus', 'révélée'), ('Inactive', 'il se pose'), ('Embarquer', 'action + bruit'), ('Décoller', 'phase Événement')],
+        'abattu': 'Active', 'abattus': 'vaisseau abattu', 'dca': 'Le Contrôle du recycleur B permet de voir les jetons DCA.',
+        'titre2': 'Les autres sorties', 'sorties': [("Navette d'évacuation", 'bruit · une seule place'), ('Hibernatorium', "bruit · s'il est activé"), ('Autodestruction', 'tous ceux dedans meurent')],
+        'note': "Hiberner n'est pas s'échapper : si le complexe est détruit, les hibernés meurent.",
+        'alt': "Évasion. Le vaisseau : quand le compte-tours atteint sa case, on révèle le jeton DCA du dessus ; actif, le vaisseau est abattu ; inactif, il se pose ; on embarque par une action avec jet de bruit, puis on décolle au début de la phase Événement. Autres sorties : la navette d'évacuation (une seule place), l'hibernatorium s'il est activé, et l'autodestruction qui tue tous ceux encore dans le complexe."}),
+  'cap': "Le vaisseau n'arrive qu'une fois : si la DCA est active à ce moment-là, il est abattu. À bord, votre tour est ignoré ; n'importe quel passager peut décider seul du décollage."},
+ 'robot': {
+  'svg': fig_robot({'titre1': 'Activer le robot (hors combat)', 'couts': [('Dans sa salle', '1 carte'), ('À distance', 'salle avec 💻 : 2 cartes'), ('Avec un jeton Info', 'à distance : 1 carte')],
+        'titre2': 'Le déplacer', 'R': 'R', 'A': 'A', 'ignore': 'ignore les Intrus', 'porte': 'porte fermée : bloqué',
+        'note': 'Il ne bouge que par vos actions, de salle en salle voisine, sans explorer ni faire de jet de bruit.',
+        'alt': "Le robot. L'activer coûte 1 carte dans sa salle, 2 cartes à distance depuis une salle avec ordinateur, 1 carte à distance avec un jeton Info. Il passe dans une salle occupée par un Intrus sans s'en soucier, mais une porte fermée l'arrête."}),
+  'cap': "Exemple : le robot entre dans la salle de l'Adulte (ils s'ignorent), mais ne pourra pas franchir la porte fermée vers la salle suivante."},
+})
+EN.update({
+ 'contamination': {
+  'svg': fig_contamination({'inf': 'Infection Procedure', 'inf1': 'Scan', 'inf1s': 'the Contamination cards in your hand',
+        'infq': 'An "Infected" card?', 'infa': 'Yes', 'infas': '1 Larva on your board', 'infb': 'No', 'infbs': 'no Larva',
+        'inf2': 'Discard', 'inf2s': 'all those in your hand',
+        'ecl': 'Hatching Procedure', 'ecl1': 'Draw 4 cards', 'ecl1s': 'from your Action deck',
+        'eclq': 'Any Contamination among them?', 'ecla': 'No', 'eclas': 'you survive', 'eclb': 'Yes', 'eclbs': 'Character killed',
+        'ecl2': 'During the game: 1 Adult', 'ecl3': 'appears in your Room',
+        'alt': 'Two procedures. Infection: scan the Contamination cards in your hand; if one is infected, a Larva goes on your board; either way, those cards go to your discard pile. Hatching: draw 4 cards from your Action deck; with no Contamination you survive, with at least one your Character is killed.'}),
+  'cap': 'Infection: a Larva only comes if a scanned card is infected, and only one at a time. Hatching: a single Contamination among the 4 cards drawn is enough to kill the Character.'},
+ 'evasion': {
+  'svg': fig_evasion({'titre1': 'The Lander', 'etapes': [('Lander', 'space 10 reached'), ('Top AA token', 'revealed'), ('Inactive', 'it lands'), ('Board', 'Action + Noise'), ('Launch', 'Event Phase')],
+        'abattu': 'Active', 'abattus': 'Lander shot down', 'dca': 'Life Support Control B lets you see the AA tokens.',
+        'titre2': 'The other ways out', 'sorties': [('Escape Shuttle', 'Noise · one seat only'), ('Hibernatorium', 'Noise · if turned on'), ('Autodestruction', 'everyone inside dies')],
+        'note': 'Hibernating is not escaping: if the Facility is destroyed, hibernating Characters die.',
+        'alt': 'Escape. The Lander: when the Round track reaches its space, reveal the top Anti-Aircraft token; active, the Lander is shot down; inactive, it lands; board it with an Action and a Noise roll, then launch at the start of the Event Phase. Other ways out: the Escape Shuttle (one seat), the Hibernatorium if turned on, and Autodestruction, which kills everyone still in the Facility.'}),
+  'cap': 'The Lander arrives only once: if Anti-Aircraft is active at that moment, it is shot down. On board, your Turn is skipped; any passenger may decide alone to launch.'},
+ 'robot': {
+  'svg': fig_robot({'titre1': 'Activating the Robot (Not in Combat)', 'couts': [('In its Room', '1 card'), ('Remotely', 'Room with 💻: 2 cards'), ('With a Data token', 'remotely: 1 card')],
+        'titre2': 'Moving it', 'R': 'R', 'A': 'A', 'ignore': 'ignores Intruders', 'porte': 'closed Door: blocked',
+        'note': 'It only moves through your Actions, Room to neighbouring Room, never exploring or making Noise rolls.',
+        'alt': 'The Robot. Activating it costs 1 card in its Room, 2 cards remotely from a Room with a Computer, 1 card remotely with a Data token. It moves through a Room holding an Intruder without caring, but a closed Door stops it.'}),
+  'cap': "Example: the Robot enters the Adult's Room (they ignore each other), but will not be able to pass the closed Door to the next Room."},
+})
+
 def ecrire(chemin, data, entete):
     js = entete + 'const FIG=' + json.dumps(data, ensure_ascii=False, indent=0) + ';\n'
     chemin.write_text(js, encoding='utf-8')
