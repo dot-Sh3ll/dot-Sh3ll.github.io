@@ -120,3 +120,5 @@ s = s.replace("</head>", css + extra + "</head>", 1)
 s = re.sub(r"(<body[^>]*>)\n?", lambda m: m.group(1) + "\n" + bar, s, count=1)
 open(path, "w", encoding="utf-8").write(s)
 print("ok", mode, path)
+import polices
+polices.poser(path)  # polices hébergées sur le site (commun/polices.css)

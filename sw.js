@@ -1,8 +1,8 @@
 /* Service worker : rend le site utilisable hors ligne.
    Pages : réseau d'abord (toujours la dernière version), copie locale si pas de réseau.
-   Polices, icônes, PDF : copie locale d'abord, mise à jour en arrière-plan.
+   Polices (commun/polices), icônes, PDF : copie locale d'abord, mise à jour en arrière-plan.
    Changer VERSION à chaque grosse mise à jour pour vider l'ancien cache. */
-const VERSION = "v18";
+const VERSION = "v19";
 const CACHE = "aides-de-jeu-" + VERSION;
 const PRECACHE = [
   "./", "index.html", "en/", "de/", "manifest.webmanifest",
@@ -11,6 +11,7 @@ const PRECACHE = [
   "aeons-end/", "aeons-end/en.html", "aeons-end/de.html",
   "puerto-rico/", "puerto-rico/en.html",
   "nemesis/", "nemesis/en.html",
+  "commun/polices.css",
   "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "icons/favicon-32.png"
 ];
 const NEVER = ["goatcounter", "gc.zgo.at", "docs.google.com", "ko-fi.com"];
@@ -33,8 +34,7 @@ self.addEventListener("fetch", e => {
     }).catch(() => caches.match(req, { ignoreSearch: true }).then(r => r || caches.match("./"))));
     return;
   }
-  const sameOrFonts = url.startsWith(self.location.origin) || url.includes("fonts.googleapis.com") || url.includes("fonts.gstatic.com");
-  if (!sameOrFonts) return;
+  if (!url.startsWith(self.location.origin)) return;
   e.respondWith(caches.match(req).then(hit => {
     const net = fetch(req).then(res => {
       if (res.ok || res.type === "opaque") { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
