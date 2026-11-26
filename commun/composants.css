@@ -11,21 +11,30 @@
 html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 .sitehead{position:sticky;top:0;z-index:9;background:var(--site-bg);border-bottom:1px solid var(--site-line);color:var(--site-ink);font:500 15px/1.2 var(--font-ui);-webkit-font-smoothing:antialiased}
 .sitehead *{box-sizing:border-box}
-.sitehead .sh-in{max-width:var(--site-w);margin:0 auto;padding:0 var(--site-pad);height:56px;display:flex;align-items:center;justify-content:space-between;gap:var(--esp-3)}
+.sitehead .sh-in{max-width:var(--site-w);margin:0 auto;padding:0 var(--site-pad);height:80px;display:flex;align-items:center;justify-content:space-between;gap:var(--esp-3)}
 .sitehead a{color:inherit;text-decoration:none}
-.sitehead .sh-brand{display:flex;align-items:center;gap:10px;font-family:var(--font-site);font-size:19px;font-weight:400;letter-spacing:.01em;white-space:nowrap}
-.sitehead .sh-mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--site-surface-2);border:1px solid var(--site-line);font-size:16px;line-height:1}
-.sitehead .sh-act{display:flex;align-items:center;gap:10px}
-.sitehead .sh-lang{display:inline-flex;padding:3px;background:var(--site-surface);border:1px solid var(--site-line);border-radius:var(--rayon-pilule)}
-.sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:30px;padding:0 10px;border-radius:var(--rayon-pilule);font-weight:700;font-size:12.5px;letter-spacing:.04em}
-.sitehead .sh-lang span{background:var(--site-gold);color:var(--site-gold-ink)}
-.sitehead .sh-lang a{color:var(--site-muted)}
-.sitehead .sh-lang span.sh-off{background:none;color:#5d6475;cursor:not-allowed}
-.sitehead .sh-lang a:hover{color:#fff}
-.sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 15px;border-radius:var(--rayon-pilule);background:var(--site-gold);color:var(--site-gold-ink);font-weight:700;font-size:14.5px;white-space:nowrap}
-.sitehead .sh-kofi:hover{filter:brightness(1.08)}
+.sitehead .sh-brand{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.sitehead .sh-logo{display:block;width:62px;height:62px;border-radius:12px}
+.sitehead .sh-icone,.sitehead .sh-text{display:none}
+.sitehead .sh-icone{width:42px;height:42px;border-radius:10px}
+.sitehead .sh-text{font-family:var(--font-site);font-weight:600;font-size:16px;line-height:1.12;white-space:normal}
+.sitehead .sh-act{display:flex;align-items:center;gap:22px}
+.sitehead .sh-lang{display:inline-flex;gap:18px}
+.sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;min-height:36px;border-bottom:2px solid transparent;font-weight:600;font-size:15px;letter-spacing:.02em}
+.sitehead .sh-lang span{color:var(--site-gold);border-bottom-color:var(--site-gold)}
+.sitehead .sh-lang a{color:var(--site-ink)}
+.sitehead .sh-lang span.sh-off{color:#5d6475;border-bottom-color:transparent;cursor:not-allowed}
+.sitehead .sh-lang a:hover{color:var(--site-gold)}
+.sitehead .sh-sep{width:1px;height:30px;background:var(--site-line)}
+.sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:15px;white-space:nowrap}
+.sitehead .sh-kofi:hover{color:var(--site-gold)}
+.sitehead .sh-kofi svg{display:block;width:28px;height:28px;flex:none;order:2;position:relative;top:-4px}
 .sitehead a:focus-visible{outline:2px solid var(--site-gold);outline-offset:2px}
-@media (max-width:640px){.sitehead .sh-text,.sitehead .sh-kofi-t{display:none}.sitehead .sh-kofi{width:36px;padding:0;justify-content:center}}
+@media (max-width:640px){.sitehead .sh-in{height:64px}.sitehead .sh-logo{display:none}.sitehead .sh-icone{display:block}.sitehead .sh-text{display:block}
+  .sitehead .sh-act{gap:14px}.sitehead .sh-lang{gap:14px}.sitehead .sh-sep{height:24px}
+  .sitehead .sh-kofi-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .sitehead .sh-kofi{width:44px;justify-content:center;margin:0 -8px 0 -6px}.sitehead .sh-kofi svg{width:34px;height:34px;top:0}}
+@media (max-width:360px){.sitehead .sh-text{display:none}}
 
 /* ---------- onglets principaux d'une appli (Apprendre / Jouer / Aide-mémoire…) ----------
    Une piste arrondie, l'onglet actif dans la couleur de l'appli. L'état actif se lit sur

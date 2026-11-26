@@ -48,13 +48,21 @@ def item(c):
 shown = [c for c in ORDER if c in langs or c in ("fr", "en")]
 lang_items = "".join(item(c) for c in shown)
 
+TASSE = ('<svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34"><g transform="translate(-0.5 2)">'
+         '<path d="M12.5 2.8c-1.5 1.4-1.5 2.9 0 4.3s1.5 2.9 0 4.3M17.5 1.8c-1.5 1.4-1.5 2.9 0 4.3s1.5 2.9 0 4.3" fill="none" stroke="#f3ead8" stroke-width="1.7" stroke-linecap="round" opacity=".7"/>'
+         '<path d="M24.6 17.2h1.6a3.4 3.4 0 0 1 0 6.8h-2.4" fill="none" stroke="#FFBE04" stroke-width="2.6" stroke-linecap="round"/>'
+         '<path d="M5.5 15.5h20v4.2c0 4.9-4 8.8-8.8 8.8h-2.4c-4.9 0-8.8-3.9-8.8-8.8z" fill="#FFBE04"/>'
+         '<ellipse cx="15.5" cy="15.5" rx="10" ry="2.6" fill="#ffd65a"/><ellipse cx="15.5" cy="15.6" rx="8.2" ry="1.7" fill="#5b3318"/>'
+         '<path d="M13.4 15.2c.7-.6 1.6.1 2.1.6.5-.5 1.4-1.2 2.1-.6.6.6-.5 1.4-2.1 1.9-1.6-.5-2.7-1.3-2.1-1.9z" fill="#e8c49a"/>'
+         '<path d="M8.6 19.5v.8c0 2.8 1.6 5.1 3.9 6.1" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".45"/></g></svg>')
 css = ""  # styles de la barre : commun/composants.css (lien posé par commun.py)
 bar = f"""<header class="sitehead">
 <div class="sh-in">
-<a class="sh-brand" href="../" aria-label="{home_aria}"><span class="sh-mark" aria-hidden="true">🎲</span><span class="sh-text">{brand}</span></a>
+<a class="sh-brand" href="../" aria-label="{home_aria}"><img class="sh-logo" src="../img/logo/logo.svg" alt="" width="62" height="62"><img class="sh-icone" src="../img/logo/icone.svg" alt="" width="42" height="42"><span class="sh-text" aria-hidden="true">Less Rules,<br>More Play</span></a>
 <div class="sh-act">
 <div class="sh-lang" role="group" aria-label="Langue / Language">{lang_items}</div>
-<a class="sh-kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener" aria-label="Ko-fi"><span aria-hidden="true">☕</span><span class="sh-kofi-t">{kofi}</span></a>
+<span class="sh-sep" aria-hidden="true"></span>
+<a class="sh-kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">{TASSE}<span class="sh-kofi-t">{kofi}</span></a>
 </div>
 </div>
 </header><!--/sitehead-->

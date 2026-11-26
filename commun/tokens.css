@@ -6,7 +6,7 @@
   /* gabarit */
   --site-w:1080px;
   --site-pad:20px;
-  --sitehead-h:57px;
+  --sitehead-h:81px;
 
   /* couleurs du site (barre du haut, accueil, 404) */
   --site-bg:#0d0f16;
@@ -16,8 +16,8 @@
   --site-ink:#efe8d8;
   --site-muted:#a3a9b8;
   --site-faint:#7d8496;
-  --site-gold:#ddb96a;
-  --site-gold-ink:#17130a;
+  --site-gold:#ffbe04;  /* jaune du logo */
+  --site-gold-ink:#111111;
 
   /* couleur de chaque jeu (cartes de l'accueil, fiches, liens « Signaler un problème »…) */
   --jeu-mk:#7db7ef;   /* Mage Knight : bleu */
@@ -27,7 +27,7 @@
   --jeu-nr:#9bd33a;   /* Nemesis: Retaliation : vert acide */
 
   /* typographie du site (les applis gardent leur police de titre) */
-  --font-site:"Marcellus","Palatino Linotype",Georgia,serif;
+  --font-site:"Fraunces",Georgia,serif;
   --font-ui:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
   --texte-xs:12px;
   --texte-s:14px;
@@ -60,4 +60,4 @@
   --cible-compacte:36px;
   --duree:.15s;
 }
-@media (max-width:640px){:root{--site-pad:16px}}
+@media (max-width:640px){:root{--site-pad:16px;--sitehead-h:65px}}

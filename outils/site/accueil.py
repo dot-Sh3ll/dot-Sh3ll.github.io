@@ -85,11 +85,11 @@ def maj(s, cible, date):
 
 
 def new_game(s, jeu, g):
-    if f'data-g="{jeu}"' in s:
+    if f'<option value="{jeu}">' in s:
         return s
     s = s.replace("\n.pr{--accent", f"\n.{jeu}{{--accent:{g['accent']};--c1:{g['c1']};--c2:{g['c2']}}}\n.pr{{--accent", 1)
-    i = s.index('</button>\n    </div>', s.index('class="chips"'))
-    s = s[:i + 9] + f'\n      <button type="button" class="chip" data-g="{jeu}" aria-pressed="false">{g["chip"]}</button>' + s[i + 9:]
+    i = s.index('</option>\n      </select>', s.index('id="jeu"'))  # menu « Tous les jeux » de l'accueil
+    s = s[:i + 9] + f'\n        <option value="{jeu}">{g["chip"]}</option>' + s[i + 9:]
     s = s.replace('var NAMES={', f'var NAMES={{{jeu}:"{g["recherche"]}",', 1)
     o = '<option value="Site" data-fr='
     s = s.replace(o, f'<option value="{g["chip"]}">{g["chip"]}</option>\n            ' + o, 1)
