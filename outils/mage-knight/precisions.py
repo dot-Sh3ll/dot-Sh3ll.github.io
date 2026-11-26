@@ -240,11 +240,11 @@ def bloc(lang):
     ep = EPINEUX[lang]
     js = ("/*precisions*/\n"
           "const NAVHEAD=(()=>{const n=document.querySelector('.app-tuto header.top .navhead');if(!n)return '';const h=n.outerHTML;n.remove();return h})();\n"
-          "const PRECIS_UI=" + json.dumps({k: u[k] for k in ("att", "prec", "src")}, ensure_ascii=False) + ";\n"
+          "const PRECIS_UI=" + json.dumps({k: u[k] for k in ("att", "prec")}, ensure_ascii=False) + ";\n"
           "(" + json.dumps(data, ensure_ascii=False) + ").forEach(p=>{const x=TP(p.t);if(x){x.att=p.att;x.faq=p.faq}});\n"
           "TOPICS.push(" + json.dumps({"t": ep["t"], "h": ep["h"], "rules": ep["rules"], "quiz": ep["quiz"]}, ensure_ascii=False) + ");\n"
           "function precis(T){const U=PRECIS_UI;return (T.att?`<p class=\"lrmp-att\"><b>${U.att} ·</b> ${T.att}</p>`:'')"
-          "+(T.faq&&T.faq.length?`<details class=\"lrmp-prec\"><summary>${U.prec} (${T.faq.length})</summary><ul>${T.faq.map(f=>`<li>${f}</li>`).join('')}</ul><p class=\"src\">${U.src}</p></details>`:'')}\n"
+          "+(T.faq&&T.faq.length?`<details class=\"lrmp-prec\"><summary>${U.prec} (${T.faq.length})</summary><ul>${T.faq.map(f=>`<li>${f}</li>`).join('')}</ul></details>`:'')}\n"
           "(function(){try{const s=document.createElement('style');s.id='precis-css';s.textContent=" + json.dumps(CSS) + ";document.head.appendChild(s)}catch(e){}})();\n"
           "/*/precisions*/\n")
     return js

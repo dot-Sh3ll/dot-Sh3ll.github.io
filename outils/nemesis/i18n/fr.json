@@ -19,7 +19,7 @@
  "cas_question": "'<span class=\"tag\">Que faites-vous ?</span>'",
  "etape": "${c.part} · étape ${i+1} sur ${CH.length}",
  "titre_regles": "<h2>Les points de règle</h2>",
- "faq_titre": "<h3>Précisions officielles <small>FAQ Awaken Realms v1.2</small></h3>",
+ "faq_titre": "<h3>Précisions</h3>",
  "titre_cas": "h+=`<h2>Cas pratiques</h2>",
  "titre_verifier": "h+=`<h2>Vérifiez que c'est acquis</h2>",
  "bouton_ouvrir_aide": "data-tab=\"aide\">Ouvrir l'aide-mémoire →</button>",

@@ -19,7 +19,7 @@
  "cas_question": "'<span class=\"tag\">What do you do?</span>'",
  "etape": "${c.part} · step ${i+1} of ${CH.length}",
  "titre_regles": "<h2>The rules</h2>",
- "faq_titre": "<h3>Official clarifications <small>Awaken Realms FAQ v1.2</small></h3>",
+ "faq_titre": "<h3>Clarifications</h3>",
  "titre_cas": "h+=`<h2>Hands-on cases</h2>",
  "titre_verifier": "h+=`<h2>Check your understanding</h2>",
  "bouton_ouvrir_aide": "data-tab=\"aide\">Open the reference sheet →</button>",

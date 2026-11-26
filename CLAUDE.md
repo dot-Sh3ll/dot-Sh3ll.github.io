@@ -175,6 +175,7 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 
 ## Décisions de Paul
 
+- **Précisions de règles (FAQ, compendium, errata), dans toutes les applis** : encadrés titrés simplement « Précisions » (« Clarifications »), jamais « officielles », sans nom de source, de version ni de date dans les encadrés ni dans le texte (pas de « (FAQ officielle) »). La source n'est citée qu'à deux endroits : deux lignes sous « Apprendre les règles » en tête de la colonne des chapitres (« D'après le livret de règles » / « Avec les précisions de … ») et un remerciement avec liens dans la mention en bas de page (Nemesis : Bernaar ; Mage Knight : BillNC). Pas de pitch sous le titre.
 - **Agricola : projet abandonné.**
 - **Allemand : seul Aeon's End est traduit**, jusqu'à nouvel ordre ; ne pas traduire d'autre appli en allemand.
 
