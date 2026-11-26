@@ -1,0 +1,34 @@
+(function(){const $=s=>document.querySelector(s);
+const ch=(k,t)=>`<span class="chip c-${k}">${t}</span>`;
+const M=ch('mat','Materials'),P=ch('pop','Population'),G=ch('prog','Progress'),I=ch('ins','Unrest');
+const F=[
+['Your turn',`<p>Announce <b>a single order</b>, then do your Cleanup.</p>
+ <h4>Activation</h4><ul><li>3 Action tokens, 5 Exhaust tokens.</li><li>1 Action = play 1 card from your hand. Resolve its text, then discard it, unless it stays in play (∞).</li><li>Exhaust = place 1 Exhaust token on a card in play with no token. Once per turn per card.</li><li><b>Free action</b>: no token, but once per turn for the same card. Written costs are still due.</li><li>Barbarian or Empire card: playable from your hand only if your State card shows the same side.</li></ul>
+ <h4>Research</h4><p>Discard your whole hand, then innovate a Region, Tradition, Civilised or Tributary. No Action, no Exhaust.</p>
+ <h4>Pacify</h4><p>Return as many Unrest from your hand as you like, for free. No Action, no Exhaust.</p>`],
+['Reading a card',`<ul><li>Each sentence resolves in order, <b>as much as possible</b>.</li><li>Whatever follows "may" is optional; the rest is mandatory.</li><li>Whatever comes before "to" is a <b>cost</b>: it is paid in full, before the rest. Unpayable: card unplayable.</li><li>Paying or Moving resources is always a cost.</li><li><b>Choose</b>: only one option among those separated by OR.</li><li>"All players" includes you; "all other players" doesn't.</li><li>Variable points (star): 10 at most per card.</li></ul>
+ <h4>Pay</h4><p>1 ${G} replaces 1 ${P}, or 2 ${M} (no change given). Nothing else converts. Resources placed on cards can't be used.</p>`],
+['Market',`<ul><li><b>Acquiring</b>: the card, its tokens, <b>and the${I.replace('Unrest','Unrest')} tucked under it</b>.</li><li><b>Innovate</b>: the card and its tokens; the Unrest goes back to the pile. Or the top face-down card of the category's deck.</li><li>Tributary, or empty deck: search the Main deck for the category. Nothing found: 2 ${G}.</li><li>Never an Unrest under a Region. The Market always has 5 cards.</li><li>Slots 1 and 2: replaced from the Main deck.</li><li><b>Exile</b>: impossible if the card carries tokens.</li></ul>`],
+['Cleanup',`<ol><li>1 ${G} <b>from the supply</b> onto a Market card (Carthaginians: 2 ${M}).</li><li>Take back your tokens: 3 Actions, 5 Exhaust.</li><li>Discard as many cards as you like.</li><li>Draw up to your hand size (5 by default). If you already have that many, you don't draw.</li></ol>
+ <h4>Empty deck: the nation evolves</h4><ol><li>Nation deck not empty: its top card joins your discard pile, an Exhaust token serves as a marker.</li><li>The Accession comes out last: you become an Empire (Vikings: the Zenith triggers the end of the game).</li><li>Nation deck empty: you may pay for a Development.</li><li>Shuffle, then keep drawing.</li></ol><p>Only one addition per turn, and only with a free Exhaust token. "If possible": never a shuffle.</p>`],
+['Unrest and Glory',`<ul><li>${I} : −2 points each. Playing it: 1 Action, then 1 ${P}, 3 ${M} or 2 discarded cards. It goes back to the pile.</li><li>Returning through a card effect: free.</li><li><b>Glory</b>: abandon 3 Regions in play, look at 2 Fame cards, keep one, put the other back on the deck.</li><li><b>Abandon</b> a Region: to the discard pile. <b>Recall</b>: to your hand. Its tokens return to your reserve, the cards reserved under it follow it.</li><li><b>Reserve</b>: slide a card from your hand under a card in play. It can no longer be played, but counts for scoring.</li><li><b>History</b>: under your Power card, out of play, counted for scoring.</li></ul>
+ <h4>King of Kings</h4><p>When it is the only one left in the Fame deck, gaining a Fame card makes you resolve it instead. Once per player. Side A triggers the end of the game.</p>`],
+['Solstice and end',`<h4>Solstice</h4><p>At the end of each round, resolve all your Solstice effects. No Action, no Exhaust. The Bot has none.</p>
+ <h4>Countdown</h4><p>Main deck empty, last Development paid, King of Kings, the Bot's Dynasty deck run out or a card effect: finish the round, play <b>one last round</b>, then count.</p>
+ <h4>Collapse</h4><p>The Unrest pile runs out: in solo, <b>immediate defeat</b>.</p>
+ <h4>Score</h4><p>Your cards (hand, play, deck, discard, History, reserved, Power card), +1 per ${G} in reserve. Not the Nation deck or unpaid Developments. You need <b>strictly more</b> points than the Bot.</p>`],
+['The Bot',`<ul><li>It doesn't read its cards: each revealed card applies the <b>first line</b> of its table that matches. If nothing in the line is possible, it moves to the next.</li><li>Die: the card in the rolled slot isn't resolved this turn.</li><li>Acquire or Innovate: it takes the card worth the most points (+1 per Progress on it), then the one carrying the most tokens, then the lowest slot.</li><li>Its effects that steal from you, make you discard, abandon, recall or recover an Unrest are <b>Attacks</b>: your protections work.</li><li>Its score: its cards (star = 5), +1 per ${G}, +1 per 10 ${M} and ${P} (per 5 at Sovereign and Overlord).</li></ul>`],
+['Keywords',`<input type="search" id="fgs" placeholder="Search: Recall, Find…" aria-label="Search a keyword"><dl id="fglo"></dl>`]];
+const root=document.createElement('div');root.innerHTML=`<button type="button" id="fopen" class="fopen" aria-expanded="false">Rules sheets</button>
+<aside id="fpanel" class="fpanel" hidden aria-label="Rules sheets"><div class="fhead"><b>Rules sheets</b><button type="button" id="fclose" aria-label="Close the sheets">✕</button></div>
+<div class="ftabs">${F.map((f,i)=>`<button type="button" data-f="${i}">${f[0]}</button>`).join('')}</div><div class="fbody" id="fbody"></div></aside>`;
+document.getElementById('tab-solo').append(root);
+let cur=0;try{cur=+localStorage.getItem('imperium-fiche')||0}catch(e){}
+function show(i){cur=i;try{localStorage.setItem('imperium-fiche',i)}catch(e){}document.querySelectorAll('.ftabs button').forEach(b=>b.classList.toggle('on',+b.dataset.f===i));
+  $('#fbody').innerHTML=`<h3>${F[i][0]}</h3>`+F[i][1];
+  if($('#fgs')){const g=()=>{const q=$('#fgs').value.trim().toLowerCase();const L=(window.IMP_GLO||[]).filter(x=>!x[2]&&(!q||(x[0]+' '+x[1]).toLowerCase().includes(q)));
+      $('#fglo').innerHTML=L.map(x=>`<dt>${x[0]}</dt><dd>${x[1]}</dd>`).join('')||'<dd>No keyword matches.</dd>'};$('#fgs').addEventListener('input',g);g()}}
+const open=o=>{$('#fpanel').hidden=!o;$('#fopen').setAttribute('aria-expanded',o);document.getElementById('tab-solo').classList.toggle('fon',o);if(o)show(cur)};
+$('#fopen').onclick=()=>open($('#fpanel').hidden);$('#fclose').onclick=()=>open(false);
+document.querySelectorAll('.ftabs button').forEach(b=>b.onclick=()=>show(+b.dataset.f));
+})();

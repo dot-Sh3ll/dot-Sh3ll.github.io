@@ -45,7 +45,7 @@ Applis (registre : `outils/site/jeux.json`) :
 | Dossier | Code | Couleur (`--jeu-*`) | Police de titre | Langues | Comment la page est produite |
 |---|---|---|---|---|---|
 | `mage-knight` | mk | `#7db7ef` bleu | Marcellus | FR EN | **format commun** : `outils/mage-knight/` + `build.sh` (assembleur, schémas, thème, précisions) |
-| `imperium` | imp | `#ec7f6d` corail | Cinzel / Marcellus | FR EN | FR à la main ; EN : `build_imp.sh` |
+| `imperium` | imp | `#ec7f6d` corail | Cinzel / Marcellus | FR EN | **format commun** : `outils/imperium/` + `build.sh` (assembleur, schémas, thème) |
 | `aeons-end` | ae | `#c495f5` violet | Marcellus | FR EN DE | FR et EN à la main en parallèle ; DE : `outils/aeons-end/gen_lang.py de` |
 | `puerto-rico` | pr | `#e2cc9f` sable | Fraunces | FR EN | **format commun** : `outils/puerto-rico/` + `assembler.py puerto-rico` |
 | `nemesis` | nr | `#9bd33a` vert acide | Rajdhani | FR EN | **format commun** : `outils/nemesis/` (`page.html`, `i18n/`, `contenu/<langue>/`) + `assembler.py nemesis` |
@@ -84,7 +84,7 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 - **Format de traduction commun pour les nouvelles applis** (modèle `outils/modele-appli`) : textes d'interface par clés dans
   `i18n/<langue>.json` (mêmes clés partout), contenu dans `contenu/<langue>.js` ; `assembler.py` signale les clés
   manquantes et reprend l'anglais. Une appli en plusieurs morceaux utilise des emplacements nommés `<!--CONTENU:nom-->`
-  remplis par `contenu/<langue>/nom.js` ou `nom.html` (Nemesis, Puerto Rico, Mage Knight). Passées au format commun : Nemesis, Puerto Rico, Mage Knight. Les autres gardent leur chaîne (tableau ci-dessus).
+  remplis par `contenu/<langue>/nom.js` ou `nom.html` (Nemesis, Puerto Rico, Mage Knight, Imperium). Passées au format commun : Nemesis, Puerto Rico, Mage Knight, Imperium. Les autres gardent leur chaîne (tableau ci-dessus).
 - État des traductions : `python3 outils/traduire_etat.py`.
 
 ## Commandes
@@ -98,18 +98,18 @@ Toujours depuis la racine du dépôt.
 | Avancement des traductions | `python3 outils/traduire_etat.py` |
 | Créer une appli | `python3 outils/nouvelle_appli.py <dossier> <code> "<Nom FR>" "<Nom EN>" <#couleur> <glyphe> [police]` |
 | Reconstruire une appli faite sur le modèle | `python3 outils/site/assembler.py <dossier>` puis `seo.py` |
-| Reconstruire Puerto Rico / Nemesis / Mage Knight | `sh outils/<dossier>/build.sh` (assembleur puis, selon l'appli, schémas, thème, précisions) puis `seo.py` |
+| Reconstruire Puerto Rico / Nemesis / Mage Knight / Imperium | `sh outils/<dossier>/build.sh` (assembleur puis, selon l'appli, schémas, thème, précisions) puis `seo.py` |
 | Aeon's End allemand | `python3 outils/aeons-end/gen_lang.py de` (`--todo` : ce qui manque), puis `seo.py` |
 | Barre du site + feuilles communes + polices d'une appli | `python3 outils/site/chrome.py <dossier>` |
 | Pied de page | `python3 outils/site/pied.py <dossier> "<option du formulaire>"` |
-| Schémas des tutoriels Mage Knight, Imperium, Puerto Rico | `python3 outils/site/schemas.py <dossier>` ou `--tout` (à relancer après `build_imp.sh` ; les `build.sh` de Mage Knight et Puerto Rico le font) |
+| Schémas des tutoriels Mage Knight, Imperium, Puerto Rico | `python3 outils/site/schemas.py <dossier>` ou `--tout` (les `build.sh` de Mage Knight, Imperium et Puerto Rico le font) |
 | Mage Knight : « À ne pas oublier », « Précisions » et chapitre « Cas épineux » (compendium BGG) | `python3 outils/mage-knight/precisions.py` (contenu FR et EN dans le script ; `outils/mage-knight/build.sh` le lance) |
-| Bouton de thème (Imperium, Aeon's End, Mage Knight) | `python3 outils/site/theme.py <dossier>` ou `--tout` (à relancer après `build_imp.sh`, `gen_lang.py` ; le `build.sh` de Mage Knight le fait) |
+| Bouton de thème (Imperium, Aeon's End, Mage Knight) | `python3 outils/site/theme.py <dossier>` ou `--tout` (à relancer après `gen_lang.py` ; les `build.sh` de Mage Knight et d'Imperium le font) |
 | Accueil : carte d'appli, de fiche, date de mise à jour | `python3 outils/site/accueil.py appli\|fiche <json>` ; `accueil.py maj <dossier ou pdf>` (badge « Mis à jour ») — ne pas couper sa sortie avec `\| head` |
 | Images de partage | `python3 outils/site/og_images.py` (Playwright) |
 | Test au navigateur | Playwright, Chrome `/usr/bin/google-chrome` (`--no-sandbox`) ; `python3 -m http.server 8766` à la racine |
 
-Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium seulement) : voir `outils/README.md`.
+Remise en place des anciens chemins fixes (Aeon's End seulement) : voir `outils/README.md`.
 
 ## Procédures
 
@@ -181,8 +181,8 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 
 ## À faire (par ordre d'intérêt)
 
-1. **Format de traduction commun** : Nemesis, Puerto Rico et Mage Knight sont passés (pages identiques). Restent Imperium
-   (page FR écrite à la main, anglais par anciens chemins fixes) et Aeon's End (FR/EN en parallèle, DE généré).
+1. **Format de traduction commun** : Nemesis, Puerto Rico, Mage Knight et Imperium sont passés (pages identiques).
+   Reste Aeon's End (FR/EN en parallèle, DE généré).
 2. **Schémas** : faits et validés par Paul, en FR et EN (Nemesis 7, Mage Knight 3, Imperium 1, Puerto Rico 1 ; contrôlés au
    navigateur le 26/11). Piste restante : versions interactives.
 3. **Versions de règles suivies** : afficher sous « Apprendre » de chaque appli la version des règles et des errata intégrés
