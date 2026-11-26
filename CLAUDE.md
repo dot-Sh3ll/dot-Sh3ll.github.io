@@ -2,7 +2,7 @@
 
 Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, compagnons solo, fiches PDF à imprimer.
 Site statique servi par GitHub Pages (branche `main`, domaine `lessrulesmoreplay.com` dans `CNAME`, DNS chez OVH).
-Ancien domaine `paulmoussard.com` (enregistré chez OVH, DNS chez Cloudflare depuis le 26/11/2026, DNSSEC coupé) : règle Cloudflare
+Ancien domaine `paulmoussard.com` (changement d'adresse fait dans Search Console le 26/11/2026) (enregistré chez OVH, DNS chez Cloudflare depuis le 26/11/2026, DNSSEC coupé) : règle Cloudflare
 « Single Redirect » 301 `http*://*paulmoussard.com/*` → `https://lessrulesmoreplay.com/${3}`, chaîne de requête conservée ; à garder au moins jusqu'en 2028. Auteur : **Paul Moussard**.
 Ce fichier suffit pour travailler sur le site ; `outils/README.md` détaille chaque script.
 
@@ -214,11 +214,12 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
 
 2. **« Expliquer le jeu »** : Nemesis fait. Suite, un jeu à la fois avec Paul, écran par écran (voir la section dédiée) :
    Mage Knight (Mission de Reconnaissance), Puerto Rico, Imperium. Aeon's End : pas concerné.
-3. **Search Console** : paulmoussard.com validé le 26/11 ; « Changement d'adresse » à lancer si ce n'est pas fait.
-4. **Pax Pamir** : mis de côté par Paul pour l'instant.
+3. Search Console : fait (changement d'adresse vers lessrulesmoreplay.com et sitemap envoyés, 26/11/2026).
+
+Pax Pamir : ne pas en parler à Paul ni le proposer ; il le relancera lui-même.
 
 ## Idées d'applis
 
-- **Pax Pamir** (prochaine, de préférence) : automatiser le Wakhan.
+- **Pax Pamir** : automatiser le Wakhan (Paul le relancera lui-même ; ne pas en parler).
 - **Brass Birmingham** (éventuellement).
 - **Spirit Island**.
