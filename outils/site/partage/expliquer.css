@@ -61,7 +61,12 @@
 .ex-nav button.pri{background:var(--xa);border-color:var(--xa);color:var(--xai)}
 .ex-nav button:disabled{opacity:.45;cursor:default}
 .ex-nav button:focus-visible{outline:2px solid var(--xa);outline-offset:2px}
+.ex-clavier{margin:0 0 0 auto;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--xm)}
+.ex-touches{display:inline-flex;gap:4px}
+.ex-clavier kbd{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:24px;padding:0 6px;border:1px solid var(--xl);border-bottom-width:2px;border-radius:6px;background:var(--xs);color:var(--xi);font:600 13px/1 system-ui,sans-serif}
+@media (hover:none),(pointer:coarse){.ex-clavier{display:none}}
 .ex-astuce{font-size:13px;color:var(--xm)}
-@media (max-width:640px){.ex-astuce{display:none}.ex-nav button{flex:1 1 40%}}
+@media (max-width:640px){.ex-astuce,.ex-clavier{display:none}.ex-nav button{flex:1 1 40%}}
 .lrmp-ex-boite:fullscreen .ex-nav{justify-content:center}
+.lrmp-ex-boite:fullscreen .ex-clavier{margin-left:16px}
 .ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}

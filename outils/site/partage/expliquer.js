@@ -2,11 +2,16 @@
    lrmpExpliquer(boite, D) : D = {ecrans:[{t, html, dire?, piege?, pl?}], aide:html, plus?:[[quoi, quand]], ui:{…}}
    dire : la phrase à dire, en italique sous le titre ; piege : encadré, titré pl (sinon ui.piege).
    chantier : {k, t, p} = écran d'attente « Section en chantier » à la place des écrans (mode pas encore validé).
-   Ordre : les écrans, puis l'aide-mémoire, puis « Pour plus tard » (si D.plus). Boutons : Précédent, Suivant (jusqu'au dernier écran), Plein écran ; flèches du clavier quand la boîte est visible. */
+   Ordre : les écrans, puis l'aide-mémoire, puis « Pour plus tard » (si D.plus). Boutons : Précédent, Suivant (jusqu'au dernier écran), Plein écran ; flèches du clavier quand la boîte est visible.
+   Astuce « ← → pour passer d'un écran à l'autre » à droite des boutons (texte : ui.clavier, sinon selon la langue de la page), masquée sur écran tactile ou étroit. */
 window.lrmpExpliquer=function(boite,D){
   if(D.chantier){const c=D.chantier;boite.innerHTML=`<div class="ex-stage ex-chantier"><div class="ex-num">${c.k}</div><h2>${c.t}</h2><div class="ex-corps"><p class="big1">${c.p}</p></div></div>`;return}
   const u=D.ui,N=D.ecrans.length,P=D.plus&&D.plus.length?1:0,T=N+1+P;
   let i=0;
+  const CL={fr:'pour passer d\'un écran à l\'autre',en:'to move between screens',de:'zum Blättern'},
+    LB={fr:'Flèches gauche et droite du clavier',en:'Left and right arrow keys',de:'Pfeiltasten links und rechts'},
+    lg=(document.documentElement.lang||'fr').slice(0,2),clavier=u.clavier||CL[lg]||CL.en,
+    astuce=`<p class="ex-clavier"><span class="ex-touches" role="img" aria-label="${u.clavierTouches||LB[lg]||LB.en}"><kbd>←</kbd><kbd>→</kbd></span>${clavier}</p>`;
   function contenu(){
     if(i<N){const e=D.ecrans[i];
       return {num:u.ecran.replace('{n}',i+1).replace('{t}',N),titre:e.t,cite:e.dire||'',
@@ -19,8 +24,8 @@ window.lrmpExpliquer=function(boite,D){
     boite.innerHTML=`<div class="ex-stage">
       <div class="ex-num">${c.num}</div><h2>${c.titre}</h2>${c.cite?`<p class="ex-cite">${c.cite}</p>`:''}<div class="ex-corps">${c.corps}</div>
       <div class="ex-points" aria-hidden="true">${Array.from({length:T},(_,k)=>`<i class="${k===i?'on':''}${k>=N?' fin':''}"></i>`).join('')}</div></div>
-      <div class="ex-nav"><button type="button" data-x="prec" ${i?'':'disabled'}>${u.precedent}</button><button type="button" class="pri" data-x="suiv" ${fin?'disabled':''}>${u.suivant}</button>
-      ${document.fullscreenEnabled?`<button type="button" data-x="fs">${u.pleinEcran}</button>`:''}</div>`;
+      <div class="ex-nav"><button type="button" data-x="prec" aria-keyshortcuts="ArrowLeft" ${i?'':'disabled'}>${u.precedent}</button><button type="button" class="pri" data-x="suiv" aria-keyshortcuts="ArrowRight" ${fin?'disabled':''}>${u.suivant}</button>
+      ${document.fullscreenEnabled?`<button type="button" data-x="fs">${u.pleinEcran}</button>`:''}${astuce}</div>`;
     const b=k=>boite.querySelector(`[data-x="${k}"]`);
     b('prec').onclick=()=>aller(i-1);b('suiv').onclick=()=>aller(i+1);
     if(b('fs'))b('fs').onclick=()=>{try{const r=document.fullscreenElement?document.exitFullscreen():boite.requestFullscreen();if(r&&r.catch)r.catch(()=>{})}catch(e){}}}
