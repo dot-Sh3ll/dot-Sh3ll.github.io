@@ -387,16 +387,16 @@ function renderMarket(){const M=MK(),K=M.kok;
    <div class="piles">${pile('Region',M.reg.length,M.under.reg?'<small>+ Tributary</small>':'')}${pile('Tradition',M.tra.length,M.under.tra?'<small>+ Tributary</small>':'')}${pile('Civilised',M.civ.length,M.under.civ?'<small>+ Tributary</small>':'')}${pile('Main',M.main.length)}${pile('Fame',M.fame.length,`<small>King of Kings ${K.down?'flipped':'side '+K.side}</small>`)}
     <div class="pl ins ${M.ins<=2?'crit':M.ins<=4?'low':''}"><b>${M.ins}</b><span>Unrest</span></div><details class="pl"><summary><b>${M.exile.length}</b><span>Exile</span></summary>${M.exile.map(c=>`<div class="mini">${c.n}</div>`).join('')}</details></div>
    <div class="slots5">${M.slots.map((s,i)=>s?`<div class="slotw"><div class="slab">Slot ${i+1}</div>${tile(s.card,'',`${slotTok(s)?`<p class="tok">On the card: ${['prog','mat','pop'].filter(r=>s.tok[r]).map(r=>s.tok[r]+' '+chip(r)).join(' ')}</p>`:''}${s.ins?'<p class="und">Unrest under it</p>':''}`)}</div>`:`<div class="slotw empty">Slot ${i+1} empty</div>`).join('')}</div>`}
-function quick(c){const out=[],t=c.t||'';const g=/Gagnez (\d+) (Matériaux?|Population|Progrès)/g;let m;
+function quick(c){const out=[],t=c.t||'';const g=/(?:Gagnez|Gain) (\d+) (Matériaux?|Materials?|Population|Progrès|Progress)/g;let m;
   while((m=g.exec(t)))out.push(B('q-gain',`+${m[1]} ${m[2]}`,c.id+'|'+m[1]+'|'+(m[2].startsWith('Mat')?'mat':m[2]==='Population'?'pop':'prog')));
-  const d=/Piochez (\d+) cartes?/.exec(t);if(d)out.push(B('q-draw',`Draw ${d[1]}`,d[1]));
-  if(/acqu[ée]rir|Acquérez/i.test(t))out.push(B('t-acq','Acquire…'));
-  if(/innover|Innovez/i.test(t))out.push(B('t-inn','Innovate…'));
+  const d=/(?:Piochez|Draw) (\d+) (?:cartes?|cards?)/.exec(t);if(d)out.push(B('q-draw',`Draw ${d[1]}`,d[1]));
+  if(/acqu[ée]rir|Acquérez|\bacquire\b/i.test(t))out.push(B('t-acq','Acquire…'));
+  if(/innover|Innovez|\binnovate\b/i.test(t))out.push(B('t-inn','Innovate…'));
   if(c.glory)out.push(B('t-glory','Abandon 3 Regions and look at Fame cards',c.id));
-  if(/Gagnez 1 Action/i.test(t))out.push(B('q-act','+1 Action'));
-  if(/Exilez|exilez/.test(t))out.push(B('t-exile','Exile…'));
-  if(/Renvoyez|renvoyer une Instabilités/.test(t))out.push(B('t-retins','Return an Unrest…'));
-  if(/développez 1 carte sans payer/i.test(t))out.push(B('t-devfree','Develop for free'));
+  if(/Gagnez 1 Action|Gain 1 Action/i.test(t))out.push(B('q-act','+1 Action'));
+  if(/Exilez|exilez|\b[Ee]xile \d/.test(t))out.push(B('t-exile','Exile…'));
+  if(/Renvoyez|renvoyer une Instabilités|[Rr]eturn (?:an|up to \d) Unrest/.test(t))out.push(B('t-retins','Return an Unrest…'));
+  if(/développez 1 carte sans payer|develop 1 card without paying/i.test(t))out.push(B('t-devfree','Develop for free'));
   return out.join('')}
 function renderMe(){const P=D(),act=P.phase==='act',sol=P.phase==='sol',on=act||sol,busy=DG.busy;
   const R=['mat','pop','prog'].map(r=>`<span class="rs">${chip(r)} <b>${P.res[r]}</b>${on?B('res-',`−`,r,busy,'sm')+B('res+','+',r,busy,'sm'):''}</span>`).join('');
@@ -406,14 +406,14 @@ function renderMe(){const P=D(),act=P.phase==='act',sol=P.phase==='sol',on=act||
   else if(sol)ctrl=`<div class="q">Solstice: apply the effects below with the tools, then confirm.</div><ul>${[...P.play,P.power].filter(c=>/Solstice/.test(c.t)).map(c=>`<li><b>${c.n}</b>: ${c.t.slice(c.t.indexOf('Solstice'))}</li>`).join('')||'<li>No Solstice effect in play.</li>'}</ul><div class="row">${B('sol-done','Solstice resolved',0,busy,'pri')}${B('undo','Undo the last action',0,busy||!DG.undo.length,'undo')}</div>`;
   const cur=P.cur?`<div class="curz"><h3>Card being resolved</h3>${tile(P.cur,quick(P.cur)+B('cur-disc','Done: discard',0,busy,'pri')+B('cur-hist','Put into History',0,busy)+B('cur-play','Leave in play',0,busy))}<p class="hint">Apply the text with the quick buttons or the tools, then finish.</p></div>`:'';
   const hand=P.hand.map(c=>tile(c,act?B('play','Play',c.id,busy||!!P.cur,'pri')+B('playfree','Free action',c.id,busy||!!P.cur,'sm')+B('disc','Discard',c.id,busy,'sm')+`<details class="more"><summary>More</summary>${B('arch','Put into History',c.id,busy)}${B('top','On top of the deck',c.id,busy)}${B('reserve','Reserve under…',c.id,busy)}${B('give','Give to the Bot',c.id,busy)}${c.cat==='ins'?B('retins','Return (effect)',c.id,busy):''}</details>`:'')).join('')||'<p class="muted">Empty hand.</p>';
-  const play=P.play.map(c=>tile(c,on?(/Épuiser/.test(c.t)&&act?B('exh','Exhaust',c.id,busy||c.ex||P.exh<1):'')+(c.cat==='reg'?B('aban','Abandon',c.id,busy,'sm')+B('recall','Recall',c.id,busy,'sm'):'')+B('arch','Put into History',c.id,busy,'sm')+(c.perm&&c.cat!=='reg'?B('recall','Take back into hand',c.id,busy,'sm'):''):'',(c.rs&&c.rs.length?`<p class="rsv">Reserved under it: ${c.rs.map(r=>r.n).join(', ')}</p>`:'')+(c.tok&&(c.tok.mat+c.tok.pop+c.tok.prog)?`<p class="tok">Tokens: ${['mat','pop','prog'].filter(r=>c.tok[r]).map(r=>c.tok[r]+' '+chip(r)).join(' ')}</p>`:''))).join('')||'<p class="muted">Nothing in play.</p>';
+  const play=P.play.map(c=>tile(c,on?(/Épuiser|^Exhaust/.test(c.t)&&act?B('exh','Exhaust',c.id,busy||c.ex||P.exh<1):'')+(c.cat==='reg'?B('aban','Abandon',c.id,busy,'sm')+B('recall','Recall',c.id,busy,'sm'):'')+B('arch','Put into History',c.id,busy,'sm')+(c.perm&&c.cat!=='reg'?B('recall','Take back into hand',c.id,busy,'sm'):''):'',(c.rs&&c.rs.length?`<p class="rsv">Reserved under it: ${c.rs.map(r=>r.n).join(', ')}</p>`:'')+(c.tok&&(c.tok.mat+c.tok.pop+c.tok.prog)?`<p class="tok">Tokens: ${['mat','pop','prog'].filter(r=>c.tok[r]).map(r=>c.tok[r]+' '+chip(r)).join(' ')}</p>`:''))).join('')||'<p class="muted">Nothing in play.</p>';
   const list=(z,lab,btn)=>`<details><summary>${lab} (${P[z].length})</summary><ul class="lib">${P[z].map(c=>`<li><span>${tileMini(c)}</span>${on&&btn?B(btn[0],btn[1],c.id,busy,'sm'):''}</li>`).join('')}</ul></details>`;
   const devs=P.dev.map(c=>tile(c,on?B('dev','Develop (effect)',c.id,busy||!canPayCost(c),'sm'):'')).join('');
   const T=(id,l)=>B(id,l,0,busy||!on,'sm');
   $('#dg-me').innerHTML=`<div class="mebar"><span class="pill">${MYNAT[P.nat].name} · ${P.state==='B'?'Barbarian':'Empire'}</span><span class="tk">Actions <b>${P.act}</b></span><span class="tk">Exhausted <b>${P.exh}</b></span><span class="tk">Max hand <b>${handMax()}</b></span>${R}${B('quit','Abandon',0,busy,'sm quit')}</div>
    <div class="ctrl">${ctrl}</div>${cur}
    <h3>My hand</h3><div class="cards">${hand}</div>
-   <h3>My play area</h3><div class="cards">${tile(P.power,on&&/Épuiser/.test(P.power.t)&&act?B('pexh','Exhaust',0,busy||P.pex||P.exh<1):'')}${play}</div>
+   <h3>My play area</h3><div class="cards">${tile(P.power,on&&/Épuiser|^Exhaust/.test(P.power.t)&&act?B('pexh','Exhaust',0,busy||P.pex||P.exh<1):'')}${play}</div>
    <details class="tools" ${on?'open':''}><summary>Toolbox</summary>
     <div class="tg2"><div><h4>Cards</h4>${T('t-draw','Draw 1')}${T('t-drawp','Draw 1, if possible')}${T('q-act','Gain 1 Action')}${T('t-getins','Recover an Unrest')}${T('t-find','Find a card')}${T('t-fame','Gain a Fame card')}${T('t-glory','Look at the Fame deck')}</div>
      <div><h4>Market</h4>${T('t-acq','Acquire…')}${T('t-inn','Innovate…')}${T('t-exile','Exile…')}${T('t-addprog','Add 1 Progress onto a card')}</div>
@@ -508,15 +508,15 @@ async function doAct(a,id,P){const c=id?cardBy(id):null;
   case'b-steal-mat':case'b-steal-prog':{const r=a.endsWith('mat')?'mat':'prog';if(S.res[r]>0){S.res[r]--;P.res[r]++;log(`You steal 1 ${chip(r)} to the Bot.`)}else log('It has none.');return}
   }}
 function moveTo(x,z){if(!x)return;const P=D();P.cur=null;P[z].push(x);if(z==='disc'&&x.adv)advDone(x)}
-async function regionEffects(c){const P=D(),M=MK();if(/^Épuiser/.test(c.t))return;const g=/Gagnez (\d+) (Matériaux?|Population|Progrès)/.exec(c.t);
+async function regionEffects(c){const P=D(),M=MK();if(/^(?:Épuiser|Exhaust)/.test(c.t))return;const g=/(?:Gagnez|Gain) (\d+) (Matériaux?|Materials?|Population|Progrès|Progress)/.exec(c.t);
   if(g){const r=g[2].startsWith('Mat')?'mat':g[2]==='Population'?'pop':'prog';P.res[r]+=+g[1];log(`${c.n} : you gain ${g[1]} ${chip(r)}.`)}
-  if(/Piochez 1 carte/.test(c.t)){await drawMe(1);log(`${c.n} : you draw 1 card.`)}
-  if(/archiver 1 carte de votre défausse/.test(c.t)&&P.disc.length){const s=await pickCards(`${c.n} : you MAY put 1 card from your discard pile into your History.`,P.disc,0,1);if(s[0]){moveCard(s[0],'hist');log(`${s[0].n} is put into your History.`)}}
-  if(/récupérer 1 carte de votre défausse et la placer au-dessus/.test(c.t)&&P.disc.length){const s=await pickCards(`${c.n} : you MAY place 1 card from your discard pile on top of your deck.`,P.disc,0,1);if(s[0]){moveCard(s[0],'deck');log(`${s[0].n} is placed on top of your deck.`)}}
-  if(/Exilez 1 carte du Marché/.test(c.t)){const ok=M.slots.map((s,i)=>s&&!slotTok(s)?[`${i+1} · ${s.card.n}`,i]:null).filter(Boolean);
+  if(/Piochez 1 carte|Draw 1 card/.test(c.t)){await drawMe(1);log(`${c.n} : you draw 1 card.`)}
+  if(/archiver 1 carte de votre défausse|put 1 card from your discard pile into your History/.test(c.t)&&P.disc.length){const s=await pickCards(`${c.n} : you MAY put 1 card from your discard pile into your History.`,P.disc,0,1);if(s[0]){moveCard(s[0],'hist');log(`${s[0].n} is put into your History.`)}}
+  if(/récupérer 1 carte de votre défausse et la placer au-dessus|recover 1 card from your discard pile and place it on top/.test(c.t)&&P.disc.length){const s=await pickCards(`${c.n} : you MAY place 1 card from your discard pile on top of your deck.`,P.disc,0,1);if(s[0]){moveCard(s[0],'deck');log(`${s[0].n} is placed on top of your deck.`)}}
+  if(/Exilez 1 carte du Marché|[Ee]xile 1 Market card/.test(c.t)){const ok=M.slots.map((s,i)=>s&&!slotTok(s)?[`${i+1} · ${s.card.n}`,i]:null).filter(Boolean);
     if(ok.length){const i=await ask(`${c.n} : exile 1 Market card (mandatory). A card carrying tokens can't be exiled.`,ok);const s=M.slots[i];M.exile.push(s.card);if(s.ins)M.ins++;log(`You exile ${s.card.n}.`);refill(i)}
     else log('All the Market cards carry tokens: nothing to exile.')}
-  if(/réserver 1 carte/.test(c.t)&&P.hand.length){const sel=await pickCards(`${c.n} : you MAY reserve 1 card from your hand under it.`,P.hand,0,1);if(sel[0]){detach(sel[0]);(c.rs=c.rs||[]).push(sel[0]);log(`${sel[0].n} is reserved under ${c.n}.`)}}}
+  if(/réserver 1 carte|reserve 1 card/.test(c.t)&&P.hand.length){const sel=await pickCards(`${c.n} : you MAY reserve 1 card from your hand under it.`,P.hand,0,1);if(sel[0]){detach(sel[0]);(c.rs=c.rs||[]).push(sel[0]);log(`${sel[0].n} is reserved under ${c.n}.`)}}}
 async function acquireMe(){const P=D(),M=MK();const opts=M.slots.map((s,i)=>s?[`${i+1} · ${s.card.n} (${CAT[s.card.cat]||'—'}${s.card.cat2?' / '+CAT[s.card.cat2]:''})${s.ins?' + Unrest':''}`,i]:null).filter(Boolean);
   const ex=M.exile.length?[['In the Exile pile…','ex','']]:[];
   const i=await ask('Acquire: which card do you take? Follow the categories shown on your card.',[...opts,...ex,['Cancel','no','']]);
@@ -587,7 +587,7 @@ async function digEnd(collapse){const P=D();P.phase='end';renderDig();drop();
   LOG=[];const sc=botScore();log(`Your score: <span class="big">${me}</span> points (cards, ${P.res.prog} Progress in reserve). Bot: <span class="big">${sc.total}</span> points.`,'end');
   finishDig(me,sc,false)}
 function finishDig(me,sc,collapse){const win=!collapse&&me>sc.total;
-  log(collapse?'Defeat.':win?`<b>Victory</b>: ${me} à ${sc.total}.`:`The Bot wins ${sc.total} à ${me}.`,win?'end':'you');
+  log(collapse?'Defeat.':win?`<b>Victory</b>: ${me} to ${sc.total}.`:`The Bot wins ${sc.total} to ${me}.`,win?'end':'you');
   META.hist.unshift({d:new Date().toLocaleDateString('fr-FR'),bot:NAT[S.nat].name,lvl:S.diffName+' (digital)',me,civ:sc.total,res:collapse?'Collapse':win?'Victory':'Defeat',mode:'dig'});META.hist=META.hist.slice(0,50);saveMeta();
   const p=$('#prompt');p.innerHTML='<div class="row"><button type="button" class="pri" id="again">New game</button></div>';$('#again').onclick=()=>{digUnmount();S=null;start()}}
 window.IMP_DIG={digMount,digNew,digStart,doAct:(a,id)=>doAct(a,id,D()),cleanup,get D(){return S&&S.D},get M(){return S&&S.M},render:renderDig};

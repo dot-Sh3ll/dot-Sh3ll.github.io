@@ -17,7 +17,8 @@
   "updOn": "Aktualisiert am ",
   "added": "Hinzugefügt am ",
   "ph": "Spiel oder Spielhilfe suchen…",
-  "search": "Suchen"
+  "search": "Suchen",
+  "filter": "Nach Spiel filtern"
  },
  "_form": {
   "need": "Schreiben Sie eine Nachricht, bevor Sie senden.",

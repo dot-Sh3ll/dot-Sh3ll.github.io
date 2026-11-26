@@ -9,7 +9,8 @@
   "updOn": "Updated ",
   "added": "Added ",
   "ph": "Search a game or a printable…",
-  "search": "Search"
+  "search": "Search",
+  "filter": "Filter by game"
  },
  "_form": {
   "need": "Write a message before sending.",

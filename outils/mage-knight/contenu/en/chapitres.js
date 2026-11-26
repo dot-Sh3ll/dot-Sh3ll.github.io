@@ -337,7 +337,7 @@ NEWT.push(
  `Heroes (the Unit): recruiting them doubles your Reputation bonus or penalty for the interaction. During an assault on a fortified site, their abilities cost 2 Influence; they can still absorb damage.`,
  `You can't recruit Thugs and Heroes in the same interaction.`,
  `Delphana Masters: recruitable only by interaction. Once activated, they can use several of their abilities, each once, by paying their mana.`,
- `Familiers magiques : recrutables aussi dans une Clairière Magique, comme action et sans effet de Réputation. Il faut payer un mana fondamental, puis un Cristal au début de chaque Manche suivante, sinon ils quittent la partie.`,
+ `Magic Familiars: also recruitable at a Magical Glade, as an action and with no Reputation effect. You pay one basic mana, then one Crystal at the start of each following Round, or they leave the game.`,
  `Banner of Command: attached to a Unit, it replaces its Command token, so you control one more Unit. If the Unit loses the Banner, it leaves the game.`,
  `New Heroes: Wolfhawk (The Lost Legion), Krang and Braevalar (Shades of Tezla) play like the others. Some of Krang's Skills have a Reactivation effect: once per turn, a flipped tile can turn face up again under the condition shown on it, then be used again.`],
  quiz:[{q:`Your Reputation gives a penalty of 2. You recruit Thugs. What happens to this penalty?`,o:[`It stays at 2`,`It becomes a bonus of 2`,`It is doubled`],a:1,why:`Thugs reverse the Reputation effect for the whole interaction.`},

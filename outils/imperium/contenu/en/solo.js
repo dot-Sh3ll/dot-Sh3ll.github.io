@@ -150,7 +150,7 @@ function story(){const T=TURN,F=FL[S.nat],cl=[];
   if(T.found.length)cl.push(pick(['discover','adopt','develop'])+' '+et(T.found.slice(0,2).map(nice)));
   if(T.reg.length)cl.push(pick(['annex','colonise','occupy'])+' '+et(T.reg.slice(0,2)));
   if(T.abn&&!T.fame&&!T.kok)cl.push('forsake '+(T.abn>1?T.abn+' Regions':'a Region'));
-  if(T.ex)cl.push(pick(['drive out','set aside','make disappear'])+' '+(T.ex>1?T.ex+' cartes':'a card')+' from the Market');
+  if(T.ex)cl.push(pick(['drive out','set aside','make disappear'])+' '+(T.ex>1?T.ex+' cards':'a card')+' from the Market');
   if(T.arch.length)cl.push(T.arch.length>2?pick(['record several great deeds in their History','carve several feats into memory']):pick(['record','bring'])+' '+et(T.arch)+' into their History');
   if(T.ret)cl.push(pick(['calm some unrest','restore calm at home','crush a revolt']));
   const w=pick(F.who);
@@ -456,7 +456,7 @@ function endGame(collapse){drop();REC=null;TURN=null;LOG=[];$('#title').textCont
   p.querySelectorAll('input').forEach(i=>i.addEventListener('input',()=>$('#xt').textContent=tot()));
   $('#xok').onclick=()=>finish(tot(),sc,false)}
 function finish(me,sc,collapse){const win=!collapse&&me>sc.total,p=$('#prompt'),camp=S.camp&&META.camp;
-  if(!collapse)log(win?`<b>Victory</b>: ${me} à ${sc.total}.`:`The Bot wins ${sc.total} à ${me}. You need strictly more points than it.`,win?'end':'you');
+  if(!collapse)log(win?`<b>Victory</b>: ${me} to ${sc.total}.`:`The Bot wins ${sc.total} to ${me}. You need strictly more points than it.`,win?'end':'you');
   META.hist.unshift({d:new Date().toLocaleDateString('fr-FR'),bot:NAT[S.nat].name,lvl:DIFF[S.diff][0],me,civ:sc.total,res:collapse?'Collapse':win?'Victory':'Defeat',camp:!!camp});META.hist=META.hist.slice(0,50);
   const again=()=>{p.innerHTML='<div class="row"><button type="button" class="pri" id="again">New game</button></div>';$('#again').onclick=start};
   if(camp){const C=META.camp;

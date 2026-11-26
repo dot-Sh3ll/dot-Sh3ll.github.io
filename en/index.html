@@ -443,7 +443,7 @@ footer p{margin:0 0 6px}
       chips=document.querySelectorAll(".chip"), game="all", lang="fr", DAY=864e5, NOW=Date.now(), FRESH=30;
 
   /* textes de l'interface par langue : générés par outils/site/home_lang.py */
-  var WORDS=/*WORDS*/{"fr":{"new":"Nouveau","upd":"Mis à jour","updOn":"Mis à jour le ","added":"Ajouté le ","ph":"Rechercher un jeu, une fiche…","search":"Rechercher","locale":"fr-FR"},"en":{"new":"New","upd":"Updated","updOn":"Updated ","added":"Added ","ph":"Search a game or a printable…","search":"Search","locale":"en-GB"}}/*/WORDS*/;
+  var WORDS=/*WORDS*/{"fr":{"new":"Nouveau","upd":"Mis à jour","updOn":"Mis à jour le ","added":"Ajouté le ","ph":"Rechercher un jeu, une fiche…","search":"Rechercher","filter":"Filtrer par jeu","locale":"fr-FR"},"en":{"new":"New","upd":"Updated","updOn":"Updated ","added":"Added ","ph":"Search a game or a printable…","search":"Search","filter":"Filter by game","locale":"en-GB"}}/*/WORDS*/;
   function W(k){ return (WORDS[lang]||WORDS.en)[k] }
   /* --- dates, badges et tri « à la une » --- */
   function fmt(d){ try{ return new Date(d+"T12:00:00").toLocaleDateString(W("locale"),{day:"numeric",month:"short",year:"numeric"}) }catch(e){ return d } }
@@ -495,6 +495,7 @@ footer p{margin:0 0 6px}
     langBtns.forEach(function(x){ x.dataset.set===l?x.setAttribute("aria-current","page"):x.removeAttribute("aria-current") });
     q.placeholder=W("ph");
     q.setAttribute("aria-label",W("search"));
+    var chipsG=document.querySelector(".chips[role=group]"); if(chipsG) chipsG.setAttribute("aria-label",W("filter"));
     // au chargement (init), ne pas écraser une langue que l'accueil ne propose pas (allemand : Aeon's End s'ouvre en allemand)
     try{ var HL=Object.keys(WORDS), cur=localStorage.getItem("site-lang"), nv=(navigator.language||"").slice(0,2).toLowerCase();
       if(!init || (cur ? HL.indexOf(cur)>=0 : HL.indexOf(nv)>=0)) localStorage.setItem("site-lang",l) }catch(e){}

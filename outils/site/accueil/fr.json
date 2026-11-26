@@ -9,7 +9,8 @@
   "updOn": "Mis à jour le ",
   "added": "Ajouté le ",
   "ph": "Rechercher un jeu, une fiche…",
-  "search": "Rechercher"
+  "search": "Rechercher",
+  "filter": "Filtrer par jeu"
  },
  "_form": {
   "need": "Écrivez un message avant d'envoyer.",

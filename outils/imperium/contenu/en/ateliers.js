@@ -234,7 +234,7 @@ function labGuided(){
     else{G.e--;G.tent=true;G.pop++;G.win=false;ok('You place an Exhaust token on the Tents: 1 more Population. The ability responded to the Region you just played.')}}
   function draw(){
     box.innerHTML=`<p class="hint">A real turn with the Scythians' starting cards. Each move is approved or corrected.</p>
-    <div class="row gstat"><span>Actions: <b>${G.a}</b></span><span>Exhaust tokens: <b>${G.e}</b></span><span><b>${G.mat}</b> ${R.mat}</span><span><b>${G.pop}</b> ${R.pop}</span><span><b>${G.prog}</b> ${R.prog}</span><span>Deck: <b>${G.deck}</b> cartes</span></div>
+    <div class="row gstat"><span>Actions: <b>${G.a}</b></span><span>Exhaust tokens: <b>${G.e}</b></span><span><b>${G.mat}</b> ${R.mat}</span><span><b>${G.pop}</b> ${R.pop}</span><span><b>${G.prog}</b> ${R.prog}</span><span>Deck: <b>${G.deck}</b> cards</span></div>
     <p><b>In play:</b> ${G.play.join(', ')}${G.tent?' (Tents exhausted)':''}<br><b>In hand:</b> ${G.hand.length?G.hand.map(c=>c.n).join(', '):'no cards'}<br>
     <b>Market:</b> Tributary, Tradition, Civilised (${G.civ} Progress on it), Tradition, Region. An Unrest under each card except the Region.</p>
     <details><summary>Card text</summary><ul>${TXT.map(t=>`<li><b>${t[0]}.</b> ${t[1]}</li>`).join('')}</ul></details>

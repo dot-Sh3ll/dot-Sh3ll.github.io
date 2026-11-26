@@ -103,11 +103,11 @@ const SCEN=[
  setup:[`Pyramid board.`,`8 Countryside tiles: only remove tiles without a Magical Glade.`,`The Green City Core tile, plus 1 Core tile without a City.`,`The Green City is friendly: place a Shield token on it, nobody is its Lord.`],
  rules:[FW_SOLO,...DRUID_R,ADAPT],
  end:`After your incantation on the second Night, you play one last turn. Otherwise the game stops at the end of that Night.`,score:`Your Fame plus the Achievements.`},
-{id:'solo',n:'Solo Conquest',mode:'solo',src:'Official',d:4,r:6,t:'3 h 30 à 4 h',long:1,goal:`Conquer both Cities.`,
+{id:'solo',n:'Solo Conquest',mode:'solo',src:'Official',d:4,r:6,t:'3½ to 4 h',long:1,goal:`Conquer both Cities.`,
  pitch:`The rulebook's big solo scenario. It takes more than three hours.`,
  setup:[`Pyramid board.`,`7 Countryside tiles.`,`2 Core tiles with a City and 2 without.`,`The first City revealed is level 5, the second level 8.`],
  rules:[FW_SOLO],end:`When all Cities are conquered, you play one last turn.`,score:SC_SOLO},
-{id:'dungeon',n:'Dungeon Lords',mode:'solo',src:'Adapted official',d:4,r:5,t:'3 h à 3 h 30',long:1,goal:`Reveal all tiles and conquer all Dungeons and Tombs.`,
+{id:'dungeon',n:'Dungeon Lords',mode:'solo',src:'Adapted official',d:4,r:5,t:'3 to 3½ h',long:1,goal:`Reveal all tiles and conquer all Dungeons and Tombs.`,
  pitch:`A network of tunnels links Dungeons and Tombs. Five Rounds: three Days, two Nights.`,
  setup:[`Pyramid board.`,`8 Countryside tiles: only remove tiles without a Dungeon.`,`The Blue City Core tile, plus 1 Core tile without a City: the Desert tile with no Monastery or Tomb.`,`The Blue City is friendly: place a Shield token on it, nobody is its Lord.`],
  rules:[FW_SOLO,`When you reveal a Village, choose an adjacent accessible space, with no site and not a Swamp: it is the secret entrance of a Dungeon. Place a brown token face down there.`,`When you reveal a Monastery, do the same with a red token: it is a secret Tomb.`,`Secret Dungeons and Tombs follow the normal rules for these sites: Night rules, no Units. If you fail, the token is discarded and replaced with a new one, face down. Once conquered, there is no more fighting there.`,`From a Dungeon or a Tomb, you can reach any other already conquered one for 2 Move points plus 1 per space of distance, going around lakes and swamps.`,ADAPT],
@@ -117,7 +117,7 @@ const SCEN=[
  setup:[`Pyramid board, starting tile side A.`,`5 Countryside tiles, no Core tile.`],
  rules:[FW_SOLO,`For a pressure-free first game, play without the Dummy, as the rulebook allows for First Reconnaissance: the Round then ends when you announce it.`,`+1 Fame for each tile revealed. No Elite Units.`,HOME],
  end:`At the end of the second Round.`,score:`Solved if the goal is reached. Note your Fame to compare yourself next time.`},
-{id:'m-chasse',n:'The Great Hunt',mode:'solo',src:'Homemade',d:2,r:3,t:'1 h 30 à 2 h',goal:`Finish with no rampaging enemy on the board, all tiles revealed.`,
+{id:'m-chasse',n:'The Great Hunt',mode:'solo',src:'Homemade',d:2,r:3,t:'1½ to 2 h',goal:`Finish with no rampaging enemy on the board, all tiles revealed.`,
  pitch:`Orc Marauders terrorise the countryside. Clean up the region.`,
  setup:[`Pyramid board.`,`7 Countryside tiles, no Core tile.`],
  rules:[FW_SOLO,`+1 Fame for each tile revealed.`,`Assaulting fortified sites is still allowed, but it costs Reputation as usual.`,HOME],
@@ -141,11 +141,11 @@ const SCEN=[
  pitch:`Three assaults to prepare: find Siege, Units, and absorb the loss of Reputation.`,
  setup:[`Pyramid board.`,`8 Countryside tiles: keep in priority those with a Keep or Mage Tower.`,`1 Core tile without a City.`],
  rules:[FW_SOLO,HOME],end:`As soon as the third site is conquered, play one last turn. Otherwise at the end of the fourth Round.`,score:`Solved if your Shields mark 3 fortified sites. Note the number of Rounds used.`},
-{id:'m-siege',n:'The Siege',mode:'solo',src:'Homemade',d:3,r:4,t:'2 h 30 à 3 h',goal:`Conquer the City.`,
+{id:'m-siege',n:'The Siege',mode:'solo',src:'Homemade',d:3,r:4,t:'2½ to 3 h',goal:`Conquer the City.`,
  pitch:`A single City, and four Rounds to build the army that will bring it down. Adjustable difficulty.`,
  setup:[`Pyramid board.`,`7 Countryside tiles.`,`1 Core tile with a City and 1 without.`,`City level: 3 for an accessible game, 5 for a hard game, 8 for experts.`],
  rules:[FW_SOLO,HOME],end:`When the City is conquered, play one last turn. Otherwise at the end of the fourth Round.`,score:SC_SOLO},
-{id:'m-profondeurs',n:'The Depths',mode:'solo',src:'Homemade',d:4,r:4,t:'2 h 30 à 3 h',goal:`Conquer 3 adventure sites, at least one of them a Dungeon or a Tomb.`,
+{id:'m-profondeurs',n:'The Depths',mode:'solo',src:'Homemade',d:4,r:4,t:'2½ to 3 h',goal:`Conquer 3 adventure sites, at least one of them a Dungeon or a Tomb.`,
  pitch:`Underground, your Units stay outside and Night rules apply. A scenario for a self-reliant Hero.`,
  setup:[`Pyramid board.`,`8 Countryside tiles: keep in priority those with a Dungeon, Monster Den or Ruins.`,`2 Core tiles without a City.`],
  rules:[FW_SOLO,`An activated Ruins Altar counts as a conquered site.`,HOME],
@@ -316,7 +316,7 @@ function startGame(){act(()=>{
   S.chefs={elem:chefNew(),sc:chefNew()};S.vloss=0;S.vskip=false;S.varmy=(volk()&&armyCounts(vkLvl()))||{w:0,g:0,r:0,v:0};if(volk()){deck.push('R','G','B','W');for(let i=0;i<vkW();i++)deck.push('x')}S.vcity=false;S.vmsg='';S.turn=0;S.flip=[];
   S.deck=shuffle(deck);S.discard=[];S.crystals={r:0,g:0,b:0,w:0};S.dummyCrys.forEach(c=>S.crystals[c]++);
   S.round=1;S.phase='tactic';S.removed={day:[],night:[]};S.tac={me:null,p2:null,dummy:null};S.log=[];S.gid=String(Date.now());
-  log(`Game started${scen()?' : '+scen().n:''}. ${S.rounds} Manches, ${coop()?'two-player co-op':'solo'}, Deck ${volk()?'of Volkare':'of the Dummy'} from ${S.deck.length} cards.`)})}
+  log(`Game started${scen()?': '+scen().n:''}. ${S.rounds} Rounds, ${coop()?'two-player co-op':'solo'}, Deck ${volk()?'of Volkare':'of the Dummy'} from ${S.deck.length} cards.`)})}
 function orderText(){const a=[['You',S.tac.me]];if(coop()){a[0][0]='Player 1';a.push(['Player 2',S.tac.p2])}a.push([FOE(),S.tac.dummy]);
   return a.sort((x,y)=>x[1]-y[1]).map(x=>`${x[0]} (${x[1]})`).join(', then ')}
 function beginPlay(){log(`Tactics. Turn order: ${orderText()}.`);S.phase='play';S.turn=0;S.mustAnnounce=false;S.endBy=null;S.dummyLastDone=false;S.flip=[]}
@@ -360,7 +360,7 @@ function useScen(id){const sc=SCEN.find(x=>x.id===id);const keep={dummyCrys:S.du
 
 /* ---------- Rendu ---------- */
 const ico=c=>`<span class="ico c-${c}"></span>`;
-const pips=d=>`<span class="pips" title="Difficulté ${d} of 5">${[1,2,3,4,5].map(i=>`<i class="${i<=d?'on':''}"></i>`).join('')}</span>`;
+const pips=d=>`<span class="pips" title="Difficulty ${d} of 5">${[1,2,3,4,5].map(i=>`<i class="${i<=d?'on':''}"></i>`).join('')}</span>`;
 function cardsHtml(f){return `<div class="cards">${f.map((o,i)=>`<div class="card c-${o.c} ${i===2?'last':''} ${o.x?'extra':''}" title="${COL[o.c]}${i===2?', colour tested':''}${o.x?', extra card':''}">${i===2?'3e':o.x?'+':''}</div>`).join('')}</div>`}
 function gemsHtml(){return `<div class="gems">${KEYS.map(k=>`<div class="gem"><span class="ico c-${k}"></span><b>${S.crystals[k]}</b><div class="row"><button data-cr="${k}:-1" aria-label="Remove a crystal ${COL[k]}">−</button><button data-cr="${k}:1" aria-label="Add a crystal ${COL[k]}">+</button></div></div>`).join('')}</div>`}
 function stateHtml(){if(volk())return volkState();return `<section class="panel"><div class="stats">
