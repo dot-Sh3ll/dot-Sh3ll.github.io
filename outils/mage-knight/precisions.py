@@ -225,6 +225,10 @@ CSS = (".app-tuto .lrmp-att{margin:14px 0 0;padding:10px 13px;border-left:4px so
        ".app-tuto details.lrmp-prec .src{font-size:.85em;color:var(--muted);margin:0 0 10px}"
        ".app-tuto header.top{display:none}"
        ".app-tuto #side-nav .navhead{margin:2px 4px 12px}.app-tuto #side-nav .navhead h1{font-size:1.3rem;margin:0 0 6px;line-height:1.2}"
+       ".app-tuto #side-nav .bar{flex:none;height:8px;border-radius:4px;margin:4px 6px 6px;background:color-mix(in srgb,var(--muted) 25%,transparent)}"
+       ".app-tuto #side-nav .bar i{background:var(--accent);border-radius:4px}"
+       ".app-tuto #side-nav .barlabel{flex:none;font-size:.85rem;margin:0 6px 6px}"
+       ".app-tuto #side-nav .tick{color:var(--good);font-weight:700;padding-left:6px}.app-tuto #side-nav button.cur .tick{color:inherit}"
        ".app-tuto #side-nav .navhead p{font-size:.8rem;color:var(--muted);margin:0;line-height:1.5}@media (min-width:901px){.app-tuto .courselay:not(.free){grid-template-columns:280px minmax(0,1fr)}}"
        ".app-tuto .lrmp-sources a,.app-tuto footer a{color:var(--accent)}")
 
@@ -283,6 +287,10 @@ def apply(lang):
     m = re.search(r"(<footer>(?:Tutoriel non officiel|Unofficial tutorial)[^<]*)</footer>", s)
     assert m, "mention du tutoriel introuvable"
     s = s[:m.end(1)] + f' <!--merci-->{u["merci"]}<!--/merci-->' + s[m.end(1):]
+    lab = {"fr": "${done} chapitre${done>1?'s':''} validé${done>1?'s':''} sur ${COURSE.length}",
+           "en": "${done} of ${COURSE.length} chapters completed"}[lang]
+    s, n = re.subn(r'class="barlabel">[^<]*<', 'class="barlabel">' + lab + '<', s, count=1)
+    assert n == 1, "libellé de progression introuvable"
     open(p, "w", encoding="utf-8").write(s)
     print("précisions :", os.path.relpath(p, ROOT))
 
