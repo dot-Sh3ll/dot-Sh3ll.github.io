@@ -120,9 +120,9 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
 .etape details.boxes{margin:0 0 16px}
 .mode[aria-pressed=true]{border-color:var(--gold);background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--gold)}
 .mode[aria-pressed=true] .t{color:var(--gold)}
-.go{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;border-top:1px solid var(--line);padding-top:20px}
+.go{display:flex;flex-direction:column;align-items:center;gap:10px;padding-top:8px;text-align:center}
 .go-b{font-size:17px;padding:12px 28px}
-.btn:disabled,.btn:disabled:hover{background:var(--surface);border-color:var(--line);color:var(--muted);filter:none;cursor:not-allowed}
+.btn:disabled,.btn:disabled:hover{background:var(--bg);border-color:var(--line);color:var(--muted);filter:none;cursor:not-allowed}
 .go-st{color:var(--muted);font-size:14.5px}
 .fld{display:flex;flex-direction:column;gap:4px;min-width:0}
 .fld>span{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
@@ -131,6 +131,7 @@ select:hover,input[type=text]:hover{border-color:var(--gold)}
 .opts{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:16px 0 0;color:var(--muted);font-size:14.5px}
 .opts label{display:flex;gap:8px;align-items:center}
 .opts select{width:auto}
+.opts label[hidden]{display:none}
 .btn.win-b{border-color:#5f9a6a;color:#a8e0b1}.btn.loss-b{border-color:#a8605a;color:#f0b0a8}
 .logform{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px 14px;align-items:end}
 .logform .wide{grid-column:1/-1}
@@ -270,6 +271,13 @@ footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padd
 @media (max-width:720px){.modes{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.mode{transition:none}.mode:hover{transform:none}}
 </style>
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
+<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
+<!--/commun-->
+<style id="sitehead-css-ae">
+main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
+</style>
 <!--pwa-->
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../icons/favicon-32.png" type="image/png">
@@ -311,13 +319,6 @@ main>header h1{padding-right:48px}
 </style>
 <script>try{if(localStorage.getItem("ae-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <!--/theme-->
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
-<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
-<!--/commun-->
-<style id="sitehead-css-ae">
-main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
-</style>
 </head>
 <body>
 <header class="sitehead">
@@ -385,7 +386,7 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
     </button>
   </div>
   <div class="opts">
-    <label for="f-theme">Original market theme <select id="f-theme"></select></label>
+    <label for="f-theme" id="f-theme-l" hidden>Original market theme <select id="f-theme"></select></label>
     <label><input type="checkbox" id="f-fresh" checked> Avoid cards from the last 3 markets</label>
   </div>
   </div>
@@ -1512,6 +1513,7 @@ function majGo(){
 document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>{
   modeChoice=b.dataset.mode;
   document.querySelectorAll(".mode").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+  $("f-theme-l").hidden=modeChoice!=="combo";
   majGo();
 });
 ["f-nem",...MSEL].forEach(id=>$(id).addEventListener("change",majGo));

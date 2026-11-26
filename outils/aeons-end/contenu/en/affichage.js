@@ -293,6 +293,7 @@ function majGo(){
 document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>{
   modeChoice=b.dataset.mode;
   document.querySelectorAll(".mode").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+  $("f-theme-l").hidden=modeChoice!=="combo";
   majGo();
 });
 ["f-nem",...MSEL].forEach(id=>$(id).addEventListener("change",majGo));
