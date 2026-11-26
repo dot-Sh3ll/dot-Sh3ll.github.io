@@ -327,6 +327,10 @@ h1{font-weight:700;text-transform:uppercase}
 .lrmp-ex-boite:fullscreen .ex-plus li{grid-template-columns:1fr;align-content:start;gap:2px;padding:8px 14px}
 .ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}
 </style>
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
+<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
+<!--/commun-->
 <!--pwa-->
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../icons/favicon-32.png" type="image/png">
@@ -339,10 +343,6 @@ h1{font-weight:700;text-transform:uppercase}
 <script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
 <script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <!--/pwa-->
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
-<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
-<!--/commun-->
 </head>
 <body>
 <header class="sitehead">
@@ -437,7 +437,6 @@ ecrans:[
 {t:'Votre tour : 2 actions',
  html:`<div class="duo"><div><h3>Jouer une carte</h3><p>Pour l'effet écrit dessus.</p></div><div><h3>Défausser 1 ou 2 cartes</h3><p>Pour une action du côté droit de votre plateau.</p></div></div>
  <p class="big1">Les actions marquées d'un alien barré en rouge, en haut à droite de votre carte ou tout à droite de la ligne de l'action sur votre plateau joueur, sont interdites s'il y a un Intrus dans votre salle.</p>
- <p>Après vos 2 actions : −1 oxygène si le recycleur de votre section est arrêté.</p>
  <div class="ex-piege"><b>Besoin de cartes en plus ?</b><p>Vous vous souvenez, je vous avais dit que choisir un objectif pendant votre tour vous apporterait une petite récompense. Eh bien, cette récompense, ce sont des cartes Action en plus, que vous piochez pendant votre tour. Plus tôt vous le faites, plus vous en gagnez.</p></div>`,
  pl:'Petit piège à signaler',
  piege:'Passer est une action. Si vous commencez votre tour sans carte et que vous passez, vous perdez quand même 1 oxygène : vous avez fini un tour, même sans rien faire.'},
@@ -1236,7 +1235,7 @@ if(!CH.some(c=>c.id===h))tab(LS.get('nemr-tab','learn'));
 </footer>
 <!--fiches-->
 <script>
-(function(){var F=[{"i": "🧬", "t": "Aide de jeu", "d": "Les 4 phases d&#x27;une manche, les actions, le jet de bruit, le sac Intrus, les objets, le combat, l&#x27;évasion et la fin de partie. 3 pages.", "u": "../fiches/nemesis-aide-de-jeu.pdf", "x": ""}, {"i": "🚪", "t": "Salles", "d": "Les 25 salles : section, icônes Objet, effet et précisions, FAQ officielle comprise. 3 pages.", "u": "../fiches/nemesis-salles.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".pager button[data-tab=\"aide\"]", ".pager"]},T={"k": "À imprimer", "aide": "Vous préférez le papier ? Ces fiches A5 se gardent près du plateau pendant la partie.", "fin_t": "Prêt pour votre première partie ?", "fin": "Imprimez les fiches et gardez-les près du plateau :", "dl": "PDF", "frtag": ""};
+(function(){var F=[{"i": "🧬", "t": "Aide de jeu", "d": "Les 4 phases d&#x27;une manche, les actions, le jet de bruit, le sac Intrus, les objets, le combat, l&#x27;évasion et la fin de partie.3 pages.", "u": "../fiches/nemesis-aide-de-jeu.pdf", "x": ""}, {"i": "🚪", "t": "Salles", "d": "Les 25 salles : section, icônes Objet, effet et précisions, FAQ officielle comprise.3 pages.", "u": "../fiches/nemesis-salles.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".pager button[data-tab=\"aide\"]", ".pager"]},T={"k": "À imprimer", "aide": "Vous préférez le papier ? Ces fiches A5 se gardent près du plateau pendant la partie.", "fin_t": "Prêt pour votre première partie ?", "fin": "Imprimez les fiches et gardez-les près du plateau :", "dl": "PDF", "frtag": ""};
 function box(kind){var a=document.createElement('aside');a.className='lrmp-fiches';a.dataset.kind=kind;
  a.innerHTML='<p class="k">'+(kind==='fin'?T.fin_t:T.k)+'</p><p class="t">'+(kind==='fin'?T.fin:T.aide)+'</p><ul>'+F.map(function(f){
   return '<li><span class="i" aria-hidden="true">'+f.i+'</span><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}

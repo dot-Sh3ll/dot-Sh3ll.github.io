@@ -114,7 +114,18 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid
 .hunt .chip.done{color:#221a05;background:var(--gold);border-color:var(--gold);font-weight:600}
 @media (max-width:720px){.win{grid-template-columns:1fr}.win .mk{grid-template-columns:1fr}.hunt .grp b{min-width:100%}}
 
-.fight{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 14px;margin:0 0 16px}
+.fight{display:grid;grid-template-columns:repeat(5,1fr);gap:10px 14px;margin:0}
+.etape{border-top:1px solid var(--line);padding:18px 0 22px}
+.etape:first-of-type{border-top:0;padding-top:4px}
+.etape-t{font-family:var(--display);font-size:20px;font-weight:400;margin:0 0 14px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.etape-t span{font-family:inherit;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.etape details.boxes{margin:0 0 16px}
+.mode[aria-pressed=true]{border-color:var(--gold);background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--gold)}
+.mode[aria-pressed=true] .t{color:var(--gold)}
+.go{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;border-top:1px solid var(--line);padding-top:20px}
+.go-b{font-size:17px;padding:12px 28px}
+.btn:disabled,.btn:disabled:hover{background:var(--surface);border-color:var(--line);color:var(--muted);filter:none;cursor:not-allowed}
+.go-st{color:var(--muted);font-size:14.5px}
 .fld{display:flex;flex-direction:column;gap:4px;min-width:0}
 .fld>span{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
 select,input[type=text],input[type=date]{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:8px 10px;width:100%;min-width:0}
@@ -143,7 +154,8 @@ select:hover,input[type=text]:hover{border-color:var(--gold)}
 .stat details p{margin:8px 0 0;font-size:14px;color:var(--muted)}
 .hunt .chip.lost{border-color:#a8605a;color:#f0b0a8}
 .jmsg{color:var(--muted);font-size:15px}
-@media (max-width:720px){.fight{grid-template-columns:1fr}.logform{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.fight{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:720px){.fight{grid-template-columns:1fr 1fr}.logform{grid-template-columns:1fr 1fr}}
 
 .xhead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 16px;align-items:flex-end}
 .xhead h2{font-size:26px}.xhead .sub{color:var(--muted);font-size:14.5px}
@@ -260,6 +272,13 @@ footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padd
 @media (max-width:720px){.modes{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.mode{transition:none}.mode:hover{transform:none}}
 </style>
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
+<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
+<!--/commun-->
+<style id="sitehead-css-ae">
+main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
+</style>
 <!--pwa-->
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../icons/favicon-32.png" type="image/png">
@@ -301,13 +320,6 @@ main>header h1{padding-right:48px}
 </style>
 <script>try{if(localStorage.getItem("ae-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <!--/theme-->
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
-<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
-<!--/commun-->
-<style id="sitehead-css-ae">
-main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
-</style>
 </head>
 <body>
 <header class="sitehead">
@@ -340,22 +352,37 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
 <div class="view" id="view-gen">
 <section class="ask" id="ask">
   <h2>Welcher Markt für diesen Kampf?</h2>
+  <div class="etape">
+  <h3 class="etape-t"><span>Schritt 1</span> Wählen Sie Ihren Erzfeind und Ihre Magier</h3>
   <div class="fight">
-    <label class="fld"><span>Erzfeind (optional)</span><select id="f-nem"></select></label>
+    <label class="fld"><span>Erzfeind</span><select id="f-nem"></select></label>
     <label class="fld"><span>Magier 1</span><select id="f-m1"></select></label>
     <label class="fld"><span>Magier 2</span><select id="f-m2"></select></label>
+    <label class="fld"><span>Magier 3</span><select id="f-m3"></select></label>
+    <label class="fld"><span>Magier 4</span><select id="f-m4"></select></label>
   </div>
+  </div>
+  <div class="etape">
+  <h3 class="etape-t"><span>Schritt 2</span> Wählen Sie eine Aufteilung oder einen Marktaufbau</h3>
+    <details class="boxes" id="boxes">
+      <summary><b>Verwendete Schachteln</b> · <span id="boxsum"></span></summary>
+      <div class="boxlist" id="boxlist"></div>
+      <p class="warn" id="warn" hidden></p>
+    </details>
   <fieldset class="dist" id="dist"><legend>Aufteilung der 9 Stapel</legend></fieldset>
+  </div>
+  <div class="etape">
+  <h3 class="etape-t"><span>Schritt 3</span> Ausrichtung des Marktes</h3>
   <div class="modes">
-    <button class="mode" data-mode="opt" type="button">
+    <button class="mode" aria-pressed="false" data-mode="opt" type="button">
       <span class="k">Am einfachsten</span><span class="t">Optimiert</span>
       <span class="d">Die beste Karte für jede Rolle: schnelles Æther, Ausdünnen des Decks, Eröffnungszauber und Abschlusszauber.</span>
     </button>
-    <button class="mode" data-mode="combo" type="button">
+    <button class="mode" aria-pressed="false" data-mode="combo" type="button">
       <span class="k">Selbst entdecken</span><span class="t">Originell</span>
       <span class="d">Ein Markt rund um eine versteckte Synergie. Der Hinweis bleibt verborgen, bis Sie ihn anfordern.</span>
     </button>
-    <button class="mode" data-mode="rand" type="button">
+    <button class="mode" aria-pressed="false" data-mode="rand" type="button">
       <span class="k">Zufällig</span><span class="t">Völlig zufällig</span>
       <span class="d">Neun Karten, ganz ohne Filter gezogen. Machen Sie das Beste daraus.</span>
     </button>
@@ -364,13 +391,10 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
     <label for="f-theme">Thema des originellen Markts <select id="f-theme"></select></label>
     <label><input type="checkbox" id="f-fresh" checked> Karten der letzten 3 Märkte vermeiden</label>
   </div>
+  </div>
+  <div class="go"><button class="btn primary go-b" id="go" type="button" disabled>Los geht's!</button><span class="go-st" id="go-st" aria-live="polite"></span></div>
 </section>
 
-<details class="boxes" id="boxes">
-  <summary><b>Verwendete Schachteln</b> · <span id="boxsum"></span></summary>
-  <div class="boxlist" id="boxlist"></div>
-  <p class="warn" id="warn" hidden></p>
-</details>
 
 <section id="result" hidden>
   <div class="bar">
@@ -387,6 +411,8 @@ main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;pa
     <label class="fld"><span>Erzfeind</span><select id="l-nem"></select></label>
     <label class="fld"><span>Magier 1</span><select id="l-m1"></select></label>
     <label class="fld"><span>Magier 2</span><select id="l-m2"></select></label>
+    <label class="fld"><span>Magier 3</span><select id="l-m3"></select></label>
+    <label class="fld"><span>Magier 4</span><select id="l-m4"></select></label>
     <label class="fld"><span>Datum</span><input type="date" id="l-date"></label>
     <label class="fld wide"><span>Notiz (optional)</span><input type="text" id="l-note" maxlength="200"></label>
     <div class="row"><button class="btn primary" type="submit" id="l-save">Speichern</button>
@@ -942,7 +968,7 @@ const DISTS = [
   ["234","Mehr Artefakte",[2,3,4]],["333","Ausgewogen",[3,3,3]],["any","Überraschung",null],
   ["m1","Marktaufbau 1",[3,2,4]],["m2","Marktaufbau 2",[3,2,4]],["m3","Marktaufbau 3",[3,1,5]],["m4","Marktaufbau 4",[3,3,3]],["m5","Marktaufbau 5",[3,2,4]],["m6","Marktaufbau 6",[2,3,4]]
 ];
-let distChoice="324";
+let distChoice="";
 try{ const d=localStorage.getItem("ae-dist"); if(DISTS.some(x=>x[0]===d)) distChoice=d; }catch(e){}
 /* mises en place officielles (cartes « Mise en place du marché ») : coût imposé pour chaque pile.
    <4 = moins de 4, >5 = plus de 5, =4 = exactement 4, 4/5 = 4 ou 5, * = au choix */
@@ -1194,6 +1220,7 @@ function bonus(c){ // ce que le contexte du combat ajoute à la note d'une carte
 }
 const score = c=>c.pow+bonus(c).b;
 
+const MSEL=["f-m1","f-m2","f-m3","f-m4"];
 /* ---------- état ---------- *//* ---------- état ---------- */
 let owned = new Set(BOXES.filter(b=>!b[3]).map(b=>b[0]));
 let spoil = false; try{ spoil = localStorage.getItem("ae-spoil")==="1"; }catch(e){}
@@ -1214,7 +1241,7 @@ function weighted(a){ // favorise les cartes les plus fortes, sans toujours sort
 let restrict=null; // en expédition, le tirage se fait dans la caserne
 const avail = c=>restrict?restrict.has(c.id):owned.has(c.box);
 const pool = type=>CARDS.filter(c=>c.type===type && avail(c));
-function enough(){ const d=DISTS.find(x=>x[0]===distChoice); return d[2]?fits(d[2]):DISTS.some(x=>x[2]&&!SETUPS[x[0]]&&fits(x[2])) }
+function enough(){ const d=DISTS.find(x=>x[0]===distChoice); if(!d) return true; return d[2]?fits(d[2]):DISTS.some(x=>x[2]&&!SETUPS[x[0]]&&fits(x[2])) }
 
 /* ---------- générateurs ---------- */
 /* redites : les cartes des 3 derniers marchés générés sont écartées quand c'est possible */
@@ -1409,7 +1436,7 @@ function pickerEl(s,i){ // choix de la carte d'une pile « au choix »
 function generate(mode){
   if(!enough()){ $("boxes").open=true; showWarn(); return; }
   hintShown=false; keysShown=false;
-  fight={nem:$("f-nem").value,mages:[$("f-m1").value,$("f-m2").value].filter(Boolean)};
+  fight={nem:$("f-nem").value,mages:MSEL.map(id=>$(id).value).filter(Boolean)};
   const dist=rollDist();
   current = mode==="opt"?genOpt(dist):mode==="combo"?genCombo(dist):genRandom(dist);
   if(current.chosen) hintShown=true;
@@ -1437,7 +1464,7 @@ function renderDist(){
     l.innerHTML='<input type="radio" name="dist" id="dist-'+k+'" value="'+k+'"'+(k===distChoice?" checked":"")+'>'+(SETUPS[k]
       ? '<span class="setup"><b>'+esc(name)+'</b>'+setupLines(k)+'</span>'
       : '<span>'+esc(name)+(a?' <i>'+a.join(" · ")+'</i>':'')+'</span>');
-    l.querySelector("input").onchange=()=>{ distChoice=k; try{localStorage.setItem("ae-dist",k)}catch(e){} showWarn(); };
+    l.querySelector("input").onchange=()=>{ distChoice=k; try{localStorage.setItem("ae-dist",k)}catch(e){} showWarn(); majGo(); };
     f.appendChild(l);
   });
 }
@@ -1477,7 +1504,21 @@ function boxSum(){
   $("boxsum").textContent=owned.size+" von "+BOXES.filter(b=>shown(b[0])).length+" · "+n+" Karten";
 }
 
-document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>generate(b.dataset.mode));
+/* trois étapes, puis « C'est parti ! » quand tout est choisi */
+let modeChoice="";
+function majGo(){
+  const ok=[!!$("f-nem").value, MSEL.some(id=>$(id).value), !!distChoice, !!modeChoice];
+  const M=["der Erzfeind","mindestens ein Magier","eine Aufteilung oder ein Marktaufbau","die Ausrichtung des Marktes"], manque=M.filter((x,i)=>!ok[i]);
+  $("go").disabled=manque.length>0;
+  $("go-st").textContent=manque.length?"Es fehlt noch: "+(manque.length>1?manque.slice(0,-1).join(", ")+" und "+manque[manque.length-1]:manque[0])+".":"";
+}
+document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>{
+  modeChoice=b.dataset.mode;
+  document.querySelectorAll(".mode").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+  majGo();
+});
+["f-nem",...MSEL].forEach(id=>$(id).addEventListener("change",majGo));
+$("go").onclick=()=>{ if(!$("go").disabled) generate(modeChoice); };
 $("again").onclick=()=>generate(current.mode);
 $("newfight").onclick=()=>{ $("result").hidden=true; $("ask").hidden=false; $("boxes").hidden=false; window.scrollTo({top:0}); };
 $("copy").onclick=()=>{
@@ -1502,11 +1543,12 @@ function optionsHtml(list,sel,empty){
     +groups[g].map(n=>'<option'+(n===sel?' selected':'')+'>'+esc(n)+'</option>').join("")+'</optgroup>').join("");
 }
 function fillSelects(){
-  const keep={}; ["f-nem","f-m1","f-m2","f-theme"].forEach(id=>{ const e=$(id); if(e) keep[id]=e.value });
+  const keep={}; ["f-nem","f-m1","f-m2","f-m3","f-m4","f-theme"].forEach(id=>{ const e=$(id); if(e) keep[id]=e.value });
   $("f-nem").innerHTML=optionsHtml(NEM,"","Noch nicht gewählt");
-  $("f-m1").innerHTML=optionsHtml(MAGES,"","Noch nicht gewählt"); $("f-m2").innerHTML=optionsHtml(MAGES,"","Noch nicht gewählt");
+  MSEL.forEach(id=>{ $(id).innerHTML=optionsHtml(MAGES,"","Leer"); });
   $("f-theme").innerHTML='<option value="">Überraschung (verborgen)</option>'+Object.entries(THEMES).map(([k,t])=>'<option value="'+k+'">'+esc(t.name)+'</option>').join("");
   Object.entries(keep).forEach(([id,v])=>{ if(v) $(id).value=v });
+  majGo();
 }
 function sortedGames(){ return games.slice().sort((a,b)=>String(b.date||"").localeCompare(String(a.date||""))||(b.ts||0)-(a.ts||0)) }
 function renderJournal(){
@@ -1566,8 +1608,8 @@ function replay(id){
   [["Gem",g.gems],["Relic",g.relics],["Spell",g.spells]].forEach(([t,l])=>(l||[]).forEach(x=>{ const c=typeof x==="string"&&cards[x]; c?slots.push({type:t,card:c}):missing++ }));
   if(!slots.length) return;
   const n=t=>slots.filter(s=>s.type===t).length;
-  fight={nem:g.nem||"",mages:(g.mages||[]).slice(0,2)};
-  $("f-nem").value=fight.nem; $("f-m1").value=fight.mages[0]||""; $("f-m2").value=fight.mages[1]||"";
+  fight={nem:g.nem||"",mages:(g.mages||[]).slice(0,4)};
+  $("f-nem").value=fight.nem; MSEL.forEach((id,i)=>{ $(id).value=fight.mages[i]||""; }); majGo();
   current={mode:"replay",dist:{Gem:n("Gem"),Relic:n("Relic"),Spell:n("Spell")},slots,missing,
     label:"Markt "+(g.res==="V"?"des Siegs":"der Niederlage")+" gegen "+(g.nem||"einen Erzfeind")+((g.mages||[]).length?", mit "+g.mages.join(" und "):"")+"."};
   location.hash="marche"; showView(); showResult();
@@ -1576,7 +1618,7 @@ let logRes="V";
 function openLog(res){
   logRes=res; const f=$("logform");
   $("l-nem").innerHTML=optionsHtml(NEM,fight.nem,"Bitte wählen");
-  $("l-m1").innerHTML=optionsHtml(MAGES,fight.mages[0]||"","Nicht eingetragen"); $("l-m2").innerHTML=optionsHtml(MAGES,fight.mages[1]||"","Nicht eingetragen");
+  ["l-m1","l-m2","l-m3","l-m4"].forEach((id,i)=>{ $(id).innerHTML=optionsHtml(MAGES,fight.mages[i]||"","Nicht eingetragen"); });
   const d=new Date(); $("l-date").value=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
   $("l-note").value=""; $("l-msg").textContent=db?"":"Das Tagebuch ist in dieser Ansicht nicht verfügbar.";
   $("l-save").textContent=res==="V"?"Sieg speichern":"Niederlage speichern"; $("l-save").disabled=!db;
@@ -1588,7 +1630,7 @@ $("logform").onsubmit=e=>{
   e.preventDefault(); if(!db||!current) return;
   const nem=$("l-nem").value; if(!nem){ $("l-msg").textContent="Wählen Sie den Erzfeind, gegen den Sie gespielt haben."; return; }
   const of=t=>current.slots.filter(s=>s.type===t&&s.card).map(s=>s.card.id);
-  const doc={res:logRes,nem,mages:[$("l-m1").value,$("l-m2").value].filter(Boolean),gems:of("Gem"),relics:of("Relic"),spells:of("Spell"),
+  const doc={res:logRes,nem,mages:["l-m1","l-m2","l-m3","l-m4"].map(id=>$(id).value).filter(Boolean),gems:of("Gem"),relics:of("Relic"),spells:of("Spell"),
     note:$("l-note").value.trim(),date:$("l-date").value||"",mode:current.mode,ts:Date.now()};
   $("l-save").disabled=true; $("l-msg").textContent="";
   db.collection("parties").add(doc).then(()=>{

@@ -20,7 +20,6 @@ ecrans:[
 {t:'Your turn: 2 Actions',
  html:`<div class="duo"><div><h3>Play a card</h3><p>For the effect written on it.</p></div><div><h3>Discard 1 or 2 cards</h3><p>To take an Action from the right side of your board.</p></div></div>
  <p class="big1">Actions marked with a crossed-out red alien, top right of your card or at the far right of the Action’s line on your player board, are forbidden if there is an Intruder in your Room.</p>
- <p>After your 2 Actions: −1 Oxygen if your Section’s Life Support is down.</p>
  <div class="ex-piege"><b>Need more cards?</b><p>Remember when I told you that choosing an Objective on your turn would earn you a small reward? Well, that reward is extra Action cards, which you draw on your turn. The sooner you do it, the more you get.</p></div>`,
  pl:'A small pitfall to flag',
  piege:'Passing is an Action. If you start your turn with no cards and Pass, you still lose 1 Oxygen: you have finished a turn, even without doing anything.'},

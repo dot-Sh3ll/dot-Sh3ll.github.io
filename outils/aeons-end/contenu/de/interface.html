@@ -12,22 +12,37 @@
 <div class="view" id="view-gen">
 <section class="ask" id="ask">
   <h2>Welcher Markt für diesen Kampf?</h2>
+  <div class="etape">
+  <h3 class="etape-t"><span>Schritt 1</span> Wählen Sie Ihren Erzfeind und Ihre Magier</h3>
   <div class="fight">
-    <label class="fld"><span>Erzfeind (optional)</span><select id="f-nem"></select></label>
+    <label class="fld"><span>Erzfeind</span><select id="f-nem"></select></label>
     <label class="fld"><span>Magier 1</span><select id="f-m1"></select></label>
     <label class="fld"><span>Magier 2</span><select id="f-m2"></select></label>
+    <label class="fld"><span>Magier 3</span><select id="f-m3"></select></label>
+    <label class="fld"><span>Magier 4</span><select id="f-m4"></select></label>
   </div>
+  </div>
+  <div class="etape">
+  <h3 class="etape-t"><span>Schritt 2</span> Wählen Sie eine Aufteilung oder einen Marktaufbau</h3>
+    <details class="boxes" id="boxes">
+      <summary><b>Verwendete Schachteln</b> · <span id="boxsum"></span></summary>
+      <div class="boxlist" id="boxlist"></div>
+      <p class="warn" id="warn" hidden></p>
+    </details>
   <fieldset class="dist" id="dist"><legend>Aufteilung der 9 Stapel</legend></fieldset>
+  </div>
+  <div class="etape">
+  <h3 class="etape-t"><span>Schritt 3</span> Ausrichtung des Marktes</h3>
   <div class="modes">
-    <button class="mode" data-mode="opt" type="button">
+    <button class="mode" aria-pressed="false" data-mode="opt" type="button">
       <span class="k">Am einfachsten</span><span class="t">Optimiert</span>
       <span class="d">Die beste Karte für jede Rolle: schnelles Æther, Ausdünnen des Decks, Eröffnungszauber und Abschlusszauber.</span>
     </button>
-    <button class="mode" data-mode="combo" type="button">
+    <button class="mode" aria-pressed="false" data-mode="combo" type="button">
       <span class="k">Selbst entdecken</span><span class="t">Originell</span>
       <span class="d">Ein Markt rund um eine versteckte Synergie. Der Hinweis bleibt verborgen, bis Sie ihn anfordern.</span>
     </button>
-    <button class="mode" data-mode="rand" type="button">
+    <button class="mode" aria-pressed="false" data-mode="rand" type="button">
       <span class="k">Zufällig</span><span class="t">Völlig zufällig</span>
       <span class="d">Neun Karten, ganz ohne Filter gezogen. Machen Sie das Beste daraus.</span>
     </button>
@@ -36,13 +51,10 @@
     <label for="f-theme">Thema des originellen Markts <select id="f-theme"></select></label>
     <label><input type="checkbox" id="f-fresh" checked> Karten der letzten 3 Märkte vermeiden</label>
   </div>
+  </div>
+  <div class="go"><button class="btn primary go-b" id="go" type="button" disabled>Los geht's!</button><span class="go-st" id="go-st" aria-live="polite"></span></div>
 </section>
 
-<details class="boxes" id="boxes">
-  <summary><b>Verwendete Schachteln</b> · <span id="boxsum"></span></summary>
-  <div class="boxlist" id="boxlist"></div>
-  <p class="warn" id="warn" hidden></p>
-</details>
 
 <section id="result" hidden>
   <div class="bar">
@@ -59,6 +71,8 @@
     <label class="fld"><span>Erzfeind</span><select id="l-nem"></select></label>
     <label class="fld"><span>Magier 1</span><select id="l-m1"></select></label>
     <label class="fld"><span>Magier 2</span><select id="l-m2"></select></label>
+    <label class="fld"><span>Magier 3</span><select id="l-m3"></select></label>
+    <label class="fld"><span>Magier 4</span><select id="l-m4"></select></label>
     <label class="fld"><span>Datum</span><input type="date" id="l-date"></label>
     <label class="fld wide"><span>Notiz (optional)</span><input type="text" id="l-note" maxlength="200"></label>
     <div class="row"><button class="btn primary" type="submit" id="l-save">Speichern</button>

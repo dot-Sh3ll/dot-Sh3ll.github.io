@@ -684,5 +684,20 @@
  "Which card did you choose?": "Welche Karte haben Sie gewählt?",
  "Search for a card": "Karte suchen",
  "No card available in the ticked boxes.": "Keine Karte in den angekreuzten Boxen verfügbar.",
- "- your choice, to fill in": "- nach Wahl, noch einzutragen"
+ "- your choice, to fill in": "- nach Wahl, noch einzutragen",
+ "Step 1": "Schritt 1",
+ "Choose your nemesis and mages": "Wählen Sie Ihren Erzfeind und Ihre Magier",
+ "Mage 3": "Magier 3",
+ "Mage 4": "Magier 4",
+ "Step 2": "Schritt 2",
+ "Choose a split or a setup": "Wählen Sie eine Aufteilung oder einen Marktaufbau",
+ "Step 3": "Schritt 3",
+ "Market direction": "Ausrichtung des Marktes",
+ "Let's go!": "Los geht's!",
+ "at least one mage": "mindestens ein Magier",
+ "a split or a setup": "eine Aufteilung oder ein Marktaufbau",
+ "the market direction": "die Ausrichtung des Marktes",
+ "Still missing:": "Es fehlt noch:",
+ "Empty": "Leer",
+ "the nemesis": "der Erzfeind"
 }

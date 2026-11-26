@@ -12,22 +12,37 @@
 <div class="view" id="view-gen">
 <section class="ask" id="ask">
   <h2>Quel marché pour ce combat&nbsp;?</h2>
+  <div class="etape">
+  <h3 class="etape-t"><span>Étape 1</span> Choisissez votre némésis et vos mages</h3>
   <div class="fight">
-    <label class="fld"><span>Némésis (facultatif)</span><select id="f-nem"></select></label>
+    <label class="fld"><span>Némésis</span><select id="f-nem"></select></label>
     <label class="fld"><span>Mage 1</span><select id="f-m1"></select></label>
     <label class="fld"><span>Mage 2</span><select id="f-m2"></select></label>
+    <label class="fld"><span>Mage 3</span><select id="f-m3"></select></label>
+    <label class="fld"><span>Mage 4</span><select id="f-m4"></select></label>
   </div>
+  </div>
+  <div class="etape">
+  <h3 class="etape-t"><span>Étape 2</span> Choisissez une répartition ou une mise en place</h3>
+    <details class="boxes" id="boxes">
+      <summary><b>Boîtes utilisées</b> · <span id="boxsum"></span></summary>
+      <div class="boxlist" id="boxlist"></div>
+      <p class="warn" id="warn" hidden></p>
+    </details>
   <fieldset class="dist" id="dist"><legend>Répartition des 9 piles</legend></fieldset>
+  </div>
+  <div class="etape">
+  <h3 class="etape-t"><span>Étape 3</span> Orientation du marché</h3>
   <div class="modes">
-    <button class="mode" data-mode="opt" type="button">
+    <button class="mode" aria-pressed="false" data-mode="opt" type="button">
       <span class="k">Le plus facile</span><span class="t">Optimisé</span>
       <span class="d">Les meilleures cartes à chaque poste : économie rapide, épuration du deck, sorts d'ouverture et finisseurs.</span>
     </button>
-    <button class="mode" data-mode="combo" type="button">
+    <button class="mode" aria-pressed="false" data-mode="combo" type="button">
       <span class="k">À vous de trouver</span><span class="t">Original</span>
       <span class="d">Un marché bâti autour d'une synergie cachée. L'indice reste masqué tant que vous ne le demandez pas.</span>
     </button>
-    <button class="mode" data-mode="rand" type="button">
+    <button class="mode" aria-pressed="false" data-mode="rand" type="button">
       <span class="k">Au hasard</span><span class="t">Full random</span>
       <span class="d">Neuf cartes tirées sans aucun filtre. Vous faites avec ce qui sort.</span>
     </button>
@@ -36,13 +51,10 @@
     <label for="f-theme">Thème du marché Original <select id="f-theme"></select></label>
     <label><input type="checkbox" id="f-fresh" checked> Éviter les cartes des 3 derniers marchés</label>
   </div>
+  </div>
+  <div class="go"><button class="btn primary go-b" id="go" type="button" disabled>C'est parti&nbsp;!</button><span class="go-st" id="go-st" aria-live="polite"></span></div>
 </section>
 
-<details class="boxes" id="boxes">
-  <summary><b>Boîtes utilisées</b> · <span id="boxsum"></span></summary>
-  <div class="boxlist" id="boxlist"></div>
-  <p class="warn" id="warn" hidden></p>
-</details>
 
 <section id="result" hidden>
   <div class="bar">
@@ -59,6 +71,8 @@
     <label class="fld"><span>Némésis</span><select id="l-nem"></select></label>
     <label class="fld"><span>Mage 1</span><select id="l-m1"></select></label>
     <label class="fld"><span>Mage 2</span><select id="l-m2"></select></label>
+    <label class="fld"><span>Mage 3</span><select id="l-m3"></select></label>
+    <label class="fld"><span>Mage 4</span><select id="l-m4"></select></label>
     <label class="fld"><span>Date</span><input type="date" id="l-date"></label>
     <label class="fld wide"><span>Remarque (facultatif)</span><input type="text" id="l-note" maxlength="200"></label>
     <div class="row"><button class="btn primary" type="submit" id="l-save">Enregistrer</button>

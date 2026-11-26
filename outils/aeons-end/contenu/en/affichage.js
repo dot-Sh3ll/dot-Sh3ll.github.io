@@ -1,3 +1,4 @@
+const MSEL=["f-m1","f-m2","f-m3","f-m4"];
 /* ---------- état ---------- *//* ---------- état ---------- */
 let owned = new Set(BOXES.filter(b=>!b[3]).map(b=>b[0]));
 let spoil = false; try{ spoil = localStorage.getItem("ae-spoil")==="1"; }catch(e){}
@@ -18,7 +19,7 @@ function weighted(a){ // favorise les cartes les plus fortes, sans toujours sort
 let restrict=null; // en expédition, le tirage se fait dans la caserne
 const avail = c=>restrict?restrict.has(c.id):owned.has(c.box);
 const pool = type=>CARDS.filter(c=>c.type===type && avail(c));
-function enough(){ const d=DISTS.find(x=>x[0]===distChoice); return d[2]?fits(d[2]):DISTS.some(x=>x[2]&&!SETUPS[x[0]]&&fits(x[2])) }
+function enough(){ const d=DISTS.find(x=>x[0]===distChoice); if(!d) return true; return d[2]?fits(d[2]):DISTS.some(x=>x[2]&&!SETUPS[x[0]]&&fits(x[2])) }
 
 /* ---------- générateurs ---------- */
 /* redites : les cartes des 3 derniers marchés générés sont écartées quand c'est possible */
@@ -213,7 +214,7 @@ function pickerEl(s,i){ // choix de la carte d'une pile « au choix »
 function generate(mode){
   if(!enough()){ $("boxes").open=true; showWarn(); return; }
   hintShown=false; keysShown=false;
-  fight={nem:$("f-nem").value,mages:[$("f-m1").value,$("f-m2").value].filter(Boolean)};
+  fight={nem:$("f-nem").value,mages:MSEL.map(id=>$(id).value).filter(Boolean)};
   const dist=rollDist();
   current = mode==="opt"?genOpt(dist):mode==="combo"?genCombo(dist):genRandom(dist);
   if(current.chosen) hintShown=true;
@@ -241,7 +242,7 @@ function renderDist(){
     l.innerHTML='<input type="radio" name="dist" id="dist-'+k+'" value="'+k+'"'+(k===distChoice?" checked":"")+'>'+(SETUPS[k]
       ? '<span class="setup"><b>'+esc(name)+'</b>'+setupLines(k)+'</span>'
       : '<span>'+esc(name)+(a?' <i>'+a.join(" · ")+'</i>':'')+'</span>');
-    l.querySelector("input").onchange=()=>{ distChoice=k; try{localStorage.setItem("ae-dist",k)}catch(e){} showWarn(); };
+    l.querySelector("input").onchange=()=>{ distChoice=k; try{localStorage.setItem("ae-dist",k)}catch(e){} showWarn(); majGo(); };
     f.appendChild(l);
   });
 }
@@ -281,7 +282,21 @@ function boxSum(){
   $("boxsum").textContent=owned.size+" of "+BOXES.filter(b=>shown(b[0])).length+" · "+n+" cards";
 }
 
-document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>generate(b.dataset.mode));
+/* trois étapes, puis « C'est parti ! » quand tout est choisi */
+let modeChoice="";
+function majGo(){
+  const ok=[!!$("f-nem").value, MSEL.some(id=>$(id).value), !!distChoice, !!modeChoice];
+  const M=["the nemesis","at least one mage","a split or a setup","the market direction"], manque=M.filter((x,i)=>!ok[i]);
+  $("go").disabled=manque.length>0;
+  $("go-st").textContent=manque.length?"Still missing: "+(manque.length>1?manque.slice(0,-1).join(", ")+" and "+manque[manque.length-1]:manque[0])+".":"";
+}
+document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>{
+  modeChoice=b.dataset.mode;
+  document.querySelectorAll(".mode").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+  majGo();
+});
+["f-nem",...MSEL].forEach(id=>$(id).addEventListener("change",majGo));
+$("go").onclick=()=>{ if(!$("go").disabled) generate(modeChoice); };
 $("again").onclick=()=>generate(current.mode);
 $("newfight").onclick=()=>{ $("result").hidden=true; $("ask").hidden=false; $("boxes").hidden=false; window.scrollTo({top:0}); };
 $("copy").onclick=()=>{
@@ -306,11 +321,12 @@ function optionsHtml(list,sel,empty){
     +groups[g].map(n=>'<option'+(n===sel?' selected':'')+'>'+esc(n)+'</option>').join("")+'</optgroup>').join("");
 }
 function fillSelects(){
-  const keep={}; ["f-nem","f-m1","f-m2","f-theme"].forEach(id=>{ const e=$(id); if(e) keep[id]=e.value });
+  const keep={}; ["f-nem","f-m1","f-m2","f-m3","f-m4","f-theme"].forEach(id=>{ const e=$(id); if(e) keep[id]=e.value });
   $("f-nem").innerHTML=optionsHtml(NEM,"","Not chosen yet");
-  $("f-m1").innerHTML=optionsHtml(MAGES,"","Not chosen yet"); $("f-m2").innerHTML=optionsHtml(MAGES,"","Not chosen yet");
+  MSEL.forEach(id=>{ $(id).innerHTML=optionsHtml(MAGES,"","Empty"); });
   $("f-theme").innerHTML='<option value="">Surprise (hidden)</option>'+Object.entries(THEMES).map(([k,t])=>'<option value="'+k+'">'+esc(t.name)+'</option>').join("");
   Object.entries(keep).forEach(([id,v])=>{ if(v) $(id).value=v });
+  majGo();
 }
 function sortedGames(){ return games.slice().sort((a,b)=>String(b.date||"").localeCompare(String(a.date||""))||(b.ts||0)-(a.ts||0)) }
 function renderJournal(){
@@ -370,8 +386,8 @@ function replay(id){
   [["Gem",g.gems],["Relic",g.relics],["Spell",g.spells]].forEach(([t,l])=>(l||[]).forEach(x=>{ const c=typeof x==="string"&&cards[x]; c?slots.push({type:t,card:c}):missing++ }));
   if(!slots.length) return;
   const n=t=>slots.filter(s=>s.type===t).length;
-  fight={nem:g.nem||"",mages:(g.mages||[]).slice(0,2)};
-  $("f-nem").value=fight.nem; $("f-m1").value=fight.mages[0]||""; $("f-m2").value=fight.mages[1]||"";
+  fight={nem:g.nem||"",mages:(g.mages||[]).slice(0,4)};
+  $("f-nem").value=fight.nem; MSEL.forEach((id,i)=>{ $(id).value=fight.mages[i]||""; }); majGo();
   current={mode:"replay",dist:{Gem:n("Gem"),Relic:n("Relic"),Spell:n("Spell")},slots,missing,
     label:"Market "+(g.res==="V"?"from the victory":"from the defeat")+" against "+(g.nem||"a nemesis")+((g.mages||[]).length?", with "+g.mages.join(" and "):"")+"."};
   location.hash="marche"; showView(); showResult();
@@ -380,7 +396,7 @@ let logRes="V";
 function openLog(res){
   logRes=res; const f=$("logform");
   $("l-nem").innerHTML=optionsHtml(NEM,fight.nem,"To choose");
-  $("l-m1").innerHTML=optionsHtml(MAGES,fight.mages[0]||"","Not recorded"); $("l-m2").innerHTML=optionsHtml(MAGES,fight.mages[1]||"","Not recorded");
+  ["l-m1","l-m2","l-m3","l-m4"].forEach((id,i)=>{ $(id).innerHTML=optionsHtml(MAGES,fight.mages[i]||"","Not recorded"); });
   const d=new Date(); $("l-date").value=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
   $("l-note").value=""; $("l-msg").textContent=db?"":"The log isn't available in this view.";
   $("l-save").textContent="Save the "+(res==="V"?"win":"loss"); $("l-save").disabled=!db;
@@ -392,7 +408,7 @@ $("logform").onsubmit=e=>{
   e.preventDefault(); if(!db||!current) return;
   const nem=$("l-nem").value; if(!nem){ $("l-msg").textContent="Choose the nemesis you faced."; return; }
   const of=t=>current.slots.filter(s=>s.type===t&&s.card).map(s=>s.card.id);
-  const doc={res:logRes,nem,mages:[$("l-m1").value,$("l-m2").value].filter(Boolean),gems:of("Gem"),relics:of("Relic"),spells:of("Spell"),
+  const doc={res:logRes,nem,mages:["l-m1","l-m2","l-m3","l-m4"].map(id=>$(id).value).filter(Boolean),gems:of("Gem"),relics:of("Relic"),spells:of("Spell"),
     note:$("l-note").value.trim(),date:$("l-date").value||"",mode:current.mode,ts:Date.now()};
   $("l-save").disabled=true; $("l-msg").textContent="";
   db.collection("parties").add(doc).then(()=>{

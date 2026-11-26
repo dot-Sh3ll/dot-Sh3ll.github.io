@@ -12,22 +12,37 @@
 <div class="view" id="view-gen">
 <section class="ask" id="ask">
   <h2>Which market for this fight?</h2>
+  <div class="etape">
+  <h3 class="etape-t"><span>Step 1</span> Choose your nemesis and mages</h3>
   <div class="fight">
-    <label class="fld"><span>Nemesis (optional)</span><select id="f-nem"></select></label>
+    <label class="fld"><span>Nemesis</span><select id="f-nem"></select></label>
     <label class="fld"><span>Mage 1</span><select id="f-m1"></select></label>
     <label class="fld"><span>Mage 2</span><select id="f-m2"></select></label>
+    <label class="fld"><span>Mage 3</span><select id="f-m3"></select></label>
+    <label class="fld"><span>Mage 4</span><select id="f-m4"></select></label>
   </div>
+  </div>
+  <div class="etape">
+  <h3 class="etape-t"><span>Step 2</span> Choose a split or a setup</h3>
+    <details class="boxes" id="boxes">
+      <summary><b>Boxes used</b> · <span id="boxsum"></span></summary>
+      <div class="boxlist" id="boxlist"></div>
+      <p class="warn" id="warn" hidden></p>
+    </details>
   <fieldset class="dist" id="dist"><legend>Split of the 9 piles</legend></fieldset>
+  </div>
+  <div class="etape">
+  <h3 class="etape-t"><span>Step 3</span> Market direction</h3>
   <div class="modes">
-    <button class="mode" data-mode="opt" type="button">
+    <button class="mode" aria-pressed="false" data-mode="opt" type="button">
       <span class="k">The easiest</span><span class="t">Optimised</span>
       <span class="d">The best card for every role: fast economy, deck thinning, opening spells and finishers.</span>
     </button>
-    <button class="mode" data-mode="combo" type="button">
+    <button class="mode" aria-pressed="false" data-mode="combo" type="button">
       <span class="k">Find it yourself</span><span class="t">Original</span>
       <span class="d">A market built around a hidden synergy. The hint stays hidden until you ask for it.</span>
     </button>
-    <button class="mode" data-mode="rand" type="button">
+    <button class="mode" aria-pressed="false" data-mode="rand" type="button">
       <span class="k">Random</span><span class="t">Full random</span>
       <span class="d">Nine cards drawn with no filter at all. Make do with what comes out.</span>
     </button>
@@ -36,13 +51,10 @@
     <label for="f-theme">Original market theme <select id="f-theme"></select></label>
     <label><input type="checkbox" id="f-fresh" checked> Avoid cards from the last 3 markets</label>
   </div>
+  </div>
+  <div class="go"><button class="btn primary go-b" id="go" type="button" disabled>Let's go!</button><span class="go-st" id="go-st" aria-live="polite"></span></div>
 </section>
 
-<details class="boxes" id="boxes">
-  <summary><b>Boxes used</b> · <span id="boxsum"></span></summary>
-  <div class="boxlist" id="boxlist"></div>
-  <p class="warn" id="warn" hidden></p>
-</details>
 
 <section id="result" hidden>
   <div class="bar">
@@ -59,6 +71,8 @@
     <label class="fld"><span>Nemesis</span><select id="l-nem"></select></label>
     <label class="fld"><span>Mage 1</span><select id="l-m1"></select></label>
     <label class="fld"><span>Mage 2</span><select id="l-m2"></select></label>
+    <label class="fld"><span>Mage 3</span><select id="l-m3"></select></label>
+    <label class="fld"><span>Mage 4</span><select id="l-m4"></select></label>
     <label class="fld"><span>Date</span><input type="date" id="l-date"></label>
     <label class="fld wide"><span>Note (optional)</span><input type="text" id="l-note" maxlength="200"></label>
     <div class="row"><button class="btn primary" type="submit" id="l-save">Save</button>

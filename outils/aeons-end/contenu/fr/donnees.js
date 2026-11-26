@@ -453,7 +453,7 @@ const DISTS = [
   ["234","Plus de reliques",[2,3,4]],["333","Équilibrée",[3,3,3]],["any","Surprise",null],
   ["m1","Mise en place 1",[3,2,4]],["m2","Mise en place 2",[3,2,4]],["m3","Mise en place 3",[3,1,5]],["m4","Mise en place 4",[3,3,3]],["m5","Mise en place 5",[3,2,4]],["m6","Mise en place 6",[2,3,4]]
 ];
-let distChoice="324";
+let distChoice="";
 try{ const d=localStorage.getItem("ae-dist"); if(DISTS.some(x=>x[0]===d)) distChoice=d; }catch(e){}
 /* mises en place officielles (cartes « Mise en place du marché ») : coût imposé pour chaque pile.
    <4 = moins de 4, >5 = plus de 5, =4 = exactement 4, 4/5 = 4 ou 5, * = au choix */
