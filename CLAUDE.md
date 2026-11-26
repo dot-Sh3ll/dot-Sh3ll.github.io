@@ -83,6 +83,7 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
   `data-l="Phase 1"` pour des étiquettes), `ex-cadre` + `h4` (cadre titré), `tags`.
 - **Seules sources : le tutoriel et l'aide-mémoire de l'appli.** Ton voulu par Paul : informel, un peu de récit, des révélations
   (« Chose que je ne vous ai pas encore dite… »). Paul relit écran par écran sur captures avant toute mise en ligne.
+- Captures et relecture : `python3 outils/site/expliquer.py <dossier>` (voir Commandes).
 - État (26/11/2026, soir) : **Nemesis validé et en ligne (FR, EN)**, corrections de Paul du 26/11 au soir comprises (écrans 1, 2, 4, 5, 6, 8, 10 ; durée estimée ; « Pour plus tard » en entier en plein écran). Mage Knight, Puerto Rico, Imperium : `EXPL.chantier` affiche
   « Section en chantier » ; les brouillons sont dans leurs `expliquer.js` (Mage Knight et Puerto Rico : FR seulement, l'`en`
   est une copie du français à traduire ; Imperium : ses anciens écrans, sans `dire`). Brouillons relus dans le doc
@@ -150,6 +151,7 @@ Toujours depuis la racine du dépôt.
 | Mage Knight : « À ne pas oublier », « Précisions » et chapitre « Cas épineux » (compendium BGG) | `python3 outils/mage-knight/precisions.py` (contenu FR et EN dans le script ; `outils/mage-knight/build.sh` le lance) |
 | Bouton de thème (Imperium, Aeon's End, Mage Knight) | `python3 outils/site/theme.py <dossier>` ou `--tout` (les `build.sh` de ces trois applis le font) |
 | Accueil : carte d'appli, de fiche, date de mise à jour | `python3 outils/site/accueil.py appli\|fiche <json>` ; `accueil.py maj <dossier ou pdf>` (badge « Mis à jour ») — ne pas couper sa sortie avec `\| head` |
+| « Expliquer le jeu » : captures, planches de 3 écrans, débordements, texte Markdown | `python3 outils/site/expliquer.py <dossier> [--ecrans 1,5,aide,plus] [--fr\|--en] [--theme clair\|sombre]` (sortie `/tmp/lrmp-expliquer/<dossier>/`, voir `rapport.md`) |
 | Images de partage | `python3 outils/site/og_images.py` (Playwright) |
 | Test au navigateur | Playwright, Chrome `/usr/bin/google-chrome` (`--no-sandbox`) ; `python3 -m http.server 8766` à la racine |
 
@@ -239,12 +241,11 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
 2. **« Expliquer le jeu »** : Nemesis fait. Suite, un jeu à la fois avec Paul, écran par écran (voir la section dédiée et le ton) :
    Mage Knight (Mission de Reconnaissance), Puerto Rico, Imperium. Aeon's End : pas concerné. Les brouillons existants ont été écrits
    avant les directives de ton : les reprendre avec elles avant de les montrer à Paul.
-3. **Outil de conception d'« Expliquer le jeu »** (à faire avant le prochain jeu) : `outils/site/expliquer.py <dossier> [--ecrans 1,5] [--en]`
-   qui, en une commande, lance le serveur local, capture chaque écran (`#ex-boite .ex-stage`, puis « Pour plus tard » et le résumé),
-   en FR et EN, thème clair et sombre, plus une capture plein écran 1366×768 et 1920×1080, et un contrôle téléphone (390 px) ;
-   assemble une planche par lot de 3 écrans à envoyer à Paul ; signale ce qui déborde (boîte plus haute que l'écran en plein écran,
-   texte coupé) ; exporte le texte des écrans (titre, `dire`, blocs, encadrés) en Markdown pour la relecture et pour vérifier l'anglais ;
-   avec `--ecrans`, ne capture que les écrans modifiés. Option : signaler les `dire` sans équivalent anglais et l'`en` resté en français.
+3. **Outil de conception d'« Expliquer le jeu »** : fait (`outils/site/expliquer.py`, 26/11/2026). À lancer pour chaque série de captures
+   à montrer à Paul (planches `fr-clair-*` d'abord) et avant chaque mise en ligne (rapport sans débordement, anglais complet).
+   Constat du 26/11 : en plein écran 1366×768, Nemesis déborde sur les écrans 3, 5, 6, l'aide-mémoire et « Pour plus tard »
+   (jusqu'à 122 px, boutons hors de l'écran) ; Mage Knight sur l'aide-mémoire et « Pour plus tard » ; Imperium sur l'aide-mémoire (9 px). Rien en 1920×1080 ni sur téléphone.
+   À montrer à Paul avant de toucher au moteur commun.
 4. Search Console : fait (changement d'adresse vers lessrulesmoreplay.com et sitemap envoyés, 26/11/2026).
 
 Pax Pamir : ne pas en parler à Paul ni le proposer ; il le relancera lui-même.
