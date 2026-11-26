@@ -188,12 +188,12 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
 
 ## À faire (par ordre d'intérêt)
 
-1. **Schémas** : faits et validés par Paul, en FR et EN (Nemesis 7, Mage Knight 3, Imperium 1, Puerto Rico 1 ; contrôlés au
-   navigateur le 26/11). Piste restante : versions interactives.
-2. **Rappeler à Paul qu'il veut changer l'adresse du site.** À prévoir le jour venu : `CNAME` et DNS, `SITE` dans `seo.py`
-   (canonical, hreflang, sitemap, JSON-LD), `robots.txt`, pieds de page « paulmoussard.com » de toutes les fiches (régénérer
-   les PDF), GoatCounter, Search Console (outil de changement d'adresse), Ko-fi, liens partagés (Discord) : l'ancien domaine
-   doit rediriger vers le nouveau (GitHub Pages ne sert qu'un domaine : redirection chez le registraire).
+1. **Schémas** : faits et validés par Paul, en FR et EN (Nemesis 11, Mage Knight 6, Imperium 4, Puerto Rico 2 ; les 9 derniers
+   ajoutés le 26/11 : mana, tour, Niveaux ; Marché, zones des cartes, fin de partie ; actions, phase Intrus ; Carrières).
+   Écartés par Paul : « plusieurs ennemis » de Mage Knight (`mk_groupe` reste dans schemas.py, non utilisé). Piste : versions interactives.
+2. **Changement d'adresse vers lessrulesmoreplay.com** : branche `adresse-lessrulesmoreplay` prête (CNAME, SITE, PDF, images de
+   partage, docs). À fusionner le soir de la bascule, une fois le DNS de lessrulesmoreplay.com prêt (A/AAAA GitHub, www en CNAME),
+   en même temps que la redirection 301 de paulmoussard.com (Cloudflare, chemin conservé).
 
 ## Idées d'applis
 

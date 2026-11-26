@@ -371,6 +371,100 @@ EN.update({
   'cap': "Example: the Robot enters the Adult's Room (they ignore each other), but will not be able to pass the closed Door to the next Room."},
 })
 
+# ------------------------------------------------------------ 10. le coût des actions (chapitre actions)
+def fig_actions(t):
+    c = ''
+    for i, (titre, sous, lignes) in enumerate(t['cols']):
+        x = 20 + i * 220
+        c += boite(x, 20, 200, titre, sous).replace('class="f-box"', 'class="f-phase"')
+        for k, (txt, hc) in enumerate(lignes):
+            cls = 'fts f-warn' if hc else 'fts'
+            c += f'<text class="{cls}" x="{x+100}" y="{96+k*20}" text-anchor="middle" dominant-baseline="central">{txt}{" ✖" if hc else ""}</text>'
+    c += f'<text class="fts f-warn" x="340" y="286" text-anchor="middle" dominant-baseline="central">{t["leg"]}</text>'
+    for i, (a, b) in enumerate(t['fin']):
+        x = 20 + i * 220
+        c += boite(x, 306, 200, a, b, vide=(i > 0))
+        if i < 2:
+            c += f'<line class="f-arr" x1="{x+202}" y1="333" x2="{x+218}" y2="333" marker-end="url(#f-fl3)"/>'
+    return svg(372, c, t['alt'])
+
+# ------------------------------------------------------------ 11. la phase Intrus : qui attaque qui (chapitre attaques)
+def fig_attaques(t):
+    # 1. ordre des salles : une petite grille 2 × 3, de la 1re (en haut à gauche) à la dernière (en bas à droite)
+    c = f'<text class="fth" x="20" y="16" dominant-baseline="central">{t["ordre"]}</text>'
+    for n in range(6):
+        x, y = 20 + (n % 3) * 50, 34 + (n // 3) * 36
+        cls = 'f-room' if n not in (0, 5) else 'f-phase'
+        c += (f'<rect class="{cls}" x="{x}" y="{y}" width="40" height="26" rx="4"/>'
+              f'<text class="fts" x="{x+20}" y="{y+13}" text-anchor="middle" dominant-baseline="central">{n+1}</text>')
+    c += ('<line class="f-arr" x1="61" y1="47" x2="69" y2="47" marker-end="url(#f-fl3)"/>'
+          '<line class="f-arr" x1="111" y1="47" x2="119" y2="47" marker-end="url(#f-fl3)"/>'
+          '<line class="f-arr" x1="130" y1="61" x2="62" y2="70" marker-end="url(#f-fl3)"/>'
+          '<line class="f-arr" x1="61" y1="83" x2="69" y2="83" marker-end="url(#f-fl3)"/>'
+          '<line class="f-arr" x1="111" y1="83" x2="119" y2="83" marker-end="url(#f-fl3)"/>')
+    c += (f'<text class="fts" x="190" y="47" dominant-baseline="central">{t["rangee"]}</text>'
+          f'<text class="fts" x="190" y="83" dominant-baseline="central">{t["rangee2"]}</text>')
+    c += f'<text class="fth" x="20" y="118" dominant-baseline="central">{t["dans"]}</text>'
+    # trois temps dans une même salle
+    for k, (titre, leg) in enumerate(t['etapes']):
+        x = 20 + k * 220
+        c += (f'<text class="fth" x="{x+100}" y="146" text-anchor="middle" dominant-baseline="central">{titre}</text>'
+              f'<rect class="f-room" x="{x}" y="162" width="200" height="130" rx="8"/>')
+        ax, by = x + 45, 0
+        alice = moi(ax, 200, t['p1'])
+        if k == 2:
+            alice = f'<g style="opacity:.3">{alice}</g>'
+        c += alice + moi(ax, 260, t['p2'])
+        g = jeton(x + 165, 200, 17, t['G']) if k < 2 else ''
+        a = jeton(x + 165, 260, 15, t['A'])
+        c += g + a
+        if k == 0:
+            c += f'<line class="f-arr" x1="{x+146}" y1="204" x2="{x+70}" y2="201" marker-end="url(#f-fl3)" style="stroke-width:2.5"/>'
+        elif k == 1:
+            c += f'<line class="f-arr" x1="{x+148}" y1="254" x2="{x+68}" y2="210" marker-end="url(#f-fl3)" style="stroke-width:2.5"/>'
+        else:
+            c += f'<line class="f-arr" x1="{x+148}" y1="260" x2="{x+70}" y2="260" marker-end="url(#f-fl3)" style="stroke-width:2.5"/>'
+        c += f'<text class="fts" x="{x+100}" y="312" text-anchor="middle" dominant-baseline="central">{leg}</text>'
+    c += f'<text class="fts f-warn" x="340" y="344" text-anchor="middle" dominant-baseline="central">{t["note"]}</text>'
+    return svg(362, c, t['alt'])
+
+FR.update({
+ 'actions': {
+  'svg': fig_actions({'cols': [('0 carte', 'gratuites', [('Jouer une carte Action', 0), ('Passer', 0)]),
+        ('1 carte', 'à défausser', [('Se déplacer', 0), ('Tir dans une salle', 0), ('Rafale dans un couloir', 0), ('Mêlée', 0), ('Utiliser un objet', 0), ('Équipement tactique', 0), ('Sécurisation', 1), ('Activer le robot', 1), ('Échanger', 1)]),
+        ('2 cartes', 'à défausser', [('Action de salle', 1), ('Déplacement prudent', 1)])],
+        'leg': '✖ hors combat : interdite dans une salle où se trouve un Intrus',
+        'fin': [('Vos 2 actions', 'deux fois la même : permis'), ('Oxygène −1', 'si le recycleur est inactif'), ('Santé −1', 'si votre salle est en feu')],
+        'alt': "Le coût des actions. 0 carte : jouer une carte Action, passer. 1 carte : se déplacer, tir dans une salle, rafale dans un couloir, mêlée, utiliser un objet, équipement tactique, et hors combat sécurisation, activer le robot, échanger. 2 cartes, hors combat : action de salle, déplacement prudent. Après vos 2 actions : −1 oxygène si le recycleur de votre section est inactif, puis −1 santé si votre salle est en feu."}),
+  'cap': "Les cartes défaussées pour payer ne sont pas résolues. Passer est une action : on ne passe pas tout seul quand la main est vide."},
+ 'attaques': {
+  'svg': fig_attaques({'ordre': '1. Les salles, une par une', 'rangee': 'on commence par la salle en haut à gauche,', 'rangee2': "rangée par rangée, jusqu'à celle en bas à droite",
+        'dans': "2. Dans une salle avec plusieurs personnages : l'ordre du tour",
+        'etapes': [("a. Le plus gros d'abord", 'le Guerrier attaque Alice'), ('b. Puis le suivant', "l'Adulte attaque Alice aussi"), ('c. Si Alice meurt ou part', 'les suivants attaquent Bruno')],
+        'p1': 'Alice', 'p2': 'Bruno', 'G': 'G', 'A': 'A',
+        'note': "Tous les Intrus de la salle attaquent le premier dans l'ordre du tour.",
+        'alt': "Phase Intrus. Les salles sont traitées une par une, de gauche à droite, rangée par rangée, en partant d'en haut à gauche. Dans une salle avec Alice, première dans l'ordre du tour, et Bruno : le Guerrier, le plus gros, attaque Alice ; puis l'Adulte attaque Alice aussi ; Bruno n'est attaqué que si Alice meurt ou quitte la salle."}),
+  'cap': "Alice est première dans l'ordre du tour. En phase Intrus, seul l'ordre du tour compte. La priorité au joueur qui a provoqué l'arrivée d'un Intrus ne joue qu'en dehors de cette phase, quand l'Intrus entre dans sa salle à cause de lui. L'attaque d'une Larve ne tire pas de carte : elle infecte."},
+})
+EN.update({
+ 'actions': {
+  'svg': fig_actions({'cols': [('0 cards', 'free', [('Play an Action card', 0), ('Pass', 0)]),
+        ('1 card', 'to discard', [('Move', 0), ('Shoot in a Room', 0), ('Burst at a Corridor', 0), ('Melee Attack', 0), ('Use an Item', 0), ('Tactical Gear', 0), ('Secure token', 1), ('Activate the Robot', 1), ('Trade', 1)]),
+        ('2 cards', 'to discard', [('Use the Room', 1), ('Move Cautiously', 1)])],
+        'leg': '✖ Not in Combat: forbidden in a Room with an Intruder',
+        'fin': [('Your 2 Actions', 'the same one twice: allowed'), ('Oxygen −1', 'if Life Support is inactive'), ('Health −1', 'if your Room is on Fire')],
+        'alt': 'The cost of Actions. 0 cards: play an Action card, Pass. 1 card: Move, Shoot in a Room, Burst at a Corridor, Melee Attack, Use an Item, Tactical Gear, and, Not in Combat, Secure token, Activate the Robot, Trade. 2 cards, Not in Combat: Use the Room, Move Cautiously. After your 2 Actions: −1 Oxygen if your Section\'s Life Support is inactive, then −1 Health if your Room is on Fire.'}),
+  'cap': 'The cards discarded to pay are not resolved. Pass is an Action: you do not Pass automatically when your hand is empty.'},
+ 'attaques': {
+  'svg': fig_attaques({'ordre': '1. Rooms, one at a time', 'rangee': 'start with the top-left Room,', 'rangee2': 'row by row, ending with the bottom-right one',
+        'dans': '2. In a Room with several Characters: Turn order',
+        'etapes': [('a. Largest first', 'the Drone Attacks Alice'), ('b. Then the next', 'the Adult Attacks Alice too'), ('c. If Alice dies or leaves', 'the next ones Attack Bruno')],
+        'p1': 'Alice', 'p2': 'Bruno', 'G': 'D', 'A': 'A',
+        'note': 'Every Intruder in the Room Attacks the first Character in Turn order.',
+        'alt': 'Intruder Phase. Rooms are resolved one at a time, left to right, row by row, starting top left. In a Room with Alice, first in Turn order, and Bruno: the Drone, the largest, Attacks Alice; then the Adult Attacks Alice too; Bruno is only Attacked if Alice dies or leaves the Room.'}),
+  'cap': "Alice is first in Turn order. In the Intruder Phase, only Turn order matters. Priority to the player who caused an Intruder to arrive only applies outside this phase, when the Intruder enters their Room because of them. A Larva Attack draws no card: it infects."},
+})
+
 def ecrire(chemin, data, entete):
     js = entete + 'const FIG=' + json.dumps(data, ensure_ascii=False, indent=0) + ';\n'
     chemin.write_text(js, encoding='utf-8')

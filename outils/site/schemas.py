@@ -131,6 +131,175 @@ def mk_blessures(t):
     return svg(y2 + 140, c, t["alt"])
 
 
+
+def carte(x, y, tab=False):
+    """Une carte (et, si tab, la carte Instabilités glissée dessous)."""
+    c = f'<rect class="s-dmg" x="{x+8}" y="{y+52}" width="40" height="18" rx="3"/>' if tab else ''
+    return c + f'<rect class="s-card" x="{x}" y="{y}" width="56" height="62" rx="5"/>'
+
+
+# ------------------------------------------------------------------ Mage Knight : le mana
+def mk_mana(t):
+    c = ''
+    for i, (a, b, d) in enumerate(t["formes"]):
+        x = 20 + i * 220
+        c += boite(x, 20, 200, a, b) + T(x + 100, 90, d)
+    c += T(340, 122, t["titre2"], "s-t")
+    xs = (260, 420, 560)
+    for k, h in enumerate(t["cols"]):
+        c += T(xs[k], 146, h)
+    for r, (lab, cells) in enumerate(t["lignes"]):
+        y = 160 + r * 40
+        c += T(165, y + 15, lab, "s-t", "end")
+        for k, (ok, txt) in enumerate(cells):
+            w = 170 if k == 0 else 120
+            c += (f'<rect class="{"s-ok" if ok else "s-no"}" x="{xs[k]-w/2}" y="{y}" width="{w}" height="30" rx="6"/>'
+                  + T(xs[k], y + 15, txt, "s-in" if ok else "s-s"))
+    c += T(340, 258, t["note"], "s-s s-em")
+    return svg(274, c, t["alt"])
+
+
+# ------------------------------------------------------------------ Mage Knight : attaque groupée ou séparée
+def carres(x, y, n, cls, n_plein=None):
+    """n carrés d'un point ; les n_plein premiers en cls, les autres « perdus » (pointillés)."""
+    c = ''
+    for k in range(n):
+        k_cls = cls if n_plein is None or k < n_plein else "s-no"
+        c += f'<rect class="{k_cls}" x="{x + k*20}" y="{y}" width="17" height="17" rx="3"/>'
+    return c
+
+
+def jeton_e(x, y, lettre, armure, res, cls):
+    return (f'<circle class="{cls}" cx="{x}" cy="{y}" r="22"/>' + T(x, y, lettre, "s-t")
+            + T(x, y + 36, armure) + (T(x, y + 54, res, "s-s s-em") if res else ''))
+
+
+def mk_groupe(t):
+    c = ''
+    for x0, titre in ((20, t["g"]), (350, t["sep"])):
+        c += T(x0 + 155, 14, titre, "s-t")
+        c += jeton_e(x0 + 95, 58, "A", t["armA"], t["res"], "s-warn") + jeton_e(x0 + 215, 58, "B", t["armB"], "", "s-phase")
+    c += '<line class="s-limit" x1="340" y1="6" x2="340" y2="268"/>'
+    # Groupée : 10 points, la moitié perdue, contre 3 + 4
+    c += T(20, 142, t["g1"], "s-s", "start")
+    c += T(78, 167, t["att"], "s-s", "end") + carres(86, 158, 10, "s-ok", 5)
+    c += T(78, 193, t["arm"], "s-s", "end") + carres(86, 184, 7, "s-warn")
+    c += T(175, 226, t["g2"], "s-t s-em") + T(175, 248, t["g3"])
+    # Séparées : 6 sur A (moitié perdue) contre 3, 4 sur B contre 4
+    c += T(350, 142, t["s1"], "s-s", "start")
+    c += T(408, 167, t["att"], "s-s", "end") + carres(416, 158, 6, "s-ok", 3)
+    c += T(408, 193, t["arm"], "s-s", "end") + carres(416, 184, 3, "s-warn") + T(484, 193, t["ok"], "s-t", "start")
+    c += T(350, 216, t["s2"], "s-s", "start")
+    c += T(408, 241, t["att"], "s-s", "end") + carres(416, 232, 4, "s-ok")
+    c += T(408, 267, t["arm"], "s-s", "end") + carres(416, 258, 4, "s-warn") + T(504, 267, t["ok"], "s-t", "start")
+    c += (f'<rect class="s-ok" x="120" y="292" width="14" height="14" rx="3"/>' + T(140, 299, t["l1"], "s-s", "start")
+          + f'<rect class="s-no" x="300" y="292" width="14" height="14" rx="3"/>' + T(320, 299, t["l2"], "s-s", "start")
+          + f'<rect class="s-warn" x="480" y="292" width="14" height="14" rx="3"/>' + T(500, 299, t["l3"], "s-s", "start"))
+    return svg(316, c, t["alt"])
+
+
+# ------------------------------------------------------------------ Mage Knight : le tour
+def mk_tour(t):
+    c = boite(20, 20, 200, t["mvt"], t["mvts"]) + fleche(221, 47, 243, 47) + boite(245, 20, 220, t["act"], t["acts"])
+    c += T(490, 47, t["ou"], "s-t") + boite(515, 20, 145, t["repos"], t["reposs"], "s-no")
+    c += fleche(340, 76, 340, 96) + T(340, 108, t["fin"], "s-t")
+    for i, (a, b) in enumerate(t["etapes"]):
+        x, y = 20 + (i % 4) * 162, 124 + (i // 4) * 64
+        c += boite(x, y, 152, f'{i+1}. {a}', b)
+    c += T(340, 266, t["note"], "s-s s-em")
+    return svg(282, c, t["alt"])
+
+
+# ------------------------------------------------------------------ Mage Knight : les Niveaux
+def mk_niveaux(t):
+    c = T(340, 14, t["titre"], "s-t")
+    for n in range(1, 11):
+        x = 25 + (n - 1) * 64
+        cls = "s-no" if n == 1 else ("s-ok" if n % 2 == 0 else "s-half")
+        c += f'<rect class="{cls}" x="{x}" y="34" width="56" height="40" rx="6"/>' + T(x + 28, 54, str(n), "s-in" if n % 2 == 0 else "s-t")
+    c += T(53, 88, t["depart"])
+    c += f'<rect class="s-half" x="20" y="112" width="14" height="14" rx="3"/>' + T(42, 119, t["impair"], "s-t", "start") + T(42, 139, t["impairs"], "s-s", "start")
+    c += f'<rect class="s-ok" x="350" y="112" width="14" height="14" rx="3"/>' + T(372, 119, t["pair"], "s-t", "start") + T(372, 139, t["pairs"], "s-s", "start")
+    c += T(340, 176, t["note"], "s-s s-em")
+    return svg(192, c, t["alt"])
+
+
+# ------------------------------------------------------------------ Imperium : où vont vos cartes
+def imp_zones(t):
+    Z = t["zones"]
+    pos = {"marche": (275, 20), "main": (275, 140), "deck": (20, 140), "defausse": (20, 270),
+           "jeu": (530, 140), "reserve": (530, 20), "histoire": (530, 270)}
+    c = ''
+    for k, (x, y) in pos.items():
+        c += boite(x, y, 130, Z[k][0], Z[k][1], "s-phase")
+    L = t["fleches"]
+    c += fleche(340, 75, 340, 138) + T(330, 106, L["acq"], "s-s", "end")
+    c += fleche(151, 167, 273, 167) + T(212, 156, L["pioche"])
+    c += fleche(285, 195, 120, 268) + T(205, 244, L["jouer"], "s-s", "start")
+    c += fleche(85, 269, 85, 196) + T(77, 232, L["melange"], "s-s", "end")
+    c += fleche(406, 158, 528, 158) + T(467, 146, L["perm"])
+    c += fleche(528, 180, 406, 180) + T(467, 194, L["rappel"])
+    c += fleche(385, 139, 528, 64) + T(440, 88, L["reserver"], "s-s", "end")
+    c += fleche(406, 192, 528, 272) + T(468, 250, L["archiver"], "s-s", "end")
+    c += '<path class="s-path" d="M660 167 L672 167 L672 344 L8 344 L8 297 L18 297" marker-end="url(#s-fl)"/>' + T(340, 334, L["abandon"])
+    c += T(340, 368, t["note"], "s-s s-em")
+    return svg(384, c, t["alt"])
+
+
+# ------------------------------------------------------------------ Imperium : deux fins de partie
+def imp_fin(t):
+    c = T(20, 14, t["dec"], "s-t", "start")
+    for i, (a, b) in enumerate(t["decs"]):
+        x = 20 + i * 162
+        c += boite(x, 28, 152, a, b, "s-phase")
+        if i < 3:
+            c += fleche(x + 153, 55, x + 160, 55)
+    c += T(20, 112, t["eff"], "s-t", "start")
+    for i, (a, b) in enumerate(t["effs"]):
+        x = 20 + i * 220
+        c += boite(x, 126, 200, a, b, "s-warn")
+        if i < 2:
+            c += fleche(x + 201, 153, x + 218, 153)
+    c += T(340, 208, t["note"], "s-s s-em")
+    return svg(224, c, t["alt"])
+
+
+# ------------------------------------------------------------------ Imperium : Acquérir ou Innover
+def imp_marche(t):
+    c = T(170, 14, t["acq"], "s-t") + T(510, 14, t["inn"], "s-t")
+    c += f'<line class="s-limit" x1="340" y1="6" x2="340" y2="212"/>'
+    # Acquérir : la carte et son Instabilité vont en main
+    c += carte(40, 36, True) + T(68, 118, t["marche"]) + fleche(104, 70, 196, 70) + T(150, 58, t["prend"])
+    c += carte(210, 36, True) + T(238, 118, t["main"])
+    # Innover : la carte en main, l'Instabilité retourne dans la pile
+    c += carte(380, 36, True) + T(408, 118, t["marche"]) + fleche(444, 58, 556, 44) + T(500, 36, t["prend"])
+    c += carte(570, 12, False) + T(598, 88, t["main"])
+    c += fleche(444, 100, 556, 132) + f'<rect class="s-dmg" x="570" y="124" width="40" height="18" rx="3"/>' + T(590, 154, t["pile"])
+    c += T(170, 180, t["acq1"]) + T(170, 200, t["acq2"]) + T(510, 180, t["inn1"]) + T(510, 200, t["inn2"])
+    c += T(340, 238, t["note"], "s-s s-em")
+    return svg(254, c, t["alt"])
+
+
+# ------------------------------------------------------------------ Puerto Rico : le plafond des Carrières
+def pr_carrieres(t):
+    c = T(20, 14, t["titre"], "s-t", "start")
+    c += T(20, 44, t["h1"], "s-s", "start") + T(205, 44, t["h2"]) + T(320, 44, t["h3"]) + T(430, 44, t["h4"], "s-s", "start")
+    for r, (lab, cap, prix) in enumerate(t["lignes"]):
+        y = 60 + r * 46
+        c += T(20, y + 17, lab, "s-t", "start")
+        c += f'<rect class="s-phase" x="185" y="{y+2}" width="40" height="30" rx="15"/>' + T(205, y + 17, str(cap), "s-t")
+        for k in range(3):
+            x = 260 + k * 42
+            if k < cap:
+                c += f'<rect class="s-ok" x="{x}" y="{y}" width="36" height="34" rx="6"/>' + T(x + 18, y + 17, "−1", "s-in")
+            else:
+                c += f'<rect class="s-no" x="{x}" y="{y}" width="36" height="34" rx="6"/>'
+        c += T(430, y + 17, prix, "s-s", "start")
+    c += (f'<rect class="s-ok" x="20" y="248" width="14" height="14" rx="3"/>' + T(40, 255, t["l1"], "s-s", "start")
+          + f'<rect class="s-no" x="250" y="248" width="14" height="14" rx="3"/>' + T(270, 255, t["l2"], "s-s", "start"))
+    c += T(340, 286, t["note"], "s-s s-em")
+    return svg(302, c, t["alt"])
+
 FIGS = {
  "mage-knight": {
   "fr": [
@@ -216,11 +385,113 @@ FIGS = {
  },
 }
 
+# ------------------------------------------------------------------ schémas ajoutés le 26/11/2026
+FIGS["mage-knight"]["fr"] += [
+ {"anchor": "Le mana et les Cristaux", "svg": mk_mana({"formes": [("Dé de la Source", "un seul par tour", "relancé à la fin de votre tour"), ("Jeton Mana", "donné par un effet", "perdu s'il ne sert pas ce tour"), ("Cristal", "dans votre Inventaire", "3 par couleur, il se garde")],
+    "titre2": "Quelle couleur, et quand ?", "cols": ["Rouge, bleu, blanc, vert", "Or", "Noir"],
+    "lignes": [("Jour", [(1, "utilisables"), (1, "joker"), (0, "inutilisable")]), ("Nuit", [(1, "utilisables"), (0, "inutilisable"), (1, "utilisable")])],
+    "note": "Il n'existe pas de Cristal or ni de Cristal noir.",
+    "alt": "Le mana sous trois formes : un dé de la Source, un seul par tour, relancé à la fin de votre tour ; un jeton, perdu s'il ne sert pas ce tour ; un Cristal, trois par couleur, qui se garde. Le Jour, les quatre couleurs fondamentales et l'or, qui remplace n'importe laquelle, sont utilisables, pas le noir. La Nuit, les couleurs fondamentales et le noir sont utilisables, pas l'or."}),
+  "cap": "Le Jour, l'or remplace n'importe quelle couleur fondamentale. La Nuit, l'or ne sert plus et le noir devient utilisable, surtout pour l'effet amélioré des Sorts. Un Cristal se garde d'un tour à l'autre et redevient du mana quand vous le décidez."},
+  {"anchor": "Le tour de jeu dans le détail", "svg": mk_tour({"mvt": "Mouvement", "mvts": "facultatif, d'abord", "act": "Une seule action", "acts": "combat, interaction ou site",
+    "ou": "ou", "repos": "Repos", "reposs": "ni l'un ni l'autre", "fin": "Fin du tour, dans l'ordre",
+    "etapes": [("Dés", "relancer ceux utilisés"), ("Retraite forcée", "si case non sûre"), ("Ranger", "jetons, cartes jouées"), ("Mine, Clairière", "leur effet"),
+               ("Récompenses", "du combat"), ("Niveau", "s'il a changé"), ("Défausse libre", "jamais de Blessure"), ("Piocher", "jusqu'à votre Limite")],
+    "note": "Après l'action, plus aucun Mouvement.",
+    "alt": "Le tour : un Mouvement facultatif puis une seule action, ou bien un Repos. Puis la fin du tour, dans l'ordre : relancer les dés utilisés, Retraite forcée éventuelle, rendre les jetons et défausser les cartes jouées, effet de la Mine ou de la Clairière, récompenses de combat, changement de Niveau, défausse libre sans Blessure, piocher jusqu'à votre Limite."}),
+  "cap": "Le Soin et les effets spéciaux se jouent à tout moment du tour, même pendant un Repos, sauf le Soin pendant un combat. Chaque tour, vous devez jouer ou défausser au moins une carte."},
+ {"anchor": "Niveaux et Compétences", "svg": mk_niveaux({"titre": "L'Échelle des Niveaux (à la fin du tour)", "depart": "départ",
+    "impair": "Niveau impair (3, 5, 7, 9)", "impairs": "Armure ou Limite, + 1 jeton Commandement",
+    "pair": "Niveau pair (2, 4, 6, 8, 10)", "pairs": "1 Compétence + 1 Action Avancée",
+    "note": "Un Niveau par ligne franchie sur l'Échelle de Gloire, jusqu'au Niveau 10.",
+    "alt": "Niveaux 1 à 10. Le Niveau 1 est le départ. Aux Niveaux impairs 3, 5, 7 et 9, l'Armure ou la Limite de cartes augmente et vous recevez un jeton Commandement. Aux Niveaux pairs 2, 4, 6, 8 et 10, vous gagnez une Compétence et une Action Avancée."}),
+  "cap": "Niveau pair : révélez deux Compétences de votre pile, gardez-en une et posez l'autre dans l'Offre commune, puis choisissez une Action Avancée dans l'Offre. Toute nouvelle carte va sur le dessus de votre Deck."},
+]
+FIGS["mage-knight"]["en"] += [
+ {"anchor": "Mana and Crystals", "svg": mk_mana({"formes": [("Source die", "only one per turn", "rerolled at the end of your turn"), ("Mana token", "given by an effect", "lost if unused this turn"), ("Crystal", "in your Inventory", "3 per colour, it is kept")],
+    "titre2": "Which colour, and when?", "cols": ["Red, blue, white, green", "Gold", "Black"],
+    "lignes": [("Day", [(1, "usable"), (1, "wild"), (0, "unusable")]), ("Night", [(1, "usable"), (0, "unusable"), (1, "usable")])],
+    "note": "There are no gold or black Crystals.",
+    "alt": "Mana in three forms: a Source die, only one per turn, rerolled at the end of your turn; a token, lost if unused this turn; a Crystal, three per colour, which is kept. By Day, the four basic colours and gold, which replaces any of them, are usable, not black. At Night, the basic colours and black are usable, not gold."}),
+  "cap": "By Day, gold replaces any basic colour. At Night, gold is useless and black becomes usable, mostly for the stronger effect of Spells. A Crystal is kept from turn to turn and turns back into mana whenever you decide."},
+  {"anchor": "The turn in detail", "svg": mk_tour({"mvt": "Movement", "mvts": "optional, first", "act": "A single action", "acts": "combat, interaction or site",
+    "ou": "or", "repos": "Rest", "reposs": "neither of them", "fin": "End of turn, in order",
+    "etapes": [("Dice", "reroll those used"), ("Withdrawal", "if on an unsafe space"), ("Tidy up", "tokens, played cards"), ("Mine, Glade", "their effect"),
+               ("Rewards", "from combat"), ("Level", "if it changed"), ("Free discard", "never a Wound"), ("Draw", "up to your Hand Limit")],
+    "note": "After the action, no more Movement.",
+    "alt": "The turn: an optional Movement then a single action, or else a Rest. Then the end of turn, in order: reroll used dice, any forced Withdrawal, return tokens and discard played cards, Mine or Glade effect, combat rewards, Level change, free discard without Wounds, draw up to your Hand Limit."}),
+  "cap": "Healing and special effects can be played at any time during the turn, even during a Rest, except Healing during a combat. Every turn, you must play or discard at least one card."},
+ {"anchor": "Levels and Skills", "svg": mk_niveaux({"titre": "The Level track (at the end of the turn)", "depart": "start",
+    "impair": "Odd Level (3, 5, 7, 9)", "impairs": "Armor or Hand Limit, + 1 Command token",
+    "pair": "Even Level (2, 4, 6, 8, 10)", "pairs": "1 Skill + 1 Advanced Action",
+    "note": "One Level per line crossed on the Fame track, up to Level 10.",
+    "alt": "Levels 1 to 10. Level 1 is the start. At odd Levels 3, 5, 7 and 9, Armor or Hand Limit goes up and you receive a Command token. At even Levels 2, 4, 6, 8 and 10, you gain a Skill and an Advanced Action."}),
+  "cap": "Even Level: reveal two Skills from your stack, keep one and place the other in the common Offer, then choose an Advanced Action from the Offer. Any new card goes on top of your Deck."},
+]
+FIGS["imperium"]["fr"] += [
+ {"anchor": "Le Marché : Acquérir", "svg": imp_marche({"acq": "Acquérir", "inn": "Innover", "marche": "Marché", "prend": "vous prenez", "main": "Main", "pile": "pile Instabilités",
+    "acq1": "La carte arrive en main avec son Instabilité.", "acq2": "Sa remplaçante reçoit une Instabilité.",
+    "inn1": "L'Instabilité retourne dans la pile.", "inn2": "Ou : la première carte d'une pioche.",
+    "note": "Avec Innover, les effets « lorsque vous Acquérez » ne se déclenchent pas.",
+    "alt": "Acquérir : la carte du Marché arrive dans votre main avec la carte Instabilités glissée dessous, et la carte qui la remplace en reçoit une nouvelle. Innover : la carte arrive dans votre main seule, l'Instabilité retourne dans la pile ; vous pouvez aussi prendre la première carte d'une pioche."}),
+  "cap": "En rouge : la carte Instabilités glissée sous la carte. Dans les deux cas, vous gagnez les ressources posées sur la carte. La carte qui en remplace une Acquise reçoit une Instabilité, sauf si c'est une Région."},
+ {"anchor": "Instabilités, Régions", "svg": imp_zones({"zones": {"marche": ("Marché", "cartes à prendre"), "main": ("Main", "vos cartes"), "deck": ("Deck", "face cachée"), "defausse": ("Défausse", "face visible"),
+        "jeu": ("Zone de jeu", "cartes permanentes"), "reserve": ("Réservée", "sous une carte en jeu"), "histoire": ("Histoire", "sous votre Puissance")},
+    "fleches": {"acq": "Acquérir · Innover", "pioche": "Piocher", "jouer": "Jouer · Défausser", "melange": "Mélanger", "perm": "Jouer", "rappel": "Rappeler",
+        "reserver": "Réserver", "archiver": "Archiver", "abandon": "Abandonner (une Région) : elle part dans la défausse"},
+    "note": "Au score, vos cartes comptent partout, Réservées et Histoire comprises.",
+    "alt": "Où vont vos cartes. Du Marché à la main : Acquérir ou Innover. Du deck à la main : Piocher. De la main à la défausse : jouer ou défausser. De la défausse au deck : mélanger. De la main à la zone de jeu : jouer une carte permanente ; retour en main : Rappeler. De la main à une carte en jeu : Réserver. Vers l'Histoire, sous votre carte Puissance : Archiver. De la zone de jeu à la défausse : Abandonner une Région."}),
+  "cap": "Seules les Régions peuvent être Abandonnées ou Rappelées. Une carte Réservée ou archivée dans votre Histoire n'est plus en jeu, mais ses points comptent."},
+ {"anchor": "Fin de partie", "svg": imp_fin({"dec": "Décompte", "decs": [("Déclenché", "en cours de manche"), ("Finir la manche", "Solstice compris"), ("Une manche de plus", "entière, avec Solstice"), ("On compte", "plus de points gagne")],
+    "eff": "Effondrement", "effs": [("Pile Instabilités vide", "à l'instant même"), ("Arrêt immédiat", "l'action en cours s'arrête"), ("On compte", "le moins d'Instabilités gagne")],
+    "note": "L'Effondrement l'emporte, même si un Décompte est déjà lancé.",
+    "alt": "Deux fins. Décompte : une fois déclenché, on finit la manche, Solstice compris, on joue une manche entière de plus, puis on compte ; le plus de points gagne. Effondrement : dès que la pile Instabilités est vide, la partie s'arrête, l'action en cours est interrompue, et le joueur qui a le moins d'Instabilités gagne."}),
+  "cap": "Le Décompte se déclenche quand la pioche Principale est vide, quand un joueur Développe sa dernière carte, quand le Roi des rois est retourné face cachée, ou par un effet. Égalité à l'Effondrement : on départage aux points du Décompte."},
+]
+FIGS["imperium"]["en"] += [
+ {"anchor": "The Market: Acquire", "svg": imp_marche({"acq": "Acquire", "inn": "Innovate", "marche": "Market", "prend": "you take", "main": "Hand", "pile": "Unrest pile",
+    "acq1": "The card comes to your hand with its Unrest.", "acq2": "Its replacement gets a new Unrest.",
+    "inn1": "The Unrest goes back to the pile.", "inn2": "Or: the top card of a deck.",
+    "note": "With Innovate, “when you Acquire” effects do not trigger.",
+    "alt": "Acquire: the Market card comes to your hand with the Unrest card tucked under it, and the card replacing it gets a new one. Innovate: the card comes to your hand alone, the Unrest goes back to the pile; you may also take the top card of a deck."}),
+  "cap": "In red: the Unrest card tucked under the card. Either way, you gain the resources placed on the card. The card replacing an Acquired one gets an Unrest, unless it is a Region."},
+ {"anchor": "Unrest, Regions", "svg": imp_zones({"zones": {"marche": ("Market", "cards to take"), "main": ("Hand", "your cards"), "deck": ("Deck", "face down"), "defausse": ("Discard pile", "face up"),
+        "jeu": ("Play area", "permanent cards"), "reserve": ("Reserved", "under a card in play"), "histoire": ("History", "under your Power card")},
+    "fleches": {"acq": "Acquire · Innovate", "pioche": "Draw", "jouer": "Play · Discard", "melange": "Shuffle", "perm": "Play", "rappel": "Recall",
+        "reserver": "Reserve", "archiver": "To History", "abandon": "Abandon (a Region): it goes to the discard pile"},
+    "note": "At scoring, your cards count wherever they are, Reserved and History included.",
+    "alt": "Where your cards go. From the Market to your hand: Acquire or Innovate. From the deck to your hand: Draw. From your hand to the discard pile: play or discard. From the discard pile to the deck: shuffle. From your hand to the play area: play a permanent card; back to your hand: Recall. From your hand under a card in play: Reserve. Into your History, under your Power card. From the play area to the discard pile: Abandon a Region."}),
+  "cap": "Only Regions can be Abandoned or Recalled. A card Reserved or put into your History is no longer in play, but its points count."},
+ {"anchor": "End of the game", "svg": imp_fin({"dec": "Countdown", "decs": [("Triggered", "mid-round"), ("Finish the round", "Solstice included"), ("One more round", "full, with Solstice"), ("Count", "most points wins")],
+    "eff": "Collapse", "effs": [("Unrest pile empty", "at that very moment"), ("Immediate stop", "the Action in progress ends"), ("Count", "fewest Unrest wins")],
+    "note": "Collapse wins out, even if a Countdown is already under way.",
+    "alt": "Two endings. Countdown: once triggered, finish the round, Solstice included, play one more full round, then count; most points wins. Collapse: as soon as the Unrest pile is empty, the game stops, the Action in progress is interrupted, and the player with the fewest Unrest wins."}),
+  "cap": "The Countdown is triggered when the Main deck is empty, when a player Develops their last card, when King of Kings is flipped face down, or by an effect. Tie at Collapse: break it with Countdown points."},
+]
+FIGS["puerto-rico"]["fr"] += [
+  {"anchor": "batisseur", "svg": pr_carrieres({"titre": "Vous avez 3 Carrières occupées. Combien comptent ?",
+    "h1": "Rangée du bâtiment", "h2": "Plafond", "h3": "Vos 3 Carrières", "h4": "Exemple du livret",
+    "lignes": [("1re rangée", 1, "Dépôt de Matériaux : 2 − 1 = 1"), ("2e rangée", 2, "Comptoir : 5 − 2 = 3"), ("3e rangée", 3, "Port : 8 − 3 = 5"), ("Grands bâtiments", 4, "Palais du Gouverneur : 10 − 3 = 7")],
+    "l1": "compte : 1 Peso de moins", "l2": "au-delà du plafond : ne compte pas",
+    "note": "Privilège du Bâtisseur : encore 1 de moins. Jamais moins de 0.",
+    "alt": "Avec 3 Carrières occupées, le plafond dépend de la rangée du bâtiment. 1re rangée, plafond 1 : une seule compte, le Dépôt de Matériaux coûte 2 − 1 = 1. 2e rangée, plafond 2 : deux comptent, le Comptoir coûte 5 − 2 = 3. 3e rangée, plafond 3 : les trois comptent, le Port coûte 8 − 3 = 5. Grands bâtiments, plafond 4 : les trois comptent, le Palais du Gouverneur coûte 10 − 3 = 7."}),
+  "cap": "Chaque Carrière occupée retire 1 Peso, sans dépasser le plafond de la rangée où se trouve le bâtiment sur le plateau."},
+]
+FIGS["puerto-rico"]["en"] += [
+  {"anchor": "batisseur", "svg": pr_carrieres({"titre": "You have 3 occupied Quarries. How many count?",
+    "h1": "Building's section", "h2": "Cap", "h3": "Your 3 Quarries", "h4": "Rulebook example",
+    "lignes": [("Top section", 1, "Builders Yard: 2 − 1 = 1"), ("Second section", 2, "Office: 5 − 2 = 3"), ("Third section", 3, "Harbor: 8 − 3 = 5"), ("Large Buildings", 4, "City Hall: 10 − 3 = 7")],
+    "l1": "counts: 1 coin less", "l2": "beyond the cap: does not count",
+    "note": "Builder's advantage: 1 less again. Never below 0.",
+    "alt": "With 3 occupied Quarries, the cap depends on the Building's section. Top section, cap 1: only one counts, the Builders Yard costs 2 − 1 = 1. Second section, cap 2: two count, the Office costs 5 − 2 = 3. Third section, cap 3: all three count, the Harbor costs 8 − 3 = 5. Large Buildings, cap 4: all three count, City Hall costs 10 − 3 = 7."}),
+  "cap": "Each occupied Quarry takes 1 coin off, without going beyond the cap of the section the Building is in on the board."},
+]
+
 # Où insérer : sélecteur du conteneur du chapitre, élément après lequel poser le schéma.
 OU = {
  "mage-knight": "function(a){var h=[].find.call(document.querySelectorAll('.app-tuto .chtitle'),function(e){return e.textContent.trim()===a});if(!h)return null;var p=h.parentNode;return p.querySelector('ul.rules')||h}",
  "puerto-rico": "function(a){var s=document.getElementById('ch-'+a);return s&&s.querySelector('ol.rules')}",
- "imperium": "function(a){var h=[].find.call(document.querySelectorAll('#main h3, #main h2'),function(e){return e.textContent.trim().indexOf(a)===0});if(!h)return null;var n=h.nextElementSibling;while(n&&n.tagName!=='OL')n=n.nextElementSibling;return n||h}",
+ "imperium": "function(a){var h=[].find.call(document.querySelectorAll('#main h3, #main h2'),function(e){return e.textContent.trim().indexOf(a)===0});if(!h)return null;var n=h.nextElementSibling,p=null;while(n&&n.tagName!=='OL'&&n.tagName!=='H2'){if(!p&&n.tagName==='P')p=n;n=n.nextElementSibling}return n&&n.tagName==='OL'?n:(p||h)}",
 }
 
 # Couleurs : variables de chaque appli (fond, trait, texte), donc justes dans les deux thèmes.
