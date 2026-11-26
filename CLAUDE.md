@@ -83,12 +83,36 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
   `data-l="Phase 1"` pour des étiquettes), `ex-cadre` + `h4` (cadre titré), `tags`.
 - **Seules sources : le tutoriel et l'aide-mémoire de l'appli.** Ton voulu par Paul : informel, un peu de récit, des révélations
   (« Chose que je ne vous ai pas encore dite… »). Paul relit écran par écran sur captures avant toute mise en ligne.
-- État (26/11/2026) : **Nemesis validé et en ligne (FR, EN)**. Mage Knight, Puerto Rico, Imperium : `EXPL.chantier` affiche
+- État (26/11/2026, soir) : **Nemesis validé et en ligne (FR, EN)**, corrections de Paul du 26/11 au soir comprises (écrans 1, 2, 4, 5, 6, 8, 10 ; durée estimée ; « Pour plus tard » en entier en plein écran). Mage Knight, Puerto Rico, Imperium : `EXPL.chantier` affiche
   « Section en chantier » ; les brouillons sont dans leurs `expliquer.js` (Mage Knight et Puerto Rico : FR seulement, l'`en`
   est une copie du français à traduire ; Imperium : ses anciens écrans, sans `dire`). Brouillons relus dans le doc
   « Expliquer le jeu · écrans à relire » (https://claude.ai/artifact/9Q1c8epAcy8n7Ut9qMpj6S). Retirer `EXPL.chantier` une fois validé.
 - Ordre des onglets partout : Apprendre · Expliquer le jeu · … · Aide-mémoire en dernier ; dans Mage Knight : Apprendre · S'entraîner · Expliquer le jeu · Compagnon de partie · Aide-mémoire. Imperium : le compagnon « À plusieurs »
   (feuille de score, Effondrement) a été supprimé ; `#plusieurs` ouvre « Expliquer le jeu ». Mage Knight : « Partie libre » s'appelle « S'entraîner ».
+
+### Ton et rhétorique d'« Expliquer le jeu » (tirés de Nemesis, validé par Paul ; à appliquer dès le premier brouillon)
+
+- **Deux voix.** `dire` = ce que la personne dit à la table, à l'oral : le récit, les images, l'humour. L'écran (`html`) ne garde que les
+  mots-clés : cartes `h3` + une phrase courte, une phrase `big1` (« Ce qu'il faut retenir : … ») au plus. Ne pas répéter le récit à l'écran.
+- **Oral et complice**, vouvoiement de la tablée : phrases courtes, « Eh oui, vous vous attendiez à quoi ? », « La petite chose coquine : … »,
+  « tout un tas de choses pas cool pour l'équipe », « rassurez-vous ». Un peu d'humour, jamais de second degré qui brouille la règle.
+- **Suspense et révélations** : points de suspension avant la chute (« plusieurs gagnants… ou aucun », « … où il n'y a qu'une seule place ») ;
+  révélation tardive (« Chose que je ne vous ai pas encore dite : … ») ; rappel d'une promesse faite plus tôt (« Vous vous souvenez, je vous
+  avais dit que… Eh bien, … »). Semer tôt une récompense ou une menace, la payer plus loin.
+- **Différer sans culpabiliser** : « je vous expliquerai ça pendant la partie », « le moment venu ». Tout ce qui est différé va dans `plus`
+  (`[quoi, quand]`, le « quand » étant le déclencheur en jeu : « À sa première apparition », « Au premier doute »).
+- **Encadrés** (`piege` + `pl`, ou `<div class="ex-piege"><b>Titre</b><p>…</p></div>` dans `html` pour un 2e encadré) : titres courts et parlés,
+  « Attention », « Petit rappel », « Petit piège à signaler », ou une question (« Besoin de cartes en plus ? »). Un piège = une erreur que les
+  joueurs font vraiment.
+- **Précision des mots** (corrections de Paul) : verbes exacts (« vous vous déplacez d'une salle à une autre », pas « vous changez de salle ») ;
+  noms du matériel avec la majuscule de l'appli (cartes Action, jeton Munitions) et les quantités exactes (« une moitié de jeton Munitions ») ;
+  dire d'où vient une chose (« une mission tirée au hasard, visible de tous ») ; nuancer les conditions (« si tout le monde n'est pas déjà parti,
+  en hibernation ou mort »).
+- **Fil des 10 écrans** (modèle Nemesis) : le jeu en une phrase et comment on gagne → mission / objectifs → anatomie du plateau → la manche →
+  votre tour → se déplacer → les ennemis → se battre → le retournement (révélation) → sortir / fin de partie. Adapter à chaque jeu, garder
+  l'ordre « but → matériel → rythme → tour → menaces → fin ».
+- Ligne de durée sous l'introduction (`ex_duree` dans `i18n/<langue>.json` + `<p class="lrmp-ex-duree">` dans `page.html`, Nemesis seulement
+  pour l'instant : « Durée estimée de l'explication : environ 8 minutes ») : à proposer pour chaque jeu une fois validé, avec la durée donnée par Paul.
 
 ## Langues
 
@@ -212,9 +236,16 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
    ajoutés le 26/11 : mana, tour, Niveaux ; Marché, zones des cartes, fin de partie ; actions, phase Intrus ; Carrières).
    Écartés par Paul : « plusieurs ennemis » de Mage Knight (`mk_groupe` reste dans schemas.py, non utilisé). Piste : versions interactives.
 
-2. **« Expliquer le jeu »** : Nemesis fait. Suite, un jeu à la fois avec Paul, écran par écran (voir la section dédiée) :
-   Mage Knight (Mission de Reconnaissance), Puerto Rico, Imperium. Aeon's End : pas concerné.
-3. Search Console : fait (changement d'adresse vers lessrulesmoreplay.com et sitemap envoyés, 26/11/2026).
+2. **« Expliquer le jeu »** : Nemesis fait. Suite, un jeu à la fois avec Paul, écran par écran (voir la section dédiée et le ton) :
+   Mage Knight (Mission de Reconnaissance), Puerto Rico, Imperium. Aeon's End : pas concerné. Les brouillons existants ont été écrits
+   avant les directives de ton : les reprendre avec elles avant de les montrer à Paul.
+3. **Outil de conception d'« Expliquer le jeu »** (à faire avant le prochain jeu) : `outils/site/expliquer.py <dossier> [--ecrans 1,5] [--en]`
+   qui, en une commande, lance le serveur local, capture chaque écran (`#ex-boite .ex-stage`, puis « Pour plus tard » et le résumé),
+   en FR et EN, thème clair et sombre, plus une capture plein écran 1366×768 et 1920×1080, et un contrôle téléphone (390 px) ;
+   assemble une planche par lot de 3 écrans à envoyer à Paul ; signale ce qui déborde (boîte plus haute que l'écran en plein écran,
+   texte coupé) ; exporte le texte des écrans (titre, `dire`, blocs, encadrés) en Markdown pour la relecture et pour vérifier l'anglais ;
+   avec `--ecrans`, ne capture que les écrans modifiés. Option : signaler les `dire` sans équivalent anglais et l'`en` resté en français.
+4. Search Console : fait (changement d'adresse vers lessrulesmoreplay.com et sitemap envoyés, 26/11/2026).
 
 Pax Pamir : ne pas en parler à Paul ni le proposer ; il le relancera lui-même.
 
