@@ -25,7 +25,7 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 .sitehead .sh-lang a{color:var(--site-ink)}
 .sitehead .sh-lang span.sh-off{color:#5d6475;border-bottom-color:transparent;cursor:not-allowed}
 .sitehead .sh-lang a:hover{color:var(--site-gold)}
-.sitehead .sh-sep{width:1px;height:30px;background:var(--site-line)}
+.sitehead .sh-sep{flex:none;width:2px;height:30px;border-radius:1px;background:var(--site-line)}
 .sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding-bottom:2px;font-size:15px;line-height:18px;white-space:nowrap}
 .sitehead .sh-kofi:hover{color:var(--site-gold)}
 .sitehead .sh-kofi svg{display:block;width:34px;height:34px;flex:none;order:2;position:relative;top:-5px}
