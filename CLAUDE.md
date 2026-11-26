@@ -56,6 +56,20 @@ Chaque jeu garde **sa police de titre et son thème** (clair ou sombre). L'expé
 mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent`, `--app-accent-ink`, `--app-piste`,
 `--app-onglet`), même pied de page, même encart « À imprimer », mêmes jetons (`commun/tokens.css`).
 
+### Identité visuelle (26/11/2026, choix de Paul)
+
+- **Logo** : `img/logo/logo.svg` (carré jaune « Less Rules, More Play ») et `img/logo/icone.svg` (monogramme « mp ») ; icônes PWA et favicon
+  (`icons/`) tirées de `icone.svg`. Jaune du logo `#ffbe04` = `--site-gold` (`commun/tokens.css`) et `--gold` de l'accueil.
+- **Barre du haut** (accueil : `index.html` ; applis : `chrome.py` + `commun/composants.css`, même dessin) : logo complet à gauche (62 px, barre 80 px) ;
+  sur téléphone (≤ 640 px) icône « mp » + « Less Rules, More Play » sur deux lignes en Fraunces (masqué ≤ 360 px). À droite : FR · EN soulignés en jaune,
+  trait de 2 px, « Offrir un café » + tasse SVG à droite (tasse seule sur téléphone, `TASSE` dans `chrome.py`). `--sitehead-h` : 81 px, 65 px sur téléphone.
+- **Polices hors applis** : titres en Fraunces 600 (italique dans `commun/polices/fraunces-italic-*`), texte Figtree. Les applis gardent leurs polices et thèmes.
+- **Accueil** : titre « Apprenez le jeu *en jouant*. » ; atouts sans émojis séparés par « · » (liste à puces sur téléphone) : Tutoriels interactifs · Automas pour
+  joueur solo · Compagnons de partie · Fiches à imprimer ; recherche + menu « Tous les jeux » (`<select id="jeu">`, remplace les boutons par jeu ; `?jeu=` marche
+  toujours ; `accueil.py` y ajoute les nouveaux jeux) ; cartes d'applis sur fond sombre, bordure et lueur intérieure de la couleur du jeu, halo et petits points
+  en dégradé depuis le bas ; fiches au même style, halo depuis la droite (depuis le bas sur téléphone), bouton « ⬇ PDF », nombre de pages à la ligne (`<br>`).
+- Maquettes : artefact Design « Less Rules, More Play · maquette du nouveau logo » (https://claude.ai/artifact/6kzgCKHjFaG5YpiGCrQ2SZ), propositions de cartes A à F.
+
 ### Blocs générés dans les pages (ne pas les écrire à la main)
 
 | Bloc | Posé par | Contenu |
