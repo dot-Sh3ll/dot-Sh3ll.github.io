@@ -275,7 +275,7 @@ def apply(lang):
     s = s.replace(tp, tp + bloc(lang))
     # le chapitre facultatif, à la toute fin du parcours
     part = UI[lang]["part"]
-    for pp in {u["part"] for u in UI.values()}:  # build_mk.sh recopie la partie française dans en.html
+    for pp in {u["part"] for u in UI.values()}:  # rejouable : retire la partie déjà posée, dans toutes les langues
         s = re.sub(r",\s*\['" + re.escape(pp) + r"',\['[^']*'\]\]\];", "];", s)
     m = re.search(r"(const PARTS=\[.*?)\];", s, re.S)
     s = s[:m.end(1)] + f",\n ['{part}',['{EPINEUX[lang]['t']}']]" + s[m.end(1):]

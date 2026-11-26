@@ -8,7 +8,7 @@ Sources dans outils/<dossier>/ :
   i18n/<langue>.json   textes de l'interface, mêmes clés dans toutes les langues (format commun du site)
   contenu/<langue>.js  chapitres et aide-mémoire ; une langue sans fichier reprend l'anglais
   ou, pour une appli en plusieurs morceaux, page.html contient des emplacements nommés <!--CONTENU:nom-->,
-  remplis par contenu/<langue>/nom.js (même règle : un morceau absent reprend l'anglais). Ex. : outils/nemesis.
+  remplis par contenu/<langue>/nom.js ou nom.html (même règle : un morceau absent reprend l'anglais). Ex. : outils/nemesis.
 Réglages lus dans outils/site/jeux.json (entrée <dossier>) : code, couleur, police.
 
 Une page est écrite pour chaque fichier i18n/<langue>.json : <dossier>/index.html (fr), <dossier>/<langue>.html.
@@ -69,11 +69,16 @@ def main():
                 contenu = os.path.join(src, "contenu", "en.js")
             s = s.replace("<!--CONTENU-->", open(contenu, encoding="utf-8").read().strip())
 
-        def morceau(m):  # emplacements nommés : le morceau est inséré tel quel (aucun espace retiré)
-            f = os.path.join(src, "contenu", c, m.group(1) + ".js")
-            if not os.path.exists(f):
-                print(f"{c} : pas de contenu/{c}/{m.group(1)}.js, morceau anglais repris")
-                f = os.path.join(src, "contenu", "en", m.group(1) + ".js")
+        def morceau(m):  # emplacements nommés : le morceau est inséré tel quel (aucun espace retiré) ; .js ou .html
+            def chemin(lang):
+                for ext in (".js", ".html"):
+                    f = os.path.join(src, "contenu", lang, m.group(1) + ext)
+                    if os.path.exists(f):
+                        return f
+            f = chemin(c)
+            if not f:
+                print(f"{c} : pas de contenu/{c}/{m.group(1)}.js ni .html, morceau anglais repris")
+                f = chemin("en")
             return open(f, encoding="utf-8").read()
         s = re.sub(r"<!--CONTENU:([a-z0-9_-]+)-->", morceau, s)
         s = re.sub(r"\{\{([a-z0-9_]+)\}\}", lambda m: str(t.get(m.group(1), m.group(0))), s)
