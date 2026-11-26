@@ -2,15 +2,14 @@
  "nom_jeu": "Imperium Antique",
  "onglet_apprendre": "Apprendre",
  "onglet_solo": "Jouer en solo",
- "onglet_plusieurs": "À plusieurs",
  "onglet_aide": "Aide-mémoire",
  "bouton_theme": "Changer de thème (clair / sombre)",
  "apprendre_titre": "Apprendre les règles",
  "apprendre_sous_titre": "D'après le livret de règles d'Imperium Horizons (version du 19 juillet 2026)",
  "afficher_sommaire": "Afficher le sommaire",
  "nouvelle_partie": "Nouvelle partie",
- "a_plusieurs": "À plusieurs",
- "expliquer_jeu": "Expliquer le jeu",
- "compagnon": "Compagnon de partie",
- "fermer": "Fermer"
+ "fermer": "Fermer",
+ "onglet_expliquer": "Expliquer le jeu",
+ "ex_titre": "Expliquer le jeu",
+ "ex_intro": "Un fil rouge pour présenter le jeu à la table : dix écrans courts, puis l'aide-mémoire."
 }

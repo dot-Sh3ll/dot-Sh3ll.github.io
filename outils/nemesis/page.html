@@ -222,6 +222,7 @@ h1{font-weight:700;text-transform:uppercase}
 .meter i{display:block;height:100%;background:var(--bad)}
 @media print{.apphead,nav.toc,.pager,.lab button{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+<!--PARTAGE:expliquer.css-->
 </style>
 </head>
 <body>
@@ -229,8 +230,9 @@ h1{font-weight:700;text-transform:uppercase}
   <p class="title">Nemesis: Retaliation</p>
   <div class="lrmp-onglets" role="tablist" aria-label="Sections">
     <button type="button" role="tab" {{onglet_apprendre}}
-    <button type="button" role="tab" {{onglet_aide}}
+    <button type="button" role="tab" {{onglet_expliquer}}
     <button type="button" role="tab" {{onglet_salles}}
+    <button type="button" role="tab" {{onglet_aide}}
   </div>
   <button type="button" class="themebtn ghost" id="theme" {{bouton_theme}}>◐</button>
 </div></header>
@@ -247,6 +249,10 @@ h1{font-weight:700;text-transform:uppercase}
   <main class="read" id="read"></main>
 </div></div>
 
+<div class="tab" id="tab-expliquer"><div class="page lrmp-ex"><div class="lrmp-ex-tete"><h1>{{ex_titre}}</h1><p>{{ex_intro}}</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
+<script><!--PARTAGE:expliquer.js-->
+<!--CONTENU:expliquer-->
+lrmpExpliquer(document.getElementById('ex-boite'),EXPL);</script>
 <div class="tab" id="tab-aide"><div class="page" id="aide"></div></div>
 <div class="tab" id="tab-salles"><div class="page" id="sallespage"></div></div>
 <script>

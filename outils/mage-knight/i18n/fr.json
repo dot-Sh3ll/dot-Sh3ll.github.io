@@ -1,11 +1,14 @@
 {
  "rubriques": "Rubriques",
  "onglet_apprendre": "Apprendre",
- "onglet_libre": "Partie libre",
+ "onglet_libre": "S'entraîner",
  "onglet_jouer": "Compagnon de partie",
  "onglet_aide": "Aide-mémoire",
  "bouton_theme": "Changer de thème (clair / sombre)",
  "apprendre_titre": "Apprendre les règles",
  "sommaire": "Sommaire",
- "mention_tutoriel": "Tutoriel non officiel pour apprendre le jeu de plateau Mage Knight, d'après son livret de règles. Textes et dessins écrits pour cette page."
+ "mention_tutoriel": "Tutoriel non officiel pour apprendre le jeu de plateau Mage Knight, d'après son livret de règles. Textes et dessins écrits pour cette page.",
+ "onglet_expliquer": "Expliquer le jeu",
+ "ex_titre": "Expliquer le jeu",
+ "ex_intro": "Un fil rouge pour présenter le jeu à la table, pensé pour une première partie en Mission de Reconnaissance : dix écrans courts, ce qu'on garde pour plus tard, puis l'aide-mémoire."
 }

@@ -27,3 +27,5 @@
 :root[data-theme="light"] .app-comp button.on{background:color-mix(in srgb,var(--gold) 13%,#ffffff)}
 :root[data-theme="light"] .app-comp .tabs button.on,:root[data-theme="light"] .app-comp .seg button.on{background:var(--gold)}
 @media (max-width:700px){.topbar>.lrmp-theme{order:2;margin-left:auto}.topbar>.lrmp-onglets{order:3;margin-left:0}.topbar>.brand{order:1}}
+
+:root[data-theme="light"] .mk-ex{--ex-surface:#ffffff;--ex-sunk:#e9edf3}

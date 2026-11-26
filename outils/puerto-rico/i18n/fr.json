@@ -1,6 +1,6 @@
 {
  "puerto_rico_apprendre_les": "<title>Puerto Rico 1897 · Apprendre les règles</title>\n<meta name=\"description\" content=\"Apprendre Puerto Rico 1897 point de règle par point de règle : ateliers interactifs, cas pratiques, quiz, aide-mémoire des bâtiments et calculateur de score.\">",
- "aria_label_sections_apprendre": "aria-label=\"Sections\">\n    <button type=\"button\" role=\"tab\" data-tab=\"learn\" aria-selected=\"true\">Apprendre</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"aide\" aria-selected=\"false\">Aide-mémoire</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"score\" aria-selected=\"false\">Décompte</button>",
+ "aria_label_sections_apprendre": "aria-label=\"Sections\">\n    <button type=\"button\" role=\"tab\" data-tab=\"learn\" aria-selected=\"true\">Apprendre</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"expliquer\" aria-selected=\"false\">Expliquer le jeu</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"score\" aria-selected=\"false\">Décompte</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"aide\" aria-selected=\"false\">Aide-mémoire</button>",
  "aria_label_changer_de": "aria-label=\"Changer de thème (clair / sombre)\">",
  "aria_label_sommaire_du": "aria-label=\"Sommaire du tutoriel\">\n    <p class=\"brand\">Apprendre les règles<small>D'après le livret de règles français (édition corrigée de 2023)</small></p>",
  "aria_expanded_false_afficher": "aria-expanded=\"false\">Afficher le sommaire</button>",
@@ -49,5 +49,7 @@
  "confirm_effacer_tous_les": "confirm('Effacer tous les scores ?')",
  "onglets_theme_demarrage": "/* ---------- onglets, thème, démarrage ---------- */",
  "theme_title_theme_auto": "$('#theme').title='Thème : '+{auto:'automatique',dark:'sombre',light:'clair'}[th]",
- "aide_de_jeu_de": "<footer class=\"page small muted\" style=\"padding-top:0\">Aide de jeu de fan, gratuite et non officielle, sans lien avec Ravensburger ni alea. Puerto Rico 1897 © Andreas Seyfarth / Ravensburger. Règles résumées d'après le livret de règles français.</footer>"
+ "aide_de_jeu_de": "<footer class=\"page small muted\" style=\"padding-top:0\">Aide de jeu de fan, gratuite et non officielle, sans lien avec Ravensburger ni alea. Puerto Rico 1897 © Andreas Seyfarth / Ravensburger. Règles résumées d'après le livret de règles français.</footer>",
+ "ex_titre": "Expliquer le jeu",
+ "ex_intro": "Un fil rouge pour présenter le jeu à la table : dix écrans courts, ce qu'on garde pour plus tard, puis l'aide-mémoire."
 }

@@ -1,0 +1,66 @@
+/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.css-->).
+   Chaque appli peut régler --ex-surface, --ex-sunk, --ex-line, --ex-ink, --ex-muted, --ex-accent, --ex-accent-ink, --ex-display ;
+   sinon on reprend ses variables habituelles (--surface, --sunk, --line, --ink, --muted, --app-accent, --app-accent-ink, --display). */
+.lrmp-ex{--xs:var(--ex-surface,var(--surface,#fff));--xk:var(--ex-sunk,var(--sunk,#eee));--xl:var(--ex-line,var(--line,#ccc));
+  --xi:var(--ex-ink,var(--ink,#222));--xm:var(--ex-muted,var(--muted,#666));--xa:var(--ex-accent,var(--app-accent,#555));
+  --xai:var(--ex-accent-ink,var(--app-accent-ink,#fff));--xd:var(--ex-display,var(--display,inherit));color:var(--xi)}
+.lrmp-ex-tete{max-width:1000px;margin:0 auto 14px}
+.lrmp-ex-tete h1{font-family:var(--xd);margin:0 0 4px;font-size:clamp(24px,3vw,32px)}
+.lrmp-ex-tete p{margin:0;color:var(--xm);max-width:70ch}
+.lrmp-ex-boite{max-width:1000px;margin:0 auto}
+.lrmp-ex-boite:fullscreen{max-width:none;background:var(--xk);padding:2vh 3vw;overflow:auto;display:flex;flex-direction:column;justify-content:center}
+.ex-stage{background:var(--xs);border:1px solid var(--xl);border-radius:16px;padding:clamp(18px,4vw,44px);min-height:min(66vh,600px);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.ex-stage::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--xa)}
+.lrmp-ex-boite:fullscreen .ex-stage{min-height:84vh;font-size:1.2em}
+.ex-num{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--xa);font-weight:700}
+.ex-stage h2{font-family:var(--xd);font-size:clamp(26px,4.2vw,44px);line-height:1.15;margin:6px 0 18px}
+.ex-corps{flex:1;font-size:clamp(17px,1.8vw,22px);line-height:1.5}
+.ex-corps p{margin:0 0 10px}
+.ex-corps h3{font-family:var(--xd);font-size:1.08em;margin:0 0 6px;color:var(--xa)}
+.ex-corps .big1{font-size:1.12em;max-width:46ch}
+.ex-corps .duo,.ex-corps .trio,.ex-corps .quad{display:grid;gap:12px;margin:12px 0 16px}
+.ex-corps .duo{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.ex-corps .trio{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.ex-corps .quad{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.ex-corps .duo>div,.ex-corps .trio>div,.ex-corps .quad>div{background:var(--xk);border-radius:12px;padding:14px 16px}
+.ex-corps .duo>div p,.ex-corps .trio>div p,.ex-corps .quad>div p{margin:0;font-size:.92em}
+.ex-corps .flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 16px}
+.ex-corps .flow>div{background:var(--xk);border:1px solid var(--xl);border-radius:10px;padding:10px 14px;font-weight:600}
+.ex-corps .flow>span{font-size:1.3em;color:var(--xa)}
+.ex-corps .flow small{display:block;font-weight:400;font-size:.75em;color:var(--xm);margin-top:2px}
+.ex-corps ol.steps{counter-reset:k;list-style:none;padding:0;margin:10px 0 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.ex-corps ol.steps li{counter-increment:k;background:var(--xk);border-radius:12px;padding:42px 16px 14px;position:relative;margin:0;font-size:.92em}
+.ex-corps ol.steps li::before{content:counter(k);position:absolute;left:16px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--xa);color:var(--xai);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ex-corps ol.steps.etiq li{padding-top:46px}
+.ex-corps ol.steps.etiq li::before{content:attr(data-l);width:auto;height:auto;padding:3px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.ex-corps .ex-cadre{border:1px solid var(--xl);border-radius:14px;padding:12px 14px 2px;margin:0 0 14px}
+.ex-corps .ex-cadre h4{margin:0 0 2px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--xm)}
+.ex-corps .ex-cadre .duo,.ex-corps .ex-cadre .trio{margin:8px 0 12px}
+.ex-corps .hl{outline:2px solid var(--xa);outline-offset:-2px}
+.ex-corps .tags{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;padding:0;list-style:none}
+.ex-corps .tags li{background:var(--xk);border-radius:999px;padding:6px 14px;font-size:.9em}
+.ex-corps .tags b{color:var(--xa)}
+.ex-piege{margin:14px 0 0;padding:12px 16px;border-radius:12px;border:2px solid var(--xa);background:color-mix(in srgb,var(--xa) 10%,transparent);font-size:clamp(15px,1.5vw,18px)}
+.ex-piege b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--xa);margin-bottom:2px}
+.ex-piege p{margin:0}
+.ex-cite{margin:-6px 0 18px;max-width:66ch;font-style:italic;font-size:clamp(16px,1.6vw,20px);line-height:1.5;color:var(--xm)}
+.ex-plus{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.ex-plus li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 16px;background:var(--xk);border-radius:10px;padding:10px 14px;font-size:.88em}
+.ex-plus span{color:var(--xm)}
+@media (max-width:640px){.ex-plus li{grid-template-columns:1fr}}
+.ex-ref{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;font-size:.82em}
+.ex-ref>div{background:var(--xk);border-radius:12px;padding:12px 16px}
+.ex-ref h3{font-size:1em;margin:0 0 6px}
+.ex-ref ul,.ex-ref ol{margin:0;padding-left:20px}.ex-ref li{margin-bottom:4px}
+.ex-points{display:flex;gap:6px;margin-top:20px;flex-wrap:wrap}
+.ex-points i{width:8px;height:8px;border-radius:50%;background:var(--xl)}
+.ex-points i.fin{border-radius:2px}.ex-points i.on{background:var(--xa)}
+.ex-nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.ex-nav button{min-height:44px;padding:9px 16px;border-radius:10px;border:1px solid var(--xl);background:var(--xs);color:var(--xi);font:inherit;font-weight:600;cursor:pointer}
+.ex-nav button.pri{background:var(--xa);border-color:var(--xa);color:var(--xai)}
+.ex-nav button:disabled{opacity:.45;cursor:default}
+.ex-nav button:focus-visible{outline:2px solid var(--xa);outline-offset:2px}
+.ex-astuce{font-size:13px;color:var(--xm)}
+@media (max-width:640px){.ex-astuce{display:none}.ex-nav button{flex:1 1 40%}}
+.lrmp-ex-boite:fullscreen .ex-nav{justify-content:center}
+.ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}

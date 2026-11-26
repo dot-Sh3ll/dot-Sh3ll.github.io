@@ -412,9 +412,9 @@ build();labPay();labZones();labCard();labSetup();labOrders();labTokens();labMark
  window.IMP_LINK=root=>{PAT.forEach(([k,re])=>{const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;
    while((n=w.nextNode())){if(n.parentElement.closest('button,input,label,select'))continue;const m=re.exec(n.data);if(!m)continue;
      const r=n.splitText(m.index);r.splitText(m[0].length);const b=document.createElement('button');b.type='button';b.className='kw';b.dataset.k=k;b.textContent=m[0];r.replaceWith(b);break}})};
- const TABS=['apprendre','solo','plusieurs','aide'];
+ const TABS=['apprendre','expliquer','solo','aide'];
  function show(t){TABS.forEach(x=>{$('#tab-'+x).classList.toggle('on',x===t);$('header.top .lrmp-onglets [data-tab="'+x+'"]').classList.toggle('on',x===t)});try{localStorage.setItem('imperium-tab',t)}catch(e){}}
- function route(){let h=location.hash.slice(1);if(!TABS.includes(h)){try{h=localStorage.getItem('imperium-tab')}catch(e){}}show(TABS.includes(h)?h:'apprendre')}
+ function route(){let h=location.hash.slice(1);if(h==='plusieurs')h='expliquer';if(!TABS.includes(h)){try{h=localStorage.getItem('imperium-tab')}catch(e){}if(h==='plusieurs')h='expliquer'}show(TABS.includes(h)?h:'apprendre')}
  document.querySelectorAll('header.top .lrmp-onglets button').forEach(b=>b.onclick=()=>{show(b.dataset.tab);try{location.hash=b.dataset.tab}catch(e){}window.scrollTo(0,0)});
  window.addEventListener('hashchange',route);route();
 })();

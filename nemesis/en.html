@@ -250,6 +250,72 @@ h1{font-weight:700;text-transform:uppercase}
 .meter i{display:block;height:100%;background:var(--bad)}
 @media print{.apphead,nav.toc,.pager,.lab button{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.css-->).
+   Chaque appli peut régler --ex-surface, --ex-sunk, --ex-line, --ex-ink, --ex-muted, --ex-accent, --ex-accent-ink, --ex-display ;
+   sinon on reprend ses variables habituelles (--surface, --sunk, --line, --ink, --muted, --app-accent, --app-accent-ink, --display). */
+.lrmp-ex{--xs:var(--ex-surface,var(--surface,#fff));--xk:var(--ex-sunk,var(--sunk,#eee));--xl:var(--ex-line,var(--line,#ccc));
+  --xi:var(--ex-ink,var(--ink,#222));--xm:var(--ex-muted,var(--muted,#666));--xa:var(--ex-accent,var(--app-accent,#555));
+  --xai:var(--ex-accent-ink,var(--app-accent-ink,#fff));--xd:var(--ex-display,var(--display,inherit));color:var(--xi)}
+.lrmp-ex-tete{max-width:1000px;margin:0 auto 14px}
+.lrmp-ex-tete h1{font-family:var(--xd);margin:0 0 4px;font-size:clamp(24px,3vw,32px)}
+.lrmp-ex-tete p{margin:0;color:var(--xm);max-width:70ch}
+.lrmp-ex-boite{max-width:1000px;margin:0 auto}
+.lrmp-ex-boite:fullscreen{max-width:none;background:var(--xk);padding:2vh 3vw;overflow:auto;display:flex;flex-direction:column;justify-content:center}
+.ex-stage{background:var(--xs);border:1px solid var(--xl);border-radius:16px;padding:clamp(18px,4vw,44px);min-height:min(66vh,600px);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.ex-stage::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--xa)}
+.lrmp-ex-boite:fullscreen .ex-stage{min-height:84vh;font-size:1.2em}
+.ex-num{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--xa);font-weight:700}
+.ex-stage h2{font-family:var(--xd);font-size:clamp(26px,4.2vw,44px);line-height:1.15;margin:6px 0 18px}
+.ex-corps{flex:1;font-size:clamp(17px,1.8vw,22px);line-height:1.5}
+.ex-corps p{margin:0 0 10px}
+.ex-corps h3{font-family:var(--xd);font-size:1.08em;margin:0 0 6px;color:var(--xa)}
+.ex-corps .big1{font-size:1.12em;max-width:46ch}
+.ex-corps .duo,.ex-corps .trio,.ex-corps .quad{display:grid;gap:12px;margin:12px 0 16px}
+.ex-corps .duo{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.ex-corps .trio{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.ex-corps .quad{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.ex-corps .duo>div,.ex-corps .trio>div,.ex-corps .quad>div{background:var(--xk);border-radius:12px;padding:14px 16px}
+.ex-corps .duo>div p,.ex-corps .trio>div p,.ex-corps .quad>div p{margin:0;font-size:.92em}
+.ex-corps .flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 16px}
+.ex-corps .flow>div{background:var(--xk);border:1px solid var(--xl);border-radius:10px;padding:10px 14px;font-weight:600}
+.ex-corps .flow>span{font-size:1.3em;color:var(--xa)}
+.ex-corps .flow small{display:block;font-weight:400;font-size:.75em;color:var(--xm);margin-top:2px}
+.ex-corps ol.steps{counter-reset:k;list-style:none;padding:0;margin:10px 0 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.ex-corps ol.steps li{counter-increment:k;background:var(--xk);border-radius:12px;padding:42px 16px 14px;position:relative;margin:0;font-size:.92em}
+.ex-corps ol.steps li::before{content:counter(k);position:absolute;left:16px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--xa);color:var(--xai);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ex-corps ol.steps.etiq li{padding-top:46px}
+.ex-corps ol.steps.etiq li::before{content:attr(data-l);width:auto;height:auto;padding:3px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.ex-corps .ex-cadre{border:1px solid var(--xl);border-radius:14px;padding:12px 14px 2px;margin:0 0 14px}
+.ex-corps .ex-cadre h4{margin:0 0 2px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--xm)}
+.ex-corps .ex-cadre .duo,.ex-corps .ex-cadre .trio{margin:8px 0 12px}
+.ex-corps .hl{outline:2px solid var(--xa);outline-offset:-2px}
+.ex-corps .tags{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;padding:0;list-style:none}
+.ex-corps .tags li{background:var(--xk);border-radius:999px;padding:6px 14px;font-size:.9em}
+.ex-corps .tags b{color:var(--xa)}
+.ex-piege{margin:14px 0 0;padding:12px 16px;border-radius:12px;border:2px solid var(--xa);background:color-mix(in srgb,var(--xa) 10%,transparent);font-size:clamp(15px,1.5vw,18px)}
+.ex-piege b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--xa);margin-bottom:2px}
+.ex-piege p{margin:0}
+.ex-cite{margin:-6px 0 18px;max-width:66ch;font-style:italic;font-size:clamp(16px,1.6vw,20px);line-height:1.5;color:var(--xm)}
+.ex-plus{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.ex-plus li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 16px;background:var(--xk);border-radius:10px;padding:10px 14px;font-size:.88em}
+.ex-plus span{color:var(--xm)}
+@media (max-width:640px){.ex-plus li{grid-template-columns:1fr}}
+.ex-ref{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;font-size:.82em}
+.ex-ref>div{background:var(--xk);border-radius:12px;padding:12px 16px}
+.ex-ref h3{font-size:1em;margin:0 0 6px}
+.ex-ref ul,.ex-ref ol{margin:0;padding-left:20px}.ex-ref li{margin-bottom:4px}
+.ex-points{display:flex;gap:6px;margin-top:20px;flex-wrap:wrap}
+.ex-points i{width:8px;height:8px;border-radius:50%;background:var(--xl)}
+.ex-points i.fin{border-radius:2px}.ex-points i.on{background:var(--xa)}
+.ex-nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.ex-nav button{min-height:44px;padding:9px 16px;border-radius:10px;border:1px solid var(--xl);background:var(--xs);color:var(--xi);font:inherit;font-weight:600;cursor:pointer}
+.ex-nav button.pri{background:var(--xa);border-color:var(--xa);color:var(--xai)}
+.ex-nav button:disabled{opacity:.45;cursor:default}
+.ex-nav button:focus-visible{outline:2px solid var(--xa);outline-offset:2px}
+.ex-astuce{font-size:13px;color:var(--xm)}
+@media (max-width:640px){.ex-astuce{display:none}.ex-nav button{flex:1 1 40%}}
+.lrmp-ex-boite:fullscreen .ex-nav{justify-content:center}
+.ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}
 </style>
 <!--commun-->
 <link rel="stylesheet" href="../commun/tokens.css?v=68cac781">
@@ -282,8 +348,9 @@ h1{font-weight:700;text-transform:uppercase}
   <p class="title">Nemesis: Retaliation</p>
   <div class="lrmp-onglets" role="tablist" aria-label="Sections">
     <button type="button" role="tab" data-tab="learn" aria-selected="true">Learn</button>
-    <button type="button" role="tab" data-tab="aide" aria-selected="false">Reference</button>
+    <button type="button" role="tab" data-tab="expliquer" aria-selected="false">Teach the game</button>
     <button type="button" role="tab" data-tab="salles" aria-selected="false">Rooms</button>
+    <button type="button" role="tab" data-tab="aide" aria-selected="false">Reference</button>
   </div>
   <button type="button" class="themebtn ghost" id="theme" aria-label="Change theme (light / dark)">◐</button>
 </div></header>
@@ -300,6 +367,108 @@ h1{font-weight:700;text-transform:uppercase}
   <main class="read" id="read"></main>
 </div></div>
 
+<div class="tab" id="tab-expliquer"><div class="page lrmp-ex"><div class="lrmp-ex-tete"><h1>Teach the game</h1><p>A guide for teaching the game at the table: ten short screens, what to keep for later, then the cheat sheet.</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
+<script>/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.js-->).
+   lrmpExpliquer(boite, D) : D = {ecrans:[{t, html, dire?, piege?, pl?}], aide:html, plus?:[[quoi, quand]], ui:{…}}
+   dire : la phrase à dire, en italique sous le titre ; piege : encadré, titré pl (sinon ui.piege).
+   chantier : {k, t, p} = écran d'attente « Section en chantier » à la place des écrans (mode pas encore validé).
+   Ordre : les écrans, puis l'aide-mémoire, puis « Pour plus tard » (si D.plus). Flèches du clavier quand la boîte est visible. */
+window.lrmpExpliquer=function(boite,D){
+  if(D.chantier){const c=D.chantier;boite.innerHTML=`<div class="ex-stage ex-chantier"><div class="ex-num">${c.k}</div><h2>${c.t}</h2><div class="ex-corps"><p class="big1">${c.p}</p></div></div>`;return}
+  const u=D.ui,N=D.ecrans.length,P=D.plus&&D.plus.length?1:0,T=N+1+P;
+  let i=0;
+  function contenu(){
+    if(i<N){const e=D.ecrans[i];
+      return {num:u.ecran.replace('{n}',i+1).replace('{t}',N),titre:e.t,cite:e.dire||'',
+        corps:e.html+(e.piege?`<div class="ex-piege"><b>${e.pl||u.piege}</b><p>${e.piege}</p></div>`:'')}}
+    if(i===N)return {num:u.aide,titre:u.aideTitre,cite:'',corps:`<div class="ex-ref">${D.aide}</div>`};
+    return {num:u.plus,titre:u.plusTitre,cite:'',
+      corps:`<p class="big1">${u.plusIntro}</p><ul class="ex-plus">${D.plus.map(([a,b])=>`<li><b>${a}</b><span>${b}</span></li>`).join('')}</ul>`}}
+  function dessiner(){
+    const c=contenu(),fin=i===T-1;
+    const suivant=fin?u.debut:i===N-1?u.voirAide:i===N&&P?u.voirPlus:u.suivant;
+    boite.innerHTML=`<div class="ex-stage">
+      <div class="ex-num">${c.num}</div><h2>${c.titre}</h2>${c.cite?`<p class="ex-cite">${c.cite}</p>`:''}<div class="ex-corps">${c.corps}</div>
+      <div class="ex-points" aria-hidden="true">${Array.from({length:T},(_,k)=>`<i class="${k===i?'on':''}${k>=N?' fin':''}"></i>`).join('')}</div></div>
+      <div class="ex-nav"><button type="button" data-x="prec" ${i?'':'disabled'}>${u.precedent}</button><button type="button" class="pri" data-x="suiv">${suivant}</button>
+      <button type="button" data-x="aide">${u.aide}</button>${document.fullscreenEnabled?`<button type="button" data-x="fs">${u.pleinEcran}</button>`:''}<span class="ex-astuce">${u.fleches}</span></div>`;
+    const b=k=>boite.querySelector(`[data-x="${k}"]`);
+    b('prec').onclick=()=>aller(i-1);b('suiv').onclick=()=>aller(fin?0:i+1);b('aide').onclick=()=>aller(N);
+    if(b('fs'))b('fs').onclick=()=>{try{const r=document.fullscreenElement?document.exitFullscreen():boite.requestFullscreen();if(r&&r.catch)r.catch(()=>{})}catch(e){}}}
+  function aller(k){i=Math.max(0,Math.min(T-1,k));dessiner();const s=boite.querySelector('.ex-stage');if(s&&!document.fullscreenElement&&s.getBoundingClientRect().top<0)s.scrollIntoView({block:'start'})}
+  document.addEventListener('keydown',e=>{if(!boite.offsetParent&&document.fullscreenElement!==boite)return;if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName||''))return;
+    if(e.key==='ArrowRight'||e.key===' '){aller(i+1);e.preventDefault()}else if(e.key==='ArrowLeft')aller(i-1)});
+  dessiner();
+};
+const EXPL={
+ui:{ecran:'Screen {n} of {t}',precedent:'Previous',suivant:'Next',voirPlus:'For later',voirAide:'Show the cheat sheet',debut:'Back to the start',
+  aide:'Cheat sheet',aideTitre:'What you can do in a turn, at a glance',plus:'For later',plusTitre:'Keep it for later',
+  plusIntro:'No need to mention these before the first turn. Explain each point when the game reaches it.',
+  pleinEcran:'Full screen',fleches:'Use the arrow keys to move on.',dire:'Say it',piege:'Pitfall to flag'},
+ecrans:[
+{t:'Nemesis in a nutshell',
+ dire:'“You are a Marine sent into an infested alien complex. The game is semi-cooperative: there can be several winners, or none. You play together, but everyone plays for themselves: helping each other is often vital, never mandatory.”',
+ html:`<ol class="steps etiq"><li data-l="Step 1">Choose the Objective you want to complete.</li><li data-l="Step 2">Escape the complex, or hibernate, depending on what your mission asks of you.</li></ol>`},
+{t:'Mission and Objectives',
+ dire:'“The squad has a mission that everyone can see. But each of you also has two hidden Objectives. Once during the game, on your turn, you will keep one and remove the other. And the first ones to make up their minds get a small reward.”',
+ html:`<div class="trio"><div><h3>Squad Mission</h3><p>Visible to everyone.</p></div><div><h3>Two hidden Objectives</h3><p>One personal, one Mission Objective.</p></div><div><h3>Choosing</h3><p>On your turn, at some point in the game, you choose the Objective you commit to completing, and you discard the other.</p></div></div>`},
+{t:'Anatomy of the board',
+ dire:'“At the bottom of your board is your Health: Healthy, Injured, Heavily Injured. The weaker you are, the more likely a bad blow from a monster will kill you outright. Your Oxygen keeps dropping as long as the Life Support isn’t back up and running. You are arriving in a station that has completely shut down. Well, what did you expect? If at some point you run out of Oxygen, you will suffocate, and you will have just one turn to find some.”',
+ html:`<div class="ex-cadre"><h4>Your player board</h4><div class="trio"><div><h3>Health</h3><p>At the bottom: Healthy, Injured, Heavily Injured.</p></div><div><h3>Oxygen</h3><p>It drops as long as Life Support is down.</p></div><div><h3>Tactical Belt</h3><p>On the left: with one Action, you use one or more tokens.</p></div></div></div>
+ <div class="ex-cadre"><h4>A quirk of the game board</h4><div class="duo"><div><h3>Three Sections: A, B, C</h3><p>Each has its own Life Support. As long as your Section’s is down, every end of turn costs you 1 Oxygen.</p></div><div><h3>A Robot</h3><p>Drawn at random. You will be able to interact with it, and it will help you.</p></div></div></div>`},
+{t:'A Round in 4 Phases',
+ dire:'“The Event Phase is rarely good news: a card that sets off all sorts of things the squad won’t like.”',
+ html:`<ol class="steps etiq"><li data-l="Phase 1"><b>Players</b>: everyone takes a turn, until everyone has Passed.</li><li data-l="Phase 2"><b>Intruders</b>: this is when they take damage from their surroundings and attack the players.</li><li data-l="Phase 3"><b>Event</b>: one card, almost always bad news.</li><li data-l="Phase 4"><b>Cleanup</b>: everyone draws back up to 5 cards, and the Round track moves on.</li></ol>`},
+{t:'Your turn: 2 Actions',
+ html:`<div class="duo"><div><h3>Play a card</h3><p>For the effect written on it.</p></div><div><h3>Discard 1 or 2 cards</h3><p>To take an Action from the right side of your board.</p></div></div>
+ <p class="big1">Actions marked with a crossed-out red alien, top right of your card or at the far right of the Action’s line on your player board, are forbidden if there is an Intruder in your Room.</p>
+ <p>After your 2 Actions: −1 Oxygen if your Section’s Life Support is down.</p>`,
+ pl:'A small pitfall to flag',
+ piege:'Passing is an Action. If you start your turn with no cards and Pass, you still lose 1 Oxygen: you have finished a turn, even without doing anything.'},
+{t:'Moving makes noise',
+ dire:'“Throughout the game, you will move from one Room to another through Corridors. There are two kinds of Moves, normal and cautious: either way, you make noise. To show it, we roll the Noise die, which points to the Corridors where there will be a ruckus. And if there is already a ruckus in those Corridors, Intruders burst out. The sneaky part: this die also has a Hazard face. If it comes up, an Intruder drops on you from the ceiling and attacks you. Unless you moved cautiously: then your Secure token takes the attack for you.”',
+ html:`<div class="duo"><div><h3>Normal Move</h3><p>You change Rooms.</p></div><div><h3>Cautious Move</h3><p>You also place a Secure token in the Room you arrive in.</p></div></div>`,
+ pl:'Watch out',
+ piege:'Leaving a Room with an Intruder in it triggers one Opportunity Attack per Intruder. In the same way, going through a Corridor full of Intruders triggers Opportunity Attacks (3 at most).'},
+{t:'The Intruders',
+ dire:'“There are 4 kinds of Intruders, drawn at random from the Intruder bag, which fills up every Round: the colony grows while you play. The Queen has her own mechanics, which I will explain when the time comes during the game: in short, she is going to be very hard to kill.”',
+ html:`<div class="flow"><div>Larva</div><span aria-hidden="true">→</span><div>Adult</div><span aria-hidden="true">→</span><div>Drone</div><span aria-hidden="true">→</span><div>Queen</div></div>
+ <div class="duo"><div><h3>Movement</h3><p>Intruders always move toward the nearest player.</p></div><div><h3>Attack</h3><p>Whoever made the noise; otherwise, the first player in turn order.</p></div></div>`,
+ pl:'A quick reminder',
+ piege:'A Secure token protects you from an Intruder entering the Room. It protects you neither from attacks by Intruders already there, nor from Opportunity Attacks when you leave a Room.'},
+{t:'Fighting back',
+ dire:'“Now that we’ve talked about all these aliens and what they could do to you, don’t worry: you have what it takes to fight back. You can fire Single Shots or Bursts. Each works a bit differently, with different dice, but I’ll explain that during the game.”',
+ html:`<p class="big1">What to remember: a Burst into a Corridor full of aliens is a great way to get rid of lots of them quickly. In a Room, an alien is much harder to kill.</p>
+ <div class="duo"><div><h3>Shot</h3><p>In a Room. It uses no Ammo, unless the die roll is unlucky.</p></div><div><h3>Burst</h3><p>Into a Corridor. It always uses half an Ammo token.</p></div></div>`},
+{t:'Contamination',
+ dire:'“Something I haven’t told you yet: when these aliens attack you, they can contaminate you… and a Larva can grow inside you. Even if you think you’ve made it out, you’re not safe yet.”',
+ html:`<p class="big1">If an Intruder contaminates you, you get a Contamination card, which goes into your discard pile. It is useless, except for clogging up your hand, your deck… and your chances of survival.</p>
+ <div class="duo"><div><h3>A strange area</h3><p>At the bottom of the card is the area you will have to scan to reveal whether you are infected or not.</p></div><div><h3>Infected</h3><p>A Larva settles inside you. Have it removed in a Room of the complex, or it may hatch at the end, even if you hibernated or reached the Lander.</p></div></div>`},
+{t:'Getting out alive',
+ dire:'“When you choose your Objective, think about how you will survive: hibernate, leave on the Lander, or take the Escape Shuttle… which has only one seat.”',
+ html:`<div class="trio"><div><h3>Lander</h3><p>It tries to land. If the Anti-Aircraft guns are active, it is shot down. A Room in the complex lets you check them.</p></div><div><h3>Escape Shuttle</h3><p>Only one seat.</p></div><div><h3>Hibernatorium</h3><p>It must have been activated.</p></div></div>
+ <p>The game ends after Round 14: anyone still in the complex is left for dead.</p>`}],
+plus:[
+['Melee and Shots in detail','At the first fight in a Room.'],
+['The Queen','When she first appears.'],
+['Serious Wounds and Armor','At the first Serious Wound.'],
+['The Robot','When a Room is first connected to the Hibernatorium.'],
+['Fire and Malfunctions','At the first Event that places one (Room with Fire: −1 Health at the end of your turn).'],
+['Doors','At the first closed Door.'],
+['How Intruders move, in detail','At the first tricky case (ties, full Corridor).'],
+['The key Rooms','When they are discovered, with the Rooms tab.'],
+['Boarding, launch and Autodestruction','When someone heads for the exit.'],
+['The golden rules (Murphy’s law)','At the first doubt.'],
+['Deadly mode, solo and cooperative play','Only if you play them.']],
+aide:`<div><h3>Round</h3><ul><li>Players → Intruders → Event → Cleanup.</li><li>14 Rounds at most.</li></ul></div>
+<div><h3>Your turn</h3><ul><li>2 Actions.</li><li>Then −1 Oxygen if Life Support is down, −1 Health if your Room has Fire.</li></ul></div>
+<div><h3>Costs</h3><ul><li><b>0 cards</b>: play a card, Pass.</li><li><b>1 card</b>: Move, Shot, Burst, Melee, Item…</li><li><b>2 cards</b>: Room Action, Cautious Move.</li><li>Crossed-out alien = not in Combat.</li></ul></div>
+<div><h3>Movement</h3><ul><li>Opportunity Attacks, then Noise roll.</li><li>Hazard = an Intruder in your Room.</li></ul></div>
+<div><h3>Combat</h3><ul><li><b>Shot</b>: 1 Hit, then roll; the Intruder dies if the roll ≤ its Hits.</li><li><b>Burst</b>: in a Corridor, 1 Hit kills an Adult or a Larva, 2 a Drone.</li></ul></div>
+<div><h3>Objective and victory</h3><ul><li>Objective chosen once, on your turn; earlier = more cards.</li><li>Victory: escaped or hibernating + Objective completed + survive the infection.</li></ul></div>`
+};
+
+lrmpExpliquer(document.getElementById('ex-boite'),EXPL);</script>
 <div class="tab" id="tab-aide"><div class="page" id="aide"></div></div>
 <div class="tab" id="tab-salles"><div class="page" id="sallespage"></div></div>
 <script>

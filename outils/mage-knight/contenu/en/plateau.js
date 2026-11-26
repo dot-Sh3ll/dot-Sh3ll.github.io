@@ -414,7 +414,7 @@ function renderHand(){
     <div class="btns"><button data-play="base" data-uid="${c.uid}">Basic</button><button data-play="strong" data-uid="${c.uid}">Stronger</button><button class="side" data-play="side" data-uid="${c.uid}">Sideways (+1)</button></div></div></div>`).join('')||'<p style="color:var(--muted)">Empty hand. End your turn to draw.</p>';
   $('#played').textContent=S.played.length?'Played this turn: '+S.played.map(c=>c.def.n).join(', ')+'.':''}
 function renderCoach(){const L=LESSONS[LI],ok=L.ok(S),free=!!L.free;
-  $('#coach').innerHTML=`<div class="step">${free?'Free game':'Hands-on case'}</div><h2>${L.h}</h2><div class="txt">${L.txt}</div>
+  $('#coach').innerHTML=`<div class="step">${free?'Practice':'Hands-on case'}</div><h2>${L.h}</h2><div class="txt">${L.txt}</div>
    <div class="goal ${ok?'done':''}"><div class="lab">${ok?'Goal reached':'Goal'}</div>${L.goal}</div>
    <details class="hint"><summary>A hint</summary><p>${L.hint}</p></details>
    <div class="row"><button data-lesson="again">${free?'New game':'Restart this case'}</button></div>

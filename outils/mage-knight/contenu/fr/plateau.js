@@ -414,7 +414,7 @@ function renderHand(){
     <div class="btns"><button data-play="base" data-uid="${c.uid}">Base</button><button data-play="strong" data-uid="${c.uid}">Amélioré</button><button class="side" data-play="side" data-uid="${c.uid}">Inclinée (+1)</button></div></div></div>`).join('')||'<p style="color:var(--muted)">Main vide. Terminez votre tour pour piocher.</p>';
   $('#played').textContent=S.played.length?'Jouées ce tour : '+S.played.map(c=>c.def.n).join(', ')+'.':''}
 function renderCoach(){const L=LESSONS[LI],ok=L.ok(S),free=!!L.free;
-  $('#coach').innerHTML=`<div class="step">${free?'Partie libre':'Cas pratique'}</div><h2>${L.h}</h2><div class="txt">${L.txt}</div>
+  $('#coach').innerHTML=`<div class="step">${free?'Entraînement':'Cas pratique'}</div><h2>${L.h}</h2><div class="txt">${L.txt}</div>
    <div class="goal ${ok?'done':''}"><div class="lab">${ok?'Objectif atteint':'Objectif'}</div>${L.goal}</div>
    <details class="hint"><summary>Un indice</summary><p>${L.hint}</p></details>
    <div class="row"><button data-lesson="again">${free?'Nouvelle partie':'Recommencer ce cas'}</button></div>

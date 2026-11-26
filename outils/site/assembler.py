@@ -9,6 +9,7 @@ Sources dans outils/<dossier>/ :
   contenu/<langue>.js  chapitres et aide-mémoire ; une langue sans fichier reprend l'anglais
   ou, pour une appli en plusieurs morceaux, page.html contient des emplacements nommés <!--CONTENU:nom-->,
   remplis par contenu/<langue>/nom.js ou nom.html (même règle : un morceau absent reprend l'anglais). Ex. : outils/nemesis.
+  <!--PARTAGE:fichier--> : morceau commun à toutes les applis, lu dans outils/site/partage/ (ex. expliquer.js, expliquer.css).
 Réglages lus dans outils/site/jeux.json (entrée <dossier>) : code, couleur, police.
 
 Une page est écrite pour chaque fichier i18n/<langue>.json : <dossier>/index.html (fr), <dossier>/<langue>.html.
@@ -85,7 +86,10 @@ def main():
         reste = re.findall(r"\{\{[a-z0-9_]+\}\}", s)
         if reste:
             sys.exit(f"assembler.py : clés inconnues dans page.html : {sorted(set(reste))}")
-        out = os.path.join(d, page_file(c))
+        # morceaux partagés par toutes les applis (outils/site/partage/, ex. le mode « Expliquer le jeu »)
+        s = re.sub(r"<!--PARTAGE:([a-z0-9_.-]+)-->",
+                   lambda m: open(os.path.join(H, "partage", m.group(1)), encoding="utf-8").read().strip(), s)
+        out =os.path.join(d, page_file(c))
         open(out, "w", encoding="utf-8").write(s)
         print("ok", out)
     run = lambda *a: subprocess.run([sys.executable, *a], check=True, stdout=subprocess.DEVNULL)

@@ -1,6 +1,6 @@
 {
  "puerto_rico_apprendre_les": "<title>Puerto Rico 1897 · Learn the rules</title>\n<meta name=\"description\" content=\"Learn Puerto Rico 1897 one rule at a time: interactive labs, hands-on cases, quizzes, a building reference and a score calculator.\">",
- "aria_label_sections_apprendre": "aria-label=\"Sections\">\n    <button type=\"button\" role=\"tab\" data-tab=\"learn\" aria-selected=\"true\">Learn</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"aide\" aria-selected=\"false\">Reference</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"score\" aria-selected=\"false\">Scoring</button>",
+ "aria_label_sections_apprendre": "aria-label=\"Sections\">\n    <button type=\"button\" role=\"tab\" data-tab=\"learn\" aria-selected=\"true\">Learn</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"expliquer\" aria-selected=\"false\">Teach the game</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"score\" aria-selected=\"false\">Scoring</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"aide\" aria-selected=\"false\">Reference</button>",
  "aria_label_changer_de": "aria-label=\"Change theme (light / dark)\">",
  "aria_label_sommaire_du": "aria-label=\"Tutorial contents\">\n    <p class=\"brand\">Learn the rules<small>Based on the English rulebook (2023 corrected edition)</small></p>",
  "aria_expanded_false_afficher": "aria-expanded=\"false\">Show contents</button>",
@@ -49,5 +49,7 @@
  "confirm_effacer_tous_les": "confirm('Clear all scores?')",
  "onglets_theme_demarrage": "/* ---------- tabs, theme, start ---------- */",
  "theme_title_theme_auto": "$('#theme').title='Theme: '+{auto:'automatic',dark:'dark',light:'light'}[th]",
- "aide_de_jeu_de": "<footer class=\"page small muted\" style=\"padding-top:0\">Free, unofficial fan-made game aid, not affiliated with Ravensburger or alea. Puerto Rico 1897 © Andreas Seyfarth / Ravensburger. Rules summarised from the English rulebook.</footer>"
+ "aide_de_jeu_de": "<footer class=\"page small muted\" style=\"padding-top:0\">Free, unofficial fan-made game aid, not affiliated with Ravensburger or alea. Puerto Rico 1897 © Andreas Seyfarth / Ravensburger. Rules summarised from the English rulebook.</footer>",
+ "ex_titre": "Teach the game",
+ "ex_intro": "A guide for teaching the game at the table: ten short screens, what to keep for later, then the cheat sheet."
 }

@@ -250,6 +250,72 @@ h1{font-weight:700;text-transform:uppercase}
 .meter i{display:block;height:100%;background:var(--bad)}
 @media print{.apphead,nav.toc,.pager,.lab button{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.css-->).
+   Chaque appli peut régler --ex-surface, --ex-sunk, --ex-line, --ex-ink, --ex-muted, --ex-accent, --ex-accent-ink, --ex-display ;
+   sinon on reprend ses variables habituelles (--surface, --sunk, --line, --ink, --muted, --app-accent, --app-accent-ink, --display). */
+.lrmp-ex{--xs:var(--ex-surface,var(--surface,#fff));--xk:var(--ex-sunk,var(--sunk,#eee));--xl:var(--ex-line,var(--line,#ccc));
+  --xi:var(--ex-ink,var(--ink,#222));--xm:var(--ex-muted,var(--muted,#666));--xa:var(--ex-accent,var(--app-accent,#555));
+  --xai:var(--ex-accent-ink,var(--app-accent-ink,#fff));--xd:var(--ex-display,var(--display,inherit));color:var(--xi)}
+.lrmp-ex-tete{max-width:1000px;margin:0 auto 14px}
+.lrmp-ex-tete h1{font-family:var(--xd);margin:0 0 4px;font-size:clamp(24px,3vw,32px)}
+.lrmp-ex-tete p{margin:0;color:var(--xm);max-width:70ch}
+.lrmp-ex-boite{max-width:1000px;margin:0 auto}
+.lrmp-ex-boite:fullscreen{max-width:none;background:var(--xk);padding:2vh 3vw;overflow:auto;display:flex;flex-direction:column;justify-content:center}
+.ex-stage{background:var(--xs);border:1px solid var(--xl);border-radius:16px;padding:clamp(18px,4vw,44px);min-height:min(66vh,600px);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.ex-stage::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--xa)}
+.lrmp-ex-boite:fullscreen .ex-stage{min-height:84vh;font-size:1.2em}
+.ex-num{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--xa);font-weight:700}
+.ex-stage h2{font-family:var(--xd);font-size:clamp(26px,4.2vw,44px);line-height:1.15;margin:6px 0 18px}
+.ex-corps{flex:1;font-size:clamp(17px,1.8vw,22px);line-height:1.5}
+.ex-corps p{margin:0 0 10px}
+.ex-corps h3{font-family:var(--xd);font-size:1.08em;margin:0 0 6px;color:var(--xa)}
+.ex-corps .big1{font-size:1.12em;max-width:46ch}
+.ex-corps .duo,.ex-corps .trio,.ex-corps .quad{display:grid;gap:12px;margin:12px 0 16px}
+.ex-corps .duo{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.ex-corps .trio{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.ex-corps .quad{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.ex-corps .duo>div,.ex-corps .trio>div,.ex-corps .quad>div{background:var(--xk);border-radius:12px;padding:14px 16px}
+.ex-corps .duo>div p,.ex-corps .trio>div p,.ex-corps .quad>div p{margin:0;font-size:.92em}
+.ex-corps .flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 16px}
+.ex-corps .flow>div{background:var(--xk);border:1px solid var(--xl);border-radius:10px;padding:10px 14px;font-weight:600}
+.ex-corps .flow>span{font-size:1.3em;color:var(--xa)}
+.ex-corps .flow small{display:block;font-weight:400;font-size:.75em;color:var(--xm);margin-top:2px}
+.ex-corps ol.steps{counter-reset:k;list-style:none;padding:0;margin:10px 0 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.ex-corps ol.steps li{counter-increment:k;background:var(--xk);border-radius:12px;padding:42px 16px 14px;position:relative;margin:0;font-size:.92em}
+.ex-corps ol.steps li::before{content:counter(k);position:absolute;left:16px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--xa);color:var(--xai);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ex-corps ol.steps.etiq li{padding-top:46px}
+.ex-corps ol.steps.etiq li::before{content:attr(data-l);width:auto;height:auto;padding:3px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.ex-corps .ex-cadre{border:1px solid var(--xl);border-radius:14px;padding:12px 14px 2px;margin:0 0 14px}
+.ex-corps .ex-cadre h4{margin:0 0 2px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--xm)}
+.ex-corps .ex-cadre .duo,.ex-corps .ex-cadre .trio{margin:8px 0 12px}
+.ex-corps .hl{outline:2px solid var(--xa);outline-offset:-2px}
+.ex-corps .tags{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;padding:0;list-style:none}
+.ex-corps .tags li{background:var(--xk);border-radius:999px;padding:6px 14px;font-size:.9em}
+.ex-corps .tags b{color:var(--xa)}
+.ex-piege{margin:14px 0 0;padding:12px 16px;border-radius:12px;border:2px solid var(--xa);background:color-mix(in srgb,var(--xa) 10%,transparent);font-size:clamp(15px,1.5vw,18px)}
+.ex-piege b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--xa);margin-bottom:2px}
+.ex-piege p{margin:0}
+.ex-cite{margin:-6px 0 18px;max-width:66ch;font-style:italic;font-size:clamp(16px,1.6vw,20px);line-height:1.5;color:var(--xm)}
+.ex-plus{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.ex-plus li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 16px;background:var(--xk);border-radius:10px;padding:10px 14px;font-size:.88em}
+.ex-plus span{color:var(--xm)}
+@media (max-width:640px){.ex-plus li{grid-template-columns:1fr}}
+.ex-ref{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;font-size:.82em}
+.ex-ref>div{background:var(--xk);border-radius:12px;padding:12px 16px}
+.ex-ref h3{font-size:1em;margin:0 0 6px}
+.ex-ref ul,.ex-ref ol{margin:0;padding-left:20px}.ex-ref li{margin-bottom:4px}
+.ex-points{display:flex;gap:6px;margin-top:20px;flex-wrap:wrap}
+.ex-points i{width:8px;height:8px;border-radius:50%;background:var(--xl)}
+.ex-points i.fin{border-radius:2px}.ex-points i.on{background:var(--xa)}
+.ex-nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.ex-nav button{min-height:44px;padding:9px 16px;border-radius:10px;border:1px solid var(--xl);background:var(--xs);color:var(--xi);font:inherit;font-weight:600;cursor:pointer}
+.ex-nav button.pri{background:var(--xa);border-color:var(--xa);color:var(--xai)}
+.ex-nav button:disabled{opacity:.45;cursor:default}
+.ex-nav button:focus-visible{outline:2px solid var(--xa);outline-offset:2px}
+.ex-astuce{font-size:13px;color:var(--xm)}
+@media (max-width:640px){.ex-astuce{display:none}.ex-nav button{flex:1 1 40%}}
+.lrmp-ex-boite:fullscreen .ex-nav{justify-content:center}
+.ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}
 </style>
 <!--commun-->
 <link rel="stylesheet" href="../commun/tokens.css?v=68cac781">
@@ -282,8 +348,9 @@ h1{font-weight:700;text-transform:uppercase}
   <p class="title">Nemesis: Retaliation</p>
   <div class="lrmp-onglets" role="tablist" aria-label="Sections">
     <button type="button" role="tab" data-tab="learn" aria-selected="true">Apprendre</button>
-    <button type="button" role="tab" data-tab="aide" aria-selected="false">Aide-mémoire</button>
+    <button type="button" role="tab" data-tab="expliquer" aria-selected="false">Expliquer le jeu</button>
     <button type="button" role="tab" data-tab="salles" aria-selected="false">Salles</button>
+    <button type="button" role="tab" data-tab="aide" aria-selected="false">Aide-mémoire</button>
   </div>
   <button type="button" class="themebtn ghost" id="theme" aria-label="Changer de thème (clair / sombre)">◐</button>
 </div></header>
@@ -300,6 +367,108 @@ h1{font-weight:700;text-transform:uppercase}
   <main class="read" id="read"></main>
 </div></div>
 
+<div class="tab" id="tab-expliquer"><div class="page lrmp-ex"><div class="lrmp-ex-tete"><h1>Expliquer le jeu</h1><p>Un fil rouge pour présenter le jeu à la table : dix écrans courts, ce qu'on garde pour plus tard, puis l'aide-mémoire.</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
+<script>/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.js-->).
+   lrmpExpliquer(boite, D) : D = {ecrans:[{t, html, dire?, piege?, pl?}], aide:html, plus?:[[quoi, quand]], ui:{…}}
+   dire : la phrase à dire, en italique sous le titre ; piege : encadré, titré pl (sinon ui.piege).
+   chantier : {k, t, p} = écran d'attente « Section en chantier » à la place des écrans (mode pas encore validé).
+   Ordre : les écrans, puis l'aide-mémoire, puis « Pour plus tard » (si D.plus). Flèches du clavier quand la boîte est visible. */
+window.lrmpExpliquer=function(boite,D){
+  if(D.chantier){const c=D.chantier;boite.innerHTML=`<div class="ex-stage ex-chantier"><div class="ex-num">${c.k}</div><h2>${c.t}</h2><div class="ex-corps"><p class="big1">${c.p}</p></div></div>`;return}
+  const u=D.ui,N=D.ecrans.length,P=D.plus&&D.plus.length?1:0,T=N+1+P;
+  let i=0;
+  function contenu(){
+    if(i<N){const e=D.ecrans[i];
+      return {num:u.ecran.replace('{n}',i+1).replace('{t}',N),titre:e.t,cite:e.dire||'',
+        corps:e.html+(e.piege?`<div class="ex-piege"><b>${e.pl||u.piege}</b><p>${e.piege}</p></div>`:'')}}
+    if(i===N)return {num:u.aide,titre:u.aideTitre,cite:'',corps:`<div class="ex-ref">${D.aide}</div>`};
+    return {num:u.plus,titre:u.plusTitre,cite:'',
+      corps:`<p class="big1">${u.plusIntro}</p><ul class="ex-plus">${D.plus.map(([a,b])=>`<li><b>${a}</b><span>${b}</span></li>`).join('')}</ul>`}}
+  function dessiner(){
+    const c=contenu(),fin=i===T-1;
+    const suivant=fin?u.debut:i===N-1?u.voirAide:i===N&&P?u.voirPlus:u.suivant;
+    boite.innerHTML=`<div class="ex-stage">
+      <div class="ex-num">${c.num}</div><h2>${c.titre}</h2>${c.cite?`<p class="ex-cite">${c.cite}</p>`:''}<div class="ex-corps">${c.corps}</div>
+      <div class="ex-points" aria-hidden="true">${Array.from({length:T},(_,k)=>`<i class="${k===i?'on':''}${k>=N?' fin':''}"></i>`).join('')}</div></div>
+      <div class="ex-nav"><button type="button" data-x="prec" ${i?'':'disabled'}>${u.precedent}</button><button type="button" class="pri" data-x="suiv">${suivant}</button>
+      <button type="button" data-x="aide">${u.aide}</button>${document.fullscreenEnabled?`<button type="button" data-x="fs">${u.pleinEcran}</button>`:''}<span class="ex-astuce">${u.fleches}</span></div>`;
+    const b=k=>boite.querySelector(`[data-x="${k}"]`);
+    b('prec').onclick=()=>aller(i-1);b('suiv').onclick=()=>aller(fin?0:i+1);b('aide').onclick=()=>aller(N);
+    if(b('fs'))b('fs').onclick=()=>{try{const r=document.fullscreenElement?document.exitFullscreen():boite.requestFullscreen();if(r&&r.catch)r.catch(()=>{})}catch(e){}}}
+  function aller(k){i=Math.max(0,Math.min(T-1,k));dessiner();const s=boite.querySelector('.ex-stage');if(s&&!document.fullscreenElement&&s.getBoundingClientRect().top<0)s.scrollIntoView({block:'start'})}
+  document.addEventListener('keydown',e=>{if(!boite.offsetParent&&document.fullscreenElement!==boite)return;if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName||''))return;
+    if(e.key==='ArrowRight'||e.key===' '){aller(i+1);e.preventDefault()}else if(e.key==='ArrowLeft')aller(i-1)});
+  dessiner();
+};
+const EXPL={
+ui:{ecran:'Écran {n} sur {t}',precedent:'Précédent',suivant:'Suivant',voirPlus:'Pour plus tard',voirAide:'Afficher l\'aide-mémoire',debut:'Revenir au début',
+  aide:'Aide-mémoire',aideTitre:'Résumé de ce que vous pouvez faire en un tour',plus:'Pour plus tard',plusTitre:'Gardez-le pour plus tard',
+  plusIntro:'Inutile d\'en parler avant le premier tour. Expliquez chaque point quand la partie le rencontre.',
+  pleinEcran:'Plein écran',fleches:'Flèches du clavier pour avancer.',dire:'À dire',piege:'Piège à signaler'},
+ecrans:[
+{t:'Nemesis en une phrase',
+ dire:'« Vous êtes un Marine envoyé dans un complexe extraterrestre infesté. Le jeu est semi-coopératif : il peut y avoir plusieurs gagnants, ou aucun. Vous jouez ensemble, mais chacun pour soi : l\'entraide est souvent vitale, pas obligatoire. »',
+ html:`<ol class="steps etiq"><li data-l="Étape 1">Choisir l'objectif que vous désirez accomplir.</li><li data-l="Étape 2">Sortir du complexe, ou hiberner, selon ce que vous demandera votre mission.</li></ol>`},
+{t:'Mission et objectifs',
+ dire:'« L\'escouade a une mission, visible de tous. Mais chacun de vous a aussi deux objectifs cachés. Une fois dans la partie, à votre tour, vous en garderez un et vous retirerez l\'autre. Et les premiers à se décider auront une petite récompense. »',
+ html:`<div class="trio"><div><h3>Mission de l'escouade</h3><p>Visible de tous.</p></div><div><h3>Deux objectifs cachés</h3><p>Un personnel, un de mission.</p></div><div><h3>Choisir</h3><p>Pendant votre tour, à un moment de la partie, vous choisissez l'objectif que vous vous engagez à accomplir, et vous défaussez l'autre.</p></div></div>`},
+{t:'Anatomie du plateau',
+ dire:'« En bas de votre plateau, votre santé : En forme, Affaibli, État critique. Plus vous êtes faible, plus un mauvais coup d\'un monstre peut vous tuer net. L\'oxygène, lui, baisse tant que les recycleurs d\'air ne sont pas remis en route. Vous arrivez dans une station complètement à l\'arrêt. Eh oui, vous vous attendiez à quoi ? Si, à un moment donné, vous vous retrouvez sans oxygène, vous suffoquerez et vous n\'aurez plus qu\'un tour pour en trouver. »',
+ html:`<div class="ex-cadre"><h4>Votre plateau joueur</h4><div class="trio"><div><h3>Santé</h3><p>En bas : En forme, Affaibli, État critique.</p></div><div><h3>Oxygène</h3><p>Il baisse tant que les recycleurs d'air sont arrêtés.</p></div><div><h3>Ceinture tactique</h3><p>À gauche : en une action, vous utilisez un ou plusieurs jetons.</p></div></div></div>
+ <div class="ex-cadre"><h4>Petite spécificité du plateau de jeu</h4><div class="duo"><div><h3>Trois sections : A, B, C</h3><p>Chacune a son recycleur d'air. Tant que celui de votre section est arrêté, chaque fin de tour vous coûte 1 oxygène.</p></div><div><h3>Un robot</h3><p>Tiré au hasard. Vous pourrez interagir avec lui, et il vous aidera.</p></div></div></div>`},
+{t:'Une manche en 4 phases',
+ dire:'« La phase Événement, c\'est rarement une bonne nouvelle : une carte qui déclenche tout un tas de choses pas cool pour l\'équipe. »',
+ html:`<ol class="steps etiq"><li data-l="Phase 1"><b>Joueurs</b> : chacun joue un tour, jusqu'à ce que tout le monde ait passé.</li><li data-l="Phase 2"><b>Intrus</b> : c'est à ce moment-là qu'ils prennent des dégâts de l'environnement et qu'ils attaquent les joueurs.</li><li data-l="Phase 3"><b>Événement</b> : une carte, presque toujours une mauvaise nouvelle.</li><li data-l="Phase 4"><b>Nettoyage</b> : chacun repioche jusqu'à 5 cartes, le compte-tours avance.</li></ol>`},
+{t:'Votre tour : 2 actions',
+ html:`<div class="duo"><div><h3>Jouer une carte</h3><p>Pour l'effet écrit dessus.</p></div><div><h3>Défausser 1 ou 2 cartes</h3><p>Pour une action du côté droit de votre plateau.</p></div></div>
+ <p class="big1">Les actions marquées d'un alien barré en rouge, en haut à droite de votre carte ou tout à droite de la ligne de l'action sur votre plateau joueur, sont interdites s'il y a un Intrus dans votre salle.</p>
+ <p>Après vos 2 actions : −1 oxygène si le recycleur de votre section est arrêté.</p>`,
+ pl:'Petit piège à signaler',
+ piege:'Passer est une action. Si vous commencez votre tour sans carte et que vous passez, vous perdez quand même 1 oxygène : vous avez fini un tour, même sans rien faire.'},
+{t:'Bouger, c\'est faire du bruit',
+ dire:'« Tout au long de la partie, vous allez vous déplacer d\'une salle à une autre en empruntant des couloirs. Il y a deux types de déplacements, le normal et le prudent : dans les deux cas, vous ferez du bruit. Pour le matérialiser, on lance le dé Bruit, qui désigne les couloirs où il y aura du grabuge. Et s\'il y a déjà du grabuge dans ces couloirs, des Intrus surgissent. La petite chose coquine : ce dé a aussi une face Danger. Si elle tombe, un Intrus vous tombe dessus du plafond et vous attaque. Sauf si vous vous êtes déplacé prudemment : dans ce cas, le jeton Sécurisation prend l\'attaque à votre place. »',
+ html:`<div class="duo"><div><h3>Déplacement normal</h3><p>Vous changez de salle.</p></div><div><h3>Déplacement prudent</h3><p>Vous posez en plus un jeton Sécurisation dans la salle d'arrivée.</p></div></div>`,
+ pl:'Attention',
+ piege:'Quitter une salle où se trouve un Intrus déclenche une attaque d\'opportunité par Intrus. De la même manière, emprunter un couloir rempli d\'Intrus déclenche des attaques d\'opportunité (3 au plus).'},
+{t:'Les Intrus',
+ dire:'« Il existe 4 types d\'Intrus, tirés au hasard dans le sac Intrus, qui se remplit à chaque manche : la colonie grandit pendant que vous jouez. La Reine a sa propre mécanique, que je vous expliquerai le moment venu pendant la partie : en gros, elle va être très compliquée à tuer. »',
+ html:`<div class="flow"><div>Larve</div><span aria-hidden="true">→</span><div>Adulte</div><span aria-hidden="true">→</span><div>Guerrier</div><span aria-hidden="true">→</span><div>Reine</div></div>
+ <div class="duo"><div><h3>Déplacement</h3><p>Les Intrus se déplacent toujours vers le joueur le plus proche.</p></div><div><h3>Attaque</h3><p>Celui qui a fait le bruit ; sinon, le premier dans l'ordre du tour.</p></div></div>`,
+ pl:'Petit rappel',
+ piege:'Un jeton Sécurisation protège d\'un Intrus qui entre dans la salle. Il ne protège ni des attaques des Intrus déjà présents, ni des attaques d\'opportunité quand vous quittez une salle.'},
+{t:'Se battre',
+ dire:'« Maintenant qu\'on a parlé de tous ces aliens et de ce qu\'ils pourraient vous faire, rassurez-vous : vous avez de quoi vous battre. Vous pourrez tirer au coup par coup, ou en rafale. Chacune de ces actions se gère un peu différemment, avec des dés différents, mais je vous expliquerai ça pendant la partie. »',
+ html:`<p class="big1">Ce qu'il faut retenir : une rafale dans un couloir rempli d'aliens est une excellente manière de vous débarrasser rapidement de plein d'entre eux. Dans une salle, un alien est bien plus dur à tuer.</p>
+ <div class="duo"><div><h3>Tir</h3><p>Dans une salle. Il ne consomme pas de munitions, sauf jet de dé malchanceux.</p></div><div><h3>Rafale</h3><p>Dans un couloir. Elle consomme toujours une moitié de jeton Munitions.</p></div></div>`},
+{t:'Contamination',
+ dire:'« Chose que je ne vous ai pas encore dite : quand ces aliens vous attaquent, ils peuvent vous contaminer… et une Larve peut grandir en vous. Même si vous pensez vous en être sorti, ce n\'est pas encore sûr. »',
+ html:`<p class="big1">Si un Intrus vous contamine, vous récupérez une carte Contamination, qui arrive dans votre défausse. Elle ne sert à rien, à part pourrir votre main, votre deck… et vos chances de survie.</p>
+ <div class="duo"><div><h3>Une zone étrange</h3><p>En bas de la carte se trouve la zone qu'il faudra scanner pour révéler si vous êtes infecté ou non.</p></div><div><h3>Infectée</h3><p>Une Larve s'installe en vous. Faites-la retirer dans une salle du complexe, sinon elle risque d'éclore à la fin, même si vous avez hiberné ou rejoint le vaisseau.</p></div></div>`},
+{t:'Sortir vivant',
+ dire:'« Quand vous choisirez votre objectif, pensez à votre façon de survivre : hiberner, partir avec le vaisseau, ou prendre la navette de secours… où il n\'y a qu\'une seule place. »',
+ html:`<div class="trio"><div><h3>Vaisseau</h3><p>Il tente d'atterrir. Si la DCA (les canons anti-aériens) est active, il est abattu. Une salle du complexe permet de la vérifier.</p></div><div><h3>Navette de secours</h3><p>Une seule place.</p></div><div><h3>Hibernatorium</h3><p>Il faut l'avoir activé.</p></div></div>
+ <p>La partie s'arrête après la manche 14 : ceux qui sont encore dans le complexe sont laissés pour morts.</p>`}],
+plus:[
+['La mêlée et le tir en détail','Au premier combat dans une salle.'],
+['La Reine','À sa première apparition.'],
+['Blessures graves et armure','À la première blessure grave.'],
+['Le robot','Quand une salle est reliée à l\'hibernatorium.'],
+['Feu et panne','Au premier événement qui en pose (salle en feu : −1 santé en fin de tour).'],
+['Les portes','À la première porte fermée.'],
+['Le détail du déplacement des Intrus','Au premier cas litigieux (égalités, couloir plein).'],
+['Les salles clés','À leur découverte, avec l\'onglet Salles.'],
+['L\'embarquement, le décollage et l\'autodestruction','Quand quelqu\'un vise la sortie.'],
+['Les règles d\'or (loi de Murphy)','Au premier doute.'],
+['Mode mortel, solo et coopération','Seulement si vous y jouez.']],
+aide:`<div><h3>Manche</h3><ul><li>Joueurs → Intrus → Événement → Nettoyage.</li><li>14 manches au plus.</li></ul></div>
+<div><h3>Votre tour</h3><ul><li>2 actions.</li><li>Puis −1 oxygène si recycleur arrêté, −1 santé si salle en feu.</li></ul></div>
+<div><h3>Coûts</h3><ul><li><b>0 carte</b> : jouer une carte, passer.</li><li><b>1 carte</b> : se déplacer, tirer, rafale, mêlée, objet…</li><li><b>2 cartes</b> : action de salle, déplacement prudent.</li><li>Alien barré = interdit en combat.</li></ul></div>
+<div><h3>Déplacement</h3><ul><li>Attaques d'opportunité, puis jet de bruit.</li><li>Danger = un Intrus dans votre salle.</li></ul></div>
+<div><h3>Combat</h3><ul><li><b>Tir</b> : 1 touche, puis dé ; l'Intrus meurt si le dé ≤ ses touches.</li><li><b>Rafale</b> : dans un couloir, 1 touche tue un Adulte ou une Larve, 2 un Guerrier.</li></ul></div>
+<div><h3>Objectif et victoire</h3><ul><li>Objectif choisi une fois, à votre tour ; plus tôt = plus de cartes.</li><li>Victoire : sorti ou hiberné + objectif accompli + survivre à l'infection.</li></ul></div>`
+};
+
+lrmpExpliquer(document.getElementById('ex-boite'),EXPL);</script>
 <div class="tab" id="tab-aide"><div class="page" id="aide"></div></div>
 <div class="tab" id="tab-salles"><div class="page" id="sallespage"></div></div>
 <script>

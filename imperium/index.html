@@ -365,19 +365,7 @@ table.st{font-size:14px;margin:6px 0 10px}table.st td{padding:5px 8px}
 ul.lib{list-style:none;padding:0;margin:6px 0 0;font-size:15px}
 ul.lib li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid var(--line);margin:0}
 #tab-solo button.del{min-height:32px;padding:2px 10px;color:var(--muted)}
-/* ===== À plusieurs ===== */
-.mp{max-width:1180px;margin:0 auto;padding:18px clamp(16px,4vw,32px) 60px}
-.mphead{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
-.mphead h1{margin:0;font-size:28px}
-#mp-comp button,#mp-ex button{min-height:44px;padding:9px 14px}
-.stage{background:var(--surface);border-radius:16px;box-shadow:var(--shadow);padding:clamp(20px,4vw,48px);min-height:min(68vh,620px);display:flex;flex-direction:column;position:relative;overflow:hidden}
-.stage::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,var(--accent),var(--gold))}
-.stage.fs{min-height:100vh;border-radius:0;justify-content:center;font-size:1.25em}
-.snum{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
-.stage h2{font-size:clamp(28px,4.4vw,48px);margin:6px 0 20px}
-.sbody{flex:1;font-size:clamp(17px,1.9vw,23px);line-height:1.5}
-.sbody h3{font-family:var(--display);font-size:1.1em;margin:0 0 6px;color:var(--accent)}
-.sbody p{margin:0 0 10px}
+/* ===== Expliquer le jeu : mises en page des écrans (moteur commun : outils/site/partage/expliquer.css) ===== */
 .big1{font-size:1.15em;max-width:42ch}
 .duo,.trio{display:grid;gap:14px;margin:12px 0 18px}.duo{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.trio{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 .duo>div,.trio>div{background:var(--sunk);border-radius:12px;padding:16px 18px}
@@ -393,37 +381,19 @@ ul.lib li{display:flex;justify-content:space-between;align-items:center;gap:8px;
 ol.steps4{counter-reset:k;list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 ol.steps4 li{counter-increment:k;background:var(--sunk);border-radius:12px;padding:44px 16px 16px;position:relative;margin:0}
 ol.steps4 li::before{content:counter(k);position:absolute;left:16px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
-.dots{display:flex;gap:6px;margin-top:20px}.dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--gold)}.dots i.ref{border-radius:2px}
-.snav{margin-top:14px}
 .ref{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;font-size:.85em}
 .ref>div{background:var(--sunk);border-radius:12px;padding:12px 16px}
 .ref ul,.ref ol{margin:0;padding-left:20px}.ref li{margin-bottom:4px}
-.cgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;align-items:start}
-.narrow{max-width:720px}
 .who{text-align:center;padding:18px 10px 22px;border-bottom:1px solid var(--line);margin-bottom:16px}
 .who small{display:block;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;font-size:13px}
 .who b{display:block;font-family:var(--display);font-weight:600;font-size:clamp(34px,6vw,54px);line-height:1.15;margin:6px 0}
 .who span{color:var(--muted);font-size:18px}
 .who.sol b{color:var(--gold)}
-.duo.slim{margin-top:0}.duo.slim>div{padding:12px 14px}.duo.slim h3{font-family:var(--display);color:var(--accent);margin:0 0 6px;font-size:17px;text-transform:none;letter-spacing:0}
-.clean ol{margin:0;padding-left:20px}
 button.big{font-size:19px;padding:14px 22px!important;width:100%}
 .banner{background:var(--gold-soft);border:1px solid var(--gold);border-radius:10px;padding:10px 14px;margin-bottom:14px;font-weight:600}
 .banner.end{background:var(--bad-soft);border-color:var(--bad)}
-.inscount{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--sunk);border-radius:12px;padding:10px}
-.inscount b{font-family:var(--display);font-size:46px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ins)}
-#mp-comp .inscount button{width:56px;height:56px;font-size:26px;border-radius:50%;padding:0}
-.inscount.low{box-shadow:inset 0 0 0 2px var(--gold)}.inscount.crit{box-shadow:inset 0 0 0 3px var(--bad);background:var(--bad-soft)}
-ol.porder{padding-left:22px}ol.porder li{padding:4px 6px;border-radius:6px;margin:0 0 2px}ol.porder li.on{background:var(--accent);color:var(--accent-ink)}ol.porder small{opacity:.75}
-.row.col{flex-direction:column;align-items:stretch}
-.sheet input{width:100%;min-width:56px;text-align:center}
-.sheet th small{display:block;font-weight:400;text-transform:none;letter-spacing:0}
-.sheet tr.tot td{font-family:var(--display);font-weight:600;font-size:20px;text-align:center}.sheet tr.tot td:first-child{text-align:left}
-.sheet td.best{color:var(--laurel)}
-.prow{gap:10px}.prow .f{flex:1;min-width:140px}
-@media (max-width:820px){.cgrid{grid-template-columns:1fr}.zgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:820px){.zgrid{grid-template-columns:repeat(2,1fr)}}
 #board table{font-size:13.5px}#board th,#board td{padding:6px 6px}
-ol.porder li.on::marker{color:var(--ink)}
 button.big{font-family:var(--body);font-weight:700}
 @media (max-width:520px){.tabs{gap:4px}.tabs button{padding:5px 9px;font-size:14px}header.top{padding:8px 10px 14px}}
 /* ===== Partie numérique ===== */
@@ -489,6 +459,73 @@ button.natb.sel small{color:inherit}
 #tab-solo.fon .slots5{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
 @media (max-width:1000px){#tab-solo.fon #dg-market{margin-right:clamp(16px,4vw,32px)}}
 #tab-solo.fon .fopen{display:none}
+/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.css-->).
+   Chaque appli peut régler --ex-surface, --ex-sunk, --ex-line, --ex-ink, --ex-muted, --ex-accent, --ex-accent-ink, --ex-display ;
+   sinon on reprend ses variables habituelles (--surface, --sunk, --line, --ink, --muted, --app-accent, --app-accent-ink, --display). */
+.lrmp-ex{--xs:var(--ex-surface,var(--surface,#fff));--xk:var(--ex-sunk,var(--sunk,#eee));--xl:var(--ex-line,var(--line,#ccc));
+  --xi:var(--ex-ink,var(--ink,#222));--xm:var(--ex-muted,var(--muted,#666));--xa:var(--ex-accent,var(--app-accent,#555));
+  --xai:var(--ex-accent-ink,var(--app-accent-ink,#fff));--xd:var(--ex-display,var(--display,inherit));color:var(--xi)}
+.lrmp-ex-tete{max-width:1000px;margin:0 auto 14px}
+.lrmp-ex-tete h1{font-family:var(--xd);margin:0 0 4px;font-size:clamp(24px,3vw,32px)}
+.lrmp-ex-tete p{margin:0;color:var(--xm);max-width:70ch}
+.lrmp-ex-boite{max-width:1000px;margin:0 auto}
+.lrmp-ex-boite:fullscreen{max-width:none;background:var(--xk);padding:2vh 3vw;overflow:auto;display:flex;flex-direction:column;justify-content:center}
+.ex-stage{background:var(--xs);border:1px solid var(--xl);border-radius:16px;padding:clamp(18px,4vw,44px);min-height:min(66vh,600px);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.ex-stage::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--xa)}
+.lrmp-ex-boite:fullscreen .ex-stage{min-height:84vh;font-size:1.2em}
+.ex-num{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--xa);font-weight:700}
+.ex-stage h2{font-family:var(--xd);font-size:clamp(26px,4.2vw,44px);line-height:1.15;margin:6px 0 18px}
+.ex-corps{flex:1;font-size:clamp(17px,1.8vw,22px);line-height:1.5}
+.ex-corps p{margin:0 0 10px}
+.ex-corps h3{font-family:var(--xd);font-size:1.08em;margin:0 0 6px;color:var(--xa)}
+.ex-corps .big1{font-size:1.12em;max-width:46ch}
+.ex-corps .duo,.ex-corps .trio,.ex-corps .quad{display:grid;gap:12px;margin:12px 0 16px}
+.ex-corps .duo{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.ex-corps .trio{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.ex-corps .quad{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.ex-corps .duo>div,.ex-corps .trio>div,.ex-corps .quad>div{background:var(--xk);border-radius:12px;padding:14px 16px}
+.ex-corps .duo>div p,.ex-corps .trio>div p,.ex-corps .quad>div p{margin:0;font-size:.92em}
+.ex-corps .flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 16px}
+.ex-corps .flow>div{background:var(--xk);border:1px solid var(--xl);border-radius:10px;padding:10px 14px;font-weight:600}
+.ex-corps .flow>span{font-size:1.3em;color:var(--xa)}
+.ex-corps .flow small{display:block;font-weight:400;font-size:.75em;color:var(--xm);margin-top:2px}
+.ex-corps ol.steps{counter-reset:k;list-style:none;padding:0;margin:10px 0 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.ex-corps ol.steps li{counter-increment:k;background:var(--xk);border-radius:12px;padding:42px 16px 14px;position:relative;margin:0;font-size:.92em}
+.ex-corps ol.steps li::before{content:counter(k);position:absolute;left:16px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--xa);color:var(--xai);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ex-corps ol.steps.etiq li{padding-top:46px}
+.ex-corps ol.steps.etiq li::before{content:attr(data-l);width:auto;height:auto;padding:3px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.ex-corps .ex-cadre{border:1px solid var(--xl);border-radius:14px;padding:12px 14px 2px;margin:0 0 14px}
+.ex-corps .ex-cadre h4{margin:0 0 2px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--xm)}
+.ex-corps .ex-cadre .duo,.ex-corps .ex-cadre .trio{margin:8px 0 12px}
+.ex-corps .hl{outline:2px solid var(--xa);outline-offset:-2px}
+.ex-corps .tags{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px;padding:0;list-style:none}
+.ex-corps .tags li{background:var(--xk);border-radius:999px;padding:6px 14px;font-size:.9em}
+.ex-corps .tags b{color:var(--xa)}
+.ex-piege{margin:14px 0 0;padding:12px 16px;border-radius:12px;border:2px solid var(--xa);background:color-mix(in srgb,var(--xa) 10%,transparent);font-size:clamp(15px,1.5vw,18px)}
+.ex-piege b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--xa);margin-bottom:2px}
+.ex-piege p{margin:0}
+.ex-cite{margin:-6px 0 18px;max-width:66ch;font-style:italic;font-size:clamp(16px,1.6vw,20px);line-height:1.5;color:var(--xm)}
+.ex-plus{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.ex-plus li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 16px;background:var(--xk);border-radius:10px;padding:10px 14px;font-size:.88em}
+.ex-plus span{color:var(--xm)}
+@media (max-width:640px){.ex-plus li{grid-template-columns:1fr}}
+.ex-ref{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;font-size:.82em}
+.ex-ref>div{background:var(--xk);border-radius:12px;padding:12px 16px}
+.ex-ref h3{font-size:1em;margin:0 0 6px}
+.ex-ref ul,.ex-ref ol{margin:0;padding-left:20px}.ex-ref li{margin-bottom:4px}
+.ex-points{display:flex;gap:6px;margin-top:20px;flex-wrap:wrap}
+.ex-points i{width:8px;height:8px;border-radius:50%;background:var(--xl)}
+.ex-points i.fin{border-radius:2px}.ex-points i.on{background:var(--xa)}
+.ex-nav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.ex-nav button{min-height:44px;padding:9px 16px;border-radius:10px;border:1px solid var(--xl);background:var(--xs);color:var(--xi);font:inherit;font-weight:600;cursor:pointer}
+.ex-nav button.pri{background:var(--xa);border-color:var(--xa);color:var(--xai)}
+.ex-nav button:disabled{opacity:.45;cursor:default}
+.ex-nav button:focus-visible{outline:2px solid var(--xa);outline-offset:2px}
+.ex-astuce{font-size:13px;color:var(--xm)}
+@media (max-width:640px){.ex-astuce{display:none}.ex-nav button{flex:1 1 40%}}
+.lrmp-ex-boite:fullscreen .ex-nav{justify-content:center}
+.ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}
+.imp-ex{--ex-accent:var(--gold);--ex-accent-ink:var(--surface);max-width:1080px;margin:0 auto;padding:clamp(16px,3vw,28px) clamp(16px,4vw,32px) 32px}
 </style>
 <!--commun-->
 <link rel="stylesheet" href="../commun/tokens.css?v=68cac781">
@@ -549,7 +586,7 @@ header.top{padding-left:max(var(--site-pad),calc((100% - var(--site-w))/2 + var(
 
 
 
-<header class="top"><div class="logo"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22V6M13 22c-4 0-7-3-8-7 3 0 6 2 8 5M13 22c4 0 7-3 8-7-3 0-6 2-8 5M13 14c-3 0-5-2-6-5 3 0 5 2 6 4M13 14c3 0 5-2 6-5-3 0-5 2-6 4M13 7c-1.5-1-2-3-1.5-4.5C13 3.5 13.5 5 13 7z" fill="none" stroke="#c9a24e" stroke-width="1.5" stroke-linecap="round"/></svg>Imperium Antique</div><div class="lrmp-onglets" role="group" aria-label="Sections"><button type="button" data-tab="apprendre">Apprendre</button><button type="button" data-tab="solo">Jouer en solo</button><button type="button" data-tab="plusieurs">À plusieurs</button><button type="button" data-tab="aide">Aide-mémoire</button></div><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="Changer de thème (clair / sombre)"><span aria-hidden="true">◐</span></button></header>
+<header class="top"><div class="logo"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 22V6M13 22c-4 0-7-3-8-7 3 0 6 2 8 5M13 22c4 0 7-3 8-7-3 0-6 2-8 5M13 14c-3 0-5-2-6-5 3 0 5 2 6 4M13 14c3 0 5-2 6-5-3 0-5 2-6 4M13 7c-1.5-1-2-3-1.5-4.5C13 3.5 13.5 5 13 7z" fill="none" stroke="#c9a24e" stroke-width="1.5" stroke-linecap="round"/></svg>Imperium Antique</div><div class="lrmp-onglets" role="group" aria-label="Sections"><button type="button" data-tab="apprendre">Apprendre</button><button type="button" data-tab="expliquer">Expliquer le jeu</button><button type="button" data-tab="solo">Jouer en solo</button><button type="button" data-tab="aide">Aide-mémoire</button></div><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="Changer de thème (clair / sombre)"><span aria-hidden="true">◐</span></button></header>
 <div class="tab" id="tab-apprendre"><div class="app">
 <nav id="nav">
   <p class="brand">Apprendre les règles<small>D'après le livret de règles d'Imperium Horizons (version du 19 juillet 2026)</small></p>
@@ -564,8 +601,7 @@ header.top{padding-left:max(var(--site-pad),calc((100% - var(--site-w))/2 + var(
   <section class="panel" aria-live="polite"><h2 id="title">Nouvelle partie</h2><ul id="log"></ul><div id="prompt"></div></section>
   <aside class="panel" id="board"></aside>
 </div></div>
-<div class="tab" id="tab-plusieurs"><div class="mp"><div class="mphead"><h1>À plusieurs</h1><div class="row" id="mpnav"><button type="button" data-m="ex">Expliquer le jeu</button><button type="button" data-m="comp">Compagnon de partie</button></div></div>
-<div id="mp-ex"></div><div id="mp-comp" hidden></div></div></div>
+<div class="tab" id="tab-expliquer"><div class="lrmp-ex imp-ex"><div class="lrmp-ex-tete"><h1>Expliquer le jeu</h1><p>Un fil rouge pour présenter le jeu à la table : dix écrans courts, puis l'aide-mémoire.</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
 <div class="tab" id="tab-aide"><div class="aide" id="aide"></div></div>
 <div id="help" hidden><div role="dialog" aria-labelledby="helpt"><h2 id="helpt"></h2><p id="helpb"></p><button type="button" class="pri" id="helpx">Fermer</button></div></div>
 <script>
@@ -1323,9 +1359,9 @@ build();labPay();labZones();labCard();labSetup();labOrders();labTokens();labMark
  window.IMP_LINK=root=>{PAT.forEach(([k,re])=>{const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;
    while((n=w.nextNode())){if(n.parentElement.closest('button,input,label,select'))continue;const m=re.exec(n.data);if(!m)continue;
      const r=n.splitText(m.index);r.splitText(m[0].length);const b=document.createElement('button');b.type='button';b.className='kw';b.dataset.k=k;b.textContent=m[0];r.replaceWith(b);break}})};
- const TABS=['apprendre','solo','plusieurs','aide'];
+ const TABS=['apprendre','expliquer','solo','aide'];
  function show(t){TABS.forEach(x=>{$('#tab-'+x).classList.toggle('on',x===t);$('header.top .lrmp-onglets [data-tab="'+x+'"]').classList.toggle('on',x===t)});try{localStorage.setItem('imperium-tab',t)}catch(e){}}
- function route(){let h=location.hash.slice(1);if(!TABS.includes(h)){try{h=localStorage.getItem('imperium-tab')}catch(e){}}show(TABS.includes(h)?h:'apprendre')}
+ function route(){let h=location.hash.slice(1);if(h==='plusieurs')h='expliquer';if(!TABS.includes(h)){try{h=localStorage.getItem('imperium-tab')}catch(e){}if(h==='plusieurs')h='expliquer'}show(TABS.includes(h)?h:'apprendre')}
  document.querySelectorAll('header.top .lrmp-onglets button').forEach(b=>b.onclick=()=>{show(b.dataset.tab);try{location.hash=b.dataset.tab}catch(e){}window.scrollTo(0,0)});
  window.addEventListener('hashchange',route);route();
 })();
@@ -2447,115 +2483,76 @@ window.IMP_NAT=NAT;
 start();
 
 })();
-(function(){
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.js-->).
+   lrmpExpliquer(boite, D) : D = {ecrans:[{t, html, dire?, piege?, pl?}], aide:html, plus?:[[quoi, quand]], ui:{…}}
+   dire : la phrase à dire, en italique sous le titre ; piege : encadré, titré pl (sinon ui.piege).
+   chantier : {k, t, p} = écran d'attente « Section en chantier » à la place des écrans (mode pas encore validé).
+   Ordre : les écrans, puis l'aide-mémoire, puis « Pour plus tard » (si D.plus). Flèches du clavier quand la boîte est visible. */
+window.lrmpExpliquer=function(boite,D){
+  if(D.chantier){const c=D.chantier;boite.innerHTML=`<div class="ex-stage ex-chantier"><div class="ex-num">${c.k}</div><h2>${c.t}</h2><div class="ex-corps"><p class="big1">${c.p}</p></div></div>`;return}
+  const u=D.ui,N=D.ecrans.length,P=D.plus&&D.plus.length?1:0,T=N+1+P;
+  let i=0;
+  function contenu(){
+    if(i<N){const e=D.ecrans[i];
+      return {num:u.ecran.replace('{n}',i+1).replace('{t}',N),titre:e.t,cite:e.dire||'',
+        corps:e.html+(e.piege?`<div class="ex-piege"><b>${e.pl||u.piege}</b><p>${e.piege}</p></div>`:'')}}
+    if(i===N)return {num:u.aide,titre:u.aideTitre,cite:'',corps:`<div class="ex-ref">${D.aide}</div>`};
+    return {num:u.plus,titre:u.plusTitre,cite:'',
+      corps:`<p class="big1">${u.plusIntro}</p><ul class="ex-plus">${D.plus.map(([a,b])=>`<li><b>${a}</b><span>${b}</span></li>`).join('')}</ul>`}}
+  function dessiner(){
+    const c=contenu(),fin=i===T-1;
+    const suivant=fin?u.debut:i===N-1?u.voirAide:i===N&&P?u.voirPlus:u.suivant;
+    boite.innerHTML=`<div class="ex-stage">
+      <div class="ex-num">${c.num}</div><h2>${c.titre}</h2>${c.cite?`<p class="ex-cite">${c.cite}</p>`:''}<div class="ex-corps">${c.corps}</div>
+      <div class="ex-points" aria-hidden="true">${Array.from({length:T},(_,k)=>`<i class="${k===i?'on':''}${k>=N?' fin':''}"></i>`).join('')}</div></div>
+      <div class="ex-nav"><button type="button" data-x="prec" ${i?'':'disabled'}>${u.precedent}</button><button type="button" class="pri" data-x="suiv">${suivant}</button>
+      <button type="button" data-x="aide">${u.aide}</button>${document.fullscreenEnabled?`<button type="button" data-x="fs">${u.pleinEcran}</button>`:''}<span class="ex-astuce">${u.fleches}</span></div>`;
+    const b=k=>boite.querySelector(`[data-x="${k}"]`);
+    b('prec').onclick=()=>aller(i-1);b('suiv').onclick=()=>aller(fin?0:i+1);b('aide').onclick=()=>aller(N);
+    if(b('fs'))b('fs').onclick=()=>{try{const r=document.fullscreenElement?document.exitFullscreen():boite.requestFullscreen();if(r&&r.catch)r.catch(()=>{})}catch(e){}}}
+  function aller(k){i=Math.max(0,Math.min(T-1,k));dessiner();const s=boite.querySelector('.ex-stage');if(s&&!document.fullscreenElement&&s.getBoundingClientRect().top<0)s.scrollIntoView({block:'start'})}
+  document.addEventListener('keydown',e=>{if(!boite.offsetParent&&document.fullscreenElement!==boite)return;if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName||''))return;
+    if(e.key==='ArrowRight'||e.key===' '){aller(i+1);e.preventDefault()}else if(e.key==='ArrowLeft')aller(i-1)});
+  dessiner();
+};
+/* Mode « Expliquer le jeu » d'Imperium : écrans et aide-mémoire (moteur commun : outils/site/partage/expliquer.js). */
+const EXPL=(()=>{
 const ch=(k,t)=>`<span class="chip c-${k}">${t}</span>`;
 const M=ch('mat','Matériaux'),P=ch('pop','Population'),G=ch('prog','Progrès'),I=ch('ins','Instabilités'),RG=ch('reg','Région'),RN=ch('ren','Renommée');
-const NATS=['Carthaginois','Celtes','Grecs','Macédoniens','Perses','Romains','Scythes','Vikings'];
 /* ---------- explication express ---------- */
 const SL=[
 ['Imperium en une phrase',`<p class="big1">Vous dirigez une nation antique, représentée par un paquet de cartes qui grossit et se transforme au fil de la partie.</p>
- <div class="duo"><div><h3>Décompte</h3><p>La fin normale. On compte les points de victoire : le plus haut total gagne.</p></div><div><h3>Effondrement</h3><p>La pile ${I} est vide : la partie s'arrête net, et celui qui possède le moins d'Instabilités gagne.</p></div></div>`],
+ <div class="duo"><div><h3>Décompte</h3><p>La fin normale. On compte les points de victoire : le plus haut total gagne.</p></div><div><h3>Effondrement</h3><p>La pile ${I} est vide : la partie s'arrête net, et celui qui possède le moins d'Instabilités gagne.</p></div></div>`],
 ['Votre coin de table',`<div class="zgrid"><div>Développements<small>à payer plus tard</small></div><div>Avènement<small>sous la pioche Nation</small></div><div class="hl">Carte État<small>Barbare puis Empire · vos jetons</small></div><div>Carte Puissance<small>votre pouvoir · votre Histoire dessous</small></div>
- <div>Deck</div><div>Défausse</div><div class="wide">Zone de jeu<small>vos Régions et cartes permanentes</small></div><div class="wide hl">Votre main : 5 cartes</div></div>`],
+ <div>Deck</div><div>Défausse</div><div class="wide">Zone de jeu<small>vos Régions et cartes permanentes</small></div><div class="wide hl">Votre main : 5 cartes</div></div>`],
 ['Trois ressources',`<div class="trio"><div>${M}<p>Construire, payer les cartes de développement.</p></div><div>${P}<p>Conquérir, acquérir des Vassaux.</p></div><div>${G}<p>La ressource joker, et 1 point de victoire par jeton à la fin.</p></div></div>
  <p class="big1">Pour payer, 1 Progrès vaut <b>1 Population</b> ou <b>2 Matériaux</b>. Les ressources posées sur des cartes ne servent à rien.</p>`],
-['Votre tour : un seul ordre',`<div class="trio ord"><div><h3>Activation</h3><p>Le tour normal : vous jouez des cartes et vous épuisez des capacités.</p></div><div><h3>Recherche</h3><p>Vous défaussez votre main et vous prenez une carte choisie, sans son Instabilité.</p></div><div><h3>Pacification</h3><p>Vous renvoyez gratuitement toutes les Instabilités de votre main.</p></div></div><p class="big1">Puis, quel que soit l'ordre : le Nettoyage.</p>`],
-['Activation : jetons Action et Épuisé',`<div class="duo"><div><h3>3 Actions</h3><p>Une Action = jouer une carte de votre main. Résolvez son texte, puis défaussez-la, sauf si elle reste en jeu.</p></div><div><h3>5 jetons Épuisé</h3><p>Posez un jeton sur une carte en jeu pour utiliser sa capacité « Épuiser ». Une fois par tour et par carte.</p></div></div>
+['Votre tour : un seul ordre',`<div class="trio ord"><div><h3>Activation</h3><p>Le tour normal : vous jouez des cartes et vous épuisez des capacités.</p></div><div><h3>Recherche</h3><p>Vous défaussez votre main et vous prenez une carte choisie, sans son Instabilité.</p></div><div><h3>Pacification</h3><p>Vous renvoyez gratuitement toutes les Instabilités de votre main.</p></div></div><p class="big1">Puis, quel que soit l'ordre : le Nettoyage.</p>`],
+['Activation : jetons Action et Épuisé',`<div class="duo"><div><h3>3 Actions</h3><p>Une Action = jouer une carte de votre main. Résolvez son texte, puis défaussez-la, sauf si elle reste en jeu.</p></div><div><h3>5 jetons Épuisé</h3><p>Posez un jeton sur une carte en jeu pour utiliser sa capacité « Épuiser ». Une fois par tour et par carte.</p></div></div>
  <p class="big1">Une carte marquée Barbare ou Empire ne se joue de votre main que si votre carte État montre la même face.</p>`],
 ['Le Marché',`<p class="big1">Cinq cartes visibles. Sous chacune, une ${I}, sauf sous les Régions.</p><div class="duo"><div><h3>Acquérir</h3><p>Vous prenez la carte, ses ressources <b>et l'Instabilité</b> glissée dessous.</p></div><div><h3>Innover</h3><p>Vous prenez la carte et ses ressources. L'Instabilité retourne dans la pile.</p></div></div>`],
-['Le Nettoyage',`<ol class="steps4"><li><b>1 Progrès du stock</b> sur une carte du Marché.</li><li>Vos jetons reviennent : <b>3 Actions, 5 Épuisé</b>.</li><li>Défaussez autant de cartes de votre main que vous voulez.</li><li>Piochez jusqu'à <b>5 cartes</b>.</li></ol><p class="big1">Conseil : défaussez large, votre deck tournera plus vite.</p>`],
-['Votre nation évolue',`<p class="big1">Chaque fois que vous mélangez votre défausse pour refaire votre deck, une carte s'y ajoute :</p><div class="flow"><div>Cartes Nation<small>une par mélange</small></div><span aria-hidden="true">→</span><div class="hl">Avènement<small>vous devenez Empire</small></div><span aria-hidden="true">→</span><div>Développements<small>vous en payez le coût</small></div></div><p>Développer votre dernière carte déclenche le Décompte.</p>`],
-['Instabilités et Gloire',`<div class="duo"><div><h3>${I}</h3><p>−2 points chacune, et elles encombrent votre main. Pour vous en défaire : la jouer (une Action, puis 1 Population, 3 Matériaux ou 2 cartes défaussées), ou l'ordre Pacification.</p></div><div><h3>Gloire</h3><p>Abandonnez 3 ${RG} en jeu pour gagner une ${RN}, la source de points la plus riche. Il faudra ensuite rejouer vos Régions.</p></div></div>`],
-['Manches et fin de partie',`<div class="duo"><div><h3>Solstice</h3><p>Quand tout le monde a joué, chacun résout ses effets Solstice. Puis nouvelle manche.</p></div><div><h3>Décompte</h3><p>Pioche Principale vide, dernier Développement payé ou Roi des rois retournée : on finit la manche, on en joue <b>une dernière</b>, puis on compte.</p></div></div>
- <p class="big1">Score : points des cartes (10 au plus pour une carte à étoile) + 1 point par Progrès en réserve.</p>`]];
-const REF=`<div class="ref"><div><h3>1 · Choisissez un ordre</h3><ul><li><b>Activation</b> : 3 Actions, 5 jetons Épuisé</li><li><b>Recherche</b> : défaussez votre main, innovez 1 carte</li><li><b>Pacification</b> : renvoyez vos Instabilités</li></ul></div>
+['Le Nettoyage',`<ol class="steps4"><li><b>1 Progrès du stock</b> sur une carte du Marché.</li><li>Vos jetons reviennent : <b>3 Actions, 5 Épuisé</b>.</li><li>Défaussez autant de cartes de votre main que vous voulez.</li><li>Piochez jusqu'à <b>5 cartes</b>.</li></ol><p class="big1">Conseil : défaussez large, votre deck tournera plus vite.</p>`],
+['Votre nation évolue',`<p class="big1">Chaque fois que vous mélangez votre défausse pour refaire votre deck, une carte s'y ajoute :</p><div class="flow"><div>Cartes Nation<small>une par mélange</small></div><span aria-hidden="true">→</span><div class="hl">Avènement<small>vous devenez Empire</small></div><span aria-hidden="true">→</span><div>Développements<small>vous en payez le coût</small></div></div><p>Développer votre dernière carte déclenche le Décompte.</p>`],
+['Instabilités et Gloire',`<div class="duo"><div><h3>${I}</h3><p>−2 points chacune, et elles encombrent votre main. Pour vous en défaire : la jouer (une Action, puis 1 Population, 3 Matériaux ou 2 cartes défaussées), ou l'ordre Pacification.</p></div><div><h3>Gloire</h3><p>Abandonnez 3 ${RG} en jeu pour gagner une ${RN}, la source de points la plus riche. Il faudra ensuite rejouer vos Régions.</p></div></div>`],
+['Manches et fin de partie',`<div class="duo"><div><h3>Solstice</h3><p>Quand tout le monde a joué, chacun résout ses effets Solstice. Puis nouvelle manche.</p></div><div><h3>Décompte</h3><p>Pioche Principale vide, dernier Développement payé ou Roi des rois retournée : on finit la manche, on en joue <b>une dernière</b>, puis on compte.</p></div></div>
+ <p class="big1">Score : points des cartes (10 au plus pour une carte à étoile) + 1 point par Progrès en réserve.</p>`]];
+const REF=`<div class="ref"><div><h3>1 · Choisissez un ordre</h3><ul><li><b>Activation</b> : 3 Actions, 5 jetons Épuisé</li><li><b>Recherche</b> : défaussez votre main, innovez 1 carte</li><li><b>Pacification</b> : renvoyez vos Instabilités</li></ul></div>
  <div><h3>2 · Nettoyage</h3><ol><li>1 ${G} du stock sur le Marché</li><li>Récupérez vos jetons</li><li>Défaussez ce que vous voulez</li><li>Piochez jusqu'à 5</li></ol></div>
  <div><h3>Payer</h3><ul><li>1 ${G} = 1 ${P}</li><li>1 ${G} = 2 ${M}</li></ul></div>
- <div><h3>Marché</h3><ul><li><b>Acquérir</b> : avec l'Instabilité</li><li><b>Innover</b> : sans l'Instabilité</li></ul></div>
+ <div><h3>Marché</h3><ul><li><b>Acquérir</b> : avec l'Instabilité</li><li><b>Innover</b> : sans l'Instabilité</li></ul></div>
  <div><h3>Deck vide</h3><ul><li>+1 carte Nation, puis Avènement, puis un Développement payé</li><li>1 seul ajout par tour</li></ul></div>
- <div><h3>Fin</h3><ul><li><b>Solstice</b> à chaque fin de manche</li><li><b>Décompte</b> : finir la manche + 1 manche</li><li><b>Effondrement</b> : pile ${I} vide</li></ul></div></div>`;
-let sl=0;
-function drawSlides(){const box=$('#mp-ex'),last=sl===SL.length;
-  box.innerHTML=`<div class="stage" id="stage"><div class="snum">${last?'Aide-mémoire':'Écran '+(sl+1)+' sur '+SL.length}</div>
-   <h2>${last?'Votre tour, en un coup d\'œil':SL[sl][0]}</h2><div class="sbody">${last?REF:SL[sl][1]}</div>
-   <div class="dots" aria-hidden="true">${SL.map((_,i)=>`<i class="${i===sl?'on':''}"></i>`).join('')}<i class="ref ${last?'on':''}"></i></div></div>
-   <div class="row snav"><button type="button" id="sp" ${sl?'':'disabled'}>Précédent</button><button type="button" class="pri" id="sn">${last?'Revenir au début':sl===SL.length-1?'Afficher l\'aide-mémoire':'Suivant'}</button>
-   <button type="button" id="sr">Aide-mémoire</button><button type="button" id="sf">Plein écran</button><span class="hint">Flèches du clavier pour avancer.</span></div>`;
-  $('#sp').onclick=()=>{sl=Math.max(0,sl-1);drawSlides()};$('#sn').onclick=()=>{sl=last?0:sl+1;drawSlides()};$('#sr').onclick=()=>{sl=SL.length;drawSlides()};
-  $('#sf').onclick=()=>{const s=$('#stage');try{const r=document.fullscreenElement?document.exitFullscreen():s.requestFullscreen();if(r&&r.catch)r.catch(()=>{})}catch(e){}}}
-document.addEventListener('keydown',e=>{if(!$('#tab-plusieurs').classList.contains('on')||$('#mp-ex').hidden||/INPUT|SELECT|TEXTAREA/.test((e.target.tagName||'')))return;
-  if(e.key==='ArrowRight'||e.key===' '){sl=Math.min(SL.length,sl+1);drawSlides();e.preventDefault()}if(e.key==='ArrowLeft'){sl=Math.max(0,sl-1);drawSlides()}});
-document.addEventListener('fullscreenchange',()=>{const s=$('#stage');if(s)s.classList.toggle('fs',!!document.fullscreenElement)});
-/* ---------- compagnon de partie ---------- */
-let C=null,U=[];
-try{C=JSON.parse(localStorage.getItem('imperium-multi'))}catch(e){}
-const sv=()=>{try{C?localStorage.setItem('imperium-multi',JSON.stringify(C)):localStorage.removeItem('imperium-multi')}catch(e){}};
-const push=()=>{U.push(JSON.stringify(C));if(U.length>40)U.shift()};
-const order=()=>C.players.map((_,i)=>(C.first+i)%C.players.length);
-function draw(){const b=$('#mp-comp');
-  if(!C)return setup(b);
-  const pl=C.players,o=order(),n=pl.length,low=C.ins<=n,crit=C.ins<=2;
-  const last=C.trig!=null&&C.round>C.trig,trigNote=C.trig==null?'':last?'<div class="banner end">Dernière manche : le Décompte suit le Solstice.</div>':'<div class="banner">Décompte déclenché : on termine cette manche, puis une dernière manche complète.</div>';
-  let main='';
-  if(C.phase==='turn'){const p=pl[o[C.cur]];
-    main=`<div class="who"><small>Manche ${C.round} · tour ${C.cur+1} sur ${n}</small><b>${p.name}</b><span>${p.nat}</span></div>
-     <div class="duo slim"><div><h3>Pendant le tour</h3><p>Annoncez un ordre : Activation, Recherche ou Pacification.</p></div>
-     <div class="clean"><h3>Nettoyage</h3><ol><li>${p.nat==='Carthaginois'?`Des ${M} sur une carte du Marché, au lieu du Progrès (nombre selon votre carte Puissance)`:`1 ${G} <b>du stock</b> sur une carte du Marché`}</li><li>Jetons : 3 Actions, 5 Épuisé</li><li>Défausse libre</li><li>Piochez jusqu'à 5</li></ol></div></div>
-     <div class="row"><button type="button" class="pri big" id="next">${C.cur===n-1?'Tour terminé : Solstice':'Tour terminé : joueur suivant'}</button></div>`}
-  else if(C.phase==='solstice')main=`<div class="who sol"><small>Fin de la manche ${C.round}</small><b>Solstice</b><span>Chacun résout ses effets Solstice, en même temps. Ni Action ni capacité Épuiser.</span></div>
-     <div class="row"><button type="button" class="pri big" id="next">${last?'Solstice résolu : compter les points':'Solstice résolu : manche suivante'}</button></div>`;
-  else if(C.phase==='score')main=scoreHTML();
-  else if(C.phase==='collapse')main=collapseHTML();
-  b.innerHTML=`<div class="cgrid"><section class="panel">${trigNote}${main}</section>
-   <aside class="panel"><h3>Pile ${I}</h3><div class="inscount ${crit?'crit':low?'low':''}"><button type="button" id="im" aria-label="Une de moins">−</button><b>${C.ins}</b><button type="button" id="ip" aria-label="Une de plus">+</button></div>
-    <p class="hint">${C.ins<=0?'Pile vide : Effondrement.':crit?'Danger : l\'Effondrement est tout proche.':low?'Attention : la pile s\'amenuise.':'Ajustez à chaque carte prise ou rendue.'}</p>
-    <h3>Ordre du tour</h3><ol class="porder">${o.map((i,k)=>`<li class="${C.phase==='turn'&&k===C.cur?'on':''}">${pl[i].name} <small>${pl[i].nat}</small></li>`).join('')}</ol>
-    <div class="row col">${C.trig==null&&C.phase!=='score'?'<button type="button" id="trig">Le Décompte est déclenché</button>':''}${C.phase!=='score'&&C.phase!=='collapse'?'<button type="button" id="col" class="warn">Effondrement</button>':''}
-     <button type="button" id="undo" ${U.length?'':'disabled'}>Annuler la dernière étape</button><button type="button" id="reset">Nouvelle partie</button></div></aside></div>`;
-  const on=(id,f)=>{const e=$('#'+id);if(e)e.onclick=()=>{f();sv();draw()}};
-  on('next',()=>{push();if(C.phase==='turn'){if(C.cur<n-1)C.cur++;else C.phase='solstice'}else if(C.phase==='solstice'){if(last)C.phase='score';else{C.round++;C.cur=0;C.phase='turn'}}});
-  on('im',()=>{push();C.ins=Math.max(0,C.ins-1);if(C.ins===0)C.phase='collapse'});on('ip',()=>{push();C.ins++});
-  on('trig',()=>{push();C.trig=C.round});on('col',()=>{push();C.phase='collapse'});
-  on('undo',()=>{C=JSON.parse(U.pop())});
-  const r=$('#reset');if(r)r.onclick=()=>{if(r.dataset.c){C=null;U=[];sv();draw()}else{r.dataset.c=1;r.textContent='Confirmer : effacer cette partie';r.classList.add('warn')}};
-  if(C.phase==='score')bindScore();if(C.phase==='collapse')bindCollapse()}
-const ROWS=[['f','Cartes à valeur fixe',1],['s','Cartes à étoile (10 max chacune)',1],['q','Cartes à point d\'interrogation réussies',1],['i','Nombre d\'Instabilités',-2],['n','Autres points négatifs',-1],['g','Progrès en réserve',1]];
-function scoreHTML(){const pl=C.players;C.sc=C.sc||pl.map(()=>({}));
-  return `<h2>Feuille de score</h2><p class="hint">Chacun compte sa main, sa zone de jeu, son deck, sa défausse, son Histoire, ses cartes réservées et sa carte Puissance. La pioche Nation et les Développements non payés ne comptent pas.</p>
-   <div class="tw"><table class="sheet"><tr><th></th>${pl.map(p=>`<th>${p.name}<small>${p.nat}</small></th>`).join('')}</tr>
-   ${ROWS.map(([k,l,m])=>`<tr><td>${l}${m===-2?' <small>(−2 chacune)</small>':''}</td>${pl.map((_,j)=>`<td><input type="number" min="0" inputmode="numeric" data-p="${j}" data-k="${k}" value="${C.sc[j][k]||''}" aria-label="${l}, ${pl[j].name}"></td>`).join('')}</tr>`).join('')}
-   <tr class="tot"><td>Total</td>${pl.map((_,j)=>`<td id="tt${j}"></td>`).join('')}</tr></table></div><div class="out" id="win"></div>`}
-function bindScore(){const pl=C.players,upd=()=>{const t=pl.map((_,j)=>ROWS.reduce((a,[k,,m])=>a+m*(+C.sc[j][k]||0),0)),mx=Math.max(...t),w=pl.filter((_,j)=>t[j]===mx).map(p=>p.name);
-    t.forEach((v,j)=>{const c=$('#tt'+j);c.textContent=v;c.classList.toggle('best',v===mx)});
-    $('#win').innerHTML=w.length>1?`<b>Égalité</b> entre ${w.join(' et ')} : la victoire est partagée.`:`<b>${w[0]}</b> l'emporte avec ${mx} points.`};
-  $$('.sheet input').forEach(i=>i.addEventListener('input',()=>{C.sc[i.dataset.p][i.dataset.k]=i.value;sv();upd()}));upd()}
-function collapseHTML(){const pl=C.players;C.co=C.co||pl.map(()=>'');
-  return `<h2>Effondrement</h2><p>La pile d'Instabilités est vide : la partie s'arrête immédiatement, l'action en cours est interrompue. Chacun compte ses Instabilités dans sa main, sa zone de jeu, son deck, sa défausse et son Histoire, pas dans sa pioche Nation.</p>
-   <div class="form">${pl.map((p,j)=>`<label class="f" for="co${j}">${p.name} (${p.nat})<input type="number" min="0" id="co${j}" data-j="${j}" value="${C.co[j]}"></label>`).join('')}</div><div class="out" id="cwin"></div>
-   <div class="row" style="margin-top:10px"><button type="button" id="toscore">Égalité : départager aux points</button></div>`}
-function bindCollapse(){const pl=C.players,upd=()=>{const v=C.co.map(x=>x===''?null:+x);if(v.some(x=>x==null)){$('#cwin').textContent='Saisissez le nombre d\'Instabilités de chaque joueur.';return}
-    const mn=Math.min(...v),w=pl.filter((_,j)=>v[j]===mn).map(p=>p.name);$('#cwin').innerHTML=w.length>1?`<b>Égalité</b> entre ${w.join(' et ')} (${mn} chacun) : départagez-les aux points du Décompte.`:`<b>${w[0]}</b> l'emporte avec ${mn} Instabilité${mn>1?'s':''}.`};
-  $$('#mp-comp [data-j]').forEach(i=>i.addEventListener('input',()=>{C.co[i.dataset.j]=i.value;sv();upd()}));upd();
-  $('#toscore').onclick=()=>{push();C.phase='score';sv();draw()}}
-function setup(b){let n=+(b.dataset.n||3);
-  const prev=(b.dataset.names||'').split('|');
-  b.innerHTML=`<section class="panel narrow"><h2>Nouvelle partie à plusieurs</h2><p>Le compagnon rythme la partie : à qui le tour, le rappel du Nettoyage, le Solstice, la pile d'Instabilités, puis la feuille de score.</p>
-   <h3>Nombre de joueurs</h3><div class="row" id="mpn">${[2,3,4].map(k=>`<button type="button" data-n="${k}" class="${k===n?'sel':''}">${k} joueurs</button>`).join('')}</div>
-   <h3>Joueurs, dans l'ordre de jeu (sens horaire)</h3><div class="form">${Array.from({length:n},(_,i)=>`<div class="row prow"><label class="f" for="pn${i}">Nom<input type="text" id="pn${i}" value="${prev[i]||'Joueur '+(i+1)}"></label><label class="f" for="pt${i}">Nation<select id="pt${i}">${NATS.map((x,k)=>`<option ${k===i?'selected':''}>${x}</option>`).join('')}</select></label></div>`).join('')}</div>
-   <h3>Pile ${I}</h3><label class="f" for="ni">Nombre de cartes dans la pile après la mise en place<input type="number" id="ni" min="1" value="12"></label>
-   <p class="hint">Comptez la pile une fois le Marché installé. Les Instabilités de départ de certaines nations y sont déjà.</p>
-   <div class="row"><button type="button" class="pri" id="gostart">Tirer le premier joueur et commencer</button></div></section>`;
-  $$('#mpn button').forEach(x=>x.onclick=()=>{b.dataset.names=Array.from({length:n},(_,i)=>$('#pn'+i).value).join('|');b.dataset.n=x.dataset.n;draw()});
-  $('#gostart').onclick=()=>{const players=Array.from({length:n},(_,i)=>({name:$('#pn'+i).value.trim()||'Joueur '+(i+1),nat:$('#pt'+i).value}));
-    C={players,first:Math.floor(Math.random()*n),round:1,cur:0,phase:'turn',ins:Math.max(1,+$('#ni').value||12),trig:null};U=[];sv();draw()}}
-/* ---------- montage ---------- */
-function mode(m){$('#mp-ex').hidden=m!=='ex';$('#mp-comp').hidden=m!=='comp';$$('#mpnav button').forEach(b=>b.classList.toggle('sel',b.dataset.m===m));try{localStorage.setItem('imperium-mp',m)}catch(e){}}
-$$('#mpnav button').forEach(b=>b.onclick=()=>mode(b.dataset.m));
-let m0='ex';try{m0=localStorage.getItem('imperium-mp')||'ex'}catch(e){}
-drawSlides();draw();mode(m0);
-window.IMP_M={get C(){return C},draw};
+ <div><h3>Fin</h3><ul><li><b>Solstice</b> à chaque fin de manche</li><li><b>Décompte</b> : finir la manche + 1 manche</li><li><b>Effondrement</b> : pile ${I} vide</li></ul></div></div>`;
+return {ui:{ecran:'Écran {n} sur {t}',precedent:'Précédent',suivant:'Suivant',voirPlus:'Pour plus tard',voirAide:'Afficher l\'aide-mémoire',debut:'Revenir au début',
+  aide:'Aide-mémoire',aideTitre:'Votre tour, en un coup d\'œil',plus:'Pour plus tard',plusTitre:'Gardez-le pour plus tard',
+  plusIntro:'Inutile d\'en parler avant le premier tour. Expliquez chaque point quand la partie le rencontre.',
+  pleinEcran:'Plein écran',fleches:'Flèches du clavier pour avancer.',dire:'À dire',piege:'Piège à signaler'},
+ecrans:SL.map(([t,html])=>({t,html})),
+aide:REF.replace(/^<div class="ref">/,'').replace(/<\/div>$/,'')};
 })();
+
+EXPL.chantier={k:'En cours de rédaction',t:'Section en chantier',p:'Ce mode est en cours de rédaction. Revenez bientôt !'};
+
+lrmpExpliquer(document.getElementById('ex-boite'),EXPL);
 
 (function(){const $=s=>document.querySelector(s);
 const ch=(k,t)=>`<span class="chip c-${k}">${t}</span>`;

@@ -61,8 +61,8 @@ Depuis le 26/11/2026, toutes les applis suivent le format commun (pages reconstr
 
 | Appli | Morceaux | `build.sh` |
 |---|---|---|
-| Mage Knight | `aide.html` (aide-mémoire, rappel du Fantôme), `plateau.js` (cartes, carte du tutoriel, leçons jouées), `chapitres.js` (questions, chapitres, `PARTS`), `ateliers.js` (cas pratiques), `compagnon.js` (compagnon de partie, scénarios, Volkare, score, carnet) | assembleur, schémas, thème, `precisions.py` |
-| Imperium | `chapitres.js`, `ateliers.js` (tutoriel), `solo.js` (solo contre la C.I.V.), `partie_numerique.js` (table virtuelle), `compagnon.js` (à plusieurs), `glossaire.js` (mots-clés) | assembleur, schémas, thème |
+| Mage Knight | `aide.html` (aide-mémoire, rappel du Fantôme), `plateau.js` (cartes, carte du tutoriel, leçons jouées), `chapitres.js` (questions, chapitres, `PARTS`), `ateliers.js` (cas pratiques), `compagnon.js` (compagnon de partie, scénarios, Volkare, score, carnet), `expliquer.js` (mode « Expliquer le jeu ») | assembleur, schémas, thème, `precisions.py` |
+| Imperium | `chapitres.js`, `ateliers.js` (tutoriel), `solo.js` (solo contre la C.I.V.), `partie_numerique.js` (table virtuelle), `expliquer.js` (mode « Expliquer le jeu »), `glossaire.js` (mots-clés) | assembleur, schémas, thème |
 | Aeon's End | `interface.html`, `donnees.js` (cartes `RAW`, boîtes, répartitions, mises en place), `nemesis.js` (thèmes, némésis, mages, profils), `affichage.js` (générateur, journal), `expedition.js` | `gen_lang.py` pour chaque langue de `langues/`, assembleur, thème |
 
 ## `aeons-end/` : données de toutes les boîtes

@@ -213,6 +213,7 @@ details.grp summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--mu
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media print{.apphead,nav.toc,.pager,.lab button{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+<!--PARTAGE:expliquer.css-->
 </style>
 </head>
 <body>
@@ -233,6 +234,10 @@ details.grp summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--mu
   <main class="read" id="read"></main>
 </div></div>
 
+<div class="tab" id="tab-expliquer"><div class="page lrmp-ex"><div class="lrmp-ex-tete"><h1>{{ex_titre}}</h1><p>{{ex_intro}}</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
+<script><!--PARTAGE:expliquer.js-->
+<!--CONTENU:expliquer-->
+lrmpExpliquer(document.getElementById('ex-boite'),EXPL);</script>
 <div class="tab" id="tab-aide"><div class="page" id="aide"></div></div>
 <div class="tab" id="tab-score"><div class="page" id="score"></div></div>
 <!--CONTENU:donnees--><!--CONTENU:chapitres--><!--CONTENU:ateliers--><!--CONTENU:navires-->

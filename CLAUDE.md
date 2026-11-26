@@ -70,7 +70,25 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 | `<!--fiches-->…<!--/fiches-->` | `outils/site/fiches.py` | encart « À imprimer » de l'aide-mémoire, rappel en fin de tutoriel |
 | `/*precisions*/…/*/precisions*/` (script de Mage Knight) | `outils/mage-knight/precisions.py` | encadré « À ne pas oublier », bloc replié « Précisions (n) » par chapitre, chapitre facultatif « Cas épineux » (partie « Pour aller plus loin », après le Glossaire) |
 | `<!--schemas-->…<!--/schemas-->` | `outils/site/schemas.py` | schémas SVG des tutoriels Mage Knight, Imperium, Puerto Rico, insérés sous les règles du chapitre |
+| `<!--PARTAGE:fichier-->` (dans `page.html`) | `outils/site/assembler.py` | morceau commun lu dans `outils/site/partage/` : `expliquer.js` (moteur du mode « Expliquer le jeu ») et `expliquer.css` |
 | `<!--theme-->…<!--/theme-->`, `#lrmp-theme`, `#theme-js` | `outils/site/theme.py` | bouton de thème clair / sombre d'Imperium, Aeon's End et Mage Knight (palettes : `outils/site/themes/<code>.css`) |
+
+## Mode « Expliquer le jeu » (onglet après « Apprendre », dans toutes les applis sauf Aeon's End)
+
+- Un fil rouge pour la personne qui explique le jeu à la table : 10 écrans, puis le résumé du tour (aide-mémoire),
+  puis « Pour plus tard ». Moteur commun : `outils/site/partage/expliquer.js` + `expliquer.css` (insérés par `<!--PARTAGE:…-->`).
+- Contenu : `outils/<appli>/contenu/<langue>/expliquer.js` (`const EXPL={ui, ecrans:[{t, dire, html, piege, pl}], aide, plus}`).
+  `dire` = phrase en italique entre guillemets sous le titre (le récit de Paul) ; `piege` = encadré, titré `pl`
+  (« Attention », « Petit rappel »…). Mises en page : `big1`, `duo`, `trio`, `quad`, `flow`, `ol.steps` (`ol.steps etiq` +
+  `data-l="Phase 1"` pour des étiquettes), `ex-cadre` + `h4` (cadre titré), `tags`.
+- **Seules sources : le tutoriel et l'aide-mémoire de l'appli.** Ton voulu par Paul : informel, un peu de récit, des révélations
+  (« Chose que je ne vous ai pas encore dite… »). Paul relit écran par écran sur captures avant toute mise en ligne.
+- État (26/11/2026) : **Nemesis validé et en ligne (FR, EN)**. Mage Knight, Puerto Rico, Imperium : `EXPL.chantier` affiche
+  « Section en chantier » ; les brouillons sont dans leurs `expliquer.js` (Mage Knight et Puerto Rico : FR seulement, l'`en`
+  est une copie du français à traduire ; Imperium : ses anciens écrans, sans `dire`). Brouillons relus dans le doc
+  « Expliquer le jeu · écrans à relire » (https://claude.ai/artifact/9Q1c8epAcy8n7Ut9qMpj6S). Retirer `EXPL.chantier` une fois validé.
+- Ordre des onglets partout : Apprendre · Expliquer le jeu · … · Aide-mémoire en dernier. Imperium : le compagnon « À plusieurs »
+  (feuille de score, Effondrement) a été supprimé ; `#plusieurs` ouvre « Expliquer le jeu ». Mage Knight : « Partie libre » s'appelle « S'entraîner ».
 
 ## Langues
 
@@ -194,11 +212,10 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
    ajoutés le 26/11 : mana, tour, Niveaux ; Marché, zones des cartes, fin de partie ; actions, phase Intrus ; Carrières).
    Écartés par Paul : « plusieurs ennemis » de Mage Knight (`mk_groupe` reste dans schemas.py, non utilisé). Piste : versions interactives.
 
-2. **« Expliquer le jeu » dans les autres applis** (idée de Paul, 26/11) : sur le modèle d'Imperium (onglet « À plusieurs » →
-   « Expliquer le jeu » : 10 écrans courts puis un aide-mémoire, `SL` dans `outils/imperium/contenu/<langue>/compagnon.js`),
-   un fil rouge pour la personne qui explique le jeu à la table, pas un résumé exhaustif. À proposer à Paul avant d'écrire.
-3. **Search Console** : Paul doit valider paulmoussard.com (TXT posé dans Cloudflare) puis lancer « Changement d'adresse ».
-4. **Pax Pamir** : en attente des réponses de Paul (boîtes, priorités, PDF des règles).
+2. **« Expliquer le jeu »** : Nemesis fait. Suite, un jeu à la fois avec Paul, écran par écran (voir la section dédiée) :
+   Mage Knight (Mission de Reconnaissance), Puerto Rico, Imperium. Aeon's End : pas concerné.
+3. **Search Console** : paulmoussard.com validé le 26/11 ; « Changement d'adresse » à lancer si ce n'est pas fait.
+4. **Pax Pamir** : mis de côté par Paul pour l'instant.
 
 ## Idées d'applis
 

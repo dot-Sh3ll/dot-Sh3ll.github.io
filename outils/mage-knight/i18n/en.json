@@ -1,11 +1,14 @@
 {
  "rubriques": "Sections",
  "onglet_apprendre": "Learn",
- "onglet_libre": "Free game",
+ "onglet_libre": "Practice",
  "onglet_jouer": "Game companion",
  "onglet_aide": "Reference",
  "bouton_theme": "Change theme (light / dark)",
  "apprendre_titre": "Learn the rules",
  "sommaire": "Contents",
- "mention_tutoriel": "Unofficial tutorial for learning the Mage Knight board game, based on its rulebook. Texts and drawings created for this page."
+ "mention_tutoriel": "Unofficial tutorial for learning the Mage Knight board game, based on its rulebook. Texts and drawings created for this page.",
+ "onglet_expliquer": "Teach the game",
+ "ex_titre": "Teach the game",
+ "ex_intro": "A guide for teaching the game at the table, built for a first game of the Reconnaissance Mission: ten short screens, what to keep for later, then the cheat sheet."
 }
