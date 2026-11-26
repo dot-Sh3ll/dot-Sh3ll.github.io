@@ -179,7 +179,7 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
 - **Précisions de règles (FAQ, compendium, errata), dans toutes les applis** : encadrés titrés simplement « Précisions » (« Clarifications »), jamais « officielles », sans nom de source, de version ni de date dans les encadrés ni dans le texte (pas de « (FAQ officielle) »). La source n'est citée qu'à deux endroits : deux lignes sous « Apprendre les règles » en tête de la colonne des chapitres (« D'après le livret de règles » / « Avec les précisions de … ») et un remerciement avec liens dans la mention en bas de page (Nemesis : Bernaar ; Mage Knight : BillNC). Pas de pitch sous le titre.
 - **Versions de règles suivies** (vérifiées le 26/11/2026, aucune règle du tutoriel ne contredit un erratum) :
   Mage Knight = livret de l'édition Ultimate (Intrafin) + Q&A Compendium de BillNC (août 2026, dernière version) ;
-  Nemesis = livret VF + FAQ officielle v1.2 (+ précisions de la FAQ VF v1.1 d'avril 2026, Antoine Prono) + recensement de Bernaar (à jour) ;
+  Nemesis = livret VF + FAQ officielle v1.2 (+ précisions de la FAQ VF v1.1 d'avril 2026, Antoine Prono, remercié dans le pied) + recensement de Bernaar (à jour) ;
   Puerto Rico 1897 = livret de l'édition corrigée de 2023 ; Imperium = livret Horizons VF du 19 juillet 2026 (contient les errata
   d'Antique) ; Aeon's End = pas de partie « Apprendre », le mode Expédition suit Une Ère Nouvelle (pied de page).
   À revoir si un éditeur publie une nouvelle FAQ ou un nouveau livret.
