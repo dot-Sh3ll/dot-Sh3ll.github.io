@@ -24,13 +24,13 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 UI = {
  "fr": {"att": "À ne pas oublier", "prec": "Précisions", "src": "D'après le Q&A Compendium de BoardGameGeek (août 2026).",
         "part": "Pour aller plus loin", "voir": "Voir le chapitre",
-        "sources": "D'après le livret de règles et celui des extensions",
-        "avec": "Avec les précisions du <a href=\"{url}\" rel=\"noopener\">Q&amp;A Compendium</a> de BoardGameGeek (août 2026).",
+        "sources": "D'après le livret de règles",
+        "avec": "Avec les précisions du Q&amp;A Compendium.",
         "merci": "Merci à <a href=\"{bill}\" rel=\"noopener\">BillNC</a> pour <a href=\"{url}\" rel=\"noopener\">son Q&amp;A Compendium</a> sur BoardGameGeek."},
  "en": {"att": "Don't forget", "prec": "Clarifications", "src": "Based on the BoardGameGeek Q&A Compendium (August 2026).",
         "part": "Going further", "voir": "See the chapter",
-        "sources": "Based on the rulebook and the expansions rulebook",
-        "avec": "With clarifications from the BoardGameGeek <a href=\"{url}\" rel=\"noopener\">Q&amp;A Compendium</a> (August 2026).",
+        "sources": "Based on the rulebook",
+        "avec": "With the Q&amp;A Compendium clarifications.",
         "merci": "Thanks to <a href=\"{bill}\" rel=\"noopener\">BillNC</a> for <a href=\"{url}\" rel=\"noopener\">his Q&amp;A Compendium</a> on BoardGameGeek."},
 }
 
@@ -223,7 +223,9 @@ CSS = (".app-tuto .lrmp-att{margin:14px 0 0;padding:10px 13px;border-left:4px so
        ".app-tuto details.lrmp-prec summary{cursor:pointer;padding:9px 0;font-weight:700;color:var(--accent)}"
        ".app-tuto details.lrmp-prec ul{margin:0 0 6px;padding-left:18px}.app-tuto details.lrmp-prec li{margin:0 0 6px;line-height:1.45}"
        ".app-tuto details.lrmp-prec .src{font-size:.85em;color:var(--muted);margin:0 0 10px}"
-       ".app-tuto header.top p.lrmp-sources{font-size:.85rem;margin-top:6px;line-height:1.5}"
+       ".app-tuto header.top{display:none}"
+       ".app-tuto #side-nav .navhead{margin:2px 4px 12px}.app-tuto #side-nav .navhead h1{font-size:1.3rem;margin:0 0 6px;line-height:1.2}"
+       ".app-tuto #side-nav .navhead p{font-size:.8rem;color:var(--muted);margin:0;line-height:1.5}@media (min-width:901px){.app-tuto .courselay:not(.free){grid-template-columns:280px minmax(0,1fr)}}"
        ".app-tuto .lrmp-sources a,.app-tuto footer a{color:var(--accent)}")
 
 
@@ -237,6 +239,7 @@ def bloc(lang):
         data.append(d)
     ep = EPINEUX[lang]
     js = ("/*precisions*/\n"
+          "const NAVHEAD=(()=>{const n=document.querySelector('.app-tuto header.top .navhead');if(!n)return '';const h=n.outerHTML;n.remove();return h})();\n"
           "const PRECIS_UI=" + json.dumps({k: u[k] for k in ("att", "prec", "src")}, ensure_ascii=False) + ";\n"
           "(" + json.dumps(data, ensure_ascii=False) + ").forEach(p=>{const x=TP(p.t);if(x){x.att=p.att;x.faq=p.faq}});\n"
           "TOPICS.push(" + json.dumps({"t": ep["t"], "h": ep["h"], "rules": ep["rules"], "quiz": ep["quiz"]}, ensure_ascii=False) + ");\n"
@@ -268,9 +271,15 @@ def apply(lang):
     u = {k: v.format(url=URL, bill=BILL) for k, v in UI[lang].items()}
     s = re.sub(r"<!--sources-->.*?<!--/sources-->", "", s, flags=re.S)
     s = re.sub(r" ?<!--merci-->.*?<!--/merci-->", "", s, flags=re.S)
-    m = re.search(r'(<header class="top">\s*<div>\s*<h1>[^<]*</h1>\s*<p>[^<]*</p>)', s)
+    # présentation : titre et sources en tête de la colonne des chapitres, comme Nemesis (le pitch est retiré)
+    m = re.search(r'<header class="top">\s*<div(?: class="navhead")?>\s*(<h1>[^<]*</h1>).*?</div>(\s*<div class="chap" id="chap"></div>)', s, re.S)
     assert m, "présentation du tutoriel introuvable"
-    s = s[:m.end()] + f'<!--sources--><p class="lrmp-sources">{u["sources"]}<br>{u["avec"]}</p><!--/sources-->' + s[m.end():]
+    s = (s[:m.start()] + f'<header class="top"><div class="navhead">{m.group(1)}<!--sources--><p class="lrmp-sources">{u["sources"]}<br>{u["avec"]}</p><!--/sources--></div>'
+         + m.group(2) + s[m.end():])
+    nav = "let h=`<div class=\"bar\">"
+    if "let h=NAVHEAD+`<div class=\"bar\">" not in s:
+        assert s.count(nav) == 1, "renderNav introuvable"
+        s = s.replace(nav, "let h=NAVHEAD+`<div class=\"bar\">")
     m = re.search(r"(<footer>(?:Tutoriel non officiel|Unofficial tutorial)[^<]*)</footer>", s)
     assert m, "mention du tutoriel introuvable"
     s = s[:m.end(1)] + f' <!--merci-->{u["merci"]}<!--/merci-->' + s[m.end(1):]
