@@ -496,40 +496,6 @@ function renderCalc(){const c=T.calc,b=calcBlock(c),a=calcAtk(c);
      ${a.half?`<small class="muted">Une Résistance d'une des cibles divise par deux ${a.half} de vos points : séparer vos attaques peut éviter cette perte.</small>`:''}</div>
     <button class="ghost" data-t="clrAtk">Remettre l'Attaque à zéro</button></section>`}
 
-/* ---------- Chefs de Faction ---------- */
-const CHEF={elem:{n:'Élémentalistes',who:'Esprit de Tezla, Grande Prêtresse'},sc:{n:'Sombres Croisés',who:'Tezla d\'Obsidienne, Nécromancien'}};
-const CHEF_START={'tz-vie':6,'tzc-vie':6,'tz-vallee':4,'tzc-vallee':6,'tz-morts':4,'tzc-morts':6};
-function chefRow(w,l){const r=K[w][l-1]||{};return{a:parseInt(r.a,10)||0,t:r.t||'',f:r.f||''}}
-function renderChef(){const w=T.chefw,c=S.chefs[w],sc=scen(),two=coop();
-  let h=`<section class="panel"><h2>Chefs de Faction</h2>${seg('T.chefw',[['elem','Élémentalistes'],['sc','Sombres Croisés']])}<p class="muted"><small>${CHEF[w].who}. Immunisé aux Arcanes : seuls vos effets d'Attaque et de Parade le touchent.</small></p>`;
-  if(c.lvl===null){const def=CHEF_START[S.scen]||(two?6:4);if(c.start===null)c.start=def;const r=chefRow(w,c.start);
-    h+=`<div class="kv2"><span>Niveau de départ</span>${stp(`S.chefs.${w}.start`,1,12)}</div>
-     <p class="muted"><small>${CHEF_START[S.scen]?`Valeur du scénario en cours : ${CHEF_START[S.scen]}.`:'Le scénario fixe ce niveau.'} ${r.f?`À ce niveau, il est accompagné de ${esc(r.f)} jetons de sa Faction.`:'Le jeton indique combien de fidèles l\'accompagnent.'}</small></p>
-     <button class="primary big" data-t="chefPlace">Placer le Chef au niveau ${c.start}</button></section>`}
-  else if(c.done)h+=`<div class="banner"><b>Chef vaincu.</b> Un Bouclier a été posé sur son niveau 1.</div><p>Boucliers posés : ${two?`joueur 1 : ${c.sh.a}, joueur 2 : ${c.sh.b}`:c.sh.a}.</p><button data-t="chefReset">Remettre ce Chef en jeu</button></section>`;
-  else{const L=c.combat?c.combat.lvl:c.lvl,r=chefRow(w,L);
-    h+=`<div class="chefbig"><div><span class="sub">Niveau</span><b>${c.lvl}</b></div><div><span class="sub">Armure</span><b>${r.a||'?'}</b></div><div><span class="sub">Attaque</span><b class="t">${r.t?esc(r.t):'?'}</b></div></div>
-     ${r.a?'':`<p class="banner warn">Saisissez l'Armure et l'Attaque du niveau ${L} dans « Valeurs du jeton », plus bas.</p>`}`;
-    if(!c.combat)h+=`<button class="primary big" data-t="chefStart">Commencer un combat contre ce Chef</button><p class="muted"><small>Boucliers déjà posés : ${two?`joueur 1 : ${c.sh.a}, joueur 2 : ${c.sh.b}`:c.sh.a}. Ses fidèles vaincus ne reviennent pas quand son niveau baisse.</small></p></section>`;
-    else{const cb=c.combat,k=r.a?Math.floor(cb.hit/r.a):0,room=cb.lvl-cb.marks;
-      h+=`<div class="banner">Combat en cours, au niveau ${cb.lvl} : Armure ${r.a||'?'} pour tout le combat. Regroupez en une seule attaque, par phase, tout ce que vous lancez contre lui.</div>
-      ${two?`<div class="sub">Qui attaque ?</div>${seg(`S.chefs.${w}.combat.who`,[['a','Joueur 1'],['b','Joueur 2']])}`:''}
-      <div class="kv2"><span>Valeur de l'attaque</span>${stp(`S.chefs.${w}.combat.hit`,0,99)}</div>
-      <p class="verdict ${k?'yes':'no'}">${r.a?`${cb.hit} contre ${r.a} : <b>${Math.min(k,room)} niveau${Math.min(k,room)>1?'x':''}</b> en moins${k>room?' (il n\'en reste pas plus)':''}.`:'Armure inconnue pour ce niveau.'}</p>
-      <div class="row"><button class="primary" data-t="chefHit" ${k&&room?'':'disabled'}>Poser ${Math.min(k,room)||''} Bouclier${Math.min(k,room)>1?'s':''}</button><button data-t="chefEnd">Fin du combat</button><button class="ghost" data-t="chefCancel">Annuler le combat</button></div>
-      <p class="muted"><small>Boucliers posés pendant ce combat : <b>${cb.marks}</b>. ${cb.marks>=cb.lvl?'Un Bouclier est sur le niveau 1 : le Chef n\'attaque pas, et il sera vaincu à la fin du combat.':`À la fin du combat, il descendra au niveau ${cb.lvl-cb.marks}. Il vous attaque avec les valeurs du niveau ${cb.lvl}.`}</small></p></section>`}}
-  h+=`<details class="panel" id="chefvals" ${T.chefOpen?'open':''}><summary>Valeurs du jeton ${CHEF[w].n}</summary><p class="muted"><small>Recopiez une fois pour toutes l'Armure, l'Attaque et le nombre de fidèles de chaque niveau, lus sur le grand jeton. Ces valeurs restent enregistrées pour vos prochaines parties.</small></p>
-   <div class="ctab"><span class="sub">Niv.</span><span class="sub">Armure</span><span class="sub">Attaque</span><span class="sub">Fidèles</span>
-   ${K[w].map((r,i)=>`<span class="rl">${i+1}</span><input id="k-${w}-${i}-a" inputmode="numeric" data-bind="K.${w}.${i}.a" value="${esc(r.a)}" aria-label="Armure niveau ${i+1}"><input id="k-${w}-${i}-t" data-bind="K.${w}.${i}.t" data-live="0" value="${esc(r.t)}" placeholder="ex. Feu 6" aria-label="Attaque niveau ${i+1}"><input id="k-${w}-${i}-f" inputmode="numeric" data-bind="K.${w}.${i}.f" data-live="0" value="${esc(r.f)}" aria-label="Fidèles niveau ${i+1}">`).join('')}</div></details>`;
-  return h}
-function chefAct(a){const w=T.chefw,c=S.chefs[w];act(()=>{
-  if(a==='chefPlace'){c.lvl=c.start;c.sh={a:0,b:0};c.done=false;log(`Chef des ${CHEF[w].n} placé au niveau ${c.lvl}.`)}
-  if(a==='chefStart'){c.combat={lvl:c.lvl,marks:0,hit:0,who:'a'};log(`Combat contre le Chef des ${CHEF[w].n} (niveau ${c.lvl}).`)}
-  if(a==='chefHit'){const cb=c.combat,r=chefRow(w,cb.lvl),k=Math.min(Math.floor(cb.hit/r.a),cb.lvl-cb.marks);if(k<1)return;cb.marks+=k;c.sh[coop()?cb.who:'a']+=k;cb.hit=0;log(`${k} Bouclier${k>1?'s':''} posé${k>1?'s':''} sur le Chef des ${CHEF[w].n}.`)}
-  if(a==='chefEnd'){const cb=c.combat;c.lvl=cb.lvl-cb.marks;c.combat=null;if(c.lvl<1){c.done=true;log(`Chef des ${CHEF[w].n} vaincu !`)}else log(`Fin du combat : le Chef des ${CHEF[w].n} passe au niveau ${c.lvl}.`)}
-  if(a==='chefCancel'){const cb=c.combat;c.sh[coop()?cb.who:'a']-=cb.marks;c.combat=null}
-  if(a==='chefReset'){S.chefs[w]=chefNew()}})}
-
 /* ---------- Score ---------- */
 const O_CITY=['n','Cités conquises',10,'cities'],O_ALLC=['c','Toutes les Cités conquises',15,'allc'],O_LORD=['c','Chaque joueur est Seigneur d\'au moins une Cité',10,'lord'],
  O_ROUND=['n','Manches non utilisées',30,'rounds'],O_DECK=['n','Cartes restant dans le Deck du Fantôme',1,'deck'],O_OPEN=['c','Fin de la Manche en cours non annoncée',5,'open'],O_VK=['v'];
@@ -598,13 +564,12 @@ function renderCarnet(){const E=CB.entries,dr=CB.draft;if(!dr.date)dr.date=today
 function carnetText(){return 'Carnet de campagne Mage Knight\n'+CB.entries.map(e=>`${e.date} · ${scName(e.scen)} (${e.mode==='coop'?'coop':'solo'}) · ${e.result==='win'?'réussite':e.result==='lose'?'échec':'partie'}${e.score!==''&&e.score!=null?' · '+e.score+' pts':''}${e.heroes?' · '+e.heroes:''}${e.note?' · '+e.note:''}`).join('\n')}
 
 /* ---------- Onglet Outils ---------- */
-function renderTools(){return `<div class="seg subnav">${[['combat','Combat'],['chef','Chefs de Faction'],['score','Score']].map(([v,l])=>`<button data-set="T.sub|${v}" class="${T.sub===v?'on':''}">${l}</button>`).join('')}</div>`+
-  (T.sub==='chef'?renderChef():T.sub==='score'?renderScore():renderCalc())}
+function renderTools(){if(T.sub==='chef')T.sub='combat';return `<div class="seg subnav">${[['combat','Combat'],['score','Score de fin de partie']].map(([v,l])=>`<button data-set="T.sub|${v}" class="${T.sub===v?'on':''}">${l}</button>`).join('')}</div>`+
+  (T.sub==='score'?renderScore():renderCalc())}
 
 /* ---------- Événements ---------- */
 function rerender(el){const id=el&&el.id;let pos=null;try{pos=el.selectionStart}catch(e){}render();if(id){const n=document.getElementById(id);if(n){n.focus();try{if(pos!==null)n.setSelectionRange(pos,pos)}catch(e){}}}}
 function bindSet(el){const p=el.dataset.bind;let v=el.value;if(el.type==='number')v=v===''?'':Number(v);setP(p,v);saveAll();if(el.dataset.live!=='0')rerender(el)}
-APPROOT.addEventListener('click',e=>{const sm=e.target.closest('summary');if(sm&&sm.parentElement&&sm.parentElement.id==='chefvals'){T.chefOpen=!sm.parentElement.open;saveAll()}});
 APPROOT.addEventListener('input',e=>{const el=e.target;if(el.dataset&&el.dataset.bind&&el.tagName!=='SELECT')bindSet(el)});
 APPROOT.addEventListener('change',e=>{const el=e.target;if(el.dataset&&el.dataset.bind&&el.tagName==='SELECT')bindSet(el)});
 APPROOT.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const d=b.dataset;
@@ -617,7 +582,6 @@ APPROOT.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b
   else if(a==='delEn'){T.calc.en.splice(+x,1);T.calc.sel=0}
   else if(a==='clrBlk'){T.calc.blk=z4()}
   else if(a==='clrAtk'){T.calc.atk={ranged:z4(),siege:z4(),norm:z4()}}
-  else if(a.startsWith('chef'))return chefAct(a);
   else if(a==='scoreClear'){T.score=Object.assign(tBlank().score,{scen:T.score.scen})}
   else if(a==='toScore'){T.sub='score';T.score.scen=S.scen||'';S.view='tools'}
   else if(a==='scoreSave'){const r=scoreCalc(),gi=(S.phase==='over'&&T.score.scen===(S.scen||''))?gameEntry():-1;if(gi>=0){const e=CB.entries[gi];Object.assign(e,{mode:r.two?'coop':'solo',heroes:T.score.heroes||e.heroes,result:T.score.win?'win':'lose',score:Math.round(r.total*10)/10});S.view='carnet'}else CB.entries.push({date:today(),scen:T.score.scen,mode:r.two?'coop':'solo',heroes:T.score.heroes,result:(r.sc&&r.sc.src!=='Maison'&&!(SCO[T.score.scen]||[]).length&&!T.score.win)?'none':T.score.win?'win':'lose',score:Math.round(r.total*10)/10,note:''});S.view='carnet'}
