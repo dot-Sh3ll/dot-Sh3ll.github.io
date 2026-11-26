@@ -2,7 +2,8 @@
 
 Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, compagnons solo, fiches PDF à imprimer.
 Site statique servi par GitHub Pages (branche `main`, domaine `lessrulesmoreplay.com` dans `CNAME`, DNS chez OVH).
-Ancien domaine `paulmoussard.com` : redirection 301 chemin conservé (Cloudflare), à garder au moins jusqu'en 2028. Auteur : **Paul Moussard**.
+Ancien domaine `paulmoussard.com` (enregistré chez OVH, DNS chez Cloudflare depuis le 26/11/2026, DNSSEC coupé) : règle Cloudflare
+« Single Redirect » 301 `http*://*paulmoussard.com/*` → `https://lessrulesmoreplay.com/${3}`, chaîne de requête conservée ; à garder au moins jusqu'en 2028. Auteur : **Paul Moussard**.
 Ce fichier suffit pour travailler sur le site ; `outils/README.md` détaille chaque script.
 
 ## Règles de travail (à respecter sans exception)
