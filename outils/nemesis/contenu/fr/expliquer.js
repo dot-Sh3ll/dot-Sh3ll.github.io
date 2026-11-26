@@ -45,7 +45,7 @@ ecrans:[
 {t:'Sortir vivant',
  dire:'« Quand vous choisirez votre objectif, pensez à votre façon de survivre : hiberner, partir avec le vaisseau, ou prendre la navette de secours… où il n\'y a qu\'une seule place. »',
  html:`<div class="trio"><div><h3>Vaisseau</h3><p>Il tente d'atterrir. Si la DCA (les canons anti-aériens) est active, il est abattu. Une salle du complexe permet de la vérifier.</p></div><div><h3>Navette de secours</h3><p>Une seule place.</p></div><div><h3>Hibernatorium</h3><p>Il faut l'avoir activé.</p></div></div>
- <p>La partie s'arrête après la manche 14 : ceux qui sont encore dans le complexe sont laissés pour morts.</p>`}],
+ <p>La partie s'arrête après la manche 14, si tout le monde n'est pas déjà parti, en hibernation ou mort : ceux qui sont encore dans le complexe sont laissés pour morts.</p>`}],
 plus:[
 ['La mêlée et le tir en détail','Au premier combat dans une salle.'],
 ['La Reine','À sa première apparition.'],

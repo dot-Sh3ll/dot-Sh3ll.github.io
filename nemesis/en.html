@@ -259,6 +259,7 @@ h1{font-weight:700;text-transform:uppercase}
 .lrmp-ex-tete{max-width:1000px;margin:0 auto 14px}
 .lrmp-ex-tete h1{font-family:var(--xd);margin:0 0 4px;font-size:clamp(24px,3vw,32px)}
 .lrmp-ex-tete p{margin:0;color:var(--xm);max-width:70ch}
+.lrmp-ex-tete .lrmp-ex-duree{margin-top:6px;font-size:.9em;font-weight:600}
 .lrmp-ex-boite{max-width:1000px;margin:0 auto}
 .lrmp-ex-boite:fullscreen{max-width:none;background:var(--xk);padding:2vh 3vw;overflow:auto;display:flex;flex-direction:column;justify-content:center}
 .ex-stage{background:var(--xs);border:1px solid var(--xl);border-radius:16px;padding:clamp(18px,4vw,44px);min-height:min(66vh,600px);display:flex;flex-direction:column;position:relative;overflow:hidden}
@@ -367,7 +368,7 @@ h1{font-weight:700;text-transform:uppercase}
   <main class="read" id="read"></main>
 </div></div>
 
-<div class="tab" id="tab-expliquer"><div class="page lrmp-ex"><div class="lrmp-ex-tete"><h1>Teach the game</h1><p>A guide for teaching the game at the table in about ten short screens, plus a quick reminder of what hasn't been explained yet and will need to be later.</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
+<div class="tab" id="tab-expliquer"><div class="page lrmp-ex"><div class="lrmp-ex-tete"><h1>Teach the game</h1><p>A guide for teaching the game at the table in about ten short screens, plus a quick reminder of what hasn't been explained yet and will need to be later.</p><p class="lrmp-ex-duree">Estimated teaching time: about 8 minutes.</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
 <script>/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.js-->).
    lrmpExpliquer(boite, D) : D = {ecrans:[{t, html, dire?, piege?, pl?}], aide:html, plus?:[[quoi, quand]], ui:{…}}
    dire : la phrase à dire, en italique sous le titre ; piege : encadré, titré pl (sinon ui.piege).
@@ -446,7 +447,7 @@ ecrans:[
 {t:'Getting out alive',
  dire:'“When you choose your Objective, think about how you will survive: hibernate, leave on the Lander, or take the Escape Shuttle… which has only one seat.”',
  html:`<div class="trio"><div><h3>Lander</h3><p>It tries to land. If the Anti-Aircraft guns are active, it is shot down. A Room in the complex lets you check them.</p></div><div><h3>Escape Shuttle</h3><p>Only one seat.</p></div><div><h3>Hibernatorium</h3><p>It must have been activated.</p></div></div>
- <p>The game ends after Round 14: anyone still in the complex is left for dead.</p>`}],
+ <p>The game ends after Round 14, unless everyone has already escaped, hibernated or died: anyone still in the complex is left for dead.</p>`}],
 plus:[
 ['Melee and Shots in detail','At the first fight in a Room.'],
 ['The Queen','When she first appears.'],

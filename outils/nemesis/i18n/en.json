@@ -40,5 +40,6 @@
  "pied_mentions": "<footer class=\"page small muted\" style=\"padding-top:0\">Free, unofficial fan-made game aid, not affiliated with Awaken Realms or its partner publishers. Nemesis: Retaliation © Awaken Realms. Rules summarised from the English rulebook and the Rooms help sheet. Thanks to <a href=\"https://boardgamegeek.com/profile/Bernaar\" rel=\"noopener\">Bernaar</a> for <a href=\"https://boardgamegeek.com/thread/3718303/article/48230420#48230420\" rel=\"noopener\">their round-up of rules questions</a> and to <a href=\"https://boardgamegeek.com/profile/_Tiberias_\" rel=\"noopener\">Antoine Prono</a> for <a href=\"https://boardgamegeek.com/thread/3697212/faq-francaise-pour-nemesis-retaliation\" rel=\"noopener\">the French FAQ</a> on BoardGameGeek.</footer>",
  "onglet_expliquer": "data-tab=\"expliquer\" aria-selected=\"false\">Teach the game</button>",
  "ex_titre": "Teach the game",
- "ex_intro": "A guide for teaching the game at the table in about ten short screens, plus a quick reminder of what hasn't been explained yet and will need to be later."
+ "ex_intro": "A guide for teaching the game at the table in about ten short screens, plus a quick reminder of what hasn't been explained yet and will need to be later.",
+ "ex_duree": "Estimated teaching time: about 8 minutes."
 }

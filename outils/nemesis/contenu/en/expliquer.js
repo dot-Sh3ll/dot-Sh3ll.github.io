@@ -45,7 +45,7 @@ ecrans:[
 {t:'Getting out alive',
  dire:'“When you choose your Objective, think about how you will survive: hibernate, leave on the Lander, or take the Escape Shuttle… which has only one seat.”',
  html:`<div class="trio"><div><h3>Lander</h3><p>It tries to land. If the Anti-Aircraft guns are active, it is shot down. A Room in the complex lets you check them.</p></div><div><h3>Escape Shuttle</h3><p>Only one seat.</p></div><div><h3>Hibernatorium</h3><p>It must have been activated.</p></div></div>
- <p>The game ends after Round 14: anyone still in the complex is left for dead.</p>`}],
+ <p>The game ends after Round 14, unless everyone has already escaped, hibernated or died: anyone still in the complex is left for dead.</p>`}],
 plus:[
 ['Melee and Shots in detail','At the first fight in a Room.'],
 ['The Queen','When she first appears.'],

@@ -259,6 +259,7 @@ h1{font-weight:700;text-transform:uppercase}
 .lrmp-ex-tete{max-width:1000px;margin:0 auto 14px}
 .lrmp-ex-tete h1{font-family:var(--xd);margin:0 0 4px;font-size:clamp(24px,3vw,32px)}
 .lrmp-ex-tete p{margin:0;color:var(--xm);max-width:70ch}
+.lrmp-ex-tete .lrmp-ex-duree{margin-top:6px;font-size:.9em;font-weight:600}
 .lrmp-ex-boite{max-width:1000px;margin:0 auto}
 .lrmp-ex-boite:fullscreen{max-width:none;background:var(--xk);padding:2vh 3vw;overflow:auto;display:flex;flex-direction:column;justify-content:center}
 .ex-stage{background:var(--xs);border:1px solid var(--xl);border-radius:16px;padding:clamp(18px,4vw,44px);min-height:min(66vh,600px);display:flex;flex-direction:column;position:relative;overflow:hidden}
@@ -367,7 +368,7 @@ h1{font-weight:700;text-transform:uppercase}
   <main class="read" id="read"></main>
 </div></div>
 
-<div class="tab" id="tab-expliquer"><div class="page lrmp-ex"><div class="lrmp-ex-tete"><h1>Expliquer le jeu</h1><p>Un fil rouge pour présenter le jeu à la table en une dizaine d'écrans courts, et un petit rappel de ce qui n'a pas été expliqué et devra l'être plus tard.</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
+<div class="tab" id="tab-expliquer"><div class="page lrmp-ex"><div class="lrmp-ex-tete"><h1>Expliquer le jeu</h1><p>Un fil rouge pour présenter le jeu à la table en une dizaine d'écrans courts, et un petit rappel de ce qui n'a pas été expliqué et devra l'être plus tard.</p><p class="lrmp-ex-duree">Durée estimée de l'explication : environ 8 minutes.</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
 <script>/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.js-->).
    lrmpExpliquer(boite, D) : D = {ecrans:[{t, html, dire?, piege?, pl?}], aide:html, plus?:[[quoi, quand]], ui:{…}}
    dire : la phrase à dire, en italique sous le titre ; piege : encadré, titré pl (sinon ui.piege).
@@ -446,7 +447,7 @@ ecrans:[
 {t:'Sortir vivant',
  dire:'« Quand vous choisirez votre objectif, pensez à votre façon de survivre : hiberner, partir avec le vaisseau, ou prendre la navette de secours… où il n\'y a qu\'une seule place. »',
  html:`<div class="trio"><div><h3>Vaisseau</h3><p>Il tente d'atterrir. Si la DCA (les canons anti-aériens) est active, il est abattu. Une salle du complexe permet de la vérifier.</p></div><div><h3>Navette de secours</h3><p>Une seule place.</p></div><div><h3>Hibernatorium</h3><p>Il faut l'avoir activé.</p></div></div>
- <p>La partie s'arrête après la manche 14 : ceux qui sont encore dans le complexe sont laissés pour morts.</p>`}],
+ <p>La partie s'arrête après la manche 14, si tout le monde n'est pas déjà parti, en hibernation ou mort : ceux qui sont encore dans le complexe sont laissés pour morts.</p>`}],
 plus:[
 ['La mêlée et le tir en détail','Au premier combat dans une salle.'],
 ['La Reine','À sa première apparition.'],
