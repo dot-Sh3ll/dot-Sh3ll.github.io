@@ -15,7 +15,7 @@ const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[
 const LABS={};
 
 /* --- mise en place --- */
-LABS.setup={html:()=>`<div class="lab"><h3>Lab: setting up your table</h3><p class="hint">Choose the number of players.</p>${seg('su-n',[2,3,4,5],4)}<div class="tw" id="su-out" style="margin-top:12px"></div></div>`,
+LABS.setup={html:()=>`<div class="lab"><h3>Mini-game: setting up your table</h3><p class="hint">Choose the number of players.</p>${seg('su-n',[2,3,4,5],4)}<div class="tw" id="su-out" style="margin-top:12px"></div></div>`,
 init(r){const go=()=>{const n=segVal(r,'su-n');const D={
  2:{co:3,pl:'Governor: Fruit; other player: Corn',vp:65,qu:'5 (3 removed)',vis:3,ro:'7 (a single Adventurer)',sh:'4 and 6',reg:2,sup:40,ba:'1 of each Commercial Building, 2 of each Production Building',ex:'Remove 3 tiles of each Countryside type (Corn, Fruit, Sugar, Tobacco, Coffee, Quarry) and 2 barrels of each Good.'},
  3:{co:2,pl:'Fruit, Fruit, Corn',vp:75,qu:8,vis:4,ro:'6 (no Adventurer)',sh:'4, 5 and 6',reg:3,sup:55,ba:'All 49 Buildings'},
@@ -29,7 +29,7 @@ init(r){const go=()=>{const n=segVal(r,'su-n');const D={
  wireSeg(r,'su-n',go);go()}};
 
 /* --- a round --- */
-LABS.round={html:()=>`<div class="lab"><h3>Lab: play a round</h3><p class="hint">Each player chooses a role in turn: click a card. Watch the order of play in each phase, then the coins placed at the end of the round.</p>
+LABS.round={html:()=>`<div class="lab"><h3>Mini-game: play a round</h3><p class="hint">Each player chooses a role in turn: click a card. Watch the order of play in each phase, then the coins placed at the end of the round.</p>
 <div class="row">${seg('ro-n',[2,3,4,5],4)}<button type="button" id="ro-reset">Start again</button></div>
 <p id="ro-who" style="margin:12px 0 4px;font-weight:600"></p><div class="roles" id="ro-cards"></div><ul class="log" id="ro-log"></ul><div class="row" style="margin-top:10px"><button type="button" class="pri" id="ro-next" hidden>Next round</button></div></div>`,
 init(r){let S;
@@ -52,7 +52,7 @@ init(r){let S;
  $('#ro-reset',r).onclick=reset;wireSeg(r,'ro-n',reset);reset()}};
 
 /* --- Planter --- */
-LABS.plant={html:()=>`<div class="lab"><h3>Lab: a Planting phase</h3><p class="hint">4 players. Ana is the Planter, Carla has an occupied Builders Yard. Play each player in turn: click a tile or pass. The simulator refuses illegal choices.</p>
+LABS.plant={html:()=>`<div class="lab"><h3>Mini-game: a Planting phase</h3><p class="hint">4 players. Ana is the Planter, Carla has an occupied Builders Yard. Play each player in turn: click a tile or pass. The simulator refuses illegal choices.</p>
 <div id="pl-tiles" class="row"></div><p id="pl-who" style="margin:10px 0 4px;font-weight:600"></p><div class="row"><button type="button" id="pl-pass">Pass</button><button type="button" id="pl-new">New situation</button></div><ul class="log" id="pl-log"></ul></div>`,
 init(r){let S;const PL=['Ana','Bruno','Carla','Diego'];
  const stack=()=>shuffle([].concat(Array(12).fill('f'),Array(11).fill('s'),Array(10).fill('c'),Array(9).fill('t'),Array(8).fill('k')));
@@ -69,7 +69,7 @@ init(r){let S;const PL=['Ana','Bruno','Carla','Diego'];
  $('#pl-pass',r).onclick=()=>{if(S.done)return;S.log.push({t:`${PL[S.turn]} passes.`});next()};$('#pl-new',r).onclick=reset;reset()}};
 
 /* --- Recruiter --- */
-LABS.recruit={html:()=>`<div class="lab"><h3>Lab: sharing out and refilling the Register</h3><p class="hint">Set the number of players and workers on the Work Register. The Recruiter is first in the list.</p>
+LABS.recruit={html:()=>`<div class="lab"><h3>Mini-game: sharing out and refilling the Register</h3><p class="hint">Set the number of players and workers on the Work Register. The Recruiter is first in the list.</p>
 <div class="row"><label class="f">Players${numIn('rc-n',4,2,5)}</label><label class="f">Workers on the Register${numIn('rc-w',6,0,30)}</label></div><div class="out" id="rc-out"></div>
 <h3>Refilling the Register at the end of the phase</h3><div class="row"><label class="f">Empty semicircles on Buildings (all players)${numIn('rc-e',2,0,60)}</label><label class="f">Workers left in the supply${numIn('rc-s',20,0,95)}</label></div><div class="out" id="rc-out2"></div></div>`,
 init(r){const go=()=>{const n=Math.min(5,Math.max(2,num(r,'rc-n'))),w=num(r,'rc-w'),get=Array(n).fill(0);for(let i=0;i<w;i++)get[i%n]++;get[0]++;
@@ -80,7 +80,7 @@ init(r){const go=()=>{const n=Math.min(5,Math.max(2,num(r,'rc-n'))),w=num(r,'rc-
  $$('input',r).forEach(i=>i.oninput=go);go()}};
 
 /* --- Builder --- */
-LABS.build={html:()=>`<div class="lab"><h3>Lab: what does this Building cost?</h3><p class="hint">Choose a Building and your situation.</p>
+LABS.build={html:()=>`<div class="lab"><h3>Mini-game: what does this Building cost?</h3><p class="hint">Choose a Building and your situation.</p>
 <div class="row"><label class="f">Building<select id="bd-b">${B.filter(b=>b.set==='base').map(b=>`<option value="${b.id}">${b.fr} (${b.cost})</option>`).join('')}</select></label>
 <label class="f">Occupied Quarries${numIn('bd-q',2,0,8)}</label><label class="f">Empty City spaces${numIn('bd-free',6,0,12)}</label></div>
 <div class="row" style="margin-top:6px"><label class="chk"><input type="checkbox" id="bd-pri" checked> I am the Builder</label><label class="chk"><input type="checkbox" id="bd-own"> I already own it</label></div><div class="out" id="bd-out"></div></div>`,
@@ -93,7 +93,7 @@ init(r){const go=()=>{const b=BI[$('#bd-b',r).value],q=num(r,'bd-q'),pri=$('#bd-
  $$('input,select',r).forEach(i=>{i.oninput=go;i.onchange=go});go()}};
 
 /* --- Craftsman --- */
-LABS.prod={html:()=>`<div class="lab"><h3>Lab: what do I produce?</h3><p class="hint">For each Good: occupied Estates, and workers in Production Buildings of that type.</p>
+LABS.prod={html:()=>`<div class="lab"><h3>Mini-game: what do I produce?</h3><p class="hint">For each Good: occupied Estates, and workers in Production Buildings of that type.</p>
 <div class="tw"><table><tr><th>Good</th><th>Occupied Estates</th><th>Workers in Buildings</th><th class="c">Barrels</th></tr>
 ${GOODS.map(g=>`<tr><td>${G[g]}</td><td>${numIn('pd-p'+g,g==='c'?2:g==='s'?3:g==='t'?2:0,0,12)}</td><td>${g==='c'?'<span class="muted">no Building</span>':numIn('pd-b'+g,g==='s'?3:g==='t'?1:0,0,4)}</td><td class="c" id="pd-o${g}"></td></tr>`).join('')}</table></div>
 <div class="row"><label class="chk"><input type="checkbox" id="pd-fac"> Occupied Factory</label><label class="chk"><input type="checkbox" id="pd-art" checked> I am the Craftsman</label></div><div class="out" id="pd-out"></div></div>`,
@@ -105,7 +105,7 @@ init(r){const go=()=>{let types=0,tot=0;const made=[];GOODS.forEach(g=>{const p=
  $('#pd-out',r).innerHTML=t};$$('input',r).forEach(i=>{i.oninput=go;i.onchange=go});go()}};
 
 /* --- Trader --- */
-LABS.trade={html:()=>`<div class="lab"><h3>Lab: the Trading House</h3><p class="hint">Choose your Buildings, then click a barrel to sell. Each click is a different player selling 1 barrel.</p>
+LABS.trade={html:()=>`<div class="lab"><h3>Mini-game: the Trading House</h3><p class="hint">Choose your Buildings, then click a barrel to sell. Each click is a different player selling 1 barrel.</p>
 <div class="house" id="tr-h"></div>
 <div class="row"><label class="chk"><input type="checkbox" id="tr-pri"> Trader (advantage)</label><label class="chk"><input type="checkbox" id="tr-off"> Office</label><label class="chk"><input type="checkbox" id="tr-sm"> Small Market</label><label class="chk"><input type="checkbox" id="tr-lm"> Large Market</label></div>
 <div class="row" style="margin-top:8px">${GOODS.map(g=>`<button type="button" data-g="${g}">Sell ${G[g]}</button>`).join('')}</div>
@@ -124,7 +124,7 @@ init(r){let H=[],L=[];
  $('#tr-new',r).onclick=reset;reset()}};
 
 /* --- storage --- */
-LABS.store={html:()=>`<div class="lab"><h3>Lab: what may I keep?</h3><p class="hint">End of the Shipment phase. Enter how many barrels of each type you keep, then check.</p>
+LABS.store={html:()=>`<div class="lab"><h3>Mini-game: what may I keep?</h3><p class="hint">End of the Shipment phase. Enter how many barrels of each type you keep, then check.</p>
 <div class="row"><label class="chk"><input type="checkbox" id="st-sw"> Occupied Small Warehouse</label><label class="chk"><input type="checkbox" id="st-lw"> Occupied Large Warehouse</label><button type="button" id="st-new">New situation</button></div>
 <div class="tw" style="margin-top:8px"><table id="st-t"></table></div><div class="row"><button type="button" class="pri" id="st-ok">Check</button></div><div class="out" id="st-out"></div></div>`,
 init(r){let H;
@@ -142,12 +142,12 @@ init(r){let H;
 
 /* --- small building cards --- */
 const CARDNOTE={smk:'With an occupied Large Market: +3 in total. Even a sold Corn then earns coins.',byd:'A Planter with a Builders Yard does not take two Quarries. With the Hacienda, the face-down tile stays an Estate.',hac:'The drawn tile is placed at once and cannot be refused. Your normal action follows.',swh:'You must still load everything you can during the phase.',hos:'The worker can only go on the tile you just placed (with the Hacienda, either of the two).',off:'Another player with an Office may also add the same type, if there is room.',lmk:'Applies to every sale to the Trading House, advantage or not.',lwh:'With the Small Warehouse: 3 whole types + 1 barrel.',fac:'Only the number of different types counts, not the quantities.',sch:'A single worker, even for a Building with 3 semicircles.',har:'Every load counts: several loading turns = several VP.',wha:'The Chartered Ship has no limit, accepts a type already on a Cargo Ship, and all barrels of that type must go.'};
-LABS.cards={html:()=>`<div class="lab"><h3>Lab: Small Building cards</h3><p class="hint">Click a Building.</p><div class="row" id="cd-l">${['smk','byd','hac','swh','hos','off','lmk','lwh','fac','sch','har','wha'].map(i=>`<button type="button" data-b="${i}">${BI[i].fr}</button>`).join('')}</div><div class="out" id="cd-o">Choose a Building.</div></div>`,
+LABS.cards={html:()=>`<div class="lab"><h3>Mini-game: Small Building cards</h3><p class="hint">Click a Building.</p><div class="row" id="cd-l">${['smk','byd','hac','swh','hos','off','lmk','lwh','fac','sch','har','wha'].map(i=>`<button type="button" data-b="${i}">${BI[i].fr}</button>`).join('')}</div><div class="out" id="cd-o">Choose a Building.</div></div>`,
 init(r){$$('#cd-l button',r).forEach(b=>b.onclick=()=>{$$('#cd-l button',r).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');const d=BI[b.dataset.b];
  $('#cd-o',r).innerHTML=`<b>${d.fr}</b><br>Cost ${d.cost} · ${d.vp} VP · section ${d.row} · phase: ${d.ph}<br>${d.fx}<br><span class="muted">Good to know: ${CARDNOTE[d.id]}</span>`})}};
 
 /* --- large buildings --- */
-LABS.large={html:()=>`<div class="lab"><h3>Lab: a Large Building's bonus</h3><p class="hint">The Large Building is assumed to be occupied. It scores 4 VP + this bonus.</p>
+LABS.large={html:()=>`<div class="lab"><h3>Mini-game: a Large Building's bonus</h3><p class="hint">The Large Building is assumed to be occupied. It scores 4 VP + this bonus.</p>
 <div class="row"><label class="f">Building<select id="lg-b">${['fst','res','frt','cus','cth'].map(i=>`<option value="${i}">${BI[i].fr}</option>`).join('')}</select></label><span id="lg-in" class="row"></span></div><div class="out" id="lg-o"></div></div>`,
 init(r){const IN={fst:`<label class="f">Small Production Buildings${numIn('lg-a',1,0,4)}</label><label class="f">Large Production Buildings${numIn('lg-c',3,0,4)}</label>`,res:`<label class="f">Filled Countryside spaces${numIn('lg-a',10,0,12)}</label>`,frt:`<label class="f">Workers on your Island${numIn('lg-a',22,0,99)}</label>`,cus:`<label class="f">VP in chips${numIn('lg-a',30,0,200)}</label>`,cth:`<label class="f">Commercial Buildings (City Hall included)${numIn('lg-a',7,1,12)}</label>`};
  const calc=()=>{const k=$('#lg-b',r).value,a=num(r,'lg-a');let v;
@@ -156,7 +156,7 @@ init(r){const IN={fst:`<label class="f">Small Production Buildings${numIn('lg-a'
  const sw=()=>{$('#lg-in',r).innerHTML=IN[$('#lg-b',r).value];$$('#lg-in input',r).forEach(i=>i.oninput=calc);calc()};$('#lg-b',r).onchange=sw;sw()}};
 
 /* --- game end --- */
-LABS.endsim={html:()=>`<div class="lab"><h3>Lab: is the end triggered?</h3><div class="row">
+LABS.endsim={html:()=>`<div class="lab"><h3>Mini-game: is the end triggered?</h3><div class="row">
 <label class="f">Players${numIn('en-n',4,2,5)}</label><label class="f">Workers in the supply (end of Recruitment)${numIn('en-s',6,0,95)}</label><label class="f">Workers to place on the Register${numIn('en-w',5,0,60)}</label>
 <label class="f">Filled City spaces (furthest player)${numIn('en-c',11,0,12)}</label><label class="f">VP chips left${numIn('en-v',3,0,126)}</label></div><div class="out" id="en-o"></div></div>`,
 init(r){const go=()=>{const n=num(r,'en-n'),s=num(r,'en-s'),w=Math.max(n,num(r,'en-w')),c=num(r,'en-c'),v=num(r,'en-v'),why=[];

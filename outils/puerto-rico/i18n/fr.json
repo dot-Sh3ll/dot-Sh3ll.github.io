@@ -11,7 +11,7 @@
  "que_faites_vous": "'<span class=\"tag\">Que faites-vous ?</span>'",
  "etape_sur": "<div class=\"eyebrow\">${c.part} · étape ${i+1} sur ${CH.length}</div>",
  "les_points_de_regle": "<h2>Les points de règle</h2>",
- "h_cas_pratiques": "h+=`<h2>Cas pratiques</h2>",
+ "h_cas_pratiques": "h+=`<h2>Mini-jeux</h2>",
  "h_verifiez_que_c": "h+=`<h2>Vérifiez que c'est acquis</h2>",
  "data_tab_aide_ouvrir": "data-tab=\"aide\">Ouvrir l'aide-mémoire →</button>",
  "pas_tout_a_fait": "`<b>Pas tout à fait.</b> Essayez une autre réponse.`",

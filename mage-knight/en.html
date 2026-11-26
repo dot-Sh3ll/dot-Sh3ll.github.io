@@ -492,6 +492,17 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 <script id="mk-mode-js">(function(){var M=["apprendre","libre","expliquer","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
 <style id="mk-mode-css">html:not([data-mode=expliquer]) #app-ex,html[data-mode=expliquer] #app-tuto,html[data-mode=expliquer] #app-comp,html[data-mode=expliquer] #app-aide{display:none}html[data-mode=jouer] #app-tuto,html[data-mode=jouer] #app-aide,html[data-mode=apprendre] #app-comp,html[data-mode=apprendre] #app-aide,html[data-mode=aide] #app-tuto,html[data-mode=aide] #app-comp{display:none}</style>
 <style id="mk-onglets-css">html[data-mode="libre"] .app-tuto header.top{display:none}.app-tuto #chap{display:none}</style>
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
+<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
+<!--/commun-->
+<style id="sitehead-css-mk">
+.app-tuto #side-nav{top:calc(8px + var(--sitehead-h))!important;max-height:calc(92vh - var(--sitehead-h))!important}
+.app-tuto .wrap,.app-comp .wrap{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
+.topbar{max-width:none!important;margin:0 0 6px!important;padding:10px calc(max(0px,(100% - var(--site-w))/2) + var(--site-pad))!important;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent)}
+.topbar>.brand{font-size:21px;line-height:1.1}
+@media (max-width:480px){.topbar{justify-content:space-between!important;text-align:left!important}.topbar>.brand{font-size:18px}}
+</style>
 <!--pwa-->
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../icons/favicon-32.png" type="image/png">
@@ -540,17 +551,6 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 </style>
 <script>try{if(localStorage.getItem("mk-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <!--/theme-->
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
-<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
-<!--/commun-->
-<style id="sitehead-css-mk">
-.app-tuto #side-nav{top:calc(8px + var(--sitehead-h))!important;max-height:calc(92vh - var(--sitehead-h))!important}
-.app-tuto .wrap,.app-comp .wrap{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
-.topbar{max-width:none!important;margin:0 0 6px!important;padding:10px calc(max(0px,(100% - var(--site-w))/2) + var(--site-pad))!important;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent)}
-.topbar>.brand{font-size:21px;line-height:1.1}
-@media (max-width:480px){.topbar{justify-content:space-between!important;text-align:left!important}.topbar>.brand{font-size:18px}}
-</style>
 </head>
 <body>
 <header class="sitehead">
@@ -775,7 +775,7 @@ lrmpExpliquer(document.getElementById('ex-boite'),EXPL);</script>
       <li>The <b>Reputation</b> modifies your Influence at each interaction. Defeating marauders raises it, attacking a keep lowers it.</li></ul></div>
     <div class="panel"><h3>Terms and limits</h3>
       <ul><li>This tutorial uses the terms of the English rulebook. The French edition sometimes uses different names for the same things.</li>
-      <li>The board, enemies and Units in the hands-on cases are examples for learning; rely on the tiles, tokens and cards in your box.</li>
+      <li>The board, enemies and Units in the mini-games are examples for learning; rely on the tiles, tokens and cards in your box.</li>
       <li>In the combat cases, cards marked "example" are invented for the exercise. The others are the Basic Action cards.</li>
       <li>Practice mode remains simplified: a single enemy per combat, no Spells, Artifacts, Skills or Tactics.</li></ul></div>
   </section>
@@ -949,7 +949,7 @@ function setupBoard(i){
   const ids=STARTER.slice();
   if(Array.isArray(S.hand)&&S.hand.length){const hand=S.hand.map(id=>{if(id==='W')return wound();ids.splice(ids.indexOf(id),1);return mk(id)});S.hand=hand;S.deck=shuffle(ids.map(mk))}
   else{S.deck=shuffle(ids.map(mk));S.hand=[];draw(5)}
-  say(L.free?'The game begins. Safe travels.':'Hands-on case: '+L.h+'.');
+  say(L.free?'The game begins. Safe travels.':'Mini-game: '+L.h+'.');
 }
 function say(m,cls){S.log.unshift({m,cls});S.log.length=Math.min(S.log.length,5)}
 function draw(n){for(let i=0;i<n&&S.deck.length;i++)S.hand.push(S.deck.shift())}
@@ -1225,7 +1225,7 @@ function renderHand(){
     <div class="btns"><button data-play="base" data-uid="${c.uid}">Basic</button><button data-play="strong" data-uid="${c.uid}">Stronger</button><button class="side" data-play="side" data-uid="${c.uid}">Sideways (+1)</button></div></div></div>`).join('')||'<p style="color:var(--muted)">Empty hand. End your turn to draw.</p>';
   $('#played').textContent=S.played.length?'Played this turn: '+S.played.map(c=>c.def.n).join(', ')+'.':''}
 function renderCoach(){const L=LESSONS[LI],ok=L.ok(S),free=!!L.free;
-  $('#coach').innerHTML=`<div class="step">${free?'Practice':'Hands-on case'}</div><h2>${L.h}</h2><div class="txt">${L.txt}</div>
+  $('#coach').innerHTML=`<div class="step">${free?'Practice':'Mini-game'}</div><h2>${L.h}</h2><div class="txt">${L.txt}</div>
    <div class="goal ${ok?'done':''}"><div class="lab">${ok?'Goal reached':'Goal'}</div>${L.goal}</div>
    <details class="hint"><summary>A hint</summary><p>${L.hint}</p></details>
    <div class="row"><button data-lesson="again">${free?'New game':'Restart this case'}</button></div>
@@ -1847,7 +1847,7 @@ function arDmgAuto(){const l=AR.enemies.filter(e=>!e.dead&&!e.blocked&&!e.done);
 function arDmgStart(e){AR.dmg={e,left:e.atk*(e.ab.includes('Brutal')?2:1)};arSay(e.n+' deals '+AR.dmg.left+' Damage'+(e.ab.includes('Brutal')?' (Brutal: doubled)':'')+'. Assign them.')}
 function arUnit(i){if(AR.over)return;const u=AR.units[i];
   if(AR.d.noUnits){arSay('Your Units don\'t follow you here: they can neither act nor absorb.');return render()}
-  if(AR.phase!==2||!AR.dmg){arSay('In this hands-on case, this Unit is there to absorb damage: choose it during the Damage phase.');return render()}
+  if(AR.phase!==2||!AR.dmg){arSay('In this mini-game, this Unit is there to absorb damage: choose it during the Damage phase.');return render()}
   if(u.wounds||u.hit||u.dead){arSay('This Unit has already absorbed damage during this combat.');return render()}
   const e=AR.dmg.e,el=e.el,res=el==='cf'?u.res.includes('fire')&&u.res.includes('ice'):u.res.includes(el);let m=u.n+' : ';
   if(res){AR.dmg.left-=u.armor;if(AR.dmg.left<=0){u.hit=true;m+='Resistance, everything is absorbed without a Wound.'}else{u.wounds=1;AR.dmg.left-=u.armor;m+='Resistance, '+u.armor+' absorbed without a Wound, then the Unit is Wounded and absorbs another '+u.armor+'.'}}
@@ -1857,7 +1857,7 @@ function arHero(){const d=AR.dmg,ar=AR.d.armor||2,w=Math.ceil(d.left/ar);for(let
   arSay('Your Hero takes '+d.left+' Damage: '+w+' Wound'+(w>1?'s':'')+' (Armure '+ar+').'+(AR.wounds>=5?' Knocked out: you discard your other cards.':''));
   if(AR.wounds>=5)AR.hand=AR.hand.filter(c=>c.w);d.e.done=true;AR.dmg=null;arDmgAuto();render()}
 function arEnd(){AR.over=true;const all=AR.enemies.every(e=>e.dead);let err=all?null:'One enemy is still standing.';if(!err&&AR.d.check)err=AR.d.check(AR);
-  AR.ok=!err;AR.msg=err||'Case solved.';if(AR.ok)winCase(AR.id);render()}
+  AR.ok=!err;AR.msg=err||'Mini-game solved.';if(AR.ok)winCase(AR.id);render()}
 function arHtml(){const d=AR.d,p=AR.phase,ph=['Ranged and Siege','Block','Damage','Attack'];
   const etag=e=>[e.fort||d.site?'Fortified':'',...e.ab,e.res.length?'Resists: '+e.res.map(r=>({phys:'physical',fire:'Fire',ice:'Ice'})[r]).join(', '):''].filter(Boolean).map(x=>`<span class="tag">${x}</span>`).join('');
   let ctl='';
@@ -1904,7 +1904,7 @@ function ensureCase(){const id=activeCase();if(!id)return null;const c=CASES[id]
 function renderCourse(){const T=COURSE[TI],id=ensureCase(),c=id&&CASES[id];if(T.glo){SEEN.add(TI);persist()}
   $('#c-top').innerHTML=`<div class="panel"><div class="eyebrow">${T.part} · ${T.opt?'optional':`chapter ${TI+1} of ${COURSE.length-1}`}</div><h2 class="chtitle">${T.h}</h2>
     ${T.glo?`<dl class="glo">${T.glo.map(g=>`<dt>${g[0]}</dt><dd>${g[1]}</dd>`).join('')}</dl>`:`<ul class="rules">${T.rules.map(r=>`<li>${r}</li>`).join('')}</ul>`}${T.lab?labHtml():''}${precis(T)}</div>
-   ${T.cases.length?`<div class="panel"><div class="row between"><h2>Hands-on case${T.cases.length>1?'s':''}</h2><span class="muted">${T.cases.filter(x=>CDONE.has(x)).length} / ${T.cases.length} solved${T.cases.length>1?'s':''}</span></div>
+   ${T.cases.length?`<div class="panel"><div class="row between"><h2>Mini-game${T.cases.length>1?'s':''}</h2><span class="muted">${T.cases.filter(x=>CDONE.has(x)).length} / ${T.cases.length} solved${T.cases.length>1?'s':''}</span></div>
     <div class="casetabs">${T.cases.map(x=>`<button data-case="${x}" class="${x===id?'cur':''} ${CDONE.has(x)?'ok':''}">${caseTitle(x)}</button>`).join('')}</div>
     ${c.type==='board'?`<p class="muted">This case is played on the board below: instructions on the left, cards at the bottom.</p>`:c.type==='arena'?arHtml():c.type==='story'?`<h3>${c.title}</h3>`+stHtml():`<h3>${c.title}</h3>`+slHtml()}</div>`:''}`;
   $('#c-bot').innerHTML=(T.quiz.length?`<div class="panel"><h2>Check</h2>${T.quiz.map((q,j)=>{const a=ANS[TI][j];return `<div class="q"><p><b>${j+1}.</b> ${q.q}</p><div class="opts2">${q.o.map((o,k)=>`<button data-ans="${j}:${k}" class="${a===k?(k===q.a?'right':'wrong'):''}">${o}</button>`).join('')}</div>${a===undefined||a===null?'':`<p class="fb ${a===q.a?'good':'bad'}">${a===q.a?'Exact. '+q.why:'Not quite. Reread the chapter\'s rules and try again.'}</p>`}</div>`}).join('')}</div>`:'')
@@ -2700,7 +2700,7 @@ S=load()||blank();render();
 </footer>
 <!--fiches-->
 <script>
-(function(){var F=[{"i": "🗺️", "t": "Game aid", "d": "Summaries of the turn, movement, combat, sites and enemy abilities. 8 pages.", "u": "../fiches/mage-knight-game-aid.pdf", "x": ""}, {"i": "📜", "t": "Homemade quest module", "d": "Module rules, reward table, Day and Night quests across three tiers (villages, monasteries, cities) and six homemade scenarios: three solo, three two-player co-op. 12 pages.", "u": "../fiches/mage-knight-quest-module.pdf", "x": ""}],C={"aide": "#app-aide header.top", "fin": ["#c-bot button.primary[data-chap=\"free\"]", ".row"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
+(function(){var F=[{"i": "🗺️", "t": "Game aid", "d": "Summaries of the turn, movement, combat, sites and enemy abilities.8 pages.", "u": "../fiches/mage-knight-game-aid.pdf", "x": ""}, {"i": "📜", "t": "Homemade quest module", "d": "Module rules, reward table, Day and Night quests across three tiers (villages, monasteries, cities) and six homemade scenarios: three solo, three two-player co-op.12 pages.", "u": "../fiches/mage-knight-quest-module.pdf", "x": ""}],C={"aide": "#app-aide header.top", "fin": ["#c-bot button.primary[data-chap=\"free\"]", ".row"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
 function box(kind){var a=document.createElement('aside');a.className='lrmp-fiches';a.dataset.kind=kind;
  a.innerHTML='<p class="k">'+(kind==='fin'?T.fin_t:T.k)+'</p><p class="t">'+(kind==='fin'?T.fin:T.aide)+'</p><ul>'+F.map(function(f){
   return '<li><span class="i" aria-hidden="true">'+f.i+'</span><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}

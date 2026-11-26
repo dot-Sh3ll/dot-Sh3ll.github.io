@@ -22,7 +22,7 @@ const CH=[
 <tr><td>The 8 Classics nations: Carthaginians, Celts, Greeks, Macedonians, Persians, Romans, Scythians, Vikings.</td><td>Cards marked with expansion icons, and boards and tokens specific to Horizons if your box doesn't contain them.</td></tr>
 </table></div>
 <h2>How to follow this tutorial</h2>
-<p>Six steps, from the most basic to the most advanced. Each one has hands-on exercises and ends with practice scenarios. Your progress is saved in this browser. After step 5, you know how to play.</p>`,
+<p>Six steps, from the most basic to the most advanced. Each one has mini-games and ends with practice scenarios. Your progress is saved in this browser. After step 5, you know how to play.</p>`,
 quiz:[{q:'With the Classics box alone, what do you do with the blue boxes in the Horizons rulebook?',o:['I apply all of them','I ignore them: they are for the Trade Routes expansion','I apply them only with two players'],a:1,w:'The blue boxes only concern the Trade Routes expansion, whose components are in the Horizons box.'},
 {q:'A game ends with a Collapse. Who wins?',o:['The player with the most points','The player with the fewest Unrest cards','The player who triggered the Collapse'],a:1,w:'Count each player\'s Unrest; the lowest total wins. Points only break a tie.'}]},
 
@@ -32,7 +32,7 @@ quiz:[{q:'With the Classics box alone, what do you do with the blue boxes in the
 <p>You start with about ten cards. At the end of each turn you refill your hand. When your deck is empty, you shuffle your discard pile to make a new one, and at that moment a new card from your nation is added: first the cards from your <b>Nation deck</b>, then your <b>Accession</b> card (which turns you from Barbarian to Empire; for the Vikings it is the Zenith, which triggers the end of the game), then your <b>Development</b>cards, which you must pay for. Cycling your deck fast means evolving your nation.</p>
 <h2>2. Three resources</h2>
 <p>${R.mat}, ${R.pop} and ${R.prog}. They come mostly from your ${R.reg} cards in play. They are either in the common supply, in your reserve, or placed on cards. A resource placed on a card can be neither spent nor moved, and does not count for scoring, unless a card says otherwise. Tokens are unlimited.</p>
-<div class="lab"><h3>Hands-on: can I pay?</h3>
+<div class="lab"><h3>Mini-game: can I pay?</h3>
 <p class="hint">When an effect says Pay, Progress can replace other resources: 1 Progress is worth 1 Population or 2 Materials (no change given). The reverse does not exist. Set your reserve and the cost.</p>
 <div class="row">
 <label class="f" for="pm">My Materials<input type="number" id="pm" min="0" value="3"></label>
@@ -48,7 +48,7 @@ quiz:[{q:'With the Classics box alone, what do you do with the blue boxes in the
 <h2>5. Fame and Glory</h2>
 <p>The ${R.ren} cards are worth the most points. You mostly get them with the <b>Glory</b>card, which forces you to Abandon three Regions in play. Replaying those Regions costs Actions: each Glory is paid for in tempo.</p>
 <h2>A player's areas</h2>
-<div class="lab"><h3>Hands-on: what is each area for?</h3><p class="hint">Click an area.</p>
+<div class="lab"><h3>Mini-game: what is each area for?</h3><p class="hint">Click an area.</p>
 <div class="zones" id="zones"></div><div class="out" id="zout">Choose an area to read its role.</div></div>`,
 quiz:[{q:'You must Pay 4 Materials. You have 2 Materials and 1 Progress. Can you pay?',o:['No, 2 Materials are missing','Yes: 2 Materials + 1 Progress worth 2 Materials','Yes, but only if I also have Population'],a:1,w:'For a Materials cost, each Progress spent counts as 2 Materials.'},
 {q:'Two Progress tokens are placed on one of your cards in play. Can you spend them?',o:['Yes, freely','No: resources placed on cards can\'t be used to pay','Yes, but only during the Solstice'],a:1,w:'Only resources in your reserve can be used to Pay or be Moved.'},
@@ -56,7 +56,7 @@ quiz:[{q:'You must Pay 4 Materials. You have 2 Materials and 1 Progress. Can you
 
 {id:'cartes',part:'Discover',t:'Reading a card',html:`
 <p class="lead">Everything a card does is written on it. You just need to know where to look. Click the numbered dots.</p>
-<div class="lab"><h3>Hands-on: anatomy of a card</h3>
+<div class="lab"><h3>Mini-game: anatomy of a card</h3>
 <div class="anat"><div class="card" id="card">
 <div class="band">Card name</div><div class="art"></div>
 <div class="txt"><b>Exhaust:</b> Pay 1 Population to gain 2 Materials.<br><i>Development cost: 3 Materials</i></div>
@@ -93,7 +93,7 @@ quiz:[{q:'Under which Market cards is an Unrest card tucked?',o:['Under all of t
 
 {id:'tour',part:'Play',t:'Your turn: three orders',html:`
 <p class="lead">On your turn you announce a single order out of three, resolve it, then do your Cleanup. The player to the left of the Solstice token starts the round and play goes clockwise.</p>
-<div class="lab"><h3>Hands-on: the three orders</h3><div class="tabs" id="ordtabs"></div><div id="ordout"></div></div>
+<div class="lab"><h3>Mini-game: the three orders</h3><div class="tabs" id="ordtabs"></div><div id="ordout"></div></div>
 <h2>Actions and Exhaust abilities in practice</h2>
 <ul><li><b>Take an Action</b>: remove an Action token from your State card. No token left, no Action, except a Free action.</li>
 <li><b>Play a card</b>: resolve its text as much as possible, then put it in your discard pile, unless it says to go elsewhere. Permanent cards (icon in the header) stay in play in front of you.</li>
@@ -102,7 +102,7 @@ quiz:[{q:'Under which Market cards is an Unrest card tucked?',o:['Under all of t
 <li>Some Exhaust abilities respond to an event ("when…"). They resolve right after the sentence that triggered them, before the next sentence.</li>
 <li><b>Free action</b>: the card is played without an Action token, even if you have none left. The same card can only be played this way once per turn. Free does not mean without cost: costs written on the card are still due.</li>
 <li><b>Gain an Action</b>: take an Action token from the supply, even if you go above three. You go back to three at Cleanup.</li></ul>
-<div class="lab"><h3>Hands-on: token counter</h3><p class="hint">Simulate an Activation turn and see what each move uses up.</p>
+<div class="lab"><h3>Simulator: token counter</h3><p class="hint">Simulate an Activation turn and see what each move uses up.</p>
 <p>Actions: <span class="tok" id="tkA"></span> &nbsp; Exhausted: <span class="tok" id="tkE"></span></p>
 <div class="row" id="tkbtn"></div><div class="out" id="tkout">You start with 3 Actions and 5 Exhaust tokens.</div></div>`,
 quiz:[{q:'Your hand only holds Unrest and unplayable cards. You want a good Tradition card visible in the Market, without taking the Unrest under it. Which order?',o:['Activation','Research','Pacify'],a:1,w:'Research: you discard your hand and Innovate a card, without the Unrest.'},
@@ -143,7 +143,7 @@ quiz:[{q:'"Pay 2 Materials to Draw 2 cards." You only have 1 Material and no Pro
 <li>With the Research order, you Innovate a Region, a Tradition, a Civilised or a Tributary, never a Fame card.</li></ul>
 <h3>Replacing a taken card</h3>
 <p>A card taken from one of the first two slots is replaced from the Main deck. The others are replaced from their slot's deck, or from the Main deck if that one is empty. So a card sometimes ends up in a slot that doesn't match its category. If an effect makes you Acquire several cards, finish each acquisition, replacement included, before the next: you may take the card that just arrived.</p>
-<div class="lab"><h3>Hands-on: a small Market</h3><p class="hint">Select a card, then choose a verb. Watch the Unrest pile: it is deliberately small here so you can see the Collapse coming.</p>
+<div class="lab"><h3>Mini-game: a small Market</h3><p class="hint">Select a card, then choose a verb. Watch the Unrest pile: it is deliberately small here so you can see the Collapse coming.</p>
 <div class="mk" id="mk"></div>
 <div class="row" style="margin-top:10px">
 <button type="button" id="mAcq" class="pri">Acquiring</button><button type="button" id="mInn">Innovate this card</button><button type="button" id="mBlind">Innovate blind (same category)</button><button type="button" id="mProg">Place 1 Progress (Cleanup)</button><button type="button" id="mReset">Restart</button></div>
@@ -174,7 +174,7 @@ quiz:[{q:'You Acquire a Tradition carrying 2 Progress with an Unrest under it. W
 <li>Keep Drawing up to your hand limit.</li></ol>
 <p>During Cleanup you always have a token available, since you just took them back. Mid-turn however, if all your Exhaust tokens are used or a marker is already placed, you shuffle without adding anything.</p>
 <p><b>"Draw, if possible"</b>: this kind of effect never causes a shuffle. Empty deck, no draw.<br><b>"Draw up to X"</b>, on the other hand, is a normal draw: empty deck, you shuffle and keep going until you have X cards in hand. Both together ("Draw up to 3 cards if possible"): you stop when the deck is empty.</p>
-<div class="lab"><h3>Hands-on: cycle your deck</h3><p class="hint">Illustrative example: the quantities vary by nation. Each click plays a full turn where you discard your whole hand.</p>
+<div class="lab"><h3>Mini-game: cycle your deck</h3><p class="hint">Illustrative example: the quantities vary by nation. Each click plays a full turn where you discard your whole hand.</p>
 <div class="row"><div class="pile"><b id="dDeck"></b><span>Deck</span></div><div class="pile"><b id="dHand"></b><span>Hand</span></div><div class="pile"><b id="dDisc"></b><span>Discard</span></div><div class="pile"><b id="dNat"></b><span>Nation deck</span></div><div class="pile"><b id="dDev"></b><span>Developments</span></div><div class="pile"><b id="dState" style="font-size:18px;line-height:38px"></b><span>State</span></div></div>
 <div class="row" style="margin-top:10px"><button type="button" class="pri" id="dTurn">Play a turn</button><button type="button" id="dAcq">Play a turn acquiring a card</button><label><input type="checkbox" id="dPay" checked> I can pay for my Developments</label><button type="button" id="dReset">Restart</button></div>
 <ol class="log" id="dLog"></ol></div>
@@ -232,9 +232,9 @@ quiz:[{q:'You play an Unrest from your hand to get rid of it. What does it cost 
 </div>
 <h2>Counting points</h2>
 <p>Leave the cards where they are: some are worth different points depending on where they are. The same icon or token can count for several cards. Each ${R.prog} token in your reserve is worth 1 point. The highest total wins; in case of a tie, the victory is shared.</p>
-<div class="lab"><h3>Hands-on: does it count or not?</h3><p class="hint">For each line, decide whether it counts towards your Countdown score, then check.</p>
+<div class="lab"><h3>Mini-game: does it count or not?</h3><p class="hint">For each line, decide whether it counts towards your Countdown score, then check.</p>
 <div id="cnt"></div><div class="row" style="margin-top:10px"><button type="button" class="pri" id="cntCheck">Check</button></div><div class="out" id="cntOut"></div></div>
-<div class="lab"><h3>Hands-on: score sheet</h3>
+<div class="lab"><h3>Mini-game: score sheet</h3>
 <div class="row"><label class="f" for="s1">Points from fixed-value cards<input type="number" id="s1" value="24"></label><label class="f" for="s2">Points from variable cards (10 max each)<input type="number" id="s2" value="13"></label><label class="f" for="s3">Negative points<input type="number" id="s3" value="2" min="0"></label><label class="f" for="s4">Progress in reserve<input type="number" id="s4" value="6" min="0"></label></div>
 <div class="out" id="sOut"></div></div>`,
 quiz:[{q:'The Countdown has just been triggered in the middle of a round. How many turns do you have left at most?',o:['None','The end of this round, then one full round','Three rounds'],a:1,w:'Finish the current round with its Solstice, then one final round with its Solstice.'},

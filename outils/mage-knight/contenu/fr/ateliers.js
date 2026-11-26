@@ -217,7 +217,7 @@ function arDmgAuto(){const l=AR.enemies.filter(e=>!e.dead&&!e.blocked&&!e.done);
 function arDmgStart(e){AR.dmg={e,left:e.atk*(e.ab.includes('Brutal')?2:1)};arSay(e.n+' inflige '+AR.dmg.left+' Dégâts'+(e.ab.includes('Brutal')?' (Brutal : doublés)':'')+'. Répartissez-les.')}
 function arUnit(i){if(AR.over)return;const u=AR.units[i];
   if(AR.d.noUnits){arSay('Vos Unités ne vous suivent pas ici : elles ne peuvent ni agir ni encaisser.');return render()}
-  if(AR.phase!==2||!AR.dmg){arSay('Dans ce cas pratique, cette Unité sert à encaisser : désignez-la pendant la phase de Dégâts.');return render()}
+  if(AR.phase!==2||!AR.dmg){arSay('Dans ce mini-jeu, cette Unité sert à encaisser : désignez-la pendant la phase de Dégâts.');return render()}
   if(u.wounds||u.hit||u.dead){arSay('Cette Unité a déjà encaissé pendant ce combat.');return render()}
   const e=AR.dmg.e,el=e.el,res=el==='cf'?u.res.includes('fire')&&u.res.includes('ice'):u.res.includes(el);let m=u.n+' : ';
   if(res){AR.dmg.left-=u.armor;if(AR.dmg.left<=0){u.hit=true;m+='Résistance, tout est absorbé sans Blessure.'}else{u.wounds=1;AR.dmg.left-=u.armor;m+='Résistance, '+u.armor+' absorbés sans Blessure, puis l\'Unité est Blessée et absorbe encore '+u.armor+'.'}}
@@ -227,7 +227,7 @@ function arHero(){const d=AR.dmg,ar=AR.d.armor||2,w=Math.ceil(d.left/ar);for(let
   arSay('Votre Héros encaisse '+d.left+' Dégâts : '+w+' Blessure'+(w>1?'s':'')+' (Armure '+ar+').'+(AR.wounds>=5?' Assommé : vous défaussez vos autres cartes.':''));
   if(AR.wounds>=5)AR.hand=AR.hand.filter(c=>c.w);d.e.done=true;AR.dmg=null;arDmgAuto();render()}
 function arEnd(){AR.over=true;const all=AR.enemies.every(e=>e.dead);let err=all?null:'Il reste un ennemi debout.';if(!err&&AR.d.check)err=AR.d.check(AR);
-  AR.ok=!err;AR.msg=err||'Cas réussi.';if(AR.ok)winCase(AR.id);render()}
+  AR.ok=!err;AR.msg=err||'Mini-jeu réussi.';if(AR.ok)winCase(AR.id);render()}
 function arHtml(){const d=AR.d,p=AR.phase,ph=['Distance et Siège','Parade','Dégâts','Attaque'];
   const etag=e=>[e.fort||d.site?'Fortifié':'',...e.ab,e.res.length?'Résiste : '+e.res.map(r=>({phys:'physique',fire:'Feu',ice:'Glace'})[r]).join(', '):''].filter(Boolean).map(x=>`<span class="tag">${x}</span>`).join('');
   let ctl='';
@@ -274,7 +274,7 @@ function ensureCase(){const id=activeCase();if(!id)return null;const c=CASES[id]
 function renderCourse(){const T=COURSE[TI],id=ensureCase(),c=id&&CASES[id];if(T.glo){SEEN.add(TI);persist()}
   $('#c-top').innerHTML=`<div class="panel"><div class="eyebrow">${T.part} · ${T.opt?'facultatif':`chapitre ${TI+1} sur ${COURSE.length-1}`}</div><h2 class="chtitle">${T.h}</h2>
     ${T.glo?`<dl class="glo">${T.glo.map(g=>`<dt>${g[0]}</dt><dd>${g[1]}</dd>`).join('')}</dl>`:`<ul class="rules">${T.rules.map(r=>`<li>${r}</li>`).join('')}</ul>`}${T.lab?labHtml():''}${precis(T)}</div>
-   ${T.cases.length?`<div class="panel"><div class="row between"><h2>Cas pratique${T.cases.length>1?'s':''}</h2><span class="muted">${T.cases.filter(x=>CDONE.has(x)).length} / ${T.cases.length} réussi${T.cases.length>1?'s':''}</span></div>
+   ${T.cases.length?`<div class="panel"><div class="row between"><h2>Mini-jeu${T.cases.length>1?'x':''}</h2><span class="muted">${T.cases.filter(x=>CDONE.has(x)).length} / ${T.cases.length} réussi${T.cases.length>1?'s':''}</span></div>
     <div class="casetabs">${T.cases.map(x=>`<button data-case="${x}" class="${x===id?'cur':''} ${CDONE.has(x)?'ok':''}">${caseTitle(x)}</button>`).join('')}</div>
     ${c.type==='board'?`<p class="muted">Ce cas se joue sur le plateau ci-dessous : consigne à gauche, cartes en bas.</p>`:c.type==='arena'?arHtml():c.type==='story'?`<h3>${c.title}</h3>`+stHtml():`<h3>${c.title}</h3>`+slHtml()}</div>`:''}`;
   $('#c-bot').innerHTML=(T.quiz.length?`<div class="panel"><h2>Vérifier</h2>${T.quiz.map((q,j)=>{const a=ANS[TI][j];return `<div class="q"><p><b>${j+1}.</b> ${q.q}</p><div class="opts2">${q.o.map((o,k)=>`<button data-ans="${j}:${k}" class="${a===k?(k===q.a?'right':'wrong'):''}">${o}</button>`).join('')}</div>${a===undefined||a===null?'':`<p class="fb ${a===q.a?'good':'bad'}">${a===q.a?'Exact. '+q.why:'Pas tout à fait. Relisez les règles du chapitre et réessayez.'}</p>`}</div>`}).join('')}</div>`:'')

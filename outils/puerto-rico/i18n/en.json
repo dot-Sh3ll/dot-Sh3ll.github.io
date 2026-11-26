@@ -11,7 +11,7 @@
  "que_faites_vous": "'<span class=\"tag\">What do you do?</span>'",
  "etape_sur": "<div class=\"eyebrow\">${c.part} · step ${i+1} of ${CH.length}</div>",
  "les_points_de_regle": "<h2>The rules</h2>",
- "h_cas_pratiques": "h+=`<h2>Hands-on cases</h2>",
+ "h_cas_pratiques": "h+=`<h2>Mini-games</h2>",
  "h_verifiez_que_c": "h+=`<h2>Check what you've learnt</h2>",
  "data_tab_aide_ouvrir": "data-tab=\"aide\">Open the reference →</button>",
  "pas_tout_a_fait": "`<b>Not quite.</b> Try another answer.`",

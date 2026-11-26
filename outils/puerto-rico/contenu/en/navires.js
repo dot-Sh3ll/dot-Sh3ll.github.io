@@ -12,7 +12,7 @@ const SHIPSC=[
 function randomShip(){const n=3+rnd(2),caps=n===3?[4,5,6]:[5,6,7],types=shuffle(GOODS.slice()),ships=caps.map((c,i)=>{const r=Math.random();if(r<.45)return [c,null,0];const t=types[i];return [c,t,1+rnd(c-1)]});
  const pl=[];for(let i=0;i<n;i++){const g={};let k=0;while(k<2+rnd(2)){const t=GOODS[rnd(5)];if(!g[t]){g[t]=1+rnd(5);k++}}pl.push({n:NAMES[i],cap:i===0?1:0,har:Math.random()<.25?1:0,wha:Math.random()<.2?1:0,g})}return {ships,pl}}
 
-LABS.ship={html:()=>`<div class="lab"><h3>Lab: loading simulator</h3>
+LABS.ship={html:()=>`<div class="lab"><h3>Simulator: ship loading</h3>
 <div class="row" id="sh-sc">${SHIPSC.map((s,i)=>`<button type="button" data-i="${i}" class="${i?'':'sel'}">${s.t}</button>`).join('')}</div>
 <p class="hint" id="sh-d" style="margin-top:10px"></p>
 <div class="ships" id="sh-ships"></div><div class="players" id="sh-pl"></div>

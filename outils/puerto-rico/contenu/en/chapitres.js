@@ -40,7 +40,7 @@ rules:[
 `Starting Estate, from the Governor clockwise: with 3 players Fruit, Fruit, Corn; with 4 Fruit, Fruit, Corn, Corn; with 5 Fruit, Fruit, Fruit, Corn, Corn. It goes face up on a Countryside space, <b>without a worker</b>.`,
 `The 8 Quarries form a face-up stack. The other Estates are shuffled into face-down stacks, and <b>one more than the number of players</b> are flipped face up.`,
 `Check your Estates: there are <b>12 Fruit and 8 Coffee</b>. Some first-print copies contain 16 Fruit and 4 Coffee; Ravensburger supplies the correct tiles on request.`,
-`The Work Register receives <b>as many workers as there are players</b>. The worker supply, VP chips, roles and ships depend on the number of players (see the lab).`,
+`The Work Register receives <b>as many workers as there are players</b>. The worker supply, VP chips, roles and ships depend on the number of players (see the mini-game).`,
 `The 50 barrels are sorted by color, the Trading House is placed empty. Unused pieces go back in the box.`
 ],
 lab:'setup',

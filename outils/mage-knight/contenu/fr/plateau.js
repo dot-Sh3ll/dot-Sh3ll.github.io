@@ -138,7 +138,7 @@ function setupBoard(i){
   const ids=STARTER.slice();
   if(Array.isArray(S.hand)&&S.hand.length){const hand=S.hand.map(id=>{if(id==='W')return wound();ids.splice(ids.indexOf(id),1);return mk(id)});S.hand=hand;S.deck=shuffle(ids.map(mk))}
   else{S.deck=shuffle(ids.map(mk));S.hand=[];draw(5)}
-  say(L.free?'La partie commence. Bonne route.':'Cas pratique : '+L.h+'.');
+  say(L.free?'La partie commence. Bonne route.':'Mini-jeu : '+L.h+'.');
 }
 function say(m,cls){S.log.unshift({m,cls});S.log.length=Math.min(S.log.length,5)}
 function draw(n){for(let i=0;i<n&&S.deck.length;i++)S.hand.push(S.deck.shift())}
@@ -414,7 +414,7 @@ function renderHand(){
     <div class="btns"><button data-play="base" data-uid="${c.uid}">Base</button><button data-play="strong" data-uid="${c.uid}">Amélioré</button><button class="side" data-play="side" data-uid="${c.uid}">Inclinée (+1)</button></div></div></div>`).join('')||'<p style="color:var(--muted)">Main vide. Terminez votre tour pour piocher.</p>';
   $('#played').textContent=S.played.length?'Jouées ce tour : '+S.played.map(c=>c.def.n).join(', ')+'.':''}
 function renderCoach(){const L=LESSONS[LI],ok=L.ok(S),free=!!L.free;
-  $('#coach').innerHTML=`<div class="step">${free?'Entraînement':'Cas pratique'}</div><h2>${L.h}</h2><div class="txt">${L.txt}</div>
+  $('#coach').innerHTML=`<div class="step">${free?'Entraînement':'Mini-jeu'}</div><h2>${L.h}</h2><div class="txt">${L.txt}</div>
    <div class="goal ${ok?'done':''}"><div class="lab">${ok?'Objectif atteint':'Objectif'}</div>${L.goal}</div>
    <details class="hint"><summary>Un indice</summary><p>${L.hint}</p></details>
    <div class="row"><button data-lesson="again">${free?'Nouvelle partie':'Recommencer ce cas'}</button></div>

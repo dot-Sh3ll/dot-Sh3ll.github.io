@@ -22,7 +22,7 @@ const CH=[
 <tr><td>Les 8 nations d'Antique : Carthaginois, Celtes, Grecs, Macédoniens, Perses, Romains, Scythes, Vikings.</td><td>Les cartes marquées des icônes d'extension, les plateaux et jetons propres à Horizons si votre boîte n'en contient pas.</td></tr>
 </table></div>
 <h2>Comment suivre ce tutoriel</h2>
-<p>Six étapes, du plus fondamental au plus pointu. Chacune contient des ateliers à manipuler et se termine par des mises en situation. Votre progression est gardée dans ce navigateur. Après l'étape 5, vous savez jouer.</p>`,
+<p>Six étapes, du plus fondamental au plus pointu. Chacune contient des mini-jeux et se termine par des mises en situation. Votre progression est gardée dans ce navigateur. Après l'étape 5, vous savez jouer.</p>`,
 quiz:[{q:'Avec la boîte Antique seule, que faites-vous des encadrés bleus du livret Horizons ?',o:['Je les applique tous','Je les ignore : ils concernent l\'extension Routes commerciales','Je les applique seulement à deux joueurs'],a:1,w:'Les encadrés bleus ne concernent que l\'extension Routes commerciales, dont le matériel est dans la boîte Horizons.'},
 {q:'Une partie se termine par un Effondrement. Qui gagne ?',o:['Le joueur qui a le plus de points','Le joueur qui a le moins de cartes Instabilités','Le joueur qui a déclenché l\'Effondrement'],a:1,w:'On compte les Instabilités de chacun ; le plus petit total l\'emporte. Les points ne servent qu\'à départager une égalité.'}]},
 
@@ -32,7 +32,7 @@ quiz:[{q:'Avec la boîte Antique seule, que faites-vous des encadrés bleus du l
 <p>Vous commencez avec une dizaine de cartes. À la fin de chaque tour vous refaites votre main. Quand votre deck est vide, vous mélangez votre défausse pour en refaire un, et à ce moment-là une nouvelle carte de votre nation s'y ajoute : d'abord les cartes de votre <b>pioche Nation</b>, puis votre carte <b>Avènement</b> (qui vous fait passer de Barbare à Empire ; chez les Vikings, c'est le Zénith, qui déclenche la fin de partie), puis vos cartes <b>Développement</b>, que vous devez payer. Faire tourner votre deck vite, c'est faire évoluer votre nation.</p>
 <h2>2. Trois ressources</h2>
 <p>${R.mat}, ${R.pop} et ${R.prog}. Elles viennent surtout de vos cartes ${R.reg} en jeu. Elles sont soit dans le stock commun, soit dans votre réserve, soit posées sur des cartes. Une ressource posée sur une carte ne peut ni être dépensée ni être déplacée, et ne compte pas au score, sauf si une carte dit le contraire. Les jetons ne sont pas limités.</p>
-<div class="lab"><h3>Atelier : puis-je payer ?</h3>
+<div class="lab"><h3>Mini-jeu : puis-je payer ?</h3>
 <p class="hint">Quand un effet dit Payer, le Progrès peut remplacer d'autres ressources : 1 Progrès vaut 1 Population, ou 2 Matériaux (sans rendu de monnaie). L'inverse n'existe pas. Réglez votre réserve et le coût.</p>
 <div class="row">
 <label class="f" for="pm">Mes Matériaux<input type="number" id="pm" min="0" value="3"></label>
@@ -48,7 +48,7 @@ quiz:[{q:'Avec la boîte Antique seule, que faites-vous des encadrés bleus du l
 <h2>5. Renommée et Gloire</h2>
 <p>Les cartes ${R.ren} sont les plus riches en points. On les obtient surtout avec la carte <b>Gloire</b>, qui oblige à Abandonner trois Régions en jeu. Rejouer ces Régions coûte des Actions : chaque Gloire se paie en tempo.</p>
 <h2>Les zones d'un joueur</h2>
-<div class="lab"><h3>Atelier : à quoi sert chaque zone ?</h3><p class="hint">Cliquez sur une zone.</p>
+<div class="lab"><h3>Mini-jeu : à quoi sert chaque zone ?</h3><p class="hint">Cliquez sur une zone.</p>
 <div class="zones" id="zones"></div><div class="out" id="zout">Choisissez une zone pour lire son rôle.</div></div>`,
 quiz:[{q:'Vous devez Payer 4 Matériaux. Vous avez 2 Matériaux et 1 Progrès. Pouvez-vous payer ?',o:['Non, il manque 2 Matériaux','Oui : 2 Matériaux + 1 Progrès qui vaut 2 Matériaux','Oui, mais seulement si j\'ai aussi de la Population'],a:1,w:'Pour un coût en Matériaux, chaque Progrès dépensé compte comme 2 Matériaux.'},
 {q:'Deux jetons Progrès sont posés sur une de vos cartes en jeu. Pouvez-vous les dépenser ?',o:['Oui, librement','Non : les ressources posées sur des cartes ne servent pas à payer','Oui, mais uniquement pendant le Solstice'],a:1,w:'Seules les ressources de votre réserve servent à Payer ou à être Déplacées.'},
@@ -56,7 +56,7 @@ quiz:[{q:'Vous devez Payer 4 Matériaux. Vous avez 2 Matériaux et 1 Progrès. P
 
 {id:'cartes',part:'Découvrir',t:'Lire une carte',html:`
 <p class="lead">Tout ce qu'une carte fait est écrit dessus. Encore faut-il savoir où regarder. Cliquez sur les pastilles numérotées.</p>
-<div class="lab"><h3>Atelier : anatomie d'une carte</h3>
+<div class="lab"><h3>Mini-jeu : anatomie d'une carte</h3>
 <div class="anat"><div class="card" id="card">
 <div class="band">Nom de la carte</div><div class="art"></div>
 <div class="txt"><b>Épuiser :</b> Payez 1 Population pour gagner 2 Matériaux.<br><i>Coût de Développement : 3 Matériaux</i></div>
@@ -93,7 +93,7 @@ quiz:[{q:'Sous quelles cartes du Marché glisse-t-on une carte Instabilités ?',
 
 {id:'tour',part:'Jouer',t:'Votre tour : trois ordres',html:`
 <p class="lead">À votre tour vous annoncez un seul ordre parmi trois, vous le résolvez, puis vous faites votre Nettoyage. Le joueur à gauche du jeton Solstice ouvre la manche et on tourne dans le sens horaire.</p>
-<div class="lab"><h3>Atelier : les trois ordres</h3><div class="tabs" id="ordtabs"></div><div id="ordout"></div></div>
+<div class="lab"><h3>Mini-jeu : les trois ordres</h3><div class="tabs" id="ordtabs"></div><div id="ordout"></div></div>
 <h2>Actions et capacités Épuiser en pratique</h2>
 <ul><li><b>Faire une Action</b> : retirez un jeton Action de votre carte État. Plus de jeton, plus d'Action, sauf Action gratuite.</li>
 <li><b>Jouer une carte</b> : résolvez son texte autant que possible, puis mettez-la dans votre défausse, sauf si elle dit d'aller ailleurs. Les cartes permanentes (icône en entête) restent en jeu devant vous.</li>
@@ -102,7 +102,7 @@ quiz:[{q:'Sous quelles cartes du Marché glisse-t-on une carte Instabilités ?',
 <li>Certaines capacités Épuiser répondent à un événement (« lorsque… »). Elles se résolvent juste après la phrase qui les a déclenchées, avant la phrase suivante.</li>
 <li><b>Action gratuite</b> : la carte se joue sans jeton Action, même s'il ne vous en reste plus. Une même carte ne peut être jouée ainsi qu'une fois par tour. Gratuit ne veut pas dire sans coût : les coûts écrits sur la carte restent dus.</li>
 <li><b>Gagner une Action</b> : prenez un jeton Action du stock, même si vous dépassez trois. Vous revenez à trois au Nettoyage.</li></ul>
-<div class="lab"><h3>Atelier : compteur de jetons</h3><p class="hint">Simulez un tour d'Activation et regardez ce que chaque geste consomme.</p>
+<div class="lab"><h3>Simulateur : compteur de jetons</h3><p class="hint">Simulez un tour d'Activation et regardez ce que chaque geste consomme.</p>
 <p>Actions : <span class="tok" id="tkA"></span> &nbsp; Épuisé : <span class="tok" id="tkE"></span></p>
 <div class="row" id="tkbtn"></div><div class="out" id="tkout">Vous commencez avec 3 Actions et 5 jetons Épuisé.</div></div>`,
 quiz:[{q:'Votre main ne contient que des Instabilités et des cartes injouables. Vous voulez une bonne carte Tradition visible au Marché, sans prendre l\'Instabilité dessous. Quel ordre ?',o:['Activation','Recherche','Pacification'],a:1,w:'Recherche : vous défaussez votre main et vous Innovez une carte, sans l\'Instabilité.'},
@@ -143,7 +143,7 @@ quiz:[{q:'« Payez 2 Matériaux pour Piocher 2 cartes. » Vous n\'avez qu\'1 Mat
 <li>Avec l'ordre Recherche, vous Innovez une Région, une Tradition, un Civilisé ou un Vassal, jamais une Renommée.</li></ul>
 <h3>Remplacer une carte prise</h3>
 <p>Une carte prise dans l'un des deux premiers emplacements est remplacée depuis la pioche Principale. Les autres le sont depuis la pioche de leur emplacement, ou depuis la pioche Principale si celle-là est vide. Il arrive donc qu'une carte se retrouve dans un emplacement qui ne correspond pas à sa catégorie. Si un effet vous fait Acquérir plusieurs cartes, terminez chaque acquisition, remplacement compris, avant la suivante : vous pouvez prendre la carte qui vient d'arriver.</p>
-<div class="lab"><h3>Atelier : un petit Marché</h3><p class="hint">Sélectionnez une carte puis choisissez un verbe. Surveillez la pile Instabilités : volontairement petite ici pour que vous voyiez arriver l'Effondrement.</p>
+<div class="lab"><h3>Mini-jeu : un petit Marché</h3><p class="hint">Sélectionnez une carte puis choisissez un verbe. Surveillez la pile Instabilités : volontairement petite ici pour que vous voyiez arriver l'Effondrement.</p>
 <div class="mk" id="mk"></div>
 <div class="row" style="margin-top:10px">
 <button type="button" id="mAcq" class="pri">Acquérir</button><button type="button" id="mInn">Innover cette carte</button><button type="button" id="mBlind">Innover à l'aveugle (même catégorie)</button><button type="button" id="mProg">Poser 1 Progrès (Nettoyage)</button><button type="button" id="mReset">Recommencer</button></div>
@@ -174,7 +174,7 @@ quiz:[{q:'Vous Acquérez une Tradition qui porte 2 Progrès et une Instabilité 
 <li>Continuez à Piocher jusqu'à votre limite de main.</li></ol>
 <p>Pendant le Nettoyage vous avez toujours un jeton disponible, puisque vous venez de les récupérer. En plein tour en revanche, si tous vos jetons Épuisé sont utilisés ou qu'un témoin est déjà posé, vous mélangez sans rien ajouter.</p>
 <p><b>« Piochez, si possible »</b> : ce type d'effet ne provoque jamais de mélange. Deck vide, vous ne piochez pas.<br><b>« Piochez jusqu'à X »</b> est au contraire une pioche normale : deck vide, vous mélangez et vous continuez jusqu'à X cartes en main. Les deux réunis (« Piochez jusqu'à 3 cartes si possible ») : vous vous arrêtez au deck vide.</p>
-<div class="lab"><h3>Atelier : faites tourner votre deck</h3><p class="hint">Exemple illustratif : les quantités varient selon la nation. Chaque clic joue un tour complet où vous défaussez toute votre main.</p>
+<div class="lab"><h3>Mini-jeu : faites tourner votre deck</h3><p class="hint">Exemple illustratif : les quantités varient selon la nation. Chaque clic joue un tour complet où vous défaussez toute votre main.</p>
 <div class="row"><div class="pile"><b id="dDeck"></b><span>Deck</span></div><div class="pile"><b id="dHand"></b><span>Main</span></div><div class="pile"><b id="dDisc"></b><span>Défausse</span></div><div class="pile"><b id="dNat"></b><span>Pioche Nation</span></div><div class="pile"><b id="dDev"></b><span>Développements</span></div><div class="pile"><b id="dState" style="font-size:18px;line-height:38px"></b><span>État</span></div></div>
 <div class="row" style="margin-top:10px"><button type="button" class="pri" id="dTurn">Jouer un tour</button><button type="button" id="dAcq">Jouer un tour en acquérant une carte</button><label><input type="checkbox" id="dPay" checked> J'ai de quoi payer mes Développements</label><button type="button" id="dReset">Recommencer</button></div>
 <ol class="log" id="dLog"></ol></div>
@@ -232,9 +232,9 @@ quiz:[{q:'Vous jouez une Instabilité de votre main pour vous en débarrasser. Q
 </div>
 <h2>Compter ses points</h2>
 <p>Laissez les cartes où elles sont : certaines valent des points différents selon leur emplacement. Une même icône ou un même jeton peut servir au calcul de plusieurs cartes. Chaque jeton ${R.prog} de votre réserve vaut 1 point. Le plus grand total gagne ; en cas d'égalité, la victoire est partagée.</p>
-<div class="lab"><h3>Atelier : ça compte ou pas ?</h3><p class="hint">Pour chaque ligne, décidez si cela entre dans votre score au Décompte, puis vérifiez.</p>
+<div class="lab"><h3>Mini-jeu : ça compte ou pas ?</h3><p class="hint">Pour chaque ligne, décidez si cela entre dans votre score au Décompte, puis vérifiez.</p>
 <div id="cnt"></div><div class="row" style="margin-top:10px"><button type="button" class="pri" id="cntCheck">Vérifier</button></div><div class="out" id="cntOut"></div></div>
-<div class="lab"><h3>Atelier : feuille de score</h3>
+<div class="lab"><h3>Mini-jeu : feuille de score</h3>
 <div class="row"><label class="f" for="s1">Points des cartes à valeur fixe<input type="number" id="s1" value="24"></label><label class="f" for="s2">Points des cartes variables (10 max chacune)<input type="number" id="s2" value="13"></label><label class="f" for="s3">Points négatifs<input type="number" id="s3" value="2" min="0"></label><label class="f" for="s4">Progrès en réserve<input type="number" id="s4" value="6" min="0"></label></div>
 <div class="out" id="sOut"></div></div>`,
 quiz:[{q:'Le Décompte vient d\'être déclenché au milieu d\'une manche. Combien de tours vous reste-t-il au maximum ?',o:['Aucun','La fin de cette manche, puis une manche complète','Trois manches'],a:1,w:'On finit la manche en cours avec son Solstice, puis une ultime manche avec son Solstice.'},

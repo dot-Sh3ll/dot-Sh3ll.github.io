@@ -979,7 +979,7 @@ const pct=(n,d)=>String(Math.round(1000*n/d)/10).replace('.',',')+'\u00a0%';
 
 const LABS={
 /* ===== sac Intrus ===== */
-sac:{html:()=>`<div class="lab"><h3>Atelier : la colonie grandit</h3><p class="hint">Composez le sac de départ, puis piochez. L'appli applique l'aide de jeu Intrus (côté « La Reine est en vie », ou « morte » si vous cochez la case) et montre la probabilité de chaque type au prochain tirage.</p>
+sac:{html:()=>`<div class="lab"><h3>Simulateur : la colonie grandit</h3><p class="hint">Composez le sac de départ, puis piochez. L'appli applique l'aide de jeu Intrus (côté « La Reine est en vie », ou « morte » si vous cochez la case) et montre la probabilité de chaque type au prochain tirage.</p>
 <div class="row">Personnages ${seg('sa-n',[1,2,3,4,5],3)} <button type="button" id="sa-reset">Recommencer</button></div>
 <div class="row" style="margin-top:8px"><label class="chk"><input type="checkbox" id="sa-q"> La Reine est sur le plateau</label><label class="chk"><input type="checkbox" id="sa-dead"> La Reine est morte</label></div>
 <div class="bag" id="sa-bag" aria-live="polite"></div><div class="counts" id="sa-cnt"></div>
@@ -1017,7 +1017,7 @@ init(r){const TOT={reine:9,guerrier:8,adulte:16,larve:6,vierge:1};let S;
  $('#sa-dead',r).onchange=e=>{const d=e.target.checked;if(d)$('#sa-q',r).checked=false;$('#sa-q',r).disabled=d};wireSeg(r,'sa-n',reset);$('#sa-reset',r).onclick=reset;$('#sa-ev',r).onclick=()=>go('ev');$('#sa-co',r).onclick=()=>go('co');$('#sa-sa',r).onclick=()=>go('sa');reset()}},
 
 /* ===== jet de bruit ===== */
-bruit:{html:()=>`<div class="lab"><h3>Atelier : le jet de bruit</h3><p class="hint">Votre personnage vient d'entrer dans la salle du centre. Choisissez la face obtenue au dé Bruit : l'appli applique la règle à chaque couloir adjacent.</p>
+bruit:{html:()=>`<div class="lab"><h3>Simulateur : le jet de bruit</h3><p class="hint">Votre personnage vient d'entrer dans la salle du centre. Choisissez la face obtenue au dé Bruit : l'appli applique la règle à chaque couloir adjacent.</p>
 <div class="map" id="br-map"></div>
 <div class="dice" id="br-dice">${[1,2,3,4].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="D">Danger</button></div>
 <div class="row"><button type="button" class="pri" id="br-roll">Lancer le dé</button><button type="button" id="br-new">Nouvelle situation</button></div><p class="small muted" id="br-p"></p><div class="out" id="br-out">Choisissez une face du dé.</div></div>`,
@@ -1043,7 +1043,7 @@ init(r){let S;const POS=[1,3,5,7];
  $$('#br-dice button',r).forEach(b=>b.onclick=()=>roll(b.dataset.v));$('#br-roll',r).onclick=()=>{const v=DE_BRUIT[rnd(10)];roll(v);$('#br-out',r).insertAdjacentHTML('afterbegin',`<p style="margin:0 0 6px"><b>Le dé donne : ${v==='D'?'Danger':v}.</b></p>`)};$('#br-new',r).onclick=neu;neu()}},
 
 /* ===== tir et mêlée ===== */
-tir:{html:()=>`<div class="lab"><h3>Atelier : tir et mêlée dans une salle</h3><p class="hint">Choisissez la cible et le type d'attaque, puis la face obtenue au dé Tir. La touche est toujours posée <b>avant</b> le jet.</p>
+tir:{html:()=>`<div class="lab"><h3>Simulateur : tir et mêlée dans une salle</h3><p class="hint">Choisissez la cible et le type d'attaque, puis la face obtenue au dé Tir. La touche est toujours posée <b>avant</b> le jet.</p>
 <div class="row">Cible ${seg('ti-t',['adulte','guerrier','larve'],'adulte',['Adulte','Guerrier','Larve'])} Attaque ${seg('ti-m',['tir','melee'],'tir',['Tir','Mêlée'])}</div>
 <div class="foes" id="ti-foe"></div>
 <div class="dice" id="ti-dice"></div>
@@ -1065,7 +1065,7 @@ init(r){let S;
  $('#ti-roll',r).onclick=()=>{const v=DE_TIR[rnd(8)],m=segVal(r,'ti-m');shoot(v==='C'?'Critique':v==='M'?(m==='tir'?'Munitions':'Vide'):v)};wireSeg(r,'ti-t',reset);wireSeg(r,'ti-m',reset);$('#ti-reset',r).onclick=reset;reset()}},
 
 /* ===== rafale ===== */
-rafale:{html:()=>`<div class="lab"><h3>Atelier : répartir une rafale</h3><p class="hint">Choisissez la face du dé Rafale, puis répartissez les touches : 1 au plus par Adulte ou Larve, exactement 2 par Guerrier.</p>
+rafale:{html:()=>`<div class="lab"><h3>Simulateur : répartir une rafale</h3><p class="hint">Choisissez la face du dé Rafale, puis répartissez les touches : 1 au plus par Adulte ou Larve, exactement 2 par Guerrier.</p>
 <div class="foes" id="ra-foes"></div>
 <div class="dice" id="ra-dice">${[1,2,3].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="4">4 ✦</button><button type="button" class="pri" id="ra-roll">Lancer le dé</button></div>
 <p class="small muted">Dé Rafale (6 faces) : trois 1, un 2, un 3, un 4. Une chance sur deux de ne faire qu'une touche ; 2 touches en moyenne.</p>
@@ -1084,7 +1084,7 @@ init(r){let S;
  $('#ra-roll',r).onclick=()=>{const v=DE_RAFALE[rnd(6)];$(`#ra-dice button[data-v="${v}"]`,r).click()};$('#ra-new',r).onclick=neu;neu()}},
 
 /* ===== fin de partie ===== */
-fin:{html:()=>`<div class="lab"><h3>Atelier : survivre à l'éclosion</h3><p class="hint">Avec une Larve sur votre plateau à la fin, vous ajoutez 1 Contamination, mélangez toutes vos cartes et en tirez 4 : une seule Contamination vous tue. Ajustez votre paquet pour voir le risque.</p>
+fin:{html:()=>`<div class="lab"><h3>Simulateur : survivre à l'éclosion</h3><p class="hint">Avec une Larve sur votre plateau à la fin, vous ajoutez 1 Contamination, mélangez toutes vos cartes et en tirez 4 : une seule Contamination vous tue. Ajustez votre paquet pour voir le risque.</p>
 <div class="row"><label class="f">Cartes Action<input type="number" id="fi-a" min="4" max="20" value="10"></label><label class="f">Cartes Contamination<input type="number" id="fi-c" min="0" max="27" value="3"></label><label class="chk"><input type="checkbox" id="fi-l" checked> Larve sur votre plateau</label></div>
 <div class="out" id="fi-out"></div><div class="row" style="margin-top:8px"><button type="button" id="fi-sim">Tirer 4 cartes</button></div><div class="out" id="fi-sim-out" hidden></div></div>`,
 init(r){const C=(n,k)=>{if(k<0||k>n)return 0;let x=1;for(let i=0;i<k;i++)x=x*(n-i)/(i+1);return x};
@@ -1160,7 +1160,7 @@ function qBlock(list,kind,cid){return `<div class="qs">${list.map((x,i)=>{const 
 function show(id,scroll){const c=CH.find(x=>x.id===id)||CH[0];ST.cur=c.id;saveST();const i=CH.indexOf(c),prev=CH[i-1],next=CH[i+1];
  let h=`<section class="ch on" id="ch-${c.id}"><div class="eyebrow">${c.part} · étape ${i+1} sur ${CH.length}</div><h1>${c.t}</h1><p class="lead">${c.lead}</p>
  <h2>Les points de règle</h2><ol class="rules">${c.rules.map(x=>`<li>${x}</li>`).join('')}</ol>${typeof FIG!=='undefined'&&FIG[c.id]?`<figure class="fig">${FIG[c.id].svg}<figcaption>${FIG[c.id].cap}</figcaption></figure>`:''}${c.faq?`<div class="faq"><h3>Précisions</h3><ul>${c.faq.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}${c.html||''}${c.lab?`<div id="labhost">${LABS[c.lab].html()}</div>`:''}`;
- if(c.cas&&c.cas.length)h+=`<h2>Cas pratiques</h2>${qBlock(c.cas,'c',c.id)}`;
+ if(c.cas&&c.cas.length)h+=`<h2>Mini-jeux</h2>${qBlock(c.cas,'c',c.id)}`;
  if(c.quiz&&c.quiz.length)h+=`<h2>Vérifiez que c'est acquis</h2>${qBlock(c.quiz,'q',c.id)}<div id="qscore" class="score"></div>`;
  h+=`<div id="donebox"></div><div class="pager">${prev?`<button type="button" data-go="${prev.id}">← ${prev.t}</button>`:'<span></span>'}${next?`<button type="button" class="pri" data-go="${next.id}">${next.t} →</button>`:`<button type="button" class="pri" data-tab="aide">Ouvrir l'aide-mémoire →</button>`}</div></section>`;
  const R=$('#read');R.innerHTML=h;if(c.lab)LABS[c.lab].init($('#labhost'));

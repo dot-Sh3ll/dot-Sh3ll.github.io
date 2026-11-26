@@ -15,7 +15,7 @@ const pct=(n,d)=>Math.round(1000*n/d)/10+'%';
 
 const LABS={
 /* ===== sac Intrus ===== */
-sac:{html:()=>`<div class="lab"><h3>Lab: the colony grows</h3><p class="hint">Build the starting bag, then draw. The app applies the Intruder Help sheet ("The Queen is alive" side, or "dead" if you tick the box) and shows the chance of each type on the next draw.</p>
+sac:{html:()=>`<div class="lab"><h3>Simulator: the colony grows</h3><p class="hint">Build the starting bag, then draw. The app applies the Intruder Help sheet ("The Queen is alive" side, or "dead" if you tick the box) and shows the chance of each type on the next draw.</p>
 <div class="row">Characters ${seg('sa-n',[1,2,3,4,5],3)} <button type="button" id="sa-reset">Start over</button></div>
 <div class="row" style="margin-top:8px"><label class="chk"><input type="checkbox" id="sa-q"> The Queen is on the board</label><label class="chk"><input type="checkbox" id="sa-dead"> The Queen is dead</label></div>
 <div class="bag" id="sa-bag" aria-live="polite"></div><div class="counts" id="sa-cnt"></div>
@@ -53,7 +53,7 @@ init(r){const TOT={reine:9,guerrier:8,adulte:16,larve:6,vierge:1};let S;
  $('#sa-dead',r).onchange=e=>{const d=e.target.checked;if(d)$('#sa-q',r).checked=false;$('#sa-q',r).disabled=d};wireSeg(r,'sa-n',reset);$('#sa-reset',r).onclick=reset;$('#sa-ev',r).onclick=()=>go('ev');$('#sa-co',r).onclick=()=>go('co');$('#sa-sa',r).onclick=()=>go('sa');reset()}},
 
 /* ===== jet de bruit ===== */
-bruit:{html:()=>`<div class="lab"><h3>Lab: the Noise roll</h3><p class="hint">Your Character has just entered the middle Room. Pick the face rolled on the Noise die: the app applies the rule to each adjacent Corridor.</p>
+bruit:{html:()=>`<div class="lab"><h3>Simulator: the Noise roll</h3><p class="hint">Your Character has just entered the middle Room. Pick the face rolled on the Noise die: the app applies the rule to each adjacent Corridor.</p>
 <div class="map" id="br-map"></div>
 <div class="dice" id="br-dice">${[1,2,3,4].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="D">Hazard</button></div>
 <div class="row"><button type="button" class="pri" id="br-roll">Roll the die</button><button type="button" id="br-new">New situation</button></div><p class="small muted" id="br-p"></p><div class="out" id="br-out">Pick a die face.</div></div>`,
@@ -79,7 +79,7 @@ init(r){let S;const POS=[1,3,5,7];
  $$('#br-dice button',r).forEach(b=>b.onclick=()=>roll(b.dataset.v));$('#br-roll',r).onclick=()=>{const v=DE_BRUIT[rnd(10)];roll(v);$('#br-out',r).insertAdjacentHTML('afterbegin',`<p style="margin:0 0 6px"><b>You roll: ${v==='D'?'Hazard':v}.</b></p>`)};$('#br-new',r).onclick=neu;neu()}},
 
 /* ===== shooting and melee ===== */
-tir:{html:()=>`<div class="lab"><h3>Lab: Shooting and Melee in a Room</h3><p class="hint">Pick the target and the type of attack, then the face rolled on the Shoot die. The Hit is always placed <b>before</b> the roll.</p>
+tir:{html:()=>`<div class="lab"><h3>Simulator: Shooting and Melee in a Room</h3><p class="hint">Pick the target and the type of attack, then the face rolled on the Shoot die. The Hit is always placed <b>before</b> the roll.</p>
 <div class="row">Target ${seg('ti-t',['adulte','guerrier','larve'],'adulte',['Adult','Drone','Larva'])} Attack ${seg('ti-m',['tir','melee'],'tir',['Shoot','Melee'])}</div>
 <div class="foes" id="ti-foe"></div>
 <div class="dice" id="ti-dice"></div>
@@ -101,7 +101,7 @@ init(r){let S;
  $('#ti-roll',r).onclick=()=>{const v=DE_TIR[rnd(8)],m=segVal(r,'ti-m');shoot(v==='C'?'Critical':v==='M'?(m==='tir'?'Ammo':'Blank'):v)};wireSeg(r,'ti-t',reset);wireSeg(r,'ti-m',reset);$('#ti-reset',r).onclick=reset;reset()}},
 
 /* ===== rafale ===== */
-rafale:{html:()=>`<div class="lab"><h3>Lab: assigning a Burst</h3><p class="hint">Pick the face of the Burst die, then assign the Hits: at most 1 per Adult or Larva, exactly 2 per Drone.</p>
+rafale:{html:()=>`<div class="lab"><h3>Simulator: assigning a Burst</h3><p class="hint">Pick the face of the Burst die, then assign the Hits: at most 1 per Adult or Larva, exactly 2 per Drone.</p>
 <div class="foes" id="ra-foes"></div>
 <div class="dice" id="ra-dice">${[1,2,3].map(v=>`<button type="button" data-v="${v}">${v}</button>`).join('')}<button type="button" data-v="4">4 ✦</button><button type="button" class="pri" id="ra-roll">Roll the die</button></div>
 <p class="small muted">Burst die (6 faces): three 1s, one 2, one 3, one 4. Half the time you get a single Hit; 2 Hits on average.</p>
@@ -120,7 +120,7 @@ init(r){let S;
  $('#ra-roll',r).onclick=()=>{const v=DE_RAFALE[rnd(6)];$(`#ra-dice button[data-v="${v}"]`,r).click()};$('#ra-new',r).onclick=neu;neu()}},
 
 /* ===== fin de partie ===== */
-fin:{html:()=>`<div class="lab"><h3>Lab: surviving the hatching</h3><p class="hint">With a Larva on your board at the end, you add 1 Contamination, shuffle all your cards and draw 4: a single Contamination kills you. Adjust your deck to see the risk.</p>
+fin:{html:()=>`<div class="lab"><h3>Simulator: surviving the hatching</h3><p class="hint">With a Larva on your board at the end, you add 1 Contamination, shuffle all your cards and draw 4: a single Contamination kills you. Adjust your deck to see the risk.</p>
 <div class="row"><label class="f">Action cards<input type="number" id="fi-a" min="4" max="20" value="10"></label><label class="f">Contamination cards<input type="number" id="fi-c" min="0" max="27" value="3"></label><label class="chk"><input type="checkbox" id="fi-l" checked> Larva on your board</label></div>
 <div class="out" id="fi-out"></div><div class="row" style="margin-top:8px"><button type="button" id="fi-sim">Draw 4 cards</button></div><div class="out" id="fi-sim-out" hidden></div></div>`,
 init(r){const C=(n,k)=>{if(k<0||k>n)return 0;let x=1;for(let i=0;i<k;i++)x=x*(n-i)/(i+1);return x};

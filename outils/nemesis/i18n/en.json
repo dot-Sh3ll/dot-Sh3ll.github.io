@@ -20,7 +20,7 @@
  "etape": "${c.part} · step ${i+1} of ${CH.length}",
  "titre_regles": "<h2>The rules</h2>",
  "faq_titre": "<h3>Clarifications</h3>",
- "titre_cas": "h+=`<h2>Hands-on cases</h2>",
+ "titre_cas": "h+=`<h2>Mini-games</h2>",
  "titre_verifier": "h+=`<h2>Check your understanding</h2>",
  "bouton_ouvrir_aide": "data-tab=\"aide\">Open the reference sheet →</button>",
  "aide_salles_section": "`<h2>The 12 Section Rooms</h2>",
