@@ -424,8 +424,9 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 <script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
 <script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <!--/pwa-->
-<script id="mk-mode-js">(function(){var M=["apprendre","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
+<script id="mk-mode-js">(function(){var M=["apprendre","libre","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
 <style id="mk-mode-css">html[data-mode=jouer] #app-tuto,html[data-mode=jouer] #app-aide,html[data-mode=apprendre] #app-comp,html[data-mode=apprendre] #app-aide,html[data-mode=aide] #app-tuto,html[data-mode=aide] #app-comp{display:none}</style>
+<style id="mk-onglets-css">html[data-mode="libre"] .app-tuto header.top{display:none}.app-tuto #chap{display:none}</style>
 <!--theme-->
 <style id="theme-css">
 /* Mage Knight : sombre par défaut ; palette claire en option (data-theme="light").
@@ -491,7 +492,7 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 
 <header class="topbar">
   <p class="brand">Mage Knight</p>
-  <nav class="modes lrmp-onglets" aria-label="Sections"><a href="#apprendre" data-mode="apprendre">Learn</a><a href="#jouer" data-mode="jouer">Play</a><a href="#aide" data-mode="aide">Reference</a></nav><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="Change theme (light / dark)"><span aria-hidden="true">◐</span></button>
+  <nav class="modes lrmp-onglets" aria-label="Sections"><a href="#apprendre" data-mode="apprendre">Learn</a><a href="#libre" data-mode="libre">Free game</a><a href="#jouer" data-mode="jouer">Game companion</a><a href="#aide" data-mode="aide">Reference</a></nav><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="Change theme (light / dark)"><span aria-hidden="true">◐</span></button>
 </header>
 <div class="app app-tuto" id="app-tuto">
 <div class="wrap">
@@ -1720,10 +1721,10 @@ function renderCourse(){const T=COURSE[TI],id=ensureCase(),c=id&&CASES[id];if(T.
   $('#c-bot').innerHTML=(T.quiz.length?`<div class="panel"><h2>Check</h2>${T.quiz.map((q,j)=>{const a=ANS[TI][j];return `<div class="q"><p><b>${j+1}.</b> ${q.q}</p><div class="opts2">${q.o.map((o,k)=>`<button data-ans="${j}:${k}" class="${a===k?(k===q.a?'right':'wrong'):''}">${o}</button>`).join('')}</div>${a===undefined||a===null?'':`<p class="fb ${a===q.a?'good':'bad'}">${a===q.a?'Exact. '+q.why:'Not quite. Reread the chapter\'s rules and try again.'}</p>`}</div>`}).join('')}</div>`:'')
    +`<div class="row between">${TI>0?`<button data-topic="${TI-1}">Previous chapter</button>`:'<span></span>'}${TI<COURSE.length-1?`<button class="${chapDone(TI)?'primary':''}" data-topic="${TI+1}">Next chapter</button>`:`<button class="primary" data-chap="free">Start a free game</button>`}</div>`}
 function renderNav(){const done=COURSE.filter((t,i)=>chapDone(i)).length;
-  $('#chap').innerHTML=`<button data-chap="course" class="${CH==='course'?'cur':''}">Rules course</button><button data-chap="free" class="${CH==='free'?'cur':''}">Free game</button>`;
   let h=`<div class="bar"><i style="width:${Math.round(100*done/COURSE.length)}%"></i></div><div class="barlabel">${done} chapter${done>1?'s':''} of ${COURSE.length}</div>`,last='';
   COURSE.forEach((t,i)=>{if(t.part!==last){h+=`<div class="part">${t.part}</div>`;last=t.part}h+=`<button data-topic="${i}" class="${i===TI?'cur':''}"><span class="n">${i+1}</span>${t.t}${chapDone(i)?'<span class="tick">✓</span>':''}</button>`});
   $('#side-nav').innerHTML=h}
+window.mkChap=c=>{if(CH!==c){CH=c;render()}};
 function render(){const free=CH==='free';
   if(S&&BOARD>=0&&BOARD!==7&&LESSONS[BOARD].ok(S))winCase('L'+BOARD);
   if(free&&BOARD!==7){BOARD=7;setupBoard(7)}
@@ -1735,7 +1736,7 @@ function render(){const free=CH==='free';
 
 APPROOT.addEventListener('click',e=>{
   const t=e.target.closest('button,[data-hex]');if(!t||t.disabled)return;const d=t.dataset;
-  if(d.chap){CH=d.chap;render();return window.scrollTo(0,0)}
+  if(d.chap){const m=d.chap==='free'?'libre':'apprendre';const a=document.querySelector('.modes a[data-mode="'+m+'"]');if(a)a.click();return}
   if(d.topic!==undefined){TI=+d.topic;CH='course';persist();render();return $('#courselay').scrollIntoView({block:'start'})}
   if(d.case){ACT[TI]=d.case;const c=CASES[d.case];if(c.type==='board'){BOARD=c.li;setupBoard(c.li)}return render()}
   if(d.ans){const [j,k]=d.ans.split(':');ANS[TI][+j]=+k;persist();return render()}
@@ -2492,8 +2493,8 @@ S=load()||blank();render();
 
 })();</script>
 <script>
-(()=>{const modes=['apprendre','jouer','aide'];
- function show(m){if(!modes.includes(m))m='jouer';document.documentElement.setAttribute('data-mode',m);document.getElementById('app-tuto').hidden=m!=='apprendre';document.getElementById('app-comp').hidden=m!=='jouer';document.getElementById('app-aide').hidden=m!=='aide';
+(()=>{const modes=['apprendre','libre','jouer','aide'];
+ function show(m){if(!modes.includes(m))m='jouer';document.documentElement.setAttribute('data-mode',m);document.getElementById('app-tuto').hidden=m!=='apprendre'&&m!=='libre';if(window.mkChap)window.mkChap(m==='libre'?'free':'course');document.getElementById('app-comp').hidden=m!=='jouer';document.getElementById('app-aide').hidden=m!=='aide';
   document.querySelectorAll('.modes a').forEach(a=>a.toggleAttribute('aria-current',a.dataset.mode===m)&&a.setAttribute('aria-current','page'));
   try{localStorage.setItem('mk-mode',m)}catch(e){}}
  let start=location.hash.slice(1);if(!modes.includes(start)){try{start=localStorage.getItem('mk-mode')||'jouer'}catch(e){start='jouer'}}
