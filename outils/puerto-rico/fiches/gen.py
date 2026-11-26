@@ -73,7 +73,7 @@ def top(title, n):
     return f'<div class="top"><div><span class="g">Puerto Rico 1897</span><h1>{title}</h1></div><span class="n">{n}</span></div>'
 
 def foot(t):
-    return f'<div class="foot"><span>Less Rules, More Play · paulmoussard.com</span><span>{t}</span></div>'
+    return f'<div class="foot"><span>Less Rules, More Play · lessrulesmoreplay.com</span><span>{t}</span></div>'
 
 def bl(k):
     return f'<span class="bl" style="background:{GC[k]}"></span>'

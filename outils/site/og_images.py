@@ -26,7 +26,7 @@ h1{{font-family:Marcellus,serif;font-weight:400;font-size:{108 if len(titre) < 1
 .fr{{font-size:40px;color:#efe8d8}}.en{{font-size:32px;color:#a3a9b8;margin-top:10px}}
 .u{{position:absolute;left:96px;bottom:52px;font-size:28px;color:#ddb96a}}
 .l{{position:absolute;left:96px;right:96px;bottom:104px;height:2px;background:linear-gradient(90deg,#ddb96a,transparent)}}
-</style>{marque}<h1>{titre}</h1><div class="fr">{fr}</div><div class="en">{en}</div><div class="l"></div><div class="u">paulmoussard.com · gratuit · free</div>"""
+</style>{marque}<h1>{titre}</h1><div class="fr">{fr}</div><div class="en">{en}</div><div class="l"></div><div class="u">lessrulesmoreplay.com · gratuit · free</div>"""
 
 with sync_playwright() as p:
     nav = p.chromium.launch(executable_path='/usr/bin/google-chrome', args=['--no-sandbox'])

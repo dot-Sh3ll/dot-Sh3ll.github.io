@@ -2,7 +2,7 @@
 
 Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, compagnons solo et outils.
 
-**Site :** paulmoussard.com
+**Site :** lessrulesmoreplay.com
 
 - Mage Knight — tutoriel et compagnon
 - Imperium Antique — tutoriel, solo contre la C.I.V., aide-mémoire

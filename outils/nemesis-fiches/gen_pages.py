@@ -66,7 +66,7 @@ def tete(titre, coin):
 
 def pied(droite):
     return (f'<div style="display:flex;justify-content:space-between;font-size:11.5px;color:{A};border-top:1px solid {A};padding-top:4px;margin-top:auto">'
-            f'<span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>{droite}</span></div>')
+            f'<span style="font-weight:600">Less Rules, More Play · lessrulesmoreplay.com</span><span>{droite}</span></div>')
 
 # ---------------------------------------------------------------- aide de jeu, page 1
 ACT = [('0', 'Jouer une carte Action', ''), ('0', 'Passer', ''), ('1', 'Se déplacer', 'jet de bruit'),

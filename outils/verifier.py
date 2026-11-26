@@ -21,7 +21,7 @@ import glob, html, json, os, re, shutil, subprocess, sys
 RACINE = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 os.chdir(RACINE)
 sys.path.insert(0, os.path.join(RACINE, "outils", "site"))
-SITE = "https://paulmoussard.com"
+SITE = "https://lessrulesmoreplay.com"
 RAPIDE = "--rapide" in sys.argv
 erreurs, alertes = [], []
 
@@ -66,7 +66,7 @@ def ctrl_pages():
             err("pages", f"{p} : meta description absente")
         elif len(html.unescape(d[0])) > 165:
             att("pages", f"{p} : description longue ({len(html.unescape(d[0]))} car.)")
-        if not g(r'<link rel="canonical" href="https://paulmoussard\.com/[^"]*">'):
+        if not g(r'<link rel="canonical" href="https://lessrulesmoreplay\.com/[^"]*">'):
             err("pages", f"{p} : canonical absent")
         if 'hreflang="x-default"' not in s:
             err("pages", f"{p} : hreflang x-default absent")
@@ -127,7 +127,7 @@ def ctrl_sitemap():
         u = SITE + "/" + (p[:-10] if p.endswith("index.html") else p)
         if u not in locs:
             err("sitemap", f"{p} absent du sitemap (lancer outils/site/seo.py)")
-    if "Sitemap: https://paulmoussard.com/sitemap.xml" not in lire("robots.txt"):
+    if "Sitemap: https://lessrulesmoreplay.com/sitemap.xml" not in lire("robots.txt"):
         err("sitemap", "robots.txt ne déclare pas le sitemap")
     if not os.path.exists("googleaae1513be976b5cd.html"):
         err("sitemap", "fichier de vérification Google Search Console supprimé")

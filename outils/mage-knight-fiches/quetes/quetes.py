@@ -325,7 +325,7 @@ def pied(dc, label):
     i = dc.rindex("</div>", 0, dc.index("</x-dc>"))
     return dc[:i] + ('<footer style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#52789d;'
                      'border-top:1px solid #52789d;padding-top:4px;margin-top:auto">'
-                     f'<span style="font-weight:600">Less Rules, More Play · paulmoussard.com</span><span>{label}</span></footer>\n') + dc[i:]  # <footer> : ne compte pas dans les :last-of-type des div
+                     f'<span style="font-weight:600">Less Rules, More Play · lessrulesmoreplay.com</span><span>{label}</span></footer>\n') + dc[i:]  # <footer> : ne compte pas dans les :last-of-type des div
 
 def to_html(dc, lang):
     """Page Design (.dc.html) -> page HTML simple : le <helmet> passe dans <head>, sans script ni polices en ligne."""

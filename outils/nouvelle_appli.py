@@ -4,7 +4,7 @@
 usage (depuis la racine du dépôt) :
   python3 outils/nouvelle_appli.py <dossier> <code> "<Nom FR>" "<Nom EN>" <#couleur> <glyphe> [police]
 
-  dossier   nom du dossier et de l'adresse (ex. pax-pamir → paulmoussard.com/pax-pamir/)
+  dossier   nom du dossier et de l'adresse (ex. pax-pamir → lessrulesmoreplay.com/pax-pamir/)
   code      2 à 4 lettres, filtre de l'accueil et préfixe des sauvegardes (ex. pp)
   couleur   couleur du jeu sur fond sombre (cartes de l'accueil) ; l'appli en tire une version foncée lisible
   glyphe    emoji de la carte de l'accueil (ex. 🐫)

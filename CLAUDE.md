@@ -1,7 +1,8 @@
-# CLAUDE.md : site Less Rules, More Play (paulmoussard.com)
+# CLAUDE.md : site Less Rules, More Play (lessrulesmoreplay.com)
 
 Aides de jeu gratuites pour jeux de société experts : tutoriels interactifs, compagnons solo, fiches PDF à imprimer.
-Site statique servi par GitHub Pages (branche `main`, domaine `paulmoussard.com` dans `CNAME`). Auteur : **Paul Moussard**.
+Site statique servi par GitHub Pages (branche `main`, domaine `lessrulesmoreplay.com` dans `CNAME`, DNS chez OVH).
+Ancien domaine `paulmoussard.com` : redirection 301 chemin conservé (Cloudflare), à garder au moins jusqu'en 2028. Auteur : **Paul Moussard**.
 Ce fichier suffit pour travailler sur le site ; `outils/README.md` détaille chaque script.
 
 ## Règles de travail (à respecter sans exception)
@@ -139,7 +140,7 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
    sources dans `outils/fiches-gabarit/`) : A5 portrait 559×794 px (paysage 794×559 pour les listes), **fond blanc**,
    marges 26 px en haut, 30 px sur les côtés, titres dans la police de l'appli du jeu, texte Source Sans 3 en 12 px
    minimum, une seule couleur (celle du jeu en version foncée), pied
-   « Less Rules, More Play · paulmoussard.com » **dans la couleur de la fiche**.
+   « Less Rules, More Play · lessrulesmoreplay.com » **dans la couleur de la fiche**.
 2. **Montrer la fiche à Paul dans le Design avant de la mettre sur le site.**
 3. Copier les pages dans `outils/<jeu>-fiches/fr/`, produire le PDF avec le script du jeu dans `fiches/`, la version anglaise
    s'il y en a une. Scripts : Puerto Rico `outils/puerto-rico/fiches/gen.py` et `gen_en.py` ; Imperium `outils/imperium-fiches/en.py`
@@ -191,9 +192,6 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
 1. **Schémas** : faits et validés par Paul, en FR et EN (Nemesis 11, Mage Knight 6, Imperium 4, Puerto Rico 2 ; les 9 derniers
    ajoutés le 26/11 : mana, tour, Niveaux ; Marché, zones des cartes, fin de partie ; actions, phase Intrus ; Carrières).
    Écartés par Paul : « plusieurs ennemis » de Mage Knight (`mk_groupe` reste dans schemas.py, non utilisé). Piste : versions interactives.
-2. **Changement d'adresse vers lessrulesmoreplay.com** : branche `adresse-lessrulesmoreplay` prête (CNAME, SITE, PDF, images de
-   partage, docs). À fusionner le soir de la bascule, une fois le DNS de lessrulesmoreplay.com prêt (A/AAAA GitHub, www en CNAME),
-   en même temps que la redirection 301 de paulmoussard.com (Cloudflare, chemin conservé).
 
 ## Idées d'applis
 

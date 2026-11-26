@@ -20,7 +20,7 @@ import datetime, html, json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from langs import available, page_file
 
-SITE = "https://paulmoussard.com"
+SITE = "https://lessrulesmoreplay.com"
 MARQUE = "Less Rules, More Play"
 AUTEUR = {"@type": "Person", "name": "Paul Moussard", "url": SITE + "/",
           "sameAs": ["https://ko-fi.com/paulmoussard", "https://github.com/dot-Sh3ll"]}
@@ -36,7 +36,7 @@ STUB = """<!DOCTYPE html>
 <meta charset="utf-8">
 <title>Less Rules, More Play</title>
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://paulmoussard.com/{to}/">
+<link rel="canonical" href="https://lessrulesmoreplay.com/{to}/">
 <meta http-equiv="refresh" content="0; url=/{to}/">
 <script>location.replace("/{to}/"+location.search+location.hash)</script>
 </head>
@@ -124,7 +124,7 @@ def accueil(applis_ld=None):
     """Balises de l'accueil français, puis pages /en/ et /de/ tirées de index.html. Renvoie les alternates."""
     applis_ld = applis_ld or applis_liste()
     alts = [(c, url_accueil(c)) for c in ACCUEIL_LANGS] + [("x-default", url_accueil("en"))]
-    site = {"@type": "WebSite", "@id": SITE + "/#site", "name": MARQUE, "alternateName": "paulmoussard.com", "url": SITE + "/",
+    site = {"@type": "WebSite", "@id": SITE + "/#site", "name": MARQUE, "alternateName": "lessrulesmoreplay.com", "url": SITE + "/",
             "description": ACCUEIL["fr"][1], "inLanguage": ACCUEIL_LANGS, "publisher": AUTEUR, "author": AUTEUR}
     auteur = AUTEUR | {"@id": SITE + "/#auteur", "jobTitle": "Président d'une association de jeux de société",
                        "homeLocation": {"@type": "Place", "name": "Strasbourg, France"}}
@@ -233,7 +233,7 @@ def main():
             r = PdfReader(path)
             meta = {"/Title": titre, "/Author": "Paul Moussard", "/Subject": sujet,
                     "/Keywords": ", ".join([titre.split(" · ")[0], "aide de jeu" if c == "fr" else "game aid", "PDF", MARQUE]),
-                    "/Creator": MARQUE + " · paulmoussard.com"}
+                    "/Creator": MARQUE + " · lessrulesmoreplay.com"}
             old = {k: r.metadata.get(k) for k in meta} if r.metadata else {}
             if all(str(old.get(k)) == v for k, v in meta.items()):
                 continue

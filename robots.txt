@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://paulmoussard.com/sitemap.xml
+Sitemap: https://lessrulesmoreplay.com/sitemap.xml
