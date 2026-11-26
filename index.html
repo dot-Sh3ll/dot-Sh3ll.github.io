@@ -142,6 +142,8 @@ body:not(.filtre) .tout,body.filtre .une,body:not(.parjeu) .tout.jeu{display:non
 .pdf{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:radial-gradient(60% 150% at 105% 50%,color-mix(in srgb,var(--c1,#1d2230) 60%,transparent),transparent 65%),#0c0f18;border:2px solid color-mix(in srgb,var(--accent,#ffbe04) 35%,transparent);border-radius:20px;box-shadow:inset 0 0 24px color-mix(in srgb,var(--accent,#ffbe04) 20%,transparent);padding:16px 20px}
 .pdf::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle,color-mix(in srgb,var(--accent,#ffbe04) 18%,transparent) .9px,transparent 1.5px) 0 0/22px 22px;-webkit-mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%);mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%)}
 .pdf>*{position:relative}
+@media (max-width:640px){.pdf{background:radial-gradient(120% 90% at 50% 110%,color-mix(in srgb,var(--c1,#1d2230) 60%,transparent),transparent 65%),#0c0f18}
+  .pdf::before{-webkit-mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%);mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%)}}
 .pdf .ico{font-size:1.9rem;line-height:1}
 .pdf h3{font-family:var(--display);font-weight:600;font-size:1.18rem;margin:0 0 2px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .pdf h3 .badge{background:var(--surface-2)}
@@ -327,7 +329,7 @@ footer p{margin:0 0 6px}
         <p class="en">All 25 Rooms: Section, Item icons, effect and clarifications, official FAQ included. 3 pages.</p>
         <p class="meta"><span class="fr">PDF · format A5 paysage · français ou anglais</span><span class="en">PDF · A5 landscape · English or French</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/nemesis-salles.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/nemesis-rooms.pdf" download>⬇ <span class="en" data-k="dl">Download</span></a>
+      <a class="dl fr" href="fiches/nemesis-salles.pdf" download>⬇ PDF</a><a class="dl en" href="fiches/nemesis-rooms.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf nr" data-game="nr" data-created="2026-11-25" data-updated="2026-11-25">
       <span class="ico" aria-hidden="true">🧬</span>
@@ -337,7 +339,7 @@ footer p{margin:0 0 6px}
         <p class="en">The 4 phases of a round, the actions, the Noise roll, the Intruder bag, Items, combat, escaping and game end. 3 pages.</p>
         <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/nemesis-aide-de-jeu.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/nemesis-game-aid.pdf" download>⬇ <span class="en" data-k="dl">Download</span></a>
+      <a class="dl fr" href="fiches/nemesis-aide-de-jeu.pdf" download>⬇ PDF</a><a class="dl en" href="fiches/nemesis-game-aid.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf imp" data-game="imp" data-created="2026-11-24" data-updated="2026-11-25">
       <span class="ico" aria-hidden="true">📖</span>
@@ -347,7 +349,7 @@ footer p{margin:0 0 6px}
         <p class="en">The 37 card keywords, from Abandon to Steal, exactly as the rules define them. 2 pages.</p>
         <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/imperium-mots-cles.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/imperium-keywords.pdf" download>⬇ <span class="en" data-k="dl">Download</span></a>
+      <a class="dl fr" href="fiches/imperium-mots-cles.pdf" download>⬇ PDF</a><a class="dl en" href="fiches/imperium-keywords.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf imp" data-game="imp" data-created="2026-11-24" data-updated="2026-11-25">
       <span class="ico" aria-hidden="true">📜</span>
@@ -357,7 +359,7 @@ footer p{margin:0 0 6px}
         <p class="en">Your turn, the three orders, Cleanup, Solstice, reshuffling your deck, the Market and game end. 2 pages.</p>
         <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/imperium-aide-de-jeu.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/imperium-game-aid.pdf" download>⬇ <span class="en" data-k="dl">Download</span></a>
+      <a class="dl fr" href="fiches/imperium-aide-de-jeu.pdf" download>⬇ PDF</a><a class="dl en" href="fiches/imperium-game-aid.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf pr" data-game="pr" data-created="2026-11-23" data-updated="2026-11-25">
       <span class="ico" aria-hidden="true">⛵</span>
@@ -367,7 +369,7 @@ footer p{margin:0 0 6px}
         <p class="en">A game round, the roles, setup for 2 to 5 players, selling vs shipping. 4 pages.</p>
         <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/puerto-rico-aide-de-jeu.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/puerto-rico-game-aid.pdf" download>⬇ <span class="en" data-k="dl">Download</span></a>
+      <a class="dl fr" href="fiches/puerto-rico-aide-de-jeu.pdf" download>⬇ PDF</a><a class="dl en" href="fiches/puerto-rico-game-aid.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf pr" data-game="pr" data-created="2026-11-23" data-updated="2026-11-25">
       <span class="ico" aria-hidden="true">🏛️</span>
@@ -377,7 +379,7 @@ footer p{margin:0 0 6px}
         <p class="en">Every building in board order, including expansion 2, then expansion 1 by cost. 3 pages.</p>
         <p class="meta"><span class="fr">PDF · format A5 paysage · français ou anglais</span><span class="en">PDF · A5 landscape · English or French</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/puerto-rico-batiments.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/puerto-rico-buildings.pdf" download>⬇ <span class="en" data-k="dl">Download</span></a>
+      <a class="dl fr" href="fiches/puerto-rico-batiments.pdf" download>⬇ PDF</a><a class="dl en" href="fiches/puerto-rico-buildings.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf mk" data-game="mk" data-created="2026-11-23" data-updated="2026-11-26">
       <span class="ico" aria-hidden="true">🗺️</span>
@@ -387,7 +389,7 @@ footer p{margin:0 0 6px}
         <p class="en">Summaries of the turn, movement, combat, sites and enemy abilities. 8 pages.</p>
         <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/mage-knight-aide-de-jeu.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/mage-knight-game-aid.pdf" download>⬇ <span class="en" data-k="dl">Download</span></a>
+      <a class="dl fr" href="fiches/mage-knight-aide-de-jeu.pdf" download>⬇ PDF</a><a class="dl en" href="fiches/mage-knight-game-aid.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf mk" data-game="mk" data-created="2026-11-23" data-updated="2026-11-25">
       <span class="ico" aria-hidden="true">📜</span>
@@ -397,7 +399,7 @@ footer p{margin:0 0 6px}
         <p class="en">Module rules, reward table, Day and Night quests across three tiers (villages, monasteries, cities) and six homemade scenarios: three solo, three two-player co-op. 12 pages.</p>
         <p class="meta"><span class="fr">PDF · format A5 · français ou anglais</span><span class="en">PDF · A5 · English or French</span> · <span class="date"></span></p>
       </div>
-      <a class="dl fr" href="fiches/mage-knight-module-quetes.pdf" download>⬇ Télécharger</a><a class="dl en" href="fiches/mage-knight-quest-module.pdf" download>⬇ <span class="en" data-k="dl">Download</span></a>
+      <a class="dl fr" href="fiches/mage-knight-module-quetes.pdf" download>⬇ PDF</a><a class="dl en" href="fiches/mage-knight-quest-module.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <p class="empty" data-empty hidden><span class="fr">Pas encore de fiche pour cette recherche.</span><span class="en">No printable matches your search yet.</span></p>
   </div>

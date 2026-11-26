@@ -127,10 +127,10 @@ def fiche(s, j):
         remember(j[k])
     t, x, m = j["titre"], j["texte"], j["meta"]
     if j.get("pdf_en"):
-        dl = (f'<a class="dl fr" href="fiches/{j["pdf_fr"]}" download>⬇ Télécharger</a>'
-              f'<a class="dl en" href="fiches/{j["pdf_en"]}" download>⬇ <span class="en" data-k="dl">Download</span></a>')
+        dl = (f'<a class="dl fr" href="fiches/{j["pdf_fr"]}" download>⬇ PDF</a>'
+              f'<a class="dl en" href="fiches/{j["pdf_en"]}" download>⬇ <span class="en" data-k="dl">PDF</span></a>')
     else:
-        dl = f'<a class="dl" href="fiches/{j["pdf_fr"]}" download>⬇ <span class="fr">Télécharger</span><span class="en">Download</span></a>'
+        dl = f'<a class="dl" href="fiches/{j["pdf_fr"]}" download>⬇ PDF</a>'
     art = f'''
     <article class="pdf {j["jeu"]}" data-game="{j["jeu"]}" data-created="{created}" data-updated="{TODAY}">
       <span class="ico" aria-hidden="true">{j["icone"]}</span>
