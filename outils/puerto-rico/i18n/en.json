@@ -2,7 +2,7 @@
  "puerto_rico_apprendre_les": "<title>Puerto Rico 1897 · Learn the rules</title>\n<meta name=\"description\" content=\"Learn Puerto Rico 1897 one rule at a time: interactive labs, hands-on cases, quizzes, a building reference and a score calculator.\">",
  "aria_label_sections_apprendre": "aria-label=\"Sections\">\n    <button type=\"button\" role=\"tab\" data-tab=\"learn\" aria-selected=\"true\">Learn</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"aide\" aria-selected=\"false\">Reference</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"score\" aria-selected=\"false\">Scoring</button>",
  "aria_label_changer_de": "aria-label=\"Change theme (light / dark)\">",
- "aria_label_sommaire_du": "aria-label=\"Tutorial contents\">\n    <p class=\"brand\">Learn the rules<small>After the English rulebook</small></p>",
+ "aria_label_sommaire_du": "aria-label=\"Tutorial contents\">\n    <p class=\"brand\">Learn the rules<small>Based on the English rulebook (2023 corrected edition)</small></p>",
  "aria_expanded_false_afficher": "aria-expanded=\"false\">Show contents</button>",
  "tutoriel": "/* ---------- tutorial ---------- */",
  "chapitre_valide_sur": "`${d} of ${CH.length} chapter${CH.length>1?'s':''} completed`",

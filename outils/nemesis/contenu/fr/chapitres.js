@@ -214,7 +214,7 @@ rules:[
 `<b>Attaque immédiate :</b> un Intrus qui apparaît dans une salle ou y entre attaque aussitôt un personnage présent.`,
 `Un couloir renforcé vaut 0 : aucun résultat du dé ne le désigne.`],
 faq:[
-`<b>Événement « Résolvez un marqueur Bruit dans chaque couloir inexploré » :</b> seuls les couloirs qui ont un marqueur Bruit sont concernés. On ne résout pas un marqueur qui n'existe pas.`],
+`<b>Événement « Résolvez un marqueur Bruit dans chaque couloir inexploré » :</b> seuls les couloirs qui ont déjà un marqueur Bruit sont concernés. Pour chacun, piochez un jeton dans le sac Intrus, comme si un jet de bruit venait de donner le numéro de ce couloir. Dans les autres couloirs, il ne se passe rien.`],
 lab:'bruit',
 quiz:[
 {q:`Vous faites 2. Le couloir 2 adjacent contient 3 Adultes. Que se passe-t-il ?`,o:[`Les 3 Adultes entrent`,`Un Adulte entre dans votre salle et vous attaque`,`Vous posez un marqueur Bruit`],a:1,w:`Seul le plus gros Intrus du couloir entre dans votre salle.`},
@@ -330,7 +330,7 @@ rules:[
 `<b>Activation</b> (le plus souvent avec un jeton Reine du sac) : elle attaque un personnage de sa salle si possible ; sinon, elle se déplace une fois vers le plus proche, avec les mêmes priorités que les autres Intrus.`,
 `Dans un couloir, elle compte pour 4 Intrus ; avec elle, il ne peut y avoir que 2 autres Intrus. Une rafale peut lui donner autant de touches que vous voulez.`],
 faq:[
-`<b>Tirer sur la Reine</b> fonctionne exactement comme sur un Adulte, mais au lieu de retirer la figurine, vous résolvez sa carte Santé. Par exemple, avec 2 touches sur sa piste, un 2 (ou moins) ou un coup critique vous fait résoudre la carte du dessus de sa pioche Santé.`],
+`<b>Tirer sur la Reine</b> fonctionne exactement comme sur un Adulte, mais au lieu de retirer la figurine, vous résolvez sa carte Santé. La touche par défaut fait d'abord avancer son cube d'un cran, puis vous lancez le dé : si le résultat est inférieur ou égal à la position du cube (ou si c'est un coup critique), vous résolvez la carte du dessus de sa pioche Santé. Par exemple, cube sur 2 au moment du jet : un 2 ou moins suffit.`],
 quiz:[
 {q:`Le cube de la piste est sur l'avant-dernière case et votre rafale donne 3 touches à la Reine. Que se passe-t-il ?`,o:[`Les 3 touches comptent, le cube repart de 2`,`Le cube atteint le bout : les autres touches sont ignorées, on résout une carte Santé`,`Rien, il faut un critique`],a:1,w:`Au bout de la piste, les touches restantes de l'action sont ignorées ; résolvez une carte Santé, puis remettez le cube à 0.`},
 {q:`Un jeton Reine est tiré du sac en phase Événement alors que la Reine n'est pas sur le plateau. Effet ?`,o:[`Elle apparaît dans le nid`,`Ajoutez 2 Larves dans le sac`,`Rien`],a:1,w:`Colonne « sac Intrus » : Reine sur le plateau = activation ; sinon, 2 jetons Larve dans le sac.`}]},
@@ -424,7 +424,7 @@ rules:[
 `<b>Réanimer :</b> le bloc opératoire a un AutoDoc. Un personnage tué est couché, ses objets défaussés. Un personnage de sa salle peut payer 1 carte de plus pour le porter en se déplaçant. S'il commence la manche au bloc opératoire (sans Intrus ni panne), il est réanimé : blessures graves défaussées, cube sur la première case de la section Affaibli.`,
 `<b>Difficulté :</b> retirez ou ajoutez des missions de l'escouade à la mise en place.`],
 faq:[
-`<b>Errata :</b> les missions Solo/Coop n° 3 et n° 11 (<i>CLOSEDOWN</i> et <i>SHUTDOWN</i>) ne peuvent jamais être en jeu ensemble. Si vous les tirez toutes les deux, défaussez la dernière tirée et tirez-en une autre.`],
+`<b>Errata :</b> les missions Solo/Coop n° 3 et n° 11 (toutes deux nommées « Extinction ») ne peuvent jamais être en jeu ensemble. Si vous les tirez toutes les deux, défaussez la dernière tirée et tirez-en une autre.`],
 quiz:[
 {q:`En coop à 3 joueurs, combien de missions de l'escouade ?`,o:[`1`,`3`,`3 + 1 par Larve`],a:1,w:`Autant de cartes Mission de l'escouade Solo/Coop que de joueurs (à ajuster pour la difficulté).`},
 {q:`En mode mortel, un couloir porte 2 et un petit 4. Sur quels résultats est-il concerné ?`,o:[`2 seulement`,`2 et 4`,`4 seulement`],a:1,w:`En mode mortel, il a les deux valeurs pour tous les effets (mais seulement 2 pour départager).`}]}

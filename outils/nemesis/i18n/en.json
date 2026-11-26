@@ -7,7 +7,7 @@
  "bouton_theme": "aria-label=\"Change theme (light / dark)\"",
  "sommaire_aria": "aria-label=\"Tutorial contents\"",
  "marque": "<p class=\"brand\">Learn the rules<small>Based on the English rulebook</small></p>",
- "merci_faq": "<p class=\"merci\">Includes the official FAQ clarifications (v1.2).</p>",
+ "merci_faq": "<p class=\"merci\">With the official FAQ clarifications (v1.2).</p>",
  "bouton_sommaire": "aria-expanded=\"false\">Show contents</button>",
  "objet_titre": "title=\"${{v:'Green',r:'Red',j:'Yellow'}[c]} Item\"",
  "objet_noms": "const ITN={v:'green',r:'red',j:'yellow'};",

@@ -22,15 +22,15 @@ BILL = "https://boardgamegeek.com/profile/BillNC"
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 
 UI = {
- "fr": {"att": "À ne pas oublier", "prec": "Précisions", "src": "D'après le Q&A Compendium de BoardGameGeek (août 2026).",
+ "fr": {"att": "À ne pas oublier", "prec": "Précisions",
         "part": "Pour aller plus loin", "voir": "Voir le chapitre", "fac": "facultatif",
-        "sources": "D'après le livret de règles",
-        "avec": "Avec les précisions du Q&amp;A Compendium.",
+        "sources": "D'après le livret de règles de l'édition Ultimate",
+        "avec": "Avec les précisions du Q&amp;A Compendium (août 2026).",
         "merci": "Merci à <a href=\"{bill}\" rel=\"noopener\">BillNC</a> pour <a href=\"{url}\" rel=\"noopener\">son Q&amp;A Compendium</a> sur BoardGameGeek."},
- "en": {"att": "Don't forget", "prec": "Clarifications", "src": "Based on the BoardGameGeek Q&A Compendium (August 2026).",
+ "en": {"att": "Don't forget", "prec": "Clarifications",
         "part": "Going further", "voir": "See the chapter", "fac": "optional",
-        "sources": "Based on the rulebook",
-        "avec": "With the Q&amp;A Compendium clarifications.",
+        "sources": "Based on the Ultimate Edition rulebook",
+        "avec": "With the Q&amp;A Compendium clarifications (August 2026).",
         "merci": "Thanks to <a href=\"{bill}\" rel=\"noopener\">BillNC</a> for <a href=\"{url}\" rel=\"noopener\">his Q&amp;A Compendium</a> on BoardGameGeek."},
 }
 

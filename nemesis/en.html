@@ -291,7 +291,7 @@ h1{font-weight:700;text-transform:uppercase}
 <div class="tab on" id="tab-learn"><div class="learn">
   <nav class="toc" id="toc" aria-label="Tutorial contents">
     <p class="brand">Learn the rules<small>Based on the English rulebook</small></p>
-    <p class="merci">Includes the official FAQ clarifications (v1.2).</p>
+    <p class="merci">With the official FAQ clarifications (v1.2).</p>
     <div class="bar"><i id="bar"></i></div>
     <p class="barlabel" id="barlabel"></p>
     <button type="button" class="tocbtn" id="tocbtn" aria-expanded="false">Show contents</button>
@@ -563,7 +563,7 @@ rules:[
 `<b>Surprise Attacks:</b> an Intruder that appears in or enters a Room immediately Attacks a Character there.`,
 `A Reinforced Corridor is worth 0: no die result ever points to it.`],
 faq:[
-`<b>Event "Resolve a Noise marker in each Unexplored Corridor":</b> only Corridors with a Noise marker are affected. You cannot resolve a Noise marker that does not exist.`],
+`<b>Event "Resolve a Noise marker in each Unexplored Corridor":</b> only Corridors that already have a Noise marker are affected. For each one, draw a token from the Intruder bag, as if a Noise roll had just given that Corridor's number. Nothing happens in the other Corridors.`],
 lab:'bruit',
 quiz:[
 {q:`You roll 2. The adjacent Corridor 2 holds 3 Adults. What happens?`,o:[`All 3 Adults enter`,`One Adult enters your Room and Attacks you`,`You place a Noise marker`],a:1,w:`Only the largest Intruder in the Corridor enters your Room.`},
@@ -679,7 +679,7 @@ rules:[
 `<b>Activation</b> (usually from a Queen token in the bag): she Attacks a Character in her Room if possible; otherwise, she moves once towards the closest one, with the same priorities as other Intruders.`,
 `In a Corridor, she counts as 4 Intruders; with her, there can only be 2 other Intruders. A Burst can give her as many Hits as you like.`],
 faq:[
-`<b>Shooting the Queen</b> works exactly like shooting an Adult, but instead of removing the miniature you resolve her Health card. For example, with 2 Hits on her track, a 2 (or lower) or a critical hit makes you resolve the top card of her Health deck.`],
+`<b>Shooting the Queen</b> works exactly like shooting an Adult, but instead of removing the miniature you resolve her Health card. The default Hit first moves her cube one space, then you roll the die: if the result is equal to or lower than the cube's position (or is a critical hit), you resolve the top card of her Health deck. For example, with the cube on 2 when you roll, a 2 or lower is enough.`],
 quiz:[
 {q:`The track marker is on the second-to-last space and your Burst gives the Queen 3 Hits. What happens?`,o:[`All 3 Hits count, the marker goes back to 2`,`The marker reaches the end: the other Hits are ignored, a Health card is resolved`,`Nothing, you need a critical`],a:1,w:`At the end of the track, the remaining Hits of the Action are ignored; resolve a Health card, then reset the marker to 0.`},
 {q:`A Queen token is drawn from the bag in the Event Phase while the Queen is not on the board. Effect?`,o:[`She appears in the Nest`,`Add 2 Larvae to the bag`,`Nothing`],a:1,w:`"Intruder bag" column: Queen on the board = activation; otherwise, 2 Larva tokens into the bag.`}]},

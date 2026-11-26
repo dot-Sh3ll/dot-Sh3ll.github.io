@@ -177,6 +177,12 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
 ## Décisions de Paul
 
 - **Précisions de règles (FAQ, compendium, errata), dans toutes les applis** : encadrés titrés simplement « Précisions » (« Clarifications »), jamais « officielles », sans nom de source, de version ni de date dans les encadrés ni dans le texte (pas de « (FAQ officielle) »). La source n'est citée qu'à deux endroits : deux lignes sous « Apprendre les règles » en tête de la colonne des chapitres (« D'après le livret de règles » / « Avec les précisions de … ») et un remerciement avec liens dans la mention en bas de page (Nemesis : Bernaar ; Mage Knight : BillNC). Pas de pitch sous le titre.
+- **Versions de règles suivies** (vérifiées le 26/11/2026, aucune règle du tutoriel ne contredit un erratum) :
+  Mage Knight = livret de l'édition Ultimate (Intrafin) + Q&A Compendium de BillNC (août 2026, dernière version) ;
+  Nemesis = livret VF + FAQ officielle v1.2 (+ précisions de la FAQ VF v1.1 d'avril 2026, Antoine Prono) + recensement de Bernaar (à jour) ;
+  Puerto Rico 1897 = livret de l'édition corrigée de 2023 ; Imperium = livret Horizons VF du 19 juillet 2026 (contient les errata
+  d'Antique) ; Aeon's End = pas de partie « Apprendre », le mode Expédition suit Une Ère Nouvelle (pied de page).
+  À revoir si un éditeur publie une nouvelle FAQ ou un nouveau livret.
 - **Agricola : projet abandonné.**
 - **Allemand : seul Aeon's End est traduit**, jusqu'à nouvel ordre ; ne pas traduire d'autre appli en allemand.
 
@@ -184,10 +190,7 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
 
 1. **Schémas** : faits et validés par Paul, en FR et EN (Nemesis 7, Mage Knight 3, Imperium 1, Puerto Rico 1 ; contrôlés au
    navigateur le 26/11). Piste restante : versions interactives.
-2. **Versions de règles suivies** : afficher sous « Apprendre » de chaque appli la version des règles et des errata intégrés
-   une fois les versions confirmées par Paul, en respectant la décision « Précisions de règles » ci-dessus (pas de version ni de « officiel » dans les encadrés).
-   À vérifier : planche de cartes corrigées VF v1.3 d'Origames (Imperium), pack de cartes corrigées Intrafin (Mage Knight).
-3. **Rappeler à Paul qu'il veut changer l'adresse du site.** À prévoir le jour venu : `CNAME` et DNS, `SITE` dans `seo.py`
+2. **Rappeler à Paul qu'il veut changer l'adresse du site.** À prévoir le jour venu : `CNAME` et DNS, `SITE` dans `seo.py`
    (canonical, hreflang, sitemap, JSON-LD), `robots.txt`, pieds de page « paulmoussard.com » de toutes les fiches (régénérer
    les PDF), GoatCounter, Search Console (outil de changement d'adresse), Ko-fi, liens partagés (Discord) : l'ancien domaine
    doit rediriger vers le nouveau (GitHub Pages ne sert qu'un domaine : redirection chez le registraire).

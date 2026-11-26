@@ -2,7 +2,7 @@
  "puerto_rico_apprendre_les": "<title>Puerto Rico 1897 · Apprendre les règles</title>\n<meta name=\"description\" content=\"Apprendre Puerto Rico 1897 point de règle par point de règle : ateliers interactifs, cas pratiques, quiz, aide-mémoire des bâtiments et calculateur de score.\">",
  "aria_label_sections_apprendre": "aria-label=\"Sections\">\n    <button type=\"button\" role=\"tab\" data-tab=\"learn\" aria-selected=\"true\">Apprendre</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"aide\" aria-selected=\"false\">Aide-mémoire</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"score\" aria-selected=\"false\">Décompte</button>",
  "aria_label_changer_de": "aria-label=\"Changer de thème (clair / sombre)\">",
- "aria_label_sommaire_du": "aria-label=\"Sommaire du tutoriel\">\n    <p class=\"brand\">Apprendre les règles<small>D'après le livret de règles français</small></p>",
+ "aria_label_sommaire_du": "aria-label=\"Sommaire du tutoriel\">\n    <p class=\"brand\">Apprendre les règles<small>D'après le livret de règles français (édition corrigée de 2023)</small></p>",
  "aria_expanded_false_afficher": "aria-expanded=\"false\">Afficher le sommaire</button>",
  "tutoriel": "/* ---------- tutoriel ---------- */",
  "chapitre_valide_sur": "`${d} chapitre${d>1?'s':''} validé${d>1?'s':''} sur ${CH.length}`",
