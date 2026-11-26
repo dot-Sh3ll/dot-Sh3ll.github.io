@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script id="site-lang-js">(function(){try{var C="en",A=["fr", "en", "de"],F={"fr":"./","en":"en.html","de":"de.html"},B="en",ls=localStorage;if(C!=="fr"){var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;var sl=ls.getItem("site-lang"),t=null;if(sl)t=sl;else if(!/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)){var n=(navigator.language||"").slice(0,2).toLowerCase();if(n&&n!=="fr")t=n}if(t&&A.indexOf(t)<0)t=A.indexOf(B)>-1?B:null;if(t&&t!==C)location.replace(F[t]+location.hash)}catch(e){}})();</script>
+<script id="site-lang-js">(function(){try{var C="en",A=["fr", "en"],F={"fr":"./","en":"en.html"},B="en",ls=localStorage;if(C!=="fr"){var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;var sl=ls.getItem("site-lang"),t=null;if(sl)t=sl;else if(!/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)){var n=(navigator.language||"").slice(0,2).toLowerCase();if(n&&n!=="fr")t=n}if(t&&A.indexOf(t)<0)t=A.indexOf(B)>-1?B:null;if(t&&t!==C)location.replace(F[t]+location.hash)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aeon&#x27;s End market randomizer, official setups and game log</title>
@@ -11,7 +11,6 @@
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="alternate" hreflang="fr" href="https://lessrulesmoreplay.com/aeons-end/">
 <link rel="alternate" hreflang="en" href="https://lessrulesmoreplay.com/aeons-end/en.html">
-<link rel="alternate" hreflang="de" href="https://lessrulesmoreplay.com/aeons-end/de.html">
 <link rel="alternate" hreflang="x-default" href="https://lessrulesmoreplay.com/aeons-end/en.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Less Rules, More Play">
@@ -24,7 +23,6 @@
 <meta property="og:image:alt" content="Aeon&#x27;s End · Less Rules, More Play">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="fr_FR">
-<meta property="og:locale:alternate" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aeon&#x27;s End market randomizer, official setups and game log">
 <meta name="twitter:description" content="Generate your Aeon&#x27;s End market in one tap: official setups, pick-your-own piles, a game log and expeditions. Free, on desktop and mobile.">
@@ -272,13 +270,6 @@ footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padd
 @media (max-width:720px){.modes{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.mode{transition:none}.mode:hover{transform:none}}
 </style>
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
-<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
-<!--/commun-->
-<style id="sitehead-css-ae">
-main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
-</style>
 <!--pwa-->
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../icons/favicon-32.png" type="image/png">
@@ -320,13 +311,20 @@ main>header h1{padding-right:48px}
 </style>
 <script>try{if(localStorage.getItem("ae-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <!--/theme-->
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
+<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
+<!--/commun-->
+<style id="sitehead-css-ae">
+main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
+</style>
 </head>
 <body>
 <header class="sitehead">
 <div class="sh-in">
 <a class="sh-brand" href="../" aria-label="Back to the game aids home page"><img class="sh-logo" src="../img/logo/logo.svg" alt="" width="62" height="62"><img class="sh-icone" src="../img/logo/icone.svg" alt="" width="42" height="42"><span class="sh-text" aria-hidden="true">Less Rules,<br>More Play</span></a>
 <div class="sh-act">
-<div class="sh-lang" role="group" aria-label="Langue / Language"><a href="./?lang=fr" hreflang="fr" lang="fr" aria-label="Passer en français" onclick="try{localStorage.setItem('site-lang','fr')}catch(e){}">FR</a><span aria-current="true">EN</span><a href="de.html?lang=de" hreflang="de" lang="de" aria-label="Auf Deutsch wechseln" onclick="try{localStorage.setItem('site-lang','de')}catch(e){}">DE</a></div>
+<div class="sh-lang" role="group" aria-label="Langue / Language"><a href="./?lang=fr" hreflang="fr" lang="fr" aria-label="Passer en français" onclick="try{localStorage.setItem('site-lang','fr')}catch(e){}">FR</a><span aria-current="true">EN</span></div>
 <span class="sh-sep" aria-hidden="true"></span>
 <a class="sh-kofi" href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34"><g transform="translate(-0.5 2)"><path d="M12.5 2.8c-1.5 1.4-1.5 2.9 0 4.3s1.5 2.9 0 4.3M17.5 1.8c-1.5 1.4-1.5 2.9 0 4.3s1.5 2.9 0 4.3" fill="none" stroke="#f3ead8" stroke-width="1.7" stroke-linecap="round" opacity=".7"/><path d="M24.6 17.2h1.6a3.4 3.4 0 0 1 0 6.8h-2.4" fill="none" stroke="#FFBE04" stroke-width="2.6" stroke-linecap="round"/><path d="M5.5 15.5h20v4.2c0 4.9-4 8.8-8.8 8.8h-2.4c-4.9 0-8.8-3.9-8.8-8.8z" fill="#FFBE04"/><ellipse cx="15.5" cy="15.5" rx="10" ry="2.6" fill="#ffd65a"/><ellipse cx="15.5" cy="15.6" rx="8.2" ry="1.7" fill="#5b3318"/><path d="M13.4 15.2c.7-.6 1.6.1 2.1.6.5-.5 1.4-1.2 2.1-.6.6.6-.5 1.4-2.1 1.9-1.6-.5-2.7-1.3-2.1-1.9z" fill="#e8c49a"/><path d="M8.6 19.5v.8c0 2.8 1.6 5.1 3.9 6.1" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".45"/></g></svg><span class="sh-kofi-t">Buy me a coffee</span></a>
 </div>
@@ -351,7 +349,6 @@ main>header h1{padding-right:48px}
 
 <div class="view" id="view-gen">
 <section class="ask" id="ask">
-  <h2>Which market for this fight?</h2>
   <div class="etape">
   <h3 class="etape-t"><span>Step 1</span> Choose your nemesis and mages</h3>
   <div class="fight">

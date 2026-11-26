@@ -31,7 +31,7 @@ Ce fichier suffit pour travailler sur le site ; `outils/README.md` détaille cha
 ```
 index.html            accueil, page SOURCE (FR + EN écrits à la main) : on ne modifie que celle-ci
 en/                   accueil anglais GÉNÉRÉ depuis index.html par seo.py (ne pas modifier) ; de/ : redirection vers /en/
-<appli>/index.html    appli en français ; <appli>/en.html, <appli>/de.html : autres langues (même dossier = même jeu)
+<appli>/index.html    appli en français ; <appli>/en.html : anglais (même dossier = même jeu)
 commun/               socle partagé : tokens.css (jetons), composants.css (barre du site, onglets, pied, encart fiches),
                       polices.css + polices/ (woff2 hébergés, plus de Google Fonts)
 fiches/               PDF à imprimer (nom sans espaces ni accents ; version anglaise à part)
@@ -48,7 +48,7 @@ Applis (registre : `outils/site/jeux.json`) :
 |---|---|---|---|---|---|
 | `mage-knight` | mk | `#7db7ef` bleu | Marcellus | FR EN | **format commun** : `outils/mage-knight/` + `build.sh` (assembleur, schémas, thème, précisions) |
 | `imperium` | imp | `#ec7f6d` corail | Cinzel / Marcellus | FR EN | **format commun** : `outils/imperium/` + `build.sh` (assembleur, schémas, thème) |
-| `aeons-end` | ae | `#c495f5` violet | Marcellus | FR EN DE | **format commun** : `outils/aeons-end/` + `build.sh` ; FR et EN à la main, DE produit depuis l'anglais par `gen_lang.py` (tables `langues/de/`) |
+| `aeons-end` | ae | `#c495f5` violet | Marcellus | FR EN | **format commun** : `outils/aeons-end/` + `build.sh` ; FR et EN à la main (allemand retiré le 26/11/2026, `de.html` renvoie vers `en.html`) |
 | `puerto-rico` | pr | `#e2cc9f` sable | Fraunces | FR EN | **format commun** : `outils/puerto-rico/` + `assembler.py puerto-rico` |
 | `nemesis` | nr | `#9bd33a` vert acide | Rajdhani | FR EN | **format commun** : `outils/nemesis/` (`page.html`, `i18n/`, `contenu/<langue>/`) + `assembler.py nemesis` |
 
@@ -131,14 +131,14 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 
 ## Langues
 
-- Langues du site : `fr`, `en`, `de` (`outils/site/langs.py`, `ORDER`). L'espagnol a été retiré.
+- Langues du site : `fr`, `en` ; `de` reste dans `outils/site/langs.py` (`ORDER`) mais aucune page allemande n'est publiée. L'espagnol a été retiré.
 - Une appli sans page dans la langue du visiteur s'ouvre en **anglais** (`FALLBACK`).
 - Choix mémorisé dans `localStorage["site-lang"]` (bouton de langue de la barre, accueil). Sans choix, la langue du
   navigateur décide ; les robots ne sont jamais redirigés. `?lang=xx` dans l'adresse bloque la redirection.
-- Accueil : `/` et `/en/` sont de vraies pages ; `/?lang=en` redirige vers `/en/` (anciens liens). **L'allemand n'est proposé que
-  dans Aeon's End** : `/de/` est une page de redirection vers `/en/` (`REDIRIGE` dans `seo.py`, ignorée par `verifier.py`) ;
-  `home_lang.py` garde `de.json` en réserve (`INACTIFS`). Au chargement, l'accueil n'écrase pas une langue qu'il ne propose pas
-  (`site-lang`) : un visiteur germanophone arrive sur `/en/` et ouvre Aeon's End en allemand.
+- Accueil : `/` et `/en/` sont de vraies pages ; `/?lang=en` redirige vers `/en/` (anciens liens). **Plus aucune page en allemand**
+  (Aeon's End allemand supprimé le 26/11/2026, décision de Paul : « on ne l'utilisera plus jamais ») : `/de/` renvoie vers `/en/`
+  (`REDIRIGE` dans `seo.py`), `aeons-end/de.html` vers `aeons-end/en.html` (page écrite à la main, garder pour les anciens liens).
+  Les pages de redirection sont ignorées par `langs.available()` et `verifier.py`. `home_lang.py` garde `de.json` en réserve (`INACTIFS`).
 - Textes allemands de l'accueil (en réserve, non affichés) : `outils/site/accueil/de.json` (clé = texte anglais de la page).
 - **Format de traduction commun pour les nouvelles applis** (modèle `outils/modele-appli`) : textes d'interface par clés dans
   `i18n/<langue>.json` (mêmes clés partout), contenu dans `contenu/<langue>.js` ; `assembler.py` signale les clés
@@ -157,8 +157,7 @@ Toujours depuis la racine du dépôt.
 | Avancement des traductions | `python3 outils/traduire_etat.py` |
 | Créer une appli | `python3 outils/nouvelle_appli.py <dossier> <code> "<Nom FR>" "<Nom EN>" <#couleur> <glyphe> [police]` |
 | Reconstruire une appli faite sur le modèle | `python3 outils/site/assembler.py <dossier>` puis `seo.py` |
-| Reconstruire une appli | `sh outils/<dossier>/build.sh` (assembleur puis, selon l'appli, schémas, thème, précisions, allemand d'Aeon's End) puis `seo.py` |
-| Aeon's End allemand | tables `outils/aeons-end/langues/de/`, puis `sh outils/aeons-end/build.sh` et `seo.py` (`gen_lang.py de --todo` : ce qui manque) |
+| Reconstruire une appli | `sh outils/<dossier>/build.sh` (assembleur puis, selon l'appli, schémas, thème, précisions) puis `seo.py` |
 | Barre du site + feuilles communes + polices d'une appli | `python3 outils/site/chrome.py <dossier>` |
 | Pied de page | `python3 outils/site/pied.py <dossier> "<option du formulaire>"` |
 | Schémas des tutoriels Mage Knight, Imperium, Puerto Rico | `python3 outils/site/schemas.py <dossier>` ou `--tout` (les `build.sh` de Mage Knight, Imperium et Puerto Rico le font) |
@@ -223,7 +222,7 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
   recalculée par `seo.py` → `sw.py`. Ne pas l'écrire à la main.
 - **Feuilles communes** : un changement de `commun/*.css` doit être suivi de `chrome.py` sur chaque dossier d'appli
   (nouvelle empreinte `?v=`) et de `seo.py`.
-- Les pages `en/` et `de/` de l'accueil et `aeons-end/de.html` sont générées : toute retouche se fait à la source.
+- Les pages `en/` et `de/` de l'accueil sont générées : toute retouche se fait à la source (`aeons-end/de.html` : redirection écrite à la main).
 - `localStorage` toujours dans `try/catch` (navigation privée, stockage bloqué).
 - Contrastes : AA (4,5:1) pour le texte ; `assembler.py` assombrit la couleur du jeu pour les thèmes clairs.
 - Schémas du tutoriel Nemesis : `outils/nemesis/figures.py` écrit `contenu/fr/schemas.js` et `contenu/en/schemas.js`, puis `assembler.py nemesis` ;
@@ -231,7 +230,7 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
 - **Thèmes** : chaque appli a un bouton ◐. Nemesis et Puerto Rico : dans leurs sources. Imperium, Aeon's End, Mage Knight :
   `theme.py` ; Imperium suit le système par défaut, Aeon's End et Mage Knight restent sombres par défaut (le clair est une option).
   Une couleur écrite en dur dans ces pages doit avoir sa version claire dans `outils/site/themes/<code>.css`.
-- Points ouverts : noms allemands incertains dans Aeon's End (attendre la communauté) ; noms anglais des salles
+- Points ouverts : noms anglais des salles
   aléatoires de Nemesis (traductions maison sauf Shelter et Technical Corridor Entrance).
 
 ## Décisions de Paul
@@ -244,7 +243,7 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
   d'Antique) ; Aeon's End = pas de partie « Apprendre », le mode Expédition suit Une Ère Nouvelle (pied de page).
   À revoir si un éditeur publie une nouvelle FAQ ou un nouveau livret.
 - **Agricola : projet abandonné.**
-- **Allemand : seul Aeon's End est traduit**, jusqu'à nouvel ordre ; ne pas traduire d'autre appli en allemand.
+- **Allemand : abandonné** (26/11/2026). Aeon's End allemand supprimé ; ne traduire aucune appli en allemand.
 
 ## À faire (par ordre d'intérêt)
 

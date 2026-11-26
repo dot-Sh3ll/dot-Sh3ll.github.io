@@ -31,7 +31,15 @@ def page_href(code):
 
 def available(folder):
     """langues dont la page existe dans le dossier de l'appli, dans l'ordre ORDER"""
-    return [c for c in ORDER if os.path.exists(os.path.join(folder or ".", page_file(c)))]
+    return [c for c in ORDER if os.path.exists(f := os.path.join(folder or ".", page_file(c))) and not _redirige(f)]
+
+
+def _redirige(f):
+    """ancienne page de langue gardée pour les liens, qui renvoie ailleurs (ex. aeons-end/de.html)"""
+    try:
+        return 'http-equiv="refresh"' in open(f, encoding="utf-8").read(4000)
+    except OSError:
+        return False
 
 
 def code_of(path):

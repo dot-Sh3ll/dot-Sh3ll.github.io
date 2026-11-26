@@ -16,7 +16,7 @@ from langs import ORDER, available
 
 JEUX = {k: v for k, v in json.load(open("outils/site/jeux.json", encoding="utf-8")).items() if not k.startswith("_") and k != "accueil"}
 # textes restant à traduire, pour les pages générées par un outil qui sait les compter
-RESTE = {("aeons-end", "de"): ["outils/aeons-end/gen_lang.py", "de", "--todo"]}
+RESTE = {}
 
 
 def reste(cmd):

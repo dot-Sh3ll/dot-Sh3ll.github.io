@@ -61,8 +61,7 @@
   "couleur": "#c495f5",
   "jeu": {
    "fr": "Aeon's End",
-   "en": "Aeon's End",
-   "de": "Aeon's End"
+   "en": "Aeon's End"
   },
   "seo": {
    "fr": [
@@ -72,10 +71,6 @@
    "en": [
     "Aeon's End market randomizer, official setups and game log",
     "Generate your Aeon's End market in one tap: official setups, pick-your-own piles, a game log and expeditions. Free, on desktop and mobile."
-   ],
-   "de": [
-    "Aeon's End: Marktgenerator und Spieljournal",
-    "Erstellen Sie den Markt für Aeon's End mit einem Klick: offizielle Aufbauten, frei wählbare Stapel, Spieljournal und Expeditionen. Kostenlos, auch mobil."
    ]
   },
   "og": [
