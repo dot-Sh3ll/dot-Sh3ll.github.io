@@ -33,7 +33,7 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 @media (max-width:640px){.sitehead .sh-in{height:64px}.sitehead .sh-logo{display:none}.sitehead .sh-icone{display:block}.sitehead .sh-text{display:block}
   .sitehead .sh-act{gap:14px}.sitehead .sh-lang{gap:14px}.sitehead .sh-sep{height:24px}
   .sitehead .sh-kofi-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  .sitehead .sh-kofi{width:44px;justify-content:center;margin:0 -8px 0 -6px}.sitehead .sh-kofi svg{width:34px;height:34px;top:0}}
+  .sitehead .sh-kofi{width:44px;justify-content:center;margin:0 -8px 0 -6px}}
 @media (max-width:360px){.sitehead .sh-text{display:none}}
 
 /* ---------- onglets principaux d'une appli (Apprendre / Jouer / Aide-mémoire…) ----------
