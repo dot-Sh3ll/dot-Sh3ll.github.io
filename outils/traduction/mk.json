@@ -5665,7 +5665,7 @@
 "ctx": "re de 2, 3 Dégâts font 2 Blessures.`,  `"
 },
 {
-"t": "Assommé : si vous recevez en un combat autant de Blessures que votre Limite de cartes en main, vous défaussez toutes vos autres cartes.",
+"t": "Assommé : si vous recevez en un combat autant de Blessures que votre Limite de cartes en main non modifiée, vous défaussez toutes vos autres cartes.",
 "n": 1,
 "ctx": " ne se défausse pas en fin de tour.`,  `"
 },

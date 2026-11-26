@@ -183,8 +183,8 @@ Remise en place des anciens chemins fixes (traduction Mage Knight et Imperium se
 
 1. **Format de traduction commun** : Nemesis et Puerto Rico sont passés (pages identiques). Restent Imperium et Mage Knight
    (pages FR écrites à la main, anglais par anciens chemins fixes) et Aeon's End (FR/EN en parallèle, DE généré).
-2. **Schémas** : Nemesis (7), Mage Knight (combat, ½ inefficace, Dégâts et Blessures), Imperium (mélange), Puerto Rico (Capitaine).
-   Pistes : versions interactives.
+2. **Schémas** : faits et validés par Paul, en FR et EN (Nemesis 7, Mage Knight 3, Imperium 1, Puerto Rico 1 ; contrôlés au
+   navigateur le 26/11). Piste restante : versions interactives.
 3. **Versions de règles suivies** : afficher sous « Apprendre » de chaque appli la version des règles et des errata intégrés
    une fois les versions confirmées par Paul, en respectant la décision « Précisions de règles » ci-dessus (pas de version ni de « officiel » dans les encadrés).
    À vérifier : planche de cartes corrigées VF v1.3 d'Origames (Imperium), pack de cartes corrigées Intrafin (Mage Knight).

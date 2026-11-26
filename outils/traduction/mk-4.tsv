@@ -198,7 +198,7 @@
 1130	Unblocked Damage is assigned. A chosen Unit becomes Wounded and absorbs as much Damage as its Armor.
 1131	The rest goes to the Hero: one Wound card in hand per Armor step, rounded up. With Armor 2, 3 Damage makes 2 Wounds.
 1132	A Wound stays in hand: it can't be played, played sideways or discarded at the end of the turn.
-1133	Knocked out: if you receive in one combat as many Wounds as your Hand Limit, you discard all your other cards.
+1133	Knocked out: if you receive in one combat as many Wounds as your unmodified Hand Limit, you discard all your other cards.
 1134	Standard Rest: discard one non-Wound card and as many Wounds as you like. Slow Recovery, with a hand of Wounds only: just one. These Wounds go to your discard pile and will come back.
 1135	Healing: each point permanently removes a Wound from your hand. Healing a Unit costs as many points as its level. Unused points are lost as soon as a combat starts.
 1136	The Magical Glade removes a Wound from your hand or discard pile at the end of the turn. It isn't Healing: it doesn't help Units.
