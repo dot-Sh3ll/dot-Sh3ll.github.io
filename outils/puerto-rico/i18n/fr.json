@@ -51,5 +51,5 @@
  "theme_title_theme_auto": "$('#theme').title='Thème : '+{auto:'automatique',dark:'sombre',light:'clair'}[th]",
  "aide_de_jeu_de": "<footer class=\"page small muted\" style=\"padding-top:0\">Aide de jeu de fan, gratuite et non officielle, sans lien avec Ravensburger ni alea. Puerto Rico 1897 © Andreas Seyfarth / Ravensburger. Règles résumées d'après le livret de règles français.</footer>",
  "ex_titre": "Expliquer le jeu",
- "ex_intro": "Un fil rouge pour présenter le jeu à la table : dix écrans courts, ce qu'on garde pour plus tard, puis l'aide-mémoire."
+ "ex_intro": "Un fil rouge pour présenter le jeu à la table en une dizaine d'écrans courts, et un petit rappel de ce qui n'a pas été expliqué et devra l'être plus tard."
 }

@@ -389,7 +389,7 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 <!--PARTAGE:expliquer.css-->
 .mk-ex{max-width:1080px;margin:0 auto;padding:18px 16px 28px;font-family:var(--f-body);--ex-surface:#131b28;--ex-sunk:var(--sunk);--ex-accent:var(--gold);--ex-accent-ink:var(--gold-ink);--ex-display:var(--f-display)}
 </style>
-<script id="mk-mode-js">(function(){var M=["apprendre","expliquer","libre","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
+<script id="mk-mode-js">(function(){var M=["apprendre","libre","expliquer","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
 <style id="mk-mode-css">html:not([data-mode=expliquer]) #app-ex,html[data-mode=expliquer] #app-tuto,html[data-mode=expliquer] #app-comp,html[data-mode=expliquer] #app-aide{display:none}html[data-mode=jouer] #app-tuto,html[data-mode=jouer] #app-aide,html[data-mode=apprendre] #app-comp,html[data-mode=apprendre] #app-aide,html[data-mode=aide] #app-tuto,html[data-mode=aide] #app-comp{display:none}</style>
 <style id="mk-onglets-css">html[data-mode="libre"] .app-tuto header.top{display:none}.app-tuto #chap{display:none}</style>
 </head>
@@ -403,7 +403,7 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 
 <header class="topbar">
   <p class="brand">Mage Knight</p>
-  <nav class="modes lrmp-onglets" aria-label="{{rubriques}}"><a href="#apprendre" data-mode="apprendre">{{onglet_apprendre}}</a><a href="#expliquer" data-mode="expliquer">{{onglet_expliquer}}</a><a href="#libre" data-mode="libre">{{onglet_libre}}</a><a href="#jouer" data-mode="jouer">{{onglet_jouer}}</a><a href="#aide" data-mode="aide">{{onglet_aide}}</a></nav><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="{{bouton_theme}}"><span aria-hidden="true">◐</span></button>
+  <nav class="modes lrmp-onglets" aria-label="{{rubriques}}"><a href="#apprendre" data-mode="apprendre">{{onglet_apprendre}}</a><a href="#libre" data-mode="libre">{{onglet_libre}}</a><a href="#expliquer" data-mode="expliquer">{{onglet_expliquer}}</a><a href="#jouer" data-mode="jouer">{{onglet_jouer}}</a><a href="#aide" data-mode="aide">{{onglet_aide}}</a></nav><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="{{bouton_theme}}"><span aria-hidden="true">◐</span></button>
 </header>
 <div class="app app-tuto" id="app-tuto">
 <div class="wrap">
@@ -511,7 +511,7 @@ S=load()||blank();render();
 
 })();</script>
 <script>
-(()=>{const modes=['apprendre','expliquer','libre','jouer','aide'];
+(()=>{const modes=['apprendre','libre','expliquer','jouer','aide'];
  function show(m){if(!modes.includes(m))m='jouer';document.documentElement.setAttribute('data-mode',m);document.getElementById('app-tuto').hidden=m!=='apprendre'&&m!=='libre';if(window.mkChap)window.mkChap(m==='libre'?'free':'course');document.getElementById('app-comp').hidden=m!=='jouer';document.getElementById('app-aide').hidden=m!=='aide';document.getElementById('app-ex').hidden=m!=='expliquer';
   document.querySelectorAll('.modes a').forEach(a=>a.toggleAttribute('aria-current',a.dataset.mode===m)&&a.setAttribute('aria-current','page'));
   try{localStorage.setItem('mk-mode',m)}catch(e){}}

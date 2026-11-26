@@ -40,5 +40,5 @@
  "pied_mentions": "<footer class=\"page small muted\" style=\"padding-top:0\">Aide de jeu de fan, gratuite et non officielle, sans lien avec Awaken Realms ni ses éditeurs partenaires. Nemesis: Retaliation © Awaken Realms. Règles résumées d'après le livret de règles français et l'aide de jeu Salles. Merci à <a href=\"https://boardgamegeek.com/profile/Bernaar\" rel=\"noopener\">Bernaar</a> pour <a href=\"https://boardgamegeek.com/thread/3718303/article/48230420#48230420\" rel=\"noopener\">son recensement des questions de règles</a> et à <a href=\"https://boardgamegeek.com/profile/_Tiberias_\" rel=\"noopener\">Antoine Prono</a> pour <a href=\"https://boardgamegeek.com/thread/3697212/faq-francaise-pour-nemesis-retaliation\" rel=\"noopener\">la FAQ française</a> sur BoardGameGeek.</footer>",
  "onglet_expliquer": "data-tab=\"expliquer\" aria-selected=\"false\">Expliquer le jeu</button>",
  "ex_titre": "Expliquer le jeu",
- "ex_intro": "Un fil rouge pour présenter le jeu à la table : dix écrans courts, ce qu'on garde pour plus tard, puis l'aide-mémoire."
+ "ex_intro": "Un fil rouge pour présenter le jeu à la table en une dizaine d'écrans courts, et un petit rappel de ce qui n'a pas été expliqué et devra l'être plus tard."
 }

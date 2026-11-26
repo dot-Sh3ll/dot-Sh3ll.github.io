@@ -479,7 +479,7 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 .ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}
 .mk-ex{max-width:1080px;margin:0 auto;padding:18px 16px 28px;font-family:var(--f-body);--ex-surface:#131b28;--ex-sunk:var(--sunk);--ex-accent:var(--gold);--ex-accent-ink:var(--gold-ink);--ex-display:var(--f-display)}
 </style>
-<script id="mk-mode-js">(function(){var M=["apprendre","expliquer","libre","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
+<script id="mk-mode-js">(function(){var M=["apprendre","libre","expliquer","jouer","aide"],m=location.hash.slice(1);if(M.indexOf(m)<0){try{m=localStorage.getItem("mk-mode")}catch(e){}}if(M.indexOf(m)<0)m="jouer";document.documentElement.setAttribute("data-mode",m)})();</script>
 <style id="mk-mode-css">html:not([data-mode=expliquer]) #app-ex,html[data-mode=expliquer] #app-tuto,html[data-mode=expliquer] #app-comp,html[data-mode=expliquer] #app-aide{display:none}html[data-mode=jouer] #app-tuto,html[data-mode=jouer] #app-aide,html[data-mode=apprendre] #app-comp,html[data-mode=apprendre] #app-aide,html[data-mode=aide] #app-tuto,html[data-mode=aide] #app-comp{display:none}</style>
 <style id="mk-onglets-css">html[data-mode="libre"] .app-tuto header.top{display:none}.app-tuto #chap{display:none}</style>
 <!--commun-->
@@ -561,7 +561,7 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 
 <header class="topbar">
   <p class="brand">Mage Knight</p>
-  <nav class="modes lrmp-onglets" aria-label="Rubriques"><a href="#apprendre" data-mode="apprendre">Apprendre</a><a href="#expliquer" data-mode="expliquer">Expliquer le jeu</a><a href="#libre" data-mode="libre">S'entraîner</a><a href="#jouer" data-mode="jouer">Compagnon de partie</a><a href="#aide" data-mode="aide">Aide-mémoire</a></nav><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="Changer de thème (clair / sombre)"><span aria-hidden="true">◐</span></button>
+  <nav class="modes lrmp-onglets" aria-label="Rubriques"><a href="#apprendre" data-mode="apprendre">Apprendre</a><a href="#libre" data-mode="libre">S'entraîner</a><a href="#expliquer" data-mode="expliquer">Expliquer le jeu</a><a href="#jouer" data-mode="jouer">Compagnon de partie</a><a href="#aide" data-mode="aide">Aide-mémoire</a></nav><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="Changer de thème (clair / sombre)"><span aria-hidden="true">◐</span></button>
 </header>
 <div class="app app-tuto" id="app-tuto">
 <div class="wrap">
@@ -600,7 +600,7 @@ body{color:var(--ink);font-family:var(--f-body);min-height:100vh;
 
 </div>
 
-<div class="app app-ex" id="app-ex" hidden><div class="lrmp-ex mk-ex"><div class="lrmp-ex-tete"><h1>Expliquer le jeu</h1><p>Un fil rouge pour présenter le jeu à la table, pensé pour une première partie en Mission de Reconnaissance : dix écrans courts, ce qu'on garde pour plus tard, puis l'aide-mémoire.</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
+<div class="app app-ex" id="app-ex" hidden><div class="lrmp-ex mk-ex"><div class="lrmp-ex-tete"><h1>Expliquer le jeu</h1><p>Un fil rouge pour présenter le jeu à la table, pensé pour une première partie en Mission de Reconnaissance : une dizaine d'écrans courts, et un petit rappel de ce qui n'a pas été expliqué et devra l'être plus tard.</p></div><div class="lrmp-ex-boite" id="ex-boite"></div></div></div>
 <script>/* Mode « Expliquer le jeu », commun à toutes les applis (inséré par assembler.py à la place de <!--PARTAGE:expliquer.js-->).
    lrmpExpliquer(boite, D) : D = {ecrans:[{t, html, dire?, piege?, pl?}], aide:html, plus?:[[quoi, quand]], ui:{…}}
    dire : la phrase à dire, en italique sous le titre ; piege : encadré, titré pl (sinon ui.piege).
@@ -2666,7 +2666,7 @@ S=load()||blank();render();
 
 })();</script>
 <script>
-(()=>{const modes=['apprendre','expliquer','libre','jouer','aide'];
+(()=>{const modes=['apprendre','libre','expliquer','jouer','aide'];
  function show(m){if(!modes.includes(m))m='jouer';document.documentElement.setAttribute('data-mode',m);document.getElementById('app-tuto').hidden=m!=='apprendre'&&m!=='libre';if(window.mkChap)window.mkChap(m==='libre'?'free':'course');document.getElementById('app-comp').hidden=m!=='jouer';document.getElementById('app-aide').hidden=m!=='aide';document.getElementById('app-ex').hidden=m!=='expliquer';
   document.querySelectorAll('.modes a').forEach(a=>a.toggleAttribute('aria-current',a.dataset.mode===m)&&a.setAttribute('aria-current','page'));
   try{localStorage.setItem('mk-mode',m)}catch(e){}}

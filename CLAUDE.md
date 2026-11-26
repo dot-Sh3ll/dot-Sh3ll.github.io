@@ -75,7 +75,7 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 
 ## Mode « Expliquer le jeu » (onglet après « Apprendre », dans toutes les applis sauf Aeon's End)
 
-- Un fil rouge pour la personne qui explique le jeu à la table : 10 écrans, puis le résumé du tour (aide-mémoire),
+- Un fil rouge pour la personne qui explique le jeu à la table : une dizaine d'écrans, puis le résumé du tour,
   puis « Pour plus tard ». Boutons (choix de Paul) : Précédent, Suivant (jusqu'au dernier écran, sans retour au début), Plein écran ; rien d'autre. Moteur commun : `outils/site/partage/expliquer.js` + `expliquer.css` (insérés par `<!--PARTAGE:…-->`).
 - Contenu : `outils/<appli>/contenu/<langue>/expliquer.js` (`const EXPL={ui, ecrans:[{t, dire, html, piege, pl}], aide, plus}`).
   `dire` = phrase en italique entre guillemets sous le titre (le récit de Paul) ; `piege` = encadré, titré `pl`
@@ -87,7 +87,7 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
   « Section en chantier » ; les brouillons sont dans leurs `expliquer.js` (Mage Knight et Puerto Rico : FR seulement, l'`en`
   est une copie du français à traduire ; Imperium : ses anciens écrans, sans `dire`). Brouillons relus dans le doc
   « Expliquer le jeu · écrans à relire » (https://claude.ai/artifact/9Q1c8epAcy8n7Ut9qMpj6S). Retirer `EXPL.chantier` une fois validé.
-- Ordre des onglets partout : Apprendre · Expliquer le jeu · … · Aide-mémoire en dernier. Imperium : le compagnon « À plusieurs »
+- Ordre des onglets partout : Apprendre · Expliquer le jeu · … · Aide-mémoire en dernier ; dans Mage Knight : Apprendre · S'entraîner · Expliquer le jeu · Compagnon de partie · Aide-mémoire. Imperium : le compagnon « À plusieurs »
   (feuille de score, Effondrement) a été supprimé ; `#plusieurs` ouvre « Expliquer le jeu ». Mage Knight : « Partie libre » s'appelle « S'entraîner ».
 
 ## Langues

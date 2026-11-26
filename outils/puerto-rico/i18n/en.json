@@ -51,5 +51,5 @@
  "theme_title_theme_auto": "$('#theme').title='Theme: '+{auto:'automatic',dark:'dark',light:'light'}[th]",
  "aide_de_jeu_de": "<footer class=\"page small muted\" style=\"padding-top:0\">Free, unofficial fan-made game aid, not affiliated with Ravensburger or alea. Puerto Rico 1897 © Andreas Seyfarth / Ravensburger. Rules summarised from the English rulebook.</footer>",
  "ex_titre": "Teach the game",
- "ex_intro": "A guide for teaching the game at the table: ten short screens, what to keep for later, then the cheat sheet."
+ "ex_intro": "A guide for teaching the game at the table in about ten short screens, plus a quick reminder of what hasn't been explained yet and will need to be later."
 }
