@@ -7,7 +7,7 @@ usage : python3 outils/site/schemas.py <dossier>      (mage-knight, imperium, pu
 Pose dans chaque page (FR, EN) un bloc <!--schemas-->…<!--/schemas--> avant </body> : styles des schémas
 (couleurs tirées des variables de l'appli, donc justes en thème clair et sombre) et un petit script qui insère
 chaque schéma sous les règles du bon chapitre, à chaque affichage (les chapitres sont redessinés par l'appli).
-Rejouable. À relancer après une reconstruction de la page (build_mk.sh, build_imp.sh, assembler.py puerto-rico).
+Rejouable. Lancé par le build.sh de Mage Knight, d'Imperium et de Puerto Rico.
 Une géométrie par schéma, un jeu de textes par langue ; légende (figcaption) et texte alternatif dans chaque langue.
 """
 import json, os, re, sys

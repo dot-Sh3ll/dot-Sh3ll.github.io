@@ -13,7 +13,7 @@ Choix mémorisé dans localStorage["<code>-theme"] (séparé par langue, comme l
 
 Modes : Imperium suit le système par défaut (automatique → sombre → clair, comme Nemesis) ;
 Aeon's End et Mage Knight restent sombres par défaut (sombre ↔ clair) : le clair est une option.
-Après une reconstruction de la page anglaise (build_imp.sh, build_mk.sh) ou allemande (gen_lang.py), relancer ce script.
+Lancé par le build.sh de chaque appli (Mage Knight, Imperium, Aeon's End).
 """
 import os, re, sys
 

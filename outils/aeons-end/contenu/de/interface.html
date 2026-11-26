@@ -1,0 +1,114 @@
+<header>
+  <h1><span>Aeon's End</span> Markt</h1><button type="button" class="lrmp-theme" id="lrmp-theme" aria-label="Farbschema wechseln (hell / dunkel)"><span aria-hidden="true">◐</span></button>
+  <p>Neun Stapel aus Kristallen, Artefakten und Zaubern, gezogen aus den Schachteln, die Sie besitzen. Wählen Sie vor jedem Kampf die Aufteilung und die Art des Markts.</p>
+</header>
+
+<nav class="lrmp-onglets" role="tablist" aria-label="Bereiche">
+  <button type="button" role="tab" id="tab-gen" aria-selected="true">Neuer Markt</button>
+  <button type="button" role="tab" id="tab-exp" aria-selected="false">Expedition</button>
+  <button type="button" role="tab" id="tab-wins" aria-selected="false">Tagebuch <span class="n" id="nwins"></span></button>
+</nav>
+
+<div class="view" id="view-gen">
+<section class="ask" id="ask">
+  <h2>Welcher Markt für diesen Kampf?</h2>
+  <div class="fight">
+    <label class="fld"><span>Erzfeind (optional)</span><select id="f-nem"></select></label>
+    <label class="fld"><span>Magier 1</span><select id="f-m1"></select></label>
+    <label class="fld"><span>Magier 2</span><select id="f-m2"></select></label>
+  </div>
+  <fieldset class="dist" id="dist"><legend>Aufteilung der 9 Stapel</legend></fieldset>
+  <div class="modes">
+    <button class="mode" data-mode="opt" type="button">
+      <span class="k">Am einfachsten</span><span class="t">Optimiert</span>
+      <span class="d">Die beste Karte für jede Rolle: schnelles Æther, Ausdünnen des Decks, Eröffnungszauber und Abschlusszauber.</span>
+    </button>
+    <button class="mode" data-mode="combo" type="button">
+      <span class="k">Selbst entdecken</span><span class="t">Originell</span>
+      <span class="d">Ein Markt rund um eine versteckte Synergie. Der Hinweis bleibt verborgen, bis Sie ihn anfordern.</span>
+    </button>
+    <button class="mode" data-mode="rand" type="button">
+      <span class="k">Zufällig</span><span class="t">Völlig zufällig</span>
+      <span class="d">Neun Karten, ganz ohne Filter gezogen. Machen Sie das Beste daraus.</span>
+    </button>
+  </div>
+  <div class="opts">
+    <label for="f-theme">Thema des originellen Markts <select id="f-theme"></select></label>
+    <label><input type="checkbox" id="f-fresh" checked> Karten der letzten 3 Märkte vermeiden</label>
+  </div>
+</section>
+
+<details class="boxes" id="boxes">
+  <summary><b>Verwendete Schachteln</b> · <span id="boxsum"></span></summary>
+  <div class="boxlist" id="boxlist"></div>
+  <p class="warn" id="warn" hidden></p>
+</details>
+
+<section id="result" hidden>
+  <div class="bar">
+    <div class="what"><span class="k" id="rk"></span><span class="t" id="rt"></span></div>
+    <div class="actions">
+      <button class="btn primary" id="newfight" type="button">Neuer Kampf</button>
+      <button class="btn" id="again" type="button">In diesem Modus neu ziehen</button>
+      <button class="btn" id="copy" type="button">Liste kopieren</button>
+      <button class="btn win-b" id="logwin" type="button">Sieg</button>
+      <button class="btn loss-b" id="logloss" type="button">Niederlage</button>
+    </div>
+  </div>
+  <form class="logform" id="logform" hidden>
+    <label class="fld"><span>Erzfeind</span><select id="l-nem"></select></label>
+    <label class="fld"><span>Magier 1</span><select id="l-m1"></select></label>
+    <label class="fld"><span>Magier 2</span><select id="l-m2"></select></label>
+    <label class="fld"><span>Datum</span><input type="date" id="l-date"></label>
+    <label class="fld wide"><span>Notiz (optional)</span><input type="text" id="l-note" maxlength="200"></label>
+    <div class="row"><button class="btn primary" type="submit" id="l-save">Speichern</button>
+      <button class="btn" type="button" id="l-cancel">Abbrechen</button><span class="msg" id="l-msg"></span></div>
+  </form>
+  <p class="jmsg" id="l-done" hidden></p>
+  <div id="note" class="note" style="margin-top:18px"></div>
+  <div id="market" style="display:flex;flex-direction:column;gap:22px;margin-top:22px"></div>
+</section>
+</div>
+
+<div class="view" id="view-exp" hidden>
+  <div id="exp"><p class="jmsg">Expedition wird geladen…</p></div>
+</div>
+
+<div class="view" id="view-wins" hidden>
+  <div class="wins-head xhead">
+    <div><h2>Kampftagebuch</h2>
+    <p id="winsum">Tagebuch wird geladen…</p></div>
+    <button class="btn primary" type="button" id="a-open">Partie hinzufügen</button>
+  </div>
+  <form class="addbox" id="addform" hidden>
+    <div class="photo" id="a-photo-row">
+      <label class="btn" for="a-photo">Fotos auswählen</label>
+      <input type="file" id="a-photo" multiple hidden>
+      <button class="btn primary" type="button" id="a-analyze" disabled>Auswerten</button>
+      <button class="btn" type="button" id="a-stop" hidden>Anhalten</button>
+      <span class="st" id="a-st">Fotografieren Sie den Tisch (den Markt und wenn möglich die Tableaus von Erzfeind und Magiern). Ich erkenne die Karten und fülle das Formular aus; Sie prüfen vor dem Speichern.</span>
+    </div>
+    <div class="resrow" role="radiogroup" aria-label="Ergebnis">
+      <label><input type="radio" name="a-res" id="a-res-v" value="V" checked> Sieg</label>
+      <label><input type="radio" name="a-res" id="a-res-d" value="D"> Niederlage</label>
+    </div>
+    <div class="xform">
+      <label class="fld"><span>Erzfeind</span><select id="a-nem"></select></label>
+      <label class="fld"><span>Magier 1</span><select id="a-m1"></select></label>
+      <label class="fld"><span>Magier 2</span><select id="a-m2"></select></label>
+      <label class="fld"><span>Datum</span><input type="date" id="a-date"></label>
+      <label class="fld" style="grid-column:1/-1"><span>Notiz (optional)</span><input type="text" id="a-note" maxlength="200"></label>
+    </div>
+    <div class="pick" id="a-pick"></div>
+    <div class="row xbtns"><button class="btn primary" type="submit" id="a-save">Partie speichern</button>
+      <button class="btn" type="button" id="a-cancel">Abbrechen</button><span class="msg" id="a-msg" style="color:#ffb4a3;font-size:14px;align-self:center"></span></div>
+  </form>
+  <p class="jmsg" id="a-done" hidden></p>
+  <div class="stats" id="stats"></div>
+  <div class="hunt" id="hunt"></div>
+  <div class="wins" id="wins"></div>
+</div>
+
+<footer>
+  Inoffizielles Hilfsmittel. Die Kartentexte sind zusammengefasst: Im Zweifel gilt die Karte. Die Stärkewerte der Karten aus den neueren Schachteln werden automatisch geschätzt. Stärkewerte sowie die Profile der Erzfeinde und Magier sind eine persönliche Einschätzung. Der Expeditionsmodus folgt einer Zusammenfassung der Regeln von Ein neues Zeitalter. Kartennamen und -texte aus der deutschen Ausgabe (Frosted Games), Karten ohne deutsche Ausgabe auf Englisch mit eigener Übersetzung. Daten zu Karten, Magiern und Erzfeinden: <a href="https://github.com/on3iro/aeons-end-randomizer" target="_blank" rel="noopener">aeons-end-randomizer</a> © 2019 Theo Salzmann, MIT-Lizenz.
+</footer>

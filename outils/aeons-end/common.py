@@ -1,6 +1,7 @@
 import json, re, html
 
-A = json.load(open('/home/claude/ae/aer.json'))
+import os
+A = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'aer.json'), encoding='utf-8'))
 ENG, FRD = A['ENG'], A['FR']
 
 # dataset folder -> (app box key, FR name, EN name, wave, legacy?)

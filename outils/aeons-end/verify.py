@@ -1,6 +1,7 @@
 import json,re,subprocess,collections,sys
 from common import *
-s=open('/home/claude/dot-sh3ll.github.io/aeons-end/'+sys.argv[1],encoding='utf-8').read()
+import os
+s=open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','aeons-end',sys.argv[1]),encoding='utf-8').read()
 raw=re.search(r'const RAW = \[\n(.*?)\n\];',s,re.S).group(1)
 rows=[json.loads(l.rstrip(',')) for l in raw.split('\n') if l.startswith('[')]
 app=collections.Counter((r[2],r[1]) for r in rows)

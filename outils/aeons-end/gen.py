@@ -4,9 +4,18 @@ the rest comes from the aer-data dataset plus the fr*.tsv translations."""
 import json, re, sys
 from common import *
 
-APP = '/home/claude/dot-sh3ll.github.io/aeons-end/'
-fr_html = open(APP + 'index.html', encoding='utf-8').read()
-en_html = open(APP + 'en.html', encoding='utf-8').read()
+import os
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def sources(lang):
+    """tout le contenu d'une langue (morceaux du format commun, contenu/<lang>/), pour y lire RAW, NEM, MAGES"""
+    d = os.path.join(HERE, 'contenu', lang)
+    return '\n'.join(open(os.path.join(d, f), encoding='utf-8').read() for f in sorted(os.listdir(d)))
+
+
+fr_html = sources('fr')
+en_html = sources('en')
 
 ROW = re.compile(r'^\["(\w+)","(Gem|Relic|Spell)","(\w+)",(\d+),("(?:[^"\\]|\\.)*"),("(?:[^"\\]|\\.)*"),("(?:[^"\\]|\\.)*"),(\d),(\[[^\]]*\])\],?$', re.M)
 
@@ -26,7 +35,7 @@ assert len(FR_OLD) == 125 and len(EN_OLD) == 125, (len(FR_OLD), len(EN_OLD))
 # --- translations for new cards
 TR = {}
 for i in range(1, 5):
-    for line in open(f'/home/claude/ae/fr{i}.tsv', encoding='utf-8'):
+    for line in open(os.path.join(HERE, f'fr{i}.tsv'), encoding='utf-8'):
         if line.strip():
             k, n, fx = line.rstrip('\n').split('\t')
             TR[k] = (n, fx)
@@ -245,5 +254,5 @@ def block(lang):
 out = {}
 for lang in ('fr', 'en'):
     out[lang] = block(lang)
-json.dump(out, open('/home/claude/ae/blocks.json', 'w', encoding='utf-8'), ensure_ascii=False)
+json.dump(out, open(os.path.join(HERE, 'blocks.json'), 'w', encoding='utf-8'), ensure_ascii=False)
 print('cards', len(cards_fr), 'nem', len(nem_fr), 'mages', len(mag_fr), 'boxes', len(boxes), file=sys.stderr)

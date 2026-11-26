@@ -10,7 +10,7 @@ La page anglaise propose les PDF anglais (ou le français, signalé, s'il n'y a 
 usage (depuis la racine du dépôt) : python3 outils/site/fiches.py            toutes les applis
                                     python3 outils/site/fiches.py imperium   une seule
 À relancer après une nouvelle fiche sur l'accueil, et après la reconstruction d'une appli
-(build.sh de Puerto Rico et de Nemesis le font ; Mage Knight et Imperium : après build_mk.sh / build_imp.sh).
+(assembler.py le fait, donc tous les build.sh).
 """
 import html, json, os, re, sys
 
