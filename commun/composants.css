@@ -20,13 +20,13 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 .sitehead .sh-text{font-family:var(--font-site);font-weight:600;font-size:16px;line-height:1.12;white-space:normal}
 .sitehead .sh-act{display:flex;align-items:center;gap:22px}
 .sitehead .sh-lang{display:inline-flex;gap:18px}
-.sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;min-height:36px;border-bottom:2px solid transparent;font-weight:600;font-size:15px;letter-spacing:.02em}
+.sitehead .sh-lang span,.sitehead .sh-lang a{display:inline-flex;align-items:center;min-height:36px;border-bottom:2px solid transparent;font-weight:600;font-size:15px;line-height:18px;letter-spacing:.02em}
 .sitehead .sh-lang span{color:var(--site-gold);border-bottom-color:var(--site-gold)}
 .sitehead .sh-lang a{color:var(--site-ink)}
 .sitehead .sh-lang span.sh-off{color:#5d6475;border-bottom-color:transparent;cursor:not-allowed}
 .sitehead .sh-lang a:hover{color:var(--site-gold)}
 .sitehead .sh-sep{width:1px;height:30px;background:var(--site-line)}
-.sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:15px;white-space:nowrap}
+.sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding-bottom:2px;font-size:15px;line-height:18px;white-space:nowrap}
 .sitehead .sh-kofi:hover{color:var(--site-gold)}
 .sitehead .sh-kofi svg{display:block;width:34px;height:34px;flex:none;order:2;position:relative;top:-5px}
 .sitehead a:focus-visible{outline:2px solid var(--site-gold);outline-offset:2px}
