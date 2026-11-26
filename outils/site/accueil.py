@@ -106,7 +106,7 @@ def appli(s, j):
     tx = j["texte"]; remember(tx)
     card = f'''
     <a class="card {j["jeu"]}" data-game="{j["jeu"]}" data-created="{created}" data-updated="{TODAY}" href="{j["dossier"]}/">
-      <div class="banner"><span class="glyph" aria-hidden="true">{j["glyphe"]}</span><h3>{multi(j["nom"], "span")}</h3></div>
+      <div class="banner"><h3>{multi(j["nom"], "span")}</h3></div>
       <div class="body">
         <p class="fr">{tx["fr"]}</p>
         <p class="en">{tx["en"]}</p>
@@ -133,7 +133,6 @@ def fiche(s, j):
         dl = f'<a class="dl" href="fiches/{j["pdf_fr"]}" download>⬇ PDF</a>'
     art = f'''
     <article class="pdf {j["jeu"]}" data-game="{j["jeu"]}" data-created="{created}" data-updated="{TODAY}">
-      <span class="ico" aria-hidden="true">{j["icone"]}</span>
       <div>
         <h3><span class="fr">{t["fr"]}</span><span class="en">{t["en"]}</span></h3>
         <p class="fr">{x["fr"]}</p>

@@ -120,9 +120,8 @@ body:not(.filtre) .tout,body.filtre .une,body:not(.parjeu) .tout.jeu{display:non
   border:2px solid color-mix(in srgb,var(--accent) 35%,transparent);border-radius:26px;box-shadow:inset 0 0 28px color-mix(in srgb,var(--accent) 22%,transparent),0 0 0 1px #0006}
 .card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent) .9px,transparent 1.5px) 0 0/22px 22px;-webkit-mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%);mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%)}
 .card>*{position:relative}
-.banner{height:110px;position:relative;display:flex;align-items:flex-end;padding:16px 22px 0;background:none}
+.banner{height:78px;position:relative;display:flex;align-items:flex-end;padding:16px 22px 0;background:none}
 .banner .badge{position:absolute;left:16px;top:14px}
-.banner .glyph{position:absolute;right:18px;top:12px;font-size:3.3rem;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
 .banner h3{font-family:var(--display);font-weight:600;font-size:1.6rem;margin:0;color:#fff;line-height:1.15}
 .body{padding:16px 22px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
 .body p{margin:0;color:var(--muted);font-size:.96rem}
@@ -140,12 +139,11 @@ body:not(.filtre) .tout,body.filtre .une,body:not(.parjeu) .tout.jeu{display:non
 .pr{--accent:#e2cc9f;--c1:#8a6a43;--c2:#2b1f14}
 
 .pdfs{display:flex;flex-direction:column;gap:12px;margin-bottom:52px}
-.pdf{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:radial-gradient(60% 150% at 105% 50%,color-mix(in srgb,var(--c1,#1d2230) 60%,transparent),transparent 65%),#0c0f18;border:2px solid color-mix(in srgb,var(--accent,#ffbe04) 35%,transparent);border-radius:20px;box-shadow:inset 0 0 24px color-mix(in srgb,var(--accent,#ffbe04) 20%,transparent);padding:16px 20px}
+.pdf{position:relative;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:radial-gradient(60% 150% at 105% 50%,color-mix(in srgb,var(--c1,#1d2230) 60%,transparent),transparent 65%),#0c0f18;border:2px solid color-mix(in srgb,var(--accent,#ffbe04) 35%,transparent);border-radius:20px;box-shadow:inset 0 0 24px color-mix(in srgb,var(--accent,#ffbe04) 20%,transparent);padding:16px 20px}
 .pdf::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle,color-mix(in srgb,var(--accent,#ffbe04) 18%,transparent) .9px,transparent 1.5px) 0 0/22px 22px;-webkit-mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%);mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%)}
 .pdf>*{position:relative}
 @media (max-width:640px){.pdf{background:radial-gradient(120% 90% at 50% 110%,color-mix(in srgb,var(--c1,#1d2230) 60%,transparent),transparent 65%),#0c0f18}
   .pdf::before{-webkit-mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%);mask-image:linear-gradient(to top,#000 0%,rgba(0,0,0,.55) 15%,transparent 36%)}}
-.pdf .ico{font-size:1.9rem;line-height:1}
 .pdf h3{font-family:var(--display);font-weight:600;font-size:1.18rem;margin:0 0 2px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .pdf h3 .badge{background:var(--surface-2)}
 .pdf p{margin:0;color:var(--muted);font-size:.92rem}
@@ -192,7 +190,7 @@ footer p{margin:0 0 6px}
   .kofi{width:44px;justify-content:center;margin:0 -8px 0 -6px}.kofi svg{display:block}
   .filters{top:65px}.filters-in{flex-direction:column;align-items:stretch}.search,.jeux{flex:none}
   .search input,.jeux select{height:48px}
-  .pdf{grid-template-columns:auto 1fr}.pdf .dl{grid-column:1/-1;justify-content:center}
+  .pdf{grid-template-columns:1fr}.pdf .dl{justify-content:center}
   .sec-head{flex-direction:column;gap:2px}
 }
 @media (max-width:360px){.brand-text{display:none}}
@@ -265,7 +263,7 @@ footer p{margin:0 0 6px}
   <!-- Pour ajouter une appli : copier un bloc <a class="card ...">, l'adapter, et mettre à jour data-created / data-updated (AAAA-MM-JJ). -->
   <div class="grid" data-sort>
     <a class="card nr" data-game="nr" data-created="2026-11-25" data-updated="2026-11-25" href="../nemesis/">
-      <div class="banner"><span class="glyph" aria-hidden="true">☣</span><h3>Nemesis: Retaliation</h3></div>
+      <div class="banner"><h3>Nemesis: Retaliation</h3></div>
       <div class="body">
         <p class="fr">Apprenez chaque point de règle avec des simulateurs (sac Intrus, jet de bruit, tir, rafale, risque d'éclosion), des mini-jeux et des quiz. Avec aide-mémoire et toutes les salles du complexe.</p>
         <p class="en">Learn every rule with simulators (Intruder bag, Noise roll, shooting, Burst fire, hatching risk), mini-games and quizzes. Includes a reference sheet and every Room of the complex.</p>
@@ -274,17 +272,17 @@ footer p{margin:0 0 6px}
       </div>
     </a>
     <a class="card pr" data-game="pr" data-created="2026-11-23" data-updated="2026-11-25" href="../puerto-rico/">
-      <div class="banner"><span class="glyph" aria-hidden="true">⛵</span><h3>Puerto Rico 1897</h3></div>
+      <div class="banner"><h3>Puerto Rico 1897</h3></div>
       <div class="body">
         <p class="fr">Apprenez chaque point de règle avec des simulateurs (chargement des navires, Maison de commerce, coûts de construction), des mini-jeux et des quiz. Avec aide-mémoire des bâtiments.</p>
         <p class="en">Learn every rule with simulators (ship loading, Trading House, building costs), mini-games and quizzes. Includes a building reference.</p>
-        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li><li class="fr">Décompte</li><li class="en">Scoring</li><li>FR · EN</li></ul>
+        <ul class="tags"><li class="fr">Tutoriel</li><li class="en">Tutorial</li><li class="fr">Aide-mémoire</li><li class="en">Reference</li><li>FR · EN</li></ul>
         <div class="foot"><span class="go"><span class="fr">Ouvrir</span><span class="en" data-k="open-pr">Open</span></span><span class="date"></span></div>
       </div>
     </a>
 
     <a class="card mk" data-game="mk" data-created="2026-11-22" data-updated="2026-11-25" href="../mage-knight/">
-      <div class="banner"><span class="glyph" aria-hidden="true">🗺️</span><h3>Mage Knight</h3></div>
+      <div class="banner"><h3>Mage Knight</h3></div>
       <div class="body">
         <p class="fr">Apprenez le jeu pas à pas avec des mini-jeux et des quiz, puis jouez avec le compagnon : outils de combat, Fantôme en solo, scénarios, score et carnet de campagne.</p>
         <p class="en">Learn the game step by step with mini-games and quizzes, then play with the companion: combat tools, solo Dummy player, scenarios, scoring and campaign log.</p>
@@ -294,7 +292,7 @@ footer p{margin:0 0 6px}
     </a>
 
     <a class="card imp" data-game="imp" data-created="2026-11-16" data-updated="2026-11-25" href="../imperium/">
-      <div class="banner"><span class="glyph" aria-hidden="true">🏛️</span><h3><span class="fr">Imperium Antique</span><span class="en">Imperium: Classics</span></h3></div>
+      <div class="banner"><h3><span class="fr">Imperium Antique</span><span class="en">Imperium: Classics</span></h3></div>
       <div class="body">
         <p class="fr">Un tutoriel en six étapes avec un tour guidé, puis le mode solo : l'appli gère entièrement la C.I.V. et raconte chacun de ses tours. Avec aide-mémoire, campagne et historique.</p>
         <p class="en">A six-step tutorial with a guided turn, then solo mode: the app fully runs the Bot and narrates each of its turns. Includes a rules reference, campaign mode and game history.</p>
@@ -304,7 +302,7 @@ footer p{margin:0 0 6px}
     </a>
 
     <a class="card ae" data-game="ae" data-created="2026-11-14" data-updated="2026-11-25" href="../aeons-end/">
-      <div class="banner"><span class="glyph" aria-hidden="true">🔮</span><h3>Aeon's End</h3></div>
+      <div class="banner"><h3>Aeon's End</h3></div>
       <div class="body">
         <p class="fr">Générez un marché pour chaque combat (optimisé, original ou aléatoire) avec toute la gamme : 28 boîtes et 383 cartes. Notez victoires et défaites, et suivez vos expéditions.</p>
         <p class="en">Generate a market for every fight (optimised, combo-seeking or random) across the whole range: 28 boxes and 383 cards. Log wins and losses, and track your expeditions.</p>
@@ -323,7 +321,6 @@ footer p{margin:0 0 6px}
   <!-- Pour ajouter une fiche : déposer le PDF dans le dossier « fiches », copier ce bloc <article> et l'adapter (dates comprises). -->
   <div class="pdfs" data-sort>
     <article class="pdf nr" data-game="nr" data-created="2026-11-25" data-updated="2026-11-25">
-      <span class="ico" aria-hidden="true">🚪</span>
       <div>
         <h3><span class="fr">Nemesis: Retaliation · Salles</span><span class="en">Nemesis: Retaliation · Rooms</span></h3>
         <p class="fr">Les 25 salles : section, icônes Objet, effet et précisions, FAQ officielle comprise.<br>3 pages.</p>
@@ -333,7 +330,6 @@ footer p{margin:0 0 6px}
       <a class="dl fr" href="../fiches/nemesis-salles.pdf" download>⬇ PDF</a><a class="dl en" href="../fiches/nemesis-rooms.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf nr" data-game="nr" data-created="2026-11-25" data-updated="2026-11-25">
-      <span class="ico" aria-hidden="true">🧬</span>
       <div>
         <h3><span class="fr">Nemesis: Retaliation · Aide de jeu</span><span class="en">Nemesis: Retaliation · Game aid</span></h3>
         <p class="fr">Les 4 phases d'une manche, les actions, le jet de bruit, le sac Intrus, les objets, le combat, l'évasion et la fin de partie.<br>3 pages.</p>
@@ -343,7 +339,6 @@ footer p{margin:0 0 6px}
       <a class="dl fr" href="../fiches/nemesis-aide-de-jeu.pdf" download>⬇ PDF</a><a class="dl en" href="../fiches/nemesis-game-aid.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf imp" data-game="imp" data-created="2026-11-24" data-updated="2026-11-25">
-      <span class="ico" aria-hidden="true">📖</span>
       <div>
         <h3><span class="fr">Imperium Antique · Mots-clés</span><span class="en">Imperium: Classics · Keywords</span></h3>
         <p class="fr">Les 37 mots-clés des cartes, d'Abandonner à Voler, au sens exact des règles.<br>2 pages.</p>
@@ -353,7 +348,6 @@ footer p{margin:0 0 6px}
       <a class="dl fr" href="../fiches/imperium-mots-cles.pdf" download>⬇ PDF</a><a class="dl en" href="../fiches/imperium-keywords.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf imp" data-game="imp" data-created="2026-11-24" data-updated="2026-11-25">
-      <span class="ico" aria-hidden="true">📜</span>
       <div>
         <h3><span class="fr">Imperium Antique · Aide de jeu</span><span class="en">Imperium: Classics · Game aid</span></h3>
         <p class="fr">Votre tour, les trois ordres, le Nettoyage, le Solstice, le mélange du deck, le Marché et la fin de partie.<br>2 pages.</p>
@@ -363,7 +357,6 @@ footer p{margin:0 0 6px}
       <a class="dl fr" href="../fiches/imperium-aide-de-jeu.pdf" download>⬇ PDF</a><a class="dl en" href="../fiches/imperium-game-aid.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf pr" data-game="pr" data-created="2026-11-23" data-updated="2026-11-25">
-      <span class="ico" aria-hidden="true">⛵</span>
       <div>
         <h3><span class="fr">Puerto Rico 1897 · Aide de jeu</span><span class="en">Puerto Rico 1897 · Game aid</span></h3>
         <p class="fr">Un tour de jeu, les Personnages, la mise en place de 2 à 5 joueurs, vendre ou expédier.<br>4 pages.</p>
@@ -373,7 +366,6 @@ footer p{margin:0 0 6px}
       <a class="dl fr" href="../fiches/puerto-rico-aide-de-jeu.pdf" download>⬇ PDF</a><a class="dl en" href="../fiches/puerto-rico-game-aid.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf pr" data-game="pr" data-created="2026-11-23" data-updated="2026-11-25">
-      <span class="ico" aria-hidden="true">🏛️</span>
       <div>
         <h3><span class="fr">Puerto Rico 1897 · Bâtiments</span><span class="en">Puerto Rico 1897 · Buildings</span></h3>
         <p class="fr">Tous les bâtiments dans l'ordre du plateau, extension 2 comprise, puis ceux de l'extension 1 par coût.<br>3 pages.</p>
@@ -383,7 +375,6 @@ footer p{margin:0 0 6px}
       <a class="dl fr" href="../fiches/puerto-rico-batiments.pdf" download>⬇ PDF</a><a class="dl en" href="../fiches/puerto-rico-buildings.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf mk" data-game="mk" data-created="2026-11-23" data-updated="2026-11-26">
-      <span class="ico" aria-hidden="true">🗺️</span>
       <div>
         <h3><span class="fr">Mage Knight · Aide de jeu</span><span class="en">Mage Knight · Game aid</span></h3>
         <p class="fr">Récapitulatifs du tour, du déplacement, du combat, des sites et des capacités des ennemis.<br>8 pages.</p>
@@ -393,7 +384,6 @@ footer p{margin:0 0 6px}
       <a class="dl fr" href="../fiches/mage-knight-aide-de-jeu.pdf" download>⬇ PDF</a><a class="dl en" href="../fiches/mage-knight-game-aid.pdf" download>⬇ <span class="en" data-k="dl">PDF</span></a>
     </article>
     <article class="pdf mk" data-game="mk" data-created="2026-11-23" data-updated="2026-11-25">
-      <span class="ico" aria-hidden="true">📜</span>
       <div>
         <h3><span class="fr">Mage Knight · Module de quêtes maison</span><span class="en">Mage Knight · Homemade quest module</span></h3>
         <p class="fr">Règles du module, barème des récompenses, quêtes de Jour et de Nuit sur trois paliers (villages, monastères, cités) et six scénarios maison : trois en solo, trois en coopération à deux.<br>12 pages.</p>

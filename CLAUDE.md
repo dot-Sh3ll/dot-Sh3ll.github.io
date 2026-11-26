@@ -66,7 +66,7 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 - **Polices hors applis** : titres en Fraunces 600 (italique dans `commun/polices/fraunces-italic-*`), texte Figtree. Les applis gardent leurs polices et thèmes.
 - **Accueil** : titre « Apprenez le jeu *en jouant*. » ; atouts sans émojis séparés par « · » (liste à puces sur téléphone) : Tutoriels interactifs · Automas pour
   joueur solo · Compagnons de partie · Fiches à imprimer ; recherche + menu « Tous les jeux » (`<select id="jeu">`, remplace les boutons par jeu ; `?jeu=` marche
-  toujours ; `accueil.py` y ajoute les nouveaux jeux) ; cartes d'applis sur fond sombre, bordure et lueur intérieure de la couleur du jeu, halo et petits points
+  toujours ; `accueil.py` y ajoute les nouveaux jeux) ; cartes d'applis et fiches **sans émojis** (27/11/2026 ; `glyphe` et `icone` restent dans les JSON d'`accueil.py`, non affichés), cartes d'applis sur fond sombre, bordure et lueur intérieure de la couleur du jeu, halo et petits points
   en dégradé depuis le bas ; fiches au même style, halo depuis la droite (depuis le bas sur téléphone), bouton « ⬇ PDF », nombre de pages à la ligne (`<br>`).
 - Maquettes : artefact Design « Less Rules, More Play · maquette du nouveau logo » (https://claude.ai/artifact/6kzgCKHjFaG5YpiGCrQ2SZ), propositions de cartes A à F.
 
