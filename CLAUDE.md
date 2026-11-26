@@ -194,6 +194,12 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
    ajoutés le 26/11 : mana, tour, Niveaux ; Marché, zones des cartes, fin de partie ; actions, phase Intrus ; Carrières).
    Écartés par Paul : « plusieurs ennemis » de Mage Knight (`mk_groupe` reste dans schemas.py, non utilisé). Piste : versions interactives.
 
+2. **« Expliquer le jeu » dans les autres applis** (idée de Paul, 26/11) : sur le modèle d'Imperium (onglet « À plusieurs » →
+   « Expliquer le jeu » : 10 écrans courts puis un aide-mémoire, `SL` dans `outils/imperium/contenu/<langue>/compagnon.js`),
+   un fil rouge pour la personne qui explique le jeu à la table, pas un résumé exhaustif. À proposer à Paul avant d'écrire.
+3. **Search Console** : Paul doit valider paulmoussard.com (TXT posé dans Cloudflare) puis lancer « Changement d'adresse ».
+4. **Pax Pamir** : en attente des réponses de Paul (boîtes, priorités, PDF des règles).
+
 ## Idées d'applis
 
 - **Pax Pamir** (prochaine, de préférence) : automatiser le Wakhan.
