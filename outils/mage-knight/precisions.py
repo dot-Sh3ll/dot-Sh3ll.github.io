@@ -17,13 +17,21 @@ de TP (données et rendu) et ajoute l'affichage dans renderCourse. Rejouable.
 """
 import json, os, re, sys
 
+URL = "https://boardgamegeek.com/filepage/218596/q-and-a-compendium"
+BILL = "https://boardgamegeek.com/profile/BillNC"
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 
 UI = {
- "fr": {"att": "À ne pas oublier", "prec": "Précisions", "src": "D'après le Compendium of Q&A de BoardGameGeek (août 2026).",
-        "part": "Pour aller plus loin", "voir": "Voir le chapitre"},
- "en": {"att": "Don't forget", "prec": "Clarifications", "src": "Based on the BoardGameGeek Compendium of Q&A (August 2026).",
-        "part": "Going further", "voir": "See the chapter"},
+ "fr": {"att": "À ne pas oublier", "prec": "Précisions", "src": "D'après le Q&A Compendium de BoardGameGeek (août 2026).",
+        "part": "Pour aller plus loin", "voir": "Voir le chapitre",
+        "sources": "D'après le livret de règles et celui des extensions",
+        "avec": "Avec les précisions du <a href=\"{url}\" rel=\"noopener\">Q&amp;A Compendium</a> de BoardGameGeek (août 2026).",
+        "merci": "Merci à <a href=\"{bill}\" rel=\"noopener\">BillNC</a> pour <a href=\"{url}\" rel=\"noopener\">son Q&amp;A Compendium</a> sur BoardGameGeek."},
+ "en": {"att": "Don't forget", "prec": "Clarifications", "src": "Based on the BoardGameGeek Q&A Compendium (August 2026).",
+        "part": "Going further", "voir": "See the chapter",
+        "sources": "Based on the rulebook and the expansions rulebook",
+        "avec": "With clarifications from the BoardGameGeek <a href=\"{url}\" rel=\"noopener\">Q&amp;A Compendium</a> (August 2026).",
+        "merci": "Thanks to <a href=\"{bill}\" rel=\"noopener\">BillNC</a> for <a href=\"{url}\" rel=\"noopener\">his Q&amp;A Compendium</a> on BoardGameGeek."},
 }
 
 # chapitre (titre court t, dans chaque langue) -> attention (facultatif), faq (liste)
@@ -214,7 +222,9 @@ CSS = (".app-tuto .lrmp-att{margin:14px 0 0;padding:10px 13px;border-left:4px so
        ".app-tuto details.lrmp-prec{margin:12px 0 0;border:1px solid var(--line);border-radius:8px;padding:0 12px}"
        ".app-tuto details.lrmp-prec summary{cursor:pointer;padding:9px 0;font-weight:700;color:var(--accent)}"
        ".app-tuto details.lrmp-prec ul{margin:0 0 6px;padding-left:18px}.app-tuto details.lrmp-prec li{margin:0 0 6px;line-height:1.45}"
-       ".app-tuto details.lrmp-prec .src{font-size:.85em;color:var(--muted);margin:0 0 10px}")
+       ".app-tuto details.lrmp-prec .src{font-size:.85em;color:var(--muted);margin:0 0 10px}"
+       ".app-tuto header.top p.lrmp-sources{font-size:.85rem;margin-top:6px;line-height:1.5}"
+       ".app-tuto .lrmp-sources a,.app-tuto footer a{color:var(--accent)}")
 
 
 def bloc(lang):
@@ -227,7 +237,7 @@ def bloc(lang):
         data.append(d)
     ep = EPINEUX[lang]
     js = ("/*precisions*/\n"
-          "const PRECIS_UI=" + json.dumps(u, ensure_ascii=False) + ";\n"
+          "const PRECIS_UI=" + json.dumps({k: u[k] for k in ("att", "prec", "src")}, ensure_ascii=False) + ";\n"
           "(" + json.dumps(data, ensure_ascii=False) + ").forEach(p=>{const x=TP(p.t);if(x){x.att=p.att;x.faq=p.faq}});\n"
           "TOPICS.push(" + json.dumps({"t": ep["t"], "h": ep["h"], "rules": ep["rules"], "quiz": ep["quiz"]}, ensure_ascii=False) + ");\n"
           "function precis(T){const U=PRECIS_UI;return (T.att?`<p class=\"lrmp-att\"><b>${U.att} ·</b> ${T.att}</p>`:'')"
@@ -255,6 +265,15 @@ def apply(lang):
     if "${T.lab?labHtml():''}${precis(T)}</div>" not in s:
         assert s.count(tpl) == 1, "gabarit de renderCourse introuvable"
         s = s.replace(tpl, "${T.lab?labHtml():''}${precis(T)}</div>")
+    u = {k: v.format(url=URL, bill=BILL) for k, v in UI[lang].items()}
+    s = re.sub(r"<!--sources-->.*?<!--/sources-->", "", s, flags=re.S)
+    s = re.sub(r" ?<!--merci-->.*?<!--/merci-->", "", s, flags=re.S)
+    m = re.search(r'(<header class="top">\s*<div>\s*<h1>[^<]*</h1>\s*<p>[^<]*</p>)', s)
+    assert m, "présentation du tutoriel introuvable"
+    s = s[:m.end()] + f'<!--sources--><p class="lrmp-sources">{u["sources"]}<br>{u["avec"]}</p><!--/sources-->' + s[m.end():]
+    m = re.search(r"(<footer>(?:Tutoriel non officiel|Unofficial tutorial)[^<]*)</footer>", s)
+    assert m, "mention du tutoriel introuvable"
+    s = s[:m.end(1)] + f' <!--merci-->{u["merci"]}<!--/merci-->' + s[m.end(1):]
     open(p, "w", encoding="utf-8").write(s)
     print("précisions :", os.path.relpath(p, ROOT))
 
