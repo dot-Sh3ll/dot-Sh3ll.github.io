@@ -47,8 +47,7 @@ ecrans:[
 {t:'Fin de partie',
  html:`<p class="big1">La partie s'arrête à la fin du tour où l'un de ces trois cas arrive :</p>
  <div class="trio"><div><h3>Ouvriers</h3><p>Pas assez d'ouvriers pour remplir le Registre.</p></div><div><h3>Ville pleine</h3><p>Un joueur remplit ses 12 cases Ville.</p></div><div><h3>Jetons PV</h3><p>Le dernier jeton PV est pris.</p></div></div>
- <p>Score : jetons PV + PV imprimés des bâtiments + bonus des grands bâtiments occupés. Égalité : le plus de Pesos et de barils.</p>`,
- dire:'« L\'onglet Décompte fera les calculs à la fin. »'}],
+ <p>Score : jetons PV + PV imprimés des bâtiments + bonus des grands bâtiments occupés. Égalité : le plus de Pesos et de barils.</p>`}],
 plus:[
 ['Les petits bâtiments beiges','Au premier achat : on lit la tuile ensemble.'],
 ['Les grands bâtiments','Quand un joueur approche des 10 Pesos.'],

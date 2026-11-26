@@ -330,7 +330,7 @@ quiz:[
 
 /* ======================= END OF THE GAME ======================= */
 {id:'fin',part:'End of the game',t:'Game end and scoring',
-lead:`Three triggers, a round to finish, then scoring. The Scoring tab does the maths for you.`,
+lead:`Three triggers, a round to finish, then scoring.`,
 rules:[
 `The game ends <b>at the end of the round</b> in which at least one condition is met: the current round is always finished.`,
 `Condition 1: at the end of the Recruitment phase, there are <b>not enough workers</b> in the supply to refill the Work Register.`,

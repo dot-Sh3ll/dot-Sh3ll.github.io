@@ -1,6 +1,6 @@
 {
- "puerto_rico_apprendre_les": "<title>Puerto Rico 1897 · Apprendre les règles</title>\n<meta name=\"description\" content=\"Apprendre Puerto Rico 1897 point de règle par point de règle : simulateurs, mini-jeux, quiz, aide-mémoire des bâtiments et calculateur de score.\">",
- "aria_label_sections_apprendre": "aria-label=\"Sections\">\n    <button type=\"button\" role=\"tab\" data-tab=\"learn\" aria-selected=\"true\">Apprendre</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"expliquer\" aria-selected=\"false\">Expliquer le jeu</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"score\" aria-selected=\"false\">Décompte</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"aide\" aria-selected=\"false\">Aide-mémoire</button>",
+ "puerto_rico_apprendre_les": "<title>Puerto Rico 1897 · Apprendre les règles</title>\n<meta name=\"description\" content=\"Apprendre Puerto Rico 1897 point de règle par point de règle : simulateurs, mini-jeux, quiz et aide-mémoire des bâtiments.\">",
+ "aria_label_sections_apprendre": "aria-label=\"Sections\">\n    <button type=\"button\" role=\"tab\" data-tab=\"learn\" aria-selected=\"true\">Apprendre</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"expliquer\" aria-selected=\"false\">Expliquer le jeu</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"aide\" aria-selected=\"false\">Aide-mémoire</button>",
  "aria_label_changer_de": "aria-label=\"Changer de thème (clair / sombre)\">",
  "aria_label_sommaire_du": "aria-label=\"Sommaire du tutoriel\">\n    <p class=\"brand\">Apprendre les règles<small>D'après le livret de règles français (édition corrigée de 2023)</small></p>",
  "aria_expanded_false_afficher": "aria-expanded=\"false\">Afficher le sommaire</button>",

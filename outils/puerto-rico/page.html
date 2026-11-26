@@ -239,7 +239,6 @@ details.grp summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--mu
 <!--CONTENU:expliquer-->
 lrmpExpliquer(document.getElementById('ex-boite'),EXPL);</script>
 <div class="tab" id="tab-aide"><div class="page" id="aide"></div></div>
-<div class="tab" id="tab-score"><div class="page" id="score"></div></div>
 <!--CONTENU:donnees--><!--CONTENU:chapitres--><!--CONTENU:ateliers--><!--CONTENU:navires-->
 {{tutoriel}}
 const ST=LS.get('pr1897-tuto',{done:{},cur:CH[0].id,q:{}});ST.done=ST.done||{};ST.q=ST.q||{};
@@ -279,49 +278,15 @@ window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(CH.
  $$('#am-set button').forEach(b=>b.onclick=()=>{$$('#am-set button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');set=b.dataset.v;draw()});$('#am-q').oninput=draw;draw();
  $$('#aide .toolbar a').forEach(a=>a.onclick=e=>{e.preventDefault();const t=$(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})}
 
-{{decompte}}
-const SC=LS.get('pr1897-score',null)||{n:4,e1:false,e2:false,p:[]};
-function scP(i){return SC.p[i]||(SC.p[i]={name:NAMES[i],chips:0,own:[],occ:{},x:{},cit:0,tie:0})}
-function bonus(p,id){const o=p.own,x=p.x[id]||0;switch(id){
- case 'fst':return o.filter(k=>BI[k].kind==='prod'&&BI[k].sz==='s').length+2*o.filter(k=>(BI[k].kind==='prod'&&BI[k].sz==='l')||k==='tai').length;
- case 'res':return x<=0?0:x<=9?4:x-6;case 'frt':return Math.floor(x/3);case 'cus':return Math.floor((p.chips||0)/4);
- case 'cth':return o.filter(k=>BI[k].kind!=='prod').length;case 'cat':return [0,1,3,6,10][Math.min(4,x)];case 'tsq':return p.cit||0;default:return 0}}
-{{const_xin_res_cases}}
-function total(p){let t=(+p.chips||0),{{d_en_jetons}};const bv=p.own.reduce((s,k)=>s+BI[k].vp,0);t+=bv;{{d_push_de_batiments}};
- let lb=0;p.own.filter(k=>BI[k].kind==='large'&&p.occ[k]).forEach(k=>lb+=bonus(p,k));if(lb){t+=lb;{{d_push_de_bonus}}}if(SC.e2&&p.cit){t+=+p.cit;{{d_push_de_bourgeois}}}return {t,d}}
-const GRPOPEN={};
-function score(){const y=window.scrollY;const sets=['base'].concat(SC.e1?['e1']:[],SC.e2?['e2']:[]);
- $('#score').innerHTML=`{{decompte_calculer_les_scores}}
- <div class="pcards">${Array.from({length:SC.n},(_,i)=>{const p=scP(i);p.own=p.own.filter(k=>sets.includes(BI[k].set));
-  const grp=(kind,lab)=>{const gk=i+kind,op=gk in GRPOPEN?GRPOPEN[gk]:kind!=='small';return `<details class="grp" data-gk="${gk}" ${op?'open':''}><summary>${lab}</summary><div class="bchips">${B.filter(b=>b.kind===kind&&sets.includes(b.set)).map(b=>`<button type="button" data-p="${i}" data-b="${b.id}" class="${p.own.includes(b.id)?'sel':''}">${b.fr} · ${b.vp}</button>`).join('')}</div></details>`};
-  const larges=p.own.filter(k=>BI[k].kind==='large'&&k!=='mon');
-  return `<div class="pcard"><div class="row" style="justify-content:space-between"><input type="text" value="${esc(p.name)}" data-p="${i}" data-f="name" {{aria_label_nom_du}}style="font-weight:700;width:150px"><span class="tot" id="sc-t${i}"></span></div>
-  <div class="row" style="margin:8px 0">{{pv_en_jetons_input}} type="number" min="0" value="${p.chips||0}" data-p="${i}" data-f="chips"></label>${SC.e2?`{{bourgeois_input}} type="number" min="0" value="${p.cit||0}" data-p="${i}" data-f="cit"></label>`:''}{{pesos_barils_input}} type="number" min="0" value="${p.tie||0}" data-p="${i}" data-f="tie"></label></div>
-  {{batiments_groupes}}
-  ${larges.map(k=>`<div class="row small" style="margin:4px 0"><label class="chk"><input type="checkbox" data-p="${i}" data-occ="${k}" ${p.occ[k]?'checked':''}{{occupe}}${XIN[k]&&p.occ[k]?`<label class="f">${XIN[k]}<input type="number" min="0" value="${p.x[k]||0}" data-p="${i}" data-x="${k}"></label>`:''}<span class="muted" id="sc-b${i}${k}"></span></div>`).join('')}
-  <p class="small muted" id="sc-d${i}"></p>{{join_classement}}<ol class="rank" id="sc-rank"></ol>`;
- const upd=()=>{LS.set('pr1897-score',SC);const res=[];for(let i=0;i<SC.n;i++){const p=scP(i),r=total(p);{{sc_t_i_textcontent}};$('#sc-d'+i).textContent=r.d.join(' + ');
-   p.own.filter(k=>BI[k].kind==='large'&&k!=='mon').forEach(k=>{const e=$(`#sc-b${i}${k}`);if(e)e.textContent={{p_occ_k_bonus}}});res.push({n:p.name,t:r.t,tie:+p.tie||0})}
-  res.sort((a,b)=>b.t-a.t||b.tie-a.tie);$('#sc-rank').innerHTML=res.map((r,i)=>`<li><b>${i+1}.</b> ${esc(r.n)} <span style="margin-left:auto">{{pv}}</span></li>`).join('')};
- wireSeg($('#score'),'sc-n',()=>{SC.n=segVal($('#score'),'sc-n');score()});
- $('#sc-e1').onchange=e=>{SC.e1=e.target.checked;score()};$('#sc-e2').onchange=e=>{SC.e2=e.target.checked;score()};
- $('#sc-reset').onclick=()=>{if(SC.p.length&&!{{confirm_effacer_tous_les}})return;SC.p=[];score()};
- $$('#score [data-b]').forEach(b=>b.onclick=()=>{const p=scP(+b.dataset.p),k=b.dataset.b,i=p.own.indexOf(k);if(i>=0){p.own.splice(i,1);delete p.occ[k]}else{p.own.push(k);if(BI[k].kind==='large'&&k!=='mon')p.occ[k]=true}score()});
- $$('#score [data-occ]').forEach(c=>c.onchange=()=>{scP(+c.dataset.p).occ[c.dataset.occ]=c.checked;score()});
- $$('#score [data-x]').forEach(c=>c.oninput=()=>{scP(+c.dataset.p).x[c.dataset.x]=Math.max(0,+c.value||0);upd()});
- $$('#score [data-f]').forEach(c=>c.oninput=()=>{const p=scP(+c.dataset.p),f=c.dataset.f;p[f]=f==='name'?c.value:Math.max(0,+c.value||0);upd()});
- $$('#score details.grp').forEach(d=>d.ontoggle=()=>{GRPOPEN[d.dataset.gk]=d.open});
- upd();window.scrollTo(0,y)}
-
 {{onglets_theme_demarrage}}
 function tab(t){$$('.lrmp-onglets button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));$$('.tab').forEach(x=>x.classList.toggle('on',x.id==='tab-'+t));LS.set('pr1897-tab',t);window.scrollTo(0,0)}
 $$('.lrmp-onglets button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
 const TH=['auto','dark','light'];let th=LS.get('pr1897-theme','auto');
 const applyTh=()=>{if(th==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',th);{{theme_title_theme_auto}}};
 $('#theme').onclick=()=>{th=TH[(TH.indexOf(th)+1)%3];LS.set('pr1897-theme',th);applyTh()};applyTh();
-aide();score();
+aide();
 const h=location.hash.slice(1);show(CH.some(c=>c.id===h)?h:ST.cur,false);
-if(!CH.some(c=>c.id===h))tab(LS.get('pr1897-tab','learn'));
+if(!CH.some(c=>c.id===h)){const t=LS.get('pr1897-tab','learn');tab(document.getElementById('tab-'+t)?t:'learn')}
 })();
 </script>
 {{aide_de_jeu_de}}

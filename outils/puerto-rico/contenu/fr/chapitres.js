@@ -330,7 +330,7 @@ quiz:[
 
 /* ======================= FIN DE PARTIE ======================= */
 {id:'fin',part:'Fin de partie',t:'Fin de partie et décompte',
-lead:`Trois déclencheurs, un tour à terminer, puis le décompte. L'onglet Décompte fait les calculs à votre place.`,
+lead:`Trois déclencheurs, un tour à terminer, puis le décompte.`,
 rules:[
 `La partie s'arrête <b>à la fin du tour</b> où au moins une condition est remplie : on termine toujours le tour en cours.`,
 `Condition 1 : en fin de phase du Recruteur, il n'y a <b>pas assez d'ouvriers</b> dans la réserve pour remplir le Registre.`,
