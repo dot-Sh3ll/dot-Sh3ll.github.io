@@ -69,4 +69,8 @@
 @media (max-width:640px){.ex-astuce,.ex-clavier{display:none}.ex-nav button{flex:1 1 40%}}
 .lrmp-ex-boite:fullscreen .ex-nav{justify-content:center}
 .lrmp-ex-boite:fullscreen .ex-clavier{margin-left:16px}
+.lrmp-ex-boite:fullscreen{justify-content:safe center}
+.lrmp-ex-boite:fullscreen .ex-stage{flex-shrink:0}
+.lrmp-ex-boite:fullscreen .ex-plus{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}
+.lrmp-ex-boite:fullscreen .ex-plus li{grid-template-columns:1fr;align-content:start;gap:2px;padding:8px 14px}
 .ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}
