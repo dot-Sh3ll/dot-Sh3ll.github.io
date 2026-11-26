@@ -23,12 +23,12 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 
 UI = {
  "fr": {"att": "À ne pas oublier", "prec": "Précisions", "src": "D'après le Q&A Compendium de BoardGameGeek (août 2026).",
-        "part": "Pour aller plus loin", "voir": "Voir le chapitre",
+        "part": "Pour aller plus loin", "voir": "Voir le chapitre", "fac": "facultatif",
         "sources": "D'après le livret de règles",
         "avec": "Avec les précisions du Q&amp;A Compendium.",
         "merci": "Merci à <a href=\"{bill}\" rel=\"noopener\">BillNC</a> pour <a href=\"{url}\" rel=\"noopener\">son Q&amp;A Compendium</a> sur BoardGameGeek."},
  "en": {"att": "Don't forget", "prec": "Clarifications", "src": "Based on the BoardGameGeek Q&A Compendium (August 2026).",
-        "part": "Going further", "voir": "See the chapter",
+        "part": "Going further", "voir": "See the chapter", "fac": "optional",
         "sources": "Based on the rulebook",
         "avec": "With the Q&amp;A Compendium clarifications.",
         "merci": "Thanks to <a href=\"{bill}\" rel=\"noopener\">BillNC</a> for <a href=\"{url}\" rel=\"noopener\">his Q&amp;A Compendium</a> on BoardGameGeek."},
@@ -111,11 +111,9 @@ CH = [
              "In a Dungeon or Tomb it is always Night: black mana allowed, gold mana not, even by Day."]},
  {"fr": "Unités", "en": "Units",
   "faq_fr": ["Une Unité Résistante qui absorbe toute l'attaque sans être Blessée peut encore utiliser une capacité plus tard dans le combat, si elle est Disponible.",
-             "Les Unités absentes du combat ne peuvent pas encaisser : quand vous brûlez un Monastère, dans un Donjon ou un Tombeau, ou si elles ne vous accompagnent pas dans un Dédale.",
-             "On ne peut pas redresser une Unité pendant un combat pour qu'elle agisse deux fois."],
+             "Les Unités absentes du combat ne peuvent pas encaisser : quand vous brûlez un Monastère, dans un Donjon ou un Tombeau, ou si elles ne vous accompagnent pas dans un Dédale."],
   "faq_en": ["A Resistant Unit that absorbs the whole attack without being Wounded may still use an ability later in the combat, if it is Ready.",
-             "Units not in the combat cannot take damage: when burning a Monastery, in a Dungeon or Tomb, or if they don't come with you into a Maze.",
-             "You cannot ready a Unit during a combat so that it acts twice."]},
+             "Units not in the combat cannot take damage: when burning a Monastery, in a Dungeon or Tomb, or if they don't come with you into a Maze."]},
  {"fr": "Éléments", "en": "Elements",
   "faq_fr": ["Aux Dégâts, l'élément ne compte plus : une Attaque de Feu Glacé 9 fait 9 Dégâts, sauf sur une Unité qui résiste à la fois au Feu et à la Glace.",
              "Un effet payé avec du mana rouge ou bleu ne devient pas de Feu ou de Glace : il faut que le texte le dise."],
@@ -134,11 +132,11 @@ CH = [
   "faq_fr": ["Si un seul ennemi du groupe est doublement Fortifié, aucune Attaque à Distance ni de Siège n'est possible contre ce groupe en première phase.",
              "Un groupe est vaincu en entier ou pas du tout ; les points en trop sont perdus et ne passent pas à un autre groupe.",
              "Si votre déplacement provoque un ennemi errant, vous ne pouvez plus entrer dans un site d'aventures ce tour-ci.",
-             "Orques et Draconiens rencontrés dans un site d'aventures ne sont pas des ennemis errants : ils ne rapportent aucune Réputation."],
+             "Les Draconiens d'un Tombeau ou d'un Dédale ne sont pas des ennemis errants : les vaincre rapporte de la Gloire, mais pas de Réputation."],
   "faq_en": ["If even one enemy in the group is Double Fortified, no Ranged or Siege Attack can be made against that group in the first phase.",
              "A group is defeated as a whole or not at all; excess points are lost and do not move to another group.",
              "If your move provokes a rampaging enemy, you can no longer enter an adventure site this turn.",
-             "Orcs and Draconum met in an adventure site are not rampaging enemies: they give no Reputation."]},
+             "Draconum in a Tomb or a Labyrinth are not rampaging enemies: defeating them gives Fame, but no Reputation."]},
  {"fr": "Sorts", "en": "Spells",
   "faq_fr": ["Les Offres de Sorts et d'Actions Avancées se complètent aussitôt : si vous achetez deux Sorts, le deuxième se choisit parmi l'Offre déjà complétée."],
   "faq_en": ["The Spell and Advanced Action Offers are refilled at once: if you buy two Spells, the second is chosen from the refilled Offer."]},
@@ -246,7 +244,7 @@ def bloc(lang):
           "const NAVHEAD=(()=>{const n=document.querySelector('.app-tuto header.top .navhead');if(!n)return '';const h=n.outerHTML;n.remove();return h})();\n"
           "const PRECIS_UI=" + json.dumps({k: u[k] for k in ("att", "prec")}, ensure_ascii=False) + ";\n"
           "(" + json.dumps(data, ensure_ascii=False) + ").forEach(p=>{const x=TP(p.t);if(x){x.att=p.att;x.faq=p.faq}});\n"
-          "TOPICS.push(" + json.dumps({"t": ep["t"], "h": ep["h"], "rules": ep["rules"], "quiz": ep["quiz"]}, ensure_ascii=False) + ");\n"
+          "TOPICS.push(" + json.dumps({"t": ep["t"], "h": ep["h"], "rules": ep["rules"], "quiz": ep["quiz"], "opt": True}, ensure_ascii=False) + ");\n"
           "function precis(T){const U=PRECIS_UI;return (T.att?`<p class=\"lrmp-att\"><b>${U.att} ·</b> ${T.att}</p>`:'')"
           "+(T.faq&&T.faq.length?`<details class=\"lrmp-prec\"><summary>${U.prec} (${T.faq.length})</summary><ul>${T.faq.map(f=>`<li>${f}</li>`).join('')}</ul></details>`:'')}\n"
           "(function(){try{const s=document.createElement('style');s.id='precis-css';s.textContent=" + json.dumps(CSS) + ";document.head.appendChild(s)}catch(e){}})();\n"
@@ -287,8 +285,19 @@ def apply(lang):
     m = re.search(r"(<footer>(?:Tutoriel non officiel|Unofficial tutorial)[^<]*)</footer>", s)
     assert m, "mention du tutoriel introuvable"
     s = s[:m.end(1)] + f' <!--merci-->{u["merci"]}<!--/merci-->' + s[m.end(1):]
-    lab = {"fr": "${done} chapitre${done>1?'s':''} validé${done>1?'s':''} sur ${COURSE.length}",
-           "en": "${done} of ${COURSE.length} chapters completed"}[lang]
+    # compteur : « Cas épineux » (opt) hors du total ; s'il est réussi, le total passe à 31 et une 🔥 apparaît
+    calc = ("const OPT=COURSE.findIndex(t=>t.opt),fire=OPT>=0&&chapDone(OPT),"
+            "done=COURSE.filter((t,i)=>i!==OPT&&chapDone(i)).length+(fire?1:0),TOT=COURSE.length-(OPT>=0&&!fire?1:0);")
+    old = "function renderNav(){const done=COURSE.filter((t,i)=>chapDone(i)).length;"
+    if old in s:
+        s = s.replace(old, "function renderNav(){" + calc)
+    assert "function renderNav(){" + calc in s, "renderNav introuvable"
+    s = s.replace("width:${Math.round(100*done/COURSE.length)}%", "width:${Math.round(100*done/TOT)}%")
+    lab = {"fr": "${done} chapitre${done>1?'s':''} validé${done>1?'s':''} sur ${TOT}${fire?' 🔥':''}",
+           "en": "${done} of ${TOT} chapters completed${fire?' 🔥':''}"}[lang]
+    # numéro du chapitre : sur 30 ; le chapitre facultatif est annoncé comme tel
+    s = re.sub(r"(chapitre|chapter) \$\{TI\+1\} (sur|of) \$\{COURSE\.length\}",
+               lambda m: "${T.opt?'" + u["fac"] + "':`" + m.group(1) + " ${TI+1} " + m.group(2) + " ${COURSE.length-1}`}", s)
     s, n = re.subn(r'class="barlabel">[^<]*<', 'class="barlabel">' + lab + '<', s, count=1)
     assert n == 1, "libellé de progression introuvable"
     open(p, "w", encoding="utf-8").write(s)
