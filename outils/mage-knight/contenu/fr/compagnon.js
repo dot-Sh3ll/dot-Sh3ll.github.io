@@ -421,7 +421,7 @@ function tBlank(){return{sub:'combat',calc:{site:false,phase:0,armor:2,sel:0,en:
   chefw:'sc',score:{scen:'',p:[pNew(),pNew()],o:{},win:false,heroes:''}}}
 const rows12=()=>Array.from({length:12},()=>({a:'',t:'',f:''}));
 function kBlank(){return{elem:rows12(),sc:rows12()}}
-function cBlank(){return{entries:[],draft:{date:'',scen:'',heroes:'',result:'win',score:'',note:''}}}
+function cBlank(){return{entries:[],draft:{date:'',scen:'',heroes:'',n:'1',hs:['','','',''],result:'win',score:'',note:''}}}
 const chefNew=()=>({lvl:null,start:null,combat:null,sh:{a:0,b:0},done:false});
 function ld(k,f){try{const v=JSON.parse(localStorage.getItem(k)||'null');if(v)return v}catch(e){}return f()}
 let T=Object.assign(tBlank(),ld(TKEY,tBlank)),K=ld(KKEY,kBlank),CB=Object.assign(cBlank(),ld(CKEY,cBlank));
@@ -542,13 +542,14 @@ function renderScore(){if(T.score.scen===''&&S.scen)T.score.scen=S.scen;scoreDef
 
 /* ---------- Carnet ---------- */
 function carnetStats(){const E=CB.entries,by={};E.forEach(e=>{if(!e.scen)return;const b=by[e.scen]||(by[e.scen]={n:0,win:0,best:null});b.n++;if(e.result==='win')b.win++;const sc=parseFloat(e.score);if(!isNaN(sc)&&(b.best===null||sc>b.best))b.best=sc});return by}
-function renderCarnet(){const E=CB.entries,dr=CB.draft;if(!dr.date)dr.date=today();const by=carnetStats(),wins=E.filter(e=>e.result==='win').length;
+function renderCarnet(){const E=CB.entries,dr=CB.draft;if(!dr.date)dr.date=today();if(!['1','2','3','4'].includes(String(dr.n)))dr.n='1';if(!Array.isArray(dr.hs))dr.hs=['','','',''];const nj=+dr.n;const by=carnetStats(),wins=E.filter(e=>e.result==='win').length;
   const left=SCEN.filter(x=>!by[x.id]),leftB=left.filter(x=>!x.ext),leftX=left.filter(x=>x.ext);
   return `<section class="panel"><h2>Carnet de campagne</h2><div class="stats"><div><span class="sub">Parties</span><b>${E.length}</b></div><div><span class="sub">Réussites</span><b>${wins}</b></div><div><span class="sub">Scénarios</span><b>${Object.keys(by).length}<small>/${SCEN.length}</small></b></div></div></section>
   <section class="panel"><h2>Ajouter une partie</h2>
    <label class="fld"><span class="sub">Date</span><input id="cd-date" type="date" data-bind="C.draft.date" data-live="0" value="${esc(dr.date)}"></label>
    <label class="fld"><span class="sub">Scénario</span><select id="cd-scen" data-bind="C.draft.scen"><option value="">Partie libre</option>${SCEN.map(x=>`<option value="${x.id}" ${x.id===dr.scen?'selected':''}>${esc(x.n)} · ${x.mode==='solo'?'solo':'coop'}</option>`).join('')}</select></label>
-   <label class="fld"><span class="sub">Héros</span><input id="cd-heroes" data-bind="C.draft.heroes" data-live="0" value="${esc(dr.heroes)}" placeholder="ex. Arythea"></label>
+   <div class="sub">Nombre de joueurs</div>${seg('C.draft.n',[['1','1'],['2','2'],['3','3'],['4','4']])}
+   ${['Arythea','Tovak','Goldyx','Norowas'].slice(0,nj).map((ex,k)=>`<label class="fld"><span class="sub">Héros${nj>1?' '+(k+1):''}</span><input id="cd-h${k}" data-bind="C.draft.hs.${k}" data-live="0" value="${esc(dr.hs[k]||'')}" placeholder="ex. ${ex}"></label>`).join('')}
    <div class="sub">Résultat</div>${seg('C.draft.result',[['win','Réussite'],['lose','Échec'],['none','Sans objectif']])}
    <label class="fld"><span class="sub">Score</span><input id="cd-score" type="number" inputmode="decimal" data-bind="C.draft.score" data-live="0" value="${esc(dr.score)}"></label>
    <label class="fld"><span class="sub">Note</span><input id="cd-note" data-bind="C.draft.note" data-live="0" value="${esc(dr.note)}" placeholder="ce qui a marché, ce qui a coincé"></label>
@@ -585,7 +586,7 @@ APPROOT.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b
   else if(a==='scoreClear'){T.score=Object.assign(tBlank().score,{scen:T.score.scen})}
   else if(a==='toScore'){T.sub='score';T.score.scen=S.scen||'';S.view='tools'}
   else if(a==='scoreSave'){const r=scoreCalc(),gi=(S.phase==='over'&&T.score.scen===(S.scen||''))?gameEntry():-1;if(gi>=0){const e=CB.entries[gi];Object.assign(e,{mode:r.two?'coop':'solo',heroes:T.score.heroes||e.heroes,result:T.score.win?'win':'lose',score:Math.round(r.total*10)/10});S.view='carnet'}else CB.entries.push({date:today(),scen:T.score.scen,mode:r.two?'coop':'solo',heroes:T.score.heroes,result:(r.sc&&r.sc.src!=='Maison'&&!(SCO[T.score.scen]||[]).length&&!T.score.win)?'none':T.score.win?'win':'lose',score:Math.round(r.total*10)/10,note:''});S.view='carnet'}
-  else if(a==='carnetAdd'){const dr=CB.draft,sc=SCEN.find(z=>z.id===dr.scen);CB.entries.push({date:dr.date||today(),scen:dr.scen,mode:sc?sc.mode:'solo',heroes:dr.heroes,result:dr.result,score:dr.score,note:dr.note});CB.draft=Object.assign(cBlank().draft,{date:today()})}
+  else if(a==='carnetAdd'){const dr=CB.draft,sc=SCEN.find(z=>z.id===dr.scen);CB.entries.push({date:dr.date||today(),scen:dr.scen,mode:sc?sc.mode:(+dr.n>1?'coop':'solo'),heroes:(dr.hs||[]).slice(0,+dr.n||1).map(h=>String(h||'').trim()).filter(Boolean).join(', '),players:+dr.n||1,result:dr.result,score:dr.score,note:dr.note});CB.draft=Object.assign(cBlank().draft,{date:today(),n:dr.n})}
   else if(a==='carnetDel'){if(b.dataset.armed!=='1'){b.dataset.armed='1';b.textContent='Toucher encore pour supprimer';return}CB.entries.splice(+x,1)}
   else if(a==='carnetCopy'){const m=$('#copymsg small');try{navigator.clipboard.writeText(carnetText()).then(()=>{m.textContent='Carnet copié : collez-le dans une note pour le garder.'},()=>{m.textContent='La copie a été refusée par le navigateur.'})}catch(err){m.textContent='La copie n\'est pas disponible ici.'}return}
   saveAll();render()});
