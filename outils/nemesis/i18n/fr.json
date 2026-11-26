@@ -1,6 +1,6 @@
 {
  "titre": "<title>Nemesis: Retaliation · Apprendre les règles</title>",
- "description": "content=\"Apprendre Nemesis: Retaliation point de règle par point de règle : ateliers interactifs (sac Intrus, jet de bruit, tir, rafale), cas pratiques, quiz, aide-mémoire et toutes les salles.\"",
+ "description": "content=\"Apprendre Nemesis: Retaliation point de règle par point de règle : simulateurs (sac Intrus, jet de bruit, tir, rafale), mini-jeux, quiz, aide-mémoire et toutes les salles.\"",
  "onglet_apprendre": "data-tab=\"learn\" aria-selected=\"true\">Apprendre</button>",
  "onglet_aide": "data-tab=\"aide\" aria-selected=\"false\">Aide-mémoire</button>",
  "onglet_salles": "data-tab=\"salles\" aria-selected=\"false\">Salles</button>",

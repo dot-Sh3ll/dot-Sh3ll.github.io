@@ -1,5 +1,5 @@
 {
- "puerto_rico_apprendre_les": "<title>Puerto Rico 1897 · Learn the rules</title>\n<meta name=\"description\" content=\"Learn Puerto Rico 1897 one rule at a time: interactive labs, hands-on cases, quizzes, a building reference and a score calculator.\">",
+ "puerto_rico_apprendre_les": "<title>Puerto Rico 1897 · Learn the rules</title>\n<meta name=\"description\" content=\"Learn Puerto Rico 1897 one rule at a time: simulators, mini-games, quizzes, a building reference and a score calculator.\">",
  "aria_label_sections_apprendre": "aria-label=\"Sections\">\n    <button type=\"button\" role=\"tab\" data-tab=\"learn\" aria-selected=\"true\">Learn</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"expliquer\" aria-selected=\"false\">Teach the game</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"score\" aria-selected=\"false\">Scoring</button>\n    <button type=\"button\" role=\"tab\" data-tab=\"aide\" aria-selected=\"false\">Reference</button>",
  "aria_label_changer_de": "aria-label=\"Change theme (light / dark)\">",
  "aria_label_sommaire_du": "aria-label=\"Tutorial contents\">\n    <p class=\"brand\">Learn the rules<small>Based on the English rulebook (2023 corrected edition)</small></p>",

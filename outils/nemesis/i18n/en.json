@@ -1,6 +1,6 @@
 {
  "titre": "<title>Nemesis: Retaliation · Learn the rules</title>",
- "description": "content=\"Learn Nemesis: Retaliation one rule at a time: interactive labs (Intruder bag, Noise roll, shooting, Burst), hands-on cases, quizzes, a reference sheet and every Room.\"",
+ "description": "content=\"Learn Nemesis: Retaliation one rule at a time: simulators (Intruder bag, Noise roll, shooting, Burst), mini-games, quizzes, a reference sheet and every Room.\"",
  "onglet_apprendre": "data-tab=\"learn\" aria-selected=\"true\">Learn</button>",
  "onglet_aide": "data-tab=\"aide\" aria-selected=\"false\">Reference</button>",
  "onglet_salles": "data-tab=\"salles\" aria-selected=\"false\">Rooms</button>",
