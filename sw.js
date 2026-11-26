@@ -2,7 +2,7 @@
    Pages : réseau d'abord (toujours la dernière version), copie locale si pas de réseau.
    Polices (commun/polices), icônes, PDF : copie locale d'abord, mise à jour en arrière-plan.
    VERSION et PRECACHE sont écrits par outils/site/sw.py (lancé par seo.py) : ne pas les modifier à la main. */
-const VERSION = "31e44169cf";  // empreinte du contenu, écrite par outils/site/sw.py
+const VERSION = "3a40e3d52b";  // empreinte du contenu, écrite par outils/site/sw.py
 const CACHE = "aides-de-jeu-" + VERSION;
 const PRECACHE = [
   "./", "index.html", "en/", "mage-knight/",

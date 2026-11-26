@@ -28,7 +28,7 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 .sitehead .sh-sep{width:1px;height:30px;background:var(--site-line)}
 .sitehead .sh-kofi{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:15px;white-space:nowrap}
 .sitehead .sh-kofi:hover{color:var(--site-gold)}
-.sitehead .sh-kofi svg{display:block;width:28px;height:28px;flex:none;order:2;position:relative;top:-4px}
+.sitehead .sh-kofi svg{display:block;width:34px;height:34px;flex:none;order:2;position:relative;top:-5px}
 .sitehead a:focus-visible{outline:2px solid var(--site-gold);outline-offset:2px}
 @media (max-width:640px){.sitehead .sh-in{height:64px}.sitehead .sh-logo{display:none}.sitehead .sh-icone{display:block}.sitehead .sh-text{display:block}
   .sitehead .sh-act{gap:14px}.sitehead .sh-lang{gap:14px}.sitehead .sh-sep{height:24px}
