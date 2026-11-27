@@ -42,7 +42,7 @@ JS = """<script>
 (function(){var F=%s,C=%s,T=%s;
 function box(kind){var a=document.createElement('aside');a.className='lrmp-fiches';a.dataset.kind=kind;
  a.innerHTML='<p class="k">'+(kind==='fin'?T.fin_t:T.k)+'</p><p class="t">'+(kind==='fin'?T.fin:T.aide)+'</p><ul>'+F.map(function(f){
-  return '<li><span class="i" aria-hidden="true">'+f.i+'</span><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}
+  return '<li><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}
 function place(){var e=C.aide&&document.querySelector(C.aide);
  if(e&&!(e.nextElementSibling&&e.nextElementSibling.dataset&&e.nextElementSibling.dataset.kind==='aide'))e.insertAdjacentElement('afterend',box('aide'));
  var b=C.fin&&document.querySelector(C.fin[0]),c=b&&b.closest(C.fin[1]);
@@ -82,7 +82,7 @@ def bloc(liste, code, conf, dossier):
         titre = re.sub(r"^.*? · ", "", titre)  # « Mage Knight · Aide de jeu » → « Aide de jeu »
         url = f["pdf"][code] or f["pdf"]["fr"]
         x = "" if (code == "fr" or f["pdf"][code]) else tx["frtag"]
-        F.append({"i": f["ico"], "t": html.escape(titre), "d": html.escape(html.unescape(re.sub(r"<[^>]+>", "", f["d"][code] or f["d"]["fr"]))), "u": "../" + url, "x": x})
+        F.append({"t": html.escape(titre), "d": html.escape(html.unescape(re.sub(r"<[^>]+>", "", re.sub(r"<br\s*/?>", " ", f["d"][code] or f["d"]["fr"])))), "u": "../" + url, "x": x})
     T = {k: html.escape(v) for k, v in tx.items()}
     return "<!--fiches-->\n" + JS % (json.dumps(F, ensure_ascii=False), json.dumps(conf), json.dumps(T, ensure_ascii=False)) + "\n<!--/fiches-->\n"
 

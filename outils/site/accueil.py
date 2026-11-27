@@ -84,6 +84,14 @@ def maj(s, cible, date):
     return s
 
 
+def compter_jeux(s):
+    """« Tous les jeux (n) » : n = nombre d'options du menu id="jeu" (hors « all »)."""
+    i = s.index('id="jeu"'); j = s.index("</select>", i)
+    n = len(re.findall(r'<option value="(?!all")', s[i:j]))
+    return s[:i] + re.sub(r'<option value="all"[^>]*>[^<]*</option>',
+        f'<option value="all" data-fr="Tous les jeux ({n})" data-en="All games ({n})">Tous les jeux ({n})</option>', s[i:j], count=1) + s[j:]
+
+
 def new_game(s, jeu, g):
     if f'<option value="{jeu}">' in s:
         return s
@@ -91,6 +99,7 @@ def new_game(s, jeu, g):
     i = s.index('</option>\n      </select>', s.index('id="jeu"'))  # menu « Tous les jeux » de l'accueil
     s = s[:i + 9] + f'\n        <option value="{jeu}">{g["chip"]}</option>' + s[i + 9:]
     s = s.replace('var NAMES={', f'var NAMES={{{jeu}:"{g["recherche"]}",', 1)
+    s = compter_jeux(s)
     o = '<option value="Site" data-fr='
     s = s.replace(o, f'<option value="{g["chip"]}">{g["chip"]}</option>\n            ' + o, 1)
     return s

@@ -1311,10 +1311,10 @@ if(!CH.some(c=>c.id===h)){const t=LS.get('pr1897-tab','learn');tab(document.getE
 </footer>
 <!--fiches-->
 <script>
-(function(){var F=[{"i": "⛵", "t": "Game aid", "d": "A game round, the roles, setup for 2 to 5 players, selling vs shipping.4 pages.", "u": "../fiches/puerto-rico-game-aid.pdf", "x": ""}, {"i": "🏛️", "t": "Buildings", "d": "Every building in board order, including expansion 2, then expansion 1 by cost.3 pages.", "u": "../fiches/puerto-rico-buildings.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".pager button[data-tab=\"aide\"]", ".pager"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
+(function(){var F=[{"t": "Game aid", "d": "A game round, the roles, setup for 2 to 5 players, selling vs shipping. 4 pages.", "u": "../fiches/puerto-rico-game-aid.pdf", "x": ""}, {"t": "Buildings", "d": "Every building in board order, including expansion 2, then expansion 1 by cost. 3 pages.", "u": "../fiches/puerto-rico-buildings.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".pager button[data-tab=\"aide\"]", ".pager"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
 function box(kind){var a=document.createElement('aside');a.className='lrmp-fiches';a.dataset.kind=kind;
  a.innerHTML='<p class="k">'+(kind==='fin'?T.fin_t:T.k)+'</p><p class="t">'+(kind==='fin'?T.fin:T.aide)+'</p><ul>'+F.map(function(f){
-  return '<li><span class="i" aria-hidden="true">'+f.i+'</span><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}
+  return '<li><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}
 function place(){var e=C.aide&&document.querySelector(C.aide);
  if(e&&!(e.nextElementSibling&&e.nextElementSibling.dataset&&e.nextElementSibling.dataset.kind==='aide'))e.insertAdjacentElement('afterend',box('aide'));
  var b=C.fin&&document.querySelector(C.fin[0]),c=b&&b.closest(C.fin[1]);

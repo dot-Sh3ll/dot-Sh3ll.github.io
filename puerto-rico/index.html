@@ -1312,10 +1312,10 @@ if(!CH.some(c=>c.id===h)){const t=LS.get('pr1897-tab','learn');tab(document.getE
 </footer>
 <!--fiches-->
 <script>
-(function(){var F=[{"i": "⛵", "t": "Aide de jeu", "d": "Un tour de jeu, les Personnages, la mise en place de 2 à 5 joueurs, vendre ou expédier.4 pages.", "u": "../fiches/puerto-rico-aide-de-jeu.pdf", "x": ""}, {"i": "🏛️", "t": "Bâtiments", "d": "Tous les bâtiments dans l&#x27;ordre du plateau, extension 2 comprise, puis ceux de l&#x27;extension 1 par coût.3 pages.", "u": "../fiches/puerto-rico-batiments.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".pager button[data-tab=\"aide\"]", ".pager"]},T={"k": "À imprimer", "aide": "Vous préférez le papier ? Ces fiches A5 se gardent près du plateau pendant la partie.", "fin_t": "Prêt pour votre première partie ?", "fin": "Imprimez les fiches et gardez-les près du plateau :", "dl": "PDF", "frtag": ""};
+(function(){var F=[{"t": "Aide de jeu", "d": "Un tour de jeu, les Personnages, la mise en place de 2 à 5 joueurs, vendre ou expédier. 4 pages.", "u": "../fiches/puerto-rico-aide-de-jeu.pdf", "x": ""}, {"t": "Bâtiments", "d": "Tous les bâtiments dans l&#x27;ordre du plateau, extension 2 comprise, puis ceux de l&#x27;extension 1 par coût. 3 pages.", "u": "../fiches/puerto-rico-batiments.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".pager button[data-tab=\"aide\"]", ".pager"]},T={"k": "À imprimer", "aide": "Vous préférez le papier ? Ces fiches A5 se gardent près du plateau pendant la partie.", "fin_t": "Prêt pour votre première partie ?", "fin": "Imprimez les fiches et gardez-les près du plateau :", "dl": "PDF", "frtag": ""};
 function box(kind){var a=document.createElement('aside');a.className='lrmp-fiches';a.dataset.kind=kind;
  a.innerHTML='<p class="k">'+(kind==='fin'?T.fin_t:T.k)+'</p><p class="t">'+(kind==='fin'?T.fin:T.aide)+'</p><ul>'+F.map(function(f){
-  return '<li><span class="i" aria-hidden="true">'+f.i+'</span><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}
+  return '<li><span class="n">'+f.t+'<small>'+f.d+'</small></span><a class="d" href="'+f.u+'" download>⬇ '+T.dl+f.x+'</a></li>'}).join('')+'</ul>';return a}
 function place(){var e=C.aide&&document.querySelector(C.aide);
  if(e&&!(e.nextElementSibling&&e.nextElementSibling.dataset&&e.nextElementSibling.dataset.kind==='aide'))e.insertAdjacentElement('afterend',box('aide'));
  var b=C.fin&&document.querySelector(C.fin[0]),c=b&&b.closest(C.fin[1]);
