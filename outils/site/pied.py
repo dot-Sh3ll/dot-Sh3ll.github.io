@@ -7,7 +7,7 @@ usage (depuis la racine du dépôt) :
 
 <jeu> doit être exactement la valeur d'une option du formulaire « Votre avis » de l'accueil (index.html, select name="app") ;
 le script le vérifie. accueil.py ajoute cette option pour tout nouveau jeu (champ nouveau_jeu.chip).
-Le pied porte aussi la ligne « Sauvegarder mes données · Restaurer une sauvegarde » (commun/sauvegarde.js).
+Le pied charge aussi commun/sauvegarde.js (sauvegardes des visiteurs, récupération automatique de l'ancien domaine).
 Le pied est posé (ou remplacé) sur chaque page de langue présente dans le dossier (index.html, en.html, de.html…).
 """
 import os, re, sys
@@ -37,10 +37,8 @@ def version_sauvegarde():
 
 
 def ligne_sauvegarde(code, racine="../"):
-    t, sauver, restaurer = SAUVE.get(code, SAUVE["en"])
-    return (f'<p class="lrmp-sauve">{t} <button type="button" data-lrmp-sauver>{sauver}</button> · '
-            f'<button type="button" data-lrmp-restaurer>{restaurer}</button></p>\n'
-            f'<script src="{racine}commun/sauvegarde.js?v={version_sauvegarde()}" defer></script>\n')
+    # pas de boutons visibles (choix de Paul, 27/11/2026) : tout est automatique ; SAUVE reste prêt si on les remet
+    return f'<script src="{racine}commun/sauvegarde.js?v={version_sauvegarde()}" defer></script>\n'
 
 
 def footer(code, game):

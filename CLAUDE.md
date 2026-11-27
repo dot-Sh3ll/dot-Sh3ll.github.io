@@ -66,7 +66,7 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 - **Polices hors applis** : titres en Fraunces 600 (italique dans `commun/polices/fraunces-italic-*`), texte Figtree. Les applis gardent leurs polices et thèmes.
 - **Accueil** : titre « Apprenez le jeu *en jouant*. » ; atouts sans émojis séparés par « · » (liste à puces sur téléphone) : Tutoriels interactifs · Automas pour
   joueur solo · Compagnons de partie · Fiches à imprimer ; recherche + menu « Tous les jeux » (`<select id="jeu">`, remplace les boutons par jeu ; `?jeu=` marche
-  toujours ; `accueil.py` y ajoute les nouveaux jeux) ; cartes d'applis et fiches **sans émojis** (27/11/2026 ; `glyphe` et `icone` restent dans les JSON d'`accueil.py`, non affichés), cartes d'applis sur fond sombre, bordure et lueur intérieure de la couleur du jeu, halo et petits points
+  toujours ; `accueil.py` y ajoute les nouveaux jeux) ; bio « Qui suis-je ? » (27/11 : ancien responsable UX design, association à Strasbourg) ; cartes d'applis et fiches **sans émojis** (27/11/2026 ; `glyphe` et `icone` restent dans les JSON d'`accueil.py`, non affichés), cartes d'applis sur fond sombre, bordure et lueur intérieure de la couleur du jeu, halo et petits points
   en dégradé depuis le bas ; fiches au même style, halo depuis la droite (depuis le bas sur téléphone), bouton « ⬇ PDF », nombre de pages à la ligne (`<br>`).
 - Maquettes : artefact Design « Less Rules, More Play · maquette du nouveau logo » (https://claude.ai/artifact/6kzgCKHjFaG5YpiGCrQ2SZ), propositions de cartes A à F.
 
@@ -223,8 +223,11 @@ Les progressions, carnets et journaux vivent dans le stockage local du navigateu
   Retirer une langue = recopier ses clés vers une autre (fait pour `de:` → `en:`, une fois, `lrmp-mig-de`).
 - Ne jamais changer de domaine sans plan de récupération : le stockage est rangé par adresse. Ancien domaine : `outils/site/recuperation/`
   (Worker Cloudflare `paulmoussard.com/recuperer` → `#lrmp-import=` ; mise en place par Paul, voir `LISEZMOI.md`).
-- Filet de sécurité pour les visiteurs : `commun/sauvegarde.js` (pied de chaque appli et de l'accueil, posé par `pied.py`) : « Sauvegarder mes données »
-  (fichier JSON de tout le stockage du site, toutes langues) et « Restaurer une sauvegarde » ; demande `navigator.storage.persist()` (sauf Firefox).
+- **Rien à faire pour les visiteurs** (choix de Paul : pas d'export ni d'import à leur demander). `commun/sauvegarde.js` (chargé par le pied de chaque appli,
+  posé par `pied.py`, et par l'accueil) demande `navigator.storage.persist()` (sauf Firefox), reçoit `#lrmp-import=` et, une fois `RECUP_ACTIF` à `true`,
+  fait une seule fois par navigateur le détour par `paulmoussard.com/recuperer` (repli sans Worker : `recuperer.html`, ne pas supprimer).
+  Export / import en fichier : codés (`lrmpSauvegarde`, attributs `data-lrmp-sauver` / `data-lrmp-restaurer`), boutons retirés du pied (`SAUVE` dans `pied.py`).
+- **En attente de Paul** : installer le Worker (`outils/site/recuperation/LISEZMOI.md`), puis passer `RECUP_ACTIF` à `true`.
 
 ## Points d'attention
 

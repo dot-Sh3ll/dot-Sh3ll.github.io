@@ -61,8 +61,6 @@ html{scroll-padding-top:calc(var(--sitehead-h) + 8px)}
 .lrmp-pied a{color:inherit;font-weight:600;opacity:.9;text-underline-offset:3px;min-height:32px;display:inline-flex;align-items:center}
 .lrmp-pied a:hover{opacity:1}
 .lrmp-pied small{width:100%;font-size:12px;opacity:.7}
-.lrmp-pied .lrmp-sauve{width:100%;margin:0;font-size:13px;opacity:.85}
-.lrmp-pied .lrmp-sauve button{font:inherit;font-weight:600;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 @media print{.lrmp-pied{display:none}}
 
 /* ---------- encart « À imprimer » (posé par outils/site/fiches.py) ---------- */

@@ -16,6 +16,9 @@ l'écrit sans rien écraser. Aucune donnée ne passe par un serveur.
 3. Règles > la règle « Single Redirect » existante : à la fin de l'expression, ajouter
    `and not starts_with(http.request.uri.path, "/recuperer")`.
 4. Tester : ouvrir https://paulmoussard.com/recuperer dans un navigateur qui avait servi sur l'ancien domaine.
+5. Puis (Claude) : dans `commun/sauvegarde.js`, passer `RECUP_ACTIF` à `true`, relancer `pied.py` sur chaque appli et `seo.py`, pousser.
+   Chaque navigateur fera alors une seule fois, sans rien demander, le détour par l'ancien domaine et reviendra avec ses données.
+   Ne pas l'activer avant l'étape 1 : un visiteur passé avant l'installation serait marqué « fait » sans avoir rien récupéré.
 
 ## Limites
 - À faire dans chaque navigateur, sur chaque appareil (téléphone, ordinateur).

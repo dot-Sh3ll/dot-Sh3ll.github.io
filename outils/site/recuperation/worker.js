@@ -17,9 +17,11 @@ const PAGE = `<!DOCTYPE html>
 </head><body><p id="m">Récupération de vos données…</p>
 <script>
 (function(){
-  var cible="https://lessrulesmoreplay.com/", c={}, n=0;
+  var r=new URLSearchParams(location.search).get("retour")||"/";
+  if(r.charAt(0)!=="/"||r.charAt(1)==="/"||r.charAt(1)==="\\\\") r="/";
+  var h=r.indexOf("#"); if(h>-1) r=r.slice(0,h);
+  var cible="https://lessrulesmoreplay.com"+r, c={}, n=0;
   try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k!==null){ c[k]=localStorage.getItem(k); n++; } } }catch(e){}
-  if(!n){ location.replace(cible); return; }
   var j=JSON.stringify({site:"lessrulesmoreplay.com",format:1,origine:location.host,cles:c});
   var b=btoa(unescape(encodeURIComponent(j))).replace(/\\+/g,"-").replace(/\\//g,"_");
   location.replace(cible+"#lrmp-import="+b);

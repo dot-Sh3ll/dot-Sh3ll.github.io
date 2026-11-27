@@ -3,6 +3,7 @@
    - « Sauvegarder mes données » : télécharge un fichier JSON avec toutes les clés du site (toutes langues) ;
    - « Restaurer » : relit ce fichier et réécrit les clés, puis recharge la page ;
    - #lrmp-import=<base64> dans l'adresse : récupération depuis un ancien domaine (clés absentes seulement) ;
+   - un passage automatique, une fois par navigateur, par paulmoussard.com/recuperer pour y relire les anciennes données ;
    - demande au navigateur de ne pas effacer ces données (navigator.storage.persist), sauf Firefox (fenêtre d'autorisation).
    Les fonctions d'origine du stockage sont lues dans Storage.prototype.__lrmp (posé par outils/site/lang.py),
    car les pages non françaises préfixent les clés par la langue. */
@@ -42,6 +43,19 @@
       if(n){ dire(M.recup); location.reload(); return; }
     }catch(e){ history.replaceState(null,"",location.pathname+location.search); }
   }
+
+  /* ancien domaine : une seule fois par navigateur, aller relire paulmoussard.com/recuperer (Worker Cloudflare,
+     outils/site/recuperation/), qui revient ici avec les données (#lrmp-import=…) ou sans rien.
+     Sans le Worker, la redirection de l'ancien domaine mène à /recuperer du site (recuperer.html), qui revient aussitôt. */
+  var RECUP_ACTIF=false; // à passer à true une fois le Worker installé par Paul (LISEZMOI.md), pas avant
+  try{
+    if(RECUP_ACTIF&&location.hostname==="lessrulesmoreplay.com"&&get("lrmp-recup")===null&&Date.now()<Date.UTC(2027,11,31)
+       &&!navigator.webdriver&&!/bot|crawl|spider|slurp|lighthouse|headless|preview/i.test(navigator.userAgent)){
+      set("lrmp-recup","en-cours");
+      location.replace("https://paulmoussard.com/recuperer?retour="+encodeURIComponent(location.pathname+location.search+location.hash));
+      return;
+    }
+  }catch(e){}
 
   /* ne pas laisser le navigateur effacer les données quand l'espace manque (Firefox demanderait une autorisation : on s'abstient) */
   try{ if(ls.length&&navigator.storage&&navigator.storage.persist&&!/firefox/i.test(navigator.userAgent)) navigator.storage.persist(); }catch(e){}
