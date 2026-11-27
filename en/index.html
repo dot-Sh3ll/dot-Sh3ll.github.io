@@ -181,6 +181,7 @@ body:not(.filtre) .tout,body.filtre .une,body:not(.parjeu) .tout.jeu{display:non
 .about p{margin:0;color:var(--muted);font-size:.94rem}
 footer{border-top:1px solid var(--line);padding:22px 0 36px;color:var(--faint);font-size:.84rem}
 footer p{margin:0 0 6px}
+footer .lrmp-sauve button{font:inherit;font-weight:600;color:var(--ink,inherit);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 
 @media (max-width:640px){
   .topbar .wrap{height:64px}
@@ -450,6 +451,9 @@ footer p{margin:0 0 6px}
   <p class="en">Did my site help you? Thank me by <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">buying me a coffee</a>! ☕</p>
   <p class="fr">Créations de fan non officielles, gratuites et sans lien avec les éditeurs des jeux concernés. Mage Knight est une marque de WizKids ; Imperium, Aeon's End, Puerto Rico 1897 et Nemesis: Retaliation appartiennent à leurs éditeurs respectifs.</p>
   <p class="en">Unofficial, free fan-made content, not affiliated with or endorsed by the games' publishers. Mage Knight is a trademark of WizKids; Imperium, Aeon's End, Puerto Rico 1897 and Nemesis: Retaliation belong to their respective publishers.</p>
+  <p class="fr lrmp-sauve">Vos parties, carnets et progressions sont enregistrés dans ce navigateur. <button type="button" data-lrmp-sauver>Sauvegarder mes données</button> · <button type="button" data-lrmp-restaurer>Restaurer une sauvegarde</button></p>
+  <p class="en lrmp-sauve">Your games, logs and progress are stored in this browser. <button type="button" data-lrmp-sauver>Back up my data</button> · <button type="button" data-lrmp-restaurer>Restore a backup</button></p>
+  <script src="../commun/sauvegarde.js?v=9f473c1504" defer></script>
 </footer>
 
 <script>

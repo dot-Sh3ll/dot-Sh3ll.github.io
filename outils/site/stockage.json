@@ -1,0 +1,52 @@
+{
+ "_aide": "Clés du stockage local par appli (voir outils/site/stockage.py). Ne jamais en retirer sans migration.",
+ "applis": {
+  "mage-knight": {
+   "cles": [
+    "mk-carnet-v1",
+    "mk-chefs-v1",
+    "mk-course",
+    "mk-fantome-v1",
+    "mk-mode",
+    "mk-outils-v1",
+    "mk-quetes-mode",
+    "mk-theme"
+   ]
+  },
+  "imperium": {
+   "cles": [
+    "civ-antique",
+    "imp-theme",
+    "imperium-fiche",
+    "imperium-meta",
+    "imperium-tab",
+    "imperium-train",
+    "imperium-tuto"
+   ]
+  },
+  "aeons-end": {
+   "cles": [
+    "ae-boxes2",
+    "ae-dist",
+    "ae-recent",
+    "ae-spoil",
+    "ae-theme",
+    "aeons-end-journal-v1"
+   ]
+  },
+  "puerto-rico": {
+   "cles": [
+    "pr1897-tab",
+    "pr1897-theme",
+    "pr1897-tuto"
+   ]
+  },
+  "nemesis": {
+   "cles": [
+    "nemr-tab",
+    "nemr-theme",
+    "nemr-tuto"
+   ]
+  }
+ }
+}

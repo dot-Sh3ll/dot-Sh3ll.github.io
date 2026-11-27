@@ -213,8 +213,14 @@ def ctrl_html():
         att("html", "sortie de html-validate illisible")
 
 
+def ctrl_stockage():
+    sys.path.insert(0, os.path.join(RACINE, "outils", "site"))
+    import stockage
+    stockage.controler(err, att)
+
+
 def main():
-    etapes = [ctrl_pages, ctrl_liens, ctrl_sitemap, ctrl_langues, ctrl_poids, ctrl_cache]
+    etapes = [ctrl_pages, ctrl_liens, ctrl_sitemap, ctrl_langues, ctrl_poids, ctrl_cache, ctrl_stockage]
     if not RAPIDE:
         etapes += [ctrl_vouvoiement, ctrl_html]
     for f in etapes:

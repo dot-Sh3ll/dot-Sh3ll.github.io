@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from langs import available, page_file
 import seo
 
-FIXES = ["manifest.webmanifest", "commun/polices.css", "commun/tokens.css", "commun/composants.css",
+FIXES = ["manifest.webmanifest", "commun/polices.css", "commun/tokens.css", "commun/composants.css", "commun/sauvegarde.js",
          "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png", "icons/favicon-32.png"]
 
 

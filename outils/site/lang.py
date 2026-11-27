@@ -9,6 +9,8 @@ Les langues d'une appli se déduisent des fichiers présents (index.html = fr, e
 À relancer sur le dossier entier dès qu'une langue est ajoutée à une appli : chaque page connaît la liste.
 
 Ce que fait le script posé en tête de page :
+  - garde les fonctions d'origine du stockage dans Storage.prototype.__lrmp (lues par commun/sauvegarde.js) ;
+  - recopie une fois les sauvegardes « de: » vers « en: » (version allemande retirée le 26/11/2026) ;
   - sauvegardes : sur une page autre que française, chaque clé du stockage local est préfixée par la langue
     (« en: », « de: »…), sauf « site-lang » ; chaque langue garde donc ses propres parties ;
   - redirection : « site-lang » (choisi sur l'accueil ou avec le bouton de langue) décide de la page ;
@@ -32,8 +34,13 @@ OLD = [
 
 def head_script(code, langs):
     hrefs = {c: page_href(c) for c in langs}
-    js = ('(function(){try{var C=%s,A=%s,F=%s,B=%s,ls=localStorage;'
-          'if(C!=="fr"){var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};'
+    js = ('(function(){try{var C=%s,A=%s,F=%s,B=%s,ls=localStorage,P=Storage.prototype;'
+          'if(!P.__lrmp)P.__lrmp={g:P.getItem,s:P.setItem,r:P.removeItem};'
+          # version allemande retirée (26/11/2026) : sauvegardes « de: » recopiées une fois vers « en: » si absentes
+          'if(C==="en"&&!P.__lrmp.g.call(ls,"lrmp-mig-de")){for(var i=0;i<ls.length;i++){var x=ls.key(i);'
+          'if(x&&x.indexOf("de:")===0&&P.__lrmp.g.call(ls,"en:"+x.slice(3))===null)P.__lrmp.s.call(ls,"en:"+x.slice(3),P.__lrmp.g.call(ls,x))}'
+          'P.__lrmp.s.call(ls,"lrmp-mig-de","1")}'
+          'if(C!=="fr"){var g=P.__lrmp.g,st=P.__lrmp.s,r=P.__lrmp.r,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};'
           'P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}'
           'var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;'
           'var sl=ls.getItem("site-lang"),t=null;'

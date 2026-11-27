@@ -7,6 +7,7 @@ usage (depuis la racine du dépôt) :
 
 <jeu> doit être exactement la valeur d'une option du formulaire « Votre avis » de l'accueil (index.html, select name="app") ;
 le script le vérifie. accueil.py ajoute cette option pour tout nouveau jeu (champ nouveau_jeu.chip).
+Le pied porte aussi la ligne « Sauvegarder mes données · Restaurer une sauvegarde » (commun/sauvegarde.js).
 Le pied est posé (ou remplacé) sur chaque page de langue présente dans le dossier (index.html, en.html, de.html…).
 """
 import os, re, sys
@@ -22,6 +23,26 @@ T = {
     "de": ("← Alle Spielhilfen", "💌 Ein Problem melden", "☕ Gefällt Ihnen dieses Hilfsmittel? Spendieren Sie mir einen Kaffee",
            "Inoffizielles, kostenloses Fan-Projekt ohne Verbindung zum Verlag des Spiels."),
 }
+SAUVE = {
+    "fr": ("Vos parties, carnets et progressions sont enregistrés dans ce navigateur.", "Sauvegarder mes données", "Restaurer une sauvegarde"),
+    "en": ("Your games, logs and progress are stored in this browser.", "Back up my data", "Restore a backup"),
+    "de": ("Ihre Partien, Notizen und Fortschritte werden in diesem Browser gespeichert.", "Meine Daten sichern", "Sicherung wiederherstellen"),
+}
+
+
+def version_sauvegarde():
+    """empreinte de commun/sauvegarde.js, pour que les navigateurs prennent la nouvelle version"""
+    import hashlib
+    return hashlib.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "commun", "sauvegarde.js"), "rb").read()).hexdigest()[:10]
+
+
+def ligne_sauvegarde(code, racine="../"):
+    t, sauver, restaurer = SAUVE.get(code, SAUVE["en"])
+    return (f'<p class="lrmp-sauve">{t} <button type="button" data-lrmp-sauver>{sauver}</button> · '
+            f'<button type="button" data-lrmp-restaurer>{restaurer}</button></p>\n'
+            f'<script src="{racine}commun/sauvegarde.js?v={version_sauvegarde()}" defer></script>\n')
+
+
 def footer(code, game):
     back, report, kofi, fan = T.get(code, T["en"])
     # styles : .lrmp-pied dans commun/composants.css
@@ -29,6 +50,7 @@ def footer(code, game):
             f'<a href="../">{back}</a>\n'
             f'<a href="../?app={quote(game)}#avis">{report}</a>\n'
             f'<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">{kofi}</a>\n'
+            + ligne_sauvegarde(code) +
             f'<small>{fan}</small>\n'
             '</footer>\n')
 

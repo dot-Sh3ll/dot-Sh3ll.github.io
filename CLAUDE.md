@@ -212,6 +212,20 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
    puis `seo.py` (les générateurs de PDF effacent les métadonnées : auteur « Paul Moussard »),
    puis `python3 outils/site/fiches.py` (la fiche apparaît dans l'appli du jeu).
 
+## Sauvegardes des visiteurs (règle absolue, 27/11/2026)
+
+Les progressions, carnets et journaux vivent dans le stockage local du navigateur (`localStorage`). **Aucune mise à jour ne doit les faire perdre.**
+- **Ne jamais renommer ni abandonner une clé** (`mk-carnet-v1`, `aeons-end-journal-v1`…). Registre : `outils/site/stockage.json` ;
+  `verifier.py` met une ERREUR si une clé du registre n'est plus utilisée, et signale les nouvelles (`python3 outils/site/stockage.py --maj`).
+- **Changer le format d'une donnée = migration** au chargement (lire l'ancien format, compléter avec les valeurs par défaut, ne jamais remettre à zéro).
+  Les chargements actuels fusionnent déjà avec les valeurs par défaut (`Object.assign(blank(), …)`) : garder ce principe.
+- Pages non françaises : `lang.py` préfixe les clés par la langue (`en:…`) ; ses fonctions d'origine restent dans `Storage.prototype.__lrmp`.
+  Retirer une langue = recopier ses clés vers une autre (fait pour `de:` → `en:`, une fois, `lrmp-mig-de`).
+- Ne jamais changer de domaine sans plan de récupération : le stockage est rangé par adresse. Ancien domaine : `outils/site/recuperation/`
+  (Worker Cloudflare `paulmoussard.com/recuperer` → `#lrmp-import=` ; mise en place par Paul, voir `LISEZMOI.md`).
+- Filet de sécurité pour les visiteurs : `commun/sauvegarde.js` (pied de chaque appli et de l'accueil, posé par `pied.py`) : « Sauvegarder mes données »
+  (fichier JSON de tout le stockage du site, toutes langues) et « Restaurer une sauvegarde » ; demande `navigator.storage.persist()` (sauf Firefox).
+
 ## Points d'attention
 
 - **GoatCounter** (statistiques, code `shell`) : posé par `pwa.py` ; `verifier.py` signale une page sans lui.

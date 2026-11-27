@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<script id="site-lang-js">(function(){try{var C="fr",A=["fr", "en"],F={"fr":"./","en":"en.html"},B="en",ls=localStorage;if(C!=="fr"){var P=Storage.prototype,g=P.getItem,st=P.setItem,r=P.removeItem,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;var sl=ls.getItem("site-lang"),t=null;if(sl)t=sl;else if(!/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)){var n=(navigator.language||"").slice(0,2).toLowerCase();if(n&&n!=="fr")t=n}if(t&&A.indexOf(t)<0)t=A.indexOf(B)>-1?B:null;if(t&&t!==C)location.replace(F[t]+location.hash)}catch(e){}})();</script>
+<script id="site-lang-js">(function(){try{var C="fr",A=["fr", "en"],F={"fr":"./","en":"en.html"},B="en",ls=localStorage,P=Storage.prototype;if(!P.__lrmp)P.__lrmp={g:P.getItem,s:P.setItem,r:P.removeItem};if(C==="en"&&!P.__lrmp.g.call(ls,"lrmp-mig-de")){for(var i=0;i<ls.length;i++){var x=ls.key(i);if(x&&x.indexOf("de:")===0&&P.__lrmp.g.call(ls,"en:"+x.slice(3))===null)P.__lrmp.s.call(ls,"en:"+x.slice(3),P.__lrmp.g.call(ls,x))}P.__lrmp.s.call(ls,"lrmp-mig-de","1")}if(C!=="fr"){var g=P.__lrmp.g,st=P.__lrmp.s,r=P.__lrmp.r,k=function(x){x=String(x);return x==="site-lang"?x:C+":"+x};P.getItem=function(x){return g.call(this,k(x))};P.setItem=function(x,v){return st.call(this,k(x),v)};P.removeItem=function(x){return r.call(this,k(x))}}var q=/[?&]lang=([a-z]{2})/.exec(location.search);if(q&&q[1]===C)return;var sl=ls.getItem("site-lang"),t=null;if(sl)t=sl;else if(!/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)){var n=(navigator.language||"").slice(0,2).toLowerCase();if(n&&n!=="fr")t=n}if(t&&A.indexOf(t)<0)t=A.indexOf(B)>-1?B:null;if(t&&t!==C)location.replace(F[t]+location.hash)}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aeon&#x27;s End : générateur de marché et journal des parties</title>
@@ -271,13 +271,6 @@ footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padd
 @media (max-width:720px){.modes{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.mode{transition:none}.mode:hover{transform:none}}
 </style>
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
-<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
-<!--/commun-->
-<style id="sitehead-css-ae">
-main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
-</style>
 <!--pwa-->
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../icons/favicon-32.png" type="image/png">
@@ -319,6 +312,13 @@ main>header h1{padding-right:48px}
 </style>
 <script>try{if(localStorage.getItem("ae-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <!--/theme-->
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
+<link rel="stylesheet" href="../commun/composants.css?v=7fa7bb1e">
+<!--/commun-->
+<style id="sitehead-css-ae">
+main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
+</style>
 </head>
 <body>
 <header class="sitehead">
@@ -1950,12 +1950,14 @@ $("f-theme").onchange=e=>{ themeChoice=e.target.value };
 $("f-fresh").onchange=e=>{ avoidRecent=e.target.checked };
 fillSelects(); renderBoxes(); renderDist(); renderJournal(); renderExp(); showView();
 </script>
+<script id="theme-js">(function(){var M=['dark','light'],K='ae-theme',N={auto:'automatique',dark:'sombre',light:'clair'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Thème : '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 <footer class="lrmp-pied">
 <a href="../">← Toutes les aides de jeu</a>
 <a href="../?app=Aeon%27s%20End#avis">💌 Signaler un problème</a>
 <a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Cet outil vous a plu ? Offrez-moi un café</a>
+<p class="lrmp-sauve">Vos parties, carnets et progressions sont enregistrés dans ce navigateur. <button type="button" data-lrmp-sauver>Sauvegarder mes données</button> · <button type="button" data-lrmp-restaurer>Restaurer une sauvegarde</button></p>
+<script src="../commun/sauvegarde.js?v=9f473c1504" defer></script>
 <small>Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu.</small>
 </footer>
-<script id="theme-js">(function(){var M=['dark','light'],K='ae-theme',N={auto:'automatique',dark:'sombre',light:'clair'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Thème : '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 </body>
 </html>

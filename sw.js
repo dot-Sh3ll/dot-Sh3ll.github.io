@@ -2,15 +2,15 @@
    Pages : réseau d'abord (toujours la dernière version), copie locale si pas de réseau.
    Polices (commun/polices), icônes, PDF : copie locale d'abord, mise à jour en arrière-plan.
    VERSION et PRECACHE sont écrits par outils/site/sw.py (lancé par seo.py) : ne pas les modifier à la main. */
-const VERSION = "20958865b8";  // empreinte du contenu, écrite par outils/site/sw.py
+const VERSION = "f435759832";  // empreinte du contenu, écrite par outils/site/sw.py
 const CACHE = "aides-de-jeu-" + VERSION;
 const PRECACHE = [
   "./", "index.html", "en/", "mage-knight/",
   "mage-knight/en.html", "imperium/", "imperium/en.html", "aeons-end/",
   "aeons-end/en.html", "puerto-rico/", "puerto-rico/en.html", "nemesis/",
   "nemesis/en.html", "manifest.webmanifest", "commun/polices.css", "commun/tokens.css",
-  "commun/composants.css", "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png",
-  "icons/favicon-32.png"
+  "commun/composants.css", "commun/sauvegarde.js", "icons/icon-192.png", "icons/icon-512.png",
+  "icons/apple-touch-icon.png", "icons/favicon-32.png"
 ];
 const NEVER = ["goatcounter", "gc.zgo.at", "docs.google.com", "ko-fi.com"];
 
