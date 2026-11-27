@@ -271,6 +271,13 @@ footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padd
 @media (max-width:720px){.modes{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.mode{transition:none}.mode:hover{transform:none}}
 </style>
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
+<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
+<!--/commun-->
+<style id="sitehead-css-ae">
+main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
+</style>
 <!--pwa-->
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../icons/favicon-32.png" type="image/png">
@@ -312,13 +319,6 @@ main>header h1{padding-right:48px}
 </style>
 <script>try{if(localStorage.getItem("ae-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <!--/theme-->
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
-<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
-<!--/commun-->
-<style id="sitehead-css-ae">
-main{max-width:var(--site-w)!important;padding-left:var(--site-pad)!important;padding-right:var(--site-pad)!important}
-</style>
 </head>
 <body>
 <header class="sitehead">
@@ -1950,7 +1950,6 @@ $("f-theme").onchange=e=>{ themeChoice=e.target.value };
 $("f-fresh").onchange=e=>{ avoidRecent=e.target.checked };
 fillSelects(); renderBoxes(); renderDist(); renderJournal(); renderExp(); showView();
 </script>
-<script id="theme-js">(function(){var M=['dark','light'],K='ae-theme',N={auto:'automatic',dark:'dark',light:'light'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Theme: '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 <footer class="lrmp-pied">
 <a href="../">← All game aids</a>
 <a href="../?app=Aeon%27s%20End#avis">💌 Report a problem</a>
@@ -1958,5 +1957,6 @@ fillSelects(); renderBoxes(); renderDist(); renderJournal(); renderExp(); showVi
 <script src="../commun/sauvegarde.js?v=6444ddcb9b" defer></script>
 <small>Unofficial, free fan-made tool, not affiliated with the game's publisher.</small>
 </footer>
+<script id="theme-js">(function(){var M=['dark','light'],K='ae-theme',N={auto:'automatic',dark:'dark',light:'light'},b=document.getElementById('lrmp-theme'),d=document.documentElement,t;try{t=localStorage.getItem(K)}catch(e){}if(M.indexOf(t)<0)t=M[0];function a(){if(t==='auto'||(t==='dark'&&M[0]==='dark'))d.removeAttribute('data-theme');else d.setAttribute('data-theme',t);b.title='Theme: '+N[t]}b.addEventListener('click',function(){t=M[(M.indexOf(t)+1)%M.length];try{localStorage.setItem(K,t)}catch(e){}a()});a()})();</script>
 </body>
 </html>

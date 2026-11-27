@@ -512,7 +512,7 @@ footer p{margin:0 0 6px}
     q.placeholder=W("ph");
     q.setAttribute("aria-label",W("search"));
     sel.setAttribute("aria-label",W("filter")); [].forEach.call(sel.querySelectorAll("option[data-fr]"),function(o){ o.textContent=o.getAttribute("data-"+l)||o.getAttribute("data-en") });
-    // au chargement (init), ne pas écraser une langue que l'accueil ne propose pas (allemand : Aeon's End s'ouvre en allemand)
+    // au chargement (init), ne pas écraser une langue que l'accueil ne propose pas (ancien choix d'une langue retirée)
     try{ var HL=Object.keys(WORDS), cur=localStorage.getItem("site-lang"), nv=(navigator.language||"").slice(0,2).toLowerCase();
       if(!init || (cur ? HL.indexOf(cur)>=0 : HL.indexOf(nv)>=0)) localStorage.setItem("site-lang",l) }catch(e){}
     decorate();

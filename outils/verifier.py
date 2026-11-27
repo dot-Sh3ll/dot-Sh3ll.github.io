@@ -9,10 +9,10 @@ Contrôles :
               Open Graph, JSON-LD valide, un seul <html>, feuilles communes, pas de Google Fonts
   liens       liens et images internes (href, src, srcset) qui mènent à un fichier absent
   sitemap     chaque adresse du sitemap existe ; chaque page d'appli y figure
-  langues     pages déclarées dans jeux.json, textes allemands manquants (accueil, Aeon's End)
+  langues     pages déclarées dans jeux.json, option du formulaire « Votre avis »
   poids       images > 300 Ko, PDF > 3 Mo, pages HTML > 400 Ko
   cache       fichiers de PRECACHE (sw.js) présents
-  vouvoiement tutoiement restant (vouvoiement.py pour le français, sie.py pour l'allemand)
+  vouvoiement tutoiement restant (vouvoiement.py)
   html        html-validate (erreurs seulement), si disponible
 Sortie : liste lisible, ERREUR (code de sortie 1) ou attention (n'empêche pas la publication).
 """
@@ -185,13 +185,6 @@ def ctrl_vouvoiement():
     lignes = [l for l in r.stdout.splitlines() if re.search(r"\btu\b|\bton\b|\btes\b|\btoi\b", l, re.I)]
     for l in lignes[:20]:
         att("vouvoiement", "français : " + l.strip()[:160])
-    de = [p for p in pages() if p.endswith(("de.html", "de/index.html"))]
-    if de:
-        r = subprocess.run([sys.executable, "outils/site/sie.py", "scan"] + de, capture_output=True, text=True)
-        # le scan voit aussi le français des commentaires et des textes fr de l'accueil : on ne garde que les lignes sans français
-        fr = re.compile(r"[éèàçùâêîôû]|\b(?:le|la|les|des|une|du|et|pour|dans|avec)\b.*\b(?:le|la|les|des|une|et|pour|dans|avec)\b", re.I)
-        for l in [l for l in r.stdout.splitlines() if l.strip() and ":" in l and "|" in l and not fr.search(l.split("|", 1)[1]) and not l.split("|", 1)[1].strip().startswith(("/*", "//"))][:20]:
-            att("vouvoiement", "allemand : " + l.strip()[:160])
 
 
 # ---------------------------------------------------------------- html-validate

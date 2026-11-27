@@ -20,13 +20,10 @@ T = {
            "Création de fan non officielle et gratuite, sans lien avec l'éditeur du jeu."),
     "en": ("← All game aids", "💌 Report a problem", "☕ Enjoyed this tool? Buy me a coffee",
            "Unofficial, free fan-made tool, not affiliated with the game's publisher."),
-    "de": ("← Alle Spielhilfen", "💌 Ein Problem melden", "☕ Gefällt Ihnen dieses Hilfsmittel? Spendieren Sie mir einen Kaffee",
-           "Inoffizielles, kostenloses Fan-Projekt ohne Verbindung zum Verlag des Spiels."),
 }
 SAUVE = {
     "fr": ("Vos parties, carnets et progressions sont enregistrés dans ce navigateur.", "Sauvegarder mes données", "Restaurer une sauvegarde"),
     "en": ("Your games, logs and progress are stored in this browser.", "Back up my data", "Restore a backup"),
-    "de": ("Ihre Partien, Notizen und Fortschritte werden in diesem Browser gespeichert.", "Meine Daten sichern", "Sicherung wiederherstellen"),
 }
 
 

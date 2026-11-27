@@ -5,7 +5,7 @@ usage : python3 outils/site/home_lang.py [index.html]      (depuis la racine du 
         python3 outils/site/home_lang.py --todo <code>     liste les textes anglais encore sans traduction
 
 Ajouter une langue (ex. italien) :
-  1. copier accueil/de.json en accueil/it.json ;
+  1. copier accueil/en.json en accueil/it.json (retirer "_base") ;
   2. traduire les valeurs (les clés sont les textes anglais de la page) et les blocs _words, _form, _soon, _k ;
   3. relancer ce script. Les textes manquants restent en anglais et sont signalés.
 
@@ -15,10 +15,10 @@ Ce que le script génère (et regénère sans doublon à chaque lancement) :
   - les boutons de langue, les règles CSS d'affichage, le bandeau _soon,
     les textes de l'interface (WORDS) et du formulaire (T) dans le JavaScript.
 Champs de chaque fichier :
-  _name    libellé du bouton (DE)          _locale  format des dates (de-DE)
+  _name    libellé du bouton (IT)          _locale  format des dates (it-IT)
   _base    true pour fr et en : langues écrites à la main dans la page, rien n'est généré
   _apps    langue des applis et fiches ouvertes depuis cette langue, appli par appli :
-           {"*": "en", "ae": "de"} = Aeon's End (data-game="ae") en allemand, les autres applis et les fiches en anglais.
+           {"*": "en", "ae": "it"} = Aeon's End (data-game="ae") en italien, les autres applis et les fiches en anglais.
            (Une simple chaîne, ex. "en", vaut pour toutes les applis.) Sur les cartes des applis qui s'ouvrent en anglais,
            le bouton prend le texte _k.open_en (« Öffnen (EN) ») au lieu de _k.open. L'appli elle-même choisit sa page
            (lang.py) : son dossier doit contenir <code>.html pour que les visiteurs y arrivent.
@@ -34,9 +34,8 @@ LANGS = {}
 for f in sorted(os.listdir(D)):
     if f.endswith(".json") and not f.endswith(".todo.json"):
         LANGS[f[:-5]] = json.load(open(os.path.join(D, f), encoding="utf-8"))
-# Langues gardées en réserve : leur JSON reste à jour mais l'accueil ne les propose pas.
-# Allemand : réservé à Aeon's End (décision de Paul, 25/11/2026) ; /de/ redirige vers /en/ (seo.py, REDIRIGE).
-INACTIFS = {"de"}
+# Langues gardées en réserve : leur JSON reste à jour mais l'accueil ne les propose pas (aucune : allemand et espagnol abandonnés).
+INACTIFS = set()
 TOUS = list(LANGS)
 codes = ORDER + [c for c in LANGS if c not in ORDER and c not in INACTIFS]
 

@@ -319,6 +319,10 @@ details.grp summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--mu
 .lrmp-ex-boite:fullscreen .ex-plus li{grid-template-columns:1fr;align-content:start;gap:2px;padding:8px 14px}
 .ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}
 </style>
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
+<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
+<!--/commun-->
 <!--pwa-->
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../icons/favicon-32.png" type="image/png">
@@ -331,10 +335,6 @@ details.grp summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--mu
 <script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
 <script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <!--/pwa-->
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
-<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
-<!--/commun-->
 </head>
 <body>
 <header class="sitehead">
@@ -1303,6 +1303,13 @@ if(!CH.some(c=>c.id===h)){const t=LS.get('pr1897-tab','learn');tab(document.getE
 })();
 </script>
 <footer class="page small muted" style="padding-top:0">Free, unofficial fan-made game aid, not affiliated with Ravensburger or alea. Puerto Rico 1897 © Andreas Seyfarth / Ravensburger. Rules summarised from the English rulebook.</footer>
+<footer class="lrmp-pied">
+<a href="../">← All game aids</a>
+<a href="../?app=Puerto%20Rico#avis">💌 Report a problem</a>
+<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Enjoyed this tool? Buy me a coffee</a>
+<script src="../commun/sauvegarde.js?v=6444ddcb9b" defer></script>
+<small>Unofficial, free fan-made tool, not affiliated with the game's publisher.</small>
+</footer>
 <!--fiches-->
 <script>
 (function(){var F=[{"t": "Game aid", "d": "A game round, the roles, setup for 2 to 5 players, selling vs shipping. 4 pages.", "u": "../fiches/puerto-rico-game-aid.pdf", "x": ""}, {"t": "Buildings", "d": "Every building in board order, including expansion 2, then expansion 1 by cost. 3 pages.", "u": "../fiches/puerto-rico-buildings.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".pager button[data-tab=\"aide\"]", ".pager"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
@@ -1318,12 +1325,5 @@ run();new MutationObserver(function(){requestAnimationFrame(run)}).observe(docum
 })();
 </script>
 <!--/fiches-->
-<footer class="lrmp-pied">
-<a href="../">← All game aids</a>
-<a href="../?app=Puerto%20Rico#avis">💌 Report a problem</a>
-<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Enjoyed this tool? Buy me a coffee</a>
-<script src="../commun/sauvegarde.js?v=6444ddcb9b" defer></script>
-<small>Unofficial, free fan-made tool, not affiliated with the game's publisher.</small>
-</footer>
 </body>
 </html>

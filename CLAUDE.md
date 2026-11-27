@@ -9,9 +9,9 @@ Ce fichier suffit pour travailler sur le site ; `outils/README.md` détaille cha
 ## Règles de travail (à respecter sans exception)
 
 - **Parler à Paul en français.**
-- **Vouvoyer le lecteur partout**, dans toutes les langues : « vous », « Sie ». Jamais de tutoiement, y compris
+- **Vouvoyer le lecteur partout** : « vous » en français. Jamais de tutoiement, y compris
   dans les textes d'interface écrits dans le code (« Essayez une autre réponse », pas « Essaie »).
-  Vérifier : `python3 outils/site/vouvoiement.py scan <fichiers>` (français), `python3 outils/site/sie.py scan <fichiers>` (allemand) ;
+  Vérifier : `python3 outils/site/vouvoiement.py scan <fichiers>` ;
   le scan ne voit pas tout : relire les impératifs qui ressemblent à des noms (« Défausse », « Pioche »).
 - **Ne pas changer le contenu pédagogique** (règles, explications) sauf erreur manifeste, à signaler à Paul.
 - **Aucune URL publique ne doit casser** (Search Console, liens partagés sur Discord). Une URL qui change :
@@ -131,15 +131,14 @@ mêmes onglets principaux (`.lrmp-onglets`, couleur de l'appli via `--app-accent
 
 ## Langues
 
-- Langues du site : `fr`, `en` ; `de` reste dans `outils/site/langs.py` (`ORDER`) mais aucune page allemande n'est publiée. L'espagnol a été retiré.
+- **Langues du site : `fr` et `en` seulement.** Allemand et espagnol abandonnés (26-27/11/2026) : outils, tables et textes retirés ; il ne reste que les redirections des anciennes adresses et la recopie des sauvegardes « de: ».
 - Une appli sans page dans la langue du visiteur s'ouvre en **anglais** (`FALLBACK`).
 - Choix mémorisé dans `localStorage["site-lang"]` (bouton de langue de la barre, accueil). Sans choix, la langue du
   navigateur décide ; les robots ne sont jamais redirigés. `?lang=xx` dans l'adresse bloque la redirection.
 - Accueil : `/` et `/en/` sont de vraies pages ; `/?lang=en` redirige vers `/en/` (anciens liens). **Plus aucune page en allemand**
   (Aeon's End allemand supprimé le 26/11/2026, décision de Paul : « on ne l'utilisera plus jamais ») : `/de/` renvoie vers `/en/`
   (`REDIRIGE` dans `seo.py`), `aeons-end/de.html` vers `aeons-end/en.html` (page écrite à la main, garder pour les anciens liens).
-  Les pages de redirection sont ignorées par `langs.available()` et `verifier.py`. `home_lang.py` garde `de.json` en réserve (`INACTIFS`).
-- Textes allemands de l'accueil (en réserve, non affichés) : `outils/site/accueil/de.json` (clé = texte anglais de la page).
+  Les pages de redirection sont ignorées par `langs.available()` et `verifier.py`.
 - **Format de traduction commun pour les nouvelles applis** (modèle `outils/modele-appli`) : textes d'interface par clés dans
   `i18n/<langue>.json` (mêmes clés partout), contenu dans `contenu/<langue>.js` ; `assembler.py` signale les clés
   manquantes et reprend l'anglais. Une appli en plusieurs morceaux utilise des emplacements nommés `<!--CONTENU:nom-->`
@@ -153,7 +152,7 @@ Toujours depuis la racine du dépôt.
 | But | Commande |
 |---|---|
 | Vérifier tout le site | `python3 outils/verifier.py` (`--rapide` : sans HTML ni vouvoiement ; html-validate : `npm i -g html-validate`) |
-| Référencement, sitemap, accueils /en/ /de/, cache PWA, métadonnées PDF | `python3 outils/site/seo.py` (à relancer après presque tout) |
+| Référencement, sitemap, accueil /en/ (et redirection /de/), cache PWA, métadonnées PDF | `python3 outils/site/seo.py` (à relancer après presque tout) |
 | Avancement des traductions | `python3 outils/traduire_etat.py` |
 | Créer une appli | `python3 outils/nouvelle_appli.py <dossier> <code> "<Nom FR>" "<Nom EN>" <#couleur> <glyphe> [police]` |
 | Reconstruire une appli faite sur le modèle | `python3 outils/site/assembler.py <dossier>` puis `seo.py` |
@@ -180,18 +179,12 @@ Aucun script n'utilise de chemin fixe : tout se lance depuis la racine du dépô
    `page.html` si l'appli a besoin d'ateliers, puis `python3 outils/site/assembler.py pax-pamir`.
 3. Relire la carte (`outils/pax-pamir/carte.json` puis `accueil.py appli`) et les titres de `jeux.json` (titre ≤ 60 car.,
    description ≤ 160).
-4. Citer le jeu dans l'introduction et la mention légale de l'accueil : `index.html` (FR et EN), `outils/site/accueil/de.json`,
-   `ACCUEIL` dans `outils/site/seo.py`.
+4. Citer le jeu dans l'introduction et la mention légale de l'accueil : `index.html` (FR et EN), `ACCUEIL` dans `outils/site/seo.py`.
 5. `python3 outils/site/seo.py`, `python3 outils/verifier.py`, commit, push, suivre la publication.
 
-### Ajouter une langue (ex. italien)
-1. `outils/site/langs.py` : ajouter le code à `ORDER` et ses libellés à `LABELS` ; `pied.py` : ses textes dans `T`.
-2. Accueil : copier `outils/site/accueil/de.json` en `it.json`, traduire, `python3 outils/site/home_lang.py` ;
-   `ACCUEIL_LANGS`, `ACCUEIL`, `LOCALE`, `FIL` dans `seo.py`.
-3. Applis : `outils/<dossier>/i18n/it.json` + `contenu/it/` (copie de l'anglais à traduire ; un morceau absent reprend
-   l'anglais), puis `build.sh` ; Aeon's End : tables `langues/it/` (voir `outils/README.md`), puis `build.sh`.
-   Titre et description dans `jeux.json` (`seo.it`).
-4. `lang.py --site`, `chrome.py <dossier>` pour chaque appli traduite, `seo.py`, `verifier.py`. Vouvoiement de la langue.
+### Ajouter une langue
+Plus prévu (décision de Paul, 27/11/2026). Si Paul le redemande : `langs.py` (`ORDER`, `LABELS`), `pied.py`, `theme.py`, `seo.py` (`ACCUEIL_LANGS`, `ACCUEIL`, `LOCALE`, `FIL`),
+`home_lang.py` + `accueil/<code>.json` (copie d'`en.json`), `i18n/<code>.json` + `contenu/<code>/` de chaque appli, `jeux.json` (`seo.<code>`).
 
 ### Faire une fiche
 1. La dessiner dans un artefact **Design**, à partir du gabarit (artefact « Gabarit des fiches Less Rules, More Play »,
@@ -260,7 +253,7 @@ Les progressions, carnets et journaux vivent dans le stockage local du navigateu
   d'Antique) ; Aeon's End = pas de partie « Apprendre », le mode Expédition suit Une Ère Nouvelle (pied de page).
   À revoir si un éditeur publie une nouvelle FAQ ou un nouveau livret.
 - **Agricola : projet abandonné.**
-- **Allemand : abandonné** (26/11/2026). Aeon's End allemand supprimé ; ne traduire aucune appli en allemand.
+- **Français et anglais seulement** (26-27/11/2026) : allemand et espagnol abandonnés, plus aucune trace dans les outils ; ne traduire aucune appli dans une autre langue sans que Paul le demande.
 
 ## À faire (par ordre d'intérêt)
 

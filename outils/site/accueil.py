@@ -7,14 +7,14 @@
                                                          cible = dossier de l'appli (puerto-rico) ou nom du PDF (puerto-rico-batiments.pdf)
   python3 outils/site/accueil.py appli <appli.json>       ajoute (ou remplace) la carte d'une appli
   python3 outils/site/accueil.py fiche <fiche.json>       ajoute (ou remplace) une fiche PDF
-Chaque commande relance home_lang.py : les textes allemands… donnés dans le JSON
+Chaque commande relance home_lang.py (textes de l'interface de l'accueil) : les textes d'autres langues donnés dans le JSON
 sont rangés dans accueil/<code>.json, les langues sans texte restent en anglais (et sont signalées).
 
 appli.json (exemple dans accueil/exemples/exemple-appli.json) :
   {"dossier": "puerto-rico", "jeu": "pr", "glyphe": "⛵",
    "nom": {"fr": "Puerto Rico 1897"},                    une seule langue = même nom partout
-   "texte": {"fr": "...", "en": "...", "de": "..."},
-   "tags": [{"fr": "Tutoriel", "en": "Tutorial", "de": "Tutorial"}],
+   "texte": {"fr": "...", "en": "..."},
+   "tags": [{"fr": "Tutoriel", "en": "Tutorial"}],
    "langues": "FR · EN",                                   langues de l'appli (ex. "FR · EN · DE")
    "nouveau_jeu": {"chip": "Puerto Rico", "recherche": "puerto rico 1897",
                    "accent": "#e2cc9f", "c1": "#8a6a43", "c2": "#2b1f14"}}   seulement si le jeu n'est pas encore sur le site
@@ -51,7 +51,7 @@ def remember(d):
             continue
         f = os.path.join(H, "accueil", c + ".json")
         if not os.path.exists(f):
-            sys.exit(f"Langue {c} inconnue : crée d'abord accueil/{c}.json (copie de de.json).")
+            continue  # site en français et en anglais seulement
         L = json.load(open(f, encoding="utf-8"))
         L[d["en"]] = v
         json.dump(L, open(f, "w", encoding="utf-8"), ensure_ascii=False, indent=1)

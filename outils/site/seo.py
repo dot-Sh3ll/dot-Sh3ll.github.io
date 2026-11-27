@@ -24,8 +24,8 @@ SITE = "https://lessrulesmoreplay.com"
 MARQUE = "Less Rules, More Play"
 AUTEUR = {"@type": "Person", "name": "Paul Moussard", "url": SITE + "/",
           "sameAs": ["https://ko-fi.com/paulmoussard", "https://github.com/dot-Sh3ll"]}
-LOCALE = {"fr": "fr_FR", "en": "en_GB", "de": "de_DE"}
-# Accueil en français et en anglais seulement (décision de Paul, 25/11/2026 : l'allemand est réservé à Aeon's End).
+LOCALE = {"fr": "fr_FR", "en": "en_GB"}
+# Site en français et en anglais seulement (allemand et espagnol abandonnés : décisions de Paul, 25-27/11/2026).
 # /de/ reste en ligne pour les anciens liens, mais renvoie vers /en/ (REDIRIGE).
 ACCUEIL_LANGS = ["fr", "en"]
 REDIRIGE = {"de": "en"}
@@ -49,15 +49,13 @@ ACCUEIL = {
            "Tutoriels interactifs, compagnons solo et fiches à imprimer gratuits pour Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 et Nemesis: Retaliation."),
     "en": ("Free game aids for heavy board games | Less Rules, More Play",
            "Free interactive rules tutorials, solo companions and printable aids for Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 and Nemesis: Retaliation."),
-    "de": ("Kostenlose Spielhilfen für Brettspiele | Less Rules, More Play",
-           "Interaktive Regel-Tutorials, Solo-Begleiter und Spielhilfen zum Ausdrucken für Mage Knight, Imperium, Aeon's End, Puerto Rico 1897 und Nemesis: Retaliation."),
 }
 
 # applis : outils/site/jeux.json (dossier -> nom du jeu par langue, titre et description par langue de page)
 JEUX = {k: v for k, v in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "jeux.json"), encoding="utf-8")).items()
         if not k.startswith("_") and k != "accueil"}
 PAGES = {d: {"jeu": j["jeu"], **{c: tuple(t) for c, t in j["seo"].items()}} for d, j in JEUX.items()}
-FIL = {"fr": "Aides de jeu", "en": "Game aids", "de": "Spielhilfen"}
+FIL = {"fr": "Aides de jeu", "en": "Game aids"}
 
 
 def url_page(dossier, code):

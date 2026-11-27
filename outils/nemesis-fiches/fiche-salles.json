@@ -4,7 +4,16 @@
  "pdf_fr": "nemesis-salles.pdf",
  "pdf_en": "nemesis-rooms.pdf",
  "cree": "2026-11-25",
- "titre": {"fr": "Nemesis: Retaliation · Salles", "en": "Nemesis: Retaliation · Rooms", "de": "Nemesis: Retaliation · Räume"},
- "texte": {"fr": "Les 25 salles : section, icônes Objet, effet et précisions, FAQ officielle comprise. 3 pages.", "en": "All 25 Rooms: Section, Item icons, effect and clarifications, official FAQ included. 3 pages.", "de": "Alle 25 Räume: Sektion, Gegenstandssymbole, Effekt und Klarstellungen, inklusive offizieller FAQ. 3 Seiten."},
- "meta": {"fr": "PDF · format A5 paysage · français ou anglais", "en": "PDF · A5 landscape · English or French", "de": "PDF · A5 quer · auf Englisch"}
+ "titre": {
+  "fr": "Nemesis: Retaliation · Salles",
+  "en": "Nemesis: Retaliation · Rooms"
+ },
+ "texte": {
+  "fr": "Les 25 salles : section, icônes Objet, effet et précisions, FAQ officielle comprise. 3 pages.",
+  "en": "All 25 Rooms: Section, Item icons, effect and clarifications, official FAQ included. 3 pages."
+ },
+ "meta": {
+  "fr": "PDF · format A5 paysage · français ou anglais",
+  "en": "PDF · A5 landscape · English or French"
+ }
 }

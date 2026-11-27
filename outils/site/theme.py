@@ -32,7 +32,6 @@ APPS = {
 T = {
     "fr": ("Changer de thème (clair / sombre)", "Thème : ", {"auto": "automatique", "dark": "sombre", "light": "clair"}),
     "en": ("Change theme (light / dark)", "Theme: ", {"auto": "automatic", "dark": "dark", "light": "light"}),
-    "de": ("Farbschema wechseln (hell / dunkel)", "Farbschema: ", {"auto": "automatisch", "dark": "dunkel", "light": "hell"}),
 }
 
 

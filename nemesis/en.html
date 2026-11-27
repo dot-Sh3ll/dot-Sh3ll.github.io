@@ -327,6 +327,10 @@ h1{font-weight:700;text-transform:uppercase}
 .lrmp-ex-boite:fullscreen .ex-plus li{grid-template-columns:1fr;align-content:start;gap:2px;padding:8px 14px}
 .ex-chantier{min-height:auto;padding-bottom:clamp(24px,4vw,44px)}
 </style>
+<!--commun-->
+<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
+<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
+<!--/commun-->
 <!--pwa-->
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="icon" href="../icons/favicon-32.png" type="image/png">
@@ -339,10 +343,6 @@ h1{font-weight:700;text-transform:uppercase}
 <script>if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",function(){navigator.serviceWorker.register("../sw.js").catch(function(){})})}</script>
 <script data-goatcounter="https://shell.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <!--/pwa-->
-<!--commun-->
-<link rel="stylesheet" href="../commun/tokens.css?v=1bab0365">
-<link rel="stylesheet" href="../commun/composants.css?v=e93af5fa">
-<!--/commun-->
 </head>
 <body>
 <header class="sitehead">
@@ -1227,6 +1227,13 @@ if(!CH.some(c=>c.id===h))tab(LS.get('nemr-tab','learn'));
 })();
 </script>
 <footer class="page small muted" style="padding-top:0">Free, unofficial fan-made game aid, not affiliated with Awaken Realms or its partner publishers. Nemesis: Retaliation © Awaken Realms. Rules summarised from the English rulebook and the Rooms help sheet. Thanks to <a href="https://boardgamegeek.com/profile/Bernaar" rel="noopener">Bernaar</a> for <a href="https://boardgamegeek.com/thread/3718303/article/48230420#48230420" rel="noopener">their round-up of rules questions</a> and to <a href="https://boardgamegeek.com/profile/_Tiberias_" rel="noopener">Antoine Prono</a> for <a href="https://boardgamegeek.com/thread/3697212/faq-francaise-pour-nemesis-retaliation" rel="noopener">the French FAQ</a> on BoardGameGeek.</footer>
+<footer class="lrmp-pied">
+<a href="../">← All game aids</a>
+<a href="../?app=Nemesis%3A%20Retaliation#avis">💌 Report a problem</a>
+<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Enjoyed this tool? Buy me a coffee</a>
+<script src="../commun/sauvegarde.js?v=6444ddcb9b" defer></script>
+<small>Unofficial, free fan-made tool, not affiliated with the game's publisher.</small>
+</footer>
 <!--fiches-->
 <script>
 (function(){var F=[{"t": "Game aid", "d": "The 4 phases of a round, the actions, the Noise roll, the Intruder bag, Items, combat, escaping and game end. 3 pages.", "u": "../fiches/nemesis-game-aid.pdf", "x": ""}, {"t": "Rooms", "d": "All 25 Rooms: Section, Item icons, effect and clarifications, official FAQ included. 3 pages.", "u": "../fiches/nemesis-rooms.pdf", "x": ""}],C={"aide": "#aide h1", "fin": [".pager button[data-tab=\"aide\"]", ".pager"]},T={"k": "To print", "aide": "Prefer paper? These A5 sheets sit next to the board while you play.", "fin_t": "Ready for your first game?", "fin": "Print the sheets and keep them next to the board:", "dl": "PDF", "frtag": " (French)"};
@@ -1242,12 +1249,5 @@ run();new MutationObserver(function(){requestAnimationFrame(run)}).observe(docum
 })();
 </script>
 <!--/fiches-->
-<footer class="lrmp-pied">
-<a href="../">← All game aids</a>
-<a href="../?app=Nemesis%3A%20Retaliation#avis">💌 Report a problem</a>
-<a href="https://ko-fi.com/paulmoussard" target="_blank" rel="noopener">☕ Enjoyed this tool? Buy me a coffee</a>
-<script src="../commun/sauvegarde.js?v=6444ddcb9b" defer></script>
-<small>Unofficial, free fan-made tool, not affiliated with the game's publisher.</small>
-</footer>
 </body>
 </html>

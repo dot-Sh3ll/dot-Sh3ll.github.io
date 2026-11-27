@@ -77,9 +77,8 @@ def main():
         "dossier": d, "jeu": code, "glyphe": glyphe, "cree": datetime.date.today().isoformat(),
         "nom": {"fr": nom, "en": nom_en},
         "texte": {"fr": f"Apprenez {nom} pas à pas avec un tutoriel interactif, puis gardez l'aide-mémoire sous la main.",
-                  "en": f"Learn {nom_en} step by step with an interactive tutorial, then keep the reference sheet at hand.",
-                  "de": f"Lernen Sie {nom_en} Schritt für Schritt mit einem interaktiven Tutorial und behalten Sie die Kurzübersicht griffbereit."},
-        "tags": [{"fr": "Tutoriel", "en": "Tutorial", "de": "Tutorial"}, {"fr": "Aide-mémoire", "en": "Reference", "de": "Übersicht"}],
+                  "en": f"Learn {nom_en} step by step with an interactive tutorial, then keep the reference sheet at hand."},
+        "tags": [{"fr": "Tutoriel", "en": "Tutorial"}, {"fr": "Aide-mémoire", "en": "Reference"}],
         "langues": "FR · EN",
         "nouveau_jeu": {"chip": nom, "recherche": nom.lower(), "accent": couleur, "c1": foncer(couleur, .45), "c2": foncer(couleur, .12)},
     }
@@ -100,7 +99,7 @@ Appli « {nom} » créée : {d}/index.html et {d}/en.html.
 À faire maintenant :
   - écrire le tutoriel et l'aide-mémoire : outils/{d}/contenu/fr.js et en.js (vouvoiement), puis assembler.py {d} ;
   - relire la carte de l'accueil (outils/{d}/carte.json, puis accueil.py appli) et les titres dans outils/site/jeux.json ;
-  - citer le jeu dans l'introduction et la mention légale de l'accueil (index.html FR/EN, outils/site/accueil/de.json,
+  - citer le jeu dans l'introduction et la mention légale de l'accueil (index.html FR/EN,
     ACCUEIL dans outils/site/seo.py) ;
   - python3 outils/verifier.py, puis commit et push.""")
 
